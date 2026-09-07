@@ -1,0 +1,4 @@
+# Dependências mínimas para executar e validar o Motor Econômico-Energético.
+pandas>=2.0,<3.0
+nbconvert>=7.0,<8.0
+ipykernel>=6.0,<7.0

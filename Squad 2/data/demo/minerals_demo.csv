@@ -1,0 +1,9 @@
+﻿mineral_id,mineral_name,source_mineral_name,production_basis,catalog_status,notes
+MIN_001,Níquel,Ni; minério de níquel,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_002,Cobre,Cu; minério de cobre,conteudo_mineral,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_003,Nióbio,Nb; minério de nióbio,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_004,Fosfato,P2O5; fosfato,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_005,Minério de alumínio,bauxita; minério de alumínio,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_006,Ouro,Au; minério de ouro,conteudo_mineral,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_007,Amianto,crisotila; amianto,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração
+MIN_008,Apatita,apatita,beneficiada,proposta_demo,Identificador proposto apenas para dados de demonstração

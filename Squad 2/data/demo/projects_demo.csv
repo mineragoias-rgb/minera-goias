@@ -1,0 +1,11 @@
+﻿project_id,mineral_id,company_id,capacity_tpy,start_year,project_stage,production_basis,data_nature,source_id
+PRJ_DEMO_NI_001,MIN_001,COM_DEMO_001,12000,2028,definido,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_NI_002,MIN_001,COM_DEMO_011,18000,2032,provavel,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_CU_001,MIN_002,COM_DEMO_003,15000,2029,definido,conteudo_mineral,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_CU_002,MIN_002,COM_DEMO_012,22000,2034,possivel,conteudo_mineral,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_NB_001,MIN_003,COM_DEMO_005,14000,2030,definido,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_FOS_001,MIN_004,COM_DEMO_013,450000,2031,provavel,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_AL_001,MIN_005,COM_DEMO_007,350000,2028,definido,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_AU_001,MIN_006,COM_DEMO_014,2.2,2033,possivel,conteudo_mineral,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_AMI_001,MIN_007,COM_DEMO_015,80000,2030,provavel,beneficiada,estimated_demo,SRC_DEMO_001
+PRJ_DEMO_APA_001,MIN_008,COM_DEMO_016,280000,2032,definido,beneficiada,estimated_demo,SRC_DEMO_001

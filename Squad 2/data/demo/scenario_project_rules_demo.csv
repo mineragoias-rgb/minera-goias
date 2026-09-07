@@ -1,0 +1,10 @@
+﻿scenario,project_stage,include_project,start_delay_years,source_id
+conservador,definido,true,1,SRC_DEMO_001
+conservador,provavel,false,0,SRC_DEMO_001
+conservador,possivel,false,0,SRC_DEMO_001
+referencia,definido,true,0,SRC_DEMO_001
+referencia,provavel,true,0,SRC_DEMO_001
+referencia,possivel,false,0,SRC_DEMO_001
+expansao,definido,true,0,SRC_DEMO_001
+expansao,provavel,true,0,SRC_DEMO_001
+expansao,possivel,true,0,SRC_DEMO_001

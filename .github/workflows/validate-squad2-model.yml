@@ -1,0 +1,55 @@
+name: Validar motor econômico-energético da Squad 2
+
+on:
+  push:
+    paths:
+      - "Squad 2/**"
+      - "requirements.txt"
+      - ".github/workflows/validate-squad2-model.yml"
+  pull_request:
+    paths:
+      - "Squad 2/**"
+      - "requirements.txt"
+      - ".github/workflows/validate-squad2-model.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  executar-modelo-demo:
+    name: Executar e validar o modelo demo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v5
+
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Executar o notebook da Squad 2
+        run: |
+          mkdir -p .github-run
+          jupyter nbconvert --to notebook --execute \
+            "Squad 2/notebooks/Motor_Economico_Energetico_MINERA_Goias.ipynb" \
+            --output "Motor_Economico_Energetico_MINERA_Goias_executed.ipynb" \
+            --output-dir ".github-run" \
+            --ExecutePreprocessor.timeout=180
+
+      - name: Publicar resultados do modelo demo
+        uses: actions/upload-artifact@v6
+        with:
+          name: resultados-modelo-demo
+          path: |
+            Squad 2/outputs/demo/
+            .github-run/Motor_Economico_Energetico_MINERA_Goias_executed.ipynb
+          if-no-files-found: error
+          retention-days: 30
