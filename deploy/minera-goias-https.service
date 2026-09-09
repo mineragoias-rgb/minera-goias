@@ -1,0 +1,8 @@
+[Unit]
+Description=Enable Minera Goias HTTPS after DNS is configured
+After=network-online.target nginx.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/minera-goias-https
+TimeoutStartSec=5min

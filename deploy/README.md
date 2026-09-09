@@ -43,4 +43,4 @@ Configure no Registro.br:
 | A | labfgv.com.br | 187.77.3.27 |
 | CNAME | www.labfgv.com.br | labfgv.com.br |
 
-Após o DNS apontar para a VPS, emitir o certificado com Certbot e ativar redirecionamento para HTTPS. O cadastro do domínio já foi confirmado; a configuração DNS e o certificado dependem do acesso à conta.
+O serviço `minera-goias-https.timer` verifica o DNS a cada 15 minutos. Quando ambos os nomes apontarem exclusivamente para a VPS, ele emite o certificado com a conta Let's Encrypt já existente, ativa o redirecionamento para HTTPS e desativa essa verificação inicial. A renovação posterior fica a cargo do `certbot.timer` existente. O cadastro do domínio já foi confirmado; a configuração DNS depende do acesso à conta.
