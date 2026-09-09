@@ -1,0 +1,15 @@
+{
+  "exclude_demo": true,
+  "max_file_bytes": 104857600,
+  "max_uncompressed_bytes": 536870912,
+  "max_rows_per_sheet": 1000000,
+  "rules": [
+    {"file": "*CORRIGIDA*.xlsx", "sheet": "*", "header_row": 1},
+    {"file": "Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx", "sheet": "Resumo", "header_row": 0},
+    {"file": "Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx", "sheet": "QA", "header_row": 0},
+    {"file": "Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx", "sheet": "*", "header_row": 4},
+    {"file": "Mineradoras_Goias_operacao_e_potencial.xlsx", "sheet": "*", "header_row": 4},
+    {"file": "Panorama_Mineracao_Goias_ANM.xlsx", "sheet": "00_Sumário", "header_row": 0},
+    {"file": "Panorama_Mineracao_Goias_ANM.xlsx", "sheet": "*", "header_row": 2}
+  ]
+}

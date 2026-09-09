@@ -1,0 +1,11 @@
+[Unit]
+Description=Inspect deployed GitHub data every five minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=5min
+RandomizedDelaySec=15
+Unit=minera-goias-ingestion.service
+
+[Install]
+WantedBy=timers.target

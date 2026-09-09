@@ -17,7 +17,7 @@ A interface integrada ainda não foi entregue; `public/index.html` é uma págin
 - A API utiliza um usuário MySQL exclusivo, limitado a leitura desse banco.
 - A estrutura é criada uma vez a partir de `Squad 3/database/schema.sql`.
 - O `seed.sql` contém dados fictícios e **não é aplicado** neste ambiente.
-- Atualizações de código não executam SQL, importam planilhas ou sobrescrevem dados. Migrações e importações precisam de procedimento revisado e backup.
+- Atualizações de código não executam SQL nem sobrescrevem as tabelas de negócio. A rotina separada descrita em `ingestion/README.md` importa arquivos novos/alterados para as tabelas de origem `ingest_*`, mantendo histórico. Migrações e transformações para as tabelas de negócio precisam de mapeamento revisado e backup.
 - Segredos permanecem na VPS, em `/etc/minera-goias.env`, fora do Git.
 
 ## Administração na VPS
