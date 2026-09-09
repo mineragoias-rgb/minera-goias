@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Minera Goias GitHub main every two minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=2min
+RandomizedDelaySec=10
+Unit=minera-goias-deploy.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,5 @@
+# API only. pandas belongs to the data/model environment and is not imported by main.py.
+fastapi==0.141.1
+PyMySQL==1.2.0
+python-dotenv==1.2.3
+uvicorn==0.52.4

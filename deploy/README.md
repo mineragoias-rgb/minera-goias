@@ -1,0 +1,46 @@
+# Publicação na VPS
+
+O ambiente de `labfgv.com.br` acompanha `main` deste repositório. A VPS consulta o GitHub a cada dois minutos; não é necessário configurar chaves administrativas ou secrets no GitHub.
+
+## Fluxo
+
+1. Atualize a API em `Squad 3/backend/` ou a interface estática em `public/` e envie para `main`.
+2. A VPS baixa o commit para uma pasta de versão independente, instala `deploy/requirements-vps.txt` e testa as três rotas contra o banco.
+3. Se os testes passarem, troca a versão e reinicia somente a API do Minera Goiás.
+4. Se a versão falhar antes da troca, o site atual permanece. Se falhar após a troca, a versão anterior é restaurada.
+
+A interface integrada ainda não foi entregue; `public/index.html` é uma página provisória. O diretório público é o único servido pelo Nginx: planilhas, código e configurações não ficam expostos como arquivos web.
+
+## Banco e dados
+
+- Banco exclusivo: `db_minera_goias`.
+- A API utiliza um usuário MySQL exclusivo, limitado a leitura desse banco.
+- A estrutura é criada uma vez a partir de `Squad 3/database/schema.sql`.
+- O `seed.sql` contém dados fictícios e **não é aplicado** neste ambiente.
+- Atualizações de código não executam SQL, importam planilhas ou sobrescrevem dados. Migrações e importações precisam de procedimento revisado e backup.
+- Segredos permanecem na VPS, em `/etc/minera-goias.env`, fora do Git.
+
+## Administração na VPS
+
+```sh
+systemctl status minera-goias minera-goias-deploy.timer
+journalctl -u minera-goias-deploy.service -n 80
+systemctl start minera-goias-deploy.service
+systemctl stop minera-goias-deploy.timer # pausar atualizações
+readlink /srv/minera-goias/current
+```
+
+As versões ficam em `/srv/minera-goias/releases/`; arquivos persistentes ficam em `/srv/minera-goias/shared/`. A API escuta apenas em `127.0.0.1:18141`; a porta `18142` serve exclusivamente para testar versões candidatas localmente.
+
+Os scripts e units deste diretório são instalados como arquivos de administração pertencentes a root. Mudá-los no GitHub **não** altera automaticamente a infraestrutura. Apenas código da aplicação, interface e dependências de execução acompanham a publicação.
+
+## DNS e HTTPS
+
+Configure no Registro.br:
+
+| Tipo | Nome | Valor |
+|---|---|---|
+| A | labfgv.com.br | 187.77.3.27 |
+| CNAME | www.labfgv.com.br | labfgv.com.br |
+
+Após o DNS apontar para a VPS, emitir o certificado com Certbot e ativar redirecionamento para HTTPS. O cadastro do domínio já foi confirmado; a configuração DNS e o certificado dependem do acesso à conta.

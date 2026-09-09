@@ -1,0 +1,13 @@
+[Unit]
+Description=Validate and deploy Minera Goias main branch
+After=network-online.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/minera-goias.env
+Environment=GIT_TERMINAL_PROMPT=0
+ExecStart=/usr/local/sbin/minera-goias-deploy
+TimeoutStartSec=15min
+Nice=10
+IOSchedulingClass=idle

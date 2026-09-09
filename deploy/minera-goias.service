@@ -1,0 +1,24 @@
+[Unit]
+Description=Minera Goias API
+After=network.target mysql.service
+
+[Service]
+User=minera-goias
+Group=minera-goias
+WorkingDirectory=/srv/minera-goias/current/Squad 3/backend
+EnvironmentFile=/etc/minera-goias.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/srv/minera-goias/current/.venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 18141 --proxy-headers --forwarded-allow-ips=127.0.0.1
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/minera-goias/shared
+MemoryMax=512M
+TasksMax=128
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target
