@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Query
-from fastapi.middleware.cors import CORSMiddleware
 import pymysql
 import os
 from dotenv import load_dotenv
@@ -7,15 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(title="MINERA Goiás API")
-
-# CORS: sem isso, o navegador bloqueia o frontend do Eduardo de chamar sua API
-# quando os dois rodam em endereços/portas diferentes.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 def get_connection():
     return pymysql.connect(
@@ -70,3 +60,16 @@ def listar_fontes():
             return cursor.fetchall()
     finally:
         conn.close()
+
+from auth import router as auth_router
+import dashboard
+dashboard.connection_factory = get_connection
+app.include_router(auth_router)
+app.include_router(dashboard.router)
+
+@app.middleware("http")
+async def security_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return response

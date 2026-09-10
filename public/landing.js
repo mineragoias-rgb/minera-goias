@@ -1,0 +1,1 @@
+fetch('/api/public/summary').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{for(const k of ['files','datasets','records'])document.getElementById('stat-'+k).textContent=Number(d[k]).toLocaleString('pt-BR')}).catch(()=>{for(const k of ['files','datasets','records'])document.getElementById('stat-'+k).textContent='Indisponível'});

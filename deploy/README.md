@@ -9,7 +9,7 @@ O ambiente de `labfgv.com.br` acompanha `main` deste repositório. A VPS consult
 3. Se os testes passarem, troca a versão e reinicia somente a API do Minera Goiás.
 4. Se a versão falhar antes da troca, o site atual permanece. Se falhar após a troca, a versão anterior é restaurada.
 
-A interface integrada ainda não foi entregue; `public/index.html` é uma página provisória. O diretório público é o único servido pelo Nginx: planilhas, código e configurações não ficam expostos como arquivos web.
+A landing page está em `public/index.html`, com login em `public/login.html` e painel em `public/painel.html`. Consulte `HANDOFF.md` para autenticação, testes e continuidade. O diretório público é o único servido pelo Nginx: planilhas, código e configurações não ficam expostos como arquivos web.
 
 ## Banco e dados
 
