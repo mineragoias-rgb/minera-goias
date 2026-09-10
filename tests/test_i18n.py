@@ -56,6 +56,19 @@ class TranslationTests(unittest.TestCase):
             markup = (PUBLIC / page).read_text(encoding='utf-8')
             self.assertLess(markup.index('/i18n.js'), markup.index(follower), page)
 
+    def test_atlas_controls_are_present(self):
+        markup = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
+        self.assertIn('<input type="range" id="atlas-year"', markup)
+        self.assertIn('id="atlas-mun"', markup)
+        self.assertIn('id="mun-profile"', markup)
+        self.assertIn('id="mun-evo"', markup)
+        code = (PUBLIC / 'atlas.js').read_text(encoding='utf-8')
+        # The slider index must always resolve through the year table.
+        self.assertNotIn("el('atlas-year').value", code.replace("+el('atlas-year').value", ''))
+        self.assertIn("const YEARS=['total','2022','2023','2024','2025','2026']", code)
+        for hook in ('function selectMun(', 'function profile(', 'municipalitySubstances', 'municipalityDams'):
+            self.assertIn(hook, code)
+
     def test_atlas_is_the_first_panel(self):
         markup = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
         buttons = re.findall(r'data-view="(\w+)"', markup)

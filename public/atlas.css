@@ -1,1 +1,25 @@
 .atlas-toolbar{display:flex;gap:14px;align-items:end;margin:20px 0;flex-wrap:wrap}.atlas-toolbar>div{min-width:150px;flex:1}.atlas-toolbar>div:first-child{flex:2;min-width:260px}.atlas-layout{display:grid;grid-template-columns:minmax(0,1fr) 255px;gap:18px}.atlas-map-panel{border:1px solid var(--line);background:white;min-width:0}#atlas-map{height:580px;background:#ecf1f5;z-index:0}.atlas-map-footer{font-size:10px;color:var(--muted);padding:10px 14px;display:flex;justify-content:space-between;gap:15px}.atlas-detail{padding:22px;overflow-wrap:anywhere}.atlas-detail h3{margin-top:14px}.atlas-detail hr{border:0;border-top:1px solid var(--line);margin:24px 0}.atlas-detail dl{margin:20px 0}.atlas-detail dt{font-size:11px;color:var(--muted);margin-top:15px}.atlas-detail dd{margin:3px 0;font-size:16px;font-weight:600}.legend-item{display:flex;align-items:center;gap:8px;font-size:11px;margin:9px 0}.legend-swatch{width:14px;height:14px;border:1px solid #859aac;flex-shrink:0}.atlas-data-head{display:flex;align-items:center;gap:20px;justify-content:space-between;margin:28px 0 16px}.atlas-data-head input{max-width:330px}.atlas-data-head h3{margin:0}.atlas-data-head p{margin:4px 0}.atlas-data-head h2{font-size:25px}.atlas-data-head>div{min-width:0}.atlas-row{cursor:pointer}.atlas-row:hover,.atlas-row:focus{background:#e8f3fa}.atlas-detail .tag{white-space:normal}.leaflet-container{font-family:'DM Sans',sans-serif}.leaflet-control-attribution a{color:#126b91}.leaflet-tooltip{font:12px 'DM Sans',sans-serif}.atlas-empty{padding:35px;text-align:center;color:var(--muted)}@media(max-width:1100px){.atlas-layout{grid-template-columns:1fr}.atlas-detail{display:block}#atlas-map{height:480px}.atlas-detail dl{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.atlas-data-head{flex-wrap:wrap}}@media(max-width:700px){#atlas-map{height:390px}.atlas-toolbar>div:first-child{min-width:100%}.atlas-data-head{display:block}.atlas-data-head input{max-width:none;margin:12px 0}.atlas-data-head button{margin-top:8px}.atlas-map-footer{display:block}.atlas-map-footer span{display:block}.atlas-detail{padding:18px}}
+
+/* --- Slider de ano / Year slider --- */
+.slider-row{display:flex;align-items:center;gap:12px}
+.slider-row input[type=range]{flex:1;min-width:140px;accent-color:#0f6fb0;height:22px}
+.slider-row output{font:600 12px/1 Manrope,system-ui,sans-serif;color:#07345c;white-space:nowrap;min-width:132px}
+#atlas-mun-wrap select{min-width:200px}
+
+/* --- Perfil do município / Municipality profile --- */
+.mun-profile{margin:22px 0}
+.mun-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px}
+.mun-head h2{margin:4px 0 2px}
+.mun-profile .metrics{margin-bottom:22px}
+.mun-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;margin-bottom:26px}
+.mun-grid h3{margin:0 0 2px}
+.mun-grid table{width:100%;border-collapse:collapse;font-size:12px}
+.mun-grid tfoot td{border-top:2px solid var(--line);font-weight:700}
+.mun-dam{border-left:3px solid #b03a55;padding:6px 0 6px 12px;margin:10px 0;font-size:12px}
+.mun-dam b{display:block}
+.mun-dam span{color:var(--muted)}
+.mun-profile .empty{padding:22px 0;text-align:left}
+@media (max-width:900px){.mun-grid{grid-template-columns:1fr}.mun-head{flex-direction:column}.slider-row output{min-width:0}}
+#atlas-year-wrap{flex:1.4;min-width:330px}
+#atlas-mun-wrap{flex:1.2;min-width:245px}
+.slider-row output{min-width:180px;text-align:right;font-size:11.5px}
