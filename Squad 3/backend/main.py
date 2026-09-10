@@ -8,8 +8,6 @@ load_dotenv()
 
 app = FastAPI(title="MINERA Goiás API")
 
-# CORS: sem isso, o navegador bloqueia o frontend do Eduardo de chamar sua API
-# quando os dois rodam em endereços/portas diferentes.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,17 +26,19 @@ def get_connection():
 
 @app.get("/api/projetos")
 def listar_projetos():
-    """Consumido pelo Eduardo (mapa): projetos + mineral + coordenadas."""
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
             cursor.execute("""
-                SELECT p.project_id, p.nome_projeto, e.nome_empresa,
-                       m.mineral_name, mu.nome_municipio, mu.latitude, mu.longitude
+                SELECT p.processo_anm, e.nome_empresa, e.documento_cnpj_cpf,
+                       m.mineral_name, p.substancia_anm, p.fase, p.categoria,
+                       GROUP_CONCAT(mu.nome_municipio SEPARATOR '; ') AS municipios
                 FROM tb_projetos p
-                JOIN tb_empresas e ON p.company_id = e.company_id
-                JOIN tb_minerais m ON p.mineral_id = m.mineral_id
-                JOIN tb_municipios mu ON p.municipality_id = mu.municipality_id
+                JOIN tb_empresas e ON p.documento_cnpj_cpf = e.documento_cnpj_cpf
+                LEFT JOIN tb_minerais m ON p.mineral_id = m.mineral_id
+                LEFT JOIN tb_projeto_municipio pm ON p.processo_anm = pm.processo_anm
+                LEFT JOIN tb_municipios mu ON pm.codigo_ibge = mu.codigo_ibge
+                GROUP BY p.processo_anm
             """)
             return cursor.fetchall()
     finally:
@@ -46,12 +46,11 @@ def listar_projetos():
 
 @app.get("/api/projecoes")
 def listar_projecoes(scenario: str = Query(default="referencia")):
-    """Consumido pelo simulador do Henrique: filtra por cenário."""
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
             cursor.execute("""
-                SELECT project_id, mineral_id, year, projected_production_t, energy_demand_mwh
+                SELECT processo_anm, mineral_id, year, projected_production, unidade_producao, energy_demand_mwh
                 FROM tb_projecoes
                 WHERE scenario = %s
                 ORDER BY year
@@ -62,7 +61,6 @@ def listar_projecoes(scenario: str = Query(default="referencia")):
 
 @app.get("/api/fontes")
 def listar_fontes():
-    """Auditoria: de onde vieram os dados exibidos na tela."""
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
