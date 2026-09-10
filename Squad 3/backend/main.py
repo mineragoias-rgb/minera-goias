@@ -95,3 +95,6 @@ async def security_headers(request,call_next):
     response.headers["Cache-Control"]="no-store"
     response.headers["X-Content-Type-Options"]="nosniff"
     return response
+
+from atlas import router as atlas_router
+app.include_router(atlas_router)

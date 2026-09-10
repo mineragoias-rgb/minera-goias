@@ -65,3 +65,9 @@ Consulte `deploy/README.md` e `ingestion/README.md`. Não altere outros projetos
 ## Integração da atualização ANM da equipe
 
 Em 10/09/2026 foram integrados os commits `db532a0` e `48dabce` da equipe. O novo `schema.sql` foi preservado. A API detecta a coluna `processo_anm` para consultar o modelo novo ou o legado instalado na VPS. O deploy não aplica o novo SQL automaticamente. Antes de migrar, revisar diferenças, fazer backup e transformar os dados explicitamente. O endpoint público de projetos não retorna `documento_cnpj_cpf`; ele é usado somente nas junções internas do modelo novo.
+
+## Atlas Leaflet e artefatos Eliel / Rodrigo
+
+Integração de 10/09/2026: seção `Atlas mineral` em `public/atlas.js`, `atlas.css` e `painel.html`, com seis camadas, radar pesquisável, exportação CSV e séries históricas. Leaflet 1.9.4 local, renderização Canvas e criação de polígonos em lotes para não bloquear a interface. A landing mantém o layout e usa linguagem gerencial.
+
+Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitações em `data/atlas/README.md`. Novos retratos exigem executar `scripts/extract_atlas.py`, revisar o diff dos dados e enviar para main. Eles não são reconstruídos pelo importador MySQL. O protótipo Rodrigo forneceu referências de navegação/filtros, sem seus dados fictícios. Dados do Eliel têm origem e períodos explícitos e não são comparados automaticamente com o banco CCEE.

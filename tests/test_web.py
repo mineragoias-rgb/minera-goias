@@ -28,6 +28,8 @@ class WebTests(unittest.TestCase):
         return {'X-CSRF-Token':r.json()['csrf']}
     def test_anonymous_and_reader_cannot_administer(self):
         self.assertEqual(self.client.get('/api/dashboard').status_code,401)
+        self.assertEqual(self.client.get('/api/atlas').status_code,401)
+        self.assertEqual(self.client.get('/api/atlas/processes').status_code,401)
         self.assertEqual(self.client.get('/api/admin/users').status_code,401)
         self.login('reader')
         self.assertEqual(self.client.get('/api/admin/users').status_code,403)
@@ -63,6 +65,13 @@ class WebTests(unittest.TestCase):
         for _ in range(10):
             self.assertEqual(self.client.post('/api/auth/login',json={'username':'missing','password':'incorrect'}).status_code,401)
         self.assertEqual(self.client.post('/api/auth/login',json={'username':'missing','password':'incorrect'}).status_code,429)
+    def test_authenticated_atlas(self):
+        self.login('reader')
+        r=self.client.get('/api/atlas')
+        self.assertEqual(r.status_code,200)
+        self.assertEqual(len(r.json()['municipalities']),246)
+        self.assertEqual(self.client.get('/api/atlas/processes').json()['n'],17402)
+
     def test_api_supports_both_database_schemas(self):
         from unittest.mock import MagicMock
         for modern in [False,True]:
