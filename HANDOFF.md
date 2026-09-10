@@ -61,3 +61,7 @@ readlink /srv/minera-goias/current
 A instalação tem backup pontual pré-ingestão, não uma política recorrente completa. Configurar backups recorrentes do MySQL e do SQLite de autenticação usando backup consistente, armazenamento fora da VPS e teste de restauração. Outros próximos passos: validar unidades e chaves das bases, integrar os modelos científicos e mapas reais, tornar CI requisito do deploy, adicionar testes de navegador ao CI, auditoria administrativa e MFA se o uso exigir. A interface usa Google Fonts com fallback local; não depende de bibliotecas de gráficos externas.
 
 Consulte `deploy/README.md` e `ingestion/README.md`. Não altere outros projetos hospedados na VPS. Configurações e senhas permanecem fora do repositório.
+
+## Integração da atualização ANM da equipe
+
+Em 10/09/2026 foram integrados os commits `db532a0` e `48dabce` da equipe. O novo `schema.sql` foi preservado. A API detecta a coluna `processo_anm` para consultar o modelo novo ou o legado instalado na VPS. O deploy não aplica o novo SQL automaticamente. Antes de migrar, revisar diferenças, fazer backup e transformar os dados explicitamente. O endpoint público de projetos não retorna `documento_cnpj_cpf`; ele é usado somente nas junções internas do modelo novo.

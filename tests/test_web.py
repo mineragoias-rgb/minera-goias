@@ -63,6 +63,18 @@ class WebTests(unittest.TestCase):
         for _ in range(10):
             self.assertEqual(self.client.post('/api/auth/login',json={'username':'missing','password':'incorrect'}).status_code,401)
         self.assertEqual(self.client.post('/api/auth/login',json={'username':'missing','password':'incorrect'}).status_code,429)
+    def test_api_supports_both_database_schemas(self):
+        from unittest.mock import MagicMock
+        for modern in [False,True]:
+            conn=MagicMock();cur=conn.cursor.return_value.__enter__.return_value
+            cur.fetchall.side_effect=[[{'Field':'processo_anm'}] if modern else [],[]]
+            with patch.object(main,'get_connection',return_value=conn):
+                self.assertEqual(self.client.get('/api/projetos').status_code,200)
+            sql=cur.execute.call_args_list[-1].args[0]
+            self.assertIn('processo_anm' if modern else 'project_id',sql)
+            if modern:self.assertNotIn('documento_cnpj_cpf',sql.split('FROM')[0])
+            conn.close.assert_called_once()
+
     def test_dashboard_uses_selected_source_and_filter(self):
         self.login('reader')
         import dashboard,json
