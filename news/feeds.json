@@ -1,0 +1,26 @@
+{
+  "comment": "Fontes e léxicos do radar. Editar aqui não exige mexer no código.",
+  "min_items_for_trend": 3,
+  "sources": [
+    {"name": "Google Notícias · terras raras", "url": "https://news.google.com/rss/search?q=%22terras+raras%22&hl=pt-BR&gl=BR&ceid=BR:pt-419", "lang": "pt"},
+    {"name": "Google Notícias · preço energia elétrica", "url": "https://news.google.com/rss/search?q=%22energia+el%C3%A9trica%22+pre%C3%A7o&hl=pt-BR&gl=BR&ceid=BR:pt-419", "lang": "pt"},
+    {"name": "Google Notícias · mineração Goiás", "url": "https://news.google.com/rss/search?q=minera%C3%A7%C3%A3o+Goi%C3%A1s&hl=pt-BR&gl=BR&ceid=BR:pt-419", "lang": "pt"},
+    {"name": "Google News · rare earth prices", "url": "https://news.google.com/rss/search?q=%22rare+earth%22+price&hl=en-US&gl=US&ceid=US:en", "lang": "en"},
+    {"name": "Mining.com", "url": "https://www.mining.com/feed/", "lang": "en"}
+  ],
+  "commodities": {
+    "terras_raras": ["terras raras", "terra rara", "rare earth", "neodimio", "neodímio", "praseodimio", "praseodímio", "disprosio", "disprósio", "terbio", "térbio", "samario", "samário", "ndpr", "lantanio", "lantânio", "cerio", "cério"],
+    "energia_eletrica": ["energia eletrica", "energia elétrica", "electricity", "power price", "megawatt", "mwh", "pld", "tarifa de energia", "conta de luz", "bandeira tarifaria", "bandeira tarifária"],
+    "litio": ["litio", "lítio", "lithium"],
+    "niquel": ["niquel", "níquel", "nickel"],
+    "niobio": ["niobio", "nióbio", "niobium"],
+    "cobre": ["cobre", "copper"],
+    "ouro": ["ouro", "gold"],
+    "uranio": ["uranio", "urânio", "uranium"],
+    "gas_natural": ["gas natural", "gás natural", "natural gas", "lng", "gnl"]
+  },
+  "direction": {
+    "up": ["alta", "sobe", "subiu", "dispara", "disparou", "valoriza", "valorizou", "recorde", "escassez", "deficit", "déficit", "aperto", "encarece", "encareceu", "avanca", "avança", "salta", "saltou", "rise", "rises", "rose", "surge", "surges", "surged", "jump", "jumps", "jumped", "rally", "soar", "soars", "soared", "shortage", "squeeze", "climb", "climbs", "climbed", "higher"],
+    "down": ["queda", "cai", "caiu", "recuo", "recua", "recuou", "despenca", "despencou", "desvaloriza", "desvalorizou", "excesso", "superavit", "superávit", "barateia", "barateou", "derrete", "fall", "falls", "fell", "drop", "drops", "dropped", "plunge", "plunges", "plunged", "slump", "slumps", "slumped", "glut", "surplus", "decline", "declines", "declined", "lower"]
+  }
+}

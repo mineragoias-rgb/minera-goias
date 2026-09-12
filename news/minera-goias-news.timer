@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the news radar every day at 01:00
+
+[Timer]
+OnCalendar=*-*-* 01:00:00
+Persistent=true
+RandomizedDelaySec=5min
+Unit=minera-goias-news.service
+
+[Install]
+WantedBy=timers.target

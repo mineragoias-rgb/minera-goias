@@ -1,0 +1,19 @@
+name: Validar radar de notícias
+on:
+  push:
+    paths: ['news/**', 'tests/test_news.py', 'tests/fixtures/news/**', '.github/workflows/validate-news.yml']
+  pull_request:
+    paths: ['news/**', 'tests/test_news.py', 'tests/fixtures/news/**', '.github/workflows/validate-news.yml']
+permissions:
+  contents: read
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+      - run: python -m unittest discover -s tests -p test_news.py -v
+      - name: Executar o radar sem rede, a partir das fixtures
+        run: python news/radar.py --db "$RUNNER_TEMP/radar.sqlite" --report "$RUNNER_TEMP/radar.json" --offline-dir tests/fixtures/news

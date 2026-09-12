@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fixture EN</title>
+<entry><title>Rare earth prices surge as export curbs bite</title>
+<link href="https://example.test/en/1"/><published>2026-09-08T12:00:00Z</published>
+<summary>Neodymium climbed to USD 95/kg amid a shortage of supply.</summary></entry>
+<entry><title>Electricity prices fall across the grid</title>
+<link href="https://example.test/en/2"/><published>2026-09-09T12:00:00Z</published>
+<summary>Power price dropped to USD 30/MWh on a surplus of wind generation.</summary></entry>
+<entry><title>Lithium slumps on oversupply</title>
+<link href="https://example.test/en/3"/><published>2026-09-10T12:00:00Z</published>
+<summary>Lithium carbonate fell to USD 9 thousand per tonne, a glut analysts had flagged.</summary></entry>
+</feed>

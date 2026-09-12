@@ -1,0 +1,27 @@
+[Unit]
+Description=Collect energy and rare earth headlines and read price direction from them
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=minera-news
+Group=minera-news
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /usr/local/lib/minera-goias-news/radar.py \
+  --config /usr/local/lib/minera-goias-news/feeds.json \
+  --db /var/lib/minera-goias-news/radar.sqlite \
+  --report /var/lib/minera-goias-news/latest.json
+TimeoutStartSec=10min
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/minera-goias-news
+MemoryMax=256M
+CPUQuota=40%
+Nice=15
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
