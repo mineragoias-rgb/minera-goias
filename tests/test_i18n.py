@@ -63,9 +63,13 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('id="mun-profile"', markup)
         self.assertIn('id="mun-evo"', markup)
         code = (PUBLIC / 'atlas.js').read_text(encoding='utf-8')
-        # The slider index must always resolve through the year table.
-        self.assertNotIn("el('atlas-year').value", code.replace("+el('atlas-year').value", ''))
+        # The slider index must always resolve through the year table, never be read raw.
+        self.assertIn("YEARS[+el('atlas-year').value]", code)
+        self.assertNotIn("const year=el('atlas-year').value", code)
         self.assertIn("const YEARS=['total','2022','2023','2024','2025','2026']", code)
+        # The scale under the slider names every step it can stop on.
+        self.assertIn("id=\"atlas-year-ticks\"", markup)
+        self.assertIn("YEARS.map((y,i)=>", code)
         for hook in ('function selectMun(', 'function profile(', 'municipalitySubstances', 'municipalityDams'):
             self.assertIn(hook, code)
 
