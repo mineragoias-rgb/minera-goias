@@ -74,4 +74,19 @@ Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitaç
 
 ## Panorama (aba do painel)
 
-Aba `Panorama` entre o Atlas e o Radar (`public/panorama.js`, `panorama-charts.js`, `panorama-cards1..3.js`, `panorama.css`), servida por `Squad 3/backend/panorama.py` em `/api/panorama`. Refaz os gráficos e tabelas do *Panorama da Mineração de Goiás* com a base consolidada do Squad 1 e os brutos do repositório; o navegador filtra por ano, mês, município, mineral, titular, fase, gasto em pesquisa e ramo da CCEE. O pacote `data/panorama/panorama.json` é gerado por `python scripts/build_panorama_base.py` (limitações e fontes em `data/panorama/README.md`) e conferido por `tests/test_panorama.py`. Energia por município e barragens vêm de `/api/atlas`.
+Aba `Panorama` entre o Atlas e o Radar (`public/panorama.js`, `panorama-charts.js`, `panorama-cards1..4.js`, `panorama.css`), servida por `Squad 3/backend/panorama.py` em `/api/panorama`. Refaz os gráficos e tabelas do *Panorama da Mineração de Goiás* com a base consolidada do Squad 1 e os brutos do repositório; o navegador filtra por ano, mês, município, mineral, titular, fase, gasto em pesquisa e ramo da CCEE. O pacote `data/panorama/panorama.json` é gerado por `python scripts/build_panorama_base.py` (limitações e fontes em `data/panorama/README.md`) e conferido por `tests/test_panorama.py`. Energia por município e barragens vêm de `/api/atlas`.
+
+## Preços e custo de energia (aba do Panorama)
+
+Aba **Preços e custo de energia** dentro do Panorama (`public/panorama-cards4.js`), servida por `Squad 3/backend/precos.py` em
+`/api/precos`. Junta o consumo observado das cargas da CCEE com título minerário na base do Squad 1 com a projeção de preço
+(R$/MWh) e de custo (R$) de 2027 a 2040, e publica o custo como matriz cenário de preço × cenário de demanda.
+
+**Nenhum preço de energia existe no repositório**: PLD, tarifa homologada, preço de leilão e preço de contrato ainda não foram
+coletados. Todo preço da aba é premissa do Squad 2, marcada `premissa_ilustrativa` linha por linha e avisada em cada quadro,
+a substituir pelas fontes listadas em `Squad 2/precos/premissas/fontes_preco_energia.csv`. Antes de qualquer entrega externa,
+trocar as premissas pelas séries oficiais.
+
+O pacote `data/precos/precos.json` é gerado por `python scripts/build_precos_energia.py` (premissas em
+`Squad 2/precos/premissas/`, saídas em CSV em `Squad 2/precos/saidas/`, método e contrato em `Squad 2/precos/README.md`,
+limitações em `data/precos/README.md`) e conferido por `tests/test_precos.py`. Regenerar depois de editar qualquer premissa.

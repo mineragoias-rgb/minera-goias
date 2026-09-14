@@ -1,0 +1,4 @@
+﻿cenario,crescimento_real_aa,data_nature,source_id,metodo,observacao
+conservador,0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Substituir pela demanda do motor econômico-energético (projecao_total_goias) quando houver dados reais.
+referencia,0.015,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Substituir pela demanda do motor econômico-energético (projecao_total_goias) quando houver dados reais.
+expansao,0.03,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Substituir pela demanda do motor econômico-energético (projecao_total_goias) quando houver dados reais.

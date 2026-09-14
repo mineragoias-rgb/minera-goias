@@ -161,6 +161,16 @@ Deve haver cobertura anual para cada mineral e para os três cenários: `conserv
 - Ausências devem ser mantidas como ausências; não preencher valores desconhecidos com zero.
 - O motor só deve receber dados reais após validação técnica da Squad 1 e confirmação metodológica da equipe.
 
+### 8. Preço de energia (`energy_prices`)
+
+A projeção de preço de energia é um entregável próprio, com módulo, premissas e painel em `Squad 2/precos/` — o contrato dos
+campos (`year`, `scenario`, `component`, `price_brl_mwh`, `currency_base_year`, `market`, `data_nature`, `source_id`,
+`method`) está no `README.md` daquela pasta, junto com o método de projeção e a lista de séries oficiais a coletar. O motor
+projeta MWh; o módulo de preços projeta R$/MWh e o custo em R$, que é demanda × preço.
+
+Nenhum preço de energia existe hoje no repositório: o módulo roda sobre premissa declarada e marcada como
+`premissa_ilustrativa`, a substituir por PLD e InfoMercado da CCEE, TUSD/TE e leilões da ANEEL e preço de referência do PDE.
+
 ## Cenários e parâmetros
 
 Os cenários aceitos são `conservador`, `referencia` e `expansao`. Os parâmetros anuais ficam fora da lógica do código:

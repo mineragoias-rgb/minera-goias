@@ -1,0 +1,10 @@
+﻿componente,cenario,ano_base,preco_base_brl_mwh,faixa_min_brl_mwh,faixa_max_brl_mwh,nivel_longo_prazo_brl_mwh,meia_vida_anos,tendencia_real_aa,data_nature,source_id,metodo,observacao
+energia,conservador,2026,180,140,260,240,6,0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,reversao_a_media,Oferta apertada e hidrologia desfavorável: o componente de energia converge para um nível real mais alto.
+energia,referencia,2026,180,140,260,190,6,0.0,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,reversao_a_media,Estabilidade em termos reais em torno do nível atual de contrato de longo prazo.
+energia,expansao,2026,180,140,260,150,6,-0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,reversao_a_media,Entrada de geração renovável mais rápida que a demanda: nível real menor no longo prazo.
+uso_de_rede,conservador,2026,120,90,160,,,0.015,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,TUSD pressionada pela RAP de transmissão e por reforços de rede.
+uso_de_rede,referencia,2026,120,90,160,,,0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Reajuste real próximo de zero depois do IPCA.
+uso_de_rede,expansao,2026,120,90,160,,,0.0,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Ganho de escala do mercado dilui o custo de rede por MWh.
+encargos_e_perdas,conservador,2026,60,40,90,,,0.02,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,CDE e encargos de sistema crescendo acima da inflação.
+encargos_e_perdas,referencia,2026,60,40,90,,,0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Encargos estáveis em termos reais.
+encargos_e_perdas,expansao,2026,60,40,90,,,-0.005,premissa_ilustrativa,SRC_PREMISSA_ILUSTRATIVA,tendencia_real,Diluição dos encargos pelo aumento do mercado.

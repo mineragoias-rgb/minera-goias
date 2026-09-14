@@ -120,6 +120,8 @@ from atlas import router as atlas_router
 app.include_router(atlas_router)
 from panorama import router as panorama_router
 app.include_router(panorama_router)
+from precos import router as precos_router
+app.include_router(precos_router)
 
 import radar_api
 radar_api.connection_factory=get_connection

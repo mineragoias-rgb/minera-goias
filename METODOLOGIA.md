@@ -97,6 +97,31 @@ Mede **o que a imprensa está dizendo**, não preço.
 - Veredito só com **3 ou mais matérias distintas**; abaixo disso fica `evidencia_insuficiente`, por mais extremo que seja o score.
 - Preço citado no texto é extraído com moeda, unidade e escala — e permanece um **preço citado**, não cotação de mercado.
 
+### 3.6 Preço e custo de energia (aba Preços do Panorama)
+
+Mede **custo hipotético**, não preço observado. O repositório não tem nenhuma série de preço de energia: sem PLD, sem tarifa
+homologada, sem preço de leilão, sem preço de contrato. A base da CCEE traz MWh e MW, nunca R$.
+
+- **Consumo (observado)** — parcelas de carga da CCEE cuja raiz de CNPJ é titular na base consolidada (aba `02_dim_empresas`),
+  o mesmo vínculo do Panorama. O recorte por `RAMO_ATIVIDADE` é publicado ao lado, porque é autodeclarado (§3.1), e os dois
+  não se somam. Nenhum ano está completo: 2024 tem 4 meses, 2025 sete e 2026 sete. O baseline é a média mensal do ano com
+  mais meses × 12, e o pacote declara quantos meses entraram.
+- **Preço (premissa)** — três componentes somados em R$ reais do ano base, sem ICMS: `energia`, que reverte a um nível de
+  longo prazo (`P(t) = L·(1+g)^t + (P0−L)·e^(−λt)`, `λ = ln2 / meia-vida`), e `uso_de_rede` e `encargos_e_perdas`, regulados,
+  que seguem tendência real (`P(t) = P0·(1+g)^t`). Os parâmetros ficam fora do código, em
+  `Squad 2/precos/premissas/premissas_preco_energia.csv`, marcados `premissa_ilustrativa`.
+- **Custo (premissa)** — `demanda × preço`. O cenário de preço e o de demanda são **cruzados**, publicados como matriz 3 × 3:
+  preço de energia não determina produção mineral, nem o contrário. Para preço, os três cenários se referem à oferta de
+  geração; para demanda, à produção mineral.
+- **Demanda** — hoje é o baseline observado crescendo a uma taxa de premissa por cenário; quando o motor do Squad 2 entregar
+  `projecao_total_goias` com dados reais, ela substitui essa conta (`meta.demanda_motor`).
+- **Incerteza declarada** — cada componente traz faixa mínima e máxima no ano base, e o painel publica a sensibilidade do
+  custo a ±10% de preço, ±10% de demanda e à troca de cenário inteiro.
+
+Todo quadro que mostra preço ou custo projetado carrega o aviso de premissa. O que falta coletar para virar observação está
+em `Squad 2/precos/premissas/fontes_preco_energia.csv`: PLD e InfoMercado da CCEE, TUSD/TE e leilões da ANEEL, preço de
+referência do PDE da EPE, carga do ONS e IPCA do IBGE.
+
 ---
 
 ## 4. O que ainda não é medido
@@ -105,7 +130,8 @@ Declarar isto é parte da metodologia.
 
 - **Consumo de energia da mineração em MWh.** Depende de um critério revisado para separar carga mineral das demais na base CCEE (§3.1).
 - **Intensidade energética por operação.** Os coeficientes do atlas são razões municipais — energia do município ÷ produção do município —, não medidas de planta.
-- **Projeções.** `tb_projecoes` está vazia. O motor da Squad 2 roda sobre dados sintéticos identificados como `estimated_demo` e não alimenta o portal.
+- **Projeções de produção e de demanda de energia.** `tb_projecoes` está vazia. O motor da Squad 2 roda sobre dados sintéticos identificados como `estimated_demo` e não alimenta o portal.
+- **Preço de energia observado.** Nenhuma série de preço está no repositório: PLD, tarifa homologada, preço de leilão e preço de contrato ainda não foram coletados. A projeção da aba Preços é premissa declarada do Squad 2 (§3.6), não medição.
 - **Série de energia no perfil municipal.** A base CCEE do banco é mensal e cobre todos os municípios; ligá-la ao perfil municipal é o caminho natural, e ainda não foi feito.
 - **Produção mineral física por empresa.** As fontes dão quantidade comercializada declarada para fins de CFEM, que não equivale a produção.
 
@@ -143,6 +169,9 @@ python3 "Squad 3/database/load_anm.py" --root . --sqlite /tmp/negocio.sqlite
 # Atlas: gera o pacote a partir da base consolidada do Squad 1 (planilha, GeoPackage e dados/ locais do Squad 1)
 python3 scripts/build_atlas_base.py --base "<pasta do projeto do Squad 1>"
 
+# Preços: gera a projeção de preço e custo a partir das premissas do Squad 2 e da CCEE do repositório
+python3 scripts/build_precos_energia.py
+
 # Radar: executa sem rede, sobre as fixtures
 python3 news/radar.py --db /tmp/radar.sqlite --offline-dir tests/fixtures/news
 ```
@@ -166,3 +195,4 @@ Uma regra de cálculo só muda junto com três coisas: o código que a implement
 | Demos e mocks ficam fora da carga | `tests/test_ingestion.py` |
 | Versão anterior sobrevive a uma importação que falha | `tests/test_ingestion.py` |
 | Gráficos do atlas somam a CFEM de cada ano; projetos e ocorrências batem com as abas 04 e 06 | `tests/test_atlas.py` |
+| Preço projetado é premissa declarada, custo é demanda × preço e ninguém é nomeado sem ser pessoa jurídica | `tests/test_precos.py` |

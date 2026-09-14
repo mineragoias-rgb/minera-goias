@@ -24,7 +24,7 @@ def referenced():
         for group in re.findall(r'data-i18n-attr="([^"]+)"', markup):
             keys.update(pair.split(':', 1)[1].strip() for pair in group.split(','))
     for script in ('painel.js', 'atlas.js', 'login.js', 'landing.js', 'panorama.js', 'panorama-charts.js', 'panorama-cards1.js',
-                       'panorama-cards2.js', 'panorama-cards3.js'):
+                       'panorama-cards2.js', 'panorama-cards3.js', 'panorama-cards4.js'):
         code = (PUBLIC / script).read_text(encoding='utf-8')
         keys.update(re.findall(r"(?<![A-Za-z0-9_])t\('([A-Za-z0-9._]+)'", code))
     return keys

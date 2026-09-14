@@ -1,18 +1,18 @@
 /* Panorama tab: the charts and tables of the "Panorama da Mineração de Goiás", rebuilt from the Squad 1 base and filtered in the browser. */
 (()=>{'use strict';
 const el=id=>document.getElementById(id),C=window.PNC,E=C.E;
-const SECTIONS=['cfem','geo','subs','prod','usos','terr','pesq','rod','emp','energia','barr','nr'];
+const SECTIONS=['cfem','geo','subs','prod','usos','terr','pesq','rod','emp','energia','precos','barr','nr'];
 const FILTERS=['ano','mes','mun','min','emp','fase','rub','ramo'];
 // Tabs group the sections of the same kind of analysis; only the cards of the active tab are drawn.
 const TABS=[['arrecadacao',['cfem','subs']],['territorio',['geo','usos','terr']],['producao',['prod']],['pesquisa',['pesq','rod']],
- ['empresas',['emp']],['energia',['energia']],['barragens',['barr']],['notas',['nr']]];
+ ['empresas',['emp']],['energia',['energia']],['precos',['precos']],['barragens',['barr']],['notas',['nr']]];
 const FILTER_IDS={ano:['pn-y0','pn-y1'],mes:['pn-mes'],mun:['pn-mun'],min:['pn-min'],emp:['pn-emp'],fase:['pn-fase'],rub:['pn-rub'],ramo:['pn-ramo']};
 let tab='arrecadacao';try{const saved=localStorage.getItem('minera-pn-tab');if(TABS.some(([id])=>id===saved))tab=saved}catch{}
 const F={y0:2010,y1:2026,mes:0,mun:-1,min:-1,emp:'',fase:-1,rub:-1,ramo:-1};
 let P=null,loading=null,cards=[];
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
 const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
- get P(){return P},A:null,
+ get P(){return P},A:null,PR:null,
  LAVRA:['CONCESSÃO DE LAVRA','LICENCIAMENTO','LAVRA GARIMPEIRA','REGISTRO DE EXTRAÇÃO'],PESQUISA:'AUTORIZAÇÃO DE PESQUISA',
  MINING_RAMOS:['EXTRAÇÃO DE MINERAIS METÁLICOS','MINERAIS NÃO-METÁLICOS','METALURGIA E PRODUTOS DE METAL'],
  mun:i=>i>=0?P.dims.mun[i][1]:t('pn.notInformed'),munCode:i=>i>=0?P.dims.mun[i][0]:'',
@@ -92,7 +92,8 @@ function bind(){for(const id of ['pn-y0','pn-y1','pn-mes','pn-mun','pn-min','pn-
   if(innerWidth===lastWidth||el('panorama-view').hidden)return;lastWidth=innerWidth;visible().forEach(draw)},250)});
  el('pn-reset').onclick=()=>{el('pn-y0').value=2010;el('pn-y1').value=2026;for(const id of ['pn-mes'])el(id).value=0;
   for(const id of ['pn-mun','pn-min','pn-fase','pn-rub','pn-ramo'])el(id).value=-1;el('pn-emp').value='';render()}}
-async function init(){const [p,a]=await Promise.all([api('/panorama'),api('/atlas').catch(()=>null)]);P=p;X.A=a;
+async function init(){const [p,a,r]=await Promise.all([api('/panorama'),api('/atlas').catch(()=>null),api('/precos').catch(()=>null)]);
+ P=p;X.A=a;X.PR=r;
  fillFilters();build();bind();el('pn-content').hidden=false;showTab(tab);
  el('pn-source').textContent=t('pn.source',{v:P.meta.versao_base,d:P.meta.built_on})}
 window.showPanorama=async()=>{el('pn-error').textContent='';try{if(!loading)loading=init().catch(e=>{loading=null;throw e});await loading}
