@@ -114,7 +114,7 @@ class PrecosTests(unittest.TestCase):
     def test_page_wires_the_price_tab(self):
         cards = (ROOT / 'public' / 'panorama-cards4.js').read_text(encoding='utf-8')
         controller = (ROOT / 'public' / 'panorama.js').read_text(encoding='utf-8')
-        self.assertIn("api('/precos')", controller)
+        self.assertIn("PKG.tryGet('/precos')", controller)   # pelo carregador compartilhado (public/pkg.js)
         self.assertIn("['precos',['precos']]", controller)
         self.assertIn("'precos'", controller.split('const SECTIONS=')[1].split(';')[0])
         # Todo quadro de preço ou custo projetado carrega o aviso de premissa.

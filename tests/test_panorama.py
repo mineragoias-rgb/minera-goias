@@ -61,11 +61,13 @@ class PanoramaTests(unittest.TestCase):
                        'panorama-cards4.js', 'panorama.js'):
             self.assertIn(f'src="/{script}"', markup)
         self.assertLess(markup.index('/panorama-cards4.js'), markup.index('/panorama.js"'))
-        # The category tabs sit above the filters.
-        self.assertIn('id="pn-tabs"', markup)
-        self.assertLess(markup.index('id="pn-tabs"'), markup.index('class="pn-filters"'))
+        # The category tabs sit above the filters, inside the Panorama section (the Overview has a filter bar of its own).
+        secao = markup[markup.index('id="panorama-view"'):markup.index('id="radar-view"')]
+        self.assertIn('id="pn-tabs"', secao)
+        self.assertLess(secao.index('id="pn-tabs"'), secao.index('class="pn-filters"'))
         self.assertNotIn('id="pn-nav"', markup)
-        self.assertIn("api('/panorama')", (ROOT / 'public' / 'panorama.js').read_text(encoding='utf-8'))
+        # O pacote vem pelo carregador compartilhado (public/pkg.js), uma vez por sessão.
+        self.assertIn("PKG.get('/panorama')", (ROOT / 'public' / 'panorama.js').read_text(encoding='utf-8'))
         # Every chart text uses the one FONT size set on the svg root, never a size of its own.
         charts = (ROOT / 'public' / 'panorama-charts.js').read_text(encoding='utf-8')
         self.assertIn('const FONT=12', charts)

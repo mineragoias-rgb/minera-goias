@@ -106,7 +106,7 @@ const tiles=items=>items.map(([tone,label,value,note])=>`<div class="metric ${to
 
 // One tooltip for the whole Panorama: follows the pointer over any [data-tip] mark; a tap shows it on touch screens.
 function tooltip(){const box=document.createElement('div');box.className='pn-tip';box.setAttribute('role','tooltip');box.hidden=true;document.body.append(box);
- const target=e=>e.target&&e.target.closest?e.target.closest('#panorama-view [data-tip]'):null;
+ const target=e=>e.target&&e.target.closest?e.target.closest('#panorama-view [data-tip],#overview-view [data-tip]'):null;
  const show=(node,x,y)=>{const text=node.getAttribute('data-tip');if(box.textContent!==text)box.textContent=text;box.hidden=false;
   const r=box.getBoundingClientRect();let left=x+14,top=y+16;if(left+r.width>innerWidth-8)left=x-r.width-14;if(top+r.height>innerHeight-8)top=y-r.height-12;
   box.style.left=Math.max(8,left)+'px';box.style.top=Math.max(8,top)+'px'};

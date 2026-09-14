@@ -2,7 +2,7 @@
 
 ## Produto e ambiente
 
-O site https://labfgv.com.br tem identidade própria em azul e branco, landing page pública, login individual e painel protegido. Não utiliza logotipos da FGV. O painel mostra **contagens de registros** das parcelas de carga CCEE em Goiás por mês, município e atividade. Não apresenta essas contagens como consumo, produção mineral ou empresas únicas. A base CCEE inclui atividades não minerais; o filtro permite recortar o ramo. Os dados ainda estão em validação técnica.
+O site https://labfgv.com.br tem identidade própria em azul e branco, landing page pública, login individual e painel protegido. Não utiliza logotipos da FGV. A aba de entrada, **Visão geral**, mede o consumo de energia da cadeia mineral em GWh — recorte pelas cargas cujo CNPJ é titular de processo minerário na base do Squad 1, e não pelo ramo autodeclarado da CCEE, que fica ao lado para comparação. Contagem de linhas continua no painel, nomeada como contagem, junto ao tamanho do acervo. São parcelas de carga do mercado livre, não o consumo do estado, e nenhum ano da base está completo. Preço e custo são premissa do Squad 2. Os dados ainda estão em validação técnica.
 
 - GitHub: mineragoias-rgb/minera-goias, branch de produção `main`.
 - VPS: 187.77.3.27, Ubuntu, Nginx, systemd, Python 3.10 e MySQL.
@@ -90,3 +90,17 @@ trocar as premissas pelas séries oficiais.
 O pacote `data/precos/precos.json` é gerado por `python scripts/build_precos_energia.py` (premissas em
 `Squad 2/precos/premissas/`, saídas em CSV em `Squad 2/precos/saidas/`, método e contrato em `Squad 2/precos/README.md`,
 limitações em `data/precos/README.md`) e conferido por `tests/test_precos.py`. Regenerar depois de editar qualquer premissa.
+
+## Visão geral (aba de entrada, refeita em 14/09/2026)
+
+A aba deixou de medir contagem de linhas como manchete e passou ao modelo do Panorama: quadros desenhados em
+`public/overview.js` com os mesmos gráficos (`panorama-charts.js`), filtros de ano, mês, município e ramo que recalculam tudo
+no navegador — sem botão de aplicar e sem nova consulta ao servidor. O que ela mede está na `METODOLOGIA.md` §3.1: energia da
+cadeia mineral em GWh pelo recorte de título minerário, CFEM do mesmo recorte, empresas e municípios do recorte, custo à
+premissa do módulo de preços (com aviso) e a cobertura da fonte ano a ano, onde contagem é nomeada como contagem.
+
+Os pacotes vêm de `/api/panorama`, `/api/precos` e, para o tamanho do acervo, `/api/dashboard` — este último é o único que
+depende do MySQL e, se falhar, só apaga aquele quadro. `public/pkg.js` guarda cada pacote em memória por sessão, então Atlas,
+Panorama e Visão geral compartilham o mesmo download em vez de baixarem `panorama.json` e `atlas.json` duas vezes.
+`tests/test_overview.py` trava o recorte (tem de dar o mesmo que o pacote de preços), a instantaneidade dos filtros e o
+não-retorno das contagens à manchete.

@@ -92,7 +92,7 @@ function bind(){for(const id of ['pn-y0','pn-y1','pn-mes','pn-mun','pn-min','pn-
   if(innerWidth===lastWidth||el('panorama-view').hidden)return;lastWidth=innerWidth;visible().forEach(draw)},250)});
  el('pn-reset').onclick=()=>{el('pn-y0').value=2010;el('pn-y1').value=2026;for(const id of ['pn-mes'])el(id).value=0;
   for(const id of ['pn-mun','pn-min','pn-fase','pn-rub','pn-ramo'])el(id).value=-1;el('pn-emp').value='';render()}}
-async function init(){const [p,a,r]=await Promise.all([api('/panorama'),api('/atlas').catch(()=>null),api('/precos').catch(()=>null)]);
+async function init(){const [p,a,r]=await Promise.all([PKG.get('/panorama'),PKG.tryGet('/atlas'),PKG.tryGet('/precos')]);
  P=p;X.A=a;X.PR=r;
  fillFilters();build();bind();el('pn-content').hidden=false;showTab(tab);
  el('pn-source').textContent=t('pn.source',{v:P.meta.versao_base,d:P.meta.built_on})}

@@ -25,6 +25,7 @@ Atualizado em 13/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 | Fonte | Uma linha é… | Volume | Período |
 |---|---|---|---|
 | CCEE — parcelas de carga | Uma parcela de carga de um agente, em um mês, município e ramo | 4.241 (2024) · 8.072 (2025) · 8.245 (2026) | 2024–2026 |
+| CCEE — recorte mineral (Visão geral, Panorama e preços) | A mesma parcela de carga, restrita às raízes de CNPJ com título minerário | 71 empresas · 3,26 TWh/ano anualizados | 2024–2026 (18 meses) |
 | CFEM — arrecadação | Um recolhimento por processo, substância, município e mês | 38.854 | 2022–2026 |
 | Cadastro mineiro (shapefile) | Um polígono de um processo minerário | 17.428 polígonos em 16.656 processos | Data de extração não informada |
 | Rodadas de disponibilidade | Uma área oferecida em uma rodada | 31.841 no Brasil · **3.632 em Goiás** | Rodadas 1 a 8 |
@@ -37,16 +38,36 @@ O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastre�
 
 ## 3. Como cada indicador é calculado
 
-### 3.1 Painel CCEE (visão geral)
+### 3.1 Visão geral (aba de entrada do painel)
 
-Mede **cobertura do acervo**, não energia.
+Mede **energia da cadeia mineral em MWh**, com recorte declarado, e a cobertura da fonte ao lado — nomeada como contagem.
 
-- **Registros no recorte** — contagem de linhas da CCEE do ano selecionado, filtradas por ramo de atividade quando escolhido.
-- **Municípios representados** — contagem de valores distintos de `CIDADE` no recorte.
-- **Meses com registros** — contagem de valores distintos de `MES_REFERENCIA`.
-- **Cobertura ao longo do ano** e **municípios com mais registros** — as mesmas contagens, agrupadas.
+Até 14/09/2026 esta aba media só cobertura do acervo: contagem de linhas da CCEE por mês, município e ramo. A condição que
+essa decisão colocava para publicar MWh era um "critério de classificação revisado, não o campo autodeclarado
+`RAMO_ATIVIDADE`". Esse critério existe desde a base consolidada do Squad 1 e é o mesmo do Panorama e do módulo de preços:
+**a carga cuja raiz de CNPJ é titular de processo minerário na aba `02_dim_empresas`**. Com ele, a aba passou a publicar MWh.
 
-**O que existe e deliberadamente não é usado:** o arquivo traz `CONSUMO_ACL`, `CONSUMO_CATIVO_PARC_LIVRE` e `CONSUMO_TOTAL` em MWh. Somados, dariam 6,84 milhões de MWh em 2024, 11,63 em 2025 e 11,33 em 2026. **O painel não publica esses totais** porque a base mistura 16 ramos de atividade — alimentícios, comércio, serviços — e um recorte "mineral" confiável exige critério de classificação revisado, não o campo autodeclarado `RAMO_ATIVIDADE`. Publicar MWh hoje sugeriria uma medição de consumo mineral que a base ainda não sustenta.
+- **Energia da cadeia mineral** — soma de `CONSUMO_TOTAL` das parcelas de carga do recorte cuja raiz de CNPJ tem título
+  minerário. Publicada em GWh, com a parcela que representa do total das cargas do recorte e quantos meses entraram.
+- **Recorte alternativo** — o consumo dos ramos `EXTRAÇÃO DE MINERAIS METÁLICOS`, `MINERAIS NÃO-METÁLICOS` e `METALURGIA E
+  PRODUTOS DE METAL`, autodeclarados, aparece ao lado para comparação. Os dois recortes **não se somam**.
+- **Empresas e municípios** — contagem de raízes de CNPJ e de municípios do recorte mineral, não do arquivo inteiro.
+- **CFEM no mesmo recorte** — CFEM recolhida nos mesmos anos, meses e municípios selecionados, para ler arrecadação e energia
+  sob o mesmo corte.
+- **Acervo** — arquivos ativos e linhas importadas do banco (`/api/dashboard`); é contagem do acervo, declarada como tal, e
+  fica vazia com um aviso quando o banco não responde.
+- **Custo** — consumo observado do recorte avaliado ao preço de referência do módulo de preços (§3.6). É premissa, com o
+  aviso em cima do quadro.
+- **Cobertura da fonte, ano a ano** — meses cobertos, combinações agregadas da CCEE (mês × município × ramo × carga), GWh do
+  recorte mineral, GWh de todas as cargas, empresas e municípios. **Combinação é contagem, não medição**; a contagem de linhas
+  de cada arquivo importado fica no catálogo de fontes.
+
+Os filtros (ano inicial, ano final, mês, município e ramo) recalculam todos os quadros no navegador, sem nova consulta ao
+servidor: o pacote da aba é o mesmo `data/panorama/panorama.json` do Panorama, carregado uma vez por sessão.
+
+**O que continua fora:** o consumo do estado inteiro. Estas são parcelas de carga do mercado livre (`CONSUMO_CATIVO_PARC_LIVRE`
+é zero em todas as linhas da base), nenhum ano está completo — 2024 tem 4 meses; 2025 e 2026, 7 cada — e a soma de todos os
+ramos (6,84 milhões de MWh em 2024, 11,63 em 2025 e 11,33 em 2026) mede o mercado livre de Goiás, não a mineração.
 
 ### 3.2 Atlas mineral
 
@@ -128,7 +149,7 @@ referência do PDE da EPE, carga do ONS e IPCA do IBGE.
 
 Declarar isto é parte da metodologia.
 
-- **Consumo de energia da mineração em MWh.** Depende de um critério revisado para separar carga mineral das demais na base CCEE (§3.1).
+- **Consumo de energia da mineração fora do mercado livre.** O recorte por título minerário resolveu a separação da carga mineral (§3.1), mas a base da CCEE só traz o mercado livre: a mineração atendida no mercado cativo não aparece em nenhuma fonte do repositório.
 - **Intensidade energética por operação.** Os coeficientes do atlas são razões municipais — energia do município ÷ produção do município —, não medidas de planta.
 - **Projeções de produção e de demanda de energia.** `tb_projecoes` está vazia. O motor da Squad 2 roda sobre dados sintéticos identificados como `estimated_demo` e não alimenta o portal.
 - **Preço de energia observado.** Nenhuma série de preço está no repositório: PLD, tarifa homologada, preço de leilão e preço de contrato ainda não foram coletados. A projeção da aba Preços é premissa declarada do Squad 2 (§3.6), não medição.
@@ -196,3 +217,4 @@ Uma regra de cálculo só muda junto com três coisas: o código que a implement
 | Versão anterior sobrevive a uma importação que falha | `tests/test_ingestion.py` |
 | Gráficos do atlas somam a CFEM de cada ano; projetos e ocorrências batem com as abas 04 e 06 | `tests/test_atlas.py` |
 | Preço projetado é premissa declarada, custo é demanda × preço e ninguém é nomeado sem ser pessoa jurídica | `tests/test_precos.py` |
+| A Visão geral mede MWh com o recorte por título minerário, igual ao dos outros pacotes, e não volta a medir contagem de linhas | `tests/test_overview.py` |
