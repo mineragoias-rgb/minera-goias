@@ -123,9 +123,13 @@ Mede **a razão entre dois números publicados**, cada um com sua cobertura decl
 
 **O coeficiente é `energia (kWh) ÷ produção`, na unidade que a empresa publica** — kWh/t ou kWh/oz. Nada é convertido, e os dois grupos aparecem separados no painel porque não se comparam. Só entra produção realizada, do recorte de Goiás, no nível da empresa: embarque, venda, capacidade, meta e consolidado do Brasil ficam fora do numerador.
 
-**Energia de vários minerais não é rateada.** Chapada faz cobre e ouro do mesmo minério e da mesma usina; a CMOC move nióbio e fosfato em Catalão e Ouvidor. Nesses casos o coeficiente sai com `energia_exclusiva=false` e significa *toda a energia da empresa por unidade daquele mineral*. Cada empresa declara na curadoria quais minerais estão atrás da sua carga — o código não infere isso.
+**A carga de uma empresa com vários minerais é separada pelo que a CCEE já declara — ramo de atividade e município —, nunca por proporção arbitrada.** A CMOC declara a carga em três ramos: extração de minerais metálicos e metalurgia são o nióbio (mina e planta de ferronióbio); minerais não-metálicos é o fosfato. Como nióbio é substância metálica e fosfato não é, o ramo separa os dois negócios sem rateio inventado — em 2025 o nióbio ficou com 43% da carga, e o coeficiente caiu de 27.816 para 11.884 kWh/t. As regras têm de **particionar** a carga: cada parcela cai em exatamente um mineral, sem sobra nem sobreposição, e um teste guarda isso.
 
-As ordens de grandeza conferem com o processo de cada operação: ~45.000 kWh/t de níquel contido (ferroníquel em forno elétrico), ~8.350 kWh/t de cobre em concentrado, ~320 kWh/t de crisotila. O ~27.800 kWh/t de nióbio da CMOC é sabidamente superestimado, porque carrega a energia do fosfato junto — e está marcado como tal.
+**Quando nem município nem ramo separam, nada é rateado.** É o caso de Chapada: cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município e sob o mesmo ramo. Alocar entre co-produtos exigiria convenção de inventário — por receita, por valor do metal contido —, que é escolha e não medição. O coeficiente de cada metal sai com `energia_exclusiva=false` e carrega a energia inteira da operação.
+
+**O que a empresa publica sobre a própria energia entra como nota, com o efeito declarado.** A CMOC gera internamente 35% da eletricidade do fosfato em Catalão e Ouvidor, parcela que não passa pela CCEE e faz a carga *subestimar* o consumo real daquele negócio. Barro Alto opera dois fornos elétricos de 83 MW: os 166 MW de placa dão ~1,45 TWh/ano em regime contínuo, a mesma ordem da carga anualizada da unidade — uma conferência independente. A Lundin publica energia só consolidada, sem abrir por operação, e isso está registrado como não localizado.
+
+As ordens de grandeza conferem com o processo de cada operação: ~45.000 kWh/t de níquel contido (ferroníquel em forno elétrico), ~8.350 kWh/t de cobre em concentrado, ~320 kWh/t de crisotila. O nióbio da CMOC, depois de separado por ramo, fica em ~11.900 kWh/t, compatível com ferronióbio; antes do rateio, carregando a energia do fosfato junto, dava ~27.800.
 
 ### 3.7 Radar de notícias (protótipo)
 

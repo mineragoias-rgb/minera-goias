@@ -41,7 +41,8 @@ class PacoteTests(unittest.TestCase):
             if energia['meses_observados'] == 12:
                 self.assertEqual(energia['origem'], 'observado_completo')
 
-    def test_energia_bate_com_a_tabela_ccee_do_panorama(self):
+    @staticmethod
+    def ccee_por_empresa_ano():
         coluna = {nome: i for i, nome in enumerate(PANORAMA['ccee']['cols'])}
         cnpjs = {linha['cnpj_raiz'] for linha in PACOTE['linhas']}
         agentes = {i: ce[0] for i, ce in enumerate(PANORAMA['dims']['ce']) if ce[0] in cnpjs}
@@ -51,15 +52,65 @@ class PacoteTests(unittest.TestCase):
             if agente in agentes:
                 chave = (agentes[agente], linha[coluna['mes']] // 100)
                 soma[chave] = soma.get(chave, 0.0) + linha[coluna['total_mwh']]
+        return soma
+
+    def test_carga_inteira_bate_com_a_tabela_ccee_do_panorama(self):
+        soma = self.ccee_por_empresa_ano()
         conferidas = 0
         for linha in PACOTE['linhas']:
-            if not linha['energia']:
+            energia = linha['energia']
+            if not energia or energia['base_do_rateio'] != 'carga_total':
                 continue
             esperado = soma.get((linha['cnpj_raiz'], linha['ano']))
             self.assertIsNotNone(esperado, f"{linha['empresa']} {linha['ano']} não existe na CCEE")
-            self.assertAlmostEqual(linha['energia']['mwh_observado'], esperado, places=2)
+            self.assertAlmostEqual(energia['mwh_observado'], esperado, places=2)
+            self.assertAlmostEqual(energia['parcela_da_empresa'], 1.0, places=4)
             conferidas += 1
         self.assertGreater(conferidas, 0)
+
+    def test_carga_rateada_e_uma_parcela_menor_que_o_total_da_empresa(self):
+        rateadas = 0
+        for linha in PACOTE['linhas']:
+            energia = linha['energia']
+            if not energia or energia['base_do_rateio'] == 'carga_total':
+                continue
+            rateadas += 1
+            self.assertLess(energia['mwh_anualizado'], energia['mwh_empresa_anualizado'])
+            self.assertLess(energia['parcela_da_empresa'], 1.0)
+            self.assertGreater(energia['parcela_da_empresa'], 0.0)
+        self.assertGreater(rateadas, 0, 'a base precisa exercitar o rateio')
+
+    def test_o_rateio_particiona_a_carga_sem_sobra_nem_sobreposicao(self):
+        """Cada ramo da CCEE tem de cair em exatamente um mineral: sobra vira energia perdida, sobreposição vira dupla contagem."""
+        coluna = {nome: i for i, nome in enumerate(PANORAMA['ccee']['cols'])}
+        ramos = PANORAMA['dims']['ramo']
+        municipios = PANORAMA['dims']['mun']
+        por_cnpj = {r['cnpj_raiz']: r['rateio_ccee'] for r in PRODUCAO['registros']}
+        agentes = {i: ce[0] for i, ce in enumerate(PANORAMA['dims']['ce']) if ce[0] in por_cnpj}
+        presentes = {}
+        for linha in PANORAMA['ccee']['rows']:
+            agente = linha[coluna['empresa']]
+            if agente in agentes:
+                municipio = municipios[linha[coluna['mun']]][1] if linha[coluna['mun']] >= 0 else None
+                presentes.setdefault(agentes[agente], set()).add((ramos[linha[coluna['ramo']]], municipio))
+        com_regra = 0
+        for cnpj, rateio in por_cnpj.items():
+            if not rateio['regras']:
+                continue
+            com_regra += 1
+            cobertos = []
+            for regra in rateio['regras']:
+                do_mineral = {par for par in presentes.get(cnpj, set())
+                              if (not regra['ramos'] or par[0] in regra['ramos'])
+                              and (not regra['municipios'] or par[1] in regra['municipios'])}
+                self.assertTrue(do_mineral, f"{cnpj}: a regra de {regra['mineral']} não casa com nenhuma parcela da CCEE")
+                for ja in cobertos:
+                    self.assertFalse(do_mineral & ja, f"{cnpj}: duas regras disputam a mesma parcela de carga")
+                cobertos.append(do_mineral)
+            union = set().union(*cobertos)
+            self.assertEqual(union, presentes.get(cnpj, set()),
+                             f"{cnpj}: há parcela de carga que nenhuma regra reivindica")
+        self.assertGreater(com_regra, 0, 'nenhuma empresa exercita o rateio declarado')
 
     def test_producao_declarada_bate_com_a_base_de_producao(self):
         por_id = {r['id']: r for r in PRODUCAO['registros']}
@@ -123,17 +174,22 @@ class PacoteTests(unittest.TestCase):
             conferidos += 1
         self.assertGreater(conferidos, 0)
 
-    def test_carga_com_mais_de_um_mineral_nunca_sai_como_exclusiva(self):
+    def test_so_e_exclusiva_a_energia_de_um_mineral_so_ou_a_que_foi_separada(self):
+        """Carga de vários minerais só vira coeficiente exclusivo depois de separada por ramo ou município."""
         for linha in PACOTE['linhas']:
             coeficiente = linha['coeficiente']
             if not coeficiente:
                 continue
-            if len(coeficiente['minerais_na_carga']) > 1:
+            varios = len(coeficiente['minerais_na_carga']) > 1
+            separada = coeficiente['base_do_rateio'] != 'carga_total'
+            if varios and not separada:
                 self.assertFalse(coeficiente['energia_exclusiva'],
-                                 f"{linha['empresa']}: energia de vários minerais não pode virar coeficiente exclusivo")
-            else:
-                self.assertEqual(coeficiente['energia_exclusiva'],
-                                 coeficiente['minerais_na_carga'] == [linha['mineral']])
+                                 f"{linha['empresa']}: carga de vários minerais sem separação não é exclusiva")
+            if coeficiente['energia_exclusiva']:
+                self.assertTrue(not varios or separada,
+                                f"{linha['empresa']}: exclusiva sem ser mineral único nem carga separada")
+            if not varios:
+                self.assertEqual(coeficiente['minerais_na_carga'], [linha['mineral']])
 
     def test_qualidade_do_coeficiente_e_a_do_lado_mais_fraco(self):
         escala = ['observado_completo', 'estimado_alto', 'estimado_medio', 'estimado_baixo']
@@ -152,7 +208,7 @@ class PacoteTests(unittest.TestCase):
 
     def test_o_pacote_avisa_o_que_nao_mede(self):
         avisos = ' '.join(PACOTE['meta']['avisos'])
-        for termo in ('Anualização', 'rateada', 'convertido'):
+        for termo in ('Anualização', 'ramo de atividade', 'nada é rateado', 'convertido', 'autoprodução'):
             self.assertIn(termo, avisos)
 
     def test_o_gerador_e_reprodutivel(self):
@@ -208,6 +264,11 @@ class AbaTests(unittest.TestCase):
             if any(campo in trecho for campo in campos_de_texto) and 'escape(' not in trecho:
                 cruas.append(trecho.strip())
         self.assertEqual(cruas, [], f'texto de dado interpolado sem escape: {cruas}')
+
+    def test_a_aba_mostra_a_base_do_rateio_e_as_notas_da_empresa(self):
+        codigo = (PUBLIC / 'empresas.js').read_text(encoding='utf-8')
+        for trecho in ('base_do_rateio', 'parcela_da_empresa', 'notas_energia', 'rateio_ccee'):
+            self.assertIn(trecho, codigo, trecho)
 
     def test_o_csv_exportado_cita_todo_campo(self):
         # Nome de empresa tem vírgula e ponto e vírgula; sem aspas, a planilha desloca as colunas.

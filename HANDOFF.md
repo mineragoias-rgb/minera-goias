@@ -97,7 +97,9 @@ Aba `Empresas` entre o Mercado e o Radar (`public/empresas.js`, com o bloco `---
 
 O endpoint fica **atrás de sessão**, como o atlas e o panorama: a aba nomeia empresas ao lado da carga de energia, e por isso o pacote não vai para `public/`, que o Nginx serve sem sessão. Um teste guarda isso.
 
-O painel traz gráfico de energia por empresa (barra clara é o anualizado, escura é o medido), coeficiente em blocos separados por unidade — kWh/t e kWh/oz não se comparam —, a tabela completa com exportação em CSV, a série da empresa selecionada e um painel que mostra de onde vem cada número. Filtros por ano, empresa, mineral e qualidade do dado.
+Quando a empresa move mais de um mineral, a carga é separada pelo que a própria CCEE declara (`rateio_ccee` na curadoria): a CMOC sai por ramo de atividade — extração e metalurgia são o nióbio, não-metálicos é o fosfato —, o que derrubou o coeficiente de 27.816 para 11.884 kWh/t. Chapada não separa: cobre e ouro são co-produtos da mesma usina, e alocar entre eles seria convenção de inventário, não medição. `notas_energia` guarda o que a empresa publica sobre o próprio consumo com o efeito declarado — a autogeração de 35% do fosfato da CMOC faz a CCEE subestimar aquele negócio.
+
+O painel traz gráfico da carga inteira da empresa (barra clara é o anualizado, escura é o medido), coeficiente em blocos separados por unidade — kWh/t e kWh/oz não se comparam —, a tabela completa com a parcela de cada mineral e exportação em CSV, a série da empresa selecionada e um painel que mostra de onde vem cada número, com o rateio e as notas de energia. Filtros por ano, empresa, mineral e qualidade do dado.
 
 ```sh
 python scripts/build_producao_base.py && python scripts/build_empresas_base.py

@@ -96,6 +96,8 @@ for empresa in curada["empresas"]:
             "municipios": empresa["municipios"],
             "uf": empresa["uf"],
             "minerais_na_carga_ccee": empresa["minerais_na_carga_ccee"],
+            "rateio_ccee": empresa["rateio_ccee"],
+            "notas_energia": empresa["notas_energia"],
             "mineral": MINERAIS[norm(r["mineral"])] if norm(r["mineral"]) in MINERAIS else r["mineral"],
             "produto": r["produto"],
             "valor": r["valor"],

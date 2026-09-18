@@ -37,7 +37,15 @@
    "baixa": "Número isolado, ou cuja atribuição de período/escopo ficou ambígua."
   },
   "regra_de_corte": "Entra o produto cujo insumo é o minério da própria empresa, até o primeiro produto metalúrgico ou químico: minério, concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. Não entra o passo seguinte — alumínio primário e transformados —, que já mistura insumo de terceiros e importado.",
-  "minerais_na_carga_ccee": "Minerais cujas operações estão por trás da carga de energia daquela empresa em Goiás. Quando há mais de um, a energia NÃO é rateada entre eles e todo coeficiente calculado carrega a marca 'energia não exclusiva'. Lista vazia significa que a empresa não tem carga própria identificada na base CCEE do estado."
+  "minerais_na_carga_ccee": "Minerais cujas operações estão por trás da carga de energia daquela empresa em Goiás. Quando há mais de um, a energia NÃO é rateada entre eles e todo coeficiente calculado carrega a marca 'energia não exclusiva'. Lista vazia significa que a empresa não tem carga própria identificada na base CCEE do estado.",
+  "rateio_ccee": {
+   "unico": "A empresa tem um mineral só em Goiás: toda a carga é dele.",
+   "ramo": "A CCEE declara a carga em ramos de atividade distintos, e cada ramo pertence a um mineral. O rateio é a própria declaração da fonte.",
+   "municipio": "Cada operação está em um município diferente, e a carga vem declarada por município.",
+   "ramo_municipio": "Só o par ramo e município separa as operações.",
+   "nao_separavel": "Nem município nem ramo separam. É o caso de co-produtos da mesma usina, em que alocar energia entre eles exigiria convenção de inventário (por receita, por valor do metal contido) e não medição. Nesses casos o coeficiente sai com energia_exclusiva=false e carrega a energia inteira da operação."
+  },
+  "notas_energia": "O que a própria empresa publica sobre a energia dela, quando encontrado: autogeração que não passa pela CCEE, capacidade de placa, fonte renovável. 'efeito' diz se aquilo faz a carga da CCEE subestimar, superestimar, ou se é só contexto."
  },
  "limitacao_da_coleta_v1": "Os registros desta versão foram levantados por busca na web a partir de um ambiente sem acesso de saída aos sites das empresas: o proxy de egresso bloqueou lundinmining.com, angloamerican.com, hochschildmining.com, cmocbrasil.com, ri.eternit.com.br, sec.gov e demais domínios de RI. Portanto NENHUMA linha foi lida no documento original — 'fonte_url' é o endereço que a busca atribuiu ao número, não um documento conferido. Todas nascem com status_validacao 'nao_validado'. O agente semanal roda na VPS, que tem rede aberta, e é ele quem confere cada número contra o documento.",
  "empresas": [
@@ -365,7 +373,19 @@
     "Cobre",
     "Ouro"
    ],
-   "nota_carga_ccee": "Cobre e ouro são co-produtos do mesmo minério e da mesma usina: a energia não se separa entre eles."
+   "nota_carga_ccee": "Cobre e ouro são co-produtos do mesmo minério e da mesma usina: a energia não se separa entre eles.",
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "regras": [],
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ]
   },
   {
    "grupo": "CMOC Group Limited",
@@ -624,7 +644,40 @@
     "Nióbio",
     "Fosfato"
    ],
-   "nota_carga_ccee": "A carga de Catalão e Ouvidor move os circuitos de nióbio E de fosfato. Um coeficiente por nióbio carrega a energia do fosfato junto."
+   "nota_carga_ccee": "A carga de Catalão e Ouvidor move os circuitos de nióbio E de fosfato. Um coeficiente por nióbio carrega a energia do fosfato junto.",
+   "rateio_ccee": {
+    "criterio": "ramo",
+    "regras": [
+     {
+      "mineral": "Nióbio",
+      "ramos": [
+       "EXTRAÇÃO DE MINERAIS METÁLICOS",
+       "METALURGIA E PRODUTOS DE METAL"
+      ],
+      "municipios": []
+     },
+     {
+      "mineral": "Fosfato",
+      "ramos": [
+       "MINERAIS NÃO-METÁLICOS"
+      ],
+      "municipios": []
+     }
+    ],
+    "nota": "A carga da CMOC na CCEE vem declarada em três ramos: extração de minerais metálicos (mina de nióbio, em Catalão e Ouvidor), metalurgia (planta de ferronióbio, em Ouvidor) e minerais não-metálicos (fosfato, em Ouvidor). O ramo separa os dois negócios sem precisar de rateio arbitrário, porque nióbio é substância metálica e fosfato não é."
+   },
+   "notas_energia": [
+    {
+     "texto": "A companhia informa que 35% da energia elétrica das operações da Copebras em Catalão e Ouvidor — o negócio de fosfato — é gerada internamente. Essa parcela NÃO passa pela CCEE, então a carga aqui subestima o consumo real do fosfato. O nióbio não tem autogeração declarada.",
+     "fonte": "https://ibram.org.br/noticia/cmoc-brasil-utiliza-fontes-alternativas-de-energia/",
+     "efeito": "subestima"
+    },
+    {
+     "texto": "Relatório de Sustentabilidade de 2025: 74,7% da energia consumida veio de fontes renováveis e a companhia zerou as emissões de Escopo 2 comprando certificados I-REC. A empresa não publica consumo em MWh por operação.",
+     "fonte": "https://sustentabilidade.cmocbrasil.com/",
+     "efeito": "contexto"
+    }
+   ]
   },
   {
    "grupo": "Anglo American plc",
@@ -789,7 +842,19 @@
    "minerais_na_carga_ccee": [
     "Níquel"
    ],
-   "nota_carga_ccee": "Toda a carga é das plantas de ferroníquel de Barro Alto e Codemin."
+   "nota_carga_ccee": "Toda a carga é das plantas de ferroníquel de Barro Alto e Codemin.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Níquel); não há o que ratear."
+   },
+   "notas_energia": [
+    {
+     "texto": "Barro Alto opera dois fornos elétricos retangulares de 83 MW pela rota RKEF, mais intensiva em energia que a HPAL. Os 166 MW de placa dão cerca de 1,45 TWh/ano em regime contínuo, o que é a mesma ordem de grandeza da carga anualizada da unidade na CCEE — uma conferência independente do número.",
+     "fonte": "https://www.angloamerican.com/our-stories/innovation-and-technology/mine-profile-barro-alto",
+     "efeito": "contexto"
+    }
+   ]
   },
   {
    "grupo": "Eternit S.A.",
@@ -887,7 +952,13 @@
    "minerais_na_carga_ccee": [
     "Amianto"
    ],
-   "nota_carga_ccee": "Mina e beneficiamento de crisotila em Minaçu."
+   "nota_carga_ccee": "Mina e beneficiamento de crisotila em Minaçu.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Amianto); não há o que ratear."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "The Mosaic Company",
@@ -970,7 +1041,13 @@
    "minerais_na_carga_ccee": [
     "Fosfato"
    ],
-   "nota_carga_ccee": "Complexo de fosfato em Catalão."
+   "nota_carga_ccee": "Complexo de fosfato em Catalão.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Fosfato); não há o que ratear."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "Hochschild Mining PLC",
@@ -1085,7 +1162,13 @@
    "minerais_na_carga_ccee": [
     "Ouro"
    ],
-   "nota_carga_ccee": "Mina e usina de Mara Rosa."
+   "nota_carga_ccee": "Mina e usina de Mara Rosa.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
@@ -1247,7 +1330,13 @@
    "minerais_na_carga_ccee": [
     "Ouro"
    ],
-   "nota_carga_ccee": "Mina e usina de Crixás."
+   "nota_carga_ccee": "Mina e usina de Crixás.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
@@ -1329,7 +1418,13 @@
    "minerais_na_carga_ccee": [
     "Monazita e Terras-Raras"
    ],
-   "nota_carga_ccee": "Operação de Pela Ema, em Minaçu."
+   "nota_carga_ccee": "Operação de Pela Ema, em Minaçu.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Monazita e Terras-Raras); não há o que ratear."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
@@ -1424,7 +1519,13 @@
     }
    ],
    "minerais_na_carga_ccee": [],
-   "nota_carga_ccee": "Sem carga própria identificada na base CCEE de Goiás pelo CNPJ raiz da companhia."
+   "nota_carga_ccee": "Sem carga própria identificada na base CCEE de Goiás pelo CNPJ raiz da companhia.",
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "regras": [],
+    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+   },
+   "notas_energia": []
   },
   {
    "grupo": "Brasil Minérios S/A",
@@ -1476,7 +1577,13 @@
    "minerais_na_carga_ccee": [
     "Vermiculita e Perlita"
    ],
-   "nota_carga_ccee": "Usina de São Luís de Montes Belos."
+   "nota_carga_ccee": "Usina de São Luís de Montes Belos.",
+   "rateio_ccee": {
+    "criterio": "unico",
+    "regras": [],
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Vermiculita e Perlita); não há o que ratear."
+   },
+   "notas_energia": []
   }
  ],
  "escopo_da_base": "Valores reportados pelas próprias empresas — release de resultados, relatório anual, ou o que imprensa e agregadores de mercado reproduzem dessas publicações. Número apurado por agência reguladora não entra."

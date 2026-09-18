@@ -20,9 +20,20 @@ meses de todos os anos, uma coluna de **anualização** para cada lado, sempre a
 O coeficiente é `energia (kWh) ÷ produção`, na unidade em que a empresa publica — kWh/t ou kWh/oz. **Nada é convertido**: onça não vira quilo
 para o coeficiente ficar bonito. E ele só sai quando a produção é do recorte de Goiás (`operacao_goias`), realizada, e no nível da empresa.
 
-Quando a carga da empresa move mais de um mineral (Chapada faz cobre e ouro do mesmo minério; a CMOC move nióbio e fosfato em Catalão e
-Ouvidor), a energia **não é rateada** e o coeficiente sai marcado `energia_exclusiva=false`: ele é a energia inteira da empresa por unidade
-daquele mineral, e não a energia daquele circuito.
+Quando a empresa move mais de um mineral, a curadoria declara **como separar a carga** (`rateio_ccee`), e o rateio usa o que a própria CCEE já
+declara, nunca uma proporção inventada:
+
+- `unico` — um mineral só em Goiás; toda a carga é dele;
+- `ramo` — a CCEE declara a carga em ramos de atividade distintos e cada ramo pertence a um mineral. É o caso da CMOC: extração de minerais
+  metálicos e metalurgia são o nióbio (mina e planta de ferronióbio), minerais não-metálicos é o fosfato;
+- `municipio` / `ramo_municipio` — cada operação está em município diferente, e a carga vem declarada por município;
+- `nao_separavel` — nem município nem ramo separam. É o caso de Chapada: cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município
+  e sob o mesmo ramo. Alocar energia entre co-produtos exigiria convenção de inventário (por receita, por valor do metal contido), que é
+  escolha e não medição, então nada é alocado: o coeficiente de cada metal carrega a energia inteira da operação e sai marcado
+  `energia_exclusiva=false`.
+
+A curadoria também guarda o que a empresa publica sobre a própria energia (`notas_energia`), com o efeito de cada fato sobre o número da CCEE —
+a CMOC, por exemplo, gera internamente 35% da eletricidade do fosfato, parcela que não passa pela CCEE e faz a carga subestimar o consumo real.
 """
 import argparse
 import json
@@ -72,13 +83,15 @@ def cobre(registros):
 
 # ------------------------------------------------------------------------------------------------------- produção por empresa e ano
 producao = json.loads((REPO / "data" / "producao" / "producao.json").read_text(encoding="utf-8"))
-por_empresa, carga_declarada, ficha = {}, {}, {}
+por_empresa, carga_declarada, ficha, rateios, notas_energia = {}, {}, {}, {}, {}
 for registro in producao["registros"]:
     ficha.setdefault(registro["empresa"], {
         "empresa": registro["empresa"], "grupo": registro["grupo"], "cnpj_raiz": registro["cnpj_raiz"],
         "operacao": registro["operacao"], "municipios": registro["municipios"],
     })
     carga_declarada[registro["empresa"]] = registro["minerais_na_carga_ccee"]
+    rateios[registro["empresa"]] = registro["rateio_ccee"]
+    notas_energia[registro["empresa"]] = registro["notas_energia"]
     if (registro["escopo"] != "operacao_goias" or registro["tipo_valor"] != "realizado"
             or registro["medida"] not in MEDIDAS_PRODUCAO or registro["nivel"] != "empresa"):
         continue
@@ -124,23 +137,73 @@ por_cnpj = {f["cnpj_raiz"]: nome for nome, f in ficha.items()}
 indice_ccee = {i: por_cnpj[linha[0]] for i, linha in enumerate(panorama["dims"]["ce"]) if linha[0] in por_cnpj}
 nome_ccee = {por_cnpj[linha[0]]: linha[1] for linha in panorama["dims"]["ce"] if linha[0] in por_cnpj}
 
-energias = {}
+# Grão fino de propósito: é o par ramo × município que permite devolver cada parcela de carga ao mineral que a consumiu.
+parcelas = {}
 for linha in panorama["ccee"]["rows"]:
     agente = linha[coluna["empresa"]]
     if agente not in indice_ccee:
         continue
     ano, mes = divmod(linha[coluna["mes"]], 100)
-    bucket = energias.setdefault((indice_ccee[agente], ano), {
-        "acl_mwh": 0.0, "cativo_mwh": 0.0, "total_mwh": 0.0, "meses": set(), "municipios": set(), "ramos": set(),
-        "capacidade_mw": 0.0})
+    ramo = ramos[linha[coluna["ramo"]]]
+    municipio = municipios[linha[coluna["mun"]]][1] if linha[coluna["mun"]] >= 0 else None
+    bucket = parcelas.setdefault((indice_ccee[agente], ano, ramo, municipio), {
+        "acl_mwh": 0.0, "cativo_mwh": 0.0, "total_mwh": 0.0, "meses": set(), "capacidade_mw": 0.0})
     bucket["acl_mwh"] += linha[coluna["acl_mwh"]]
     bucket["cativo_mwh"] += linha[coluna["cativo_mwh"]]
     bucket["total_mwh"] += linha[coluna["total_mwh"]]
     bucket["capacidade_mw"] = max(bucket["capacidade_mw"], linha[coluna["capacidade_mw"]])
     bucket["meses"].add(mes)
-    bucket["ramos"].add(ramos[linha[coluna["ramo"]]])
-    if linha[coluna["mun"]] >= 0:
-        bucket["municipios"].add(municipios[linha[coluna["mun"]]][1])
+
+
+def soma(itens):
+    total = {"acl_mwh": 0.0, "cativo_mwh": 0.0, "total_mwh": 0.0, "meses": set(), "capacidade_mw": 0.0,
+             "municipios": set(), "ramos": set()}
+    for (_, _, ramo, municipio), bucket in itens:
+        for campo in ("acl_mwh", "cativo_mwh", "total_mwh"):
+            total[campo] += bucket[campo]
+        total["capacidade_mw"] = max(total["capacidade_mw"], bucket["capacidade_mw"])
+        total["meses"] |= bucket["meses"]
+        total["ramos"].add(ramo)
+        if municipio:
+            total["municipios"].add(municipio)
+    return total
+
+
+def parcelas_da_empresa(empresa, ano):
+    return [(chave, bucket) for chave, bucket in parcelas.items() if chave[0] == empresa and chave[1] == ano]
+
+
+def carga_do_mineral(empresa, ano, mineral, rateio):
+    """Devolve (parcelas, base do rateio, exclusiva). O rateio vem da declaração da CCEE, nunca de uma proporção arbitrada."""
+    todas = parcelas_da_empresa(empresa, ano)
+    if not todas:
+        return [], None, False
+    criterio = rateio["criterio"]
+    if criterio == "unico":
+        return todas, "carga_total", True
+    if criterio == "nao_separavel":
+        return todas, "carga_total", False
+    regra = next((r for r in rateio["regras"] if r["mineral"] == mineral), None)
+    if not regra:
+        return todas, "carga_total", False
+    escolhidas = [(chave, bucket) for chave, bucket in todas
+                  if (not regra["ramos"] or chave[2] in regra["ramos"])
+                  and (not regra["municipios"] or chave[3] in regra["municipios"])]
+    return (escolhidas, criterio, True) if escolhidas else (todas, "carga_total", False)
+
+
+energias = {}
+for chave, bucket in parcelas.items():
+    total = energias.setdefault((chave[0], chave[1]), {
+        "acl_mwh": 0.0, "cativo_mwh": 0.0, "total_mwh": 0.0, "meses": set(), "municipios": set(), "ramos": set(),
+        "capacidade_mw": 0.0})
+    for campo in ("acl_mwh", "cativo_mwh", "total_mwh"):
+        total[campo] += bucket[campo]
+    total["capacidade_mw"] = max(total["capacidade_mw"], bucket["capacidade_mw"])
+    total["meses"] |= bucket["meses"]
+    total["ramos"].add(chave[2])
+    if chave[3]:
+        total["municipios"].add(chave[3])
 
 # ------------------------------------------------------------------------------------------------------------------ o quadro
 ESCALA_DE_QUALIDADE = ["observado_completo", "estimado_alto", "estimado_medio", "estimado_baixo"]
@@ -158,8 +221,10 @@ def pior(*niveis):
 linhas = []
 chaves = {(empresa, ano) for (empresa, _, ano) in producoes} | set(energias)
 for empresa, ano in sorted(chaves):
-    energia = energias.get((empresa, ano))
+    total_empresa = energias.get((empresa, ano))
     minerais_da_carga = carga_declarada.get(empresa, [])
+    rateio = rateios[empresa]
+    # Sem produção no ano, a linha ainda existe para mostrar a carga; com produção, uma linha por mineral.
     minerais = sorted({mineral for (e, mineral, a) in producoes if e == empresa and a == ano})
     for mineral in (minerais or [None]):
         producao_ano = producoes.get((empresa, mineral, ano)) if mineral else None
@@ -168,15 +233,26 @@ for empresa, ano in sorted(chaves):
             "nome_ccee": nome_ccee.get(empresa),
             "ano": ano,
             "mineral": mineral,
+            "minerais_na_carga_ccee": minerais_da_carga,
+            "rateio_ccee": {"criterio": rateio["criterio"], "nota": rateio["nota"]},
+            "notas_energia": notas_energia.get(empresa, []),
             "producao": producao_ano,
             "energia": None,
             "coeficiente": None,
         }
-        if energia:
+        escolhidas, base, exclusiva = carga_do_mineral(empresa, ano, mineral, rateio) if mineral or total_empresa \
+            else ([], None, False)
+        if not mineral and total_empresa:
+            escolhidas, base, exclusiva = parcelas_da_empresa(empresa, ano), "carga_total", False
+        if escolhidas:
+            energia = soma(escolhidas)
             meses = len(energia["meses"])
+            anualizado = energia["total_mwh"] * 12 / meses
+            total_observado = total_empresa["total_mwh"] if total_empresa else energia["total_mwh"]
+            total_anualizado = (total_empresa["total_mwh"] * 12 / len(total_empresa["meses"])) if total_empresa else anualizado
             linha["energia"] = {
                 "mwh_observado": round(energia["total_mwh"], 3),
-                "mwh_anualizado": round(energia["total_mwh"] * 12 / meses, 3),
+                "mwh_anualizado": round(anualizado, 3),
                 "acl_mwh_observado": round(energia["acl_mwh"], 3),
                 "cativo_mwh_observado": round(energia["cativo_mwh"], 3),
                 "capacidade_mw": round(energia["capacidade_mw"], 3),
@@ -186,13 +262,17 @@ for empresa, ano in sorted(chaves):
                 "qualidade": qualidade(meses),
                 "municipios_ccee": sorted(energia["municipios"]),
                 "ramos_ccee": sorted(energia["ramos"]),
+                "base_do_rateio": base,
+                "mwh_empresa_observado": round(total_observado, 3),
+                "mwh_empresa_anualizado": round(total_anualizado, 3),
+                "parcela_da_empresa": round(anualizado / total_anualizado, 4) if total_anualizado else None,
             }
         if producao_ano and linha["energia"] and producao_ano["valor"] > 0:
-            exclusiva = len(minerais_da_carga) == 1 and minerais_da_carga == [mineral]
             linha["coeficiente"] = {
                 "valor": round(linha["energia"]["mwh_anualizado"] * 1000 / producao_ano["valor"], 3),
                 "unidade": f'kWh/{producao_ano["unidade"]}',
                 "energia_exclusiva": exclusiva,
+                "base_do_rateio": base,
                 "minerais_na_carga": minerais_da_carga,
                 # A linha vale o mais fraco dos dois lados: energia estimada de 4 meses não vira coeficiente confiável
                 # só porque a produção do ano foi publicada.
@@ -215,14 +295,19 @@ pacote = {
             "energia": "data/panorama/panorama.json, tabela ccee — parcelas de carga da CCEE em Goiás",
         },
         "chave_de_ligacao": "CNPJ raiz do agente da CCEE contra o CNPJ raiz do titular da base de produção. Nome não é chave.",
+        "rateio": ("Quando a empresa move mais de um mineral, a curadoria declara como separar a carga: por ramo de atividade, por município, "
+                   "pelos dois, ou 'nao_separavel' quando a fonte não permite separar. O rateio usa a declaração da própria CCEE."),
         "periodo_ccee": panorama["meta"]["periods"]["ccee"],
         "avisos": [
             "Energia e produção vêm de fontes diferentes, com cobertura diferente, e por isso a linha declara os meses observados de cada lado.",
             "Anualização é pro rata: soma observada ÷ meses observados × 12. É estimativa, não medição, e a qualidade da linha diz o quanto.",
             "Semestre e trimestre que se sobrepõem nunca somam; linha de planta isolada não entra no total da empresa.",
             "O coeficiente sai na unidade em que a empresa publica (kWh/t, kWh/oz). Nada é convertido entre unidades.",
-            "Com mais de um mineral atrás da mesma carga, a energia NÃO é rateada: o coeficiente sai com energia_exclusiva=false e é a energia "
-            "inteira da empresa por unidade daquele mineral.",
+            "Com mais de um mineral atrás da mesma carga, a separação usa o que a CCEE já declara — ramo de atividade e município —, nunca uma "
+            "proporção arbitrada. Quando nem ramo nem município separam (co-produtos da mesma usina), nada é rateado: o coeficiente sai com "
+            "energia_exclusiva=false e é a energia inteira da operação por unidade daquele mineral.",
+            "As notas de energia trazem o que a empresa publica sobre o próprio consumo, e o campo 'efeito' diz se aquilo faz a carga da CCEE "
+            "subestimar ou superestimar o consumo real — autogeração, por exemplo, não passa pela CCEE.",
             "A carga da CCEE é do agente, não da planta: pode incluir uso administrativo e não inclui autoprodução nem geração própria.",
             "Nenhum número de produção foi conferido no documento de origem (ver data/producao/README.md): a linha herda essa limitação.",
         ],
@@ -243,7 +328,8 @@ print(f"produção anualizada de parciais: {sum(1 for l in linhas if l['producao
 print(f"coeficiente com energia exclusiva: {sum(1 for l in com_coef if l['coeficiente']['energia_exclusiva'])} de {len(com_coef)}")
 for linha in sorted(com_coef, key=lambda l: (l["empresa"], l["ano"], l["mineral"])):
     coef, prod, ener = linha["coeficiente"], linha["producao"], linha["energia"]
-    marca = "" if coef["energia_exclusiva"] else "  [energia não exclusiva]"
+    marca = f'  [rateio por {coef["base_do_rateio"]}]' if coef["energia_exclusiva"] and coef["base_do_rateio"] != "carga_total" \
+        else "" if coef["energia_exclusiva"] else "  [energia não exclusiva]"
     print(f"  {linha['grupo'].split(' (')[0][:26]:<28}{linha['ano']} {linha['mineral']:<22} "
           f"{prod['valor']:>12,.0f} {prod['unidade']:<3} ({prod['origem'][:9]}) · "
           f"{ener['mwh_anualizado']:>11,.0f} MWh/ano ({ener['meses_observados']}m) · "

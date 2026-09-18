@@ -8,6 +8,7 @@
    "energia": "data/panorama/panorama.json, tabela ccee — parcelas de carga da CCEE em Goiás"
   },
   "chave_de_ligacao": "CNPJ raiz do agente da CCEE contra o CNPJ raiz do titular da base de produção. Nome não é chave.",
+  "rateio": "Quando a empresa move mais de um mineral, a curadoria declara como separar a carga: por ramo de atividade, por município, pelos dois, ou 'nao_separavel' quando a fonte não permite separar. O rateio usa a declaração da própria CCEE.",
   "periodo_ccee": [
    202408,
    202607
@@ -17,7 +18,8 @@
    "Anualização é pro rata: soma observada ÷ meses observados × 12. É estimativa, não medição, e a qualidade da linha diz o quanto.",
    "Semestre e trimestre que se sobrepõem nunca somam; linha de planta isolada não entra no total da empresa.",
    "O coeficiente sai na unidade em que a empresa publica (kWh/t, kWh/oz). Nada é convertido entre unidades.",
-   "Com mais de um mineral atrás da mesma carga, a energia NÃO é rateada: o coeficiente sai com energia_exclusiva=false e é a energia inteira da empresa por unidade daquele mineral.",
+   "Com mais de um mineral atrás da mesma carga, a separação usa o que a CCEE já declara — ramo de atividade e município —, nunca uma proporção arbitrada. Quando nem ramo nem município separam (co-produtos da mesma usina), nada é rateado: o coeficiente sai com energia_exclusiva=false e é a energia inteira da operação por unidade daquele mineral.",
+   "As notas de energia trazem o que a empresa publica sobre o próprio consumo, e o campo 'efeito' diz se aquilo faz a carga da CCEE subestimar ou superestimar o consumo real — autogeração, por exemplo, não passa pela CCEE.",
    "A carga da CCEE é do agente, não da planta: pode incluir uso administrativo e não inclui autoprodução nem geração própria.",
    "Nenhum número de produção foi conferido no documento de origem (ver data/producao/README.md): a linha herda essa limitação."
   ]
@@ -34,6 +36,14 @@
    "nome_ccee": "AMARILLO MINERACAO DO BRASIL LTDA",
    "ano": 2024,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 63770,
     "unidade": "oz",
@@ -70,12 +80,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 36306.873,
+    "mwh_empresa_anualizado": 108920.619,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 1708.023,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
@@ -93,6 +108,14 @@
    "nome_ccee": "AMARILLO MINERACAO DO BRASIL LTDA",
    "ano": 2025,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 23082.0,
     "unidade": "oz",
@@ -135,12 +158,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 39065.101,
+    "mwh_empresa_anualizado": 66968.745,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 2901.341,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
@@ -158,6 +186,14 @@
    "nome_ccee": "AMARILLO MINERACAO DO BRASIL LTDA",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 59445.817,
@@ -182,7 +218,11 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 59445.817,
+    "mwh_empresa_anualizado": 101907.115,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -199,6 +239,20 @@
    "nome_ccee": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "ano": 2023,
    "mineral": "Níquel",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Níquel); não há o que ratear."
+   },
+   "notas_energia": [
+    {
+     "texto": "Barro Alto opera dois fornos elétricos retangulares de 83 MW pela rota RKEF, mais intensiva em energia que a HPAL. Os 166 MW de placa dão cerca de 1,45 TWh/ano em regime contínuo, o que é a mesma ordem de grandeza da carga anualizada da unidade na CCEE — uma conferência independente do número.",
+     "fonte": "https://www.angloamerican.com/our-stories/innovation-and-technology/mine-profile-barro-alto",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 40000,
     "unidade": "t",
@@ -231,6 +285,20 @@
    "nome_ccee": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "ano": 2024,
    "mineral": "Níquel",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Níquel); não há o que ratear."
+   },
+   "notas_energia": [
+    {
+     "texto": "Barro Alto opera dois fornos elétricos retangulares de 83 MW pela rota RKEF, mais intensiva em energia que a HPAL. Os 166 MW de placa dão cerca de 1,45 TWh/ano em regime contínuo, o que é a mesma ordem de grandeza da carga anualizada da unidade na CCEE — uma conferência independente do número.",
+     "fonte": "https://www.angloamerican.com/our-stories/innovation-and-technology/mine-profile-barro-alto",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 39400,
     "unidade": "t",
@@ -268,12 +336,17 @@
     ],
     "ramos_ccee": [
      "METALURGIA E PRODUTOS DE METAL"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 609085.52,
+    "mwh_empresa_anualizado": 1827256.56,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 46377.07,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Níquel"
     ],
@@ -292,6 +365,20 @@
    "nome_ccee": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "ano": 2025,
    "mineral": "Níquel",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Níquel); não há o que ratear."
+   },
+   "notas_energia": [
+    {
+     "texto": "Barro Alto opera dois fornos elétricos retangulares de 83 MW pela rota RKEF, mais intensiva em energia que a HPAL. Os 166 MW de placa dão cerca de 1,45 TWh/ano em regime contínuo, o que é a mesma ordem de grandeza da carga anualizada da unidade na CCEE — uma conferência independente do número.",
+     "fonte": "https://www.angloamerican.com/our-stories/innovation-and-technology/mine-profile-barro-alto",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 39700,
     "unidade": "t",
@@ -332,12 +419,17 @@
     ],
     "ramos_ccee": [
      "METALURGIA E PRODUTOS DE METAL"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 1041681.992,
+    "mwh_empresa_anualizado": 1785740.558,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 44980.87,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Níquel"
     ],
@@ -356,6 +448,20 @@
    "nome_ccee": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "ano": 2026,
    "mineral": "Níquel",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Níquel); não há o que ratear."
+   },
+   "notas_energia": [
+    {
+     "texto": "Barro Alto opera dois fornos elétricos retangulares de 83 MW pela rota RKEF, mais intensiva em energia que a HPAL. Os 166 MW de placa dão cerca de 1,45 TWh/ano em regime contínuo, o que é a mesma ordem de grandeza da carga anualizada da unidade na CCEE — uma conferência independente do número.",
+     "fonte": "https://www.angloamerican.com/our-stories/innovation-and-technology/mine-profile-barro-alto",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 36400.0,
     "unidade": "t",
@@ -397,12 +503,17 @@
     ],
     "ramos_ccee": [
      "METALURGIA E PRODUTOS DE METAL"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 996418.622,
+    "mwh_empresa_anualizado": 1708146.209,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 46927.094,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Níquel"
     ],
@@ -422,6 +533,14 @@
    "nome_ccee": "BRASIL MINERIOS S/A",
    "ano": 2024,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Vermiculita e Perlita); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 1385.24,
@@ -443,7 +562,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 1385.24,
+    "mwh_empresa_anualizado": 4155.72,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -461,6 +584,14 @@
    "nome_ccee": "BRASIL MINERIOS S/A",
    "ano": 2025,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Vermiculita e Perlita); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 1954.145,
@@ -485,7 +616,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 1954.145,
+    "mwh_empresa_anualizado": 3349.963,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -503,6 +638,14 @@
    "nome_ccee": "BRASIL MINERIOS S/A",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Vermiculita e Perlita); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 2440.532,
@@ -527,7 +670,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 2440.532,
+    "mwh_empresa_anualizado": 4183.769,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -544,6 +691,26 @@
    "nome_ccee": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "ano": 2023,
    "mineral": "Nióbio",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "ramo",
+    "nota": "A carga da CMOC na CCEE vem declarada em três ramos: extração de minerais metálicos (mina de nióbio, em Catalão e Ouvidor), metalurgia (planta de ferronióbio, em Ouvidor) e minerais não-metálicos (fosfato, em Ouvidor). O ramo separa os dois negócios sem precisar de rateio arbitrário, porque nióbio é substância metálica e fosfato não é."
+   },
+   "notas_energia": [
+    {
+     "texto": "A companhia informa que 35% da energia elétrica das operações da Copebras em Catalão e Ouvidor — o negócio de fosfato — é gerada internamente. Essa parcela NÃO passa pela CCEE, então a carga aqui subestima o consumo real do fosfato. O nióbio não tem autogeração declarada.",
+     "fonte": "https://ibram.org.br/noticia/cmoc-brasil-utiliza-fontes-alternativas-de-energia/",
+     "efeito": "subestima"
+    },
+    {
+     "texto": "Relatório de Sustentabilidade de 2025: 74,7% da energia consumida veio de fontes renováveis e a companhia zerou as emissões de Escopo 2 comprando certificados I-REC. A empresa não publica consumo em MWh por operação.",
+     "fonte": "https://sustentabilidade.cmocbrasil.com/",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 9515,
     "unidade": "t",
@@ -576,6 +743,26 @@
    "nome_ccee": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "ano": 2024,
    "mineral": "Nióbio",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "ramo",
+    "nota": "A carga da CMOC na CCEE vem declarada em três ramos: extração de minerais metálicos (mina de nióbio, em Catalão e Ouvidor), metalurgia (planta de ferronióbio, em Ouvidor) e minerais não-metálicos (fosfato, em Ouvidor). O ramo separa os dois negócios sem precisar de rateio arbitrário, porque nióbio é substância metálica e fosfato não é."
+   },
+   "notas_energia": [
+    {
+     "texto": "A companhia informa que 35% da energia elétrica das operações da Copebras em Catalão e Ouvidor — o negócio de fosfato — é gerada internamente. Essa parcela NÃO passa pela CCEE, então a carga aqui subestima o consumo real do fosfato. O nióbio não tem autogeração declarada.",
+     "fonte": "https://ibram.org.br/noticia/cmoc-brasil-utiliza-fontes-alternativas-de-energia/",
+     "efeito": "subestima"
+    },
+    {
+     "texto": "Relatório de Sustentabilidade de 2025: 74,7% da energia consumida veio de fontes renováveis e a companhia zerou as emissões de Escopo 2 comprando certificados I-REC. A empresa não publica consumo em MWh por operação.",
+     "fonte": "https://sustentabilidade.cmocbrasil.com/",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 10024,
     "unidade": "t",
@@ -593,11 +780,11 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 105076.844,
-    "mwh_anualizado": 315230.532,
-    "acl_mwh_observado": 105076.844,
+    "mwh_observado": 41057.824,
+    "mwh_anualizado": 123173.472,
+    "acl_mwh_observado": 41057.824,
     "cativo_mwh_observado": 0.0,
-    "capacidade_mw": 28.5,
+    "capacidade_mw": 16.45,
     "meses_observados": 4,
     "meses": [
      8,
@@ -613,14 +800,18 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS",
-     "METALURGIA E PRODUTOS DE METAL",
-     "MINERAIS NÃO-METÁLICOS"
-    ]
+     "METALURGIA E PRODUTOS DE METAL"
+    ],
+    "base_do_rateio": "ramo",
+    "mwh_empresa_observado": 105076.844,
+    "mwh_empresa_anualizado": 315230.532,
+    "parcela_da_empresa": 0.3907
    },
    "coeficiente": {
-    "valor": 31447.579,
+    "valor": 12287.856,
     "unidade": "kWh/t",
-    "energia_exclusiva": false,
+    "energia_exclusiva": true,
+    "base_do_rateio": "ramo",
     "minerais_na_carga": [
      "Nióbio",
      "Fosfato"
@@ -640,6 +831,26 @@
    "nome_ccee": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "ano": 2025,
    "mineral": "Nióbio",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "ramo",
+    "nota": "A carga da CMOC na CCEE vem declarada em três ramos: extração de minerais metálicos (mina de nióbio, em Catalão e Ouvidor), metalurgia (planta de ferronióbio, em Ouvidor) e minerais não-metálicos (fosfato, em Ouvidor). O ramo separa os dois negócios sem precisar de rateio arbitrário, porque nióbio é substância metálica e fosfato não é."
+   },
+   "notas_energia": [
+    {
+     "texto": "A companhia informa que 35% da energia elétrica das operações da Copebras em Catalão e Ouvidor — o negócio de fosfato — é gerada internamente. Essa parcela NÃO passa pela CCEE, então a carga aqui subestima o consumo real do fosfato. O nióbio não tem autogeração declarada.",
+     "fonte": "https://ibram.org.br/noticia/cmoc-brasil-utiliza-fontes-alternativas-de-energia/",
+     "efeito": "subestima"
+    },
+    {
+     "texto": "Relatório de Sustentabilidade de 2025: 74,7% da energia consumida veio de fontes renováveis e a companhia zerou as emissões de Escopo 2 comprando certificados I-REC. A empresa não publica consumo em MWh por operação.",
+     "fonte": "https://sustentabilidade.cmocbrasil.com/",
+     "efeito": "contexto"
+    }
+   ],
    "producao": {
     "valor": 10348,
     "unidade": "t",
@@ -657,11 +868,11 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 167907.487,
-    "mwh_anualizado": 287841.406,
-    "acl_mwh_observado": 167907.487,
+    "mwh_observado": 71734.937,
+    "mwh_anualizado": 122974.178,
+    "acl_mwh_observado": 71734.937,
     "cativo_mwh_observado": 0.0,
-    "capacidade_mw": 28.5,
+    "capacidade_mw": 16.45,
     "meses_observados": 7,
     "meses": [
      6,
@@ -680,14 +891,18 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS",
-     "METALURGIA E PRODUTOS DE METAL",
-     "MINERAIS NÃO-METÁLICOS"
-    ]
+     "METALURGIA E PRODUTOS DE METAL"
+    ],
+    "base_do_rateio": "ramo",
+    "mwh_empresa_observado": 167907.487,
+    "mwh_empresa_anualizado": 287841.406,
+    "parcela_da_empresa": 0.4272
    },
    "coeficiente": {
-    "valor": 27816.139,
+    "valor": 11883.859,
     "unidade": "kWh/t",
-    "energia_exclusiva": false,
+    "energia_exclusiva": true,
+    "base_do_rateio": "ramo",
     "minerais_na_carga": [
      "Nióbio",
      "Fosfato"
@@ -707,6 +922,26 @@
    "nome_ccee": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "ramo",
+    "nota": "A carga da CMOC na CCEE vem declarada em três ramos: extração de minerais metálicos (mina de nióbio, em Catalão e Ouvidor), metalurgia (planta de ferronióbio, em Ouvidor) e minerais não-metálicos (fosfato, em Ouvidor). O ramo separa os dois negócios sem precisar de rateio arbitrário, porque nióbio é substância metálica e fosfato não é."
+   },
+   "notas_energia": [
+    {
+     "texto": "A companhia informa que 35% da energia elétrica das operações da Copebras em Catalão e Ouvidor — o negócio de fosfato — é gerada internamente. Essa parcela NÃO passa pela CCEE, então a carga aqui subestima o consumo real do fosfato. O nióbio não tem autogeração declarada.",
+     "fonte": "https://ibram.org.br/noticia/cmoc-brasil-utiliza-fontes-alternativas-de-energia/",
+     "efeito": "subestima"
+    },
+    {
+     "texto": "Relatório de Sustentabilidade de 2025: 74,7% da energia consumida veio de fontes renováveis e a companhia zerou as emissões de Escopo 2 comprando certificados I-REC. A empresa não publica consumo em MWh por operação.",
+     "fonte": "https://sustentabilidade.cmocbrasil.com/",
+     "efeito": "contexto"
+    }
+   ],
    "producao": null,
    "energia": {
     "mwh_observado": 176034.393,
@@ -734,7 +969,11 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS",
      "METALURGIA E PRODUTOS DE METAL",
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 176034.393,
+    "mwh_empresa_anualizado": 301773.245,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -750,6 +989,12 @@
    "nome_ccee": null,
    "ano": 2024,
    "mineral": "Alumínio (Bauxita)",
+   "minerais_na_carga_ccee": [],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 576000,
     "unidade": "t",
@@ -782,6 +1027,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2022,
    "mineral": "Cobre",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 45739,
     "unidade": "t",
@@ -814,6 +1074,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2022,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 68000,
     "unidade": "oz",
@@ -846,6 +1121,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2023,
    "mineral": "Cobre",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 45719,
     "unidade": "t",
@@ -878,6 +1168,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2023,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 59268,
     "unidade": "oz",
@@ -910,6 +1215,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2024,
    "mineral": "Cobre",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 43261,
     "unidade": "t",
@@ -946,12 +1266,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 116648.139,
+    "mwh_empresa_anualizado": 349944.417,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 8089.143,
     "unidade": "kWh/t",
     "energia_exclusiva": false,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Cobre",
      "Ouro"
@@ -971,6 +1296,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2024,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 65000,
     "unidade": "oz",
@@ -1007,12 +1347,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 116648.139,
+    "mwh_empresa_anualizado": 349944.417,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 5383.76,
     "unidade": "kWh/oz",
     "energia_exclusiva": false,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Cobre",
      "Ouro"
@@ -1032,6 +1377,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2025,
    "mineral": "Cobre",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 43974,
     "unidade": "t",
@@ -1071,12 +1431,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 214271.855,
+    "mwh_empresa_anualizado": 367323.18,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 8353.19,
     "unidade": "kWh/t",
     "energia_exclusiva": false,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Cobre",
      "Ouro"
@@ -1096,6 +1461,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2025,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": {
     "valor": 61877.333,
     "unidade": "oz",
@@ -1140,12 +1520,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 214271.855,
+    "mwh_empresa_anualizado": 367323.18,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 5936.312,
     "unidade": "kWh/oz",
     "energia_exclusiva": false,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Cobre",
      "Ouro"
@@ -1165,6 +1550,21 @@
    "nome_ccee": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "nao_separavel",
+    "nota": "Cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município (Alto Horizonte) e sob o mesmo ramo da CCEE. Nem o município nem o ramo separam a carga. Separar exigiria um critério de alocação entre co-produtos — por receita ou por valor do metal contido —, que é convenção de inventário e não medição, e por isso não foi aplicado. O coeficiente de cada metal carrega a energia inteira da operação."
+   },
+   "notas_energia": [
+    {
+     "texto": "A Lundin publica consumo de energia consolidado no Relatório de Sustentabilidade, sem abrir por operação nem por metal. Não foi possível obter um número de Chapada para conferir a carga da CCEE nem para alocar entre cobre e ouro.",
+     "fonte": "https://lundinmining.com/_resources/sustainability/reports/2024-sustainability-report-lundin-mining.pdf",
+     "efeito": "nao_encontrado"
+    }
+   ],
    "producao": null,
    "energia": {
     "mwh_observado": 214719.275,
@@ -1189,7 +1589,11 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 214719.275,
+    "mwh_empresa_anualizado": 368090.186,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1205,6 +1609,14 @@
    "nome_ccee": "MINERACAO SERRA GRANDE S A",
    "ano": 2022,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 88000,
     "unidade": "oz",
@@ -1236,6 +1648,14 @@
    "nome_ccee": "MINERACAO SERRA GRANDE S A",
    "ano": 2023,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 86000,
     "unidade": "oz",
@@ -1267,6 +1687,14 @@
    "nome_ccee": "MINERACAO SERRA GRANDE S A",
    "ano": 2024,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 80000,
     "unidade": "oz",
@@ -1303,12 +1731,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 41368.575,
+    "mwh_empresa_anualizado": 124105.725,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 1551.322,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
@@ -1326,6 +1759,14 @@
    "nome_ccee": "MINERACAO SERRA GRANDE S A",
    "ano": 2025,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 62000.0,
     "unidade": "oz",
@@ -1368,12 +1809,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 66762.631,
+    "mwh_empresa_anualizado": 114450.225,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 1845.971,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
@@ -1391,6 +1837,14 @@
    "nome_ccee": "MINERACAO SERRA GRANDE S A",
    "ano": 2026,
    "mineral": "Ouro",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Ouro); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 31560.0,
     "unidade": "oz",
@@ -1433,12 +1887,17 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 67246.939,
+    "mwh_empresa_anualizado": 115280.467,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 3652.74,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
@@ -1457,6 +1916,14 @@
    "nome_ccee": "MOSAIC FERTILIZANTES P&K LTDA.",
    "ano": 2024,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Fosfato); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 49122.915,
@@ -1478,7 +1945,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 49122.915,
+    "mwh_empresa_anualizado": 147368.745,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1495,6 +1966,14 @@
    "nome_ccee": "MOSAIC FERTILIZANTES P&K LTDA.",
    "ano": 2025,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Fosfato); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 77310.654,
@@ -1519,7 +1998,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 77310.654,
+    "mwh_empresa_anualizado": 132532.55,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1536,6 +2019,14 @@
    "nome_ccee": "MOSAIC FERTILIZANTES P&K LTDA.",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Fosfato); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 58062.54,
@@ -1560,7 +2051,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 58062.54,
+    "mwh_empresa_anualizado": 99535.783,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1576,6 +2071,14 @@
    "nome_ccee": "SAMA MINERACOES LTDA",
    "ano": 2024,
    "mineral": "Amianto",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Amianto); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": {
     "valor": 167000,
     "unidade": "t",
@@ -1612,12 +2115,17 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 17691.894,
+    "mwh_empresa_anualizado": 53075.682,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": {
     "valor": 317.818,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Amianto"
     ],
@@ -1635,6 +2143,14 @@
    "nome_ccee": "SAMA MINERACOES LTDA",
    "ano": 2025,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Amianto); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 33297.744,
@@ -1659,7 +2175,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 33297.744,
+    "mwh_empresa_anualizado": 57081.847,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1675,6 +2195,14 @@
    "nome_ccee": "SAMA MINERACOES LTDA",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Amianto); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 27720.632,
@@ -1699,7 +2227,11 @@
     ],
     "ramos_ccee": [
      "MINERAIS NÃO-METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 27720.632,
+    "mwh_empresa_anualizado": 47521.083,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1715,6 +2247,14 @@
    "nome_ccee": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "ano": 2024,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Monazita e Terras-Raras); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 3689.638,
@@ -1736,7 +2276,11 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 3689.638,
+    "mwh_empresa_anualizado": 11068.914,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1752,6 +2296,14 @@
    "nome_ccee": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "ano": 2025,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Monazita e Terras-Raras); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 3702.19,
@@ -1776,7 +2328,11 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 3702.19,
+    "mwh_empresa_anualizado": 6346.611,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
@@ -1792,6 +2348,14 @@
    "nome_ccee": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "ano": 2026,
    "mineral": null,
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
+   "rateio_ccee": {
+    "criterio": "unico",
+    "nota": "A carga da empresa em Goiás corresponde a uma operação de um mineral só (Monazita e Terras-Raras); não há o que ratear."
+   },
+   "notas_energia": [],
    "producao": null,
    "energia": {
     "mwh_observado": 3397.898,
@@ -1816,7 +2380,11 @@
     ],
     "ramos_ccee": [
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
-    ]
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 3397.898,
+    "mwh_empresa_anualizado": 5824.968,
+    "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
    "sem_coeficiente": "a empresa tem carga de energia no ano, mas nenhuma produção declarada no recorte de Goiás para esse ano"
