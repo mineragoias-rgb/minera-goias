@@ -17,7 +17,7 @@ acompanhados da proveniência sem a qual o número não significa nada aqui:
 
 | Campo | Para quê |
 |---|---|
-| `medida` | O que o número mede: `minerio_rom`, `contido`, `metal_em_concentrado`, `produto_acabado`, `embarque`, `capacidade`, `meta` |
+| `medida` | O que o número mede: `minerio_rom`, `contido`, `metal_em_concentrado`, `produto_acabado`, `embarque`, `venda`, `capacidade`, `meta` |
 | `escopo` | `operacao_goias`, `consolidado_brasil` ou `consolidado_global` |
 | `tipo_valor` | `realizado`, `guidance`, `capacidade` ou `meta` |
 | `periodo` / `periodo_tipo` | `2025`, `2025-S1`, `2025-Q3` — e o que essa marca significa |
@@ -35,8 +35,13 @@ definição, não conversão. Ouro em onça nunca vira ouro em quilo.
 **Consolidado não é Goiás.** Os 4,2 Mt de rocha fosfática da Mosaic e o 1,21 Mt de fertilizantes da CMOC agregam unidades fora do estado, e
 estão marcados `consolidado_brasil` justamente para não serem somados ao estado.
 
-**Embarque não é produção.** As 169 mil t de crisotila da SAMA e as 678 t de terras raras da Serra Verde são volume embarcado: pode sair de
-estoque e pode deixar produção em pátio.
+**Embarque e venda não são produção.** As 169 mil t de crisotila da SAMA e as 678 t de terras raras da Serra Verde são volume embarcado; as
+5.462 t de nióbio da CMOC no 1S25 são volume vendido — e são mais do que as 5.231 t que a mesma empresa produziu no semestre, porque a diferença
+saiu de estoque. Embarque e venda podem sair de estoque e podem deixar produção em pátio.
+
+**A regra de corte do produto.** Entra o que sai do minério da própria empresa até o primeiro produto metalúrgico ou químico: minério,
+concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. O passo seguinte — alumínio primário e transformados —
+fica fora, porque já mistura insumo de terceiros e importado.
 
 **Capacidade e meta não são realização.** Os 80.000 t/ano da Brasil Minérios e os 6.400 t de TREO da Serra Verde são projeto, não produção.
 
@@ -64,9 +69,11 @@ panorama usam. Quem quiser a visão do estado por substância vai lá — não a
 
 - **Nenhuma linha foi lida no documento original.** A coleta saiu de busca na web, num ambiente cujo proxy de egresso bloqueia os sites de RI.
   `fonte_url` é o endereço que a busca atribuiu ao número. Conferir cada um é a primeira tarefa do agente semanal, que roda na VPS com rede.
-- **Cobertura parcial.** Dez empresas, as de maior CFEM do estado. Calcário, brita, areia e água mineral — muitos titulares, nenhum com
-  publicação de volume — ficaram de fora.
+- **Cobertura parcial.** 68 registros de dez empresas, as de maior CFEM do estado, cobrindo 2022 a 2027 (realizado, guidance, capacidade e
+  meta). Calcário, brita, areia e água mineral — muitos titulares, nenhum com publicação de volume — ficaram de fora.
+- **A série de cada empresa tem densidade diferente.** Chapada e CMOC têm ano e trimestre desde 2022; Mara Rosa só existe desde 2024; a Serra
+  Verde era fechada e não publicava volume, então o que há dela é embarque noticiado.
 - **Buracos conhecidos**, já marcados nas observações: ouro anual de Chapada em 2025, realizado anual de Mara Rosa em 2025, bauxita de Barro
-  Alto em 2025.
+  Alto em 2025 e produção (não embarque) da Serra Verde em qualquer ano.
 - **Mudança de controle no meio da série.** Serra Grande passou da AngloGold à Aura em 12/2025; a Serra Verde foi comprada pela USA Rare Earth
   em 04/2026; o níquel da Anglo American está em venda à MMG. Antes de montar série histórica, confira o operador do período.

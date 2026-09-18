@@ -37,7 +37,7 @@ SAIDA = Path(args.saida) if args.saida else REPO / "data" / "producao"
 
 VERSAO = "v1"
 UNIDADES = {"t", "kg", "g", "oz", "m3", "l", "ct", "m2"}
-MEDIDAS = {"minerio_rom", "contido", "metal_em_concentrado", "produto_acabado", "embarque", "capacidade", "meta"}
+MEDIDAS = {"minerio_rom", "contido", "metal_em_concentrado", "produto_acabado", "embarque", "venda", "capacidade", "meta"}
 ESCOPOS = {"operacao_goias", "consolidado_brasil", "consolidado_global"}
 TIPOS = {"realizado", "guidance", "capacidade", "meta"}
 PERIODOS = {"ano", "semestre", "trimestre", "mes"}
@@ -138,7 +138,8 @@ pacote = {
             "Nada é convertido entre unidades. Onça troy (oz), tonelada (t) e quilo (kg) convivem sem fator de conversão.",
             "Trimestres e semestres NÃO somam para formar o ano: a empresa pode revisar o número no fechamento.",
             "Escopo 'consolidado_brasil' e 'consolidado_global' NÃO são produção de Goiás e não podem ser agregados ao estado.",
-            "'embarque', 'capacidade' e 'meta' não são produção realizada e não entram em série de produção.",
+            "'embarque', 'venda', 'capacidade' e 'meta' não são produção realizada e não entram em série de produção: "
+            "embarque e venda podem sair de estoque e deixar produção em pátio.",
             "Estatística da ANM não entra nesta base e não deve ser somada nem comparada linha a linha com estes números.",
         ],
     },

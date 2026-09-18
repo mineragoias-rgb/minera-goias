@@ -50,15 +50,16 @@ class BaseCuradaTests(unittest.TestCase):
                 self.assertNotEqual(registro['tipo_valor'], 'realizado',
                                     f"{registro['id']}: {registro['medida']} não pode valer como produção realizada")
 
-    def test_embarque_e_realizacao_mas_nunca_producao(self):
-        """Um embarque que aconteceu é 'realizado' — quem diz que ele não é produção é a 'medida', e isso tem de estar escrito."""
-        embarques = [r for r in PACOTE['registros'] if r['medida'] == 'embarque']
-        self.assertTrue(embarques, 'a base tem números de embarque e eles precisam continuar marcados como tal')
-        for registro in embarques:
+    def test_embarque_e_venda_sao_realizacao_mas_nunca_producao(self):
+        """Um embarque ou uma venda que aconteceram são 'realizado' — quem diz que não são produção é a 'medida', e isso tem de estar escrito."""
+        escoamento = [r for r in PACOTE['registros'] if r['medida'] in ('embarque', 'venda')]
+        self.assertTrue(escoamento, 'a base tem números de embarque e venda e eles precisam continuar marcados como tais')
+        for registro in escoamento:
             self.assertTrue(registro['observacao'].strip(),
-                            f"{registro['id']}: embarque sem observação dizendo que não é produção de mina")
-        self.assertTrue(any('embarque' in aviso for aviso in PACOTE['meta']['avisos']),
-                        'o pacote precisa avisar que embarque não entra em série de produção')
+                            f"{registro['id']}: {registro['medida']} sem observação dizendo que não é produção de mina")
+        for termo in ('embarque', 'venda'):
+            self.assertTrue(any(termo in aviso for aviso in PACOTE['meta']['avisos']),
+                            f"o pacote precisa avisar que {termo} não entra em série de produção")
 
     def test_escopo_fora_de_goias_esta_marcado_e_e_minoria_identificavel(self):
         fora = [r for r in PACOTE['registros'] if r['escopo'] != 'operacao_goias']

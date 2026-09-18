@@ -40,8 +40,9 @@ declarado da fonte decide. Esse candidato sai marcado `ambigua_pelo_idioma`, e o
 | `novo` | Recorte que a base ainda não cobre — candidato a virar registro |
 | `sem_periodo` | O texto não disse o período, então não há o que confrontar |
 
-Quando o valor confere mas a **medida** não — um embarque confirmando um número de produção —, o veredito continua `confirma` e a medida da
-base viaja junto em `medida_base`, com `medida_confere = 0`.
+Quando o valor confere mas a **medida** não — um embarque ou uma venda confirmando um número de produção —, o veredito continua
+`confirma` e a medida da base viaja junto em `medida_base`, com `medida_confere = 0`. Isso importa: no 1S25 a CMOC produziu 5.231 t de nióbio e
+vendeu 5.462 t, e os dois números circulam nas mesmas matérias.
 
 ## As três lacunas que ele sabe apontar
 

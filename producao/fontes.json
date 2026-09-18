@@ -181,6 +181,18 @@
    "ptpa",
    "tpa"
   ],
+  "venda": [
+   "vendeu",
+   "vendidas",
+   "vendidos",
+   "vendas totalizaram",
+   "volume de vendas",
+   "comercializou",
+   "sold",
+   "sales totalled",
+   "sales totaled",
+   "sales volume"
+  ],
   "minerio_rom": [
    "rom",
    "run-of-mine",
@@ -351,6 +363,14 @@
    "origem": "manual",
    "descricao": "mineral, numero, unidade, palavra de producao — 'gold: 7,067 ounces produced'",
    "regex": "{MIN}[^.;]{0,40}?{NUM}\\s*{ESC}?\\s*{UNI}\\s+(?:produced|of production|were produced)"
+  },
+  {
+   "id": "P08",
+   "idioma": "pt",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "venda — 'vendeu 5.462 toneladas de niobio'",
+   "regex": "(?:vendeu|vendidas|vendidos|comercializou|vendas de)\\s+(?:cerca de\\s+)?{NUM}\\s*{ESC}?\\s*(?:de\\s+)?{UNI}\\s+de\\s+{MIN}"
   }
  ],
  "fontes": [

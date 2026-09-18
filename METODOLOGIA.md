@@ -29,7 +29,7 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 | Cadastro mineiro (shapefile) | Um polígono de um processo minerário | 17.428 polígonos em 16.656 processos | Data de extração não informada |
 | Rodadas de disponibilidade | Uma área oferecida em uma rodada | 31.841 no Brasil · **3.632 em Goiás** | Rodadas 1 a 8 |
 | Dicionário de substâncias | Uma substância da ANM | 862 | Sem data declarada |
-| Produção por empresa (`data/producao`) | Um número de produção publicado por uma fonte, para uma empresa, mineral, período e medida | 32 registros de 10 empresas | 2024–2027 (realizado, guidance, capacidade e meta) |
+| Produção por empresa (`data/producao`) | Um número de produção publicado por uma fonte, para uma empresa, mineral, período e medida | 68 registros de 10 empresas | 2022–2027 (realizado, guidance, capacidade e meta) |
 | Atlas (base consolidada do Squad 1, v17) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
@@ -95,10 +95,12 @@ Mede **o que a empresa publicou**, não o que a mina produziu — e a diferença
 
 Cada linha é um número de uma fonte, com quatro qualificadores obrigatórios, porque sem eles o número não é comparável com nenhum outro:
 
-- **`medida`** — `minerio_rom`, `contido`, `metal_em_concentrado`, `produto_acabado`, `embarque`, `capacidade` ou `meta`. Níquel contido em ferroníquel e níquel contido no minério lavrado são grandezas diferentes da mesma mina.
+- **`medida`** — `minerio_rom`, `contido`, `metal_em_concentrado`, `produto_acabado`, `embarque`, `venda`, `capacidade` ou `meta`. Níquel contido em ferroníquel e níquel contido no minério lavrado são grandezas diferentes da mesma mina.
 - **`escopo`** — `operacao_goias`, `consolidado_brasil` ou `consolidado_global`. Os 4,2 Mt de rocha fosfática da Mosaic e o 1,21 Mt de fertilizantes da CMOC são do Brasil, não de Goiás, e por isso não entram em nenhum total do estado.
 - **`tipo_valor`** — `realizado`, `guidance`, `capacidade` ou `meta`. Guidance carrega faixa (`valor`–`valor_max`) e nunca aparece como realização.
 - **`periodo`** — ano, semestre ou trimestre, lido da própria publicação.
+
+**Produção, embarque e venda são três números.** No 1S25 a CMOC produziu 5.231 t de nióbio e vendeu 5.462 t: a diferença saiu de estoque. Somar ou substituir um pelo outro inventa produção que não houve.
 
 **Nada é convertido e nada é somado.** Onça troy, tonelada e quilo convivem sem fator; `kt`, `Mt` e `koz` são lidos como prefixo da mesma grandeza, que é definição e não conversão. Trimestres publicados não somam para formar o ano: a empresa revisa número no fechamento.
 
@@ -127,7 +129,7 @@ Declarar isto é parte da metodologia.
 - **Intensidade energética por operação.** Os coeficientes do atlas são razões municipais — energia do município ÷ produção do município —, não medidas de planta.
 - **Projeções.** `tb_projecoes` está vazia. O motor da Squad 2 roda sobre dados sintéticos identificados como `estimated_demo` e não alimenta o portal.
 - **Série de energia no perfil municipal.** A base CCEE do banco é mensal e cobre todos os municípios; ligá-la ao perfil municipal é o caminho natural, e ainda não foi feito.
-- **Produção mineral física por empresa, medida e auditada.** A CFEM dá quantidade comercializada declarada para fins de arrecadação, que não equivale a produção. Desde 18/09/2026 há a base `data/producao`, que publica o que as próprias empresas declaram (§3.5) — mas ela é **o que foi publicado**, não o que foi medido: nenhuma linha foi conferida no documento de origem, a cobertura é de dez empresas e a série de cada operação tem buracos declarados. Não serve para fechar balanço de massa nem para calibrar intensidade energética por planta sem validação humana registro a registro.
+- **Produção mineral física por empresa, medida e auditada.** A CFEM dá quantidade comercializada declarada para fins de arrecadação, que não equivale a produção. Desde 18/09/2026 há a base `data/producao`, que publica o que as próprias empresas declaram (§3.5) — mas ela é **o que foi publicado**, não o que foi medido: nenhuma linha foi conferida no documento de origem, a cobertura é de dez empresas em 68 registros e a série de cada operação tem densidade e buracos declarados. Não serve para fechar balanço de massa nem para calibrar intensidade energética por planta sem validação humana registro a registro.
 
 ---
 
