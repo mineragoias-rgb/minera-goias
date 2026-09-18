@@ -91,8 +91,11 @@ for empresa in curada["empresas"]:
             "grupo": empresa["grupo"],
             "cnpj_raiz": empresa["cnpj_raiz"],
             "operacao": r.get("operacao_detalhe") or empresa["operacao"],
+            # Linha de uma planta isolada não pode ser somada com a linha da empresa: viraria dupla contagem.
+            "nivel": "operacao" if r.get("operacao_detalhe") else "empresa",
             "municipios": empresa["municipios"],
             "uf": empresa["uf"],
+            "minerais_na_carga_ccee": empresa["minerais_na_carga_ccee"],
             "mineral": MINERAIS[norm(r["mineral"])] if norm(r["mineral"]) in MINERAIS else r["mineral"],
             "produto": r["produto"],
             "valor": r["valor"],
@@ -150,7 +153,7 @@ with open(SAIDA / "producao.json", "w", encoding="utf-8", newline="\n") as f:
     json.dump(pacote, f, ensure_ascii=False, indent=1)
     f.write("\n")
 
-COLUNAS = ["id", "empresa", "grupo", "operacao", "municipios", "uf", "mineral", "produto", "valor", "valor_max",
+COLUNAS = ["id", "empresa", "grupo", "operacao", "nivel", "municipios", "uf", "mineral", "produto", "valor", "valor_max",
            "unidade", "medida", "periodo_tipo", "periodo", "escopo", "tipo_valor", "confianca", "fonte_nome",
            "fonte_url", "fonte_tipo", "coleta_metodo", "coleta_data", "status_validacao", "observacao"]
 with open(SAIDA / "producao.csv", "w", encoding="utf-8", newline="") as f:

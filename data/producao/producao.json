@@ -39,7 +39,8 @@
     "media": "Número apareceu em uma consulta, atribuído a documento primário ou a veículo especializado.",
     "baixa": "Número isolado, ou cuja atribuição de período/escopo ficou ambígua."
    },
-   "regra_de_corte": "Entra o produto cujo insumo é o minério da própria empresa, até o primeiro produto metalúrgico ou químico: minério, concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. Não entra o passo seguinte — alumínio primário e transformados —, que já mistura insumo de terceiros e importado."
+   "regra_de_corte": "Entra o produto cujo insumo é o minério da própria empresa, até o primeiro produto metalúrgico ou químico: minério, concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. Não entra o passo seguinte — alumínio primário e transformados —, que já mistura insumo de terceiros e importado.",
+   "minerais_na_carga_ccee": "Minerais cujas operações estão por trás da carga de energia daquela empresa em Goiás. Quando há mais de um, a energia NÃO é rateada entre eles e todo coeficiente calculado carrega a marca 'energia não exclusiva'. Lista vazia significa que a empresa não tem carga própria identificada na base CCEE do estado."
   },
   "limitacao_da_coleta": "Os registros desta versão foram levantados por busca na web a partir de um ambiente sem acesso de saída aos sites das empresas: o proxy de egresso bloqueou lundinmining.com, angloamerican.com, hochschildmining.com, cmocbrasil.com, ri.eternit.com.br, sec.gov e demais domínios de RI. Portanto NENHUMA linha foi lida no documento original — 'fonte_url' é o endereço que a busca atribuiu ao número, não um documento conferido. Todas nascem com status_validacao 'nao_validado'. O agente semanal roda na VPS, que tem rede aberta, e é ele quem confere cada número contra o documento.",
   "escopo_da_base": "Só números declarados pela própria empresa. Estatística de agência (ANM, SGB) não entra: o Anuário Mineral mede o contido no minério lavrado de um estado inteiro e a empresa publica o produto que saiu da planta — grandezas diferentes, que não se corrigem.",
@@ -59,11 +60,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 43974,
@@ -90,11 +96,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 12600,
@@ -121,11 +132,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 17864,
@@ -152,11 +168,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 17544,
@@ -183,11 +204,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 45000,
@@ -214,11 +240,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 43261,
@@ -245,11 +276,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 65000,
@@ -276,11 +312,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 45719,
@@ -307,11 +348,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 59268,
@@ -338,11 +384,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 45739,
@@ -369,11 +420,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 68000,
@@ -400,11 +456,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 8909,
@@ -431,11 +492,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 11000,
@@ -462,11 +528,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 11274,
@@ -493,11 +564,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 322326,
@@ -524,11 +600,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 141859,
@@ -555,11 +636,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "cobre em concentrado",
    "valor": 310000,
@@ -586,11 +672,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro em concentrado",
    "valor": 134000,
@@ -617,11 +708,16 @@
    "grupo": "Lundin Mining Corporation",
    "cnpj_raiz": "86902053",
    "operacao": "Chapada",
+   "nivel": "empresa",
    "municipios": [
     "Alto Horizonte",
     "Nova Iguaçu de Goiás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
    "mineral": "Cobre",
    "produto": "minério alimentado na usina",
    "valor": 24000000,
@@ -648,11 +744,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio (liga de ferronióbio e óxido)",
    "valor": 10348,
@@ -679,11 +780,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 5231,
@@ -710,11 +816,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 5082,
@@ -741,11 +852,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 1210000,
@@ -772,11 +888,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "ácido fosfórico",
    "valor": 136975,
@@ -803,11 +924,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 10024,
@@ -834,11 +960,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 9515,
@@ -865,11 +996,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 1180000,
@@ -896,11 +1032,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 1168222,
@@ -927,11 +1068,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 582621,
@@ -958,11 +1104,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 561543,
@@ -989,11 +1140,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 5462,
@@ -1020,11 +1176,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Nióbio",
    "produto": "nióbio",
    "valor": 5178,
@@ -1051,11 +1212,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 588775,
@@ -1082,11 +1248,16 @@
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
    "operacao": "Complexo de Catalão/Ouvidor (nióbio e fosfato) e Cubatão/SP (fosfatados)",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados",
    "valor": 538932,
@@ -1113,11 +1284,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 39700,
@@ -1144,11 +1319,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 39400,
@@ -1175,11 +1354,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto",
+   "nivel": "operacao",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 8400,
@@ -1206,11 +1389,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Codemin",
+   "nivel": "operacao",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 1900,
@@ -1237,11 +1424,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 40000,
@@ -1268,11 +1459,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 9100,
@@ -1299,11 +1494,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 9100,
@@ -1330,11 +1529,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 18200,
@@ -1361,11 +1564,15 @@
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
    "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto",
     "Niquelândia"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
    "mineral": "Níquel",
    "produto": "níquel contido em ferroníquel",
    "valor": 19300,
@@ -1392,10 +1599,14 @@
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
    "operacao": "Mina de Cana Brava",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
    "mineral": "Amianto",
    "produto": "fibra de crisotila",
    "valor": 169000,
@@ -1422,10 +1633,14 @@
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
    "operacao": "Mina de Cana Brava",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
    "mineral": "Amianto",
    "produto": "fibra de crisotila",
    "valor": 166800,
@@ -1452,10 +1667,14 @@
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
    "operacao": "Mina de Cana Brava",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
    "mineral": "Amianto",
    "produto": "fibra de crisotila",
    "valor": 190000,
@@ -1482,10 +1701,14 @@
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
    "operacao": "Mina de Cana Brava",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
    "mineral": "Amianto",
    "produto": "fibra de crisotila",
    "valor": 22000,
@@ -1512,10 +1735,14 @@
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
    "operacao": "Mina de Cana Brava",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
    "mineral": "Amianto",
    "produto": "fibra de crisotila",
    "valor": 167000,
@@ -1542,11 +1769,15 @@
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
    "operacao": "Complexo de Catalão/Ouvidor, entre outras unidades no Brasil",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "rocha fosfática",
    "valor": 4200000,
@@ -1573,11 +1804,15 @@
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
    "operacao": "Complexo de Catalão/Ouvidor, entre outras unidades no Brasil",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "fertilizantes fosfatados concentrados",
    "valor": 2600000,
@@ -1604,11 +1839,15 @@
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
    "operacao": "Complexo de Catalão/Ouvidor, entre outras unidades no Brasil",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "rocha fosfática",
    "valor": 4600000,
@@ -1635,11 +1874,15 @@
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
    "operacao": "Complexo de Catalão/Ouvidor, entre outras unidades no Brasil",
+   "nivel": "empresa",
    "municipios": [
     "Catalão",
     "Ouvidor"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
    "mineral": "Fosfato",
    "produto": "rocha fosfática",
    "valor": 3900000,
@@ -1666,10 +1909,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 7067,
@@ -1696,10 +1943,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 4474,
@@ -1726,10 +1977,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 35000,
@@ -1756,10 +2011,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 67000,
@@ -1786,10 +2045,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro equivalente (GEO)",
    "valor": 63770,
@@ -1816,10 +2079,14 @@
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
    "operacao": "Mara Rosa (depósito Posse)",
+   "nivel": "empresa",
    "municipios": [
     "Mara Rosa"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 25530,
@@ -1846,10 +2113,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 80000,
@@ -1876,10 +2147,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 16000,
@@ -1906,10 +2181,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 15000,
@@ -1936,10 +2215,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "minério alimentado na usina",
    "valor": 1550000,
@@ -1966,10 +2249,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 86000,
@@ -1996,10 +2283,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro",
    "valor": 88000,
@@ -2026,10 +2317,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro equivalente (GEO)",
    "valor": 8580,
@@ -2056,10 +2351,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro equivalente (GEO)",
    "valor": 7200,
@@ -2086,10 +2385,14 @@
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
    "operacao": "Mineração Serra Grande (MSG)",
+   "nivel": "empresa",
    "municipios": [
     "Crixás"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
    "mineral": "Ouro",
    "produto": "ouro equivalente (GEO)",
    "valor": 157574,
@@ -2116,10 +2419,14 @@
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
    "operacao": "Pela Ema (Fase I)",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
    "mineral": "Monazita e Terras-Raras",
    "produto": "terras raras (carbonato misto, MREC)",
    "valor": 678,
@@ -2146,10 +2453,14 @@
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
    "operacao": "Pela Ema (Fase I)",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
    "mineral": "Monazita e Terras-Raras",
    "produto": "óxido total de terras raras (TREO)",
    "valor": 6400,
@@ -2176,10 +2487,14 @@
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
    "operacao": "Pela Ema (Fase I)",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
    "mineral": "Monazita e Terras-Raras",
    "produto": "terras raras (carbonato misto, MREC)",
    "valor": 51,
@@ -2206,10 +2521,14 @@
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
    "operacao": "Pela Ema (Fase I)",
+   "nivel": "empresa",
    "municipios": [
     "Minaçu"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
    "mineral": "Monazita e Terras-Raras",
    "produto": "terras raras (carbonato misto, MREC)",
    "valor": 2,
@@ -2236,10 +2555,12 @@
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
    "operacao": "Unidade de bauxita de Barro Alto",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [],
    "mineral": "Alumínio (Bauxita)",
    "produto": "bauxita",
    "valor": 576000,
@@ -2266,10 +2587,12 @@
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
    "operacao": "Unidade de bauxita de Barro Alto",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [],
    "mineral": "Alumínio (Bauxita)",
    "produto": "bauxita",
    "valor": 2350000,
@@ -2296,10 +2619,12 @@
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
    "operacao": "Unidade de bauxita de Barro Alto",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [],
    "mineral": "Alumínio (Bauxita)",
    "produto": "bauxita",
    "valor": 1400000,
@@ -2326,10 +2651,12 @@
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
    "operacao": "Unidade de bauxita de Barro Alto",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [],
    "mineral": "Alumínio (Bauxita)",
    "produto": "bauxita beneficiada",
    "valor": 1999000,
@@ -2356,10 +2683,12 @@
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
    "operacao": "Unidade de bauxita de Barro Alto",
+   "nivel": "empresa",
    "municipios": [
     "Barro Alto"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [],
    "mineral": "Alumínio (Bauxita)",
    "produto": "óxido de alumínio (alumina)",
    "valor": 722000,
@@ -2386,12 +2715,16 @@
    "grupo": "Brasil Minérios S/A",
    "cnpj_raiz": "02683365",
    "operacao": "São Luís de Montes Belos",
+   "nivel": "operacao",
    "municipios": [
     "São Luís de Montes Belos",
     "Sanclerlândia",
     "Catalão"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
    "mineral": "Vermiculita e Perlita",
    "produto": "vermiculita",
    "valor": 80000,
@@ -2418,12 +2751,16 @@
    "grupo": "Brasil Minérios S/A",
    "cnpj_raiz": "02683365",
    "operacao": "Minas e usinas de vermiculita",
+   "nivel": "empresa",
    "municipios": [
     "São Luís de Montes Belos",
     "Sanclerlândia",
     "Catalão"
    ],
    "uf": "GO",
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
    "mineral": "Vermiculita e Perlita",
    "produto": "vermiculita",
    "valor": 100000,

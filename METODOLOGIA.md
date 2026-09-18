@@ -30,6 +30,7 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 | Rodadas de disponibilidade | Uma área oferecida em uma rodada | 31.841 no Brasil · **3.632 em Goiás** | Rodadas 1 a 8 |
 | Dicionário de substâncias | Uma substância da ANM | 862 | Sem data declarada |
 | Produção por empresa (`data/producao`) | Um número de produção publicado por uma fonte, para uma empresa, mineral, período e medida | 78 registros de 10 empresas | 2022–2027 (realizado, guidance, capacidade e meta) |
+| Empresas: produção × energia (`data/empresas`) | Uma empresa, um mineral e um ano, com produção anualizada, carga da CCEE anualizada e o coeficiente entre as duas | 38 linhas de 10 empresas | 2022–2026 |
 | Atlas (base consolidada do Squad 1, v17) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
@@ -110,7 +111,23 @@ Cada linha é um número de uma fonte, com quatro qualificadores obrigatórios, 
 
 **O agente semanal (`producao/agente.py`) não escreve na base.** Ele lê fontes públicas, extrai candidatos com a frase de evidência, confronta com a curadoria (`confirma`, `diverge`, `unidade_divergente`, `novo`, `sem_periodo`) e propõe crescimento da própria metodologia — padrão, unidade ou termo de mineral que faltaram. Promoção automática existe e nasce desligada. Quem promove candidato a registro assina em `responsavel_validacao`.
 
-### 3.6 Radar de notícias (protótipo)
+### 3.6 Empresas: produção, energia e coeficiente (`data/empresas`)
+
+Mede **a razão entre dois números publicados**, cada um com sua cobertura declarada. É a primeira intensidade energética deste projeto calculada por empresa, e não por município — o §4 registrava essa lacuna.
+
+**A ligação é o CNPJ raiz, não o nome.** A tabela `ccee` do panorama traz o CNPJ raiz do agente e a base de produção o do titular; nove das dez empresas casam. A CBA fica de fora porque sua unidade de bauxita em Barro Alto não aparece com carga própria sob o CNPJ raiz da companhia.
+
+**Anualização é pro rata e sai declarada.** A CCEE do repositório cobre quatro meses de 2024, sete de 2025 e sete de 2026; a produção nem sempre vem publicada como ano. Cada linha traz o observado e o anualizado lado a lado — `observado ÷ meses observados × 12` — com a qualidade da estimativa: `observado_completo` (doze meses), `estimado_alto` (nove a onze), `estimado_medio` (seis a oito) e `estimado_baixo` (menos de seis). O coeficiente herda a qualidade **do lado mais fraco**.
+
+**Períodos parciais não se sobrepõem.** Um S1 já contém Q1 e Q2, e somar os três daria um ano e meio dentro de um ano. Linha de planta isolada (Barro Alto e Codemin separados) também não entra no total da empresa.
+
+**O coeficiente é `energia (kWh) ÷ produção`, na unidade que a empresa publica** — kWh/t ou kWh/oz. Nada é convertido, e os dois grupos aparecem separados no painel porque não se comparam. Só entra produção realizada, do recorte de Goiás, no nível da empresa: embarque, venda, capacidade, meta e consolidado do Brasil ficam fora do numerador.
+
+**Energia de vários minerais não é rateada.** Chapada faz cobre e ouro do mesmo minério e da mesma usina; a CMOC move nióbio e fosfato em Catalão e Ouvidor. Nesses casos o coeficiente sai com `energia_exclusiva=false` e significa *toda a energia da empresa por unidade daquele mineral*. Cada empresa declara na curadoria quais minerais estão atrás da sua carga — o código não infere isso.
+
+As ordens de grandeza conferem com o processo de cada operação: ~45.000 kWh/t de níquel contido (ferroníquel em forno elétrico), ~8.350 kWh/t de cobre em concentrado, ~320 kWh/t de crisotila. O ~27.800 kWh/t de nióbio da CMOC é sabidamente superestimado, porque carrega a energia do fosfato junto — e está marcado como tal.
+
+### 3.7 Radar de notícias (protótipo)
 
 Mede **o que a imprensa está dizendo**, não preço.
 
@@ -126,7 +143,7 @@ Mede **o que a imprensa está dizendo**, não preço.
 Declarar isto é parte da metodologia.
 
 - **Consumo de energia da mineração em MWh.** Depende de um critério revisado para separar carga mineral das demais na base CCEE (§3.1).
-- **Intensidade energética por operação.** Os coeficientes do atlas são razões municipais — energia do município ÷ produção do município —, não medidas de planta.
+- **Intensidade energética medida na planta.** Os coeficientes do atlas são razões municipais — energia do município ÷ produção do município. Desde 18/09/2026, `data/empresas` calcula a razão **por empresa** (§3.6), o que é um passo mais perto da operação, mas ainda não é medição de planta: a carga é do agente da CCEE e pode incluir consumo administrativo, não inclui autoprodução, e quando a mesma carga move mais de um mineral ela não é rateada.
 - **Projeções.** `tb_projecoes` está vazia. O motor da Squad 2 roda sobre dados sintéticos identificados como `estimated_demo` e não alimenta o portal.
 - **Série de energia no perfil municipal.** A base CCEE do banco é mensal e cobre todos os municípios; ligá-la ao perfil municipal é o caminho natural, e ainda não foi feito.
 - **Produção mineral física por empresa, medida e auditada.** A CFEM dá quantidade comercializada declarada para fins de arrecadação, que não equivale a produção. Desde 18/09/2026 há a base `data/producao`, que publica o que as próprias empresas declaram (§3.5) — mas ela é **o que foi publicado**, não o que foi medido: nenhuma linha foi conferida no documento de origem, a cobertura é de dez empresas em 78 registros e a série de cada operação tem densidade e buracos declarados. Não serve para fechar balanço de massa nem para calibrar intensidade energética por planta sem validação humana registro a registro.

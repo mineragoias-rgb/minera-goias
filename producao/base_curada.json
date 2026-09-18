@@ -36,7 +36,8 @@
    "media": "Número apareceu em uma consulta, atribuído a documento primário ou a veículo especializado.",
    "baixa": "Número isolado, ou cuja atribuição de período/escopo ficou ambígua."
   },
-  "regra_de_corte": "Entra o produto cujo insumo é o minério da própria empresa, até o primeiro produto metalúrgico ou químico: minério, concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. Não entra o passo seguinte — alumínio primário e transformados —, que já mistura insumo de terceiros e importado."
+  "regra_de_corte": "Entra o produto cujo insumo é o minério da própria empresa, até o primeiro produto metalúrgico ou químico: minério, concentrado, ferroníquel, ferronióbio, alumina, ácido fosfórico, fertilizante, fibra. Não entra o passo seguinte — alumínio primário e transformados —, que já mistura insumo de terceiros e importado.",
+  "minerais_na_carga_ccee": "Minerais cujas operações estão por trás da carga de energia daquela empresa em Goiás. Quando há mais de um, a energia NÃO é rateada entre eles e todo coeficiente calculado carrega a marca 'energia não exclusiva'. Lista vazia significa que a empresa não tem carga própria identificada na base CCEE do estado."
  },
  "limitacao_da_coleta_v1": "Os registros desta versão foram levantados por busca na web a partir de um ambiente sem acesso de saída aos sites das empresas: o proxy de egresso bloqueou lundinmining.com, angloamerican.com, hochschildmining.com, cmocbrasil.com, ri.eternit.com.br, sec.gov e demais domínios de RI. Portanto NENHUMA linha foi lida no documento original — 'fonte_url' é o endereço que a busca atribuiu ao número, não um documento conferido. Todas nascem com status_validacao 'nao_validado'. O agente semanal roda na VPS, que tem rede aberta, e é ele quem confere cada número contra o documento.",
  "empresas": [
@@ -359,7 +360,12 @@
      "fonte_tipo": "imprensa_setorial",
      "observacao": "Capacidade de processamento da usina de Chapada, cerca de 24 milhões de t de minério por ano. A companhia projeta elevar a moagem a 34–36 Mt/ano ao longo do período de guidance."
     }
-   ]
+   ],
+   "minerais_na_carga_ccee": [
+    "Cobre",
+    "Ouro"
+   ],
+   "nota_carga_ccee": "Cobre e ouro são co-produtos do mesmo minério e da mesma usina: a energia não se separa entre eles."
   },
   {
    "grupo": "CMOC Group Limited",
@@ -613,7 +619,12 @@
      "fonte_tipo": "imprensa_setorial",
      "observacao": "VENDA, não produção. Publicado como base de comparação do 1S25."
     }
-   ]
+   ],
+   "minerais_na_carga_ccee": [
+    "Nióbio",
+    "Fosfato"
+   ],
+   "nota_carga_ccee": "A carga de Catalão e Ouvidor move os circuitos de nióbio E de fosfato. Um coeficiente por nióbio carrega a energia do fosfato junto."
   },
   {
    "grupo": "Anglo American plc",
@@ -774,7 +785,11 @@
      "observacao": "Publicado como 19,3 mil t, na comparação do 1S26."
     }
    ],
-   "nota_societaria": "Em 18/02/2025 a Anglo American anunciou a venda do negócio de níquel à MMG Singapore Resources por até US$ 500 milhões. Nas fontes consultadas em 18/09/2026 a operação seguia em análise antitruste da Comissão Europeia, sem conclusão confirmada. Confirmar o operador antes de usar a série."
+   "nota_societaria": "Em 18/02/2025 a Anglo American anunciou a venda do negócio de níquel à MMG Singapore Resources por até US$ 500 milhões. Nas fontes consultadas em 18/09/2026 a operação seguia em análise antitruste da Comissão Europeia, sem conclusão confirmada. Confirmar o operador antes de usar a série.",
+   "minerais_na_carga_ccee": [
+    "Níquel"
+   ],
+   "nota_carga_ccee": "Toda a carga é das plantas de ferroníquel de Barro Alto e Codemin."
   },
   {
    "grupo": "Eternit S.A.",
@@ -868,7 +883,11 @@
      "observacao": "Publicado como 167 mil t produzidas, queda de 11,6% sobre 2023. ATENÇÃO: fica dentro do arredondamento das 166,8 mil t de VENDA do mesmo ano, e pode ser o mesmo número redescrito pela fonte. Confirmar no release da Eternit antes de usar como produção."
     }
    ],
-   "nota_societaria": "A Lei estadual de Goiás nº 22.932, de agosto de 2024, estabeleceu prazo de cinco anos para o fim da extração e beneficiamento de amianto crisotila no estado. A série tem fim datado."
+   "nota_societaria": "A Lei estadual de Goiás nº 22.932, de agosto de 2024, estabeleceu prazo de cinco anos para o fim da extração e beneficiamento de amianto crisotila no estado. A série tem fim datado.",
+   "minerais_na_carga_ccee": [
+    "Amianto"
+   ],
+   "nota_carga_ccee": "Mina e beneficiamento de crisotila em Minaçu."
   },
   {
    "grupo": "The Mosaic Company",
@@ -947,7 +966,11 @@
      "observacao": "Publicado como ~3,9 milhões de t, cerca de 70% da produção brasileira estimada. Agrega todas as minas no Brasil."
     }
    ],
-   "nota_societaria": "Ao longo de 2025 e 2026 a Mosaic anunciou cortes e paralisações de produção de fosfatados no Brasil, incluindo pausa na rocha fosfática de Catalão. Verificar o estado operacional antes de projetar a série."
+   "nota_societaria": "Ao longo de 2025 e 2026 a Mosaic anunciou cortes e paralisações de produção de fosfatados no Brasil, incluindo pausa na rocha fosfática de Catalão. Verificar o estado operacional antes de projetar a série.",
+   "minerais_na_carga_ccee": [
+    "Fosfato"
+   ],
+   "nota_carga_ccee": "Complexo de fosfato em Catalão."
   },
   {
    "grupo": "Hochschild Mining PLC",
@@ -1058,7 +1081,11 @@
      "fonte_tipo": "ri_empresa",
      "observacao": "Melhor trimestre da mina até então, com tonelagem e teores acima do 3T24."
     }
-   ]
+   ],
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "nota_carga_ccee": "Mina e usina de Mara Rosa."
   },
   {
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
@@ -1216,7 +1243,11 @@
      "observacao": "CONSOLIDADO MUNDIAL da Aura, com seis minas; a MSG de Crixás é uma delas. Outras fontes arredondam para 158 mil GEO."
     }
    ],
-   "nota_societaria": "A AngloGold Ashanti anunciou em 02/06/2025 a venda da Mineração Serra Grande à Aura Minerals; a Aura informou o fechamento da aquisição em 01/12/2025. Séries a partir de dezembro de 2025 pertencem à Aura."
+   "nota_societaria": "A AngloGold Ashanti anunciou em 02/06/2025 a venda da Mineração Serra Grande à Aura Minerals; a Aura informou o fechamento da aquisição em 01/12/2025. Séries a partir de dezembro de 2025 pertencem à Aura.",
+   "minerais_na_carga_ccee": [
+    "Ouro"
+   ],
+   "nota_carga_ccee": "Mina e usina de Crixás."
   },
   {
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
@@ -1294,7 +1325,11 @@
      "observacao": "EMBARQUE, não produção. Primeiro carregamento americano de 2026, despachado em fevereiro; no ano nenhum quilo saiu para a China."
     }
    ],
-   "nota_societaria": "Produção comercial declarada desde o início de 2024. Em abril de 2026 a USA Rare Earth concluiu a aquisição da Serra Verde. Em 2026 os embarques foram redirecionados da China para os Estados Unidos."
+   "nota_societaria": "Produção comercial declarada desde o início de 2024. Em abril de 2026 a USA Rare Earth concluiu a aquisição da Serra Verde. Em 2026 os embarques foram redirecionados da China para os Estados Unidos.",
+   "minerais_na_carga_ccee": [
+    "Monazita e Terras-Raras"
+   ],
+   "nota_carga_ccee": "Operação de Pela Ema, em Minaçu."
   },
   {
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
@@ -1387,7 +1422,9 @@
      "fonte_tipo": "ri_empresa",
      "observacao": "Publicado como 722 kt. Primeiro produto químico da bauxita; o alumínio líquido, passo seguinte, fica fora da base pela regra de corte."
     }
-   ]
+   ],
+   "minerais_na_carga_ccee": [],
+   "nota_carga_ccee": "Sem carga própria identificada na base CCEE de Goiás pelo CNPJ raiz da companhia."
   },
   {
    "grupo": "Brasil Minérios S/A",
@@ -1435,7 +1472,11 @@
      "fonte_tipo": "imprensa_setorial",
      "observacao": "META de capacidade em Goiás anunciada na expansão, sem ano de conclusão declarado na fonte — o período aqui é o da publicação, não um compromisso datado pela empresa."
     }
-   ]
+   ],
+   "minerais_na_carga_ccee": [
+    "Vermiculita e Perlita"
+   ],
+   "nota_carga_ccee": "Usina de São Luís de Montes Belos."
   }
  ],
  "escopo_da_base": "Valores reportados pelas próprias empresas — release de resultados, relatório anual, ou o que imprensa e agregadores de mercado reproduzem dessas publicações. Número apurado por agência reguladora não entra."

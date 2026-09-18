@@ -90,3 +90,17 @@ O agente é `producao/agente.py`, instalado no padrão do radar (`/usr/local/lib
 python -m unittest discover -s tests -p test_producao.py -v
 python3 producao/agente.py --db /tmp/producao.sqlite --offline-dir tests/fixtures/producao
 ```
+
+## Empresas (aba do painel)
+
+Aba `Empresas` entre o Mercado e o Radar (`public/empresas.js`, com o bloco `--- Empresas ---` no fim de `public/style.css`), servida por `Squad 3/backend/empresas.py` em `/api/empresas`. Cruza a base de produção com as parcelas de carga da CCEE em Goiás **pelo CNPJ raiz**, acrescenta as colunas de energia gasta e de coeficiente energético por empresa, mineral e ano, e anualiza pro rata o que as fontes não trazem fechado no ano — sempre ao lado do observado, nunca por cima dele. O pacote `data/empresas/empresas.json` é gerado por `python scripts/build_empresas_base.py` (regras e limites em `data/empresas/README.md` e `METODOLOGIA.md` §3.6) e conferido por `tests/test_empresas.py`.
+
+O endpoint fica **atrás de sessão**, como o atlas e o panorama: a aba nomeia empresas ao lado da carga de energia, e por isso o pacote não vai para `public/`, que o Nginx serve sem sessão. Um teste guarda isso.
+
+O painel traz gráfico de energia por empresa (barra clara é o anualizado, escura é o medido), coeficiente em blocos separados por unidade — kWh/t e kWh/oz não se comparam —, a tabela completa com exportação em CSV, a série da empresa selecionada e um painel que mostra de onde vem cada número. Filtros por ano, empresa, mineral e qualidade do dado.
+
+```sh
+python scripts/build_producao_base.py && python scripts/build_empresas_base.py
+python -m unittest discover -s tests -p test_empresas.py -v
+node --check public/empresas.js
+```
