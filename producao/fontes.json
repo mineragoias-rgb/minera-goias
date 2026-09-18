@@ -1,5 +1,5 @@
 {
- "comment": "Fontes e metodologia de extração do agente de produção. Editar aqui não exige mexer no código. Os padrões usam marcadores que o agente substitui: {NUM} número, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral. Rode 'python3 producao/agente.py --check' para ver quais fontes respondem.",
+ "comment": "Fontes e metodologia de extração do agente de produção. Editar aqui não exige mexer no código. Os padrões usam marcadores que o agente substitui: {NUM} número, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral. Rode 'python3 producao/agente.py --check' para ver quais fontes respondem. A base só aceita número declarado pela empresa, então feed de estatística de agência (ANM, SGB) não é configurado aqui de propósito: o que a agência apura é outra grandeza e não entra na base.",
  "metodologia_versao": "1.0",
  "confronto": {
   "tolerancia_relativa": 0.02,
@@ -451,13 +451,6 @@
    "url": "https://news.google.com/rss/search?q=%22Brasil+Min%C3%A9rios%22+vermiculita&hl=pt-BR&gl=BR&ceid=BR:pt-419",
    "lang": "pt",
    "tipo": "busca"
-  },
-  {
-   "name": "ANM · notícias",
-   "empresa": null,
-   "url": "https://www.gov.br/anm/pt-br/assuntos/noticias/RSS",
-   "lang": "pt",
-   "tipo": "editor"
   },
   {
    "name": "IBRAM · indústria mineral",

@@ -9,9 +9,13 @@ proveniência que este projeto exige: o que o número mede (`medida`), a que rec
 capacidade ou meta (`tipo_valor`), o período, a fonte com endereço e a data da coleta.
 
 O script NÃO converte unidade, NÃO soma entre unidades e NÃO soma trimestres para formar ano: períodos e medidas diferentes ficam como linhas
-distintas. Ele junta, como referência de reconciliação, a produção de Goiás por substância do Anuário Mineral Brasileiro que já está versionada
-em `Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv` — números do estado, não da empresa, e por isso guardados
-numa seção separada.
+distintas.
+
+**Só entra número declarado pela própria empresa** — no release de resultados, no relatório anual ou no que a imprensa e os agregadores de
+mercado reproduzem dessas publicações. Estatística de agência (ANM, SGB) fica de fora por decisão de escopo: o Anuário Mineral mede o contido
+no minério lavrado de um estado inteiro, e a empresa publica o produto que saiu da planta. São grandezas diferentes, e juntá-las na mesma
+tabela faria parecer que uma corrige a outra. Por isso `agencia_oficial` não existe no vocabulário de `fonte_tipo`, e a curadoria que o declarar
+é recusada.
 
 O vocabulário de mineral é conferido contra `data/panorama/panorama.json` (dims/min), para a base falar a mesma língua do atlas e do panorama.
 """
@@ -37,21 +41,13 @@ MEDIDAS = {"minerio_rom", "contido", "metal_em_concentrado", "produto_acabado", 
 ESCOPOS = {"operacao_goias", "consolidado_brasil", "consolidado_global"}
 TIPOS = {"realizado", "guidance", "capacidade", "meta"}
 PERIODOS = {"ano", "semestre", "trimestre", "mes"}
-FONTES = {"ri_empresa", "agencia_oficial", "imprensa_setorial", "imprensa_geral", "agregador_mercado"}
+# Sem "agencia_oficial": a base publica o que a empresa declara, não o que a agência apura (ver o cabeçalho).
+FONTES = {"ri_empresa", "imprensa_setorial", "imprensa_geral", "agregador_mercado"}
 CONFIANCAS = {"alta", "media", "baixa"}
-# Substâncias do AMB que interessam à reconciliação com as empresas desta base.
-AMB_SUBSTANCIAS = ["Alumínio (Bauxita)", "Amianto", "Cobre", "Fosfato", "Monazita e Terras-Raras", "Nióbio", "Níquel",
-                   "Ouro", "Vermiculita e Perlita"]
 
 
 def norm(s):
     return unicodedata.normalize("NFD", str(s or "")).encode("ascii", "ignore").decode().upper().strip()
-
-
-def num_amb(s):
-    """Número do AMB ('9249167,900000', ',000000000000000'); vazio vale 0."""
-    s = str(s or "").strip()
-    return float(s.replace(".", "").replace(",", ".")) if s else 0.0
 
 
 # --------------------------------------------------------------------------------------------------------- vocabulário de mineral
@@ -124,27 +120,6 @@ if erros:
         print("  -", e)
     sys.exit(1)
 
-# ------------------------------------------------------------------------------------- referência do estado (AMB), para reconciliar
-amb_path = REPO / "Squad 1" / "Dados brutos" / "ANM - Anuário Mineral Brasileiro (AMB)" / "Producao_Bruta.csv"
-referencia, anos_amb = [], set()
-with open(amb_path, encoding="latin-1", newline="") as f:
-    for linha in csv.DictReader(f):
-        if linha["UF"] != "GO" or linha["Substância Mineral"] not in AMB_SUBSTANCIAS:
-            continue
-        ano = int(linha["Ano base"])
-        anos_amb.add(ano)
-        if ano < 2022:
-            continue
-        referencia.append({
-            "ano": ano,
-            "mineral": linha["Substância Mineral"],
-            "rom_t": round(num_amb(linha["Quantidade Produção - Minério ROM (t)"]), 2),
-            "contido": round(num_amb(linha["Quantidade Contido"]), 3),
-            "contido_unidade": (linha["Unidade de Medida - Contido"] or "").strip(),
-            "contido_indicacao": (linha["Indicação Contido"] or "").strip(),
-        })
-referencia.sort(key=lambda r: (r["ano"], r["mineral"]))
-
 # ----------------------------------------------------------------------------------------------------------------- saída
 pacote = {
     "meta": {
@@ -155,18 +130,19 @@ pacote = {
         "atualizado_em": curada["atualizado_em"],
         "vocabulario": curada["vocabulario"],
         "limitacao_da_coleta": curada["limitacao_da_coleta_v1"],
-        "fonte_referencia_uf": "Anuário Mineral Brasileiro (ANM), aba de produção bruta, versionado no repositório",
+        "escopo_da_base": ("Só números declarados pela própria empresa. Estatística de agência (ANM, SGB) não entra: o Anuário Mineral "
+                           "mede o contido no minério lavrado de um estado inteiro e a empresa publica o produto que saiu da planta — "
+                           "grandezas diferentes, que não se corrigem."),
         "avisos": [
             "Toda linha nasce nao_validado. Importar não é validar (METODOLOGIA.md §1).",
             "Nada é convertido entre unidades. Onça troy (oz), tonelada (t) e quilo (kg) convivem sem fator de conversão.",
             "Trimestres e semestres NÃO somam para formar o ano: a empresa pode revisar o número no fechamento.",
             "Escopo 'consolidado_brasil' e 'consolidado_global' NÃO são produção de Goiás e não podem ser agregados ao estado.",
             "'embarque', 'capacidade' e 'meta' não são produção realizada e não entram em série de produção.",
-            "A referência do AMB é do estado por substância, não da empresa: ela serve para conferir ordem de grandeza, não para atribuir produção a titular.",
+            "Estatística da ANM não entra nesta base e não deve ser somada nem comparada linha a linha com estes números.",
         ],
     },
     "registros": registros,
-    "referencia_amb_go": referencia,
 }
 SAIDA.mkdir(parents=True, exist_ok=True)
 with open(SAIDA / "producao.json", "w", encoding="utf-8", newline="\n") as f:
@@ -194,7 +170,5 @@ print(f"confiança: {por('confianca')}")
 print(f"realizados em Goiás por ano: " + "; ".join(
     f"{p} {sum(1 for r in registros if r['periodo'] == p and r['tipo_valor'] == 'realizado' and r['escopo'] == 'operacao_goias')}"
     for p in sorted({r['periodo'] for r in registros if r['periodo_tipo'] == 'ano'})))
-print(f"referência AMB GO: {len(referencia)} linhas, anos {min(anos_amb)}–{max(anos_amb)} na fonte, {min(r['ano'] for r in referencia)}–{max(r['ano'] for r in referencia)} no pacote")
-for r in [x for x in referencia if x["ano"] == max(y["ano"] for y in referencia)]:
-    print(f"  AMB {r['ano']} {r['mineral']}: ROM {r['rom_t']:,.0f} t; contido {r['contido']:,.2f} {r['contido_unidade']} {r['contido_indicacao']}")
+print(f"fonte: {por('fonte_tipo')}")
 print(f"SALVO: {SAIDA / 'producao.json'} ({(SAIDA / 'producao.json').stat().st_size / 1e3:.1f} kB) e {SAIDA / 'producao.csv'}")

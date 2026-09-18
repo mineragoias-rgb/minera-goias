@@ -5,7 +5,7 @@ Números de produção mineral **por empresa**, cada um com o que mede, em que u
 
 | Arquivo | Conteúdo |
 |---|---|
-| `producao.json` | Pacote completo: `meta` (vocabulário, avisos, limitações), `registros` (as linhas) e `referencia_amb_go` (produção de Goiás por substância, da ANM) |
+| `producao.json` | Pacote completo: `meta` (vocabulário, avisos, limitações) e `registros` (as linhas) |
 | `producao.csv` | As mesmas linhas em CSV com `;`, para planilha |
 
 Gerado por `python scripts/build_producao_base.py` a partir da curadoria em `producao/base_curada.json`. Conferido por `tests/test_producao.py`.
@@ -40,21 +40,25 @@ estoque e pode deixar produção em pátio.
 
 **Capacidade e meta não são realização.** Os 80.000 t/ano da Brasil Minérios e os 6.400 t de TREO da Serra Verde são projeto, não produção.
 
-## Como conferir contra a ANM
+## Por que a ANM não está aqui
 
-`referencia_amb_go` traz, por ano e substância, a produção bruta (ROM) e o contido de Goiás, do Anuário Mineral Brasileiro versionado no
-repositório. Serve para conferir **ordem de grandeza**, não para atribuir produção a titular — o Anuário é por estado e substância, sem empresa.
+**Esta base só traz valor reportado pela própria empresa** — release de resultados, relatório anual, ou o que imprensa e agregadores de mercado
+reproduzem dessas publicações. Número apurado por agência reguladora não entra, e `agencia_oficial` nem existe no vocabulário de `fonte_tipo`:
+a curadoria que o declarar é recusada na geração.
 
-A comparação entre as duas é útil justamente onde diverge. Em 2025, para Goiás:
+Não é desconfiança da ANM — é que os dois medem coisas diferentes e a diferença é grande:
 
-| Substância | Anuário (contido, estado) | Empresa na base | Por que divergem |
-|---|---|---|---|
-| Níquel | 35.487,71 t Ni | Anglo American, 39.700 t | O Anuário mede o contido no minério lavrado; a empresa publica níquel contido no ferroníquel que saiu das plantas, que também processam estoque e minério de terceiros |
-| Cobre | 51.937,85 t Cu | Chapada/Lundin, 43.974 t | Contido no minério contra metal pago no concentrado: a recuperação metalúrgica fica entre os dois |
-| Nióbio | 62.626,53 t Nb₂O₅ | CMOC, 10.348 t | Óxido contido contra produto de nióbio vendável — grandezas químicas diferentes, não é diferença de desempenho |
-| Ouro | 6.418,57 kg Au | Serra Grande 2024, 80 koz · Mara Rosa 2025-Q4, 7.067 oz | Unidades diferentes e recortes diferentes; o estado soma produtores que a base ainda não cobre |
+| Substância, Goiás, 2025 | Anuário Mineral (ANM) | O que a empresa publica |
+|---|---|---|
+| Níquel | 35.487,71 t de Ni **contido no minério lavrado** | Anglo American: 39.700 t de **níquel contido no ferroníquel** que saiu das plantas |
+| Cobre | 51.937,85 t de Cu **contido** | Chapada/Lundin: 43.974 t de **metal pago no concentrado** |
+| Nióbio | 62.626,53 t de **Nb₂O₅ contido** | CMOC: 10.348 t de **produto de nióbio vendável** |
 
-Nenhuma dessas divergências foi "corrigida". Elas são o resultado e estão aqui para ser lidas.
+Contido no minério, metal recuperado no concentrado e produto químico acabado são três grandezas: entre elas estão a recuperação metalúrgica e
+a estequiometria do óxido. Colocar as duas colunas lado a lado sugeriria que uma corrige a outra, e nenhuma corrige.
+
+O Anuário Mineral continua versionado no repositório, em `Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/`, e é o que o atlas e o
+panorama usam. Quem quiser a visão do estado por substância vai lá — não a esta base.
 
 ## Limitações desta versão (v1)
 

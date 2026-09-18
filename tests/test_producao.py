@@ -67,18 +67,25 @@ class BaseCuradaTests(unittest.TestCase):
             self.assertIn('escopo', registro)
             self.assertNotEqual(registro['escopo'], 'operacao_goias')
 
-    def test_referencia_do_anuario_bate_com_o_csv_bruto_do_repositorio(self):
-        caminho = ROOT / 'Squad 1' / 'Dados brutos' / 'ANM - Anuário Mineral Brasileiro (AMB)' / 'Producao_Bruta.csv'
-        bruto = {}
-        with open(caminho, encoding='latin-1', newline='') as arquivo:
-            for linha in csv.DictReader(arquivo):
-                if linha['UF'] == 'GO':
-                    valor = (linha['Quantidade Produção - Minério ROM (t)'] or '0').replace('.', '').replace(',', '.')
-                    bruto[(int(linha['Ano base']), linha['Substância Mineral'])] = round(float(valor or 0), 2)
-        self.assertTrue(PACOTE['referencia_amb_go'])
-        for linha in PACOTE['referencia_amb_go']:
-            self.assertEqual(bruto[(linha['ano'], linha['mineral'])], linha['rom_t'],
-                             f"{linha['ano']} {linha['mineral']}: o pacote divergiu do CSV da ANM")
+    def test_a_base_so_traz_valor_declarado_pela_empresa(self):
+        """O Anuário mede contido no minério lavrado e a empresa publica produto de planta: uma não corrige a outra e não convivem aqui."""
+        self.assertNotIn('referencia_amb_go', PACOTE, 'estatística de agência não entra no pacote')
+        self.assertNotIn('agencia_oficial', PACOTE['meta']['vocabulario']['fonte_tipo'])
+        for registro in PACOTE['registros']:
+            self.assertIn(registro['fonte_tipo'], PACOTE['meta']['vocabulario']['fonte_tipo'],
+                          f"{registro['id']}: fonte fora do vocabulário")
+            self.assertNotEqual(registro['fonte_tipo'], 'agencia_oficial')
+
+    def test_o_gerador_recusa_registro_apurado_por_agencia(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            quebrada = json.loads(json.dumps(CURADA))
+            quebrada['empresas'][0]['registros'][0]['fonte_tipo'] = 'agencia_oficial'
+            repo = self.repo_falso(Path(tmp), quebrada)
+            resultado = subprocess.run(
+                [sys.executable, str(ROOT / 'scripts' / 'build_producao_base.py'), '--repo', str(repo),
+                 '--saida', str(Path(tmp) / 'saida')], capture_output=True, text=True)
+            self.assertEqual(resultado.returncode, 1)
+            self.assertIn('agencia_oficial', resultado.stdout)
 
     def test_csv_publicado_tem_as_mesmas_linhas_do_json(self):
         with open(ROOT / 'data' / 'producao' / 'producao.csv', encoding='utf-8', newline='') as arquivo:
@@ -86,16 +93,22 @@ class BaseCuradaTests(unittest.TestCase):
         self.assertEqual(len(linhas), len(PACOTE['registros']))
         self.assertEqual([linha['id'] for linha in linhas], [r['id'] for r in PACOTE['registros']])
 
+    @staticmethod
+    def repo_falso(tmp, curadoria):
+        """Clone mínimo para rodar o gerador contra uma curadoria propositalmente quebrada."""
+        repo = tmp / 'repo'
+        (repo / 'producao').mkdir(parents=True)
+        (repo / 'producao' / 'base_curada.json').write_text(json.dumps(curadoria), encoding='utf-8')
+        (repo / 'data' / 'panorama').mkdir(parents=True)
+        (repo / 'data' / 'panorama' / 'panorama.json').write_bytes(
+            (ROOT / 'data' / 'panorama' / 'panorama.json').read_bytes())
+        return repo
+
     def test_o_gerador_recusa_curadoria_com_unidade_fora_do_vocabulario(self):
         with tempfile.TemporaryDirectory() as tmp:
             quebrada = json.loads(json.dumps(CURADA))
             quebrada['empresas'][0]['registros'][0]['unidade'] = 'arrobas'
-            repo = Path(tmp) / 'repo'
-            (repo / 'producao').mkdir(parents=True)
-            (repo / 'producao' / 'base_curada.json').write_text(json.dumps(quebrada), encoding='utf-8')
-            (repo / 'data' / 'panorama').mkdir(parents=True)
-            (repo / 'data' / 'panorama' / 'panorama.json').write_bytes(
-                (ROOT / 'data' / 'panorama' / 'panorama.json').read_bytes())
+            repo = self.repo_falso(Path(tmp), quebrada)
             resultado = subprocess.run(
                 [sys.executable, str(ROOT / 'scripts' / 'build_producao_base.py'), '--repo', str(repo),
                  '--saida', str(Path(tmp) / 'saida')], capture_output=True, text=True)
