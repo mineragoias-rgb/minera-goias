@@ -59,3 +59,20 @@ header .lang-switch button.active{background:rgba(255,255,255,.14);color:inherit
 @media(max-width:1000px){.mk-two{grid-template-columns:1fr}}
 .mk-sub{font-size:12px;color:var(--muted);margin:26px 0 12px;border-top:1px solid var(--line);padding-top:18px}
 #mk-preco .bar-row{grid-template-columns:minmax(60px,.6fr) 1.15fr 78px}
+
+/* --- Empresas --- */
+/* A trilha vira referência de posicionamento para as duas barras: a clara é o total anualizado,
+   a escura é o que a CCEE mediu de fato. Sem isso, a segunda barra escapava da trilha. */
+#ep-energia .bar-track,#ep-serie .bar-track,#ep-cobertura .bar-track,#ep-coef .bar-track{position:relative}
+#ep-energia .bar-fill.medido,#ep-serie .bar-fill.medido{position:absolute;left:0;top:0}
+#ep-energia .bar-fill.anualizado,#ep-serie .bar-fill.anualizado{background:#9dc6e2}
+#ep-energia .bar-fill.medido{background:#0f6fb0}
+#ep-coef .bar-fill.exclusiva{background:#0d9488}
+#ep-coef .bar-fill.compartilhada{background:#c2681b}
+#ep-cobertura .bar-fill.completo{background:#0d9488}
+#ep-cobertura .bar-fill.parcial{background:#c2681b}
+#ep-energia .bar-row,#ep-serie .bar-row{grid-template-columns:minmax(130px,1fr) 1.15fr 88px}
+#ep-coef .bar-row{grid-template-columns:minmax(170px,1fr) 1.15fr 62px}
+#ep-cobertura .bar-row{grid-template-columns:minmax(130px,1fr) 1.15fr 74px}
+#ep-energia .mk-note,#ep-coef .mk-note,#ep-cobertura .mk-note,#ep-serie .mk-note{margin:0 0 12px}
+#empresas-view .pn-filters{margin-bottom:0}

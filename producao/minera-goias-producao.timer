@@ -1,0 +1,11 @@
+[Unit]
+Description=Roda o agente de produção uma vez por semana, segunda-feira às 02:00
+
+[Timer]
+OnCalendar=Mon *-*-* 02:00:00
+Persistent=true
+RandomizedDelaySec=20min
+Unit=minera-goias-producao.service
+
+[Install]
+WantedBy=timers.target

@@ -75,3 +75,34 @@ Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitaç
 ## Panorama (aba do painel)
 
 Aba `Panorama` entre o Atlas e o Radar (`public/panorama.js`, `panorama-charts.js`, `panorama-cards1..3.js`, `panorama.css`), servida por `Squad 3/backend/panorama.py` em `/api/panorama`. Refaz os gráficos e tabelas do *Panorama da Mineração de Goiás* com a base consolidada do Squad 1 e os brutos do repositório; o navegador filtra por ano, mês, município, mineral, titular, fase, gasto em pesquisa e ramo da CCEE. O pacote `data/panorama/panorama.json` é gerado por `python scripts/build_panorama_base.py` (limitações e fontes em `data/panorama/README.md`) e conferido por `tests/test_panorama.py`. Energia por município e barragens vêm de `/api/atlas`.
+
+## Base de produção por empresa e agente semanal
+
+Integração de 18/09/2026. `data/producao/producao.json` e `producao.csv` publicam produção mineral **por empresa** — empresa, produção, mineral e unidade —, com o que cada número mede (`medida`), a que recorte se refere (`escopo`), se é realização, guidance, capacidade ou meta (`tipo_valor`), o período, a fonte com endereço e a confiança. 78 registros de dez empresas, as de maior CFEM do estado, de 2022 a 2027: Lundin/Maracá (Chapada), CMOC, Anglo American Níquel, SAMA/Eternit, Mosaic, Hochschild/Amarillo (Mara Rosa), Serra Grande (AngloGold até 12/2025, Aura depois), Serra Verde, CBA e Brasil Minérios.
+
+A curadoria fica em `producao/base_curada.json`; o pacote sai de `python scripts/build_producao_base.py`, que recusa unidade, medida, escopo, fonte ou mineral fora do vocabulário. **Só entra valor declarado pela própria empresa**: estatística de agência não entra, porque o Anuário Mineral mede o contido no minério lavrado do estado e a empresa publica o produto que saiu da planta — a visão por substância continua sendo a do atlas e do panorama. Regras e limites em `data/producao/README.md` e `METODOLOGIA.md` §3.5; `tests/test_producao.py` confere as duas pontas.
+
+**Nenhuma linha da v1 foi conferida no documento de origem.** A coleta saiu de busca na web num ambiente cujo proxy de egresso bloqueia os sites de RI, e todas nascem `nao_validado`. Conferir número a número é a primeira tarefa do agente na VPS, que tem rede aberta.
+
+O agente é `producao/agente.py`, instalado no padrão do radar (`/usr/local/lib/minera-goias-producao/`, banco em `/var/lib/minera-goias-producao/`) e disparado por `minera-goias-producao.timer` **toda segunda-feira às 02:00**. Ele não escreve na base: gera candidatos com a frase de evidência, confronta com a curadoria (`confirma`, `diverge`, `unidade_divergente`, `novo`, `sem_periodo`) e propõe crescimento da própria metodologia — padrão, unidade ou termo de mineral que faltaram, com contagem e exemplos. `auto_promocao` nasce desligada. Mudar `fontes.json` no GitHub não altera a VPS sozinho: exige reinstalação administrativa, como no importador e no radar. O `fontes.json` traz **50 feeds**: setorial brasileira (Brasil Mineral, Revista Mineração, In The Mine, Minérios, NMB, IBRAM, MINDE), Globo (g1 economia, g1 Goiás, O Globo, Valor), econômica (InfoMoney, Money Times, Exame, Seu Dinheiro, Agência Brasil), regional de Goiás, internacional (Mining.com, Mining Weekly, Northern Miner, Mining Technology, International Mining, Kitco) e 23 buscas do Google Notícias — 17 por titular e 6 temáticas, estas últimas para achar produtor que ainda não está na base. Rode `python3 producao/agente.py --check` na primeira instalação: nenhum endereço foi testado contra a rede.
+
+```sh
+python -m unittest discover -s tests -p test_producao.py -v
+python3 producao/agente.py --db /tmp/producao.sqlite --offline-dir tests/fixtures/producao
+```
+
+## Empresas (aba do painel)
+
+Aba `Empresas` entre o Mercado e o Radar (`public/empresas.js`, com o bloco `--- Empresas ---` no fim de `public/style.css`), servida por `Squad 3/backend/empresas.py` em `/api/empresas`. Cruza a base de produção com as parcelas de carga da CCEE em Goiás **pelo CNPJ raiz**, acrescenta as colunas de energia gasta e de coeficiente energético por empresa, mineral e ano, e anualiza pro rata o que as fontes não trazem fechado no ano — sempre ao lado do observado, nunca por cima dele. O pacote `data/empresas/empresas.json` é gerado por `python scripts/build_empresas_base.py` (regras e limites em `data/empresas/README.md` e `METODOLOGIA.md` §3.6) e conferido por `tests/test_empresas.py`.
+
+O endpoint fica **atrás de sessão**, como o atlas e o panorama: a aba nomeia empresas ao lado da carga de energia, e por isso o pacote não vai para `public/`, que o Nginx serve sem sessão. Um teste guarda isso.
+
+Quando a empresa move mais de um mineral, a carga é separada pelo que a própria CCEE declara (`rateio_ccee` na curadoria): a CMOC sai por ramo de atividade — extração e metalurgia são o nióbio, não-metálicos é o fosfato —, o que derrubou o coeficiente de 27.816 para 11.884 kWh/t. Chapada não separa: cobre e ouro são co-produtos da mesma usina, e alocar entre eles seria convenção de inventário, não medição. `notas_energia` guarda o que a empresa publica sobre o próprio consumo com o efeito declarado — a autogeração de 35% do fosfato da CMOC faz a CCEE subestimar aquele negócio.
+
+O painel traz gráfico da carga inteira da empresa (barra clara é o anualizado, escura é o medido), coeficiente em blocos separados por unidade — kWh/t e kWh/oz não se comparam —, a tabela completa com a parcela de cada mineral e exportação em CSV, a série da empresa selecionada e um painel que mostra de onde vem cada número, com o rateio e as notas de energia. Filtros por ano, empresa, mineral e qualidade do dado.
+
+```sh
+python scripts/build_producao_base.py && python scripts/build_empresas_base.py
+python -m unittest discover -s tests -p test_empresas.py -v
+node --check public/empresas.js
+```
