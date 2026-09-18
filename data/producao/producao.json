@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-10-01",
+  "built_on": "2026-10-21",
   "versao_base": "v1",
   "gerado_por": "scripts/build_producao_base.py",
   "curadoria": "producao/base_curada.json",
@@ -3567,11 +3567,13 @@
     "Barro Alto"
    ],
    "uf": "GO",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "mineral": "Alumínio (Bauxita)",
@@ -3605,11 +3607,13 @@
     "Barro Alto"
    ],
    "uf": "GO",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "mineral": "Alumínio (Bauxita)",
@@ -3643,11 +3647,13 @@
     "Barro Alto"
    ],
    "uf": "GO",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "mineral": "Alumínio (Bauxita)",
@@ -3681,11 +3687,13 @@
     "Barro Alto"
    ],
    "uf": "GO",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "mineral": "Alumínio (Bauxita)",
@@ -3719,11 +3727,13 @@
     "Barro Alto"
    ],
    "uf": "GO",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "mineral": "Alumínio (Bauxita)",

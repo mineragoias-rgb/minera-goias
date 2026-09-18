@@ -1518,12 +1518,14 @@
      "observacao": "Publicado como 722 kt. Primeiro produto químico da bauxita; o alumínio líquido, passo seguinte, fica fora da base pela regra de corte."
     }
    ],
-   "minerais_na_carga_ccee": [],
-   "nota_carga_ccee": "Sem carga própria identificada na base CCEE de Goiás pelo CNPJ raiz da companhia.",
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
+   "nota_carga_ccee": "Uma carga própria pelo CNPJ raiz, em extração de minerais metálicos, só de abril a junho de 2024 (meses que a base CCEE do repositório não tinha até 21/10/2026). A CCEE a registra no município de Goiás, não em Barro Alto, onde fica a unidade de bauxita: divergência registrada, não corrigida. A ligação segue a regra do projeto, pelo CNPJ raiz.",
    "rateio_ccee": {
-    "criterio": "nao_separavel",
+    "criterio": "unico",
     "regras": [],
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": []
   },

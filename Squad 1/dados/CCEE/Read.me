@@ -1,1 +1,17 @@
 dados da CCEE
+
+Fonte: dataset PARCELA_CARGA_CONSUMO do portal de dados abertos da CCEE
+https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo (Infomercado, licença CC-BY-4.0).
+
+Cada arquivo aqui (`parcela_carga_consumo_<ano>_GO.csv`) é o recurso nacional daquele ano, baixado manualmente do
+portal (o servidor de download bloqueia requisições automatizadas) e filtrado para ESTADO_UF = GO com
+`python scripts/build_panorama_base.py`'s companion `scripts/build_ccee_go.py`:
+
+    python scripts/build_ccee_go.py --2024 <baixado_2024.csv> --2025 <baixado_2025.csv> --2026 <baixado_2026.csv>
+
+Formato: separador `;`, UTF-8 com BOM, decimal `.`, CRLF — igual ao arquivo nacional de origem, só sem o
+preenchimento de espaços que alguns campos trazem do banco de origem.
+
+Período coberto (o máximo publicado pela CCEE para esse conjunto — criado em 29/05/2024, sem dado anterior a
+abril/2024): 2024 = abril a dezembro; 2025 = janeiro a dezembro (completo); 2026 = janeiro a julho (parcial,
+conforme a última atualização do portal). Atualizado em 17/09/2026.

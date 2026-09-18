@@ -22,9 +22,9 @@ coeficiente é exclusivo daquele mineral ou não — e não uma inferência do c
 Nenhum dos dois lados cobre doze meses de todos os anos, então cada linha traz **o observado e o anualizado**, lado a lado, nunca um por cima do
 outro.
 
-**Energia.** A CCEE versionada no repositório cobre ago. e out.–dez. de 2024, jun.–dez. de 2025 e jan.–jul. de 2026. O anualizado é
-`observado ÷ meses observados × 12`. Em 2024 isso significa multiplicar quatro meses por três: a linha sai marcada como estimativa frágil, e a
-marca aparece no painel.
+**Energia.** A CCEE versionada no repositório cobre abr.–dez. de 2024 (a CCEE não publica o conjunto antes de abril de 2024), jan.–dez. de
+2025 e jan.–jul. de 2026. O anualizado é `observado ÷ meses observados × 12`. Em 2025 a carga é observada nos doze meses e não há estimativa;
+em 2024 são oito ou nove meses por empresa e em 2026 sete, e a linha sai marcada com a qualidade da estimativa, que aparece no painel.
 
 **Produção.** Quando a empresa publicou o ano, é o ano. Quando só há trimestres ou semestres, o anualizado é
 `soma dos períodos ÷ meses cobertos × 12`. Períodos que se sobrepõem **nunca somam** — um S1 já contém Q1 e Q2 —, e linha de planta isolada
@@ -60,8 +60,8 @@ guarda a regra em `rateio_ccee`:
 
 A CMOC é o caso em que isso muda o número. A carga dela vem em três ramos: **extração de minerais metálicos** (mina de nióbio, Catalão e
 Ouvidor) e **metalurgia** (planta de ferronióbio, Ouvidor) são o nióbio; **minerais não-metálicos** (Ouvidor) é o fosfato. Como nióbio é
-substância metálica e fosfato não é, o ramo separa os dois negócios sem inventar rateio. Em 2025 o nióbio ficou com 43% da carga — 122.974 MWh
-dos 287.841 MWh da empresa —, e o coeficiente caiu de 27.816 para **11.884 kWh/t**, que é a ordem de grandeza do ferronióbio.
+substância metálica e fosfato não é, o ramo separa os dois negócios sem inventar rateio. Em 2025 o nióbio ficou com 42% da carga — 122.022 MWh
+dos 293.016 MWh da empresa —, e o coeficiente caiu de 28.316 para **11.792 kWh/t**, que é a ordem de grandeza do ferronióbio.
 
 Um teste guarda o invariante que isso exige: **as regras têm de particionar a carga**. Cada parcela da CCEE tem de cair em exatamente um
 mineral — sobra viraria energia perdida, sobreposição viraria dupla contagem.
@@ -102,7 +102,7 @@ Ordens de grandeza que o cruzamento produziu, e que servem de conferência de sa
 
 - **A carga é do agente, não da planta.** Pode incluir consumo administrativo, e não inclui autoprodução nem geração própria.
 - **Nenhum número de produção foi conferido no documento de origem** (ver `data/producao/README.md`). Toda linha herda essa limitação.
-- **2022 e 2023 não têm energia**: a base CCEE do repositório começa em agosto de 2024. As linhas desses anos aparecem com produção e sem
+- **2022 e 2023 não têm energia**: a base CCEE do repositório começa em abril de 2024. As linhas desses anos aparecem com produção e sem
   coeficiente, de propósito.
 - **Quatro empresas têm energia e nenhum coeficiente** — Mosaic, Serra Verde, Brasil Minérios e, em alguns anos, outras — porque não há produção
   publicada no recorte de Goiás para o ano. É onde a base de produção precisa crescer, e o painel mostra isso em vez de esconder.

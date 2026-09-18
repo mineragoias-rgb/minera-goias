@@ -26,9 +26,10 @@ A energia e a intensidade por município e as barragens vêm do atlas (`data/atl
 
 - Pessoa física não aparece com nome: titular só é nomeado quando o `company_id` é `COM_CNPJ_` e o nome não traz CPF mascarado; arrematante de
   rodada só quando o documento é CNPJ.
-- A base CCEE são as parcelas de carga de agosto de 2024 a julho de 2026, sem setembro de 2024 e sem janeiro a maio de 2025. As cargas sem
-  ramo de atividade são das distribuidoras Equatorial Goiás e CHESP: ficam no ramo `DISTRIBUIDORA (MERCADO CATIVO)` e representam o mercado
-  cativo; as demais cargas são o mercado livre. A ligação carga → titular é pela raiz do CNPJ.
+- A base CCEE são as parcelas de carga de abril de 2024 a julho de 2026 (não há dado publicado antes de abril/2024 — o conjunto
+  `PARCELA_CARGA_CONSUMO` do portal de dados abertos da CCEE foi criado em 29/05/2024). As cargas sem ramo de atividade são das distribuidoras
+  Equatorial Goiás e CHESP: ficam no ramo `DISTRIBUIDORA (MERCADO CATIVO)` e representam o mercado cativo; as demais cargas são o mercado livre.
+  A ligação carga → titular é pela raiz do CNPJ.
 - Somar a produção bruta de minerais diferentes conta duas vezes os co-produtos do mesmo minério.
 - Não foram refeitos, por falta de fonte nas bases do repositório: CFEM nacional e ranking das UFs, repasse da CFEM, água mineral, TAH, planos de
   pesquisa (RePEM), processos inativos e coeficientes por operação tirados de relatórios das empresas (lista em `meta.not_reproduced`).

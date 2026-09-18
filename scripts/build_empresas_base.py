@@ -13,7 +13,7 @@ Junta duas bases que este repositório já versiona:
 Acrescenta ao quadro as duas colunas pedidas — **energia gasta** e **coeficiente energético** — e, porque nenhuma das duas fontes cobre doze
 meses de todos os anos, uma coluna de **anualização** para cada lado, sempre ao lado do número observado e nunca por cima dele:
 
-- energia: soma dos meses observados ÷ meses observados × 12. A CCEE do repositório cobre ago/out–dez de 2024, jun–dez de 2025 e jan–jul de 2026;
+- energia: soma dos meses observados ÷ meses observados × 12. A CCEE do repositório cobre abr–dez de 2024 (a CCEE não publica o conjunto antes de abril de 2024), jan–dez de 2025 e jan–jul de 2026;
 - produção: quando não há número anual publicado, soma dos semestres ou trimestres publicados ÷ meses cobertos × 12. Semestre e trimestre que se
   sobrepõem nunca somam (um S1 já contém Q1 e Q2), e linha de planta isolada (`nivel='operacao'`) fica fora, para não duplicar a linha da empresa.
 

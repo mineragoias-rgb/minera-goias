@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-10-01",
+  "built_on": "2026-10-21",
   "versao_base": "v1",
   "gerado_por": "scripts/build_empresas_base.py",
   "fontes": {
@@ -10,7 +10,7 @@
   "chave_de_ligacao": "CNPJ raiz do agente da CCEE contra o CNPJ raiz do titular da base de produção. Nome não é chave.",
   "rateio": "Quando a empresa move mais de um mineral, a curadoria declara como separar a carga: por ramo de atividade, por município, pelos dois, ou 'nao_separavel' quando a fonte não permite separar. O rateio usa a declaração da própria CCEE.",
   "periodo_ccee": [
-   202408,
+   202404,
    202607
   ],
   "avisos": [
@@ -61,20 +61,25 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 36306.873,
-    "mwh_anualizado": 108920.619,
-    "acl_mwh_observado": 36306.873,
+    "mwh_observado": 76541.541,
+    "mwh_anualizado": 102055.388,
+    "acl_mwh_observado": 76541.541,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 18.0,
-    "meses_observados": 4,
+    "meses_observados": 9,
     "meses": [
+     4,
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_alto",
     "municipios_ccee": [
      "Mara Rosa"
     ],
@@ -82,19 +87,19 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 36306.873,
-    "mwh_empresa_anualizado": 108920.619,
+    "mwh_empresa_observado": 76541.541,
+    "mwh_empresa_anualizado": 102055.388,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 1708.023,
+    "valor": 1600.367,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_alto"
    }
   },
   {
@@ -136,13 +141,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 39065.101,
-    "mwh_anualizado": 66968.745,
-    "acl_mwh_observado": 39065.101,
+    "mwh_observado": 82715.016,
+    "mwh_anualizado": 82715.016,
+    "acl_mwh_observado": 82715.016,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 18.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -151,8 +161,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Mara Rosa"
     ],
@@ -160,12 +170,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 39065.101,
-    "mwh_empresa_anualizado": 66968.745,
+    "mwh_empresa_observado": 82715.016,
+    "mwh_empresa_anualizado": 82715.016,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 2901.341,
+    "valor": 3583.529,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
@@ -316,20 +326,24 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 609085.52,
-    "mwh_anualizado": 1827256.56,
-    "acl_mwh_observado": 609085.52,
+    "mwh_observado": 1180667.741,
+    "mwh_anualizado": 1771001.611,
+    "acl_mwh_observado": 1180667.741,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 210.0,
-    "meses_observados": 4,
+    "meses_observados": 8,
     "meses": [
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_medio",
     "municipios_ccee": [
      "Barro Alto",
      "Niquelândia"
@@ -338,19 +352,19 @@
      "METALURGIA E PRODUTOS DE METAL"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 609085.52,
-    "mwh_empresa_anualizado": 1827256.56,
+    "mwh_empresa_observado": 1180667.741,
+    "mwh_empresa_anualizado": 1771001.611,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 46377.07,
+    "valor": 44949.279,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Níquel"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_medio"
    }
   },
   {
@@ -396,13 +410,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 1041681.992,
-    "mwh_anualizado": 1785740.558,
-    "acl_mwh_observado": 1041681.992,
+    "mwh_observado": 1788502.568,
+    "mwh_anualizado": 1788502.568,
+    "acl_mwh_observado": 1788502.568,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 210.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -411,8 +430,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Barro Alto",
      "Niquelândia"
@@ -421,19 +440,19 @@
      "METALURGIA E PRODUTOS DE METAL"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 1041681.992,
-    "mwh_empresa_anualizado": 1785740.558,
+    "mwh_empresa_observado": 1788502.568,
+    "mwh_empresa_anualizado": 1788502.568,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 44980.87,
+    "valor": 45050.443,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Níquel"
     ],
-    "qualidade": "estimado_medio"
+    "qualidade": "observado_completo"
    }
   },
   {
@@ -543,20 +562,25 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 1385.24,
-    "mwh_anualizado": 4155.72,
-    "acl_mwh_observado": 1385.24,
+    "mwh_observado": 2924.269,
+    "mwh_anualizado": 3899.025,
+    "acl_mwh_observado": 2924.269,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 0.5,
-    "meses_observados": 4,
+    "meses_observados": 9,
     "meses": [
+     4,
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_alto",
     "municipios_ccee": [
      "São Luís de Montes Belos"
     ],
@@ -564,8 +588,8 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 1385.24,
-    "mwh_empresa_anualizado": 4155.72,
+    "mwh_empresa_observado": 2924.269,
+    "mwh_empresa_anualizado": 3899.025,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -594,13 +618,18 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 1954.145,
-    "mwh_anualizado": 3349.963,
-    "acl_mwh_observado": 1954.145,
+    "mwh_observado": 3460.168,
+    "mwh_anualizado": 3460.168,
+    "acl_mwh_observado": 3460.168,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 0.5,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -609,8 +638,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "São Luís de Montes Belos"
     ],
@@ -618,8 +647,8 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 1954.145,
-    "mwh_empresa_anualizado": 3349.963,
+    "mwh_empresa_observado": 3460.168,
+    "mwh_empresa_anualizado": 3460.168,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -780,20 +809,25 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 41057.824,
-    "mwh_anualizado": 123173.472,
-    "acl_mwh_observado": 41057.824,
+    "mwh_observado": 91688.883,
+    "mwh_anualizado": 122251.844,
+    "acl_mwh_observado": 91688.883,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 16.45,
-    "meses_observados": 4,
+    "meses_observados": 9,
     "meses": [
+     4,
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_alto",
     "municipios_ccee": [
      "Catalão",
      "Ouvidor"
@@ -803,12 +837,12 @@
      "METALURGIA E PRODUTOS DE METAL"
     ],
     "base_do_rateio": "ramo",
-    "mwh_empresa_observado": 105076.844,
-    "mwh_empresa_anualizado": 315230.532,
-    "parcela_da_empresa": 0.3907
+    "mwh_empresa_observado": 230989.228,
+    "mwh_empresa_anualizado": 307985.637,
+    "parcela_da_empresa": 0.3969
    },
    "coeficiente": {
-    "valor": 12287.856,
+    "valor": 12195.914,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
     "base_do_rateio": "ramo",
@@ -816,7 +850,7 @@
      "Nióbio",
      "Fosfato"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_alto"
    }
   },
   {
@@ -868,13 +902,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 71734.937,
-    "mwh_anualizado": 122974.178,
-    "acl_mwh_observado": 71734.937,
+    "mwh_observado": 122021.513,
+    "mwh_anualizado": 122021.513,
+    "acl_mwh_observado": 122021.513,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 16.45,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -883,8 +922,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Catalão",
      "Ouvidor"
@@ -894,12 +933,12 @@
      "METALURGIA E PRODUTOS DE METAL"
     ],
     "base_do_rateio": "ramo",
-    "mwh_empresa_observado": 167907.487,
-    "mwh_empresa_anualizado": 287841.406,
-    "parcela_da_empresa": 0.4272
+    "mwh_empresa_observado": 293016.456,
+    "mwh_empresa_anualizado": 293016.456,
+    "parcela_da_empresa": 0.4164
    },
    "coeficiente": {
-    "valor": 11883.859,
+    "valor": 11791.797,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
     "base_do_rateio": "ramo",
@@ -907,7 +946,7 @@
      "Nióbio",
      "Fosfato"
     ],
-    "qualidade": "estimado_medio"
+    "qualidade": "observado_completo"
    }
   },
   {
@@ -986,13 +1025,15 @@
    "municipios": [
     "Barro Alto"
    ],
-   "nome_ccee": null,
+   "nome_ccee": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "ano": 2024,
    "mineral": "Alumínio (Bauxita)",
-   "minerais_na_carga_ccee": [],
+   "minerais_na_carga_ccee": [
+    "Alumínio (Bauxita)"
+   ],
    "rateio_ccee": {
-    "criterio": "nao_separavel",
-    "nota": "Sem carga própria identificada na base CCEE de Goiás."
+    "criterio": "unico",
+    "nota": "A companhia tem um mineral só em Goiás (bauxita); toda a carga identificada é dele."
    },
    "notas_energia": [],
    "producao": {
@@ -1011,9 +1052,41 @@
     "confianca": "media",
     "unidades_descartadas": []
    },
-   "energia": null,
-   "coeficiente": null,
-   "sem_coeficiente": "a empresa tem produção declarada, mas nenhuma carga própria identificada na base CCEE de Goiás"
+   "energia": {
+    "mwh_observado": 1379.839,
+    "mwh_anualizado": 5519.356,
+    "acl_mwh_observado": 1379.839,
+    "cativo_mwh_observado": 0.0,
+    "capacidade_mw": 81.0,
+    "meses_observados": 3,
+    "meses": [
+     4,
+     5,
+     6
+    ],
+    "origem": "anualizado_pro_rata",
+    "qualidade": "estimado_baixo",
+    "municipios_ccee": [
+     "Goiás"
+    ],
+    "ramos_ccee": [
+     "EXTRAÇÃO DE MINERAIS METÁLICOS"
+    ],
+    "base_do_rateio": "carga_total",
+    "mwh_empresa_observado": 1379.839,
+    "mwh_empresa_anualizado": 5519.356,
+    "parcela_da_empresa": 1.0
+   },
+   "coeficiente": {
+    "valor": 9.582,
+    "unidade": "kWh/t",
+    "energia_exclusiva": true,
+    "base_do_rateio": "carga_total",
+    "minerais_na_carga": [
+     "Alumínio (Bauxita)"
+    ],
+    "qualidade": "estimado_baixo"
+   }
   },
   {
    "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
@@ -1247,20 +1320,24 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 116648.139,
-    "mwh_anualizado": 349944.417,
-    "acl_mwh_observado": 116648.139,
+    "mwh_observado": 238493.707,
+    "mwh_anualizado": 357740.561,
+    "acl_mwh_observado": 238493.707,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 45.4,
-    "meses_observados": 4,
+    "meses_observados": 8,
     "meses": [
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_medio",
     "municipios_ccee": [
      "Alto Horizonte"
     ],
@@ -1268,12 +1345,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 116648.139,
-    "mwh_empresa_anualizado": 349944.417,
+    "mwh_empresa_observado": 238493.707,
+    "mwh_empresa_anualizado": 357740.561,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 8089.143,
+    "valor": 8269.355,
     "unidade": "kWh/t",
     "energia_exclusiva": false,
     "base_do_rateio": "carga_total",
@@ -1281,7 +1358,7 @@
      "Cobre",
      "Ouro"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_medio"
    }
   },
   {
@@ -1328,20 +1405,24 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 116648.139,
-    "mwh_anualizado": 349944.417,
-    "acl_mwh_observado": 116648.139,
+    "mwh_observado": 238493.707,
+    "mwh_anualizado": 357740.561,
+    "acl_mwh_observado": 238493.707,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 45.4,
-    "meses_observados": 4,
+    "meses_observados": 8,
     "meses": [
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_medio",
     "municipios_ccee": [
      "Alto Horizonte"
     ],
@@ -1349,12 +1430,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 116648.139,
-    "mwh_empresa_anualizado": 349944.417,
+    "mwh_empresa_observado": 238493.707,
+    "mwh_empresa_anualizado": 357740.561,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 5383.76,
+    "valor": 5503.701,
     "unidade": "kWh/oz",
     "energia_exclusiva": false,
     "base_do_rateio": "carga_total",
@@ -1362,7 +1443,7 @@
      "Cobre",
      "Ouro"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_medio"
    }
   },
   {
@@ -1409,13 +1490,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 214271.855,
-    "mwh_anualizado": 367323.18,
-    "acl_mwh_observado": 214271.855,
+    "mwh_observado": 356534.52,
+    "mwh_anualizado": 356534.52,
+    "acl_mwh_observado": 356534.52,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 51.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -1424,8 +1510,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Alto Horizonte"
     ],
@@ -1433,12 +1519,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 214271.855,
-    "mwh_empresa_anualizado": 367323.18,
+    "mwh_empresa_observado": 356534.52,
+    "mwh_empresa_anualizado": 356534.52,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 8353.19,
+    "valor": 8107.848,
     "unidade": "kWh/t",
     "energia_exclusiva": false,
     "base_do_rateio": "carga_total",
@@ -1446,7 +1532,7 @@
      "Cobre",
      "Ouro"
     ],
-    "qualidade": "estimado_medio"
+    "qualidade": "observado_completo"
    }
   },
   {
@@ -1498,13 +1584,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 214271.855,
-    "mwh_anualizado": 367323.18,
-    "acl_mwh_observado": 214271.855,
+    "mwh_observado": 356534.52,
+    "mwh_anualizado": 356534.52,
+    "acl_mwh_observado": 356534.52,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 51.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -1513,8 +1604,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Alto Horizonte"
     ],
@@ -1522,12 +1613,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 214271.855,
-    "mwh_empresa_anualizado": 367323.18,
+    "mwh_empresa_observado": 356534.52,
+    "mwh_empresa_anualizado": 356534.52,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 5936.312,
+    "valor": 5761.957,
     "unidade": "kWh/oz",
     "energia_exclusiva": false,
     "base_do_rateio": "carga_total",
@@ -1535,7 +1626,7 @@
      "Cobre",
      "Ouro"
     ],
-    "qualidade": "estimado_medio"
+    "qualidade": "estimado_alto"
    }
   },
   {
@@ -1712,20 +1803,25 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 41368.575,
-    "mwh_anualizado": 124105.725,
-    "acl_mwh_observado": 41368.575,
+    "mwh_observado": 91266.243,
+    "mwh_anualizado": 121688.324,
+    "acl_mwh_observado": 91266.243,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 19.0,
-    "meses_observados": 4,
+    "meses_observados": 9,
     "meses": [
+     4,
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_alto",
     "municipios_ccee": [
      "Crixás"
     ],
@@ -1733,19 +1829,19 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 41368.575,
-    "mwh_empresa_anualizado": 124105.725,
+    "mwh_empresa_observado": 91266.243,
+    "mwh_empresa_anualizado": 121688.324,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 1551.322,
+    "valor": 1521.104,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Ouro"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_alto"
    }
   },
   {
@@ -1787,13 +1883,18 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 66762.631,
-    "mwh_anualizado": 114450.225,
-    "acl_mwh_observado": 66762.631,
+    "mwh_observado": 114441.988,
+    "mwh_anualizado": 114441.988,
+    "acl_mwh_observado": 114441.988,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 19.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -1802,8 +1903,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Crixás"
     ],
@@ -1811,12 +1912,12 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 66762.631,
-    "mwh_empresa_anualizado": 114450.225,
+    "mwh_empresa_observado": 114441.988,
+    "mwh_empresa_anualizado": 114441.988,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 1845.971,
+    "valor": 1845.839,
     "unidade": "kWh/oz",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
@@ -1926,20 +2027,24 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 49122.915,
-    "mwh_anualizado": 147368.745,
-    "acl_mwh_observado": 49122.915,
+    "mwh_observado": 95507.105,
+    "mwh_anualizado": 143260.658,
+    "acl_mwh_observado": 95507.105,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 20.5,
-    "meses_observados": 4,
+    "meses_observados": 8,
     "meses": [
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_medio",
     "municipios_ccee": [
      "Catalão"
     ],
@@ -1947,8 +2052,8 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 49122.915,
-    "mwh_empresa_anualizado": 147368.745,
+    "mwh_empresa_observado": 95507.105,
+    "mwh_empresa_anualizado": 143260.658,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -1976,13 +2081,18 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 77310.654,
-    "mwh_anualizado": 132532.55,
-    "acl_mwh_observado": 77310.654,
+    "mwh_observado": 133484.836,
+    "mwh_anualizado": 133484.836,
+    "acl_mwh_observado": 133484.836,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 20.5,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -1991,8 +2101,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Catalão"
     ],
@@ -2000,8 +2110,8 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 77310.654,
-    "mwh_empresa_anualizado": 132532.55,
+    "mwh_empresa_observado": 133484.836,
+    "mwh_empresa_anualizado": 133484.836,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -2096,20 +2206,25 @@
     "unidades_descartadas": []
    },
    "energia": {
-    "mwh_observado": 17691.894,
-    "mwh_anualizado": 53075.682,
-    "acl_mwh_observado": 17691.894,
+    "mwh_observado": 40606.24,
+    "mwh_anualizado": 54141.653,
+    "acl_mwh_observado": 40606.24,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 10.7,
-    "meses_observados": 4,
+    "meses_observados": 9,
     "meses": [
+     4,
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_alto",
     "municipios_ccee": [
      "Minaçu"
     ],
@@ -2117,19 +2232,19 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 17691.894,
-    "mwh_empresa_anualizado": 53075.682,
+    "mwh_empresa_observado": 40606.24,
+    "mwh_empresa_anualizado": 54141.653,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": {
-    "valor": 317.818,
+    "valor": 324.202,
     "unidade": "kWh/t",
     "energia_exclusiva": true,
     "base_do_rateio": "carga_total",
     "minerais_na_carga": [
      "Amianto"
     ],
-    "qualidade": "estimado_baixo"
+    "qualidade": "estimado_alto"
    }
   },
   {
@@ -2153,13 +2268,18 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 33297.744,
-    "mwh_anualizado": 57081.847,
-    "acl_mwh_observado": 33297.744,
+    "mwh_observado": 55716.005,
+    "mwh_anualizado": 55716.005,
+    "acl_mwh_observado": 55716.005,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 10.7,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -2168,8 +2288,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Minaçu"
     ],
@@ -2177,8 +2297,8 @@
      "MINERAIS NÃO-METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 33297.744,
-    "mwh_empresa_anualizado": 57081.847,
+    "mwh_empresa_observado": 55716.005,
+    "mwh_empresa_anualizado": 55716.005,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -2257,20 +2377,24 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 3689.638,
-    "mwh_anualizado": 11068.914,
-    "acl_mwh_observado": 3689.638,
+    "mwh_observado": 7186.538,
+    "mwh_anualizado": 10779.807,
+    "acl_mwh_observado": 7186.538,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 12.0,
-    "meses_observados": 4,
+    "meses_observados": 8,
     "meses": [
+     5,
+     6,
+     7,
      8,
+     9,
      10,
      11,
      12
     ],
     "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_baixo",
+    "qualidade": "estimado_medio",
     "municipios_ccee": [
      "Minaçu"
     ],
@@ -2278,8 +2402,8 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 3689.638,
-    "mwh_empresa_anualizado": 11068.914,
+    "mwh_empresa_observado": 7186.538,
+    "mwh_empresa_anualizado": 10779.807,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,
@@ -2306,13 +2430,18 @@
    "notas_energia": [],
    "producao": null,
    "energia": {
-    "mwh_observado": 3702.19,
-    "mwh_anualizado": 6346.611,
-    "acl_mwh_observado": 3702.19,
+    "mwh_observado": 6818.515,
+    "mwh_anualizado": 6818.515,
+    "acl_mwh_observado": 6818.515,
     "cativo_mwh_observado": 0.0,
     "capacidade_mw": 12.0,
-    "meses_observados": 7,
+    "meses_observados": 12,
     "meses": [
+     1,
+     2,
+     3,
+     4,
+     5,
      6,
      7,
      8,
@@ -2321,8 +2450,8 @@
      11,
      12
     ],
-    "origem": "anualizado_pro_rata",
-    "qualidade": "estimado_medio",
+    "origem": "observado_completo",
+    "qualidade": "observado_completo",
     "municipios_ccee": [
      "Minaçu"
     ],
@@ -2330,8 +2459,8 @@
      "EXTRAÇÃO DE MINERAIS METÁLICOS"
     ],
     "base_do_rateio": "carga_total",
-    "mwh_empresa_observado": 3702.19,
-    "mwh_empresa_anualizado": 6346.611,
+    "mwh_empresa_observado": 6818.515,
+    "mwh_empresa_anualizado": 6818.515,
     "parcela_da_empresa": 1.0
    },
    "coeficiente": null,

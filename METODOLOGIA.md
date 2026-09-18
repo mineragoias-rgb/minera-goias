@@ -24,7 +24,7 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 
 | Fonte | Uma linha é… | Volume | Período |
 |---|---|---|---|
-| CCEE — parcelas de carga | Uma parcela de carga de um agente, em um mês, município e ramo | 4.241 (2024) · 8.072 (2025) · 8.245 (2026) | 2024–2026 |
+| CCEE — parcelas de carga | Uma parcela de carga de um agente, em um mês, município e ramo | 8.820 (2024) · 13.680 (2025) · 8.245 (2026) | abr/2024–jul/2026 |
 | CFEM — arrecadação | Um recolhimento por processo, substância, município e mês | 38.854 | 2022–2026 |
 | Cadastro mineiro (shapefile) | Um polígono de um processo minerário | 17.428 polígonos em 16.656 processos | Data de extração não informada |
 | Rodadas de disponibilidade | Uma área oferecida em uma rodada | 31.841 no Brasil · **3.632 em Goiás** | Rodadas 1 a 8 |
@@ -117,13 +117,13 @@ Mede **a razão entre dois números publicados**, cada um com sua cobertura decl
 
 **A ligação é o CNPJ raiz, não o nome.** A tabela `ccee` do panorama traz o CNPJ raiz do agente e a base de produção o do titular; nove das dez empresas casam. A CBA fica de fora porque sua unidade de bauxita em Barro Alto não aparece com carga própria sob o CNPJ raiz da companhia.
 
-**Anualização é pro rata e sai declarada.** A CCEE do repositório cobre quatro meses de 2024, sete de 2025 e sete de 2026; a produção nem sempre vem publicada como ano. Cada linha traz o observado e o anualizado lado a lado — `observado ÷ meses observados × 12` — com a qualidade da estimativa: `observado_completo` (doze meses), `estimado_alto` (nove a onze), `estimado_medio` (seis a oito) e `estimado_baixo` (menos de seis). O coeficiente herda a qualidade **do lado mais fraco**.
+**Anualização é pro rata e sai declarada.** A CCEE do repositório cobre nove meses de 2024 (abril a dezembro; a CCEE não publica antes), os doze de 2025 e sete de 2026; a produção nem sempre vem publicada como ano. Cada linha traz o observado e o anualizado lado a lado — `observado ÷ meses observados × 12` — com a qualidade da estimativa: `observado_completo` (doze meses), `estimado_alto` (nove a onze), `estimado_medio` (seis a oito) e `estimado_baixo` (menos de seis). O coeficiente herda a qualidade **do lado mais fraco**.
 
 **Períodos parciais não se sobrepõem.** Um S1 já contém Q1 e Q2, e somar os três daria um ano e meio dentro de um ano. Linha de planta isolada (Barro Alto e Codemin separados) também não entra no total da empresa.
 
 **O coeficiente é `energia (kWh) ÷ produção`, na unidade que a empresa publica** — kWh/t ou kWh/oz. Nada é convertido, e os dois grupos aparecem separados no painel porque não se comparam. Só entra produção realizada, do recorte de Goiás, no nível da empresa: embarque, venda, capacidade, meta e consolidado do Brasil ficam fora do numerador.
 
-**A carga de uma empresa com vários minerais é separada pelo que a CCEE já declara — ramo de atividade e município —, nunca por proporção arbitrada.** A CMOC declara a carga em três ramos: extração de minerais metálicos e metalurgia são o nióbio (mina e planta de ferronióbio); minerais não-metálicos é o fosfato. Como nióbio é substância metálica e fosfato não é, o ramo separa os dois negócios sem rateio inventado — em 2025 o nióbio ficou com 43% da carga, e o coeficiente caiu de 27.816 para 11.884 kWh/t. As regras têm de **particionar** a carga: cada parcela cai em exatamente um mineral, sem sobra nem sobreposição, e um teste guarda isso.
+**A carga de uma empresa com vários minerais é separada pelo que a CCEE já declara — ramo de atividade e município —, nunca por proporção arbitrada.** A CMOC declara a carga em três ramos: extração de minerais metálicos e metalurgia são o nióbio (mina e planta de ferronióbio); minerais não-metálicos é o fosfato. Como nióbio é substância metálica e fosfato não é, o ramo separa os dois negócios sem rateio inventado — em 2025 o nióbio ficou com 42% da carga, e o coeficiente caiu de 28.316 para 11.792 kWh/t. As regras têm de **particionar** a carga: cada parcela cai em exatamente um mineral, sem sobra nem sobreposição, e um teste guarda isso.
 
 **Quando nem município nem ramo separam, nada é rateado.** É o caso de Chapada: cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município e sob o mesmo ramo. Alocar entre co-produtos exigiria convenção de inventário — por receita, por valor do metal contido —, que é escolha e não medição. O coeficiente de cada metal sai com `energia_exclusiva=false` e carrega a energia inteira da operação.
 
