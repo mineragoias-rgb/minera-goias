@@ -75,3 +75,18 @@ Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitaç
 ## Panorama (aba do painel)
 
 Aba `Panorama` entre o Atlas e o Radar (`public/panorama.js`, `panorama-charts.js`, `panorama-cards1..3.js`, `panorama.css`), servida por `Squad 3/backend/panorama.py` em `/api/panorama`. Refaz os gráficos e tabelas do *Panorama da Mineração de Goiás* com a base consolidada do Squad 1 e os brutos do repositório; o navegador filtra por ano, mês, município, mineral, titular, fase, gasto em pesquisa e ramo da CCEE. O pacote `data/panorama/panorama.json` é gerado por `python scripts/build_panorama_base.py` (limitações e fontes em `data/panorama/README.md`) e conferido por `tests/test_panorama.py`. Energia por município e barragens vêm de `/api/atlas`.
+
+## Base de produção por empresa e agente semanal
+
+Integração de 18/09/2026. `data/producao/producao.json` e `producao.csv` publicam produção mineral **por empresa** — empresa, produção, mineral e unidade —, com o que cada número mede (`medida`), a que recorte se refere (`escopo`), se é realização, guidance, capacidade ou meta (`tipo_valor`), o período, a fonte com endereço e a confiança. Dez empresas, as de maior CFEM do estado: Lundin/Maracá (Chapada), CMOC, Anglo American Níquel, SAMA/Eternit, Mosaic, Hochschild/Amarillo (Mara Rosa), Serra Grande (AngloGold até 12/2025, Aura depois), Serra Verde, CBA e Brasil Minérios.
+
+A curadoria fica em `producao/base_curada.json`; o pacote sai de `python scripts/build_producao_base.py`, que recusa unidade, medida, escopo ou mineral fora do vocabulário e anexa a produção de Goiás por substância do Anuário Mineral como referência de reconciliação. Regras e limites em `data/producao/README.md` e `METODOLOGIA.md` §3.5; `tests/test_producao.py` confere as duas pontas.
+
+**Nenhuma linha da v1 foi conferida no documento de origem.** A coleta saiu de busca na web num ambiente cujo proxy de egresso bloqueia os sites de RI, e todas nascem `nao_validado`. Conferir número a número é a primeira tarefa do agente na VPS, que tem rede aberta.
+
+O agente é `producao/agente.py`, instalado no padrão do radar (`/usr/local/lib/minera-goias-producao/`, banco em `/var/lib/minera-goias-producao/`) e disparado por `minera-goias-producao.timer` **toda segunda-feira às 02:00**. Ele não escreve na base: gera candidatos com a frase de evidência, confronta com a curadoria (`confirma`, `diverge`, `unidade_divergente`, `novo`, `sem_periodo`) e propõe crescimento da própria metodologia — padrão, unidade ou termo de mineral que faltaram, com contagem e exemplos. `auto_promocao` nasce desligada. Mudar `fontes.json` no GitHub não altera a VPS sozinho: exige reinstalação administrativa, como no importador e no radar. Rode `python3 producao/agente.py --check` na primeira instalação — os endereços de feed não foram testados contra a rede.
+
+```sh
+python -m unittest discover -s tests -p test_producao.py -v
+python3 producao/agente.py --db /tmp/producao.sqlite --offline-dir tests/fixtures/producao
+```

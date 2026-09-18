@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixture · imprensa setorial em português</title>
+    <link>https://exemplo.invalido/setorial</link>
+    <description>Manchetes sintéticas para exercitar a extração. Nenhuma é notícia real.</description>
+    <item>
+      <title>CMOC Brasil produziu 5.231 toneladas de nióbio no primeiro semestre de 2025</title>
+      <link>https://exemplo.invalido/setorial/cmoc-niobio-1s25</link>
+      <description>A companhia informou que produziu 5.231 toneladas de nióbio no primeiro semestre de 2025, ante 5.082 toneladas no mesmo período do ano anterior.</description>
+      <pubDate>Mon, 01 Sep 2025 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Nióbio da CMOC: a produção alcançou 10.348 t em 2025</title>
+      <link>https://exemplo.invalido/setorial/cmoc-niobio-2025</link>
+      <description>Fechamento do exercício.</description>
+      <pubDate>Tue, 24 Mar 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Serra Verde embarcou 678 toneladas de terras raras em 2025</title>
+      <link>https://exemplo.invalido/setorial/serra-verde-embarque</link>
+      <description>Os embarques saíram de Minaçu.</description>
+      <pubDate>Wed, 14 Jan 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anglo American produziu 41.000 toneladas de níquel em 2025, diz boletim</title>
+      <link>https://exemplo.invalido/setorial/anglo-niquel-divergente</link>
+      <description>Número divergente do relatório de produção da companhia.</description>
+      <pubDate>Thu, 05 Feb 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Mineradora produziu 12.000 toneladas de cobre sem informar o período</title>
+      <link>https://exemplo.invalido/setorial/sem-periodo</link>
+      <description>A nota não diz a que período o volume se refere.</description>
+      <pubDate>Fri, 06 Feb 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Unidade de Catalão produziu 350 mil sacas de calcário em 2025</title>
+      <link>https://exemplo.invalido/setorial/unidade-desconhecida</link>
+      <description>A produção foi medida em sacas, unidade que o léxico do agente não conhece.</description>
+      <pubDate>Sat, 07 Feb 2026 09:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

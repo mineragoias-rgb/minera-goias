@@ -1,0 +1,522 @@
+{
+ "comment": "Fontes e metodologia de extração do agente de produção. Editar aqui não exige mexer no código. Os padrões usam marcadores que o agente substitui: {NUM} número, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral. Rode 'python3 producao/agente.py --check' para ver quais fontes respondem.",
+ "metodologia_versao": "1.0",
+ "confronto": {
+  "tolerancia_relativa": 0.02,
+  "comment": "Diferença relativa aceita entre o candidato e a base curada antes de a linha virar divergência. 2% cobre arredondamento de publicação (39,7 kt contra 39.700 t)."
+ },
+ "auto_promocao": {
+  "ativa": false,
+  "min_ocorrencias": 3,
+  "min_fontes_distintas": 2,
+  "min_execucoes": 2,
+  "comment": "Promoção automática de proposta a padrão ativo. Nasce DESLIGADA: por METODOLOGIA.md §1, importar não é validar. Com ela ligada, o agente só promove proposta que bateu o mínimo de ocorrências em fontes distintas e em execuções distintas, e cuja captura rendeu valor e unidade legíveis em todos os exemplos. Toda promoção fica registrada em prod_decisoes com os exemplos que a sustentaram."
+ },
+ "aposentadoria_de_padrao": {
+  "min_execucoes_sem_uso": 8,
+  "comment": "Padrão que atravessa esse tanto de execuções sem capturar nada vira proposta de aposentadoria — o agente não apaga nada sozinho."
+ },
+ "numero": {
+  "escalas": {
+   "mil": 1000,
+   "mil de": 1000,
+   "thousand": 1000,
+   "milhao": 1000000,
+   "milhão": 1000000,
+   "milhoes": 1000000,
+   "milhões": 1000000,
+   "million": 1000000,
+   "bilhao": 1000000000,
+   "bilhão": 1000000000,
+   "bilhoes": 1000000000,
+   "bilhões": 1000000000,
+   "billion": 1000000000
+  }
+ },
+ "unidades": {
+  "comment": "Token lido no texto -> unidade canônica e fator. Só entram fatores que são definição de prefixo (kt, Mt, koz), nunca conversão entre grandezas: tonelada não vira onça em lugar nenhum.",
+  "t": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "ton": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "tons": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "tonne": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "tonnes": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "tonelada": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "toneladas": {
+   "canonica": "t",
+   "fator": 1
+  },
+  "kt": {
+   "canonica": "t",
+   "fator": 1000
+  },
+  "mt": {
+   "canonica": "t",
+   "fator": 1000000
+  },
+  "kg": {
+   "canonica": "kg",
+   "fator": 1
+  },
+  "quilo": {
+   "canonica": "kg",
+   "fator": 1
+  },
+  "quilos": {
+   "canonica": "kg",
+   "fator": 1
+  },
+  "oz": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "onca": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "oncas": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "ounce": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "ounces": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "koz": {
+   "canonica": "oz",
+   "fator": 1000
+  },
+  "moz": {
+   "canonica": "oz",
+   "fator": 1000000
+  },
+  "geo": {
+   "canonica": "oz",
+   "fator": 1
+  },
+  "m3": {
+   "canonica": "m3",
+   "fator": 1
+  }
+ },
+ "minerais": {
+  "comment": "Termo no texto -> nome da substância no dicionário da ANM usado pelo atlas e pelo panorama.",
+  "cobre": "Cobre",
+  "copper": "Cobre",
+  "ouro": "Ouro",
+  "gold": "Ouro",
+  "niquel": "Níquel",
+  "níquel": "Níquel",
+  "nickel": "Níquel",
+  "ferroniquel": "Níquel",
+  "ferronickel": "Níquel",
+  "niobio": "Nióbio",
+  "nióbio": "Nióbio",
+  "niobium": "Nióbio",
+  "ferronióbio": "Nióbio",
+  "ferroniobio": "Nióbio",
+  "fosfato": "Fosfato",
+  "phosphate": "Fosfato",
+  "rocha fosfatica": "Fosfato",
+  "phosphate rock": "Fosfato",
+  "fertilizantes fosfatados": "Fosfato",
+  "acido fosforico": "Fosfato",
+  "ácido fosfórico": "Fosfato",
+  "bauxita": "Alumínio (Bauxita)",
+  "bauxite": "Alumínio (Bauxita)",
+  "amianto": "Amianto",
+  "crisotila": "Amianto",
+  "chrysotile": "Amianto",
+  "asbestos": "Amianto",
+  "vermiculita": "Vermiculita e Perlita",
+  "vermiculite": "Vermiculita e Perlita",
+  "terras raras": "Monazita e Terras-Raras",
+  "terra rara": "Monazita e Terras-Raras",
+  "rare earth": "Monazita e Terras-Raras",
+  "rare earths": "Monazita e Terras-Raras",
+  "treo": "Monazita e Terras-Raras",
+  "oxido total de terras raras": "Monazita e Terras-Raras"
+ },
+ "medida_por_termo": {
+  "comment": "Pista no texto -> o que o número mede. A primeira que casar vence, na ordem em que estão aqui.",
+  "embarque": [
+   "embarcou",
+   "embarcados",
+   "embarque",
+   "exportou",
+   "exportacao",
+   "exportação",
+   "exportadas",
+   "shipped",
+   "shipments",
+   "exports",
+   "exported"
+  ],
+  "capacidade": [
+   "capacidade",
+   "capacity",
+   "nominal",
+   "instalada",
+   "ptpa",
+   "tpa"
+  ],
+  "minerio_rom": [
+   "rom",
+   "run-of-mine",
+   "run of mine",
+   "minerio bruto",
+   "minério bruto",
+   "producao bruta",
+   "produção bruta"
+  ],
+  "contido": [
+   "contido",
+   "contida",
+   "contained",
+   "teor contido",
+   "metal contido"
+  ],
+  "metal_em_concentrado": [
+   "concentrado",
+   "concentrate",
+   "em concentrado",
+   "in concentrate"
+  ],
+  "produto_acabado": [
+   "produziu",
+   "produção",
+   "producao",
+   "produced",
+   "production",
+   "output",
+   "beneficiada"
+  ]
+ },
+ "tipo_valor_por_termo": {
+  "comment": "Pista no texto -> se o número é realização ou promessa. Sem pista, o agente assume 'realizado' apenas quando o período já terminou; período futuro sem pista fica 'indefinido' e não vira série.",
+  "guidance": [
+   "guidance",
+   "projecao",
+   "projeção",
+   "projeta",
+   "espera produzir",
+   "expects to produce",
+   "forecast",
+   "guiou",
+   "orientacao",
+   "orientação"
+  ],
+  "meta": [
+   "meta",
+   "target",
+   "objetivo",
+   "pretende atingir",
+   "plans to produce",
+   "ate o final de",
+   "até o final de"
+  ],
+  "capacidade": [
+   "capacidade",
+   "capacity",
+   "instalada"
+  ]
+ },
+ "periodo": {
+  "comment": "Padrões de período lidos no próprio texto. Sem período explícito o candidato fica 'periodo_indefinido' e NÃO é confrontado com a base: o agente não deduz o ano pela data da matéria. Os padroes sao avaliados do mais especifico para o mais geral: trimestre, depois semestre, depois ano — senao 'no primeiro semestre de 2025' seria lido como o ano de 2025.",
+  "padroes": [
+   {
+    "id": "trimestre_pt",
+    "regex": "\\b(?P<n>primeiro|segundo|terceiro|quarto)\\s+trimestre\\s+de\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "trimestre",
+    "formato": "{ano}-Q{n}"
+   },
+   {
+    "id": "trimestre_num_pt",
+    "regex": "\\b(?P<n>[1-4])t(?P<ano2>\\d{2})\\b",
+    "tipo": "trimestre",
+    "formato": "20{ano2}-Q{n}"
+   },
+   {
+    "id": "trimestre_en",
+    "regex": "\\bq(?P<n>[1-4])\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "trimestre",
+    "formato": "{ano}-Q{n}"
+   },
+   {
+    "id": "semestre_pt",
+    "regex": "\\b(?P<n>primeiro|segundo)\\s+semestre\\s+de\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "semestre",
+    "formato": "{ano}-S{n}"
+   },
+   {
+    "id": "semestre_num_pt",
+    "regex": "\\b(?P<n>[12])s(?P<ano2>\\d{2})\\b",
+    "tipo": "semestre",
+    "formato": "20{ano2}-S{n}"
+   },
+   {
+    "id": "semestre_en",
+    "regex": "\\bh(?P<n>[12])\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "semestre",
+    "formato": "{ano}-S{n}"
+   },
+   {
+    "id": "ano_pt",
+    "regex": "\\b(?:em|de|do ano de|no ano de|ano-base)\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "ano",
+    "formato": "{ano}"
+   },
+   {
+    "id": "ano_en",
+    "regex": "\\b(?:full[- ]year|fy|in|for)\\s+(?P<ano>20\\d{2})\\b",
+    "tipo": "ano",
+    "formato": "{ano}"
+   }
+  ]
+ },
+ "padroes": [
+  {
+   "id": "P01",
+   "idioma": "pt",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "verbo de producao, numero, unidade, 'de', mineral — 'produziu 5.231 toneladas de niobio'",
+   "regex": "(?:produziu|produziram|produzidas|produzidos|producao de|extraiu|beneficiou)\\s+(?:cerca de\\s+|aproximadamente\\s+)?{NUM}\\s*{ESC}?\\s*(?:de\\s+)?{UNI}\\s+de\\s+{MIN}"
+  },
+  {
+   "id": "P02",
+   "idioma": "pt",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "mineral, palavra de producao, numero, unidade — 'a producao de niobio alcancou 10.348 t'",
+   "regex": "{MIN}[^.;]{0,60}?(?:producao|produziu|atingiu|alcancou|somou|totalizou|chegou a)[^.;]{0,25}?{NUM}\\s*{ESC}?\\s*(?:de\\s+)?{UNI}"
+  },
+  {
+   "id": "P03",
+   "idioma": "en",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "verbo de producao, numero, unidade, 'of', mineral — 'produced 43,974 tonnes of copper'",
+   "regex": "(?:produced|production of|output of|delivered)\\s+(?:about\\s+|approximately\\s+|over\\s+)?{NUM}\\s*{ESC}?\\s*{UNI}\\s+of\\s+{MIN}"
+  },
+  {
+   "id": "P04",
+   "idioma": "en",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "mineral, 'production', verbo de ligacao, numero, unidade — 'copper production was 43,974 tonnes'",
+   "regex": "{MIN}\\s+production[^.;]{0,40}?(?:was|of|totalled|totaled|reached|came in at|stood at)\\s+(?:about\\s+|approximately\\s+)?{NUM}\\s*{ESC}?\\s*{UNI}"
+  },
+  {
+   "id": "P05",
+   "idioma": "pt",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "embarque ou exportacao — 'embarcou 678 toneladas de terras raras'",
+   "regex": "(?:embarcou|embarcadas|embarcados|exportou|exportacao de|exportadas)\\s+(?:cerca de\\s+)?{NUM}\\s*{ESC}?\\s*(?:de\\s+)?{UNI}\\s+de\\s+{MIN}"
+  },
+  {
+   "id": "P06",
+   "idioma": "pt",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "capacidade declarada — 'capacidade de 80.000 toneladas de vermiculita por ano'",
+   "regex": "capacidade[^.;]{0,30}?{NUM}\\s*{ESC}?\\s*(?:de\\s+)?{UNI}\\s+de\\s+{MIN}"
+  },
+  {
+   "id": "P07",
+   "idioma": "en",
+   "ativo": true,
+   "origem": "manual",
+   "descricao": "mineral, numero, unidade, palavra de producao — 'gold: 7,067 ounces produced'",
+   "regex": "{MIN}[^.;]{0,40}?{NUM}\\s*{ESC}?\\s*{UNI}\\s+(?:produced|of production|were produced)"
+  }
+ ],
+ "fontes": [
+  {
+   "name": "Busca · produção CMOC nióbio Catalão",
+   "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
+   "url": "https://news.google.com/rss/search?q=CMOC+(ni%C3%B3bio+OR+fosfato)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Chapada Lundin produção cobre",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "url": "https://news.google.com/rss/search?q=(Chapada+OR+%22Lundin+Mining%22)+(cobre+OR+copper)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Lundin Chapada production",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "url": "https://news.google.com/rss/search?q=%22Lundin+Mining%22+Chapada+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Anglo American níquel Barro Alto",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=(%22Barro+Alto%22+OR+Codemin)+n%C3%ADquel+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Anglo American nickel production",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=%22Anglo+American%22+nickel+production+report&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Eternit SAMA crisotila",
+   "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
+   "url": "https://news.google.com/rss/search?q=(Eternit+OR+SAMA)+crisotila+(produ%C3%A7%C3%A3o+OR+exporta%C3%A7%C3%A3o)&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Mosaic fosfato Brasil",
+   "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
+   "url": "https://news.google.com/rss/search?q=Mosaic+fosfato+Brasil+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Hochschild Mara Rosa ouro",
+   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=(Hochschild+OR+%22Mara+Rosa%22)+(ouro+OR+gold)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Hochschild Mara Rosa production",
+   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=Hochschild+%22Mara+Rosa%22+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Serra Grande Crixás ouro",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "url": "https://news.google.com/rss/search?q=(%22Serra+Grande%22+OR+Crix%C3%A1s)+ouro+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Aura Minerals MSG production",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "url": "https://news.google.com/rss/search?q=%22Aura+Minerals%22+(MSG+OR+%22Serra+Grande%22)+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Serra Verde terras raras Minaçu",
+   "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
+   "url": "https://news.google.com/rss/search?q=%22Serra+Verde%22+terras+raras+Mina%C3%A7u&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · CBA bauxita Barro Alto",
+   "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
+   "url": "https://news.google.com/rss/search?q=CBA+bauxita+%22Barro+Alto%22+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "Busca · Brasil Minérios vermiculita",
+   "empresa": "BRASIL MINERIOS S/A",
+   "url": "https://news.google.com/rss/search?q=%22Brasil+Min%C3%A9rios%22+vermiculita&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  },
+  {
+   "name": "ANM · notícias",
+   "empresa": null,
+   "url": "https://www.gov.br/anm/pt-br/assuntos/noticias/RSS",
+   "lang": "pt",
+   "tipo": "editor"
+  },
+  {
+   "name": "IBRAM · indústria mineral",
+   "empresa": null,
+   "url": "https://ibram.org.br/feed/",
+   "lang": "pt",
+   "tipo": "editor"
+  },
+  {
+   "name": "Brasil Mineral",
+   "empresa": null,
+   "url": "https://www.brasilmineral.com.br/feed",
+   "lang": "pt",
+   "tipo": "editor"
+  },
+  {
+   "name": "Mining.com",
+   "empresa": null,
+   "url": "https://www.mining.com/feed/",
+   "lang": "en",
+   "tipo": "editor"
+  },
+  {
+   "name": "Mining Weekly",
+   "empresa": null,
+   "url": "https://www.miningweekly.com/rss",
+   "lang": "en",
+   "tipo": "editor"
+  },
+  {
+   "name": "Busca · produção mineral Goiás",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=produ%C3%A7%C3%A3o+mineral+Goi%C3%A1s+toneladas&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca"
+  }
+ ],
+ "aliases_empresa": {
+  "comment": "Nome no texto -> empresa da base curada. Serve para atribuir o candidato quando a fonte não é dedicada a uma empresa.",
+  "cmoc": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
+  "lundin": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+  "chapada": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+  "maraca": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+  "anglo american": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+  "barro alto": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+  "codemin": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+  "eternit": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
+  "sama": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
+  "mosaic": "MOSAIC FERTILIZANTES P&K LTDA.",
+  "hochschild": "AMARILLO MINERACAO DO BRASIL LTDA",
+  "mara rosa": "AMARILLO MINERACAO DO BRASIL LTDA",
+  "amarillo": "AMARILLO MINERACAO DO BRASIL LTDA",
+  "serra grande": "MINERACAO SERRA GRANDE S A",
+  "anglogold": "MINERACAO SERRA GRANDE S A",
+  "aura minerals": "MINERACAO SERRA GRANDE S A",
+  "serra verde": "SERRA VERDE PESQUISA E MINERACAO LTDA",
+  "usa rare earth": "SERRA VERDE PESQUISA E MINERACAO LTDA",
+  "companhia brasileira de aluminio": "COMPANHIA BRASILEIRA DE ALUMINIO",
+  "brasil minerios": "BRASIL MINERIOS S/A"
+ },
+ "padroes_comment": "Os padroes sao escritos SEM acento e em minusculas de proposito: o agente dobra o texto (minusculas, sem acento) antes de aplicar a expressao, entao 'producao' casa tanto 'produção' quanto 'producao'. Marcadores: {NUM} numero, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral."
+}

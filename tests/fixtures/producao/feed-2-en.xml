@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixture · international mining press</title>
+    <link>https://exemplo.invalido/international</link>
+    <description>Synthetic headlines used to exercise extraction. None is a real story.</description>
+    <item>
+      <title>Chapada produced 43,974 tonnes of copper in 2025</title>
+      <link>https://exemplo.invalido/international/chapada-copper-2025</link>
+      <description>Lundin Mining reported the figure for its Brazilian operation.</description>
+      <pubDate>Wed, 14 Jan 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Analyst note says copper production was 45,000 tonnes for full year 2025 at Chapada</title>
+      <link>https://exemplo.invalido/international/chapada-analyst</link>
+      <description>An estimate that does not match the company release.</description>
+      <pubDate>Thu, 15 Jan 2026 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Mara Rosa produced 7,067 ounces of gold in Q4 2025</title>
+      <link>https://exemplo.invalido/international/mara-rosa-q4</link>
+      <description>Hochschild Mining reported the quarter.</description>
+      <pubDate>Mon, 19 Jan 2026 09:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
