@@ -258,8 +258,10 @@ class AgenteTests(unittest.TestCase):
         self.assertTrue(all(linha[2].strip() for linha in decisoes), 'promoção sem motivo registrado')
 
     def test_uma_fonte_fora_do_ar_nao_derruba_a_execucao(self):
+        caida = self.config['fontes'][0]['url']
+
         def fetcher_ruim(url):
-            if 'google' in url:
+            if url == caida:
                 raise OSError('fonte fora do ar')
             return self.fetcher(url)
         relatorio = agente.run(self.db, self.config, CURADA, fetcher_ruim)

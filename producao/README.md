@@ -14,14 +14,36 @@ batido; o que chega é a manchete que fala dela.
 
 ## O ciclo de uma execução
 
-1. **Coleta** — lê os feeds de `fontes.json`: buscas por empresa, feeds setoriais (ANM, IBRAM, Brasil Mineral, Mining.com, Mining Weekly) e uma
-   busca geral de produção mineral em Goiás. Matéria é identificada pelo hash do link, então reexecutar não duplica. Feed fora do ar não derruba
-   os outros: a execução termina como `partial`.
+1. **Coleta** — lê os 50 feeds de `fontes.json` (detalhe abaixo). Matéria é identificada pelo hash do link, então reexecutar não duplica. Feed
+   fora do ar não derruba os outros: a execução termina como `partial`.
 2. **Extração** — quebra o texto em frases e aplica os padrões ativos. Um candidato só nasce com **número, unidade e mineral** legíveis; período
    sai do próprio texto e nunca da data da matéria.
 3. **Confronto** — compara com `base_curada.json` por empresa, mineral e período.
 4. **Propostas** — o que claramente falava de produção e escapou vira proposta de metodologia.
 5. **Decisões** — o que o agente promoveria e o que promoveu, sempre com o motivo.
+
+## As fontes
+
+Cinquenta feeds, porque o número de produção quase nunca aparece num lugar só: sai no release do RI, é repercutido pela imprensa setorial no
+mesmo dia e volta no balanço trimestral da imprensa econômica. Ler as três aumenta a chance de pegar o número **e** de flagrar quando elas
+divergem entre si.
+
+| Grupo | Fontes | Por que está aqui |
+|---|---|---|
+| **Setorial brasileira** (8) | Brasil Mineral, Revista Mineração, In The Mine, Minérios & Minerales, Notícias de Mineração Brasil, Brasil Mining Site, IBRAM, MINDE | É onde o volume por empresa aparece primeiro e com unidade declarada. O 1S26 da Anglo em Goiás (18,2 mil t) saiu daqui antes de qualquer outro lugar |
+| **Globo** (5) | g1 economia, **g1 Goiás**, g1 ciência, O Globo economia, Valor empresas | g1 Goiás cobre a operação pelo lado do município; o Valor cobre o balanço da companhia aberta |
+| **Econômica** (5) | InfoMoney, Money Times, Exame, Seu Dinheiro, Agência Brasil | Trimestre de empresa listada (Eternit, CBA) vira matéria com volume |
+| **Regional de Goiás** (3) | Jornal Opção, Mais Goiás, O Popular | Pega o que só é notícia no estado — os embarques da Serra Verde saíram assim |
+| **Internacional** (6) | Mining.com, Mining Weekly, The Northern Miner, Mining Technology, International Mining, Kitco News | Lundin, Anglo, Hochschild e Aura reportam em inglês primeiro |
+| **Busca por empresa** (17) | Google Notícias, uma ou duas consultas por titular da base, em português e em inglês | Alcança veículo sem RSS próprio e o próprio release do RI quando ele é indexado |
+| **Busca temática** (6) | "produção mineral Goiás toneladas", "mineradora produziu", "recorde de produção", "Brazil mine produced tonnes"… | Serve para achar **produtor que ainda não está na base** — é por aqui que a cobertura cresce sozinha |
+
+Cada fonte declara `lang` (que decide a notação do número, veja abaixo), `tipo` (`editor` para feed do próprio veículo, `busca` para consulta
+agregada), `escopo` (`regional`, `nacional`, `setorial`, `internacional`) e, quando é dedicada a um titular, `empresa` — que vira a atribuição
+padrão dos candidatos daquele feed.
+
+Estatística de agência (ANM, SGB) **não** é configurada aqui de propósito: a base só aceita número declarado pela empresa, e o que a agência
+apura é outra grandeza.
 
 ## Leitura de número: a armadilha da notação
 
@@ -90,8 +112,10 @@ python3 producao/agente.py --check
 
 Só biblioteca padrão do Python — nenhuma dependência para instalar.
 
-> **Os endereços de `fontes.json` não foram testados contra a rede.** Foram montados a partir dos padrões de RSS de cada veículo, num ambiente
-> cujo proxy de egresso bloqueia esses domínios. Rode `--check` na primeira instalação e remova os que não responderem.
+> **Os cinquenta endereços de `fontes.json` não foram testados contra a rede.** Foram montados a partir dos padrões de RSS de cada veículo
+> (WordPress `/feed/`, `rss.xml`, o formato de busca do Google Notícias), num ambiente cujo proxy de egresso bloqueia esses domínios. Rode
+> `--check` na primeira instalação: ele imprime uma linha por fonte com status e contagem de itens, sem gravar nada. Remova do `fontes.json` as
+> que não responderem — e prefira corrigir o endereço a apagar a fonte, porque a lista foi montada por cobertura, não por conveniência.
 
 ## Na VPS
 

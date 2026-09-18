@@ -69,7 +69,7 @@ panorama usam. Quem quiser a visão do estado por substância vai lá — não a
 
 - **Nenhuma linha foi lida no documento original.** A coleta saiu de busca na web, num ambiente cujo proxy de egresso bloqueia os sites de RI.
   `fonte_url` é o endereço que a busca atribuiu ao número. Conferir cada um é a primeira tarefa do agente semanal, que roda na VPS com rede.
-- **Cobertura parcial.** 68 registros de dez empresas, as de maior CFEM do estado, cobrindo 2022 a 2027 (realizado, guidance, capacidade e
+- **Cobertura parcial.** 78 registros de dez empresas, as de maior CFEM do estado, cobrindo 2022 a 2027 (realizado, guidance, capacidade e
   meta). Calcário, brita, areia e água mineral — muitos titulares, nenhum com publicação de volume — ficaram de fora.
 - **A série de cada empresa tem densidade diferente.** Chapada e CMOC têm ano e trimestre desde 2022; Mara Rosa só existe desde 2024; a Serra
   Verde era fechada e não publicava volume, então o que há dela é embarque noticiado.

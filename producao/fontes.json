@@ -1,5 +1,5 @@
 {
- "comment": "Fontes e metodologia de extração do agente de produção. Editar aqui não exige mexer no código. Os padrões usam marcadores que o agente substitui: {NUM} número, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral. Rode 'python3 producao/agente.py --check' para ver quais fontes respondem. A base só aceita número declarado pela empresa, então feed de estatística de agência (ANM, SGB) não é configurado aqui de propósito: o que a agência apura é outra grandeza e não entra na base.",
+ "comment": "Fontes e metodologia de extração do agente de produção. Editar aqui não exige mexer no código. Os padrões usam marcadores que o agente substitui: {NUM} número, {ESC} palavra de escala, {UNI} unidade, {MIN} termo de mineral. 'tipo' distingue feed do próprio veículo ('editor') de busca agregada ('busca'); 'escopo' diz o alcance (regional, nacional, setorial, internacional); 'empresa' amarra a fonte a um titular quando ela é dedicada a ele. A base só aceita número declarado pela empresa, então feed de estatística de agência (ANM, SGB) não é configurado aqui de propósito: o que a agência apura é outra grandeza e não entra na base. Rode 'python3 producao/agente.py --check' para ver quais respondem.",
  "metodologia_versao": "1.0",
  "confronto": {
   "tolerancia_relativa": 0.02,
@@ -375,137 +375,404 @@
  ],
  "fontes": [
   {
-   "name": "Busca · produção CMOC nióbio Catalão",
-   "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
-   "url": "https://news.google.com/rss/search?q=CMOC+(ni%C3%B3bio+OR+fosfato)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Brasil Mineral",
+   "empresa": null,
+   "url": "https://www.brasilmineral.com.br/feed",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Busca · Chapada Lundin produção cobre",
-   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
-   "url": "https://news.google.com/rss/search?q=(Chapada+OR+%22Lundin+Mining%22)+(cobre+OR+copper)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Revista Mineração",
+   "empresa": null,
+   "url": "https://revistamineracao.com.br/feed/",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Busca · Lundin Chapada production",
-   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
-   "url": "https://news.google.com/rss/search?q=%22Lundin+Mining%22+Chapada+production&hl=en-US&gl=US&ceid=US:en",
-   "lang": "en",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Anglo American níquel Barro Alto",
-   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
-   "url": "https://news.google.com/rss/search?q=(%22Barro+Alto%22+OR+Codemin)+n%C3%ADquel+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Revista In The Mine",
+   "empresa": null,
+   "url": "https://www.inthemine.com.br/site/feed/",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Busca · Anglo American nickel production",
-   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
-   "url": "https://news.google.com/rss/search?q=%22Anglo+American%22+nickel+production+report&hl=en-US&gl=US&ceid=US:en",
-   "lang": "en",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Eternit SAMA crisotila",
-   "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
-   "url": "https://news.google.com/rss/search?q=(Eternit+OR+SAMA)+crisotila+(produ%C3%A7%C3%A3o+OR+exporta%C3%A7%C3%A3o)&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Revista Minérios & Minerales",
+   "empresa": null,
+   "url": "https://revistaminerios.com.br/feed/",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Busca · Mosaic fosfato Brasil",
-   "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
-   "url": "https://news.google.com/rss/search?q=Mosaic+fosfato+Brasil+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Notícias de Mineração Brasil",
+   "empresa": null,
+   "url": "https://www.noticiasdemineracao.com/rss",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Busca · Hochschild Mara Rosa ouro",
-   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
-   "url": "https://news.google.com/rss/search?q=(Hochschild+OR+%22Mara+Rosa%22)+(ouro+OR+gold)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "name": "Brasil Mining Site",
+   "empresa": null,
+   "url": "https://brasilminingsite.com.br/feed/",
    "lang": "pt",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Hochschild Mara Rosa production",
-   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
-   "url": "https://news.google.com/rss/search?q=Hochschild+%22Mara+Rosa%22+production&hl=en-US&gl=US&ceid=US:en",
-   "lang": "en",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Serra Grande Crixás ouro",
-   "empresa": "MINERACAO SERRA GRANDE S A",
-   "url": "https://news.google.com/rss/search?q=(%22Serra+Grande%22+OR+Crix%C3%A1s)+ouro+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-   "lang": "pt",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Aura Minerals MSG production",
-   "empresa": "MINERACAO SERRA GRANDE S A",
-   "url": "https://news.google.com/rss/search?q=%22Aura+Minerals%22+(MSG+OR+%22Serra+Grande%22)+production&hl=en-US&gl=US&ceid=US:en",
-   "lang": "en",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Serra Verde terras raras Minaçu",
-   "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
-   "url": "https://news.google.com/rss/search?q=%22Serra+Verde%22+terras+raras+Mina%C3%A7u&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-   "lang": "pt",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · CBA bauxita Barro Alto",
-   "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
-   "url": "https://news.google.com/rss/search?q=CBA+bauxita+%22Barro+Alto%22+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-   "lang": "pt",
-   "tipo": "busca"
-  },
-  {
-   "name": "Busca · Brasil Minérios vermiculita",
-   "empresa": "BRASIL MINERIOS S/A",
-   "url": "https://news.google.com/rss/search?q=%22Brasil+Min%C3%A9rios%22+vermiculita&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-   "lang": "pt",
-   "tipo": "busca"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
    "name": "IBRAM · indústria mineral",
    "empresa": null,
    "url": "https://ibram.org.br/feed/",
    "lang": "pt",
-   "tipo": "editor"
+   "tipo": "editor",
+   "escopo": "setorial"
   },
   {
-   "name": "Brasil Mineral",
+   "name": "MINDE · sindicato da mineração de Goiás e DF",
    "empresa": null,
-   "url": "https://www.brasilmineral.com.br/feed",
+   "url": "https://mindemineracao.com.br/feed/",
    "lang": "pt",
-   "tipo": "editor"
+   "tipo": "editor",
+   "escopo": "regional"
+  },
+  {
+   "name": "g1 · economia",
+   "empresa": null,
+   "url": "https://g1.globo.com/rss/g1/economia/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "g1 · Goiás",
+   "empresa": null,
+   "url": "https://g1.globo.com/rss/g1/goias/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "regional"
+  },
+  {
+   "name": "g1 · ciência e natureza",
+   "empresa": null,
+   "url": "https://g1.globo.com/rss/g1/ciencia-e-saude/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "O Globo · economia",
+   "empresa": null,
+   "url": "https://oglobo.globo.com/rss.xml?editoria=economia",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Valor Econômico · empresas",
+   "empresa": null,
+   "url": "https://valor.globo.com/rss/feed/empresas/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "InfoMoney",
+   "empresa": null,
+   "url": "https://www.infomoney.com.br/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Money Times",
+   "empresa": null,
+   "url": "https://www.moneytimes.com.br/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Exame",
+   "empresa": null,
+   "url": "https://exame.com/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Seu Dinheiro",
+   "empresa": null,
+   "url": "https://www.seudinheiro.com/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Agência Brasil · economia",
+   "empresa": null,
+   "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Jornal Opção · Goiás",
+   "empresa": null,
+   "url": "https://www.jornalopcao.com.br/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "regional"
+  },
+  {
+   "name": "Mais Goiás",
+   "empresa": null,
+   "url": "https://www.maisgoias.com.br/feed/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "regional"
+  },
+  {
+   "name": "O Popular · Goiás",
+   "empresa": null,
+   "url": "https://opopular.com.br/rss/",
+   "lang": "pt",
+   "tipo": "editor",
+   "escopo": "regional"
   },
   {
    "name": "Mining.com",
    "empresa": null,
    "url": "https://www.mining.com/feed/",
    "lang": "en",
-   "tipo": "editor"
+   "tipo": "editor",
+   "escopo": "internacional"
   },
   {
    "name": "Mining Weekly",
    "empresa": null,
    "url": "https://www.miningweekly.com/rss",
    "lang": "en",
-   "tipo": "editor"
+   "tipo": "editor",
+   "escopo": "internacional"
   },
   {
-   "name": "Busca · produção mineral Goiás",
+   "name": "The Northern Miner",
+   "empresa": null,
+   "url": "https://www.northernminer.com/feed/",
+   "lang": "en",
+   "tipo": "editor",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Mining Technology",
+   "empresa": null,
+   "url": "https://www.mining-technology.com/feed/",
+   "lang": "en",
+   "tipo": "editor",
+   "escopo": "internacional"
+  },
+  {
+   "name": "International Mining",
+   "empresa": null,
+   "url": "https://im-mining.com/feed/",
+   "lang": "en",
+   "tipo": "editor",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Kitco News",
+   "empresa": null,
+   "url": "https://www.kitco.com/rss/KitcoNews.xml",
+   "lang": "en",
+   "tipo": "editor",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · CMOC nióbio e fosfato",
+   "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
+   "url": "https://news.google.com/rss/search?q=CMOC+(ni%C3%B3bio+OR+fosfato)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · CMOC niobium production",
+   "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
+   "url": "https://news.google.com/rss/search?q=CMOC+niobium+production+Brazil&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Chapada cobre",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "url": "https://news.google.com/rss/search?q=(Chapada+OR+%22Lundin+Mining%22)+(cobre+OR+copper)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Lundin Chapada production",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "url": "https://news.google.com/rss/search?q=%22Lundin+Mining%22+Chapada+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Anglo American níquel Barro Alto",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=(%22Barro+Alto%22+OR+Codemin)+n%C3%ADquel+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Anglo American nickel production",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=%22Anglo+American%22+nickel+production+report&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Eternit e SAMA crisotila",
+   "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
+   "url": "https://news.google.com/rss/search?q=(Eternit+OR+SAMA)+crisotila+(produ%C3%A7%C3%A3o+OR+exporta%C3%A7%C3%A3o)&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Mosaic fosfato Brasil",
+   "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
+   "url": "https://news.google.com/rss/search?q=Mosaic+fosfato+Brasil+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Busca · Mosaic phosphate rock Brazil",
+   "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
+   "url": "https://news.google.com/rss/search?q=Mosaic+%22phosphate+rock%22+Brazil+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Hochschild Mara Rosa ouro",
+   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=(Hochschild+OR+%22Mara+Rosa%22)+(ouro+OR+gold)+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Hochschild Mara Rosa production",
+   "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
+   "url": "https://news.google.com/rss/search?q=Hochschild+%22Mara+Rosa%22+production+ounces&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Serra Grande Crixás ouro",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "url": "https://news.google.com/rss/search?q=(%22Serra+Grande%22+OR+Crix%C3%A1s)+ouro+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Aura Minerals MSG production",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "url": "https://news.google.com/rss/search?q=%22Aura+Minerals%22+(MSG+OR+%22Serra+Grande%22)+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Serra Verde terras raras Minaçu",
+   "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
+   "url": "https://news.google.com/rss/search?q=%22Serra+Verde%22+terras+raras+Mina%C3%A7u&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · USA Rare Earth Serra Verde production",
+   "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
+   "url": "https://news.google.com/rss/search?q=(%22USA+Rare+Earth%22+OR+%22Serra+Verde%22)+production+tonnes+rare+earth&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · CBA bauxita Barro Alto",
+   "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
+   "url": "https://news.google.com/rss/search?q=CBA+bauxita+%22Barro+Alto%22+produ%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · Brasil Minérios vermiculita",
+   "empresa": "BRASIL MINERIOS S/A",
+   "url": "https://news.google.com/rss/search?q=%22Brasil+Min%C3%A9rios%22+vermiculita&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · produção mineral em Goiás",
    "empresa": null,
    "url": "https://news.google.com/rss/search?q=produ%C3%A7%C3%A3o+mineral+Goi%C3%A1s+toneladas&hl=pt-BR&gl=BR&ceid=BR:pt-419",
    "lang": "pt",
-   "tipo": "busca"
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · mineradora em Goiás produziu",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=mineradora+Goi%C3%A1s+%22produziu%22+toneladas&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "regional"
+  },
+  {
+   "name": "Busca · balanço de produção de mineradora",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=mineradora+%22produ%C3%A7%C3%A3o%22+%22mil+toneladas%22+balan%C3%A7o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Busca · recorde de produção mineral",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=%22recorde+de+produ%C3%A7%C3%A3o%22+minera%C3%A7%C3%A3o+toneladas&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+   "lang": "pt",
+   "tipo": "busca",
+   "escopo": "nacional"
+  },
+  {
+   "name": "Busca · Brazil mine production tonnes",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=Brazil+mine+%22produced%22+tonnes+quarterly+production&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
+  },
+  {
+   "name": "Busca · Brazil gold mine ounces produced",
+   "empresa": null,
+   "url": "https://news.google.com/rss/search?q=Brazil+gold+mine+%22ounces%22+produced+quarter&hl=en-US&gl=US&ceid=US:en",
+   "lang": "en",
+   "tipo": "busca",
+   "escopo": "internacional"
   }
  ],
  "aliases_empresa": {

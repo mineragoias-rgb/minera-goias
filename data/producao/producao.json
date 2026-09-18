@@ -489,6 +489,161 @@
   },
   {
    "id": "PRD_0015",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "grupo": "Lundin Mining Corporation",
+   "cnpj_raiz": "86902053",
+   "operacao": "Chapada",
+   "municipios": [
+    "Alto Horizonte",
+    "Nova Iguaçu de Goiás"
+   ],
+   "uf": "GO",
+   "mineral": "Cobre",
+   "produto": "cobre em concentrado",
+   "valor": 322326,
+   "valor_max": null,
+   "unidade": "t",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "ano",
+   "periodo": "2025",
+   "escopo": "consolidado_global",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Lundin Mining — produção consolidada de 2025 (operações continuadas)",
+   "fonte_url": "https://brasilmineral.com.br/maiores/mineracaomaracalundinmining",
+   "fonte_tipo": "imprensa_setorial",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "CONSOLIDADO MUNDIAL da Lundin, não de Goiás: Chapada é uma das operações. \"Operações continuadas\" exclui os ativos europeus vendidos, e por isso difere do total de ~331 mil t citado em outras fontes para o mesmo ano."
+  },
+  {
+   "id": "PRD_0016",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "grupo": "Lundin Mining Corporation",
+   "cnpj_raiz": "86902053",
+   "operacao": "Chapada",
+   "municipios": [
+    "Alto Horizonte",
+    "Nova Iguaçu de Goiás"
+   ],
+   "uf": "GO",
+   "mineral": "Ouro",
+   "produto": "ouro em concentrado",
+   "valor": 141859,
+   "valor_max": null,
+   "unidade": "oz",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "ano",
+   "periodo": "2025",
+   "escopo": "consolidado_global",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Lundin Mining — produção consolidada de 2025 (operações continuadas)",
+   "fonte_url": "https://brasilmineral.com.br/maiores/mineracaomaracalundinmining",
+   "fonte_tipo": "imprensa_setorial",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "CONSOLIDADO MUNDIAL, não de Goiás."
+  },
+  {
+   "id": "PRD_0017",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "grupo": "Lundin Mining Corporation",
+   "cnpj_raiz": "86902053",
+   "operacao": "Chapada",
+   "municipios": [
+    "Alto Horizonte",
+    "Nova Iguaçu de Goiás"
+   ],
+   "uf": "GO",
+   "mineral": "Cobre",
+   "produto": "cobre em concentrado",
+   "valor": 310000,
+   "valor_max": 335000,
+   "unidade": "t",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "ano",
+   "periodo": "2026",
+   "escopo": "consolidado_global",
+   "tipo_valor": "guidance",
+   "fonte_nome": "Lundin Mining — 2025 Production Results and 2026 Guidance",
+   "fonte_url": "https://lundinmining.com/news/lundin-mining-announces-2025-production-results-and-2026-guidance/",
+   "fonte_tipo": "ri_empresa",
+   "confianca": "alta",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "CONSOLIDADO MUNDIAL, não de Goiás."
+  },
+  {
+   "id": "PRD_0018",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "grupo": "Lundin Mining Corporation",
+   "cnpj_raiz": "86902053",
+   "operacao": "Chapada",
+   "municipios": [
+    "Alto Horizonte",
+    "Nova Iguaçu de Goiás"
+   ],
+   "uf": "GO",
+   "mineral": "Ouro",
+   "produto": "ouro em concentrado",
+   "valor": 134000,
+   "valor_max": 149000,
+   "unidade": "oz",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "ano",
+   "periodo": "2026",
+   "escopo": "consolidado_global",
+   "tipo_valor": "guidance",
+   "fonte_nome": "Lundin Mining — 2025 Production Results and 2026 Guidance",
+   "fonte_url": "https://lundinmining.com/news/lundin-mining-announces-2025-production-results-and-2026-guidance/",
+   "fonte_tipo": "ri_empresa",
+   "confianca": "alta",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "CONSOLIDADO MUNDIAL, não de Goiás."
+  },
+  {
+   "id": "PRD_0019",
+   "empresa": "MINERACAO MARACA INDUSTRIA E COMERCIO S/A",
+   "grupo": "Lundin Mining Corporation",
+   "cnpj_raiz": "86902053",
+   "operacao": "Chapada",
+   "municipios": [
+    "Alto Horizonte",
+    "Nova Iguaçu de Goiás"
+   ],
+   "uf": "GO",
+   "mineral": "Cobre",
+   "produto": "minério alimentado na usina",
+   "valor": 24000000,
+   "valor_max": null,
+   "unidade": "t",
+   "medida": "capacidade",
+   "periodo_tipo": "ano",
+   "periodo": "2025",
+   "escopo": "operacao_goias",
+   "tipo_valor": "capacidade",
+   "fonte_nome": "Perfil da Mineração Maracá / Lundin Mining (Brasil Mineral)",
+   "fonte_url": "https://brasilmineral.com.br/maiores/mineracaomaracalundinmining",
+   "fonte_tipo": "imprensa_setorial",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "Capacidade de processamento da usina de Chapada, cerca de 24 milhões de t de minério por ano. A companhia projeta elevar a moagem a 34–36 Mt/ano ao longo do período de guidance."
+  },
+  {
+   "id": "PRD_0020",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -519,7 +674,7 @@
    "observacao": "Toda a produção de nióbio da CMOC está em Catalão/Ouvidor (GO). NÃO confundir com o Nb2O5 contido do Anuário Mineral: são medidas diferentes do mesmo negócio."
   },
   {
-   "id": "PRD_0016",
+   "id": "PRD_0021",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -550,7 +705,7 @@
    "observacao": "Maior marca da companhia para um primeiro semestre."
   },
   {
-   "id": "PRD_0017",
+   "id": "PRD_0022",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -581,7 +736,7 @@
    "observacao": "Publicado como base de comparação do 1S25."
   },
   {
-   "id": "PRD_0018",
+   "id": "PRD_0023",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -612,7 +767,7 @@
    "observacao": "Publicado como 1,21 milhão de t. Agrega Catalão (GO) e Cubatão (SP): NÃO é número de Goiás."
   },
   {
-   "id": "PRD_0019",
+   "id": "PRD_0024",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -643,7 +798,7 @@
    "observacao": "Soma das unidades de Cubatão (SP) e Catalão (GO); 1S24 foi 119.758 t."
   },
   {
-   "id": "PRD_0020",
+   "id": "PRD_0025",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -674,7 +829,7 @@
    "observacao": "Alta de 5% sobre 2023; recorde à época."
   },
   {
-   "id": "PRD_0021",
+   "id": "PRD_0026",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -705,7 +860,7 @@
    "observacao": "Alta de 3,29% sobre 2022."
   },
   {
-   "id": "PRD_0022",
+   "id": "PRD_0027",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -736,7 +891,7 @@
    "observacao": "Publicado como 1,18 milhão de t. Agrega Catalão (GO) e Cubatão (SP)."
   },
   {
-   "id": "PRD_0023",
+   "id": "PRD_0028",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -767,7 +922,7 @@
    "observacao": "Alta de 2,28% sobre 2022. Agrega Catalão (GO) e Cubatão (SP)."
   },
   {
-   "id": "PRD_0024",
+   "id": "PRD_0029",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -798,7 +953,7 @@
    "observacao": "Avanço de 4% sobre o 1S24. Agrega Catalão (GO) e Cubatão (SP)."
   },
   {
-   "id": "PRD_0025",
+   "id": "PRD_0030",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -829,7 +984,7 @@
    "observacao": "Publicado como base de comparação do 1S25."
   },
   {
-   "id": "PRD_0026",
+   "id": "PRD_0031",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -860,7 +1015,7 @@
    "observacao": "VENDA, não produção: 5% acima do 1S24 e maior que as 5.231 t produzidas no mesmo semestre — a diferença saiu de estoque."
   },
   {
-   "id": "PRD_0027",
+   "id": "PRD_0032",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -891,7 +1046,7 @@
    "observacao": "VENDA, não produção. Publicado como base de comparação do 1S25."
   },
   {
-   "id": "PRD_0028",
+   "id": "PRD_0033",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -922,7 +1077,7 @@
    "observacao": "VENDA, não produção: alta de 9% sobre o 1S24."
   },
   {
-   "id": "PRD_0029",
+   "id": "PRD_0034",
    "empresa": "CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.",
    "grupo": "CMOC Group Limited",
    "cnpj_raiz": "26108898",
@@ -953,7 +1108,7 @@
    "observacao": "VENDA, não produção. Publicado como base de comparação do 1S25."
   },
   {
-   "id": "PRD_0030",
+   "id": "PRD_0035",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -984,7 +1139,7 @@
    "observacao": "Publicado como 39,7 kt. Todo o níquel da Anglo American está em Goiás (Barro Alto e Codemin), então o consolidado do negócio é também o número do estado. Alta de 1% sobre 2024."
   },
   {
-   "id": "PRD_0031",
+   "id": "PRD_0036",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1015,7 +1170,7 @@
    "observacao": "Mina de Barro Alto, mina de Niquelândia e as plantas de ferroníquel de Barro Alto e Codemin somadas."
   },
   {
-   "id": "PRD_0032",
+   "id": "PRD_0037",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1046,7 +1201,7 @@
    "observacao": ""
   },
   {
-   "id": "PRD_0033",
+   "id": "PRD_0038",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1077,7 +1232,7 @@
    "observacao": ""
   },
   {
-   "id": "PRD_0034",
+   "id": "PRD_0039",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1108,7 +1263,7 @@
    "observacao": "Publicado arredondado em 40 kt; 2024 caiu 2% ante este número."
   },
   {
-   "id": "PRD_0035",
+   "id": "PRD_0040",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1139,7 +1294,7 @@
    "observacao": "Queda de 7%, atribuída a manutenção em Barro Alto e Codemin."
   },
   {
-   "id": "PRD_0036",
+   "id": "PRD_0041",
    "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
    "grupo": "Anglo American plc",
    "cnpj_raiz": "42184226",
@@ -1170,7 +1325,69 @@
    "observacao": "Queda de 4%, ainda sob manutenção nas duas plantas."
   },
   {
-   "id": "PRD_0037",
+   "id": "PRD_0042",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "grupo": "Anglo American plc",
+   "cnpj_raiz": "42184226",
+   "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "municipios": [
+    "Barro Alto",
+    "Niquelândia"
+   ],
+   "uf": "GO",
+   "mineral": "Níquel",
+   "produto": "níquel contido em ferroníquel",
+   "valor": 18200,
+   "valor_max": null,
+   "unidade": "t",
+   "medida": "produto_acabado",
+   "periodo_tipo": "semestre",
+   "periodo": "2026-S1",
+   "escopo": "operacao_goias",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Anglo American Brasil — resultados do 1S26 (Revista Mineração)",
+   "fonte_url": "https://revistamineracao.com.br/2026/07/30/anglo-american-brasil-divulga-resultados-do-1s26-com-recorde-no-embarque-de-minerio/",
+   "fonte_tipo": "imprensa_setorial",
+   "confianca": "alta",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "Publicado como 18,2 mil t, queda de 6% sobre o 1S25, atribuída a manutenção corretiva e antecipação de paradas programadas em Barro Alto e Codemin. Bate com os dois trimestres de 9.100 t publicados no relatório do grupo."
+  },
+  {
+   "id": "PRD_0043",
+   "empresa": "ANGLO AMERICAN NIQUEL BRASIL LTDA",
+   "grupo": "Anglo American plc",
+   "cnpj_raiz": "42184226",
+   "operacao": "Barro Alto e Codemin (Niquelândia)",
+   "municipios": [
+    "Barro Alto",
+    "Niquelândia"
+   ],
+   "uf": "GO",
+   "mineral": "Níquel",
+   "produto": "níquel contido em ferroníquel",
+   "valor": 19300,
+   "valor_max": null,
+   "unidade": "t",
+   "medida": "produto_acabado",
+   "periodo_tipo": "semestre",
+   "periodo": "2025-S1",
+   "escopo": "operacao_goias",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Anglo American Brasil — resultados do 1S26, base de comparação",
+   "fonte_url": "https://brasil.angloamerican.com/pt-pt/imprensa/noticias/2026/30-07-2026",
+   "fonte_tipo": "ri_empresa",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "Publicado como 19,3 mil t, na comparação do 1S26."
+  },
+  {
+   "id": "PRD_0044",
    "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
@@ -1200,7 +1417,7 @@
    "observacao": "É EXPORTAÇÃO EMBARCADA, não produção de mina. A companhia informa que toda a fibra vai para o mercado externo, amparada na Lei estadual 20.514; a Lei estadual 22.932/2024 fixou prazo de cinco anos para o encerramento da extração e do beneficiamento."
   },
   {
-   "id": "PRD_0038",
+   "id": "PRD_0045",
    "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
@@ -1230,7 +1447,7 @@
    "observacao": "VENDA, não produção de mina. Gerou R$ 384,8 milhões de receita líquida, 33% da receita consolidada do grupo."
   },
   {
-   "id": "PRD_0039",
+   "id": "PRD_0046",
    "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
@@ -1260,7 +1477,7 @@
    "observacao": "EXPORTAÇÃO EMBARCADA, não produção. Publicado como \"aproximadamente 190 mil t, queda de 3%\": número arredondado na origem."
   },
   {
-   "id": "PRD_0040",
+   "id": "PRD_0047",
    "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
    "grupo": "Eternit S.A.",
    "cnpj_raiz": "15104599",
@@ -1290,7 +1507,37 @@
    "observacao": "EXPORTAÇÃO EMBARCADA, não produção. Retração de 26,9%, atribuída a parada programada de manutenção do primeiro trimestre e à redistribuição dos embarques ao longo do ano."
   },
   {
-   "id": "PRD_0041",
+   "id": "PRD_0048",
+   "empresa": "SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL",
+   "grupo": "Eternit S.A.",
+   "cnpj_raiz": "15104599",
+   "operacao": "Mina de Cana Brava",
+   "municipios": [
+    "Minaçu"
+   ],
+   "uf": "GO",
+   "mineral": "Amianto",
+   "produto": "fibra de crisotila",
+   "valor": 167000,
+   "valor_max": null,
+   "unidade": "t",
+   "medida": "produto_acabado",
+   "periodo_tipo": "ano",
+   "periodo": "2024",
+   "escopo": "operacao_goias",
+   "tipo_valor": "realizado",
+   "fonte_nome": "SAMA — perfil em As Maiores Empresas do Setor Mineral (Brasil Mineral)",
+   "fonte_url": "https://www.brasilmineral.com.br/maiores/sama",
+   "fonte_tipo": "imprensa_setorial",
+   "confianca": "baixa",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "Publicado como 167 mil t produzidas, queda de 11,6% sobre 2023. ATENÇÃO: fica dentro do arredondamento das 166,8 mil t de VENDA do mesmo ano, e pode ser o mesmo número redescrito pela fonte. Confirmar no release da Eternit antes de usar como produção."
+  },
+  {
+   "id": "PRD_0049",
    "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
@@ -1321,7 +1568,7 @@
    "observacao": "Publicado como ~4,2 milhões de t, cerca de 71% da produção brasileira estimada. Agrega todas as minas da Mosaic no Brasil: NÃO é o número de Catalão/Ouvidor."
   },
   {
-   "id": "PRD_0042",
+   "id": "PRD_0050",
    "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
@@ -1352,7 +1599,7 @@
    "observacao": "Cerca de 46% da produção brasileira estimada. Escopo Brasil."
   },
   {
-   "id": "PRD_0043",
+   "id": "PRD_0051",
    "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
@@ -1383,7 +1630,7 @@
    "observacao": "Capacidade anual declarada, não realização."
   },
   {
-   "id": "PRD_0044",
+   "id": "PRD_0052",
    "empresa": "MOSAIC FERTILIZANTES P&K LTDA.",
    "grupo": "The Mosaic Company",
    "cnpj_raiz": "33931486",
@@ -1414,7 +1661,7 @@
    "observacao": "Publicado como ~3,9 milhões de t, cerca de 70% da produção brasileira estimada. Agrega todas as minas no Brasil."
   },
   {
-   "id": "PRD_0045",
+   "id": "PRD_0053",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1444,7 +1691,7 @@
    "observacao": "Onça troy. Com o subproduto de prata, equivale a 7.086 onças de ouro equivalente (GEO)."
   },
   {
-   "id": "PRD_0046",
+   "id": "PRD_0054",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1474,7 +1721,7 @@
    "observacao": "Queda ante 2024 explicada pelo plano de turnaround, que incluiu quatro semanas de planta parada."
   },
   {
-   "id": "PRD_0047",
+   "id": "PRD_0055",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1504,7 +1751,7 @@
    "observacao": "Guidance revisado para baixo no ano (o anterior era 94.000–104.000 oz) por causa do ramp-up e do turnaround. O realizado anual de 2025 não foi localizado na coleta."
   },
   {
-   "id": "PRD_0048",
+   "id": "PRD_0056",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1534,7 +1781,7 @@
    "observacao": "Parcela de Mara Rosa dentro do guidance atribuível do grupo de 300.000–328.000 GEO."
   },
   {
-   "id": "PRD_0049",
+   "id": "PRD_0057",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1564,7 +1811,7 @@
    "observacao": "ONÇA DE OURO EQUIVALENTE, que soma o subproduto de prata ao ouro — não é o mesmo que onça de ouro. Primeiro ano da mina, abaixo do guidance original por causa do ramp-up mais lento no 2º e 3º trimestres."
   },
   {
-   "id": "PRD_0050",
+   "id": "PRD_0058",
    "empresa": "AMARILLO MINERACAO DO BRASIL LTDA",
    "grupo": "Hochschild Mining PLC",
    "cnpj_raiz": "42799486",
@@ -1594,7 +1841,7 @@
    "observacao": "Melhor trimestre da mina até então, com tonelagem e teores acima do 3T24."
   },
   {
-   "id": "PRD_0051",
+   "id": "PRD_0059",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1624,7 +1871,7 @@
    "observacao": "Publicado como 80 koz; 2023 foi 86 koz. Onça troy."
   },
   {
-   "id": "PRD_0052",
+   "id": "PRD_0060",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1654,7 +1901,7 @@
    "observacao": "Publicado arredondado, em mil onças."
   },
   {
-   "id": "PRD_0053",
+   "id": "PRD_0061",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1684,7 +1931,7 @@
    "observacao": "Publicado arredondado, em mil onças."
   },
   {
-   "id": "PRD_0054",
+   "id": "PRD_0062",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1714,7 +1961,7 @@
    "observacao": "Capacidade de alimentação da usina metalúrgica. A Aura declara capacidade de 1,5 Mt/ano para a mesma planta — os dois números divergem e nenhum foi conferido no documento."
   },
   {
-   "id": "PRD_0055",
+   "id": "PRD_0063",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1744,7 +1991,7 @@
    "observacao": "Publicado como 86 koz. Queda de 2 koz sobre 2022, por menos minério processado, compensada em parte por teor recuperado maior."
   },
   {
-   "id": "PRD_0056",
+   "id": "PRD_0064",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1774,7 +2021,7 @@
    "observacao": "Publicado como 88 koz."
   },
   {
-   "id": "PRD_0057",
+   "id": "PRD_0065",
    "empresa": "MINERACAO SERRA GRANDE S A",
    "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
    "cnpj_raiz": "42445403",
@@ -1804,7 +2051,67 @@
    "observacao": "Primeiro trimestre cheio sob a Aura. ONÇA DE OURO EQUIVALENTE. As vendas do mesmo trimestre foram 9.508 GEO, acima da produção."
   },
   {
-   "id": "PRD_0058",
+   "id": "PRD_0066",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
+   "cnpj_raiz": "42445403",
+   "operacao": "Mineração Serra Grande (MSG)",
+   "municipios": [
+    "Crixás"
+   ],
+   "uf": "GO",
+   "mineral": "Ouro",
+   "produto": "ouro equivalente (GEO)",
+   "valor": 7200,
+   "valor_max": null,
+   "unidade": "oz",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "trimestre",
+   "periodo": "2026-Q2",
+   "escopo": "operacao_goias",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Aura Minerals — Preliminary Q2 2026 and H1 2026 Production Results",
+   "fonte_url": "https://www.globenewswire.com/news-release/2026/07/10/3325488/0/en/Aura-Announces-Preliminary-Q2-2026-and-H1-2026-Production-Results.html",
+   "fonte_tipo": "ri_empresa",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "Publicado arredondado como 7,2 mil GEO produzidas no trimestre. ONÇA DE OURO EQUIVALENTE. As vendas do trimestre foram 7.190 GEO, número próximo e que não deve ser confundido com a produção."
+  },
+  {
+   "id": "PRD_0067",
+   "empresa": "MINERACAO SERRA GRANDE S A",
+   "grupo": "AngloGold Ashanti plc (até 12/2025) · Aura Minerals Inc. (a partir de 12/2025)",
+   "cnpj_raiz": "42445403",
+   "operacao": "Mineração Serra Grande (MSG)",
+   "municipios": [
+    "Crixás"
+   ],
+   "uf": "GO",
+   "mineral": "Ouro",
+   "produto": "ouro equivalente (GEO)",
+   "valor": 157574,
+   "valor_max": null,
+   "unidade": "oz",
+   "medida": "metal_em_concentrado",
+   "periodo_tipo": "semestre",
+   "periodo": "2026-S1",
+   "escopo": "consolidado_global",
+   "tipo_valor": "realizado",
+   "fonte_nome": "Aura Minerals — Preliminary Q2 2026 and H1 2026 Production Results",
+   "fonte_url": "https://www.globenewswire.com/news-release/2026/07/10/3325488/0/en/Aura-Announces-Preliminary-Q2-2026-and-H1-2026-Production-Results.html",
+   "fonte_tipo": "ri_empresa",
+   "confianca": "media",
+   "coleta_metodo": "busca_web",
+   "coleta_data": "2026-09-18",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": null,
+   "observacao": "CONSOLIDADO MUNDIAL da Aura, com seis minas; a MSG de Crixás é uma delas. Outras fontes arredondam para 158 mil GEO."
+  },
+  {
+   "id": "PRD_0068",
    "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
@@ -1834,7 +2141,7 @@
    "observacao": "EMBARQUE para a China, não produção. No mesmo ano foram embarcados 51 kg para os Estados Unidos. A empresa era fechada em 2025 e não publicava volume de produção."
   },
   {
-   "id": "PRD_0059",
+   "id": "PRD_0069",
    "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
@@ -1864,7 +2171,7 @@
    "observacao": "Meta para o fim de 2027, não realização. Uma das fontes consultadas cita 6.500 t para a mesma meta; a divergência não foi resolvida."
   },
   {
-   "id": "PRD_0060",
+   "id": "PRD_0070",
    "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
@@ -1894,7 +2201,7 @@
    "observacao": "EMBARQUE para os Estados Unidos, não produção. Em quilos, ao lado das 678 t embarcadas para a China no mesmo ano: as duas unidades não se somam."
   },
   {
-   "id": "PRD_0061",
+   "id": "PRD_0071",
    "empresa": "SERRA VERDE PESQUISA E MINERACAO LTDA",
    "grupo": "Serra Verde Group (adquirida pela USA Rare Earth em 04/2026)",
    "cnpj_raiz": "08842895",
@@ -1924,7 +2231,7 @@
    "observacao": "EMBARQUE, não produção. Primeiro carregamento americano de 2026, despachado em fevereiro; no ano nenhum quilo saiu para a China."
   },
   {
-   "id": "PRD_0062",
+   "id": "PRD_0072",
    "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
@@ -1954,7 +2261,7 @@
    "observacao": "Publicado como 576 kt. É o único número por unidade em Goiás localizado na coleta. O de 2025 não foi localizado."
   },
   {
-   "id": "PRD_0063",
+   "id": "PRD_0073",
    "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
@@ -1984,7 +2291,7 @@
    "observacao": "Publicado como 2.350 kt, somando Barro Alto (GO), Miraí (1.404 kt), Itamarati de Minas e Poços de Caldas (370 kt), em MG. NÃO é número de Goiás."
   },
   {
-   "id": "PRD_0064",
+   "id": "PRD_0074",
    "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
@@ -2014,7 +2321,7 @@
    "observacao": "Capacidade instalada de 1,4 Mt/ano; a unidade entrou em operação em 2019."
   },
   {
-   "id": "PRD_0065",
+   "id": "PRD_0075",
    "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
@@ -2044,7 +2351,7 @@
    "observacao": "Publicado como 1.999 kt. Soma as unidades de GO e MG: NÃO é número de Goiás."
   },
   {
-   "id": "PRD_0066",
+   "id": "PRD_0076",
    "empresa": "COMPANHIA BRASILEIRA DE ALUMINIO",
    "grupo": "Companhia Brasileira de Alumínio (Votorantim)",
    "cnpj_raiz": "61409892",
@@ -2074,7 +2381,7 @@
    "observacao": "Publicado como 722 kt. Primeiro produto químico da bauxita; o alumínio líquido, passo seguinte, fica fora da base pela regra de corte."
   },
   {
-   "id": "PRD_0067",
+   "id": "PRD_0077",
    "empresa": "BRASIL MINERIOS S/A",
    "grupo": "Brasil Minérios S/A",
    "cnpj_raiz": "02683365",
@@ -2106,7 +2413,7 @@
    "observacao": "CAPACIDADE, não produção. A empresa é fechada e não publica volume produzido. A notícia registra plano de elevar a capacidade em Goiás para 100.000 t/ano e afirma participação de cerca de 90% da produção nacional de vermiculita."
   },
   {
-   "id": "PRD_0068",
+   "id": "PRD_0078",
    "empresa": "BRASIL MINERIOS S/A",
    "grupo": "Brasil Minérios S/A",
    "cnpj_raiz": "02683365",

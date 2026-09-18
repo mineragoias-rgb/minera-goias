@@ -56,7 +56,7 @@ def schema(connection):
     CREATE TABLE IF NOT EXISTS prod_runs(run_id TEXT PRIMARY KEY, started_at TEXT NOT NULL, finished_at TEXT,
       status TEXT NOT NULL, agente_versao TEXT NOT NULL, metodologia_versao TEXT NOT NULL, summary_json TEXT);
     CREATE TABLE IF NOT EXISTS prod_fontes(source_id TEXT PRIMARY KEY, name TEXT NOT NULL, url TEXT NOT NULL,
-      lang TEXT, tipo TEXT, empresa TEXT, last_status TEXT, last_seen TEXT);
+      lang TEXT, tipo TEXT, escopo TEXT, empresa TEXT, last_status TEXT, last_seen TEXT);
     CREATE TABLE IF NOT EXISTS prod_itens(item_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, title TEXT NOT NULL,
       link TEXT NOT NULL, summary TEXT, published_at TEXT, first_seen TEXT NOT NULL, run_id TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS prod_candidatos(candidato_id TEXT PRIMARY KEY, item_id TEXT NOT NULL,
@@ -367,15 +367,16 @@ def coleta(connection, config, curada, fetcher, run_id):
     usados_por_fonte = {}
     for fonte in config['fontes']:
         source_id = hashlib.sha256(fonte['url'].encode()).hexdigest()[:32]
-        entrada = {'name': fonte['name'], 'tipo': fonte.get('tipo'), 'itens': 0, 'novos': 0, 'candidatos': 0}
+        entrada = {'name': fonte['name'], 'tipo': fonte.get('tipo'), 'escopo': fonte.get('escopo'),
+                   'itens': 0, 'novos': 0, 'candidatos': 0}
         try:
             entradas = parse_feed(fetcher(fonte['url']))
             entrada['itens'] = len(entradas)
             connection.execute(
-                'INSERT INTO prod_fontes VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_id) DO UPDATE '
+                'INSERT INTO prod_fontes VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(source_id) DO UPDATE '
                 'SET last_status=excluded.last_status,last_seen=excluded.last_seen',
                 (source_id, fonte['name'], fonte['url'], fonte.get('lang'), fonte.get('tipo'),
-                 fonte.get('empresa'), 'ok', agora))
+                 fonte.get('escopo'), fonte.get('empresa'), 'ok', agora))
             for achado in entradas:
                 item_id = hashlib.sha256(achado['link'].encode()).hexdigest()
                 if connection.execute('SELECT 1 FROM prod_itens WHERE item_id=?', (item_id,)).fetchone():
@@ -417,10 +418,10 @@ def coleta(connection, config, curada, fetcher, run_id):
             entrada['erro'] = f'{type(erro).__name__}: {erro}'
             relatorio['erros'] += 1
             connection.execute(
-                'INSERT INTO prod_fontes VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_id) DO UPDATE '
+                'INSERT INTO prod_fontes VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(source_id) DO UPDATE '
                 'SET last_status=excluded.last_status,last_seen=excluded.last_seen',
                 (source_id, fonte['name'], fonte['url'], fonte.get('lang'), fonte.get('tipo'),
-                 fonte.get('empresa'), entrada['erro'][:200], agora))
+                 fonte.get('escopo'), fonte.get('empresa'), entrada['erro'][:200], agora))
         relatorio['fontes'].append(entrada)
         connection.commit()
 
@@ -538,7 +539,7 @@ def offline_fetcher(directory, config=None):
 def check(config, fetcher=fetch):
     resultados = []
     for fonte in config['fontes']:
-        entrada = {'name': fonte['name'], 'tipo': fonte.get('tipo')}
+        entrada = {'name': fonte['name'], 'tipo': fonte.get('tipo'), 'escopo': fonte.get('escopo')}
         try:
             entradas = parse_feed(fetcher(fonte['url']))
             entrada.update(status='ok', items=len(entradas))
@@ -568,7 +569,7 @@ def main(argv=None):
             marca = 'ok   ' if entrada['status'] == 'ok' else 'FALHA'
             vivas += entrada['status'] == 'ok'
             detalhe = f"{entrada['items']:>3} itens" if entrada['status'] == 'ok' else entrada.get('error', '')
-            print(f"  {marca} [{entrada.get('tipo') or '-':<7}] {entrada['name']:<44} {detalhe}")
+            print(f"  {marca} [{entrada.get('escopo') or '-':<13}] {entrada['name']:<46} {detalhe}")
         print(f'{vivas}/{len(config["fontes"])} fontes responderam')
         return 0 if vivas else 1
 
