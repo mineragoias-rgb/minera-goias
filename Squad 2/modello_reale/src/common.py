@@ -23,16 +23,58 @@ SQUAD1_WORKBOOK = (
 )
 
 MODEL_DIR = Path(__file__).resolve().parents[1]
-ENERGY_PARAMETERS = MODEL_DIR / "parameters" / "energy_intensity.csv"
+
+# Entrada final da intensidade energética da Squad 2.
+# O arquivo antigo em parameters/energy_intensity.csv permanece como
+# benchmark histórico e não é sobrescrito.
+FINAL_ENERGY_PARAMETERS = (
+    ROOT
+    / "Squad 2"
+    / "intensidade_energetica"
+    / "coeficiente_estadual_para_modelo_v1.csv"
+)
+
 SCENARIO_PARAMETERS = MODEL_DIR / "parameters" / "scenarios.csv"
+
+REQUIRED_ENERGY_COLUMNS = [
+    "mineral_id",
+    "mineral_name",
+    "production_basis",
+    "energy_intensity_mwh_t",
+    "source_id",
+    "data_nature",
+]
 
 
 def load_parameters():
-    energy = pd.read_csv(ENERGY_PARAMETERS)
+    energy = pd.read_csv(FINAL_ENERGY_PARAMETERS)
     scenarios = pd.read_csv(SCENARIO_PARAMETERS)
+
+    missing_energy_columns = set(REQUIRED_ENERGY_COLUMNS) - set(energy.columns)
+    if missing_energy_columns:
+        raise ValueError(
+            "Colunas ausentes na tabela final de intensidade: "
+            f"{missing_energy_columns}"
+        )
+
+    # O motor usa somente o contrato de seis colunas; as demais colunas
+    # permanecem no arquivo de origem para rastreabilidade metodológica.
+    energy = energy[REQUIRED_ENERGY_COLUMNS].copy()
 
     if energy.duplicated(["mineral_id", "production_basis"]).any():
         raise ValueError("Há parâmetros energéticos duplicados.")
+
+    if len(energy) != 5:
+        raise ValueError(
+            "A tabela final deve conter exatamente um coeficiente "
+            "para cada um dos cinco minerais do modelo."
+        )
+
+    if energy["energy_intensity_mwh_t"].isna().any():
+        raise ValueError("Há intensidade energética ausente.")
+
+    if (energy["energy_intensity_mwh_t"] <= 0).any():
+        raise ValueError("Há intensidade energética não positiva.")
 
     if set(scenarios["scenario"]) != {
         "conservador",
@@ -79,8 +121,8 @@ def load_historical_production():
         ]
     ]
 
-    # Il rame usa contenuto minerale: questa misura è nella base completa
-    # della Squad 1, non ancora nel CSV di interfaccia.
+    # O cobre usa conteúdo mineral: esta medida está na base completa
+    # da Squad 1, não ainda no CSV de interface.
     full_data = pd.read_excel(
         SQUAD1_WORKBOOK,
         sheet_name="08_fato_producao_energia",

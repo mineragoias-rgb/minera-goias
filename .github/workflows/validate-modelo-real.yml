@@ -4,12 +4,14 @@ on:
   push:
     paths:
       - "Squad 2/modello_reale/**"
+      - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
       - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
       - ".github/workflows/validate-modelo-real.yml"
   pull_request:
     paths:
       - "Squad 2/modello_reale/**"
+      - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
       - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
       - ".github/workflows/validate-modelo-real.yml"
