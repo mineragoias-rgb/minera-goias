@@ -1,6 +1,6 @@
 {
  "mes": "2025-11",
- "materias": 13,
+ "materias": 15,
  "itens": [
   {
    "title": "Repasses da mineração ultrapassam R$ 1 bilhão em novembro — Agência Nacional de Mineração - www.gov.br",
@@ -162,6 +162,34 @@
    "substancias": [
     "terras_raras"
    ]
+  },
+  {
+   "title": "Terras raras: Estados Unidos financiam projeto em Goiás com até U$ 465 milhões",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
+   "published_at": "2025-11-11T04:43:00+00:00",
+   "first_seen": "2026-09-25T04:03:02.949113+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Como a mineração ajuda o seu município a crescer — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZFBPQ3BZbkFRTmpJN3pZdnJLd3N0QkhQTzNBSVdqSWV5a1NjOS1DTkFKZzd0ZlJMV0JsSUY3SEh5NHdXeThtNVRXeGd5d3lFQXNUMy14TU5lSlJkLUktOGVBM0NIUko4MUhjbTlzZXloNXEzcVNYZDJhZHBQQ1ZUQzc4cVNoTjZEREpIak0xdE5KQlI1UG5OYzFIcw?oc=5",
+   "published_at": "2025-11-07T08:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.586546+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "UE investiga venda da divisão de níquel da Anglo American no Brasil - poder360.com.br",

@@ -1,7 +1,20 @@
 {
  "mes": "2026-01",
- "materias": 22,
+ "materias": 24,
  "itens": [
+  {
+   "title": "CFEM: ANM repassa R$ 564 milhões a estados e municípios produtores minerários - Brasil 61",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNHRoODRiaXVNa3hiSURkNVF6cVVRb29RUjBJTTViWklpSUZDSi1vaWF4NGg3WlJmemVfUWpLb19SV0ZyQU9FRlgxUUhSWC0zVGhoQ1pFay1Hc0RuN0ZmUjBZSlgwOS1oQ0JJNXFBSmo4V0J2bHVYTzllTVRnLUxKV3h1bVcxRkIwX1ZpaXJTc2tDUkJPaHVDczhySHJNa0w1SHJ5Z2VmbVEtY0NxSFR30gG0AUFVX3lxTFA2Z0JYOHNldDl0eHRPekdRS3UtZl8yZjMxSzJmamZ0VGJmdDRXc09mck5xZ1ltOVhxeXltZ2VYeXoxa29QdlBKcjVNQUs1T09TVDV4YWtuMkRYWHFTQkd0SDdBRVhiMU9zSGItS0dtdWtHeUplX2IwRmNTSXU0VTFmckxab3RfeDE4QTJPZnNvQ3VTWGxYNWN5R0VCWG1qM3JXUkhyWm9RS0xXZTA5N25SWUZWeQ?oc=5",
+   "published_at": "2026-01-28T08:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.589655+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
   {
    "title": "TCU identifica desvio em 72% das guias de mineração e impõe prazo à ANM - ofator.com.br",
    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPUWZCcVRBT1NINndKYWdCN1ZjLVFsNFhmU3NoTFpuM3FNbUc2Z3lueFhWZVlabWo3VFhZc256S2NRVjRESFl3YTV4S2VaY3d4X0VZWVJlYVBqYW5ITzhGTDVGSVdyQVZZYm4yOXNtY0h5dnhzUjcxV202M0l6dzNKRmtuQTFpTUtzb2IzXy1vRDhpaUU?oc=5",
@@ -11,6 +24,19 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "CFEM: ANM distribui mais de R$ 112 milhões em royalties da mineração a municípios afetados e limítrofes - Brasil 61",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOXzRxTFpxeG96TFNkanNHV3BLNTNqRHdCWW5GaUstWW9sQTNJb0owVjZsVnAtemdZNkNYdDl5c2FDTjAzX2dHeWtSdjRibThwUUctWFNxUlRnYTdUQlpzb3lOUVRGNlZLRkctdHhJT2hoVl9HZk9fTVU3NE1BNjdIZXJsN0V6NFRoQktHRlJKdnNiUEdwbEpUWDVZTkdtVnNTRTV3X0lDRUFQa3FrSk9sLVltWDR4UGdqTkNwUGxqQU5UTGhRRHF2QnZJNjgzQ2ZGY2fSAdcBQVVfeXFMTTctVHBrTmNGdGxyRFY2WnNUNUducDZXTDk0ZkdKMUl1TXVRTkx4ZkF0aWdTdDg5LWMxNkZVTVVDZjhBQ2xwTS1MUEVfTENKLTBUMmxCMlRiZzY4ZHpjVXF3by1uY1BoYVp1VXc3NFlMNjRmcHI1NkN1UjZyVHM2bWlySVYtTkdtWUFBMkZSZVhBcEtodThSaUZNVWZLOHZfVUtqOXhoR24teW5DZlVfUXFnT2VfUGRGS2c0NC0wS1pfTFI1dGZENTlJY09nZ2tQdE9yemUyZjA?oc=5",
+   "published_at": "2026-01-27T08:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.584439+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []

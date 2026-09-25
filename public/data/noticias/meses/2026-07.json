@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 91,
+ "materias": 92,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -615,6 +615,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Licença da ANM virou papel de fachada para ‘lavar’ ouro ilegal, diz procurador - amazonas atual",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPRmN0RnJTSDlkUmVVXzBsTkR6T2puMFFnb3hyNGVseVd0NHVSSy1UaU1TRUh1VC1jck1oSVpQQ2dpUDF6bFc5bmxsRzhReFVRejFseV9WS1FKeDktZFJrUjd1bmxfdlZfNkxYTkFuQ0l6SmpucXJIckkyOE1tY0xSZVFzTWhWSFVFTk9jdG8xQXN2bThtVWNOdTlrQV9vYXRFTGt4aERfN1k?oc=5",
+   "published_at": "2026-07-20T07:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.987274+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
   },
   {
    "title": "Moradores fazem paralisação contra mineradora em Alto Horizonte - Jornal Opção",

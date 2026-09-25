@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 90,
+ "materias": 92,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -16,6 +16,19 @@
    "substancias": [
     "ouro"
    ]
+  },
+  {
+   "title": "ANM instaura processo de decaimento de Portaria de Lavra da Vale sob a Lei do SNUC - atlaspublico.com.br",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTzdGZXMwcEFUVVBMZXBqRjdQYlVQUEtzbEhTZnBaeFNMWUFNYmNXNzVwWlFDaExIVjdfUGJ3LXFIejlwUVdvR2lQTHAzUTlKejBYZ0NJcndNUnhneTlGdHlGME4xZXVMMlJORmFrX1J3UzZ0bUwtNEhMbDExUUc3RFR1ang0elFEODRVRDhoSTVPVGZ0TGNsbXo4anMwYnM?oc=5",
+   "published_at": "2026-05-29T07:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.989106+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Alego aprova política de mineração sustentável em Goiás em meio a disputa sobre terras raras e pressão ambiental - Tribuna do Planalto",
@@ -944,6 +957,19 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab4a0d6ade342fe943729bab294ed71&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-24T04:02:30.267470+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T11:25:00+00:00",
+   "first_seen": "2026-09-25T04:03:02.945454+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

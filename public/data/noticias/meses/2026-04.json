@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 89,
+ "materias": 91,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -180,6 +180,21 @@
    "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOaWx3Q0wzZGU1WkZiS3VVR3ZjdDlmUTdRMmFteVl0U0RITGRuaFowWFVZcUVzS0FCQ0I5UnA2Wm1UNnZqSWFUbEgydG00S3VmNnRsMm9NNzlldlVOZ2pXTHJNV1FYeFRqQjZzODIzQ2dVc19HOGp0RVdKS19aaDVtY2gteWZXcG1jc1FUYVlWNHZxYm9OOXpTeFEwRGI2VVdKVWFzWVVQY0NMc0NrQjBZZ2ZkanE0TU5kc3hXb3FOX2l5NDRiak1tT0lmdEREZURBWGZEMmxJVUJkVm1XdnJYYUIyUktrRkozWGc?oc=5",
    "published_at": "2026-04-27T07:00:00+00:00",
    "first_seen": "2026-09-20T04:02:46.522652+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "Solis Minerals adquire projeto de lítio da Rio Tinto no Brasil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZkZBekZjbTlXX2JycERBTmRvVVBBa3poM1kwNDhzS05remM2ZF91NE9XUHNzeXVLT3pHZm0wMjdRNDU5YzhaZ1Z1cDZXNkhlSVRYTVAxTHp2SXhEck1PWl9sSjlDNzhDV0tEQXM0MUVWeFJmOFBkVzQxZ21ZMG9XVHJyS2xRMlJoajF3a2N4XzlrbTJRQjlmNlNzaDEzNFRRQlk0?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.088797+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1286,6 +1301,19 @@
    "substancias": [
     "litio"
    ]
+  },
+  {
+   "title": "Fiscalização da CFEM é tema de capacitação obrigatória da Agência Nacional de Mineração - Brasil 61",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVlZuekpPN0tLVmt6OTlPelI1Z3l4REJNQXFhOVVjd0o4cElXLWxFcE5YVHhFaDJTNDY2ak1tZUNmWnZ4VEs2bXdjMjIzM1pnaEVIaWdYa0NMeVdzcHRSTmxPMU5kcmtKazRxTTF1cHFCRWZMZldSdTdoVG5uRWkwRUdPdnhNOVBZYmNDWVlIb3lYdzNVZFZyWl92dkVKRWJxWUdlQi1qVV81NUlUN2hWTE9Rc3UtUTJyellUdV9Kb9IBxAFBVV95cUxQQmpHck1EWUZ6M3JJTFFPTXFrN2FhNm9HWjVEMFhUZlhrQ0ZsZk9zMDV4c3RoMXZTcmc3RlNNeTVpQmhpTXp5c1dCYTU2SlQ5cGcxZXpYNk9MVVQxLXJWWm1qZkRKUXJxclRVTWhoN0xySktvVnJnSmE5TWt1VldDdW9OQ1hadDJGR1htNUJvZ2ZUOWZqdHcyOVZ5SDktcGV4emtXLVVBdFFPc0Z5ak9nVy1MblNDZEVybEk3U0o3ZmFUX2x5?oc=5",
+   "published_at": "2026-04-02T07:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.588661+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   }
  ]
 }

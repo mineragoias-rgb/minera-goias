@@ -1,6 +1,6 @@
 {
  "mes": "2025-12",
- "materias": 29,
+ "materias": 33,
  "itens": [
   {
    "title": "Royalties da mineração injetam R$ 112 milhões em Estados e Municípios limítrofes e afetados - www.gov.br",
@@ -72,6 +72,19 @@
    "substancias": [
     "litio"
    ]
+  },
+  {
+   "title": "Em carta, municípios defendem destinação de 7% da Cfem para ANM - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNNnkyenFfcFpPdloyR0dLYVh4RmlNVHhqWEVPNUt1eUxLdFI4WWZfUWZVanE1dFo4QUxSUUpqQVVUdGZBMm1JbHVvZEc0TmVXdHNPQTd3MEFJMUpUOXJYU0hnNDMwSDhzSTEyWVNGZTBKSktPZkNOdEJTM29mR0c4MTJmX1NzWUJPRXVKV1RnQjlMaENKTjMw?oc=5",
+   "published_at": "2025-12-12T08:00:00+00:00",
+   "first_seen": "2026-09-25T04:03:04.591952+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Brasil perde espaço em minerais críticos, aponta estudo; avanço do lítio em Minas é exceção - ofator.com.br",
@@ -249,6 +262,21 @@
    ]
   },
   {
+   "title": "Aura Minerals Closes the Acquisition of the Mineração Serra Grande Gold Mine in Goias, Brazil (\"MSG”)",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2fwww.manilatimes.net%2f2025%2f12%2f02%2ftmt-newswire%2fglobenewswire%2faura-minerals-closes-the-acquisition-of-the-mineraco-serra-grande-gold-mine-in-goias-brazil-msg%2f2234800&c=7213622858798506164&mkt=en-us",
+   "published_at": "2025-12-01T15:39:00+00:00",
+   "first_seen": "2026-09-25T04:03:02.952200+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
    "title": "Aura Minerals Closes the Acquisition of the Mineração Serra Grande Gold Mine in Goias, Brazil (“MSG”)",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-closes-acquisition-minera-232700698.html&c=17845271592282636787&mkt=en-us",
    "published_at": "2025-12-01T15:26:00+00:00",
@@ -340,6 +368,21 @@
   },
   {
    "title": "Aura Minerals Closes the Acquisition of the Mineração Serra Grande Gold Mine in Goias, Brazil (“MSG”)",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-closes-acquisition-minera-232700698.html&c=17845271592282636787&mkt=en-us",
+   "published_at": "2025-12-01T15:26:00+00:00",
+   "first_seen": "2026-09-25T04:03:02.946632+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Closes the Acquisition of the Mineração Serra Grande Gold Mine in Goias, Brazil (“MSG”)",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fmarkets.ft.com%2fdata%2fannounce%2fdetail%3fdockey%3d1330-9594894en-4HJNEMM8HHMEHMC6IV01MR4HK5&c=4254408736067141706&mkt=en-us",
    "published_at": "2025-12-01T14:27:00+00:00",
    "first_seen": "2026-09-19T19:49:02.792053+00:00",
@@ -418,6 +461,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab4a0d6ade342fe943729bab294ed71&url=https%3a%2f%2fmarkets.ft.com%2fdata%2fannounce%2fdetail%3fdockey%3d1330-9594894en-4HJNEMM8HHMEHMC6IV01MR4HK5&c=4254408736067141706&mkt=en-us",
    "published_at": "2025-12-01T14:27:00+00:00",
    "first_seen": "2026-09-24T04:02:30.274088+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Closes the Acquisition of the Mineração Serra Grande Gold Mine in Goias, Brazil (“MSG”)",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2fmarkets.ft.com%2fdata%2fannounce%2fdetail%3fdockey%3d1330-9594894en-4HJNEMM8HHMEHMC6IV01MR4HK5&c=4254408736067141706&mkt=en-us",
+   "published_at": "2025-12-01T14:27:00+00:00",
+   "first_seen": "2026-09-25T04:03:02.949761+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
