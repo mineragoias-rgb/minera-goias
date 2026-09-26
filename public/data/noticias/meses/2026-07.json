@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 92,
+ "materias": 94,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -540,6 +540,21 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Harvest Minerals soars on Brazillian rare earth deal - Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNaktYWjRzUTVIQU56NGotZ2M1UzFiQmczaU1oalFlZ0RKa2t0WXlnTlU2STI3d25GakEtUHROeFN1UmM0VDk0RWhCWE1GMGJTT1drSEpOcEIyMTJoREdudUVsSC1JdEdCV0d4OUl3ajFtWnRRNmFqSUlTaDNpUndkR2lBOTh0NEE4b0djLVhZT0RoMWh6ZWhnOFJFUVFhZ0l3cW5mRmJ3?oc=5",
+   "published_at": "2026-07-21T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:03.928685+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -1204,6 +1219,21 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ]
+  },
+  {
+   "title": "EUA tratam Brasil como \"país X\" e \"Equador\" em proposta para terras raras - cnnbrasil.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZTh0TGRwbEpISGNHRXMyal9MeHdnZlVJVWNxTV83bzNwT3pwdU9nekhORXBNTjdhVGlJdWhmLWVOVUx5bU43UGE5VW56SkVOS3lxVE5JWTdNaHphTlhVQ2pucno2cDlBdDBOekc2NTNaeWdxNmIyMFdweERhV1RJQ0VjSWdzcjJ0eUdDWTFha1ZLckN3UUdvMml6U1pLQm43bGZuNXJINjc?oc=5",
+   "published_at": "2026-07-03T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:00.576942+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ]
   },
   {

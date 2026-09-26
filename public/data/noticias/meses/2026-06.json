@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 65,
+ "materias": 68,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -313,6 +313,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Brazil seeks to expand its rare earth value chain as the sector draws attention from the Pope - BNamericas.com",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQOFIxd0dpbUdfM2RVUm5NNkpRR2VQcDJXN3RZbGJXejhmV1MxZkpFWUxZd0RGOFphVmd2OWVvcGZ1VTdHclhKTjBaa0pEZ3BHYWNDcWFrNmpGZHRCS3ZnVDNjMU9Qbm5lcEZCWXB2bDdOMmxHNWR1Z1F6TWM5Ni02MHlFcWJxMVBJTmtieHJZY2E0Umpfc29ySlA2N3dZMkVXTGFEbDc1aGQ4X0V2emxiNW11aWE5R1cxdERGNGFfVXozNUVmak5yRnBzNjdzUQ?oc=5",
+   "published_at": "2026-06-22T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:03.927693+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Vale do Lítio completa três anos com desenvolvimento e gargalos em MG - CNN Brasil",
@@ -754,6 +769,21 @@
    ]
   },
   {
+   "title": "Brazil Rare-Earth Ambitions Clash With Strained Mining Regulator - bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMk5kWWR6R3lZRzhtOFJ3OGUyT3VKbVY1R05NWVVpajUxSVRleVBJUW9PUHYwV2RZVGhEOVl0T2lmclNrWkxDelBJaEk3U0tJSVBXZGRKNXZUcFpHUDRqQVk2cU1UeG9PNjVLblFaaHQtNEM4VEN6WjUwVGhRR2lFcnNJN1BkVEZzRWV5b2p6VWRhMnFkYm1TMTFGMVJOVnlmb3ViVmpDZnM4VmZWZHpvWWkwbWRMZw?oc=5",
+   "published_at": "2026-06-09T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:03.929497+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "LUNDIN MINING | Caminhão 100% elétrico opera em Alto Horizonte desde maio - brasilmineral.com.br",
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOd1FjNHV3LUxfU1FVcDdkbHQ0YlFDVGFyZ1lkc3JCOVdpN2FkbmoyN3lBUzZLWHpnSm1qaVlRMXNQa3hka2dGR0k4R0otVGdHczJzNURDck05RkQtaDdLOVFfYmV1MmNCaXJWMmRhNUVBeWtwZ1JmZUxRYnlNb09STzIxRng5U0owUXhCVF9lRF9Rb2R5WXFYV2Vn?oc=5",
    "published_at": "2026-06-08T07:00:00+00:00",
@@ -791,6 +821,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "TERRAS RARAS – EUA podem se tornar sócio indireto da Mineração Serra Verde se Cade aprovar venda de US$ 2,8 bi em Minaçu - excelencianoticias.com.br",
+   "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPUjBoeFBYZ0ItZFd0VGg5TjJkbWZTMllfMUhjOGdnZXZzbEtVb19lY2k5bGpXLXNtMnB2bVJ4akgxcVJGQmxNLWVaS3Y3VUZLWmxDejU2OTh3aXBYREU1OFRSWjJqT0o3MDNBVVI1Yy1DM083LWFzUFNQaDFVRUtlRE83ZWJQV0w4TllfcVFBelE2SWt5TUpjR29pZzY0Z1MtWTZkOURLbExkSjBmUGNHZHA3cm93UTZFVlUwbmtFcjc1SG1HbHVKQ0JqV2tDQkJfeVZMWlhSRjdIa0dtR25SSlVjVVozZUx6NUwxMm5NNUpCRTBW?oc=5",
+   "published_at": "2026-06-07T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:00.579027+00:00",
+   "regional": 1,
+   "regiao_termo": "minacu",
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Empresa dos EUA compra mineradora brasileira de terras raras por US$ 2,8 bilhões - Jovem Pan",

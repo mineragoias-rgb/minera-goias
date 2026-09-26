@@ -1,6 +1,6 @@
 {
  "mes": "anteriores",
- "materias": 257,
+ "materias": 263,
  "itens": [
   {
    "title": "Brazilian police expand program to trace gold from illegal Amazon mines, nab smugglers - Reuters",
@@ -573,6 +573,21 @@
   },
   {
    "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab743f53e5349be949ca98921c81029&url=https%3a%2f%2fwww.thestar.com%2fglobenewswire%2faura-minerals-agrees-to-acquire-the-minera-o-serra-grande-gold-mine-in-goi-s%2farticle_05149c3e-5765-56ae-a3c2-60f6ddc416cb.html&c=15653285175594871912&mkt=en-us",
+   "published_at": "2025-06-02T04:01:00+00:00",
+   "first_seen": "2026-09-26T04:03:01.366765+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.nasdaq.com%2fpress-release%2faura-minerals-agrees-acquire-mineracao-serra-grande-gold-mine-goias-brazil-2025-06-02&c=4849492903426942237&mkt=en-us",
    "published_at": "2025-06-02T00:00:00+00:00",
    "first_seen": "2026-09-19T19:49:02.791309+00:00",
@@ -666,6 +681,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-agrees-acquire-minera-110000961.html&c=16821160229421033576&mkt=en-us",
    "published_at": "2025-06-01T17:00:00+00:00",
    "first_seen": "2026-09-25T04:03:02.947948+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab743f53e5349be949ca98921c81029&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-agrees-acquire-minera-110000961.html&c=16821160229421033576&mkt=en-us",
+   "published_at": "2025-06-01T17:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:01.364165+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -2722,6 +2752,19 @@
    "substancias": []
   },
   {
+   "title": "Brazil's Vale launches self-driving trucks at its largest iron mine Carajas - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQTUtrbVFXQ0x1ODcwOUlmLWRwbll1bWYyb050SXpXdGxnVFJjdWpMWGJZOGFVemNXLUhTWkdYQXZxOFBKamo2cHlvakZzdGVndTlUSVFPcUxQc1UyeUIzT3BIblZFOGFlcG0zTnRWWmJTVzVpY3o1MUxyeTdiOWtCdGFEdkVkSTZOUWpjdDdyNVVzRzBYQ0ZMdmpSSTVHTnlzNEh5MG13dnZsa0xaMjhZc3lTQS0zNjRjT2c?oc=5",
+   "published_at": "2021-09-02T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:04.344063+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Nearly 30% of Brazil's gold exports are illegal, report says - Reuters",
    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbXQxQWpzYWlRUXI2VmhoaGNiX2wtZk5aN1RxQ1YtdXFWeXp4WHNPblJUeVRrVFJQQUdhd3dXcWJ4Tk5kczJ0M014WEc4NkRkbGZFMWwzV2h5OEF1WFhEUUNTR3dLdDR3bldtb3pzMGRhcGJWNmhfWXVlVEdOQmNTSXRCWC0wYm9yeVlUWi1wUzR4cmtOendadWJablFkWmZOOUFBRmVFa2U?oc=5",
    "published_at": "2021-08-30T07:00:00+00:00",
@@ -2875,6 +2918,19 @@
    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9idWdBclhwMnBJa3hvU0Q1bEVKNzZObm9QZWp3VHFvMXJQRWZoWl9GcFZtcjRrWVpFWGRGVEZlYXFPc2JKc3dqZzFrR0RsTk5xd1o2d2V4aE1wSXRmQXRXQW5pSUVTWWM5WXJFR1M2QVp0WEE?oc=5",
    "published_at": "2020-10-09T19:52:02+00:00",
    "first_seen": "2026-09-19T19:49:06.285771+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Cadastro Mineiro — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1hVnhOc2JJaVdTeXRBb1B4U29GcFJxdUlSNU5hbGpQcUZTUThzaFk0SmpYak01OFZGNnJlQ0hrLXRYTE9oUFJJTDNqczVYWURSODdmeDZEVGo2ZlZiMmJiVTR2QzMxY3VsemJzLTJCRXpEZTNldG9JN3NHc1JnU28?oc=5",
+   "published_at": "2020-09-24T00:38:51+00:00",
+   "first_seen": "2026-09-26T04:03:03.421083+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -3297,6 +3353,19 @@
    ]
   },
   {
+   "title": "Brazil bans upstream mining dams after deadly Vale disaster - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNYU8yMXZZTWdKR0I5MzQ2bHdsVjZVVGRWUDNxSDEyZzlLZWs1SU1ha2V4X1dPNXVHQlJraTF2SktuY2N3VXpjZUhNaF9LX3NyZWJ2VnkwNlVfQ0ZnLUlDOHhIcW92bHRwRk1XVThoT3lSQXgyR3dSLWlqSmM1blZ6MHozLWtGbjhadEdCZG9XMEl4UE9uR0JkbEx1bi0zYk9DVlRnakpsamZEcHczbW1tcERn?oc=5",
+   "published_at": "2019-02-18T08:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:04.345246+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "AGÊNCIA NACIONAL DE MINERAÇÃO (ANM) PROPÕE FIM DAS BARRAGENS A MONTANTE ATÉ 2021; MINERADORAS DE CATALÃO POSSUEM 8 BARRAGENS - badiinho.com.br",
    "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQTEY1NGNEbndnZWY4TVN5aWp0YjVNSTEwTU0yaVR0NG5HOXlGWDV0dUJyZTVQUmQxS2M2N2dBNmtHNWhzd0Z4bHc1cjRFeXotSFpId1dRYm05VjdiUWt3RXBFVEVnRy1LUDdZd0kzN2RhRlVNNjJDQVJGbDF0VlFhT0RfZEttdlN2dmtCRzktWjRzRU9Ha3NOdVQ4SWczd0hqejFHUXEwRVUtWFZtTFJPLWliWF84di1EM3FBbzN6aEppOUVjcUVSYUJNcTRvSlk2T2p2clZrQVZONC03R2JfRllfSFfSAeoBQVVfeXFMTW04Zm9tMUVHX0M4MWI2eEVYYlIzNnlSaVM1VWRBUmVuVzNDa3pqXzJsN2F3d3YxMzNTLTMwQ1pMT1VTeTNrNDhBNXNISVRBUmxoNnBEbS1Wek1WYzc2UFpmQWpMOU1LM2lKbzdFSWF1amZlRUF6NGozS2V6a000UVg3alRrSTFHcUtqQ2gwd2NIZG9sb05IRjlvcUlYTkF3OXBWYXV4Xy1fVk5QYU5mVExZWlVrUVRVN01LLVB3MXNxQUZ4OXc4MDNhc0Mwc2xvZnBqY1hEN2oxbHR4QVdmdzRJVzJZN2k0ZFhR?oc=5",
    "published_at": "2019-02-17T08:00:00+00:00",
@@ -3340,6 +3409,19 @@
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQYk5WTmxHUk1qc0s5RF9WSjBCc0tFM2pjUWhuN3hEZDdSX0MxaG5RTHBRMnQxZUpEelFCcnpuUmZlYzg5Q0loV2xMbHA4Z3NGWEhDN2hmZkRIQm0xVnFxZUQtN29jVlNxeTVfY0xNTDhoOGVqbmNfNi12N19Ya2xxLTk2b3NmR2ZLMk9jczBSMEcwQ3V4RTh6bHpuMHNYNnVrM3dQN1ktR0tHY0dJcDVMR0NoWXpTWEVod0E?oc=5",
    "published_at": "2018-10-29T07:00:00+00:00",
    "first_seen": "2026-09-19T19:49:01.090329+00:00",
+   "regional": 1,
+   "regiao_termo": "catalao",
+   "setorial": 1,
+   "fonte": "Busca · Catalão e Ouvidor",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Barcelona vende Yerry Mina ao Everton, afirma jornal catalão - Gazeta Esportiva",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNUXJxRDAxVnRQdFhEOVFTbWhxcC1nV3dyc2RHRG41ZWd4ZkI2VDZXUHBTUnJqZG1PZDdrZTctdnVqM2ltM1JZOGZXd2Fmb25nOV9ENjlGdFFyUDV3YnpWSXkxVEFHVDREZFU2UWJFdHo5QlBXdnB0YVptUGtKUEhWYU5DOFpjVGw0cjFrNWJET1NtaDZMNTM3OXEwRzdXZWQ2M1ctTkRhbjJaVWps0gGyAUFVX3lxTE5GNWp2aWRMdGh2aUZCd29Td2NOcDJfT0JlSEdXbFotUG9pRG40ckVwcHk0dUUtV0M2SVNGMTVRZ2R3Rzh0UmV3dVNRVU1PMGkzLXpiZWVwTWczN3ZYZEhoSVRBa2FGLW9MREQtalhaSFV5eG5UUzdTQWY4Nml5UkJoVXJEQjNlNDNnUXFpTTdXREhuNDJsVm8xRDFwcmVlVU5OWGdTdFoyN1U5UVJVdU0ycHc?oc=5",
+   "published_at": "2018-08-05T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:00.066710+00:00",
    "regional": 1,
    "regiao_termo": "catalao",
    "setorial": 1,
