@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 91,
+ "materias": 93,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -206,6 +206,19 @@
    ]
   },
   {
+   "title": "Goiás defende acordo com EUA para exploração de minerais críticos - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNamVfcTI1NFBjaGxMUXNabE9EeEdvUk1Xa3hpanhOSG0teTFfNE5MVDRHQXY1SHp0OWVodXIzY2Jiam56SG1COFFsaTIwTlZIMldnLXppX0M2Q1RTWjFNOHdfZFhnam54OFh3YnNuc3l3UEdBN3JPUW1TaHVUdHA3T3ZrOU1xdFlmTnpkdGdpaWhxeUxHREpkOGJSRjM1c3U1d0t5MHpuS0I2ZHlwMmJJSFVnYmhLbDdILVh4ajVnM2Q?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.022290+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Acordo Goiás-Estados Unidos sobre terras raras é inconstitucional - Consultor Jurídico",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPS0lDdWNXQ2wydTBWQmcza3FLYWNPMVRwNWQ1YkNGU2x3aHdfQW1IaklmUm5ja3dCMUgyX3BVRWpxbGhKUEoxcmZNM3J6Q3lObWR4RWlBZ2p0cDZmVm1pRmNjSldKalpaVVhTSlBUeVR1cmpZYjlUWWpmZV9mUnk5RjMwOThnZEJrSFh5Ui1Bb3ZWOHVhZm56eDFiZEVBekQwQWpXNg?oc=5",
    "published_at": "2026-04-26T07:00:00+00:00",
@@ -290,6 +303,21 @@
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Terras raras, minerais estratégicos e críticos: entenda as diferenças - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNV1F3MnZlSHRLRi1yaDR6MHVTVjQzVk1nWjVqQmVkZnJlOHR3akdWTmhLUlU5SkR3Q3l2Y1hTTXdKVEx0aW15WHZ3SDNOUFpQcGo1MEFrMldURGkyVVdyVnJTTXI4TFc2bXJ5OXVCeUdwbFlKalp1N1M2eWpZUVZSYzlWU1FZQTcyQ1NRU1UzWHJTR1pFSkpzQkhHWHVHRmwyYW5rU3J1RWw1TDlrYjZKRnNaM0RiaVJnVWpoWjlDTQ?oc=5",
+   "published_at": "2026-04-25T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:40.779514+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 211,
+ "materias": 215,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -703,6 +703,19 @@
    "setorial": 1,
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "US critical minerals proposals to Brazil go unanswered as China looms - South China Morning Post",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSWpiZFljdlo0MWJFdzMwNjRNeF9UMHVIVlJydng5VkhEUmpKeURMUXo2d0c5bkFEemtsM1Y2UHFBT3JrTEtJQldsWFBaZmRCTzkxRnMzaWtPRE04ekNqeEtOcm83U2tVNktYaUcxRTRUQ1VhUE1IcW81ckNJejZjV2trU21rUmZ2NkJwZlBoZkxJal9tSUVaRkt4MXM0elhsRTRHY3JxNnlXRkNR?oc=5",
+   "published_at": "2026-08-27T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:42.682512+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": []
   },
@@ -2582,6 +2595,21 @@
    ]
   },
   {
+   "title": "Política de terras raras de Goiás concentra efeitos territoriais em Minaçu e novos polos minerais - Geocracia",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQ2pHbVlYeTJDRkhqWFo1WVNSMnh6c1JYZ1d5TmJKWXNDNzJNVGEzSThxMHQ4SlgzRjN5VXBnUURjdFM5bzFCdmlzVlRvNU1tMWFCbGxzQ19xdTNBZlFZMXBiR29DbU5ac2MxeTJSMXlhZk5ENHctelllZlB1V19LbzY0eEI5N09DNGduNFhFdTdvdGVuUkVhVWdjVDRVNEo0TXlKSEVicU4tV2l6RHJRV2JBSk5Scks3QWs3ZQ?oc=5",
+   "published_at": "2026-08-12T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.023294+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "Brazil Rare Earth Magnets Market Size, Share,Trends, Growth Analysis Report, 2030 - MarketsandMarkets",
    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMlhGM3BOY0w0aWdDRkVxOUVKNlJOZUc2c2RmSk00YW5wcmhlaTJpN25RUzJ5MnNkV3U5M05hSk45anpZT2V4SlhQeWFhQnRIMzdDLWNCbkRBUlRNUnc1aXBmbVlVSGRMeUVrYmpHUW0weE01aExkT3pTMUZ6RUhwU1F1WnFWamU1M1JhaTU4Y3F5eEhieWc?oc=5",
    "published_at": "2026-08-12T06:00:50+00:00",
@@ -2651,6 +2679,21 @@
    ]
   },
   {
+   "title": "Goiás aprova política para mineração sustentável e terras raras - Portal BE News",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPUC1tQk5tU28ySVhCYmNMQzRRMkxCNEFwbHAxRGRpQ0FkZ0l1Wkhkb1EwQVNyLTdfbndmQU9udU9XRGVNZzJYckNfOFh2aXRxbl9QendsV0JvN0wtWjQzc3ZHMWR0Sk52aFZpd1Q1RkhQdVV3bU5DWjJwMk5yUlhpdW9ZbUtfbjNLM01XdVQwdnNBeWplMDNr?oc=5",
+   "published_at": "2026-08-08T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.021613+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "World’s biggest mining companies now worth $2.17 trillion",
    "link": "https://www.mining.com/worlds-biggest-mining-companies-now-worth-2-17-trillion/",
    "published_at": "2026-08-08T01:11:59+00:00",
@@ -2711,6 +2754,19 @@
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUGZSREJQcWlfQjQ5ZG4zbVlqakZfelFMT3dXOGhEdi11TER0dllMMzhkZlN3RUtkVHVCYTgySGxuQm5ZWHVTVDVWb2JhX3BaZG0zd1lUZEZyQ2hENjZkUHdvbE94M1NTQTlQdkE4WGxSQjVZOWlkWnN5THVZcGlIRllUamNqUWgyR3RiUVRvVmZ1WkRYM0laVU5B?oc=5",
    "published_at": "2026-08-07T07:00:00+00:00",
    "first_seen": "2026-09-19T19:49:04.845552+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Agência de Comunicação - Vale nega dívida bilionária de royalties da mineração - Estadão Blue Studio",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNS1ZGWWFaX1JyLTZiS1o1TEpJdUYzeG1rWFVfMmVzcDVpUkU0TnBOYThvRlBEaUpKR0hONVExc0lVRGw0YUtVLXptR0trQ2tIOWJFakNGZi1vSzZ4MjZNaGgzbUdPQkExbDA5dmxwYVgycW9oNC0xVklGOWM4Ymc3eVdVTTg4M0xfcFJYdFBWd01DZzg0dEVydmpSZHhlTTZHaXk4bkdBRWQwNU9RYlBLUg?oc=5",
+   "published_at": "2026-08-06T13:35:10+00:00",
+   "first_seen": "2026-09-27T04:02:41.151457+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

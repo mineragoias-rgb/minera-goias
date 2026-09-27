@@ -23,7 +23,7 @@
   "itumbiara": "Itumbiara",
   "quirinopolis": "Quirinópolis"
  },
- "atualizado_em": "2026-09-26T04:03:05.750834+00:00",
+ "atualizado_em": "2026-09-27T04:02:44.457871+00:00",
  "ultima_execucao": "partial",
  "itens": [
   {
@@ -57,6 +57,19 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab743f53e5349be949ca98921c81029&url=https%3a%2f%2fwww.dm.com.br%2fdicas%2fda-geracao-de-empregos-a-violencia-contra-a-mulher-estudo-mede-o-que-muda-nos-municipios-com-a-chegada-da-mineracao-estrategica%2f&c=9037657213273103473&mkt=en-us",
    "published_at": "2026-09-25T08:32:00+00:00",
    "first_seen": "2026-09-26T04:03:01.359557+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Da geração de empregos à violência contra a mulher: estudo mede o que muda nos municípios com a chegada da mineração estratégica",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab8955f1f1b4b04aa306bfd2fbe960d&url=https%3a%2f%2fwww.dm.com.br%2fdicas%2fda-geracao-de-empregos-a-violencia-contra-a-mulher-estudo-mede-o-que-muda-nos-municipios-com-a-chegada-da-mineracao-estrategica%2f&c=9037657213273103473&mkt=en-us",
+   "published_at": "2026-09-25T08:32:00+00:00",
+   "first_seen": "2026-09-27T04:02:39.639208+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -890,6 +903,36 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Política de terras raras de Goiás concentra efeitos territoriais em Minaçu e novos polos minerais - Geocracia",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQ2pHbVlYeTJDRkhqWFo1WVNSMnh6c1JYZ1d5TmJKWXNDNzJNVGEzSThxMHQ4SlgzRjN5VXBnUURjdFM5bzFCdmlzVlRvNU1tMWFCbGxzQ19xdTNBZlFZMXBiR29DbU5ac2MxeTJSMXlhZk5ENHctelllZlB1V19LbzY0eEI5N09DNGduNFhFdTdvdGVuUkVhVWdjVDRVNEo0TXlKSEVicU4tV2l6RHJRV2JBSk5Scks3QWs3ZQ?oc=5",
+   "published_at": "2026-08-12T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.023294+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Goiás aprova política para mineração sustentável e terras raras - Portal BE News",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPUC1tQk5tU28ySVhCYmNMQzRRMkxCNEFwbHAxRGRpQ0FkZ0l1Wkhkb1EwQVNyLTdfbndmQU9udU9XRGVNZzJYckNfOFh2aXRxbl9QendsV0JvN0wtWjQzc3ZHMWR0Sk52aFZpd1Q1RkhQdVV3bU5DWjJwMk5yUlhpdW9ZbUtfbjNLM01XdVQwdnNBeWplMDNr?oc=5",
+   "published_at": "2026-08-08T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.021613+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Agência de Comunicação - Projeto que cria política para terras raras avança em Goiás - Estadão Blue Studio",
@@ -1944,6 +1987,19 @@
    "substancias": []
   },
   {
+   "title": "Goiás defende acordo com EUA para exploração de minerais críticos - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNamVfcTI1NFBjaGxMUXNabE9EeEdvUk1Xa3hpanhOSG0teTFfNE5MVDRHQXY1SHp0OWVodXIzY2Jiam56SG1COFFsaTIwTlZIMldnLXppX0M2Q1RTWjFNOHdfZFhnam54OFh3YnNuc3l3UEdBN3JPUW1TaHVUdHA3T3ZrOU1xdFlmTnpkdGdpaWhxeUxHREpkOGJSRjM1c3U1d0t5MHpuS0I2ZHlwMmJJSFVnYmhLbDdILVh4ajVnM2Q?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:37.022290+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Acordo Goiás-Estados Unidos sobre terras raras é inconstitucional - Consultor Jurídico",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPS0lDdWNXQ2wydTBWQmcza3FLYWNPMVRwNWQ1YkNGU2x3aHdfQW1IaklmUm5ja3dCMUgyX3BVRWpxbGhKUEoxcmZNM3J6Q3lObWR4RWlBZ2p0cDZmVm1pRmNjSldKalpaVVhTSlBUeVR1cmpZYjlUWWpmZV9mUnk5RjMwOThnZEJrSFh5Ui1Bb3ZWOHVhZm56eDFiZEVBekQwQWpXNg?oc=5",
    "published_at": "2026-04-26T07:00:00+00:00",
@@ -2507,75 +2563,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
-  },
-  {
-   "title": "US in talks with Brazil on critical minerals, US diplomat says at signing of Goias state deal - Mining.com",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOTklEM1dFQ1lPVFZoaFNSelZINWkzWTZpTHVJbEMxMFhSMDJjdHQ4aW82NGNzWm9KSElISXUtZGV0akRydUpzbF9uTFpsRkxYOS1mdzhDTnhtZUJzUjV1Q2tMWmVuREtDVGRoZ0VEZjhmLVNLZGFpTDNYODg1TUt1UlVUaHlNLXEtRnhLUUhUQUI0M3c?oc=5",
-   "published_at": "2026-03-18T07:00:00+00:00",
-   "first_seen": "2026-09-20T04:02:48.700892+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "EUA e Goiás assinam memorando sobre terras raras nesta 4ª feira - poder360.com.br",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbS01LXZEZFBvTVBvYzNDcy1iS2ZzQnhabVN2VG9VbGpoVDQ3bkFHRkRCM2dNdHU3R3VLYmxuRWJRNHhqMU5TX3h6U3RpRmtPcmRUbHlVLS1JVUJHVkJfRWFwWGJXY3RrT3Y3QnZtSDZBZEw3SE1JUlV5Z0JIdWE0U0lhbnEzczNKUmZJNUtCcG9PSklHejBoWFBhRzd6RTdGa1FPZTJZV2J0a2I0al9PQS1R?oc=5",
-   "published_at": "2026-03-18T07:00:00+00:00",
-   "first_seen": "2026-09-23T04:02:48.617521+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · mineração em Goiás",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ]
-  },
-  {
-   "title": "Com benefícios fiscais, Goiás fecha acordo de minerais críticos com EUA - CNN Brasil",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOaFlfazlERDY1TXRhRUtpMm5KOFJ4OWtYVC1WMzBoajU0anlwS1RHWjdQdzZndEJSUHAtUjZ3RzB5ZGdxRHFJNF9GY1RUZHRtZzBUZkhLeFhVTjJjdmMxY25fSGh0cDFaUnJMVi0xWUpWa1VMb3NwQUx2WWVTNUVQMjJPc1pSMDVoYVRFSmhyeTdVWE5ib2Y1RWJvQXNWQUdpU19aWlBvUHhjUQ?oc=5",
-   "published_at": "2026-03-18T07:00:00+00:00",
-   "first_seen": "2026-09-23T04:02:48.618004+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · mineração em Goiás",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "MINERAIS CRÍTICOS | Goiás firma acordo de parceria com o governo dos EUA - Brasil Mineral",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVVAwLWxOTUFOUERfMDFDRzhFc05GdEY1a0lnWXhKZjJaWDhzZGlHbHFnYXFwbjdwUk9NNDV5QkRkRy1nVzVieHVzWWxvV1cxR042dC1HRVBNSEpmNExnS2FNNG10dVc5TGlGeUJpMm5Cak1LOHhXZDFHaDlUU25QdDYzU0c1TkVHOHR4WkZKZElldGpf?oc=5",
-   "published_at": "2026-03-18T07:00:00+00:00",
-   "first_seen": "2026-09-23T04:02:48.618678+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · mineração em Goiás",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": []
   }
  ],
  "tendencias": [],
- "total": 1820,
- "regionais": 301,
- "setoriais": 1820,
- "regionais_setoriais": 301,
- "fontes_vivas": 61,
+ "total": 1855,
+ "regionais": 310,
+ "setoriais": 1855,
+ "regionais_setoriais": 310,
+ "fontes_vivas": 62,
  "fontes": 63,
  "substancias": {
-  "terras_raras": 588,
-  "ouro": 223,
-  "litio": 186,
-  "cobre": 90,
-  "niquel": 71,
+  "terras_raras": 600,
+  "ouro": 234,
+  "litio": 189,
+  "cobre": 93,
+  "niquel": 72,
   "uranio": 33,
   "niobio": 16,
   "fosfato": 8,
@@ -2584,24 +2586,24 @@
  "meses": [
   {
    "mes": "2026-09",
-   "materias": 834,
-   "novas": 53,
-   "regionais": 36,
-   "setoriais": 834,
-   "regionais_setoriais": 36
+   "materias": 856,
+   "novas": 22,
+   "regionais": 37,
+   "setoriais": 856,
+   "regionais_setoriais": 37
   },
   {
    "mes": "2026-08",
-   "materias": 211,
+   "materias": 215,
    "novas": 4,
-   "regionais": 29,
-   "setoriais": 211,
-   "regionais_setoriais": 29
+   "regionais": 31,
+   "setoriais": 215,
+   "regionais_setoriais": 31
   },
   {
    "mes": "2026-07",
    "materias": 94,
-   "novas": 2,
+   "novas": 0,
    "regionais": 15,
    "setoriais": 94,
    "regionais_setoriais": 15
@@ -2609,7 +2611,7 @@
   {
    "mes": "2026-06",
    "materias": 68,
-   "novas": 3,
+   "novas": 0,
    "regionais": 15,
    "setoriais": 68,
    "regionais_setoriais": 15
@@ -2617,18 +2619,18 @@
   {
    "mes": "2026-05",
    "materias": 94,
-   "novas": 2,
+   "novas": 0,
    "regionais": 38,
    "setoriais": 94,
    "regionais_setoriais": 38
   },
   {
    "mes": "2026-04",
-   "materias": 91,
-   "novas": 0,
-   "regionais": 40,
-   "setoriais": 91,
-   "regionais_setoriais": 40
+   "materias": 93,
+   "novas": 2,
+   "regionais": 41,
+   "setoriais": 93,
+   "regionais_setoriais": 41
   },
   {
    "mes": "2026-03",
@@ -2640,10 +2642,10 @@
   },
   {
    "mes": "2026-02",
-   "materias": 30,
-   "novas": 0,
+   "materias": 32,
+   "novas": 2,
    "regionais": 4,
-   "setoriais": 30,
+   "setoriais": 32,
    "regionais_setoriais": 4
   },
   {
@@ -2656,11 +2658,11 @@
   },
   {
    "mes": "2025-12",
-   "materias": 36,
-   "novas": 3,
-   "regionais": 24,
-   "setoriais": 36,
-   "regionais_setoriais": 24
+   "materias": 38,
+   "novas": 2,
+   "regionais": 26,
+   "setoriais": 38,
+   "regionais_setoriais": 26
   },
   {
    "mes": "2025-11",
@@ -2680,14 +2682,14 @@
   },
   {
    "mes": "anteriores",
-   "materias": 263,
-   "novas": 6,
-   "regionais": 72,
-   "setoriais": 263,
-   "regionais_setoriais": 72
+   "materias": 266,
+   "novas": 3,
+   "regionais": 75,
+   "setoriais": 266,
+   "regionais_setoriais": 75
   }
  ],
- "descartadas": 3761,
+ "descartadas": 4009,
  "veiculos": 46,
  "coleta_desde": "2026-09",
  "janela": "2025-10"

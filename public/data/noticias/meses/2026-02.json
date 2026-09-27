@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 30,
+ "materias": 32,
  "itens": [
   {
    "title": "Agência distribui mais de R$ 108 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
@@ -84,6 +84,21 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Empresa indiana terá participação em refinaria de lítio no Brasil - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQN0w4WU0yUHVPUWR5UVNnY2U4NGNBVkcwX05LbVVPUVdxSW51Z2VmQlM3T3FtR19BWDBNRlNGR0ZfcXNVUW9TVHhmNU5xTVF2VXM1cE5TZmdXUWIyZUZDWjNVNE95aGh2YVdOak9QNnEtV21kZzZUUFNMTXN2bEJ1YkJjV0o2V2x4bWUtZS14RHkzS1o2ZkJONkIzdVVPaHd3OXZBdjV6V0pJS01oX3NDOHdMT3hjVFM4SzkzcHZrNEYyZw?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:40.781664+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
   },
   {
    "title": "Alerta: mensagens que simulam cobranças a regulados são tentativa de golpe — Agência Nacional de Mineração - www.gov.br",
@@ -343,6 +358,21 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "SIGMA LITHIUM | ANM atesta segurança de pilhas de estéril e materiais - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNVFdoTGprR0t6TU5wQVhsS3hFSzc0aTdPaDMzTHg1RUJ6NGQ3aG9WQTdsNGcybnRXVlVjZ3NZcWowenVJQVpJNHh5RmVCY0dWWUlWT2Zna3dLMUxvb09JcWhmem84WFUtRUUtdWJrYzRBYWVRc053clFranQ4TEtUdndidUVvOFlucnp4TDhueTFEc3Eycnc?oc=5",
+   "published_at": "2026-02-04T08:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:40.780583+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
   },
   {
    "title": "Reserva de minerais de Trump pode incluir lítio e terras raras do Brasil - CNN Brasil",
