@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 68,
+ "materias": 71,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -358,6 +358,19 @@
    "substancias": [
     "litio"
    ]
+  },
+  {
+   "title": "Agência de Comunicação - Repasses da CFEM somam R$ 477 milhões para estados e municípios - Estadão Blue Studio",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPczRSZjRYUU1NOHJmOW10ZjBEeG9zTC1RdHJ4anFuQno1OGdvc2xwb296YzQyaFluRzVuWktrSEtYMnhiTGxJMnlyYUstYmwxRnVla25vV2Q1dXNKdTZ3UGQ1TlRINk9RSkE5ZUpySkxIMURCUTdjQ1ZveFoxWi1WMktpT2NCcC14V0NhVVRGdHQwMW9OczJEcWVSd2hwWU45RVFLeVR6NDF5ajlqbk5BYQ?oc=5",
+   "published_at": "2026-06-19T15:39:59+00:00",
+   "first_seen": "2026-09-28T10:14:44.681984+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Terras raras: Brasil tem custo de mineração equivalente à China, diz estudo - Agência iNFRA",
@@ -891,6 +904,34 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ]
+  },
+  {
+   "title": "Câmara aprova urgência de projeto que amplia poder da ANM e flexibiliza garimpo - Portal Tela",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaEJMXzV0SFhJZGdQOGE0NDJoVXlQVURuVWRhV1BXLUxHSDkydFY4RFBXTmp6Q0lZSzdVVW40NWFjV0ZuRm9ueXJIUlI5MFlvQ095c2xURjJ3QUlRR2FTY3JhNHdmRDhKRWZDVkRIY0lYSUJVcWtmNVBOd21RWXlqODdhV3FMRWx2T0JHOUpKaV91bXhJYXh3LTRacGs3RnhkVnRvVmFXc1hpblFYc2FWa0FmYkt3cENReW9QbEt6VENPakduLWc?oc=5",
+   "published_at": "2026-06-03T07:00:00+00:00",
+   "first_seen": "2026-09-28T10:14:45.012666+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Brazil must overcome environmental and technological obstacles to make rare earth mining viable - EurekAlert! Science News Releases",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9BaFMyQVN6SFJLTkstNF9vVTl4Tks4QVJhZHJjQWRodHBMLXFrYXItQXZKY2dKZkt6MzRQVl9sZXRVcUZCcGpLSHBWdWwwY2ZBd19NYTFTSjZDU3o5?oc=5",
+   "published_at": "2026-06-03T07:00:00+00:00",
+   "first_seen": "2026-09-28T10:14:45.952156+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ]
   },
   {

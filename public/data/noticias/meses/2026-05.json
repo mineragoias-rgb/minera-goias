@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 94,
+ "materias": 96,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -1005,6 +1005,19 @@
    "substancias": []
   },
   {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aba3e1320654b32973370fbaf9a162b&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T11:25:00+00:00",
+   "first_seen": "2026-09-28T10:14:43.249037+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - Folha de S.Paulo",
    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcEg2aXdRSE45MUNVR2lTMGN6TnlCUTlpYmdLQjRWNDJocnJhMEJ2NTF5cVdFMEJzcmFjNGRFdkZacVVmdU80ZkpyLVg4cWRpUkRrdWtzTVhNOFUwZHJaVUtOcWZ2ZnJaaG9PR2dMVUNiZ1RoTkNqVnNPVnJmdF9ETXlib21IRklmWGthQ21nYy1KX19XbVktcndBYndKWWE0ektLR2lVTDVzZ2I1RTdCVzlFNmkxRkdM0gG-AUFVX3lxTE9EREY4VXVJYmNFTnVGLVJzZzZlU0xxQWdLWExING8ybTRkbjBQQzh5bEJUbG0wM2pFUnhERUhGeTlyWVN5bWJTRENlSnI5Q1hCNUJXUkNlSDk5V3M5cEZscTNOV3V5Q1l0MzdrRWZTU1VUMDJ5X0dpNUJaYmFORWlLTElRZ2xWNlAtMVlxMnlRVmY5VFRSbUNRM2JSVm1TQ19rQnFIX182dU56azdVOFhMZC1QbnJsQ2NyNDYwSEE?oc=5",
    "published_at": "2026-05-10T07:00:00+00:00",
@@ -1158,6 +1171,19 @@
    "substancias": [
     "terras_raras"
    ]
+  },
+  {
+   "title": "Especialistas e municípios criticam PL sobre minerais críticos - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbEJnZWg1b1hHaEt2czhuR2hKdktWbzlPRHZTQWlRTzZiYTBLZnY0MHZ4bmFHMWpXUENldDliQW1DeE1VdlhmdW13MjN3dU5aOExkMjROSWtOTnBPZ0FGcXBEdlNvWU9vcVJ2TTEyRnB5a3NSbmNZMkI5X0gzR3RSQllmSkVXazZKamQ4SldrREhwNmxFVy1Xci13ajdiUDJaczNQTHpvQWtqbDU2V3JpSTA0OEZYaXdfVHRfag?oc=5",
+   "published_at": "2026-05-07T07:00:00+00:00",
+   "first_seen": "2026-09-28T10:14:44.265286+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Governo Lula não quis regular venda de terras-raras em Goiás - poder360.com.br",

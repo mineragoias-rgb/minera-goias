@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 46,
+ "materias": 47,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -483,6 +483,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Mineração de terras raras exige tempo e alto investimento no país - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQbmdpMEllZ18xNkJibS1TU0tKeW13MGp2VHJPRkhhRG5KdnJKTnR3LTFwQnZtVmRpTG1IQ3dJZTBsODdrc0QyaXdqTTFYWmcxcE9yWkhmN19uVDd6bmdzYXFPX2NyLTdQelNLR3B3UjNiU0ozRFJHTHpqeEs4RDZkeDRZSW5PVWhhdVVqS0pKclQzYThKcjY1cWJHNDN4ZFlTalFUN2VWRERwN1lKdmJKZjJGMWdzR2x5RjBscVIwenJOVDFHUklYZHpXZ0RncmFXaTlCU0NkYw?oc=5",
+   "published_at": "2026-03-11T07:00:00+00:00",
+   "first_seen": "2026-09-28T10:14:44.266651+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Terras raras podem colocar o Brasil em destaque no cenário mundial - agenciabrasil.ebc.com.br",

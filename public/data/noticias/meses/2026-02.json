@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 32,
+ "materias": 33,
  "itens": [
   {
    "title": "Agência distribui mais de R$ 108 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
@@ -243,6 +243,19 @@
    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMk03anUtQVozVUp4ZzR1VnRXNkNWNDZHOURLc0huQmdpUjFteDdTZml6YWRXdnJMOFhsQVF2MWhiVmVYSXA3ZXNSX0YwU1VKRmpCem84b0FNXzE1WnlGa2NtTFREV2EzWHRManc0UGMzbE9EaDBOeGRBNnhIR080UjdWWUc2MTJsdmtMVDJwZTQ4aU5TbnVuNG1NaG1UZENtMlF0THhTUUI2S3JCVHBVc25peWRDWEZqZk9yUWplOWFSamlJRExVeNIB0AFBVV95cUxNVVR1XzlCQlU1UTN1R1BuVzhKaE95RkxiV2xwSmtQenpBb2podGlUcTJVLUlHaUNGWDNBeDNNbWZacnhTckVRNW13YmdQc0Nfejl1blgzTVcxbEQ0ODhXTnUwMEtoc1NzWnJvbV8zbDVEQmRkVVBFMDBDNkNBUGFocHYtczM4bU5aVHhvc3V5bUlsNXVSNzA0M3FRci1IaDVXNVJ0ODZvR2lrbkFHODBHS0s4alk4M092TlVrQnlRZ3k0RUxDU3lBU2ZVelNuUW03?oc=5",
    "published_at": "2026-02-11T08:00:00+00:00",
    "first_seen": "2026-09-21T04:02:41.918407+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "India Pursues Critical Minerals Deals with Brazil, Canada, France, Netherlands, Reuters Reports - autocarpro.in",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMk03anUtQVozVUp4ZzR1VnRXNkNWNDZHOURLc0huQmdpUjFteDdTZml6YWRXdnJMOFhsQVF2MWhiVmVYSXA3ZXNSX0YwU1VKRmpCem84b0FNXzE1WnlGa2NtTFREV2EzWHRManc0UGMzbE9EaDBOeGRBNnhIR080UjdWWUc2MTJsdmtMVDJwZTQ4aU5TbnVuNG1NaG1UZENtMlF0THhTUUI2S3JCVHBVc25peWRDWEZqZk9yUWplOWFSamlJRExVeA?oc=5",
+   "published_at": "2026-02-11T08:00:00+00:00",
+   "first_seen": "2026-09-28T10:14:46.341404+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
