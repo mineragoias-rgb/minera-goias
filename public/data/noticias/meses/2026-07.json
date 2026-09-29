@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 94,
+ "materias": 96,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -647,6 +647,21 @@
    ]
   },
   {
+   "title": "CEO da Serra Verde assume USA Rare Earth após acordo de US$ 2,8 bilhões - InvestNews",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbDRPSjhUMHUyNXB6YW1pWXRvbFkwSzhUUEZSc1RUdnZfNV84N3hLdGRja0VmMktjR3kyOU5VOS12aHJjU1QwT2d0b01mdXloUzVNNEdRdU5xaWRaRHFfempNQXNWbkRSMFFFUjNxRjN1Qk1xYUtXSUxSb0d3dW9ibnVHdVlvZ2I5SDk4SHM4emt5R3lfcU9xZm1GWFRuNWRQaHV6aTZoRWXSAa4BQVVfeXFMTlFaRWxacGdYZF9aTjdMTUhyMFkyNFVUYWdyX2pZSWFnZzF1cE1ZemJQT1BQSjlkdWNqSTdBYzBzQVpHRGdNWUpCMGJHSlBoMEE5cEZ1WXdNLUdXOGFYbXhqWkxWZ0JHdFhjQmhKN3RLNVRQa3FmT3NfZ2xGT0JiN0RIcnVqQ3F2UnhOOV9ablBtb2RaMmNlRjMzV3ZRMGlFYjBtZUFkUW9CLUxCT0N3?oc=5",
+   "published_at": "2026-07-20T07:00:00+00:00",
+   "first_seen": "2026-09-29T10:12:03.901342+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "Moradores fazem paralisação contra mineradora em Alto Horizonte - Jornal Opção",
    "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPUm5fbmVFclI0SlZsbkdxZHB5UnJvaDZUdDhpUElBZkVBamtHaDdLNDFuZV8tSWZIeDJGS25fRTJRT1FMTkhaekpEa0t3bUtLcnlZbmdvWmZabnNLTlk4MTdhb0YxMWM3T2xoVzV3M2c2T2NFU1BlMlNyencxWWlHV2RkNG5sMEFlSm1jOTZ4NmdMLVBTcGVYWlNxNThkWmlDek9KSjlxZFVRUktMTHhSRGNpLWJCQS1fSk5qU083NlB2WnM5U1JmSHQ5QXZDN0lWb05tSUg4S296aW1zVjBQQVZzZkJZUTE3ZkZGSnZmQVMwSnUtVGxhdE9UeWNkRkxlc0hR?oc=5",
    "published_at": "2026-07-18T07:00:00+00:00",
@@ -938,6 +953,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Lithium Ionic avança para construção de portais de minas subterrâneas do projeto Bandeira - Revista O Empreiteiro",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0zSXZXQjlacHB1NWRiSnRSM19LQzNkMWhVUmp0UFJhN28yRjJLTGV6Rkw0UDVKRTFYVTIxMlBna3N2MGlyV1NCNkt6c1BDNXlhQTI3ZTJfaWNpTXdqQXRadmVySFotaVB0UnozejJRNzBJeTRLSVJnWDdoSzk2SGc?oc=5",
+   "published_at": "2026-07-10T07:00:00+00:00",
+   "first_seen": "2026-09-29T10:12:05.858403+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
   },
   {
    "title": "Dano ambiental em Catalão leva mineradora a fazer acordo milionário - Mais Goiás",

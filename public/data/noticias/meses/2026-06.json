@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 71,
+ "materias": 72,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -63,6 +63,21 @@
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMDVNZkw4VzdlUkFGQmZSMG16YUpWNnk0NFFITEh3X1F3bnNPcklFZTIzUzdzalJTWE9OdXhiVi1jOUxITjFMNEIwRGN4R0tPZnRJUU1abnRQMElpYzZ6VFVRNU52YVBCT3VZeDVqZ0xlbkJXMGpsQ0FTWmlGYXpTT1NWbVhSODlYeEFDVzdvNGE0Rll2c2ItVHJmczVVVmpRdjYwbkx4T3VFRXIxSU1rMDFyY20zMTE0V0R3?oc=5",
    "published_at": "2026-06-29T07:00:00+00:00",
    "first_seen": "2026-09-21T04:02:39.719492+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "CETEM apresenta pesquisa sobre lítio no Congresso Mundial de Mineração — Centro de Tecnologia Mineral - CETEM - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSHQwQy1oNDhxbVg2LUNDSWNsUGE1UzVmT3FUcDc0dWpJSWRHcUh6NTN4c2t3QXN5MmRWaWNvSG1SMERDbW0ySlVYcmxiMUM5UmlYbnZQNXAtVEVic21LRFBYanVDTlFrbWY3MHNEazRhWDJOZnU0ek83a19aUTVPYk1SNU44UGhqNWt4YXcxT2ROenFCMmtnMnJ1YnhIek03Mkt5VHl5ZENwMS1RYmdpOTA4WC1aZkR3cW5V?oc=5",
+   "published_at": "2026-06-29T07:00:00+00:00",
+   "first_seen": "2026-09-29T10:12:05.857389+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

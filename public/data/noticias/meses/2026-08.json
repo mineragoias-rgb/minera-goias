@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 217,
+ "materias": 218,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -2922,6 +2922,21 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
+   ]
+  },
+  {
+   "title": "Lei de exploração sustentável de terras raras em Goiás é aprovada - O Popular",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOU3J5cFlaUE1DN2RoVE9fRmtnV0xPUEdsUEFfNk5HRlJFTXhTN1lWY0Vsa1FuQUJYSWdncVllMlBaWFFNaHNaOHdJV0RPN1hHWC0tVEFQSGhlTS1ORHA1VnduOG9WNDlKamZ1SU9jUnZBLTc0ZDJPVTZFZS10UWctbFdhMFBQRXpPMmZESEpvZ3htVlRkd2NGYTJvcjNwM0k0eE1LMTJPZnlxU0M5?oc=5",
+   "published_at": "2026-08-05T15:25:10+00:00",
+   "first_seen": "2026-09-29T10:12:01.928591+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ]
   },
   {

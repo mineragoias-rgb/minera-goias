@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 96,
+ "materias": 97,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -768,6 +768,21 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Brazil probes USA Rare Earth’s $2.8B deal for Serra Verde - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYlFmTU54VWcyeEdvTTZ1QnlmbnFnNlo2V0g1THlJZEx2Vkc3cGo2QW5aUXFKcnVHdmxGZURaMjRBUlhoWko5encxTlhwWU5NSTJGbHF3TnFuRlNIM3hKM0Z2RHpjRG1OWVBDaXRQbzdZRVoxTUtjYy1OWVRtZHNtWjB2M25lZGc1MkRxQm9BRUxRSGhyLWRNN0dvdHl2aWRuM0w1MW9RYzNfSzQ?oc=5",
+   "published_at": "2026-05-12T07:00:00+00:00",
+   "first_seen": "2026-09-29T10:12:07.615942+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
