@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 96,
+ "materias": 98,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -234,6 +234,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "ESPODUMÊNIO | Preços do concentrado de lítio quadriplicaram no início de 2026 - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZDlycXhCZk81YTc5dUNqbTU2bTBjNElTOGVVRkI0b2U3WHB2emwxUFMtUjl0VGtXS01WOFl5bGlKZFB2RGJXWmZ5ell4Q1U2X21LYVVFX3ZkTDl5TnBFR0ptZlVQWlplcTVWUElrX1loUncxODNUMk4tTDlwX1BzZUQweS1ETGhILUNPRGpkVVRqaF8xUndfeVpsUEdObXIyZFc0?oc=5",
+   "published_at": "2026-07-27T07:00:00+00:00",
+   "first_seen": "2026-09-30T10:03:44.221978+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
   },
   {
    "title": "CFEM não é tributo, é compensação - Capital do Pantanal",
@@ -1345,6 +1360,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Can Brazil become a key rare earth supplier for the West? - Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPY19MZUluRVNQSXZPdTBMeWhTNzdWYWN6SGVPS05DLWE3S0hBZF8zaEN5aGZjM2VjTkJaX1B4UjhrLXZaa2dIWjR3eEZfc09XWWNNYm9YTVVhbDFXNnA0NE9mV3BQN1FYbG9xTjRGTXJDTE56ckRmTDFMdWp0YUR6XzhvZnBreXRPSFdVWUZn?oc=5",
+   "published_at": "2026-07-01T07:00:00+00:00",
+   "first_seen": "2026-09-30T10:03:45.971898+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   }
  ]
 }

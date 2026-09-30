@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 94,
+ "materias": 95,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -318,6 +318,21 @@
    "setorial": 1,
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Rede vai ao STF para suspender venda de mineradora brasileira de terras-raras aos EUA - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONVhrRi1zeUIxMjlXX1h6OTRWdzhaTWMwbjU0WkFKTE9CbURmSHJPeEExNWN6MnFMVk5UU2pXa2IwUjltMGRSZkpJZmlJTjdsOVgtd2Q1OTJIU1FFRnVWTUduVlBxWlV3bHNlNmlZZXZmX3R2TTB1dnB3SnpoS3NCQUZ4SGZzcmNhbXp2RllDdUFiLUxaMXlvZkhBcjVpb2NVWHJxTXNlbU1jU0tkRkNtTGc0V296ZTRYOWE3YkZrSEljbzYxUDFYaDBNYnlyRlpNeHNmSnZ6ampkSUxl0gHrAUFVX3lxTE1VeWlhSjlFZlBudFM1aF9zNW1WYVV3VVMzelZjVkdSNE03cW5naVo5VlBzTTd4dVg5LVVGYURxODZYYnh1Vm9Wb19LeFh4c3E5REVqR2Mwby1qZ3FSU3VON2oxeW40dFk0cDVWTDd2eTJDazdPQ1hEWENfSVE0Yng4NDZndEFxN1NIcUw1TWE1bTVBMzZ1bGtCT0pVRE1CcnNKbHlKNGlCSjU0c1U0bEVkOXRyN0g0SjhndnNNQnd1SGROMjNqYldxSEtSMmhkQUc4T2pfRmQ5MXNZU3lvWHdZemR6a3JXdWk4Z2s?oc=5",
+   "published_at": "2026-04-25T07:00:00+00:00",
+   "first_seen": "2026-09-30T10:03:42.644041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
