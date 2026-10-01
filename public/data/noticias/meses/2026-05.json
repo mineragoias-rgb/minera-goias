@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 101,
+ "materias": 103,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -126,6 +126,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "USA Rare Earth Strikes USD 2.8bn Deal for Brazil’s Serra Verde in Landmark Rare Earths Push - ISI Markets",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8xM0VLenlHSUYwUDZCTEdieDFObFlob1otQnRCSzJhT2RZOGc3MW5Mb0FKRmZkUUZKdUc1a3A0bjVIXzV1aHdXejMxS2VQR1c1SDBMNkNBRGFFX0dHVlFjbEwzTXIwRGV3MVFKdDJwTHhEXzg?oc=5",
+   "published_at": "2026-05-26T07:00:00+00:00",
+   "first_seen": "2026-10-01T10:32:05.355390+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Tomada de Subsídios n.º 03/2026 — Agência Nacional de Mineração - www.gov.br",
@@ -1080,6 +1095,19 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abcde7fef81443090ec5523bda506bb&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-30T10:03:43.328854+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T11:25:00+00:00",
+   "first_seen": "2026-10-01T10:32:02.666059+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

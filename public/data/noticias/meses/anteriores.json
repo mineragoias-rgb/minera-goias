@@ -1,7 +1,193 @@
 {
  "mes": "anteriores",
- "materias": 275,
+ "materias": 293,
  "itens": [
+  {
+   "title": "Agência Nacional de Mineração reorganiza estrutura com nova coordenação em Minas - Diário do Comércio",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdlQtODBhMENWanF5QzE0Q3BjbWphTDhMQ0tJV2VkWGRPQTg1bWJCZUwzSENFLWFlR1kwY09GNkowcnJ1TWRMZzRTbW5DQjdvcDdXR3dvZk4taDZ0RkhLSHpvSWRlLXQ2b25fdldjWEJqb2FEdGRnZEVlNGZ1a1NVZEpKMEZuOGpBbU5SYlVxeVRleFFUblNabA?oc=5",
+   "published_at": "2025-10-31T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:05.684287+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Trabalhadores da mineração podem parar: Metabase contesta proposta da CMOC em Catalão - badiinho.com.br",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOTg0UGo4RnZPRGE0RUY3TTcyamY2cEZROVhGT3dTNjZpdjRKX0poYXhWR01YOURsT1FoU0lQRU5WNW0zdGtndG5sUUM5YlhqOFNmTER6eF9OLWtOT0ZrMmdLR0ZzeHpVRGE0T0FfMjdPeVJydk5yNEEwem9xMlVNbjRwUWltd9IBiwFBVV95cUxNN2lrTE5FN3BabGE3UzhMOG1qRWRsUWFsVE5CUXZCeWQ0VkVpa0pONUVqdzJBNTdTdW1tY1VreHI1TnM1bDE5UDZIbWtKWjlHemdHOVR6UU13VFJvS0xtXzVHdEplaHgxQ0txcnNncW1TMTM0ZzVDakpPQ3FTMEVhM3ZJWFhrZXR1UWFn?oc=5",
+   "published_at": "2025-10-30T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:01.069945+00:00",
+   "regional": 1,
+   "regiao_termo": "catalao",
+   "setorial": 1,
+   "fonte": "Busca · Catalão e Ouvidor",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Após cinco anos, ANM aprova expansão da mineradora Ligga no Pará - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQMk1tTWxGWDdBVnRoQkdyTUdiSlRURDk2c0UwRVFCbVFXQ0cwME9wMW5sMVNMU2VvUlZ4T21lTE5xWERTR0dycXJsSFhJc3lESHJpaEdLSm9rRHFITVlKZjZRQnV0MW91NVhyQjd6bmRrdTdud1F4bkszeVdmTUlNd19nQmFUT1kxNWVNb3Z5akR3TEhnYXF2NlJR?oc=5",
+   "published_at": "2025-10-24T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:05.691752+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ANM atenderá exigências do TCU sobre garimpo em 30 dias - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQR0lZWGF6WDlYb1VjdFRIT2lMQnlMNVF3MnNTcWJlRlBRYy1oTkZwREI2TnM1Q0FGS3h1Ry1IWmJMdTZXRzJ4ZllORk1fbm95dlU2dm5FSHd1clQ3RmtyUzNyV2x5Q0t1ZWR0bnNDNV9Vb0ZfMkdodFJPMzkwLUtoaTk2WWZNcFdZM1psU2d4OA?oc=5",
+   "published_at": "2025-10-24T07:00:00+00:00",
+   "first_seen": "2026-09-22T04:02:38.948851+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ENERGIA SOLAR | Hochschild Mining implanta usina para suprir demanda em Mara Rosa - brasilmineral.com.br",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNW9jTGN5N1h5UEV3ak9EMlJCM2ZaOHZxTnZiNUFTUjhCZXNkOGtYaHZha0kyS3hxT2V5NlkyOXdFVHdBX2J5UHNmSDZoY2V3cGpzSk94enZLVjR4UG5XbjRrdUdHeWhlaldyS25xZGQ0Z1VBTkNXbUo3MmU1R2l5QlNtMUhTSnh2LXRUaFlWUGlXNVBuQ3NfVUZHUWtkNXRFOU1TRHln?oc=5",
+   "published_at": "2025-10-22T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:09.019006+00:00",
+   "regional": 1,
+   "regiao_termo": "mara rosa",
+   "setorial": 1,
+   "fonte": "Busca · energia em Goiás",
+   "escopo": "regional",
+   "tema": "energia",
+   "substancias": []
+  },
+  {
+   "title": "Nova resolução reforça segurança de barragens no país — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQYVNLeDVNR0FYd3VBSTlrNkJwaHdob1dLWkFMWFFrWUxORVdSSjZicDB3T1RTVDVHNXA1bmNWMnJ0c1BLNmkyTjI1UXZpM2lKU2VreFppVV9DZXJSZ0UtaXBoTmVDdDBxQ2Q1N0ptWG1qU0Q4NWFqLVpTYXRtOEZzRm91UmZVSThpSGs5NHBDeVN4TFFNQmlDQ01Mckl6MjdsQmc?oc=5",
+   "published_at": "2025-10-21T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.272257+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Novo sistema permite acompanhar processos minerários em tempo real — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObW1HSjUtRU9ELWRHUnh6SU5UUE1PcUdHMVBUNVo1bmtOV19qYjdlWnhER2g0WnRsczFMOG9wekhkMm9jZThuc3c5UFN5OThNUy1VTkNNWGlsaVZhSUdUcDJsLU1OSlFBazdrV2FYLXBZQldSZml2WThJX1hrbVZoUEk3dVYycHdfQ0JvakFSVllCY3ZFRWJGYkhfOHhoMms1djhHSFFTaHExd3RXczRjTWRfSQ?oc=5",
+   "published_at": "2025-10-16T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.259411+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Anglo American propõe acordo à UE sobre venda de mina no Brasil - Poder360",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUGYyemE5R29iUWdjZl9ndTJ3SktBYVducHhDWmlFLUZwdVB6MXFfZzRKdG9ZcWdNTUdHdVNlSTFCT0hxM01sQ0lhWjRlSDJCajdOX2p5NC0xNE4xdmhwc01tckp3dVpTT1BPM3lvalJXbWpQQTRrS3FJM0ZaazdZckZiR2g4cUJHenBDd1l5c1ZPWThuS3p4djFxUkxHVG9TNWQxeTFwdw?oc=5",
+   "published_at": "2025-10-15T07:00:00+00:00",
+   "first_seen": "2026-09-21T04:02:38.349744+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineradoras em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Para que serve o níquel, quem domina o mercado e qual a posição do Brasil - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNM3VaejZmeGREWllPa1FaOW1KNkExRzRTTWxRcU5TMU1ka25MMzF0Vkl1dldMTnotVVIzRUVoMUdjbW0zYWZDdTRsNzJ0YWx1Wi1GaTFrTTV3bVB3dHprT0JVNnQwdmhpLXJEaHYxc1AwVS10Q29TNGlFMFExZ2Ruc0xRQnFTUjRsQy1BOUhOcFlBdE92cGRtdGNJcVJZSk1aWklmR1RtN3JSNXhMLUJ5aUY2UEpJdGhWVHdrOFJEVWVxUdIBxwFBVV95cUxOenNvMTlDcU9rZlBreWs1LUdiVU53TEdQZzRJYnFUSF9HVDZEU0ZBQURCSmR1bDF2M2xhdmxlV211V0VvM3kyVGFldmdpSG56c2FBelF2LWc5V21fQjFWbUc4R1FiejZJNDF5SzhrOEtiOGJOTzRsUHlDcWd1bmRZYXM3UWlQdVRHNzRQOTBwYjRxYVdoTXQzTlJNdW5DMUp1S0F2T09zTjNpRmR4MWEtRHlCUTNoYndaOE9YdFZxUGpuZm8yMF8w?oc=5",
+   "published_at": "2025-10-04T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:48:59.703587+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ]
+  },
+  {
+   "title": "Autorização de Pesquisa — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQd3JoQ2pMeXJvaUtNRFNZTW1wVGN3c0RhRllsWmhRdkdnOTVwS2R3eHdZUzJEWEhaZk1aNENmalpXRGQxTDFkdXUtYjJYVTRnQkY2enhKbVNvRmdNS01VOWtOSWlFU2VBM1VPVGhGZV9fTXlaQV9zTVJ4b3dnQkZObzhkRElIRWc?oc=5",
+   "published_at": "2025-10-03T20:54:24+00:00",
+   "first_seen": "2026-09-19T19:49:06.243499+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Registro de Licença — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMkJIVjgwYTRIcE9KTDB5Rm1leS1fcnFmemNqV0xLSFNOU09WM0JfTWN2UnNvSjZnbUx0UTBYWnZ5bVhPSk1jcnltQXp3dmYxN2xVemdYY1ZycFM3cW8tRGwzUnVyRFYxd2JZQndlLXlTMUJ1RWUwa2J2RXRnRy1xZF9B?oc=5",
+   "published_at": "2025-10-03T20:54:24+00:00",
+   "first_seen": "2026-09-19T19:49:06.262512+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Guia de Acesso ao Sistema da DIEF-CFEM — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdmdCOVYzTEo5cl9SNmctSE9qc3l5WXhxRVFpdzlhWGhUSjEzclR4eE8xaGJRVFJQeHE2eGNNMmM3VGhtOEkyZEJVU1FWZG4taGJxY1dYMWVkSkhiZHZfUXkxN29CMmFlVUw5eEhUYzNkSTFNbEJhQVNOOGxFMmFibG1hNGtNdGMzbWZwZWJxUy1UZw?oc=5",
+   "published_at": "2025-10-03T20:20:03+00:00",
+   "first_seen": "2026-09-19T19:49:06.269941+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "DIEF-CFEM: FAQ — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQTJna0o4ZGJZMXdJSTBQRWVfd1dQZDc3TzRSbjhfMlJKQkIxa1JIV1RWaVprSFUwcVRPNy14bDlSMEFtUlE2MXZzZTJHdmczQTZBV0lQc25oUEJoOHdkVl9FMGRmRlhnM2pacXRMRnFUbVEyMWRTcmdTR1hMc3JvRVZHaHVDdGdyS1Yyejk5MVY3Z1ZhU1hvR1JwcEc3LVBHZ3ZBZlA0bmVBZEVIZkxaRmZR?oc=5",
+   "published_at": "2025-10-03T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.237843+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ANM autoriza Gramazini usar rejeito mineral para produzir lítio - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNGI1OXVZY1ptTG10aFd2WVhFTU9CUnZzWWpGcjlseDc1X0VKZElGbHZHZ1VVZDFYQTQyeEo1TjE4TjE3MVZaaFVTT2o3X2x6cUdaMmlnbEhBYXFuaE5TMjNRNjVpN1FzVTA5M0FCVjNpQV9ZWGIxN1hWRHkzV0Z0ZzF3ZHBuTkdZWWItZWZRdVFtTm1kSk9ibmZn?oc=5",
+   "published_at": "2025-10-01T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:05.687582+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
   {
    "title": "Brazilian police expand program to trace gold from illegal Amazon mines, nab smugglers - Reuters",
    "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMWpYZkJBUlJWOVNJZG5DT1d2cFVhUUFyT0hOM1FzWkNzbGctUVlNUnFEa2UzUGY3NnNjT1h6NHc0ZGdBU1FTRUx1N0lFZTRRREh6OU1hWkJOYmRVeG1HeGtheFZfRnktOWVSSW1EdFpCeXFTVmVSTjRqMnhoYjZzcnQ1RDg1QVN0SG1FWEVJRmxyRll5aWEydjlkR0J4VHhhaUktcEZNYldLUks4eUxoYWMzZ256MFZvZktvZ0ZNUjRHdjUwbXpPZ2V6THNtczQ?oc=5",
@@ -678,6 +864,21 @@
   },
   {
    "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2fwww.thestar.com%2fglobenewswire%2faura-minerals-agrees-to-acquire-the-minera-o-serra-grande-gold-mine-in-goi-s%2farticle_05149c3e-5765-56ae-a3c2-60f6ddc416cb.html&c=15653285175594871912&mkt=en-us",
+   "published_at": "2025-06-02T04:01:00+00:00",
+   "first_seen": "2026-10-01T10:32:02.672855+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.nasdaq.com%2fpress-release%2faura-minerals-agrees-acquire-mineracao-serra-grande-gold-mine-goias-brazil-2025-06-02&c=4849492903426942237&mkt=en-us",
    "published_at": "2025-06-02T00:00:00+00:00",
    "first_seen": "2026-09-19T19:49:02.791309+00:00",
@@ -872,6 +1073,21 @@
    ]
   },
   {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-agrees-acquire-minera-110000961.html&c=16821160229421033576&mkt=en-us",
+   "published_at": "2025-06-01T17:00:00+00:00",
+   "first_seen": "2026-10-01T10:32:02.669523+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
    "title": "Projeto Santa Anna atrai capital estrangeiro e projeta Goiás como nova fronteira em minerais críticos - Estadão Blue Studio",
    "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQZXFoc3JnOVVqdy12V1RzeElQd3BfeE8ycXNwWmZRRGt3VzdkU24yX2VVTFE3SzF2U2VKbVplQV9TQUZVWUhOU0xNNUhuQ3JjdEJYbjJIcmlwamRHTVJHbGxNNlZIZDZtblp6emZIYVhGTGNfWjh0SE5TNFNoTGhrakwyVUFCUTE2SFFHV3VuNC03TE1LcEZVVDZvYnBLcVJVN0FwdngtTlpQN0JhNmNmQXc2OURLa0M4cTJ3ZGFhckl0cEUzNjlQS2VudlBiTTF5OV8zdERmRkp0RWQyWDRhWEY2N0g3UU1GNXMtWXFRUkxCUC1yNkd0c2xXTzZkOU1oT18tNWZ3SUpqNDA2enc?oc=5",
    "published_at": "2025-05-26T14:37:42+00:00",
@@ -959,6 +1175,19 @@
    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMzRoYXkxRHBuZlh1SDBkZHhfdFhjNzNDUmNnajlFRWNpRGNsVmJPNF9WZzBNQS1pQWh6VGdkUUFTQVRFYlZVeC12LThjU1I3YW9WOFE1RDVQRFpVVkxxUklGZEptQjZFSnFPbDByWWJHdEc3d1pIU0JpQWRneVhkV1h5bUx2TUd1Ym5FSFd6YXU4VFQ0MmhFM1MxMGUyb0o4ZzloMXNTREpTb3YtQ1FSb2xUTVdiTkJ0LTFDN3duU0Q2RmZHdFE?oc=5",
    "published_at": "2025-03-23T01:49:00+00:00",
    "first_seen": "2026-09-19T19:49:06.279868+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Cadastro Mineiro — Agência Nacional de Mineração - gov.br",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaDFxY1BHb2k1bDIxcWY3cjR3cTcyZnJqbGU5YmI4T3JyMWpFdmpPUXFjSEVVajNnT2dENjc4Y0R0SjhTZE5aZF9WcW54TTVaMmhyclhVeEh2dGV6UE9DTFdwU3Z0S0NVT0NqODV4NmdhN0VpdDhPaFBORzU5dXAwbXhTUlZyZmV0aDBWTHU5QTJyOHF3WUp5QktBNWo?oc=5",
+   "published_at": "2025-03-22T06:39:04+00:00",
+   "first_seen": "2026-10-01T10:32:04.839803+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -2197,6 +2426,21 @@
    "first_seen": "2026-09-19T19:48:59.728888+00:00",
    "regional": 0,
    "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ]
+  },
+  {
+   "title": "Unidade de mineração de níquel em Niquelândia-GO é vendida para empresa europeia por R$ 20 milhões - Blog Antônio Carlos",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZ0RqTHAtZTRsZGo3TVZEMVoxdzFtRmhqWEg3OUFQRXhDVXZxckVWTVlLQ1ExaERNS19XZkdNRjhYbUdFUGVKN2dQRTU5a081Z1BTRXVqQ1dLcGdDUFpZeExINmFtbTVhdEQ2dDIteTdGN2hlQ3dWMHlCaDFpRlBoT0x3QVRDYVZIWGJoY3BvT29iOGV1b0pTa1NOU2RMYktxOG5IR2dKQlllaXRIa1pOZllTTDBLVkVnQ2RxelBtODRXdEhBZ1lyYWZ5WQ?oc=5",
+   "published_at": "2023-04-13T07:00:00+00:00",
+   "first_seen": "2026-10-01T10:32:00.530423+00:00",
+   "regional": 1,
+   "regiao_termo": "niquelandia",
    "setorial": 1,
    "fonte": "Busca · níquel e nióbio em Goiás",
    "escopo": "regional",

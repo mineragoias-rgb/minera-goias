@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 227,
+ "materias": 230,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -2537,6 +2537,19 @@
    "substancias": []
   },
   {
+   "title": "Vale contesta cobrança de R$ 17,7 bi sobre revenda de minério no exterior - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWm1RaG5ORmZwNzA5NHNLYl9oY1hBelZBb2pycEFYNEdEajlUTkRfVVozWlJ4cC1fMVE1Tl8ta2ktcU93YjZwX1l6c2ZUbTFQcGF2cGJVQzJXUE5HeVRGLXpTckd2R3ctQVpKZFhBWEU3VEFhTXM4c3ozMmJCeVI4enRQOTFQOVZua1FqamZWMEFPc0llcUNwZGc2V18wSTUwS2VNQg?oc=5",
+   "published_at": "2026-08-15T07:00:00+00:00",
+   "first_seen": "2026-10-01T10:32:04.111945+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Agência Nacional de Mineração - www.gov.br",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOQzEtYXVsX2p1UWt1VmhXYjJ4eXBBRUtURnJfZVNHN1BHeWp0a0RaZGhaU1Z4eDlJUDhTVDRib3dRTFVYR0RNTldqd2l4TndCTXRWcGZKZ3RWaHd0ODh3dC1acEk1TzlxMWJxLVAyeUhXdjE1T3o5RW5jMDMzU0lvRjFCRDVfbjl2aVdUOW9ZTkM4UQ?oc=5",
    "published_at": "2026-08-14T22:12:20+00:00",
@@ -2674,6 +2687,19 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Nova regra da ANM eleva rigor sobre guia de utilização - Capital Aberto",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQU1lBU3Z1MTRTWk5ZVkF2dWRnWGxGdU9jWGdzTlRYU3NFbHFOTHVFc0MteUlvekU3Z0lIckViZWxHSFB1VmdaNlBJaFJaSkY0SE9wVDA0MlJ4TXhfWEo4OF9iQ2dENXNraV9PVmRvdm8tYnpOMUxQbENYOVN1R3d0UlBfeGZuRjM3MEJSWnhXWkxwMlBNcy05UE02T1RTVzNmVU4xbi1BaTlSdkFIeHNRLTg2eTRBTkpaY3lVN1VvdGZxR2NZMlNMYlYwV2tNZFk?oc=5",
+   "published_at": "2026-08-12T07:00:00+00:00",
+   "first_seen": "2026-10-01T10:32:04.449050+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
@@ -3093,6 +3119,21 @@
    "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-01T10:32:02.670788+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
