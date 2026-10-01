@@ -1,0 +1,115 @@
+name: Coletar notícias do setor
+
+# Como a coleta chega ao site sem ninguém tocar na VPS:
+#   1. este job roda o radar e grava public/data/noticias/
+#   2. o commit vai para a main
+#   3. a VPS baixa o commit em até 2 minutos e a API lê o arquivo
+# É o mesmo caminho que data/atlas/processes.json já percorre.
+#
+# O acervo são os arquivos commitados, não o banco: cada coleta funde o que achou
+# com o que já está lá. Feed RSS é janela rolante, e matéria que saiu dele não pode
+# ser recoletada - por isso nada é sobrescrito. O cache abaixo só acelera.
+
+on:
+  schedule:
+    # 04:00 UTC = 01:00 em Brasília, o mesmo horário do coletor antigo.
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      zerar_banco:
+        description: 'Ignorar o cache do banco (o acervo commitado é preservado de todo jeito)'
+        type: boolean
+        default: false
+
+# Só escreve o arquivo de notícias. Nada mais.
+permissions:
+  contents: write
+
+# Duas coletas ao mesmo tempo brigariam pelo mesmo arquivo.
+concurrency:
+  group: coletar-noticias
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+
+      # O cache guarda o banco de um dia para o outro, o que evita reprocessar. Se
+      # ele sumir, nada se perde: o acervo está nos arquivos commitados e a coleta
+      # seguinte funde com eles.
+      - name: Recuperar o banco da última coleta (só otimização)
+        if: ${{ !inputs.zerar_banco }}
+        uses: actions/cache/restore@v4
+        with:
+          path: acervo
+          key: radar-noticias-${{ github.run_id }}
+          restore-keys: radar-noticias-
+
+      # O radar sai com 1 quando alguma fonte não respondeu. Isso é comum - feed sai
+      # do ar sem avisar - e não invalida a coleta, então não pode derrubar o job.
+      # Qualquer código acima de 1 é falha de verdade e interrompe.
+      - name: Coletar e exportar
+        run: |
+          mkdir -p acervo
+          set +e
+          python "Squad 3/radar-noticias/radar.py" \
+            --config "Squad 3/radar-noticias/feeds.json" \
+            --db acervo/radar.sqlite \
+            --report acervo/relatorio.json \
+            --export-dir public/data/noticias
+          codigo=$?
+          set -e
+          if [ "$codigo" -gt 1 ]; then
+            echo "radar falhou com código $codigo"
+            exit "$codigo"
+          fi
+          if [ "$codigo" -eq 1 ]; then
+            echo 'Alguma fonte não respondeu; a coleta segue válida.'
+          fi
+
+      # O que não pode é publicar um arquivo quebrado ou vazio.
+      - name: Conferir o que vai ser publicado
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          p = json.loads(pathlib.Path('public/data/noticias/latest.json').read_text(encoding='utf-8'))
+          itens = p.get('itens') or []
+          print(f"{len(itens)} matérias na abertura, {p.get('total')} no acervo, "
+                f"{p.get('regionais_setoriais')} de Goiás e do setor, "
+                f"{p.get('fontes_vivas')}/{p.get('fontes')} fontes vivas")
+          if not itens:
+              sys.exit('nenhuma matéria: não vale a pena publicar')
+          if not all(i.get('title') and i.get('link') for i in itens):
+              sys.exit('matéria sem título ou sem link')
+          PY
+
+      - name: Guardar o acervo para a próxima coleta
+        uses: actions/cache/save@v4
+        with:
+          path: acervo
+          key: radar-noticias-${{ github.run_id }}
+
+      - name: Publicar na main
+        run: |
+          if git diff --quiet -- public/data/noticias; then
+            echo 'Nada mudou desde a última coleta.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/noticias
+          git commit -m 'chore(noticias): coleta de '"$(date -u +%d/%m/%Y)"'
+
+          Gerado por .github/workflows/coletar-noticias.yml. O acervo fica nos
+          arquivos de mês e nunca é sobrescrito: cada coleta funde o que achou com
+          o que já estava lá. A VPS lê pela API; ninguém entra no servidor.'
+          # Outra pessoa pode ter empurrado enquanto a coleta rodava.
+          git pull --rebase origin main
+          git push origin HEAD:main

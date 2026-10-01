@@ -1,0 +1,884 @@
+{
+  "comment": "Fontes e lexicos do radar de noticias do MINERA Goias. Editar aqui nao exige mexer no codigo. Rode 'py radar.py --check' para ver quais respondem.",
+  "sucessor_de": "news/feeds.json. Esta lista substitui as 22 fontes daquele arquivo, das quais 3 estavam mortas (ANM, MME e Mining Weekly) e 1 parada. Enquanto os dois existirem, o que vale e este.",
+  "verificado_em": "2026-09-18",
+  "verificacao": "Cada URL em 'sources' foi buscada contra a rede em 17-18/09/2026 e devolveu itens reais. 'fontes_descartadas' registra o que foi testado e nao serve, para nao se repetir o trabalho. Campos de filtro: 'tipo' (editor|busca), 'escopo' (regional|nacional|setorial|internacional) e 'tema' (mineracao|energia|geral). Para tirar energia do ar, filtre tema != 'energia'. O bloco 'commodities' abaixo marca qual substancia cada materia cita - isso e fato e esta ligado. O bloco 'direction' so e usado pela camada de alta/baixa, que esta desligada.",
+  "sinais_de_direcao": false,
+  "sinais_de_direcao_comment": "Desligado. Liga a leitura de alta/baixa nas manchetes, herdada do prototipo antigo. Ninguem pediu essa camada e ela erra de forma medida: 'copper, silver prices plummet and gold slides' foi arquivado como cobre EM ALTA e ouro EM ALTA. O codigo continua no radar.py, adormecido. Antes de ligar, arrumar o lexico em 'direction' - e lembrar que materia ja gravada nunca e relida, entao mudanca de lexico so vale para as novas.",
+  "min_items_for_trend": 3,
+  "sources": [
+    {
+      "name": "Brasil Mineral",
+      "url": "https://www.brasilmineral.com.br/feed",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Revista Minérios",
+      "url": "https://revistaminerios.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Revista Mineração",
+      "url": "https://revistamineracao.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Minera Brasil",
+      "url": "https://minerabrasil.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao"
+    },
+    {
+      "name": "ADIMB",
+      "url": "https://www.adimb.org.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao"
+    },
+    {
+      "name": "IBRAM · indústria mineral",
+      "url": "https://ibram.org.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao",
+      "nota": "Responde, mas em 18/09/2026 a matéria mais recente era de 26/06/2026."
+    },
+    {
+      "name": "Mineração Brasil",
+      "url": "https://mineracaobrasil.com/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "setorial",
+      "tema": "mineracao",
+      "nota": "Responde, mas em 18/09/2026 a matéria mais recente era de 19/05/2026."
+    },
+    {
+      "name": "G1 Goiás",
+      "url": "https://g1.globo.com/rss/g1/go/goias/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Jornal Opção",
+      "url": "https://www.jornalopcao.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Mais Goiás",
+      "url": "https://www.maisgoias.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "O Hoje",
+      "url": "https://ohoje.com/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Portal 6 · Anápolis",
+      "url": "https://portal6.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Diário de Goiás",
+      "url": "https://diariodegoias.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Sagres Online",
+      "url": "https://www.sagresonline.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "A Redação",
+      "url": "https://aredacao.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "Diário da Manhã",
+      "url": "https://www.dm.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral",
+      "nota": "Volume baixo: 2 itens no feed."
+    },
+    {
+      "name": "Governo de Goiás",
+      "url": "https://goias.gov.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "regional",
+      "tema": "geral"
+    },
+    {
+      "name": "G1 Economia",
+      "url": "https://g1.globo.com/rss/g1/economia/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "G1 Brasil",
+      "url": "https://g1.globo.com/rss/g1/brasil/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Folha · Mercado",
+      "url": "https://feeds.folha.uol.com.br/mercado/rss091.xml",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Folha · Ambiente",
+      "url": "https://feeds.folha.uol.com.br/ambiente/rss091.xml",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Agência Brasil · economia",
+      "url": "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Agência Brasil · últimas",
+      "url": "https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Exame",
+      "url": "https://exame.com/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "InfoMoney",
+      "url": "https://www.infomoney.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Poder360",
+      "url": "https://www.poder360.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Diário do Comércio · MG",
+      "url": "https://diariodocomercio.com.br/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Mining.com",
+      "url": "https://www.mining.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Stockhead",
+      "url": "https://stockhead.com.au/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "The Northern Miner",
+      "url": "https://www.northernminer.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "International Mining",
+      "url": "https://im-mining.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Canadian Mining Journal",
+      "url": "https://www.canadianminingjournal.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Resource World",
+      "url": "https://resourceworld.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao",
+      "nota": "Servidor lento: responde no navegador, mas estourou o timeout de 25s do radar em 18/09/2026."
+    },
+    {
+      "name": "Mining Technology",
+      "url": "https://www.mining-technology.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "MiningWatch Canada",
+      "url": "https://miningwatch.ca/rss.xml",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "MetalMiner",
+      "url": "https://agmetalminer.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Australian Mining",
+      "url": "https://www.australianmining.com.au/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Investing.com · commodities",
+      "url": "https://www.investing.com/rss/news_11.rss",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "geral"
+    },
+    {
+      "name": "Mining.com · níquel",
+      "url": "https://www.mining.com/commodity/nickel/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Mining.com · cobre",
+      "url": "https://www.mining.com/commodity/copper/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Mining.com · ouro",
+      "url": "https://www.mining.com/commodity/gold/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Mining.com · lítio",
+      "url": "https://www.mining.com/commodity/lithium/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Mining.com · urânio",
+      "url": "https://www.mining.com/commodity/uranium/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Mining.com · terras raras",
+      "url": "https://www.mining.com/commodity/rare-earth/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "MegaWhat",
+      "url": "https://megawhat.energy/feed/",
+      "lang": "pt",
+      "tipo": "editor",
+      "escopo": "nacional",
+      "tema": "energia"
+    },
+    {
+      "name": "Power Technology",
+      "url": "https://www.power-technology.com/feed/",
+      "lang": "en",
+      "tipo": "editor",
+      "escopo": "internacional",
+      "tema": "energia"
+    },
+    {
+      "name": "Busca · mineração em Goiás",
+      "url": "https://news.google.com/rss/search?q=minera%C3%A7%C3%A3o+Goi%C3%A1s&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · níquel e nióbio em Goiás",
+      "url": "https://news.google.com/rss/search?q=(n%C3%ADquel+OR+ni%C3%B3bio)+Goi%C3%A1s&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
+      "url": "https://news.google.com/rss/search?q=%22Niquel%C3%A2ndia%22+OR+%22Barro+Alto%22+OR+%22Alto+Horizonte%22&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · Catalão e Ouvidor",
+      "url": "https://news.google.com/rss/search?q=%22Catal%C3%A3o%22+OR+%22Ouvidor%22+minera%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · Mara Rosa e Serra Verde",
+      "url": "https://news.google.com/rss/search?q=%22Mara+Rosa%22+OR+%22Serra+Verde%22+terras+raras&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · mineradoras em Goiás",
+      "url": "https://news.google.com/rss/search?q=%22Anglo+American%22+OR+%22Vale%22+OR+%22CMOC%22+Goi%C3%A1s&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · Bing · mineração em Goiás",
+      "url": "https://www.bing.com/news/search?q=minera%C3%A7%C3%A3o+Goi%C3%A1s&format=RSS",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "mineracao",
+      "nota": "Segundo agregador, independente do Google."
+    },
+    {
+      "name": "Busca · terras raras",
+      "url": "https://news.google.com/rss/search?q=%22terras+raras%22&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "nacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · lítio no Brasil",
+      "url": "https://news.google.com/rss/search?q=l%C3%ADtio+Brasil+minera%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "nacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · CFEM",
+      "url": "https://news.google.com/rss/search?q=CFEM+minera%C3%A7%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "nacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · ANM, lavra e outorga",
+      "url": "https://news.google.com/rss/search?q=ANM+lavra+OR+outorga+OR+%22direito+minerario%22&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "nacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · ANM (site oficial)",
+      "url": "https://news.google.com/rss/search?q=site:gov.br/anm&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "setorial",
+      "tema": "mineracao",
+      "nota": "Substitui o RSS da ANM, que saiu do ar: gov.br devolve 404 em todas as variantes testadas."
+    },
+    {
+      "name": "Busca · rare earth Brazil",
+      "url": "https://news.google.com/rss/search?q=%22rare+earth%22+Brazil&hl=en-US&gl=US&ceid=US:en",
+      "lang": "en",
+      "tipo": "busca",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · Brazil mining (Reuters)",
+      "url": "https://news.google.com/rss/search?q=mining+Brazil+source:Reuters&hl=en-US&gl=US&ceid=US:en",
+      "lang": "en",
+      "tipo": "busca",
+      "escopo": "internacional",
+      "tema": "mineracao"
+    },
+    {
+      "name": "Busca · preço da energia elétrica",
+      "url": "https://news.google.com/rss/search?q=%22energia+el%C3%A9trica%22+pre%C3%A7o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "nacional",
+      "tema": "energia"
+    },
+    {
+      "name": "Busca · energia em Goiás",
+      "url": "https://news.google.com/rss/search?q=%22energia%22+Goi%C3%A1s+usina+OR+transmiss%C3%A3o&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "regional",
+      "tema": "energia"
+    },
+    {
+      "name": "Busca · MME (site oficial)",
+      "url": "https://news.google.com/rss/search?q=site:gov.br/mme+energia&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+      "lang": "pt",
+      "tipo": "busca",
+      "escopo": "setorial",
+      "tema": "energia",
+      "nota": "Substitui o RSS do MME, que saiu do ar."
+    }
+  ],
+  "fontes_descartadas": [
+    {
+      "name": "ANM · notícias",
+      "url": "https://www.gov.br/anm/pt-br/assuntos/noticias/RSS",
+      "motivo": "HTTP 404. Testadas 12 variantes de caminho em gov.br (ANM, MME, ANEEL, MDIC) e nenhuma responde. Coberto pela busca 'site:gov.br/anm'."
+    },
+    {
+      "name": "Ministério de Minas e Energia",
+      "url": "https://www.gov.br/mme/pt-br/assuntos/noticias/RSS",
+      "motivo": "HTTP 404, mesmo caso da ANM."
+    },
+    {
+      "name": "Mining Weekly",
+      "url": "https://www.miningweekly.com/rss",
+      "motivo": "HTTP 404. Testadas 5 variantes, incluindo /page/rss-feed/feed:latest-news, que devolve HTML."
+    },
+    {
+      "name": "Notícias de Mineração Brasil",
+      "url": "https://www.noticiasdemineracao.com/",
+      "motivo": "Sem RSS público. É produto pago da BNamericas."
+    },
+    {
+      "name": "CanalEnergia",
+      "url": "https://www.canalenergia.com.br/feed",
+      "motivo": "Devolve XML válido, porém sem nenhum item."
+    },
+    {
+      "name": "epbr, Brasil Energia, Energia Hoje",
+      "url": "https://epbr.com.br/feed/",
+      "motivo": "HTTP 522 e 403: fora do ar ou bloqueando robô."
+    },
+    {
+      "name": "O Popular, Curta Mais, Tribuna do Planalto, Folha de Goiás, Investe Goiás",
+      "url": "",
+      "motivo": "Sem RSS público: 404 ou HTML."
+    },
+    {
+      "name": "Kitco, Fastmarkets, Argus, S&P Global, Reuters (direto), Mining Journal, MINING Magazine, Bloomberg Línea",
+      "url": "",
+      "motivo": "Sem RSS público ou bloqueio 403."
+    },
+    {
+      "name": "CCEE, ONS, EPE, Senado, Câmara, SGB/CPRM, In-Mine",
+      "url": "",
+      "motivo": "Sem RSS público."
+    },
+    {
+      "name": "Mining.com · nióbio e fosfato",
+      "url": "https://www.mining.com/commodity/niobium/feed/",
+      "motivo": "Não existem: devolvem 'Page not found'. Nióbio fica coberto só pelas buscas agregadas."
+    }
+  ],
+  "region": {
+    "comment": "Uma matéria é regional se cita o estado, ou se cita um destes municípios junto de um termo mineral/energético. Os municípios foram escolhidos entre os de maior CFEM de Goiás, descartando nomes que se repetem em outros estados. 'contexto' (a uniao dos dois de baixo) decide a regra do municipio. 'contexto_mineracao' decide a marca 'setorial' de cada materia: e setorial quem cita uma substancia mineral ou um destes termos. Os termos de energia ficam de fora dessa marca porque 'energia' e 'eletrica' sao palavras do cotidiano - medido, elas traziam materia de tempestade e de gado eletrocutado para dentro da contagem de mineracao. 'municipios_nome' dá o nome acentuado de cada um, para a página mostrar 'Catalão' em vez do termo dobrado 'catalao'.",
+    "estado": [
+      "goias",
+      "goiano",
+      "goiana",
+      "goianos",
+      "goianas",
+      "goiania"
+    ],
+    "municipios": [
+      "alto horizonte",
+      "barro alto",
+      "catalao",
+      "ouvidor",
+      "crixas",
+      "minacu",
+      "mara rosa",
+      "vila propicio",
+      "indiara",
+      "niquelandia",
+      "campos verdes",
+      "americano do brasil",
+      "cavalcante",
+      "uruacu",
+      "porangatu",
+      "itapaci",
+      "sao luis de montes belos",
+      "goianesia",
+      "itumbiara",
+      "quirinopolis"
+    ],
+    "contexto": [
+      "mineracao",
+      "mineradora",
+      "minerio",
+      "mina",
+      "lavra",
+      "jazida",
+      "cfem",
+      "anm",
+      "energia",
+      "eletrica",
+      "usina",
+      "linha de transmissao",
+      "subestacao",
+      "mining",
+      "mine",
+      "ore",
+      "smelter",
+      "refinery",
+      "power plant",
+      "grid",
+      "garimpo",
+      "garimpeiro",
+      "garimpeira",
+      "minerario",
+      "minerarios",
+      "mineraria",
+      "minerais criticos",
+      "mineral critico",
+      "extracao mineral",
+      "critical minerals"
+    ],
+    "contexto_mineracao": [
+      "mineracao",
+      "mineradora",
+      "minerio",
+      "mina",
+      "lavra",
+      "jazida",
+      "cfem",
+      "anm",
+      "mining",
+      "mine",
+      "ore",
+      "smelter",
+      "refinery",
+      "garimpo",
+      "garimpeiro",
+      "garimpeira",
+      "minerario",
+      "minerarios",
+      "mineraria",
+      "minerais criticos",
+      "mineral critico",
+      "extracao mineral",
+      "critical minerals"
+    ],
+    "contexto_energia": [
+      "energia",
+      "eletrica",
+      "usina",
+      "linha de transmissao",
+      "subestacao",
+      "power plant",
+      "grid"
+    ],
+    "municipios_nome": {
+      "alto horizonte": "Alto Horizonte",
+      "barro alto": "Barro Alto",
+      "catalao": "Catalão",
+      "ouvidor": "Ouvidor",
+      "crixas": "Crixás",
+      "minacu": "Minaçu",
+      "mara rosa": "Mara Rosa",
+      "vila propicio": "Vila Propício",
+      "indiara": "Indiara",
+      "niquelandia": "Niquelândia",
+      "campos verdes": "Campos Verdes",
+      "americano do brasil": "Americano do Brasil",
+      "cavalcante": "Cavalcante",
+      "uruacu": "Uruaçu",
+      "porangatu": "Porangatu",
+      "itapaci": "Itapaci",
+      "sao luis de montes belos": "São Luís de Montes Belos",
+      "goianesia": "Goianésia",
+      "itumbiara": "Itumbiara",
+      "quirinopolis": "Quirinópolis"
+    }
+  },
+  "substancias_energeticas": [
+    "energia_eletrica",
+    "gas_natural"
+  ],
+  "substancias_energeticas_comment": "Substancias do bloco 'commodities' que NAO contam para a marca 'setorial', pelo mesmo motivo acima: 'gas' e 'energia eletrica' aparecem em materia que nao e do setor.",
+  "commodities": {
+    "terras_raras": [
+      "terras raras",
+      "terra rara",
+      "rare earth",
+      "neodimio",
+      "neodímio",
+      "praseodimio",
+      "praseodímio",
+      "disprosio",
+      "disprósio",
+      "terbio",
+      "térbio",
+      "samario",
+      "samário",
+      "ndpr",
+      "lantanio",
+      "lantânio",
+      "cerio",
+      "cério"
+    ],
+    "energia_eletrica": [
+      "energia eletrica",
+      "energia elétrica",
+      "electricity",
+      "power price",
+      "megawatt",
+      "mwh",
+      "pld",
+      "tarifa de energia",
+      "conta de luz",
+      "bandeira tarifaria",
+      "bandeira tarifária"
+    ],
+    "litio": [
+      "litio",
+      "lítio",
+      "lithium"
+    ],
+    "niquel": [
+      "niquel",
+      "níquel",
+      "nickel"
+    ],
+    "niobio": [
+      "niobio",
+      "nióbio",
+      "niobium"
+    ],
+    "cobre": [
+      "cobre",
+      "copper"
+    ],
+    "ouro": [
+      "ouro",
+      "gold"
+    ],
+    "fosfato": [
+      "fosfato",
+      "phosphate",
+      "fertilizante",
+      "fertiliser",
+      "fertilizer"
+    ],
+    "uranio": [
+      "uranio",
+      "urânio",
+      "uranium"
+    ],
+    "gas_natural": [
+      "gas natural",
+      "gás natural",
+      "natural gas",
+      "lng",
+      "gnl"
+    ]
+  },
+  "direction": {
+    "up": [
+      "alta",
+      "sobe",
+      "subiu",
+      "dispara",
+      "disparou",
+      "valoriza",
+      "valorizou",
+      "recorde",
+      "escassez",
+      "deficit",
+      "déficit",
+      "aperto",
+      "encarece",
+      "encareceu",
+      "avanca",
+      "avança",
+      "salta",
+      "saltou",
+      "rise",
+      "rises",
+      "rose",
+      "surge",
+      "surges",
+      "surged",
+      "jump",
+      "jumps",
+      "jumped",
+      "rally",
+      "soar",
+      "soars",
+      "soared",
+      "shortage",
+      "squeeze",
+      "climb",
+      "climbs",
+      "climbed",
+      "higher"
+    ],
+    "down": [
+      "queda",
+      "cai",
+      "caiu",
+      "recuo",
+      "recua",
+      "recuou",
+      "despenca",
+      "despencou",
+      "desvaloriza",
+      "desvalorizou",
+      "excesso",
+      "superavit",
+      "superávit",
+      "barateia",
+      "barateou",
+      "derrete",
+      "fall",
+      "falls",
+      "fell",
+      "drop",
+      "drops",
+      "dropped",
+      "plunge",
+      "plunges",
+      "plunged",
+      "slump",
+      "slumps",
+      "slumped",
+      "glut",
+      "surplus",
+      "decline",
+      "declines",
+      "declined",
+      "lower"
+    ]
+  },
+  "commodities_ambiguas": [
+    "ouro",
+    "cobre"
+  ],
+  "commodities_ambiguas_comment": "Substancias cujo nome em portugues tem outro sentido corrente: 'ouro' de medalha, 'cobre' do verbo cobrir. So estas sao descartadas pelas excecoes abaixo; as demais nao tem homonimo e nunca sao afetadas.",
+  "commodities_excecoes": [
+    "medalha",
+    "medalhas",
+    "olimpiada",
+    "olimpiadas",
+    "olimpico",
+    "olimpica",
+    "ginastica",
+    "copa do mundo",
+    "campeonato",
+    "atleta",
+    "atletas",
+    "podio",
+    "torneio",
+    "mundial de",
+    "bola de ouro",
+    "luva de ouro",
+    "disco de ouro",
+    "minuto de ouro",
+    "regra de ouro",
+    "padrao ouro",
+    "idade de ouro",
+    "chuteira de ouro"
+  ],
+  "commodities_excecoes_comment": "Se o titulo traz um destes E nao traz nenhum termo de 'contexto_mineracao', as substancias ambiguas sao descartadas. Medido sobre setembro e agosto de 2026: pegou exatamente 'Flavia Saraiva e ouro nas assimetricas' e a repetida, 2 em 524, sem derrubar nenhuma legitima - 'Gold heads for weekly gain' e 'KCM awards copper recovery plant' continuam marcadas."
+}

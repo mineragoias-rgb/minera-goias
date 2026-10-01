@@ -1,0 +1,381 @@
+{
+ "mes": "2026-10",
+ "materias": 25,
+ "itens": [
+  {
+   "title": "Mariana Sanches: Governo Trump vê embate entre interesse na eleição e terras-raras no Brasil - UOL Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPVkVzd29UV2ZybndRYVEyZTY0WmtHcFMtMWV4N0RmUDZUM2hwb1o5Nm9rUTc1WG1wel8za1hidno1X0o2bDlpUDEtRG1LOTB3S0JZSmgxOURnQ2lXNTZHelZ6bzkzTnZDRWRTM3JrdVZub3NTamE1anAzcWxQZUNKU2RwOW9zTU1Vb3YyLU9jWDJUQWtSNkxSTTYtdWU5a2xVNjNoVEFSUFdPQ1M2SXptX19RaFkxcTRraXVoTHcySjg1amFvYm45eUxYMlUxeXMzV3oyS3lCWQ?oc=5",
+   "published_at": "2026-10-01T10:09:03+00:00",
+   "first_seen": "2026-10-01T10:32:01.904574+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "BofA raises long-term copper forecast to $12,000 per ton",
+   "link": "https://www.investing.com/news/commodities-news/bofa-raises-longterm-copper-forecast-to-12000-per-ton-93CH-4926786",
+   "published_at": "2026-10-01T10:05:22+00:00",
+   "first_seen": "2026-10-01T10:31:54.380585+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Investing.com · commodities",
+   "escopo": "internacional",
+   "tema": "geral",
+   "substancias": [
+    "cobre"
+   ]
+  },
+  {
+   "title": "Mineradora australiana compra projeto de terras raras no Sul de Minas por R$ 3,5 bi - Exame",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNTC1abEsxYzNWWFdDTl9HaGoxaXlqdUl4R2o0Z1lJWmdQWFlnZnlnSWhmMVRaR29rSjd5MjhiM0Z6M09RX1N5alhtbzBDdlJ1YkRkbmROR0E4Q2hlV1l1RWlyUVB5Q2NFVEVsdXdWNlZVdUpkaXB4LVppZndveGt2RGpSX293ZFJDcFc4MUdJTHQ2WGVmTXhzaWhOT3lZdWwzNER1RDBjM1pSd1BoYVhDVjB4VWJGUUk?oc=5",
+   "published_at": "2026-10-01T09:25:16+00:00",
+   "first_seen": "2026-10-01T10:32:03.207284+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Gold inches lower amid softer inflation data, elevated yields",
+   "link": "https://www.investing.com/news/commodities-news/gold-little-changed-after-6-september-slide-as-softer-us-pce-cuts-fed-hike-bets-4926166",
+   "published_at": "2026-10-01T08:56:14+00:00",
+   "first_seen": "2026-10-01T10:31:54.383890+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Investing.com · commodities",
+   "escopo": "internacional",
+   "tema": "geral",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Análise da barragem da Emicon em Brumadinho está em fase final, diz ANM",
+   "link": "https://diariodocomercio.com.br/economia/barragem-emicon-brumadinho-anm/",
+   "published_at": "2026-10-01T08:20:00+00:00",
+   "first_seen": "2026-10-01T10:31:49.302408+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Diário do Comércio · MG",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": []
+  },
+  {
+   "title": "Yancoal closes $1.85bn deal for 80% stake in Kestrel Coal Mine",
+   "link": "https://www.mining-technology.com/news/yancoal-1-85bn-deal-kestrel-coal-mine/",
+   "published_at": "2026-10-01T08:13:33+00:00",
+   "first_seen": "2026-10-01T10:31:53.179882+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining Technology",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Mineradora australiana compra projeto de terras raras no Sul de Minas por R$ 3,5 bi",
+   "link": "https://exame.com/invest/mercados/mineradora-australiana-compra-projeto-de-terras-raras-no-sul-de-minas-por-r-35-bi/",
+   "published_at": "2026-10-01T06:20:59+00:00",
+   "first_seen": "2026-10-01T10:31:48.428897+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Exame",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Aura puts its Tiris uranium build team in place as BFS nears",
+   "link": "https://stockhead.com.au/resources/aura-puts-its-tiris-uranium-build-team-in-place-as-bfs-nears/",
+   "published_at": "2026-10-01T06:20:39+00:00",
+   "first_seen": "2026-10-01T10:31:50.581475+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "uranio"
+   ]
+  },
+  {
+   "title": "Explorers Podcast: Going for gold in Cambodia with Unity Metals",
+   "link": "https://stockhead.com.au/resources/explorers-podcast-going-for-gold-in-cambodia-with-unity-metals/",
+   "published_at": "2026-10-01T04:57:59+00:00",
+   "first_seen": "2026-10-01T10:31:50.609411+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Renascor clears key hurdle at Marree copper-uranium project",
+   "link": "https://stockhead.com.au/resources/renascor-clears-key-hurdle-at-marree-copper-uranium-project/",
+   "published_at": "2026-10-01T04:17:59+00:00",
+   "first_seen": "2026-10-01T10:31:50.595235+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "uranio"
+   ]
+  },
+  {
+   "title": "CuFe mobilises 20km copper-gold drill campaign at Tennant Creek",
+   "link": "https://stockhead.com.au/resources/cufe-mobilises-20km-copper-gold-drill-campaign-at-tennant-creek/",
+   "published_at": "2026-10-01T02:57:15+00:00",
+   "first_seen": "2026-10-01T10:31:50.596668+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "ouro"
+   ]
+  },
+  {
+   "title": "New targets expand Delta Lithium’s exploration pipeline",
+   "link": "https://www.australianmining.com.au/new-targets-expand-delta-lithiums-exploration-pipeline/",
+   "published_at": "2026-10-01T01:52:21+00:00",
+   "first_seen": "2026-10-01T10:31:54.239049+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Australian Mining",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "Long Shortz with Nordic Resources: Kopsa delivers strong gold and copper recoveries",
+   "link": "https://stockhead.com.au/stockhead-tv/long-shortz/long-shortz-with-nordic-resources-kopsa-delivers-strong-gold-and-copper-recoveries/",
+   "published_at": "2026-10-01T01:26:45+00:00",
+   "first_seen": "2026-10-01T10:31:50.603586+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "ouro"
+   ]
+  },
+  {
+   "title": "True North Copper stacks copper-gold hits on Wallace North",
+   "link": "https://stockhead.com.au/resources/true-north-copper-stacks-copper-gold-hits-on-wallace-north/",
+   "published_at": "2026-10-01T01:15:44+00:00",
+   "first_seen": "2026-10-01T10:31:50.606604+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "ouro"
+   ]
+  },
+  {
+   "title": "The chemistry behind better lithium recovery",
+   "link": "https://www.australianmining.com.au/the-chemistry-behind-better-lithium-recovery/",
+   "published_at": "2026-10-01T01:09:53+00:00",
+   "first_seen": "2026-10-01T10:31:54.240791+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Australian Mining",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "Australiana Lynas Rare Earth fecha acordo para a compra de 100% da Meteoric, dona de projeto brasileiro de terras-raras - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxPbHl5NWVSanVybHZjNEN2WUNzX0tSTF85LVkyM3VJUk1RVnI5VG9kM25EbkxBZHJuQ2VIQ0JZY1MzMG5EWW9vM0tTSGt3V2NqMVJGamhQU0xpaDZCMGxaVU1WM0JtTG9fS0J2d0ZVZWFkRURqWC1UaXg4TWsweU0xSExFQVJXTlpNTG01dlhQamNCbUlmcFA1bUYwSm16cTVHOHFOdmIxSV9qZDNiZkNJV1lHOUljcHp6TlRCSHFUa0ZWTWlheDJTWG5SMFVPTjFOTF9hU0Z1ZjJzZi1JSm1yek1JMEFLZGJDRDFZNHV0NjMtVzVpNU5IQWhRNGMybU9MWE8xeTB4ZWNvN0FuenBzUU0xTldTbDZEZ0V4a0Fn0gGsAkFVX3lxTE5UNTk3MUQwYXFnVWYtekVGTENBN1hYN1BSTkNVVHlIVlRPSXczbkxtQVZ5RFBCSjNaU0lJYUdRSTlobzNFVy10WmtUU1h3d0JWdWttaXdzU0E4ai1rTlpCMnB0SzV0MFNCOGtCZkhuaUwwXy1uMHNVTFVibk84czFBQmxFcGJLYjNPSXhPMGhCODZHRjd6STdlVnVIR2ZRV185eFRBM2dSaF9fY3RacG03aDNhZVEwdHdCVzJPTk05M1ZITWJVdDBCVk1DbW9BaXVMeVdBUjJLZFYwd256TFEyWjJBaXNiRS1yYWpRUDNqSzJqVng2ODJ4MVFiWkRKcm1pTC02OVg4SXZsNlM0SWN3YmRZV0tpYjlIaW1Wd0ttVURqSGVkTUk0NjEzLQ?oc=5",
+   "published_at": "2026-10-01T01:07:19+00:00",
+   "first_seen": "2026-10-01T10:32:03.213224+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Australiana Lynas compra projeto de terras raras da Meteoric em Minas Gerais - Agência eixos",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSTkwTEpwblFkMHI4T2Q2UnQ0NmJfVS1kbmdiS01qblN4cFAyM0pXS0lNeXhtcnJkUkMweFc5XzZiMVdqWFh0VzRUWE5vM3FJcl9pYnYtNC1nU3JBUzVHWGctTXF1Mm9VaGVXTDBMbUZLZGU2OHdWWjN0dEJ0LVA3ODBaTVRqVENsQTFoclVweDIxOGx0a1h0c1J5cUxkcnMxYklZdHUzaEJneWlz?oc=5",
+   "published_at": "2026-10-01T00:48:48+00:00",
+   "first_seen": "2026-10-01T10:32:03.214273+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Australiana Lynas vai comprar Meteoric, que tem projeto de terras raras em MG - Valor Econômico",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOMGQyU21MdDVsbEhfWjJVelVNTG5OeFVZcTJzTEI4OUR3WFNDVlhuem5PbXRNYlA3aGx0UGtXYXF6anBCSEpMRllVSW82QzBVSFpJd0p4WVhRUUR0eEVheUVkR1haN2tIc1E4VmtnLWh0SU5GX3ozaUo5ekVjcS12cDVob3FxTHFQa3Z4c3RCLTZ2YkV1SVFZX3RLMzhfTWNieEdoMWZ3TWZ1T091aDRodHNrZE5VTkM2T3hQVzNKd0NMNWRHYnYzY1JwYS1YbHfSAd4BQVVfeXFMT0hNekYyb3QtZnY0ZzdYWW0zUG14WDQ3OWtJNUQ3bmkxQ0xhVGJLb0JjUDVoQl9hdnhsX01ZQ19VNlVXdWZXQkxrZm9LeTFsNVB0bzdvVnlFbmxjVjlCZHNvMnNVR1ZfUHJKMk8zZzhlM2JVcTNBcGVlTnIzeGhYZXQwMTV1R1EwRVQtSEZueTdlY0ZGTGVzcHhyYUFGc0FaWVlfY3c3VDA3VF9XeE5MWWw3YmxheWN4ZmZOd3FYMmJmR1c5bV85WjdBVkdWU3F1R28wLXBSNl9ZQlN4aHN3?oc=5",
+   "published_at": "2026-10-01T00:46:26+00:00",
+   "first_seen": "2026-10-01T10:32:03.208246+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Australiana Lynas vai comprar Meteoric, que tem projeto de terras raras em MG - Valor Econômico",
+   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPSE16RjJvdC1mdjRnN1hZbTNQbXhYNDc5a0k1RDduaTFDTGFUYktvQmNQNWhCX2F2eGxfTVlDX1U2VVd1ZldCTGtmb0t5MWw1UHRvN29WeUVubGNWOUJkc28yc1VHVl9QckoyTzNnOGUzYlVxM0FwZWVOcjN4aFhldDAxNXVHUTBFVC1IRm55N2VjRkZMZXNweHJhQUZzQVpZWV9jdzdUMDdUX1d4TkxZbDdibGF5Y3hmZk53cVgyYmZHVzltXzlaN0FWR1ZTcXVHbzAtcFI2X1lCU3hoc3fSAd4BQVVfeXFMT0hNekYyb3QtZnY0ZzdYWW0zUG14WDQ3OWtJNUQ3bmkxQ0xhVGJLb0JjUDVoQl9hdnhsX01ZQ19VNlVXdWZXQkxrZm9LeTFsNVB0bzdvVnlFbmxjVjlCZHNvMnNVR1ZfUHJKMk8zZzhlM2JVcTNBcGVlTnIzeGhYZXQwMTV1R1EwRVQtSEZueTdlY0ZGTGVzcHhyYUFGc0FaWVlfY3c3VDA3VF9XeE5MWWw3YmxheWN4ZmZOd3FYMmJmR1c5bV85WjdBVkdWU3F1R28wLXBSNl9ZQlN4aHN3?oc=5",
+   "published_at": "2026-10-01T00:46:26+00:00",
+   "first_seen": "2026-10-01T10:32:03.218775+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Australiana Lynas anuncia compra de dona de megaprojeto de terras raras em MG por R$ 3,5 bilhões",
+   "link": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://c-level.folha.uol.com.br/negocios/2026/09/australiana-lynas-anuncia-compra-de-dona-de-megaprojeto-de-terras-raras-em-mg-por-r-35-bilhoes.shtml",
+   "published_at": "2026-10-01T00:38:00+00:00",
+   "first_seen": "2026-10-01T10:31:45.755337+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Folha · Mercado",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Kantra extends Nugent copper-gold mineralisation in South Australia",
+   "link": "https://www.australianmining.com.au/kantra-extends-nugent-copper-gold-mineralisation-in-south-australia/",
+   "published_at": "2026-10-01T00:37:15+00:00",
+   "first_seen": "2026-10-01T10:31:54.246234+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Australian Mining",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "ouro"
+   ]
+  },
+  {
+   "title": "Lynas compra Meteoric com plano de avançar em processamento de terras raras - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbmRuVkpBOFRqdzZaOUF2TFFabXdZYkFfODFtV2c2VUdKWXAzVmRzbkpkV1RSdjh4dk94QUxkM3lSempDN1FpQzFubkVBMkF0ZjVQWWNSaDlSQjVtR0tQTHo1dWhtUWEtVVZQS3ltT19yaHN5M25HZkhqTkNCRm8xRE9Qam1PN1dzcVo1c1pkVG5WaGxGaWwwSEgzY1JYOVBCMUtYdmJteW1Vdw?oc=5",
+   "published_at": "2026-10-01T00:28:58+00:00",
+   "first_seen": "2026-10-01T10:32:03.215162+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Gina Rinehart backed Lynas to buy rare earths miner Meteoric - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVDZjc1lUN3F2WFd6U0xBRUdOZEtsTVNhVXIweXI2dDBzUW5EeUFSSGNUSzBWdnhERnFkYjQtSU8zQS1Oa3VncnYzR0NScHpUOXhwUDZYZUdJZTJ4MUhoSUk2cmFZdF9qWUVpZVB2anZld2s3WU41U2VjeUdyQmdoVGVfTjF3OTlnbWJ5VjhEVk91UQ?oc=5",
+   "published_at": "2026-10-01T00:13:28+00:00",
+   "first_seen": "2026-10-01T10:32:05.352112+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Javelin awaits new gold-copper assays after drilling Coogee North deep target",
+   "link": "https://stockhead.com.au/resources/javelin-awaits-new-gold-copper-assays-after-drilling-coogee-north-deep-target/",
+   "published_at": "2026-10-01T00:10:52+00:00",
+   "first_seen": "2026-10-01T10:31:50.610929+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre",
+    "ouro"
+   ]
+  },
+  {
+   "title": "Maior mineradora de terras raras fora da China anuncia intenção de comprar empresa com projeto no Sul de Minas - O Fator",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPTXByWkdMY2dLc1lRMFpaUXJrRkhjZi01aVZjTU9XaFU2SkVzREhEMEJ4ZHhKTjVaUldSMVEweUJiTkZTT0pIVTlVNWVLWkIzOTBaTjY3Rzh1b21WcDJfQzJ1UTQxOGUxMUk4THRLdU5CTzFMRHkydlc5cHhvUkhZMnJVM2hfMURiY1c2Q0pRVGJidGpESEk5LVhULXV0bW1OZGRxTnhJV0tvc3FORFg3NVdXOTZEVkVUdkI2Vl9mV0txRGozak5RUW93NUhvZjNYSkdvTWhNRzNQeWE0?oc=5",
+   "published_at": "2026-10-01T00:09:00+00:00",
+   "first_seen": "2026-10-01T10:32:03.212278+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  }
+ ]
+}

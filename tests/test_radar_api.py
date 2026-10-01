@@ -73,12 +73,47 @@ class RadarTests(unittest.TestCase):
         self.assertIn('unidadefederacao', sql)
         self.assertEqual(args[1], 'Goiás')
 
+    def sem_arquivo_publicado(self):
+        """Ignore the packet committed to the repository and read the local collector.
+
+        The published file is the primary source now; these tests are about what
+        happens when it is absent, so they point it at a path that does not exist.
+        """
+        return patch.object(radar_api, 'NEWS_JSON', Path(self.tmp.name) / 'ausente.json')
+
     def test_missing_collector_is_reported_not_hidden(self):
-        with patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
+        with self.sem_arquivo_publicado(),              patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
             news = radar_api.news()
         self.assertFalse(news['disponivel'])
         self.assertEqual(news['motivo'], 'coletor_nao_instalado')
         self.assertEqual(news['itens'], [])
+
+    def test_the_published_packet_is_preferred_over_the_local_collector(self):
+        """The collector publishes a file; the deploy carries it to the server."""
+        publicado = Path(self.tmp.name) / 'latest.json'
+        publicado.write_text(json.dumps({
+            'disponivel': True, 'atualizado_em': '2026-09-19T18:00:00+00:00',
+            'itens': [{'title': 'Mina de terras raras em Goiás', 'link': 'https://exemplo/1',
+                       'published_at': '2026-09-19', 'regional': 1, 'setorial': 1,
+                       'fonte': 'Brasil Mineral', 'substancias': ['terras_raras']}],
+            'total': 2562, 'regionais': 487, 'regionais_setoriais': 174,
+        }, ensure_ascii=False), encoding='utf-8')
+        with patch.object(radar_api, 'NEWS_JSON', publicado),              patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
+            news = radar_api.news()
+        self.assertTrue(news['disponivel'])
+        self.assertEqual(news['total'], 2562)
+        self.assertEqual(news['regionais_setoriais'], 174)
+        self.assertEqual(news['itens'][0]['substancias'], ['terras_raras'])
+        # A packet without the direction layer must still carry the key the page reads.
+        self.assertEqual(news['tendencias'], [])
+
+    def test_a_broken_published_packet_falls_back_instead_of_breaking(self):
+        quebrado = Path(self.tmp.name) / 'quebrado.json'
+        quebrado.write_text('{isto não é json', encoding='utf-8')
+        with patch.object(radar_api, 'NEWS_JSON', quebrado),              patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
+            news = radar_api.news()
+        self.assertFalse(news['disponivel'])
+        self.assertEqual(news['motivo'], 'coletor_nao_instalado')
 
     def test_news_is_served_when_the_collector_has_run(self):
         path = Path(self.tmp.name) / 'radar.sqlite'
@@ -87,7 +122,7 @@ class RadarTests(unittest.TestCase):
         config = json.loads((ROOT / 'news' / 'feeds.json').read_text(encoding='utf-8'))
         fixture = (ROOT / 'tests' / 'fixtures' / 'news' / 'feed-pt.xml').read_bytes()
         collector.run(str(path), dict(config, sources=config['sources'][:1]), lambda _u: fixture)
-        with patch.object(radar_api, 'NEWS_DB', str(path)):
+        with self.sem_arquivo_publicado(), patch.object(radar_api, 'NEWS_DB', str(path)):
             news = radar_api.news()
         self.assertTrue(news['disponivel'])
         self.assertTrue(news['itens'])
@@ -95,7 +130,7 @@ class RadarTests(unittest.TestCase):
         self.assertTrue(any(t['commodity'] == 'terras_raras' for t in news['tendencias']))
 
     def test_the_note_refuses_to_call_availability_a_project(self):
-        with patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
+        with self.sem_arquivo_publicado(),              patch.object(radar_api, 'NEWS_DB', str(Path(self.tmp.name) / 'ausente.sqlite')):
             payload = radar_api.radar(u={'id': 1})
         self.assertIn('não de previsão', payload['nota'])
         self.assertIn('não um projeto anunciado', payload['nota'])

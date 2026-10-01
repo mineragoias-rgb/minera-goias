@@ -8,11 +8,16 @@ PUBLIC = ROOT / 'public'
 KEY = re.compile(r"[{,]\s*'([A-Za-z0-9._]+)':")
 
 
-def dictionaries():
+def dictionary_blocks():
+    """The raw text of each language block, before the keys are collected."""
     source = (PUBLIC / 'i18n.js').read_text(encoding='utf-8')
     body = source.split('const DICT={', 1)[1]
     portuguese, english = body.split("\n},en:{", 1)
-    english = english.split("\n}};", 1)[0]
+    return portuguese, english.split("\n}};", 1)[0]
+
+
+def dictionaries():
+    portuguese, english = dictionary_blocks()
     return set(KEY.findall('{' + portuguese)), set(KEY.findall('{' + english))
 
 
@@ -37,6 +42,19 @@ class TranslationTests(unittest.TestCase):
         self.assertGreater(len(pt), 200)
         self.assertEqual(pt - en, set(), 'sem tradução em inglês')
         self.assertEqual(en - pt, set(), 'sem texto em português')
+
+    def test_no_key_is_defined_twice_in_the_same_language(self):
+        """A repeated key is silently won by the last one, and the first one vanishes.
+
+        This is not theoretical: 'rd.mostrando' was defined once for the claim
+        explorer and once for the news list, with different placeholders, and the
+        news list rendered a literal '{n}' on the page.
+        """
+        import collections
+        for language, block in (('pt', '{' + dictionary_blocks()[0]),
+                                ('en', '{' + dictionary_blocks()[1])):
+            repeated = [k for k, count in collections.Counter(KEY.findall(block)).items() if count > 1]
+            self.assertEqual(repeated, [], f'chave repetida em {language}')
 
     def test_every_key_used_by_the_pages_exists(self):
         pt, en = dictionaries()

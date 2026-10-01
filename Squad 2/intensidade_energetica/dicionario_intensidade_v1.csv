@@ -1,0 +1,51 @@
+campo,descricao,unidade_ou_dominio
+intensity_id,Identificador estável da linha nesta base,INT_###
+mineral_id,Mineral do catálogo do Squad 1 (aba 01),MIN_###
+mineral_name,Nome padronizado do mineral,texto
+company_id,Titular; mesma chave do Squad 1 (raiz do CNPJ),COM_CNPJ_########
+empresa,Nome da empresa como aparece na fonte de produção,texto
+operation_id,"Operação do Squad 1 (aba 12); AGG_* = identificador agregado (empresa inteira ou parâmetro do estado); vazio quando o processo não tem poligonal no SIGMINE",OPE_<processo>_<ano>; AGG_*
+processos_anm,Processos da ANM ligados à operação,NNNNNN/AAAA separados por ';'
+operacao,Nome da operação ou planta,texto
+municipio,Município(s) da operação,texto
+nivel,"operacao_empresa (tabela do painel), unidade_consumidora (uma carga da CCEE), titular_mineral_ano (denominador da ANM) ou benchmark_mineral",texto
+tecnologia,"Rota tecnológica resumida; nao_levantada_v1 quando não há fonte",código
+rota_tecnologica,Descrição da rota (lavra → processamento → produto),texto
+tecnologia_status,"Fonte da rota tecnológica: texto do painel Panorama Mineração Goiás (Squad 1) ou ""não levantada nesta versão"" quando não há fonte documental",texto
+ramo_atividade_ccee,Ramo de atividade informado pela CCEE para as cargas somadas no numerador (dado oficial),texto
+project_id,"Vazio: todas as linhas são operações em produção, não projetos futuros (Radar de Projetos do Squad 1)",PRJ_*
+produto,Produto que entra no denominador,texto
+production_basis,"conteudo_mineral (metal contido), beneficiada (ANM), produto, capacidade ou exportacao",texto
+producao_valor,Produção na unidade original da fonte,número
+producao_unidade,Unidade original da produção,"t, t Ni, t Cu, t Nb, kg Au, t TREO"
+production_t,Produção convertida para toneladas (kg ÷ 1.000),t
+ano_producao,Ano a que a produção se refere,AAAA
+energy_mwh,Consumo de energia elétrica em 2025 (CCEE: ACL + cativo em parcela livre),MWh
+ano_energia,Ano do consumo,AAAA
+cargas_ccee,SIGLA_PARCELA_CARGA da CCEE somadas no numerador,texto
+energy_intensity_mwh_t,Intensidade = energy_mwh ÷ production_t,MWh/t
+unidade,Unidade de energy_intensity_mwh_t,MWh/t
+intensidade_valor,Intensidade na unidade de leitura (ouro em MWh/kg),número
+intensidade_unidade,Unidade de intensidade_valor,MWh/t; MWh/kg
+natureza_dado,"observado, calculado (numerador e denominador observados), estimado (algum termo é estimativa, capacidade ou exportação) ou benchmark",texto
+valor_observado_estimado,Igual a natureza_dado; nome do campo no padrão mínimo de rastreabilidade da Entrega 1 (§3),texto
+natureza_energia,Natureza do numerador,texto
+natureza_producao,Natureza do denominador,texto
+compatibilidade_temporal,Se produção e energia são do mesmo ano,mesmo_ano; anos_diferentes (...)
+confianca,Confiança (tabela do painel; nas linhas da ANM: média se o titular tem mais de 90% da produção do estado e não há alerta 09c),alta; média; baixa
+year,Ano de referência da intensidade,AAAA
+periodo_referencia,Período de referência,AAAA
+source_id,Fontes da linha,SRC_* separados por ';'
+source_url,URL das fontes oficiais,URL
+fonte_producao,Fonte da produção (relatório da empresa ou Squad 1),texto
+fonte_producao_url,Link da fonte da produção,URL
+tipo_fonte,"oficial, companhia, setorial ou imprensa",texto
+data_acesso,Data de geração desta base,AAAA-MM-DD
+metodo_estimacao,Como a estimativa foi feita (linhas estimadas),texto
+erro_estimativa_intervalo,Faixa da intensidade trocando o rateio da CFEM por R$ pelo rateio por t,texto
+checagem_ccee_bruta,Conferência da energia com o arquivo bruto da CCEE no repositório (jun–dez/2025 anualizado),texto
+status_validacao,Situação da validação,texto
+responsavel_validacao,Quem gerou e conferiu,texto
+usar_no_motor,Se a linha entra em energy_intensity_para_motor_v1.csv e por quê,sim; não — motivo
+observacao,Notas e limitações da linha,texto
+versao_base,Versão desta base,vN

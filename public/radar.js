@@ -104,27 +104,136 @@ function wireExplorer(){
   if(tab)tab.click();
   if(window.atlasShowProcess)window.atlasShowProcess(selected.id)}}
 
+/* As matérias ficam aqui para os filtros trabalharem sem nova chamada à API. A
+   abertura traz as mais recentes; os meses anteriores são buscados quando pedidos,
+   um arquivo por vez, em /data/noticias/meses/. */
+let NEWS=[],JANELA='',CARREGADOS=new Set(),MUNICIPIOS={};
+const ANTERIORES='anteriores';
+
+const mesDe=i=>{const s=(i.published_at||i.first_seen||'').slice(0,7);
+ return /^\d{4}-\d{2}$/.test(s)&&s>=JANELA?s:ANTERIORES};
+
+const mesNome=m=>m===ANTERIORES?t('rd.anteriores')
+ :new Date(m+'-02T00:00:00Z').toLocaleDateString(I18N.locale(),
+   {month:'long',year:'numeric',timeZone:'UTC'});
+
+async function carregarMes(mes){
+ if(!mes||CARREGADOS.has(mes))return;
+ const r=await fetch(`/data/noticias/meses/${encodeURIComponent(mes)}.json`,{cache:'no-store'});
+ if(!r.ok)throw Error(t('rd.mesFalhou',{mes:mesNome(mes)}));
+ const pacote=await r.json(),vistos=new Set(NEWS.map(i=>i.link));
+ for(const i of pacote.itens||[])if(!vistos.has(i.link))NEWS.push(i);
+ CARREGADOS.add(mes)}
+
+async function trocarMes(){
+ const mes=el('rd-mes').value;
+ if(mes&&!CARREGADOS.has(mes)){
+  el('rd-conta').textContent=t('rd.carregandoMes');
+  el('rd-mes').disabled=true;
+  try{await carregarMes(mes)}
+  catch(e){el('rd-conta').textContent=e.message;el('rd-mes').disabled=false;return}
+  el('rd-mes').disabled=false}
+ drawNews()}
+const subName=s=>t('rd.s.'+s);
+const viaBusca=link=>/news\.google\.com|bing\.com/.test(link||'');
+
+function newsItem(i){
+ const iso=(i.published_at||i.first_seen||'').slice(0,10);
+ const quando=/^\d{4}-\d{2}-\d{2}$/.test(iso)?iso.slice(8)+'/'+iso.slice(5,7):iso;
+ const lugar=MUNICIPIOS[i.regiao_termo];
+ const marca=i.regional
+  ?`<span class="rd-tag-go">${escape(lugar||t('rd.regional'))}</span>`:'';
+ const subs=(i.substancias||[]).map(s=>`<span class="rd-sub">${escape(subName(s))}</span>`).join('');
+ // O link das buscas passa por uma tela do Google antes de chegar ao veículo.
+ const indireto=viaBusca(i.link)?` · <span class="rd-indireto">${escape(t('rd.viaBusca'))}</span>`:'';
+ return `<li><div class="rd-meta">${marca}${subs}<span class="rd-data">${escape(quando)}</span></div>`
+  +`<a href="${escape(i.link)}" target="_blank" rel="noopener noreferrer">${escape(i.title)}</a>`
+  +`<span class="rd-fonte">${escape(i.fonte||'')}${indireto}</span></li>`}
+
+/* Quantas linhas a lista desenha de uma vez. O resto sai pelos filtros: uma lista de
+   180 itens dentro de um painel vira rolagem sem fim. */
+const NEWS_MAX=40;
+
+function drawNews(){
+ if(!el('rd-lista'))return;
+ const valor=id=>{const e=el(id);return e?e.value:''};
+ const marcado=id=>{const e=el(id);return e?e.checked:false};
+ const busca=(valor('rd-busca')||'').toLowerCase().trim(),sub=valor('rd-substancia');
+ const mes=valor('rd-mes'),municipio=valor('rd-municipio');
+ const soGoias=marcado('rd-so-go');
+ const vis=NEWS.filter(i=>(!busca||(i.title||'').toLowerCase().includes(busca))
+  &&(!sub||(i.substancias||[]).includes(sub))
+  &&(!mes||mesDe(i)===mes)&&(!municipio||i.regiao_termo===municipio)
+  &&(!soGoias||i.regional));
+ // Goiás primeiro, depois data, por regra explícita: a ordem do array depende de
+ // quais meses já foram carregados. Só notícia do setor é publicada, então não há
+ // mais o que separar além da relevância regional.
+ const peso=i=>i.regional?1:0;
+ const quando=i=>i.published_at||i.first_seen||'';
+ vis.sort((a,b)=>peso(b)-peso(a)||(quando(a)<quando(b)?1:quando(a)>quando(b)?-1:0));
+ el('rd-conta').textContent=vis.length>NEWS_MAX
+  // Quantas matérias o recorte tem. Quantas estão carregadas na memória do navegador
+  // é detalhe de implementação e não ajuda ninguém a ler a lista.
+  ? t('rd.newsParcial',{mostradas:n(NEWS_MAX),filtradas:n(vis.length)})
+  : t(vis.length === 1 ? 'rd.newsUma' : 'rd.newsMostrando', {mostradas: n(vis.length)});
+ el('rd-lista').innerHTML=vis.length?vis.slice(0,NEWS_MAX).map(newsItem).join('')
+  :`<li class="empty">${escape(t('rd.semFiltro'))}</li>`}
+
 function newsBlock(noticias){
  if(!noticias.disponivel){
   const motivo=noticias.motivo==='banco_ilegivel'?'rd.bancoIlegivel':'rd.semColetor';
   return `<div class="notice">${escape(t(motivo))}</div>`}
- const items=noticias.itens.length
-  ? '<ul class="rd-news">'+noticias.itens.map(i=>{
-      const quando=(i.published_at||i.first_seen||'').slice(0,10);
-      const marca=i.regional?`<b class="rd-tag-go">${escape(t('rd.regional'))}</b>`:'';
-      return `<li>${marca}<a href="${escape(i.link)}" target="_blank" rel="noopener noreferrer">${escape(i.title)}</a>`
-       +`<span class="muted">${escape(i.fonte||'')}${quando?' · '+escape(quando):''}</span></li>`}).join('')+'</ul>'
-  : `<div class="empty">${escape(t('ov.empty'))}</div>`;
- const contagem=noticias.total!=null
-  ? `<p class="small muted">${escape(t('rd.contagem',{regionais:n(noticias.regionais||0),total:n(noticias.total)}))}</p>`:'';
+ NEWS=noticias.itens||[];
+ JANELA=noticias.janela||'';CARREGADOS=new Set();MUNICIPIOS=noticias.municipios||{};
+ if(!NEWS.length)return `<div class="empty">${escape(t('ov.empty'))}</div>`;
+ const nosMunicipios=[...new Set(NEWS.map(i=>i.regiao_termo).filter(m=>m&&MUNICIPIOS[m]))]
+   .sort((a,b)=>MUNICIPIOS[a].localeCompare(MUNICIPIOS[b]));
+ const municipios=nosMunicipios.map(m=>`<option value="${escape(m)}">${escape(MUNICIPIOS[m])}</option>`).join('');
+ const meses=(noticias.meses||[]).map(m=>`<option value="${escape(m.mes)}">`
+  +`${escape(mesNome(m.mes))}</option>`).join('');
+ const nomes=[...new Set(NEWS.flatMap(i=>i.substancias||[]))]
+   .sort((a,b)=>subName(a).localeCompare(subName(b)));
+ const opcoes=nomes.map(s=>`<option value="${escape(s)}">${escape(subName(s))}</option>`).join('');
+ const cartoes=noticias.total!=null?'<div class="metrics rd-metrics">'
+  +[['rd.cGuardadas',noticias.total],['rd.cGoias',noticias.regionais],
+    ['rd.cSubstancias',Object.keys(noticias.substancias||{}).length],
+    ['rd.cVeiculos',noticias.veiculos]]
+   .filter(([,v])=>v!=null)
+   .map(([k,v])=>`<div class="metric"><span>${escape(t(k))}</span><strong>${escape(n(v))}</strong></div>`)
+   .join('')+'</div>':'';
+ const acervo=noticias.total!=null
+  ? `<p class="rd-conta">${escape(t('rd.acervo'))}</p>`:'';
  const atualizado=noticias.atualizado_em
-  ? `<p class="small muted">${escape(t('rd.atualizado'))} ${escape(noticias.atualizado_em.slice(0,16).replace('T',' '))}</p>`:'';
- return contagem+atualizado+items}
+  ? `<p class="rd-conta">${escape(t('rd.atualizado'))} ${escape(noticias.atualizado_em.slice(0,16).replace('T',' '))}</p>`:'';
+ return cartoes+acervo+atualizado+'<div class="rd-filtros">'
+  +`<input type="search" id="rd-busca" placeholder="${escape(t('rd.buscaPh'))}" aria-label="${escape(t('rd.buscaPh'))}">`
+  +(meses?`<select id="rd-mes" aria-label="${escape(t('rd.todosMeses'))}">`
+    +`<option value="">${escape(t('rd.todosMeses'))}</option>${meses}</select>`
+    :'<select id="rd-mes" hidden></select>')
+  +(municipios?`<select id="rd-municipio" aria-label="${escape(t('rd.todosMunicipios'))}">`
+    +`<option value="">${escape(t('rd.todosMunicipios'))}</option>${municipios}</select>`
+    :'<select id="rd-municipio" hidden></select>')
+  +(nomes.length?`<select id="rd-substancia" aria-label="${escape(t('rd.todasSubstancias'))}">`
+    +`<option value="">${escape(t('rd.todasSubstancias'))}</option>${opcoes}</select>`
+    :'<select id="rd-substancia" hidden></select>')
+  +`<label class="rd-check"><input type="checkbox" id="rd-so-go">${escape(t('rd.soGoias'))}</label>`
+  +'</div><p class="rd-conta" id="rd-conta"></p><ul class="rd-news" id="rd-lista"></ul>'}
+
+function wireNews(){
+ if(!el('rd-lista'))return;
+ for(const id of ['rd-busca','rd-substancia','rd-municipio','rd-so-go'])
+  if(el(id))el(id).addEventListener('input',drawNews);
+ // O mês pode precisar buscar um arquivo antes de filtrar.
+ if(el('rd-mes'))el('rd-mes').addEventListener('change',trocarMes);
+ drawNews()}
 
 function trendBlock(noticias){
  if(!noticias.disponivel)return '';
  // Only signals the collector was willing to call are worth a row here.
- const rows=noticias.tendencias.filter(x=>x.verdict==='pressao_de_alta'||x.verdict==='pressao_de_baixa');
+ const rows=(noticias.tendencias||[]).filter(x=>x.verdict==='pressao_de_alta'||x.verdict==='pressao_de_baixa');
+ // A leitura de alta/baixa está desligada no coletor, e uma seção permanentemente
+ // vazia só confunde. Sem tendência, não desenha o bloco.
+ if(!rows.length)return '';
  const body=rows.length
   ? `<table><thead><tr><th>${escape(t('rd.thSemana'))}</th><th>${escape(t('rd.thSubstancia'))}</th>`
     +`<th>${escape(t('rd.thMaterias'))}</th><th>${escape(t('rd.thVeredito'))}</th></tr></thead><tbody>`
@@ -146,6 +255,7 @@ async function load(){
   el('rd-situacoes').innerHTML=bars(d.rodadas.situacoes,VIZ.analise);
   el('rd-municipios').innerHTML=bars(d.rodadas.top_municipios,VIZ.abrindo);
   el('rd-noticias').innerHTML=newsBlock(d.noticias);
+  wireNews();
   el('rd-tendencias').innerHTML=trendBlock(d.noticias);
   el('rd-fonte').textContent=t('ov.sourcePrefix')+d.rodadas.fonte;
   wireExplorer();

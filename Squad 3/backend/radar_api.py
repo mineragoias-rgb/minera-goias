@@ -18,9 +18,16 @@ router = APIRouter(prefix='/api/radar')
 DATA = Path(__file__).resolve().parents[2] / 'data' / 'atlas'
 ROUNDS_PATH = 'Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv'
 NEWS_DB = os.getenv('NEWS_DB_PATH', '/var/lib/minera-goias-news/radar.sqlite')
+# The collector publishes its result as files in the repository, so the deploy carries
+# them here on its own. They sit under public/ because the browser fetches the monthly
+# archives straight from /data/noticias/meses/ when someone asks for older news, and
+# only public/ is served by Nginx. The SQLite below stays as a fallback for a
+# collector installed on this machine.
+NEWS_JSON = Path(__file__).resolve().parents[2] / 'public' / 'data' / 'noticias' / 'latest.json'
 
 connection_factory = None
 _phases = {'mtime': None, 'value': None}
+_news_file = {'mtime': None, 'value': None}
 
 # Which phases mean the holder may already extract, which are still being decided,
 # and which are areas the ANM has put back on the table.
@@ -84,8 +91,37 @@ def rounds():
     }
 
 
+def news_from_repo():
+    """Read the packet the collector committed, cached until the file changes.
+
+    Returns None when the file is absent or unreadable, so the caller falls back to a
+    locally installed collector instead of reporting the section as broken.
+    """
+    try:
+        # The path is part of the key: the module constant can be pointed elsewhere,
+        # and two different files can share a modification time.
+        key = (str(NEWS_JSON), NEWS_JSON.stat().st_mtime)
+    except OSError:
+        return None
+    if _news_file['mtime'] == key:
+        return _news_file['value']
+    try:
+        value = json.loads(NEWS_JSON.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    if not isinstance(value, dict) or not isinstance(value.get('itens'), list):
+        return None
+    value.setdefault('disponivel', True)
+    value.setdefault('tendencias', [])
+    _news_file.update(mtime=key, value=value)
+    return value
+
+
 def news(limit=12):
     """The collector is a separate service; report plainly when it is not installed."""
+    packet = news_from_repo()
+    if packet is not None:
+        return {**packet, 'itens': packet['itens'][:limit]}
     path = Path(NEWS_DB)
     if not path.exists():
         return {'disponivel': False, 'motivo': 'coletor_nao_instalado', 'itens': [], 'tendencias': []}
@@ -124,7 +160,9 @@ def radar(u=Depends(reader)):
     return {
         'fases': phase_counts(),
         'rodadas': rounds(),
-        'noticias': news(),
+        # Enough stories for the panel to filter by substance and by region on the
+        # client. Twelve only ever filled the list, leaving nothing to narrow.
+        'noticias': news(180),
         'nota': 'Fases e rodadas vêm do cadastro e dos editais da ANM, não de previsão. '
                 'Uma área em disponibilidade é uma área que pode ser requerida, não um projeto anunciado.',
     }
