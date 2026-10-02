@@ -1,0 +1,28 @@
+[Unit]
+Description=Procura números de produção mineral por empresa e confronta com a base curada
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=minera-producao
+Group=minera-producao
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /usr/local/lib/minera-goias-producao/agente.py \
+  --config /usr/local/lib/minera-goias-producao/fontes.json \
+  --base /usr/local/lib/minera-goias-producao/base_curada.json \
+  --db /var/lib/minera-goias-producao/producao.sqlite \
+  --report /var/lib/minera-goias-producao/latest.json
+TimeoutStartSec=20min
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/minera-goias-producao
+MemoryMax=256M
+CPUQuota=40%
+Nice=15
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
