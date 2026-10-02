@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 103,
+ "materias": 105,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -154,6 +154,21 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "OURO | Pilar Gold avança com planos para reativar operações em Goiás - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUGp2UWNoZWxsMFA0UU9wdXQzeXlVdlhEaEJRUERUUllKa2VRYUlxbUZBME43WlNxbTZCRFZyN25nSENyaXRXMFU5Y2stTEQ2RTZCeDJxSE93ZXVUTkJZQTdLYm5tRWF6MEJTN1c3cFpsUnlNQnJqd25xR3BoRXcwWFlIbGV2WVkxVlNVZXpEbU9ZOHc2Y1c1ZWFKQ0Ntb1hQ?oc=5",
+   "published_at": "2026-05-25T07:00:00+00:00",
+   "first_seen": "2026-10-02T10:07:03.901311+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
   },
   {
    "title": "CFEM: ANM repassa mais de R$ 441 milhões da mineração a estados e municípios - capitalnews.com.br",
@@ -1108,6 +1123,19 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-10-01T10:32:02.666059+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abf824adc274328be36e513e0da4ef6&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T11:25:00+00:00",
+   "first_seen": "2026-10-02T10:07:07.018024+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

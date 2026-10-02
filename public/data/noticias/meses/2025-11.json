@@ -1,6 +1,6 @@
 {
  "mes": "2025-11",
- "materias": 15,
+ "materias": 16,
  "itens": [
   {
    "title": "Repasses da mineração ultrapassam R$ 1 bilhão em novembro — Agência Nacional de Mineração - www.gov.br",
@@ -168,6 +168,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab5f2766c4240b6b8ed61f0ed18cc95&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
    "published_at": "2025-11-11T04:43:00+00:00",
    "first_seen": "2026-09-25T04:03:02.949113+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Terras raras: Estados Unidos financiam projeto em Goiás com até U$ 465 milhões",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abf824adc274328be36e513e0da4ef6&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
+   "published_at": "2025-11-11T04:43:00+00:00",
+   "first_seen": "2026-10-02T10:07:07.022216+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
