@@ -108,10 +108,13 @@ window.atlasShowProcess=async id=>{
  map.fitBounds(record.shape.getBounds(),{maxZoom:12,padding:[30,30]});
  el('atlas-map').scrollIntoView({behavior:'smooth',block:'center'})};
 function exportRows(){const heads=[...el('atlas-table-head').querySelectorAll('th')].map(t=>t.textContent),safe=x=>'"'+String(x??'').replace(/^[=+@-]/,"'$&").replaceAll('"','""')+'"';const text=[[t('at.csvSource'),t('at.csvArtefact')],['SHA256',packet.meta.sha256],[t('at.csvLayer'),layer],[t('at.csvRef'),el('atlas-context').textContent],heads,...visibleRows.map(r=>r.cells)].map(r=>r.map(safe).join(';')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='minera-goias-atlas-'+layer+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+// The two points share one track and may cross: yearRange orders them, so either point can move either way.
 function yearLabel(){
  el('atlas-year-label').textContent=rangeLabel();
- const [a,b]=yearRange(),ticks=el('atlas-year-ticks');
- if(!ticks.children.length)ticks.innerHTML=YEARS.map((y,i)=>`<button type="button" data-year-index="${i}">${escape(y)}</button>`).join('');
+ const [a,b]=yearRange(),ticks=el('atlas-year-ticks'),last=YEARS.length-1,fill=el('atlas-year-fill');
+ fill.style.left=a/last*100+'%';fill.style.right=(last-b)/last*100+'%';
+ if(!ticks.children.length){ticks.innerHTML=YEARS.map((y,i)=>`<button type="button" data-year-index="${i}">${escape(y)}</button>`).join('');
+  ticks.style.gridTemplateColumns=`1fr repeat(${last-1},2fr) 1fr`}
  [...ticks.children].forEach((button,i)=>{const inside=i>=a&&i<=b;
   button.classList.toggle('active',inside);
   button.classList.toggle('edge',i===a||i===b);

@@ -20,6 +20,8 @@ const notaRateio=e=>e.base_do_rateio&&e.base_do_rateio!=='carga_total'
  ? t('ep.rateado',{base:rotuloRateio(e.base_do_rateio),parcela:num(e.parcela_da_empresa*100,0),
      total:num(e.mwh_empresa_anualizado)}) : '';
 const nomeCurto=l=>String(l.grupo||'').split(' (')[0].split(' · ')[0];
+// O período da CCEE chega como AAAAMM; na tela vira MM/AAAA.
+const mesAno=v=>String(v).slice(4)+'/'+String(v).slice(0,4);
 
 // A linha só entra numa comparação de coeficiente quando tem coeficiente; nas de energia, quando tem energia.
 const filtradas=()=>{
@@ -48,8 +50,8 @@ function metricas(linhas){
  ].map(([tom,rotulo,valor,detalhe])=>`<div class="metric tone-${tom}"><span>${escape(rotulo)}</span>`
    +`<strong>${escape(valor)}</strong><small>${escape(detalhe)}</small></div>`).join('');}
 
-/* Barra empilhada: a parte clara é o que a CCEE mediu, a escura é o que a anualizacao acrescentou. Mostrar as duas
-   deixa visivel, no proprio grafico, quanto do numero e' medicao e quanto e' extrapolacao. */
+/* Barra sobreposta: a clara é o total anualizado, a escura é o que a CCEE mediu de fato. Mostrar as duas
+   deixa visível, no próprio gráfico, quanto do número é medição e quanto é extrapolação. */
 function barrasEnergia(linhas){
  // Este gráfico é da CARGA INTEIRA da empresa no ano. O rateio entre minerais aparece no coeficiente e na tabela:
  // misturar parcela e total na mesma escala compararia parte com todo.
@@ -179,7 +181,7 @@ function desenhar(){
  el('ep-cobertura').innerHTML=cobertura(linhas);
  el('ep-count').textContent=t('ep.contagem',{linhas:num(linhas.length),total:num(dados.linhas.length)});
  el('ep-context').textContent=t('ep.contexto',{
-   inicio:String(dados.meta.periodo_ccee[0]),fim:String(dados.meta.periodo_ccee[1])});
+   inicio:mesAno(dados.meta.periodo_ccee[0]),fim:mesAno(dados.meta.periodo_ccee[1])});
  el('ep-export').onclick=()=>exportar(linhas);}
 
 async function load(){
@@ -197,7 +199,7 @@ async function load(){
   ['ep-ano','ep-emp','ep-min','ep-qual'].forEach(id=>el(id).onchange=desenhar);
   el('ep-reset').onclick=()=>{['ep-ano','ep-emp','ep-min','ep-qual'].forEach(id=>el(id).value='');desenhar()};
   el('ep-nota').textContent=t('ep.nota');
-  el('ep-fontes').textContent=t('ep.fontes',{periodo:dados.meta.periodo_ccee.join('–'),base:dados.meta.versao_base});
+  el('ep-fontes').textContent=t('ep.fontes',{periodo:dados.meta.periodo_ccee.map(mesAno).join('–'),base:dados.meta.versao_base});
   desenhar();
   el('empresas-content').hidden=false;
  }catch(e){el('empresas-error').textContent=e.message}

@@ -99,5 +99,10 @@ header .lang-switch button.active{background:rgba(255,255,255,.14);color:inherit
 #ep-energia .bar-row,#ep-serie .bar-row{grid-template-columns:minmax(130px,1fr) 1.15fr 88px}
 #ep-coef .bar-row{grid-template-columns:minmax(170px,1fr) 1.15fr 62px}
 #ep-cobertura .bar-row{grid-template-columns:minmax(130px,1fr) 1.15fr 74px}
-#ep-energia .mk-note,#ep-coef .mk-note,#ep-cobertura .mk-note,#ep-serie .mk-note{margin:0 0 12px}
+/* Nota colada à barra a que se refere e respiro antes da próxima, como em Ativos negociados (Mercado). */
+#ep-energia .bar-row,#ep-coef .bar-row,#ep-cobertura .bar-row,#ep-serie .bar-row{margin-bottom:4px}
+#ep-energia .mk-note,#ep-coef .mk-note,#ep-cobertura .mk-note,#ep-serie .mk-note{margin:-4px 0 14px}
+/* Mesmo corpo de destaque e mesma cor de link da aba Mercado. */
+#empresas-view td b{font-size:12.5px}
+#empresas-view .mk-note a{color:var(--blue)}
 #empresas-view .pn-filters{margin-bottom:0}
