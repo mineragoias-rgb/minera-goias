@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 72,
+ "materias": 74,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -606,6 +606,19 @@
    ]
   },
   {
+   "title": "Protocolo Digital da ANM está indisponível por problemas técnicos — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQSldkLWxhQ3ZlNGtldkVnWGpEUU9Hd294M2hta2RzeVEzMktfQUZjQmF4cGJBeW5yeU9RRWMwdS1oZ2NBSXlsNEtFeEh0YjlXbjNjdE1Wcko0UkpuTFRRS3lTS1Jrb2lPVi1LM0dGRXhOUWd0T1NRamtqQ3NsWUV2RkdmXy1HUzdXNWE4Z2R5cWRpV2tvclp6WEV6cHQtLVM5WGROUmYzakZsSVlPNEE?oc=5",
+   "published_at": "2026-06-12T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:45.971170+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Projeto de terras raras de mineradora que atua em Goiás recebe licença ambiental e avança para fase de implantação no Chile - Jornal Opção",
    "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOWkxTZWhubU14aUtRbDg1MGpGbG5NWElWV1doZjJjQ0o1QnF6UHBJQ1ZjQ0g4UHBtY1NqUExRUUVBOEdlcnBIcEIybl80cFNIOE5ydS15bUZSdEZSbWpPZVdKcU50dWlONHY3aHluV2t0TWpsOVVrX0kzS01rM1FLclhJVTROSDNrLXotcmdXaGhJODVma3ZPT040S3JEQUNDdXlmLVY4SUFrVktaWU1hc0FaUjBqRDZUampoV0FscTFOX2IwTFpDdnhMdDFwdkZGNUp2T2hvbUgzNEpJZE95ZDJQUmR3S0dMamhmY3Fab0ZuMC1xU1pUeDZPQQ?oc=5",
    "published_at": "2026-06-11T07:00:00+00:00",
@@ -649,6 +662,19 @@
    "substancias": [
     "terras_raras"
    ]
+  },
+  {
+   "title": "ANM interdita parcialmente lavra da Vale e impõe exigências a mineradoras em MG - atlaspublico.com.br",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPRm80Q25qelJBUWJPRnlJN2lPaG1HbHltOTN1NFVBaUdlNWpBMnlDcmJiV1JGU3RJNHhYZS14dXR3dTMyQTBERVhtSm1QaTY3OXNPbFNhRXRFOFBJQ2V0VDVsRVdRM3dBamxnU3ZVdjRET3hvQWgyWEo5bW0wNmdUTnI5YktRZ2hSZ1padlFQWXIwVnQ1UmdsQTNXRml0Nkp6RWtfZ2Y0TDRlTUZxQ0tLYkNpNkhYZnlIdVJtamlR?oc=5",
+   "published_at": "2026-06-11T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:45.504730+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Setor mineral de MT busca diálogo na ANM contra insegurança jurídica em novas regras de lavra garimpeira - FOCO MT",

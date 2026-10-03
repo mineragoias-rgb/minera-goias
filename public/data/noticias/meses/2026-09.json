@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1123,
+ "materias": 1126,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -418,6 +418,21 @@
    "setorial": 1,
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "ANM interdita lavra em parte da mina Grota do Cirilo da Sigma Lithium em Minas Gerais - BOL",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRlVKQ0hzSDJfUGx1cVlLVlNxSjgtcEtPZ3ZkeXF6TEkwWUVCRkdkdEJsZDNVZXE1Mlp1NVA5WWNQcm94bTkyeHh0S1J3U1N1N1pvdTdjRjlvTkY2QVotZVZiM0h6VFA4RnRreGEyZXVDQUs2OWtoYk5fNDRiXzByMHY5QmpGYTFkQ0ZQRW5DMThNM3dZdmZrT1N4dWRnNlJVMmg5dVpKbFFBbEFNYzZWNXRvNDVWTHNHLUc5Nnk4bklCbFdnZEpGRFY5bTBXYnVCSWfSAdcBQVVfeXFMT2tvOWRraTVwWG9SOEJyUUk4cDR3d3JDV05rUEo5bGZtbUhpcUFlcHB1bnVGWkVwZHduS0dLMEJQOUdUSDNxLWVjUl82LURxekN5TExaTnBZVkptbXN3OEFZdS10QTVPeVJBYXNwZ0NXVWVMTFE0OU9YanF2VTNZRnJHaDgwY01GY2I4bTMxQUp2UUZKRF9vVGtJSUVvSGF0RDJRT0F1d1ptZE1qcWFXejV6OUl5Q3VKQ2J2dm5xNmVLeFA0T01IOHpiSzdEWjdaeHA0ejFTdUk?oc=5",
+   "published_at": "2026-09-30T17:08:21+00:00",
+   "first_seen": "2026-10-03T09:31:45.502657+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "litio"
@@ -5495,6 +5510,21 @@
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOa1d4VmZPRnZ4Y0VoMkNVM21hQnVjZ0ZFUDhQNVI0TFdnakFsY0g3ZklYSnhRNU5pUVdMNWtoQ0RfY1NZVHg0cUI2eWw2VDZTOGV5Sjl4dWlrQlV0T3hzcl9TS2FsYlNDR1llSmFTZmJKUF96RE5OcFFBQi1LX2s1Y212RUdwbU1YXzlBVVc2UlQ2d2tPUGRUcWdNdjZDQXhUdXA0Sw?oc=5",
    "published_at": "2026-09-24T07:00:00+00:00",
    "first_seen": "2026-09-26T04:03:02.316467+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
+   "title": "Governo de MG suspende licenças ambientais da maior produtora de lítio do país - G1",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQVGllSkJCdjNDZjdJbHJXUTFzemlTN0hyekd1SG1PeGl6NVZNUXJDOXAzRzBqTXdSWlhRQlhHdHVlbmI4Rm9sN3oxSFlteHZWUTVNVmZhaVc0bHdvSlByb1BZNHotdG5zdHBEbjV2Ujdzc0x0U0RlVXFDNFFVT1hXUXI1SFFxcDQzU3IyOC10NWZodDctY3pEZ1hVbTFkQW1jYWRhZ3M2WmZJQl9XVWdwdDdPa1g3SEFudEJiY2szMkJmMi1DUTN6UTlDd2FKdE5TZDI4cjBiSdIB5gFBVV95cUxQdmRtY3lVQXpNLXJFbVVRU3pFcy16bWo2dHV5ZnhsQmlpOGNUclViVTNJX09UMzk3NjFaal9YMzVqdkpzaEJITWh3bmJPb0dLMUVma185M2V4Qm9OLUl6azBJQUhGclpuU21DMjN3bzB3MEVtVlNDX2REZEhfOUVqWmpyVGVtanBKWEpLMDZaT2V3RHNyRVYxZjlmTERVenY5bEZDcXdpbC1SS29JWDU4Um9hbXRhLXh0SnJIV2hUcWxsNVlZTmhTQ3BldHVSenQ1aGx1UFRGS2w1NjJUMlhpQ0RsUDBwZw?oc=5",
+   "published_at": "2026-09-24T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:44.684003+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -14909,6 +14939,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Justiça Federal paralisa atividade de mina de lítio em Minas Gerais - Jornal ES HOJE",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdVhlZ0JjbllJM1o3dXdIV0NYTkdRb1Jwbk9BZWdzYWVRS2U3cjF2aVhhZmJNVkRFeDFRYkJmRjN4YjhZdThzbmJnM2JSSndGZFdTX3d6cjc4aEVJUkdNbmdVSjhucFM3LUF5UEVQLWFxWWdtQXFncFpHcXB5Q1hMNmRMZFdVb1U2Ym0yVVVIWG5zZm9IclJRZDhyZ0hTRUM4UXd4X1k5TFQ?oc=5",
+   "published_at": "2026-09-07T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:44.685813+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
   },
   {
    "title": "Brazilian court suspends licenses for Sigma Lithium mine",

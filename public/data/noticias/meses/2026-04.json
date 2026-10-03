@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 98,
+ "materias": 100,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -100,6 +100,21 @@
    "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Terras raras: após críticas, Serra Verde afirma que não exporta minério bruto de mina em Goiás",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f04%2f28%2fterras-raras-serra-verde-afirma-que-nao-exporta-minerio-bruto-de-mina-de-goias.ghtml&c=10158231394218707355&mkt=en-us",
+   "published_at": "2026-04-28T05:24:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.757093+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
@@ -478,6 +493,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abf824adc274328be36e513e0da4ef6&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T12:57:00+00:00",
    "first_seen": "2026-10-02T10:07:07.019015+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.759742+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

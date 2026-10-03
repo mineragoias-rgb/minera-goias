@@ -1,6 +1,6 @@
 {
  "mes": "anteriores",
- "materias": 297,
+ "materias": 303,
  "itens": [
   {
    "title": "Agência Nacional de Mineração reorganiza estrutura com nova coordenação em Minas - Diário do Comércio",
@@ -297,6 +297,21 @@
    "first_seen": "2026-09-19T19:48:59.712992+00:00",
    "regional": 0,
    "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ]
+  },
+  {
+   "title": "R$ 2,7 bilhões: venda de minas de níquel em Goiás levanta disputa e investigação do Cade - maisgoias.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOXzZrRVllRGtodDhMWE9LUWd4N0l0MV9XVEFySEh0c2FZMlI3NlpMMWpIZ1dYeUlxVks0S3lnejF2ZVhCZUI0Q0MtSExULWUzZGl5LXhadEt0VXJYelZXRWd0M3hhUHpNeHFhcGVvRlgxNUVLNy1DenhQWG4zUzBiSnMwZWF2Y01VOGE3VnlCLVFXaTZsWndOT1NOR1JBMlRsUG0zR18tdU9nZGk1ZXNWZFZ1RlN0aUh6WHNjYUJoSnU?oc=5",
+   "published_at": "2025-08-29T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:41.715592+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · níquel e nióbio em Goiás",
    "escopo": "regional",
@@ -894,6 +909,21 @@
   },
   {
    "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fwww.thestar.com%2fglobenewswire%2faura-minerals-agrees-to-acquire-the-minera-o-serra-grande-gold-mine-in-goi-s%2farticle_05149c3e-5765-56ae-a3c2-60f6ddc416cb.html&c=15653285175594871912&mkt=en-us",
+   "published_at": "2025-06-02T04:01:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.761610+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.nasdaq.com%2fpress-release%2faura-minerals-agrees-acquire-mineracao-serra-grande-gold-mine-goias-brazil-2025-06-02&c=4849492903426942237&mkt=en-us",
    "published_at": "2025-06-02T00:00:00+00:00",
    "first_seen": "2026-09-19T19:49:02.791309+00:00",
@@ -1107,6 +1137,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abf824adc274328be36e513e0da4ef6&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-agrees-acquire-minera-110000961.html&c=16821160229421033576&mkt=en-us",
    "published_at": "2025-06-01T17:00:00+00:00",
    "first_seen": "2026-10-02T10:07:07.021122+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
+  },
+  {
+   "title": "Aura Minerals Agrees to Acquire the Mineração Serra Grande Gold Mine in Goiás, Brazil",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2ffinance.yahoo.com%2fnews%2faura-minerals-agrees-acquire-minera-110000961.html&c=16821160229421033576&mkt=en-us",
+   "published_at": "2025-06-01T17:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.758741+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -2092,6 +2137,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Henrique Prata vale ouro e será uma honra para Goiás se gerir o Cora - Jornal Opção",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQ2ZhYnRWbEhPM29tUjdNcUFid0U3SXNZU2FvY0VXX1Z6TUZzU0pzdDhMUFF6Y0tEWmxZY0N1SDJEWllvNEFURTNEY2Z1aVJacEprUEZhcjZOMVFSQzZ0dWxBZURsalpJYk9ScmRfczh5YXYxVU5lbGxlc014TWhISHB4MERaVEVORUl4b0NCOWVoWmQwTWZKZE9pTzdrbnE2alFKNDE4NEc3eHJqOW5QLW50a2Z2YTVvbFBvVy1zUzFDUQ?oc=5",
+   "published_at": "2024-02-01T08:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.538949+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineradoras em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ]
   },
   {
    "title": "Colombia, Brazil destroy illegal gold dredges in Amazon rainforest - Reuters",
@@ -3920,6 +3980,32 @@
    "setorial": 1,
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Brazil presidential decree next week to overhaul mining rules: sources - reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPenZ6U2VWVzJ2ZFpHN1lyUTVFQmRSWnNXRFlqWG5nN1o2NWdaQ2pFeHU0TzJpV0Q4cnpVMGJ3NURVRTdSNGdlaEFPOFlram0wT2lxLVludTNJYXgxSWV1ZG5yMmZqcHZtbnYzcjM4cENhdWFydG9jV2lKUEg5TFpVdGJjdVlFTHMzRjhjZGNhOWNQbzdFb1RJUExIUmRIVG05SHFSSnB2RE94ak8yOUpsS3R1TjNJeEE?oc=5",
+   "published_at": "2018-06-06T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:46.816820+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "MPF recomenda à ANM que reserve as áreas de lavra da Coogal a pequenos garimpeiros do Lourenço (AP) - Diário do Amapá",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNSEU2bGsxVmRSR1NYaWZseThvcUd2bEQxNVA4dWlmWVlicFB3bFlZTjItSDdybkZZeU4wWHpoT0tRamdOMXdvaDl5bkNrVXV4dksxX2lkeG8xTWItZHlvczVUX3VtN3hISTJQWFlFTDFlME9ldXhvaUFFTDVwVjZwSHh1YlEyS2pXVFhtR1k1NTJBYXVSeGZ5X3FPZ1NwSWVaZVdndnNyeXZURVB6M3NCRjVJYnByc0FfeUhGSEpvdjVjODQ3R1pXcllLQmppb1U5VnYwSWdBR01HNFFGS054dF9n?oc=5",
+   "published_at": "2018-04-02T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:45.505766+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
   },

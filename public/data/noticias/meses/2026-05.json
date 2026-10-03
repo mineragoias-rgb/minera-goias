@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 105,
+ "materias": 108,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -22,6 +22,19 @@
    "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTzdGZXMwcEFUVVBMZXBqRjdQYlVQUEtzbEhTZnBaeFNMWUFNYmNXNzVwWlFDaExIVjdfUGJ3LXFIejlwUVdvR2lQTHAzUTlKejBYZ0NJcndNUnhneTlGdHlGME4xZXVMMlJORmFrX1J3UzZ0bUwtNEhMbDExUUc3RFR1ang0elFEODRVRDhoSTVPVGZ0TGNsbXo4anMwYnM?oc=5",
    "published_at": "2026-05-29T07:00:00+00:00",
    "first_seen": "2026-09-25T04:03:04.989106+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ANM instaura processo de decaimento de títulos de lavra de mineradoras em MG e aprova fechamento da Mina Ponte Preta - atlaspublico.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNnpJSkRhT0NnZkg2QUp4UU1EY1FqNG42ZnJ1ZDZQblJON2FIRzZPMFlKZEw2Z0VSX1ZQYlRucGl5WlNJNEl4SnJrb2JTVHVDMXNpSktJMG56WDZYdHF1TFZySk5KZ1V4eE5wZU9BejB6REdHSERUZUxKNjROWEI1YUVsMUNUemdCekU0c3RMMUwyQVgxSUZkcHd4aERmOFhWUXlJ?oc=5",
+   "published_at": "2026-05-29T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:45.503681+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1145,6 +1158,19 @@
    "substancias": []
   },
   {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T11:25:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.756181+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - Folha de S.Paulo",
    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcEg2aXdRSE45MUNVR2lTMGN6TnlCUTlpYmdLQjRWNDJocnJhMEJ2NTF5cVdFMEJzcmFjNGRFdkZacVVmdU80ZkpyLVg4cWRpUkRrdWtzTVhNOFUwZHJaVUtOcWZ2ZnJaaG9PR2dMVUNiZ1RoTkNqVnNPVnJmdF9ETXlib21IRklmWGthQ21nYy1KX19XbVktcndBYndKWWE0ektLR2lVTDVzZ2I1RTdCVzlFNmkxRkdM0gG-AUFVX3lxTE9EREY4VXVJYmNFTnVGLVJzZzZlU0xxQWdLWExING8ybTRkbjBQQzh5bEJUbG0wM2pFUnhERUhGeTlyWVN5bWJTRENlSnI5Q1hCNUJXUkNlSDk5V3M5cEZscTNOV3V5Q1l0MzdrRWZTU1VUMDJ5X0dpNUJaYmFORWlLTElRZ2xWNlAtMVlxMnlRVmY5VFRSbUNRM2JSVm1TQ19rQnFIX182dU56azdVOFhMZC1QbnJsQ2NyNDYwSEE?oc=5",
    "published_at": "2026-05-10T07:00:00+00:00",
@@ -1237,6 +1263,21 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ]
+  },
+  {
+   "title": "Entenda como a Política Nacional de Minerais Críticos e Estratégicos afeta as terras raras em Goiás - maisgoias.com.br",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNVBlS1B6cERRdzFPVnhJWkpHNUgtSnZHUC1LMjgtakNodUZvTWdveGdobDJMWF85VW93SXhhdlhFbXRaOHp6UUlOWkYtajFoVVBQU0g4OGdWaU5DZEstMXYwUkk3bEZHTjVnSHVidmcyamFjR0taNkhFSWRpTzRPemtuZXhzY1FDQXFveDBjQXlXOXQyc2VPdUdzRlRaR05FMHlSVzM5X0hCa3JpbTlmTFhuM3dFWXUtYjgtc0c5N2hfcDFjTjZla1EtQjN3eHpWYzlB?oc=5",
+   "published_at": "2026-05-08T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:41.259734+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ]
   },
   {
