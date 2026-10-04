@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 100,
+ "materias": 105,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -247,6 +247,21 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "Terras raras: Serra Verde rebate Governo Federal e garante que não exporta minério bruto de Minaçu - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPY0VIY1VoakZZbVpod09rcGFsSThxWC0xUHZZSy1WWU5jT0txSkxrUW9QVTI4TVNUTXExSDBkQjBrRjVnaXhqVTg1SnMzSmVCbnBqenFadWVzNFM1aDc2ZDVIamE0TGdIWGpTUnlDaTMzUUhOU1hldjVTa3VzRkFvRGo2T25mZS1kU1ZNb1dOemJGenlHOWQzWi1XTTV2Y3lKS3pBYVhlMmJ6NU8tTFdvNEI2SFRrRWZfMFV5M1cwUQ?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:05.115264+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Acordo Goiás-Estados Unidos sobre terras raras é inconstitucional - Consultor Jurídico",
@@ -519,6 +534,21 @@
    ]
   },
   {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac227a30c644924a479f508ad55eb19&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-04T10:17:07.851129+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "Ministro diz que compra dos EUA de mineradora de terras raras em Goiás não deve avançar - OpiniãoCE",
    "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOTzh5aTZxWEhfR0ZWUThvQlNQOWxwS0pUMk9JS1V0NmI2QzhmZTFxQzN1bDktN2pLM3lMNGwxZ0ZHUGNtTEJwT1pGZi1HM3BJUTVIRGFBTU9iMFBYZC05WDg0TnhEZ3kxTU4yT0lKdU1TQ2x1YkYzOF9pbUNDcDFZWC1TaktyeEJiZEYyYmpKV1R2aU4yeW1hcTBKZlNtRjFLMDBpREo5ZEZ6RzlNbHhIV2M2TW91eFFQZHR6WXNzZ1NMTWtwM1BGUEYyOXV2Sy0wVFhB?oc=5",
    "published_at": "2026-04-24T07:00:00+00:00",
@@ -588,6 +618,34 @@
    "substancias": [
     "terras_raras"
    ]
+  },
+  {
+   "title": "Terras raras: Especialistas dizem que futuro dos carros elétricos e smartphones depende do solo de Goiás - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNUWExYlRaazRPXy1qSjdNbGdicFl0ckJDV2NDTmlITGxvNENuOXV4UXoxMmhnbEVzdzg1Z2NIaEFLZW04TkxrZ1lXZnVmbmc4LS1QUVdTREVuZVBRN3lvcmxhYkdaR2N0UTU3OTYyUjQwTTQxTXQzTE1NZ0JXTG1nZ0NVMFdCcnFhV2drYS1IRmg5c1pqVWxtb2FqNWpRNG5CQ21OTFNtcm02anF4ZUhlRFBkRW5xRWxmSmhxTUZQbVBIVy1IRGQ1ZnZfZURPT3dZX0kyLW5Ydw?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:05.115898+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Minerais Críticos e Estratégicos — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRE1pUl9BRllBUkdTeV9IMWc5di03UEUyNl9DdS1nUWF3OGFuaWVXekVUN1RFTU1fbkhvcVRyNXRHUEw0UlRaV1dNV3dhZ2J1SlVtUFNNcGhjbF9sNmNJNjdLRzZnelVpQmlGSFZITThsSE9oSHAyY3FGd3g0b2JtZDFSRjZqc2MtZ3lJU0dGdmRnbUQ3YlVVLV9lNlAtdloyVXM5eQ?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:10.194952+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Deputados do PSOL pedem à PGR anulação de venda de terras raras em Goiás",
@@ -712,6 +770,21 @@
    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNYmk4MW1fUFh0cUhjNmkwSm1FMnZXNzJfRmpZc2ZsZVZ6LTgxcElQREh3OXR2LVU5eVkzWkcyOEo2UUVOZm9jTC01NEtYeU9Pa1hfQjRHcGZYZVUwRUE5NjlIVlhLM1JOYy1DSG5MMkZTVGJQQmMtaDlWWEllM3Y2RDh2a244clh3NjR6d25wVGhYUV9MSVBGWElnWlBzd1J2V01NWHJOMzlHd0RPSEdVTXNJcklIMTByOW5XcFVLMFV0cUg5dTVNMDhR0gHeAUFVX3lxTFBYT1FFcTh6RTJqV24ydW5DMjI4NE5LZmUtdENHWUNsTDV2R3JueU1OUWNiblhGMEc4UmFCODlRRUVLTzl6WGNwU2dTTHZKdVVzeTdqX2tZaGw2N3ppcEZLY3NJNURNVWxjSFNuU3ByeGhGSHh4Yk5FV1dFN20wbDM4elJwak5TaWFkaFluOGdSQVlsOFhPUnlya1FFRVlUZ1lSbUJSb3lQY2d1ajllWGZfMm1HWXlPNGVWT1puS3pXcXJmS085X2NYakZHUy1YMXh1MHhrb04zSTduQVRadw?oc=5",
    "published_at": "2026-04-23T07:00:00+00:00",
    "first_seen": "2026-09-22T04:02:36.441107+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Exclusivo: Serra Verde, primeira mineradora de terras raras no Brasil, foi multada por desmatar vegetação nativa em nascentes do Cerrado - Observatório da Mineração",
+   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxONDhkX3ZUSnJ3RlMxZFpwZWdLVDhOcFZoYXlYTDR1emJTNnZFZFpUVmQ3RDAySUVrZWdhVGRNTzE1aHpxMFcxMGlJNTdaNUhBWmFKc2RwUmNVdEJ1dzRzS3VScDA3THpLSWZHcWMtTkZxRHZUaUFLS2k1S3oxdHBrNDRtMEZjMVprSW9EWkpIeF9DdnNsYjIwUXFDZnRnS1NHM1Y2UVRGc1M3eE5acmZ4RlltRXhXa3lfMUw3QmFab1lydkw5VHdnOFlYc3RWUWtLcFA1by0ydEs5cF8wdkZjTllmbS1lazVhZkRVM0syNkhLOHdxTUVTMDNGUkhKZkR1M2dB?oc=5",
+   "published_at": "2026-04-23T06:05:30+00:00",
+   "first_seen": "2026-10-04T10:17:07.001439+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

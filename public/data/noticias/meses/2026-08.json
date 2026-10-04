@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 236,
+ "materias": 239,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -1904,6 +1904,21 @@
    ]
   },
   {
+   "title": "Empresa dos EUA avança para comprar única mineradora de terras raras do Brasil - Correio de Carajás",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdGNNa0FtcU9NdXBqdGZQdG5HOXc5c2tFcTAydnMyajBFQXREbnpobXRoeVJ4cUtnUzZZenF2UUNrcVJPRDdacWJTVWVDbGFma2dYWUhCNmRsck1leVlFMy14czljWHNXVkFUeVYtd0JfbzhZcjZ1bTRrb3dnb0lYdmdNRDBXNGxQMGRoSGN2MU83TDZaY1BZNlB5VElmNld5ai1UdUJtcWxBLThlb3RLcQ?oc=5",
+   "published_at": "2026-08-24T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:07.002389+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
    "title": "Niger awards former Orano-operated uranium mine to state company",
    "link": "https://www.mining.com/web/niger-awards-former-orano-operated-uranium-mine-to-state-company/",
    "published_at": "2026-08-23T17:12:23+00:00",
@@ -2037,6 +2052,21 @@
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNSHFxNG1kM2NqNklEamZmX0hUVUxVWm5VMXk4aHFOZmp6MmZhd0RjLUt6NHRqbTU0SlkwTEJqUHlXTG1WYnVyYWxra2MxS1VfTzA4N2FYMW9KMTBzeDBMbS01bUFrTG5LblZfOTFVQmc3Ymc3NzdhbFhnR3pCM1JOdk4xUEI0dWlJWl90ZjlpSkNsVENHQTNCZmNzZTlTeHlRa3N6NGR4eDVFMG1X?oc=5",
    "published_at": "2026-08-21T07:00:00+00:00",
    "first_seen": "2026-09-22T04:02:39.893399+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Viridis drums up funds for Brazil rare earth project - LatinFinance",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYkRmWXphQ2paand3bVRoS0pRb241N29RYzVCMWg5RDVGZTNkN3BNSzlqYXBzNzZZMS1pTF9taE1WWlAyc0tDWFBiZTh1V0dnVl9Dc25qNnJkTlpEZXJwZ2JEM3c3WENUQlM0TU1DSlM5em5KbnNKMEFHN0lDT2hodElOSHprb2FXSzh4OWJabjQzbE9vbmpqU1FQRDhORVlKZFdr?oc=5",
+   "published_at": "2026-08-21T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:10.763983+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -2780,6 +2810,19 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ANM rejeita defesa da Vale e mantém cobrança de R$ 29,9 milhões em royalties de mineração - atlaspublico.com.br",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZzdCYlNJMHJhd2RDOHc3OENrMXVBUlQ4dFFQX004YUpiaVE5SVc1RjBIMGFfM0xOUWMtSjVfLTRLc1BldV83aW9jeFd2QTdPdGlBR1hVaXhkQTA3Z2VTb3hwQkY1b2R2dXJCN3VMdVZJMWs2T1RuZG9wVlRHbHZwYnJiaWRmSjhueXlDVEJ5RmI0LUY2Vmg1QTZjeDdYd1E?oc=5",
+   "published_at": "2026-08-12T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:09.351923+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
