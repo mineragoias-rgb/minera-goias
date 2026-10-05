@@ -1,6 +1,6 @@
 {
  "mes": "anteriores",
- "materias": 312,
+ "materias": 315,
  "itens": [
   {
    "title": "Agência Nacional de Mineração reorganiza estrutura com nova coordenação em Minas - Diário do Comércio",
@@ -111,6 +111,21 @@
    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNM3VaejZmeGREWllPa1FaOW1KNkExRzRTTWxRcU5TMU1ka25MMzF0Vkl1dldMTnotVVIzRUVoMUdjbW0zYWZDdTRsNzJ0YWx1Wi1GaTFrTTV3bVB3dHprT0JVNnQwdmhpLXJEaHYxc1AwVS10Q29TNGlFMFExZ2Ruc0xRQnFTUjRsQy1BOUhOcFlBdE92cGRtdGNJcVJZSk1aWklmR1RtN3JSNXhMLUJ5aUY2UEpJdGhWVHdrOFJEVWVxUdIBxwFBVV95cUxOenNvMTlDcU9rZlBreWs1LUdiVU53TEdQZzRJYnFUSF9HVDZEU0ZBQURCSmR1bDF2M2xhdmxlV211V0VvM3kyVGFldmdpSG56c2FBelF2LWc5V21fQjFWbUc4R1FiejZJNDF5SzhrOEtiOGJOTzRsUHlDcWd1bmRZYXM3UWlQdVRHNzRQOTBwYjRxYVdoTXQzTlJNdW5DMUp1S0F2T09zTjNpRmR4MWEtRHlCUTNoYndaOE9YdFZxUGpuZm8yMF8w?oc=5",
    "published_at": "2025-10-04T07:00:00+00:00",
    "first_seen": "2026-09-19T19:48:59.703587+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ]
+  },
+  {
+   "title": "Para que serve o níquel, quem domina o mercado e qual a posição do Brasil - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNM3VaejZmeGREWllPa1FaOW1KNkExRzRTTWxRcU5TMU1ka25MMzF0Vkl1dldMTnotVVIzRUVoMUdjbW0zYWZDdTRsNzJ0YWx1Wi1GaTFrTTV3bVB3dHprT0JVNnQwdmhpLXJEaHYxc1AwVS10Q29TNGlFMFExZ2Ruc0xRQnFTUjRsQy1BOUhOcFlBdE92cGRtdGNJcVJZSk1aWklmR1RtN3JSNXhMLUJ5aUY2UEpJdGhWVHdrOFJEVWVxUQ?oc=5",
+   "published_at": "2025-10-04T07:00:00+00:00",
+   "first_seen": "2026-10-05T10:55:55.698242+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -233,6 +248,19 @@
    "substancias": [
     "ouro"
    ]
+  },
+  {
+   "title": "Anglo American, Teck Resources to merge in second-largest mining deal ever - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQ2xjTDN3X2NCX2lQRDJrTmNjZkltWXQtOGNPSjhSZ29nZHVpeUJsMkU0dnlEZ29tVXozZi1QQkU4M1VfYzVvazBWTXQtamZ1bVRkdURCTjZfbmsybnVSMEYxN0ktV1Z1el82dUE1OXctYk93ZkNHakVlX2pkMEMwR1VheWlUTWsxeEdlb3hacWdkYmZMNWJlRTltY2didVNvVVFSOEtPS0dORWZuQkdHemZR?oc=5",
+   "published_at": "2025-09-09T07:00:00+00:00",
+   "first_seen": "2026-10-05T10:56:00.800502+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Diretor substituto da Agência Nacional de Mineração - www.gov.br",
@@ -4135,6 +4163,19 @@
    "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNVm9QaDZEY0ZnVGVEclNJenhBMEhlLWZETWxiZVhycjRFeVZrSGhqZ0N6QlZCQjJuLUVWVkkydS1mT1dlWDB5TElUb2FuczJyRGhONnAyWk9IZEpKWTQzTGRzU3c5SExUb1BFdmxzVWdfWUx2Um1TRG1Odm0yREV0dHZiaGNwa1ZUMXJOYlIzMjFlbjBzOGtkNjhJUU56NDRlTDBjVHhnMFlxVG1QMXhQUEpmdVpFX1N6QzNoWnc3R3R2N3NCbzQxS0s2M0JDS0NlSU5N?oc=5",
    "published_at": "2018-02-04T08:00:00+00:00",
    "first_seen": "2026-09-20T04:02:44.287966+00:00",
+   "regional": 1,
+   "regiao_termo": "catalao",
+   "setorial": 1,
+   "fonte": "Busca · Catalão e Ouvidor",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "Município recebe as chaves do Clube da Mineração para projeto educacional - Prefeitura Municipal de Catalão",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVWU1NnF4LXlMdnppNElBUzVqR0NtUW9YREpiV29qMjB4Q1l6ZnR3TU45S3o3YWozSndGQk1LVlN2TnNMemV5eFhNWlZ6Q2pIUTJKQ3VJdkU3SkF4TnlMbzFtWEhQdVJPVVZJX1F3SkFwRTJ4eG8wWGM4QklZd2MxQ1BQMmo3UUZqU2MyZGQ2TTdmY2kwd0FtZnlIbXd6dFdkRWR4RVBFUE4xNkZ6dU4yYjJSbTJ0Skt3V09HdEhJRmE?oc=5",
+   "published_at": "2017-09-20T07:00:00+00:00",
+   "first_seen": "2026-10-05T10:55:56.606192+00:00",
    "regional": 1,
    "regiao_termo": "catalao",
    "setorial": 1,

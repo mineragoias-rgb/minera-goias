@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 109,
+ "materias": 110,
  "itens": [
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
@@ -1000,6 +1000,19 @@
    "substancias": [
     "terras_raras"
    ]
+  },
+  {
+   "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - climainfo.org.br",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVVFTd0pZOS1BcHBzMkRTMjNaNXZWalFCOF91QUhLbWFrVTJDeFVIWmJIVmI4M2MxdzhhX19Dbm15N1ZfSloxcGwwbkN4eDVPRWlvU2UydHhKTGE4bFQ0OGZLcEFaOW41NXZMZjRWOFhweXQyMXI1Nk5yWmNZWW9adXdYUkFiS3pkbmg0OUtRNTR2WUNOMm9Kc09kRmVqd3dKNEo3YQ?oc=5",
+   "published_at": "2026-05-11T07:00:00+00:00",
+   "first_seen": "2026-10-05T10:55:55.303971+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
