@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 99,
+ "materias": 103,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -13,7 +13,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM fixa limite global de 50 ha para garimpeiros individuais e exige prova de lavra para renovar permissões - atlaspublico.com.br",
@@ -26,7 +27,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "POSCO group Strengthens Rare Earth Supply Chain Together with Brazil - 포스코그룹 뉴스룸",
@@ -41,7 +43,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM endurece regras do garimpo e exige prova de lavra para renovar permissões - Fatos de Mato Grosso",
@@ -54,7 +57,36 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s rare earths attract new investments with progress in projects and strategic partnerships - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdTQzTVB6WWRJMzNmcWh0emFTNWVWMHhKNmkxdGRmbXkteEVwZ2xfTFcyYmMybGVPRzlwbmFvZ0ZaX0F0cFJTY3dYMnBqTDdVaFFDZFZKaXpXQmpaRTNaWWRmd01pckNYbE84Z0QyVWt5TkpMV1JUWVdnWFpKYTBnTE9kblhheld4SHc4V0Y3TXA2WVRNWGY3N3N6enRxaFdXNkJmSlBlZHoyT1dJdEFyOTVVZ2dqOWtJQThnYzZOY3VMZlRiVi1GbEUtNA?oc=5",
+   "published_at": "2026-07-31T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.974828+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Q&A with Igor Patrick: “The dispute over who processes Brazilian rare earths—not who digs them—will define whether this moment becomes strategic autonomy or just another commodity boom.” - Inter-American Dialogue",
+   "link": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOODhnR1F4Q1h0TVBrei1hdE1PblhBb0pOaTUteld3SzF5c25rNnZwZHNNWVVQMXNjSkhqc0VrOGIzV3RiRE4xLUprUHJ6VGVCTzU0LXRnVW5SMk1Ebk91ZjJFMDktNVREWFBxeFVMQ2VwdFBza3k0akVuSVVhTTU1UkxtU1lPeDBtbjI3ZDc5Y2xXQVBFdEg2bkJKNkxzdF9sNnpaZW14LWlLNTEwZnZjUm1jbFZXMUJaYmladjYxdF9iVXBtOHVhNjFINHA2V0dPdWZtM2FCckNTZkR6M2U1X3ZKYjN0NEcxQnpQdUJHQTVpclJLRzA4TVJOTXJuMmRwdVZDVlk5OTFCSVhmMmgzamo1cGl3bWtiQ3pNQjc5SmExSG5OUXRUQVJkTWJadFZTVUU1aU9nVWY?oc=5",
+   "published_at": "2026-07-30T15:25:14+00:00",
+   "first_seen": "2026-09-19T19:49:06.935584+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brasil perde bilhões em royalties da mineração diante de sonegação generalizada e amplia prejuízo para estados e municípios - observatoriodamineracao.com.br",
@@ -67,7 +99,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM lavra autos de infração contra Vale e COOPERSANTA por irregularidades em barragens - atlaspublico.com.br",
@@ -80,7 +113,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Posco advances rare earth supply deal in Brazil - The Korea Herald",
@@ -95,7 +129,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM limita áreas e reforça controle sobre lavras garimpeiras - Portal BE News",
@@ -108,7 +143,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - ANM pública novas regras para permissões de lavra garimpeira - Estadão Blue Studio",
@@ -121,7 +157,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Denison starts building Canada’s first ISR uranium mine",
@@ -136,7 +173,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "ANM exigirá prova de atividade mineral para renovar permissões de garimpo - CNN Brasil",
@@ -149,7 +187,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Nova resolução combate fragilidades estruturais de PLGs — Agência Nacional de Mineração - www.gov.br",
@@ -162,7 +201,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Meteoric and POSCO sign partnership on Brazil rare earths project - Mining Technology",
@@ -175,7 +215,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "O greenwashing da mineração de terras raras em Goiás - Nexo Jornal",
@@ -190,7 +231,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras Raras: uma oportunidade para o Brasil - ABC - Academia Brasileira de Ciências",
@@ -205,7 +247,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Australia's Meteoric Resources ties up with Posco for Brazil rare earths project - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVmhJSF9LbWVrajNIUThMbld5bVFaVmpXb3RvWXd4RXBuUzJ6VGpZZDlVd2d4VUM5X1lkZjdPZ0lneTQ1U2dPVnp4aHB6NWNQZHh5WGU2MkdPa0h6SmF2Q28zclMzSDMtOEYyVUpRMjkwMlhkMmVXYjc5YmlaQXgyM05SODhMdnhKcGxUenJXeHZVS0RLb3lLVnlVa3duNjRxM283SDdCczRZRXBLQUk5bzYwajM5T3Zqa0x5VzVRT2ZycGxYS3UxbjF3?oc=5",
+   "published_at": "2026-07-28T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.977925+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Maquiada de verde, mineração de terras raras impacta territórios e amplia conflitos pela água em Goiás - ((o))eco | Jornalismo Ambiental",
@@ -220,7 +277,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Cidades do RN afetadas pela mineração recebem R$ 802 mil em julho - Tribuna do Norte",
@@ -233,7 +291,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ESPODUMÊNIO | Preços do concentrado de lítio quadriplicaram no início de 2026 - Brasil Mineral",
@@ -248,7 +307,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM não é tributo, é compensação - Capital do Pantanal",
@@ -261,7 +321,22 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Indonesian metal exports face disruptions by rare earths checks",
+   "link": "https://www.mining.com/web/indonesian-metal-exports-face-disruptions-by-rare-earths-checks/",
+   "published_at": "2026-07-24T14:41:23+00:00",
+   "first_seen": "2026-09-19T19:48:55.926538+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · urânio",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Terras raras, cicatrizes profundas: o preço do minério crítico sobre os corpos e territórios negros - Brasil de Fato",
@@ -276,7 +351,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM | ANM distribui R$ 88 milhões para municípios afetados e limítrofes - brasilmineral.com.br",
@@ -289,7 +365,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradora é investigada após moradores denunciarem contaminação por mercúrio e chumbo, em Alto Horizonte - Daqui",
@@ -302,7 +379,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Tecnologia é o maior desafio das terras-raras, diz COO da Serra Verde - poder360.com.br",
@@ -317,7 +395,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth troca comando após compra da única mina brasileira de terras raras - Instituto Humanitas Unisinos - IHU",
@@ -332,7 +411,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium negocia TAC com governo mineiro sobre questões ambientais - Brasil Mineral",
@@ -347,7 +427,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium negocia com governo de MG após notificação ambiental e multa - CNN Brasil",
@@ -362,7 +443,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium e Minas Gerais negociam acordo após embargo de operação - Bloomberg Línea Brasil",
@@ -377,7 +459,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM distribui R$ 88 milhões da CFEM a municípios afetados pela atividade mineral - Brasil 61",
@@ -390,7 +473,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Estudo detalha panorama de minerais críticos e estratégicos na Amazônia - www.gov.br",
@@ -403,7 +487,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil’s Critical Minerals Push and the Race for Strategic Autonomy - Diálogo Americas",
@@ -416,7 +501,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Órgão ambiental de Minas suspende parte das operações da maior produtora de lítio do Brasil - Impactto News",
@@ -431,7 +517,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradora é investigada após moradores denunciarem contaminação por mercúrio e chumbo, em Alto Horizonte - O Popular",
@@ -444,7 +531,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Órgão ambiental de MG suspende operações da maior produtora de lítio do país - G1",
@@ -459,7 +547,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Feam embarga operações da Sigma Lithium - ofator.com.br",
@@ -474,7 +563,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Harvest Minerals acquires assets to enter the rare earths sector in Brazil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQzB4UUk0RldvSFJ2ZVlJWkRLRndlcU1QdGF2X2NVZUY1Ml9nWUVFTDVTZE13aTh1OWVuWlAtR0Y1UjBvUzJyZXpXNktKX2x3Q3Itcmo4WFExTFo3M2EzeGh5S19KbTVlYWk2c1N1UW1LeEFBMU05aHlYYlVYbDE3ZjV4QUg4SkVoTUdJSWFSaFNtSWZua3hQR3RfQ3BhVG9RWEhSRWhHQk1qbF9OWGc?oc=5",
+   "published_at": "2026-07-22T07:00:00+00:00",
+   "first_seen": "2026-09-20T04:02:48.290330+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Projeto Colina coloca Salinas no centro da cadeia global do lítio - Estadão Blue Studio",
@@ -489,7 +593,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "MPF investiga possíveis impactos ambientais e contaminação em área de mineração em Alto Horizonte - Tribuna do Planalto",
@@ -502,7 +607,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "O homem que colocou as terras raras de Goiás na órbita de Washington - VEJA",
@@ -517,7 +623,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM publica lista de repasse aos Municípios afetados pela mineração e de vizinhos em áreas de produção mineral - Confederação Nacional de Municípios",
@@ -530,7 +637,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Concluído o ciclo 2025/2026 de repasses da CFEM a municípios afetados — Agência Nacional de Mineração - www.gov.br",
@@ -543,7 +651,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana adquire 8 projetos de terras-raras no Brasil - Poder360",
@@ -558,7 +667,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Harvest Minerals soars on Brazillian rare earth deal - Yahoo Finance",
@@ -573,7 +683,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "How Aclara Plans to Build a Rare Earth Supply Chain Without China by 2028",
@@ -588,7 +699,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Marco das terras raras em Goiás impõe limites à concentração da produção em um só país e condiciona benefícios - Jornal Opção",
@@ -603,7 +715,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Após fusão, CEO da Serra Verde vai assumir comando da USA Rare Earth - CNN Brasil",
@@ -618,7 +731,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ALTO HORIZONTE – Lundin Mining recebe reconhecimento nacional por transparência na gestão de gases de efeito estufa - Excelência Notícias",
@@ -631,7 +745,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM autoriza maior cooperativa de garimpo do país a ceder lavra em MT - Fatos de Mato Grosso",
@@ -644,7 +759,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Licença da ANM virou papel de fachada para ‘lavar’ ouro ilegal, diz procurador - amazonas atual",
@@ -659,7 +775,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CEO da Serra Verde assume USA Rare Earth após acordo de US$ 2,8 bilhões - InvestNews",
@@ -674,7 +791,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Moradores fazem paralisação contra mineradora em Alto Horizonte - Jornal Opção",
@@ -687,7 +805,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM distribui mais de R$ 464 milhões em royalties da mineração a estados e municípios - Brasil 61",
@@ -700,7 +819,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MPF investiga crimes ambientais e contaminação por metais em mina de Alto Horizonte - diariodegoias.com.br",
@@ -713,7 +833,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MPF vai à Justiça contra ANM por omissão que facilita lavagem de ouro ilegal na Amazônia - mpf.mp.br",
@@ -728,7 +849,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM notifica Vale S.A. para quitar, parcelar ou recorrer de débito de R$ 30,7 milhões em CFEM - atlaspublico.com.br",
@@ -741,7 +863,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Disputa por áreas de lítio em MG chega à Justiça após decisão da ANM - Vero Notícias",
@@ -756,7 +879,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sete em cada 10 títulos minerários em Minas não geraram royalties em 2025 - ofator.com.br",
@@ -769,7 +893,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Bilionária! Canaã dos Carajás é o município que mais recebeu CFEM no Brasil - Gazeta Carajás",
@@ -782,7 +907,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Multinacionais disputam áreas de exploração de lítio em Minas Gerais - Jornal de Brasília",
@@ -797,7 +923,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás cria zonas especiais para acelerar mineração de terras raras - O Popular",
@@ -812,7 +939,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Indústria do lítio agrega em 50 vezes o valor da sua produção no Brasil - Estadão Blue Studio",
@@ -827,7 +955,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brasil reúne condições para liderar indústria global do lítio, mas setor cobra segurança jurídica e políticas públicas - Estadão Blue Studio",
@@ -842,7 +971,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Multinacionais disputam áreas de exploração de lítio em Minas Gerais - Folha de S.Paulo",
@@ -857,7 +987,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ausência de demanda garantida impede avanço da cadeia do lítio, afirmam executivos do setor - Diário do Comércio",
@@ -872,7 +1003,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Confira o repasse da CFEM referente à arrecadação de junho — Agência Nacional de Mineração - www.gov.br",
@@ -885,7 +1017,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM notifica Vale S.A. para pagar, parcelar ou recorrer de dívida de R$ 136 milhões em CFEM - atlaspublico.com.br",
@@ -898,7 +1031,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM notifica Vale a pagar, parcelar ou recorrer de dívida de R$ 142 milhões de CFEM - atlaspublico.com.br",
@@ -911,7 +1045,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium supera projeção e produz 35 mil toneladas de concentrado de lítio no 2° trimestre - Estadão Blue Studio",
@@ -926,7 +1061,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "PRÓ-BIBLIOTECA III – Lundin Mining entrega 1.500 livros às comunidades de Alto Horizonte, Campinorte e Nova Iguaçu de Goiás - Excelência Notícias",
@@ -939,7 +1075,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Lula coloca minerais críticos no centro da política industrial e vê Vale como peça-chave - Balada IN",
@@ -952,7 +1089,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium aumenta em 6% a entrega no segundo trimestre - brasilmineral.com.br",
@@ -967,7 +1105,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Silveira cita Serra Verde ao defender “controle” sobre minerais críticos - CNN Brasil",
@@ -980,7 +1119,8 @@
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Lithium Ionic avança para construção de portais de minas subterrâneas do projeto Bandeira - Revista O Empreiteiro",
@@ -995,7 +1135,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Dano ambiental em Catalão leva mineradora a fazer acordo milionário - Mais Goiás",
@@ -1008,7 +1149,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradora CMOC firma acordo de R$ 11 milhões por contaminação do solo em Catalão - Tribuna do Planalto",
@@ -1021,7 +1163,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Operações de espodumênio no Brasil têm custos mais competitivos - brasilmineral.com.br",
@@ -1036,7 +1179,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Serdan Mineração anuncia investimento de R$ 5 bilhões no Ceará - brasilmineral.com.br",
@@ -1051,7 +1195,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Confederação solicita informações à ANM sobre repasses da Cfem aos Municípios afetados - Confederação Nacional de Municípios",
@@ -1064,7 +1209,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Lithium Ionic abre licitação para obras de projeto de US$190 milhões no Brasil - BNamericas",
@@ -1079,7 +1225,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Após tombo histórico, setor de lítio vê retomada e aposta em novo ciclo - CNN Brasil",
@@ -1094,7 +1241,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Lithium Business 2026 destaca protagonismo do Vale do Jequitinhonha na mineração e reforça compromisso com desenvolvimento regional - Estadão Blue Studio",
@@ -1109,7 +1257,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "MPGO celebra acordos com mineradora que garantem R$ 11 m... - Portal MPGO",
@@ -1122,7 +1271,8 @@
    "fonte": "Busca · mineradoras em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic cota portais de mina subterrânea do projeto Bandeira - brasilmineral.com.br",
@@ -1137,7 +1287,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "BCM strengthens cash position to advance US$74 million rare earth project in Brazil - BNamericas",
@@ -1152,7 +1303,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Soja, carnes e mineração impulsionam exportações de Goiás ao 2º maior resultado da história para junho - Diário de Goiás",
@@ -1165,7 +1317,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Empresa mineira vai investir R$ 5 bilhões na exploração de lítio no Sertão Central do Ceará - Diário do Nordeste",
@@ -1180,7 +1333,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Recolhimento da CFEM tem nova plataforma digital — Agência Nacional de Mineração - www.gov.br",
@@ -1193,7 +1347,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM adota nova forma de cobrança para Compensação Financeira pela Exploração de Recursos Minerais - Serpro",
@@ -1206,7 +1361,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM notifica CODEMIG e Mosaic Fertilizantes sobre dívida de R$ 55 mi de CFEM - atlaspublico.com.br",
@@ -1219,7 +1375,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil's Tiros Rare Earth and Titanium Project Gets Preliminary E... - Industrial Info Resources",
@@ -1234,7 +1391,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Grupo investigado pela PF na Operação Parcours estimou em mais de R$ 1 bilhão multas e dívidas da CFEM, apontam mensagens - observatoriodamineracao.com.br",
@@ -1247,7 +1405,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Jequitinhonha: lítio e luta - Jornal do Brasil",
@@ -1262,7 +1421,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Data centers reforçam nova onda de demanda por lítio - BNamericas",
@@ -1277,7 +1437,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA tratam Brasil como \"país X\" e \"Equador\" em proposta para terras raras - cnnbrasil.com.br",
@@ -1292,20 +1453,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Conheça 3 modalidades de fiscalização — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQYkFSNExHcUUwWEd3QzNyeUw0eFVRV0t5Zm9PNl9BRXlUN2oySjNMeGpzTkJYRWlkSHItRGQ2d1lEbE8tTHR3ZENhdHUzN0JRSWFfUTg1d1ROcm13cU9zRWhKM0prb3d0WWRVY1czVV9KdkdVMHVYUFlJTTJhLUxlNm5nRVlteUJfNGtvazJydXo3bkwtUUVZeUkwbEZJTG5lakpEajZNenlYZWVMQUdfQVZsWQ?oc=5",
-   "published_at": "2026-07-02T07:00:00+00:00",
-   "first_seen": "2026-09-19T19:49:04.851941+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · CFEM",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM mantém cobrança de R$ 190 mi contra Vale - Agência iNFRA",
@@ -1318,7 +1467,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM aprova súmula administrativa referente ao indeferimento de Requerimentos de Lavra - Demarest",
@@ -1331,7 +1481,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Recolhimento de royalties da mineração será digital a partir de 7 de julho - Estadão Blue Studio",
@@ -1344,7 +1495,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Can Brazil become a key rare earth supplier for the West? - Mining Technology",
@@ -1359,7 +1511,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7 de julho - ZÉ DUDU",
@@ -1372,7 +1525,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Can Brazil become a key rare earth supplier for the West? - Yahoo Finance",
@@ -1387,7 +1541,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   }
  ]
 }

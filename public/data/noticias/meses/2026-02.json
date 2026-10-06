@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 33,
+ "materias": 29,
  "itens": [
   {
    "title": "Agência distribui mais de R$ 108 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
@@ -13,7 +13,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM averba penhora sobre concessão de lavra da Cooperativa de Mineração dos Garimpeiros de Serra Pelada - ZÉ DUDU",
@@ -26,7 +27,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Governo do Zimbábue suspende exportação de minérios e concentrados - brasilmineral.com.br",
@@ -41,7 +43,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Com foco em ouro e terras raras, Goiás busca captar US$ 10 mi na maior vitrine mundial da mineração - Jornal Opção",
@@ -57,20 +60,8 @@
    "substancias": [
     "ouro",
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Engie eyes bitcoin mine and storage system at huge new Brazil solar plant - Reuters",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPbEF6T3FzaW55NUtxaVFSUUt4NjFHMzBoWWd1dEtGRzFNQ0ZRRTc5MzJoUGo5dVJwTjhXUTAyeEdrcXZGM25rU1RxXzdGRzNjUXBPc2Izck9FcVg3SVlJT1NoVC1OZjJzR3B5azkzYldTSXNXQ0JvYXdia1U3bVh0OWFRcGlXOGRtTGFUa1hvTndGRjdMY0dLT0RYaEhMM3ZEX2xkNGJoenpRbkZINlNGNEZ0ajZfZmxEUzFCSldiUHA1aXB4NWJIRWZ1MUI?oc=5",
-   "published_at": "2026-02-23T08:00:00+00:00",
-   "first_seen": "2026-09-20T04:02:48.693962+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "India, Brazil sign mining pact as Modi targets $20 billion trade in five years - Reuters",
@@ -83,7 +74,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Empresa indiana terá participação em refinaria de lítio no Brasil - CNN Brasil",
@@ -98,7 +90,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Alerta: mensagens que simulam cobranças a regulados são tentativa de golpe — Agência Nacional de Mineração - www.gov.br",
@@ -111,7 +104,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Goiás anuncia fim do Fundeinfra e alivia custos para a mineração - Estadão Blue Studio",
@@ -124,7 +118,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradora australiana descobre terras raras em Goiás e ações disparam - CNN Brasil",
@@ -139,7 +134,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale, Anglo American e CSN lideram pagamentos da Cfem em Minas Gerais - Diário do Comércio",
@@ -152,7 +148,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM: royalties da mineração somam mais R$ 546 milhões destinados a estados e municípios produtores, em fev... - Brasil 61",
@@ -165,7 +162,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração injetam mais de R$ 546 milhões em estados e municípios produtores - www.gov.br",
@@ -178,7 +176,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma vende 150 mil toneladas de finos e assegura crédito de US$ 96 milhões - brasilmineral.com.br",
@@ -193,7 +192,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic indica avanços na engenharia do projeto Bandeira - brasilmineral.com.br",
@@ -208,7 +208,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Indiana Altmin aporta US$ 40 milhões para ampliação da CBL - brasilmineral.com.br",
@@ -223,7 +224,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM, AGU e obras públicas: quando falta de registro de extração não gera indenização - JOTA Info",
@@ -236,7 +238,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India Pursues Critical Minerals Deals with Brazil, Canada, France, Netherlands, Reuters Reports - Autocar Professional",
@@ -249,7 +252,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India Pursues Critical Minerals Deals with Brazil, Canada, France, Netherlands, Reuters Reports - autocarpro.in",
@@ -262,7 +266,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Webinar RAL 2026: ANM tira dúvidas sobre a Campanha do RAL 2026 — Agência Nacional de Mineração - www.gov.br",
@@ -275,7 +280,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India in talks over critical minerals deals with Brazil, Canada, France, Netherlands, sources say - Reuters",
@@ -288,7 +294,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANGLO AMERICAN | Resultados positivos em minério de ferro e níquel no Brasil - Brasil Mineral",
@@ -303,7 +310,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Alvo da China, terras raras de Goiás recebem US$ 565 milhões dos EUA - braziljournal.com",
@@ -318,7 +326,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Faturamento cresce 10% em 2025 e CFEM chega a R$ 7,9 bilhões - Brasil Mineral",
@@ -331,46 +340,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "Manuais e Procedimentos — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE12ckZwMUhDeUxzeC1vdF9XQ283SFZWT1U0WHJ2cEtCeFFSMW1oS1M5clkzRzg4RXk4a2c3YVZ2d1Awb3hlV3FldlNmeWpRNXZXMkVHaUxnSmNaSU5pZ3Fma1l1YklWMS1yMWRneTljMGpkcWVMRGxPSlItNnNrOTg?oc=5",
-   "published_at": "2026-02-04T20:13:29+00:00",
-   "first_seen": "2026-09-19T19:49:06.263224+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "Biblioteca — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9fU01Ic19BQkthem0wOFJUTTFndV9BcjZyUTNmRW1WQzgxcVVLRmc4OXZrMHRlbjhMT1l6cTlIanFha29xTWU4aUY3VlVkRXZ5M1pHX2Y1ZFRnMjlxVnZEbjZTYzF0dE84Y3ZSb0RB?oc=5",
-   "published_at": "2026-02-04T20:13:27+00:00",
-   "first_seen": "2026-09-19T19:49:06.255413+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "Mapa Digital - Região Sudeste — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxNSXBlZHFETlBoTllEVUNZY3UyVjk4UEFWNWhBaTRoN0gzLW9nRDhHSUFUWGlvQ0lIT1BiYk51b0dDbmhzUjJFZDlsLW1BOGRmMG1fMHhEcnN6ckZweG42WHFNaTJzTC1PYzV3ZFVxWC1VZTV1VTg1YVQ3THdtdkZ4SXczUld6dWQ3UklCZG81RUx6MTZ3aUZQdlU1TGZFTFpiZUJ3SDhxLUUtUDBrcWxkcWd5c214TnlST3VMSG44QlNWdFdSLTV2YlVyVmhwVXItenBkeS1ocmJpd294akx5MWZZTFBrTzNfMjh0OVdDc2hkWG9fRVR0dnF4bEJtbldYaTQwbjZ1Mm9NaU5zMFMyOVZXOS1IT3RsZmc0RDhJamQ2NUlWVlZNbA?oc=5",
-   "published_at": "2026-02-04T08:00:00+00:00",
-   "first_seen": "2026-09-24T04:02:32.396562+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "SIGMA LITHIUM | ANM atesta segurança de pilhas de estéril e materiais - Brasil Mineral",
@@ -385,7 +356,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Reserva de minerais de Trump pode incluir lítio e terras raras do Brasil - CNN Brasil",
@@ -401,7 +373,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Pilhas da Sigma Lithium não oferecem ‘risco iminente’, diz Agência Nacional de Mineração - Valor Econômico",
@@ -416,7 +389,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium's waste piles offer no 'imminent risk,' Brazil mining regulator says. - Reuters",
@@ -431,7 +405,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium afirma que foram retomadas atividades na Mina 1 - Brasil Mineral",
@@ -446,7 +421,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale aciona a Justiça contra presidente do TCE-MG por declarações sobre sonegação de Cfem - O Fator",
@@ -459,7 +435,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   }
  ]
 }

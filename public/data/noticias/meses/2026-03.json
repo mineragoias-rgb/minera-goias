@@ -13,7 +13,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Novo portal da geoinformação reúne dados minerários em ambiente único e amplia transparência no setor - www.gov.br",
@@ -26,7 +27,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Novos painéis sobre Guias de Utilização ampliam transparência e fortalecem governança na mineração - www.gov.br",
@@ -39,7 +41,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium fecha US$ 146 milhões em acordos e reduz dívida em 35% - CNN Brasil",
@@ -54,7 +57,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Alexandre Silveira | Os minerais críticos e estratégicos são nossos - Poder360",
@@ -67,7 +71,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração distribuem mais de R$ 92 milhões e revelam nova geografia da presença no país - www.gov.br",
@@ -80,7 +85,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Painel interativo amplia transparência e monitoramento dos acordos de cooperação técnica na mineração - www.gov.br",
@@ -93,7 +99,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Estados e municípios com ACT firmado e publicado com a ANM são convocados para treinamento obrigatório sobre fiscalização da CFEM - www.gov.br",
@@ -106,7 +113,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Com preço mínimo, projeto de lítio em MG fecha acordo com gigantes chinesas - CNN Brasil",
@@ -121,7 +129,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração de lítio transforma vida de ribeirinhos de Itinga (MG) em pesadelo, revela vistoria - Brasil de Fato",
@@ -136,7 +145,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradoras fazem ressalvas a garantia proposta pela ANM - Agência iNFRA",
@@ -149,7 +159,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Comissão aprova repasse de parte dos royalties da mineração a projetos ambientais locais - Portal da Câmara dos Deputados",
@@ -162,7 +173,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM recebe recomendações para conter crime organizado na mineração - Agência iNFRA",
@@ -175,7 +187,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM - Guia de Cobrança — Agência Nacional de Mineração - www.gov.br",
@@ -188,7 +201,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Modernização na arrecadação: Nova Norma unifica cobrança dos Royalties da Mineração - www.gov.br",
@@ -201,7 +215,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Caiado assina acordo com EUA prevendo parceria para explorar minerais críticos em Goiás - O GLOBO",
@@ -214,7 +229,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás firma acordo com EUA para cooperação em minerais críticos - Portal BE News",
@@ -227,7 +243,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás assina acordo com os EUA para colaboração sobre minerais críticos - Brasil 61",
@@ -240,20 +257,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "PGD — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1vSGV5NEUtaEM1RV92S3dxY2d5S0RVakhjQTRmNVFTWmFLNU9NWjc5VDV2U2dvOFZ5ZDFzbVYxMUtySkJSS3NrbmV0NXJDLVQ3ZzV5cl9lWW42N1YxV21WOTZOZExZSVlTSzhVTHVHNEw?oc=5",
-   "published_at": "2026-03-18T13:52:15+00:00",
-   "first_seen": "2026-09-19T19:49:06.277796+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "US in talks with Brazil on critical minerals, US diplomat says at signing of Goias state deal - Mining.com",
@@ -266,7 +271,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Indianos entram no mercado de lítio do Brasil em busca de tecnologia - bemparana.com.br",
@@ -281,7 +287,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA e Goiás assinam memorando sobre terras raras nesta 4ª feira - poder360.com.br",
@@ -296,7 +303,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Com benefícios fiscais, Goiás fecha acordo de minerais críticos com EUA - CNN Brasil",
@@ -309,7 +317,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MINERAIS CRÍTICOS | Goiás firma acordo de parceria com o governo dos EUA - Brasil Mineral",
@@ -322,7 +331,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás ressalta “rigor jurídico” em acordo de minerais críticos com EUA - CNN Brasil",
@@ -335,7 +345,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás assina acordo com os Estados Unidos para exploração de terras raras - SBT News",
@@ -350,7 +361,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Indianos entram no mercado de lítio do Brasil em busca de tecnologia - Folha de S.Paulo",
@@ -365,7 +377,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: mais de R$ 464 milhões são distribuídos a estados e municípios produtores de minerais - Brasil 61",
@@ -378,7 +391,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Indianos entram no mercado de lítio do Brasil em busca de tecnologia - folha.uol.com.br",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNd0hIQVhzWnNEdS12Z3B4bGU2ZmRMVFhlRG0xMGVxcWY0OURMbnl6cHo0X2thRjVrZWRiLUZucFJVS1cxNjRxQkM4TlRFTVpzWnY3SERicWc4X2lvZkV4SWlEcmlWZ3RUSnFXcGRwZnN1M1RxN0haY3NyUEFOVVRPQllJYTZ6M3U0cWR0SVc0c2NWQndNWGc3Sk9GMDNWWDN4V1cySWtUdnlPWlIzX1FURGlROTZaLU9JOUV4Mw?oc=5",
+   "published_at": "2026-03-17T07:00:00+00:00",
+   "first_seen": "2026-10-06T14:19:39.045637+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
   },
   {
    "title": "Caiado se adianta a governo federal e vai assinar acordo de minerais críticos entre Goiás e EUA - Folha de S.Paulo",
@@ -391,7 +421,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração: prazo para entrega da DIEF-CFEM vai até 26 de março - Brasil 61",
@@ -404,7 +435,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás aposta em biogás, data centers e mineração para nova fase de crescimento - Tribuna do Planalto",
@@ -417,7 +449,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração injetam mais de R$ 464 milhões em estados e municípios produtores - www.gov.br",
@@ -430,7 +463,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Prorrogado prazo para envio do Relatório Anual de Lavra (RAL) — Agência Nacional de Mineração - www.gov.br",
@@ -443,7 +477,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás e Japão firmam parceria em minerais críticos - broadcast.com.br",
@@ -456,7 +491,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil's Vale more than doubled ore production from waste material in 2025 - Reuters",
@@ -469,7 +505,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Guia orienta preenchimento da declaração econômico-fiscal dos royalties da mineração - www.gov.br",
@@ -482,7 +519,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MINERAIS CRÍTICOS | Goiás firma parceria com Japão para exploração - Brasil Mineral",
@@ -495,7 +533,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração de terras raras exige tempo e alto investimento no país - Agência Brasil",
@@ -510,7 +549,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras podem colocar o Brasil em destaque no cenário mundial - agenciabrasil.ebc.com.br",
@@ -525,7 +565,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Prazo para entrega da DIEF-CFEM termina no dia 26/03 — Agência Nacional de Mineração - www.gov.br",
@@ -538,7 +579,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM: Justiça revoga liminar e mantém regra da ANM para cálculo dos royalties da mineração - Brasil 61",
@@ -551,7 +593,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Justiça confirma regra da ANM para cálculo de royalties da mineração - Agência iNFRA",
@@ -564,7 +607,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras em Goiás: estado assina parceria com Japão para extrair minerais - g1.globo.com",
@@ -579,7 +623,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás e Japão firmam acordo para cooperação na exploração de minerais críticos - Portal Agro2",
@@ -592,7 +637,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM | AGU derruba liminar que deduzia base de cálculo - Brasil Mineral",
@@ -605,7 +651,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras em Goiás: exploração pode gerar mais de 12 mil empregos diretos - g1.globo.com",
@@ -620,7 +667,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Justiça confirma entendimento da ANM sobre base de cálculo dos royalties da mineração - www.gov.br",
@@ -633,7 +681,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Entrega do Relatório Anual de Lavra (RAL) 2026: Prazos e Orientações — Agência Nacional de Mineração - www.gov.br",
@@ -646,7 +695,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   }
  ]
 }

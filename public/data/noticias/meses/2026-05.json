@@ -1,7 +1,21 @@
 {
  "mes": "2026-05",
- "materias": 111,
+ "materias": 114,
  "itens": [
+  {
+   "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQmk5bDVGVHNEVUVRbFpYNGdJUlpodElpa1BhNl9VTFlWcUZHYzZ5TGxTVjF0c056WWdoYzNfLVZNMGlzYzRKUXFPdmxpa0kzdVNxd0o2QWtZWlVJUmZlaE9iTEh5MmdEY3UtR05XSFVEeUZlUE1CSS1qRG56MHNDanFvanB3ZVVjRXZlQ1dWRUnSAZABQVVfeXFMUHE3TWZhWk80SjY4M1ljN2Z0Ylo1dTdKZnhkOE9QNU8wdTl3U25wZHA1djZudXVDU1VOVWdveWNRcThWcEpiWnFhY1RJbHh2MnVJcDVrTHBpMWlzVzRkSVdwSXF0d2pjQ3Q2Sm1FX3dHV2cxZVg4ajF2ekgyWDhJRV9uTzVqX2hMd3UxNjU2VXln?oc=5",
+   "published_at": "2026-05-31T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.949464+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
   {
    "title": "Illegal miners extract billions in Amazon gold despite Brazil crackdown, Greenpeace finds - Reuters",
    "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQR0ljb0p0RjlWNGxmamRrdDJZS3pmOXZUbVdKbmJ6Ri1DeGxfc29JX014MjVEYlphREhzMU9XWmZmS2VIQWlFRmVIdmpRQUdMUm5qdWU5c18tTzYzZXFIU1lBVXVhX0dadTBiUFRvQmUyYURla3E3THJXai1IOVVPSkw3MzhUQUNrR0ozQnlDVW9BQTNyVzVsYlNQNkMyYXFLcXMxc0o4dll4SXdwLUJWcTNDM3F6b0NKV0RKY1pqdUdDZGltbi1sTmRkd1hlX0VNeWc?oc=5",
@@ -15,7 +29,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM instaura processo de decaimento de Portaria de Lavra da Vale sob a Lei do SNUC - atlaspublico.com.br",
@@ -28,7 +43,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM instaura processo de decaimento de títulos de lavra de mineradoras em MG e aprova fechamento da Mina Ponte Preta - atlaspublico.com.br",
@@ -41,7 +57,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Alego aprova política de mineração sustentável em Goiás em meio a disputa sobre terras raras e pressão ambiental - Tribuna do Planalto",
@@ -56,7 +73,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradora ligada à Vale fecha acordo de R$ 27 milhões por extração ilegal de calcário em Goiás - Jornal Opção",
@@ -69,7 +87,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "O que o caso Serra Verde nos ensina sobre terras-raras - O GLOBO",
@@ -84,7 +103,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM passa a exigir licença prévia para autorização simplificada - Agência iNFRA",
@@ -97,7 +117,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Guia de Utilização retoma exigência de licenciamento ambiental prévio — Agência Nacional de Mineração - www.gov.br",
@@ -110,7 +131,22 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil rare earths miner Viridis to sell to US, European buyers, not China, CEO says - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZzREZnkxTEUtSVNjaVJ3eTRYMjMydnhERnJrb3RWX01uVVdJVjJneEU5VEtNVk10dWFSS25lVk9uemtKcEdKd0NrdG1kTzV1VXZ1YnJfZHU1S0xoSTdCbFZXMEFUcXc2NFRmMDFyY0hGRzRKM3RpYWhXNHpacUFTdVV0NzBCWm9BdjM5b24zYmlVUGk4ZXVGMTJuUlA2M3RqOW5acjRNMVl5Q2ExdHYwS25oWW5WNVNaNEZpeW1GRmM?oc=5",
+   "published_at": "2026-05-28T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:07.554968+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Relato fala em situação “infernal” enquanto Sigma mantém operação noturna em mina de lítio e descumpre decisão judicial - observatoriodamineracao.com.br",
@@ -125,7 +161,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "The road to sustainable rare earths runs through Brazil - Chemical & Engineering News",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBXcTZwR0diZmtvc0ZsWEdXSk91TW8zbW15LVNUTEJEZHoxV2Y2WVpJYXFOVUVUVGdiSDMwVzJKU2FvR2wzZGFCWUIyS2pVVXJ5ZHpkQU81UW9jTUNRaFhSWFhCa2ROS0pKSXhuYS1KN2NQRmhIZFRvcVlsaDM?oc=5",
+   "published_at": "2026-05-27T07:00:00+00:00",
+   "first_seen": "2026-09-27T04:02:42.685155+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração e a água: a disputa pelo futuro da Chapada dos Veadeiros - Brasil de Fato",
@@ -138,7 +189,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth Strikes USD 2.8bn Deal for Brazil’s Serra Verde in Landmark Rare Earths Push - ISI Markets",
@@ -153,20 +205,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Tomada de Subsídios n.º 03/2026 — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOcnVrdXNIMXFyTVN5cmV1YU1vV0oxdzJCNWdJWHR1VnVja3pBYjZHT09LZDBya2lHWS1NTUhmVTdPRmw4Z2MyYlAxMkh6VXVxV3dwRWxkVHlsdGdKNEFtV2hCcXVCLXF5a0ZXQlJ2S2VJNDNybWVYVnE1TEM5cDdsd2k1NHZ5eWk3cVNUYnctTzVpYnE1dElNX1dvaUtJdzNyXzhKMU5LZkM3a1RVbG1BS0lsRUpxbkhrelVZbXd0Yw?oc=5",
-   "published_at": "2026-05-26T00:04:22+00:00",
-   "first_seen": "2026-09-23T04:02:54.461357+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "OURO | Pilar Gold avança com planos para reativar operações em Goiás - Brasil Mineral",
@@ -181,7 +221,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: ANM repassa mais de R$ 441 milhões da mineração a estados e municípios - capitalnews.com.br",
@@ -194,7 +235,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Geração de valor na cadeia do lítio ainda é desafio em Minas - Diário do Comércio",
@@ -209,7 +251,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "União Europeia trava venda de mina de níquel em Goiás para chinesa - Vero Notícias",
@@ -224,7 +267,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "GOIÁS | Assembleia de Goiás debate impactos da mineração na Chapada dos Veadeiros - brasilmineral.com.br",
@@ -237,7 +281,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Europeus travam venda de mina de níquel em Goiás para empresa chinesa - Folha de S.Paulo",
@@ -252,7 +297,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "“Estamos empenhados para que Goiás continue à frente da produção de minerais críticos”, diz Daniel Vilela - A Redação",
@@ -265,7 +311,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Altamente tóxico, mercúrio é encontrado em garimpo ilegal em rio de Goiás - G1",
@@ -278,7 +325,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Europa tenta barrar venda de mina de níquel em Goiás para empresa chinesa - Jornal Opção",
@@ -293,7 +341,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Europeus travam venda de mina de níquel em Goiás para empresa chinesa - Mais Goiás",
@@ -308,7 +357,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Município acompanha auditoria da ANM em mineradora e reforça fiscalização sobre royalties - gov.br",
@@ -321,7 +371,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Parauapebas fortalece parceria com a ANM para ampliar fiscalização da CFEM e da atividade mineral - Prefeitura de Parauapebas",
@@ -334,7 +385,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "RN arrecada R$ 8,3 milhões com royalties da mineração; Só Currais Novos concentra R$ 6,9 milhões - Tribuna do Norte",
@@ -347,7 +399,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Daniel Vilela quer industrializar terras raras em Goiás e mira liderança global fora da Ásia - Diário de Goiás",
@@ -362,7 +415,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração na Chapada dos Veadeiros: Semad rebate fake news - Agência Goiás de Notícias",
@@ -375,7 +429,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Audiência Pública discute mineração na Chapada dos Veadeiros - CicloVivo",
@@ -388,7 +443,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Comitiva chinesa visita Catalão para conhecer potencial em terras raras - Prefeitura de Catalão",
@@ -403,7 +459,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Quem está vendendo as terras raras brasileiras: “o Brasil é a solução dos EUA” - Brasil de Fato",
@@ -418,7 +475,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lula quer atrair os Estados Unidos para explorar terras raras no Brasil e manda recado direto: minerais estratégicos são nossos e a produção precisa acontecer dentro do país",
@@ -433,7 +491,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Serra Verde avalia ‘agregar mais valor’ no Brasil, diz MME - Agência iNFRA",
@@ -448,7 +507,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Justiça manda Sigma Mineração depositar R$ 50 milhões - DW.com",
@@ -461,7 +521,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM: ANM repassa mais de R$ 441 milhões da mineração a estados e municípios - Brasil 61",
@@ -474,7 +535,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Ministro se reúne com CEO de empresa brasileira de terras-raras e afirma que país está aberto ao capital americano - O GLOBO",
@@ -489,7 +551,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Após venda de mineradora em Goiás, Lula diz que Brasil pode se associar aos EUA para explorar terras raras - Diário de Goiás",
@@ -504,7 +567,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Decisão da Justiça sobre mineração de lítio no Jequitinhonha (MG) pode mudar história do setor - Brasil de Fato",
@@ -519,7 +583,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO (1041 | Atlas Lithium contrata empresa de engenharia para montagem da planta em Neves - brasilmineral.com.br",
@@ -534,7 +599,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium entra com recurso contra ação judicial em Araçuaí - Brasil Mineral",
@@ -549,7 +615,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Juíza determina depósito de R$ 50 milhões da Sigma por danos de mina de lítio em MG - Bloomberg Línea Brasil",
@@ -564,7 +631,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Justiça condena mineradora de lítio a depositar R$ 50 mi em MG - Revista Oeste",
@@ -579,7 +647,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: municípios afetados e limítrofes partilham mais de R$ 93 milhões em royalties - Brasil 61",
@@ -592,7 +661,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Compra da Serra Verde não exige anuência prévia, diz ANM - Agência iNFRA",
@@ -607,7 +677,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium reduz endividamento em 21% no primeiro trimestre - brasilmineral.com.br",
@@ -622,7 +693,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "TCU determina que ANM conclua fiscalização sobre royalties da Vale em até 180 dias - Blog do Domingos Costa",
@@ -635,7 +707,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MP-GO pede anulação de atos sobre mineração na Chapada dos Veadeiros - ICL Notícias",
@@ -648,7 +721,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "MUNICÍPIOS MINERADORES | AMIG Brasil e TCE-MG firmam parceria para debater normas da CFEM - brasilmineral.com.br",
@@ -661,7 +735,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "TCU dá 180 dias para ANM concluir fiscalização em royalties da Vale - Agência iNFRA",
@@ -674,7 +749,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "FALTA E INVESTIMENTOS E CONDIÇÕES PRECÁRIAS DA AGÊNCIA NACIONAL DE MINERAÇÃO COMPROMETEM ACESSO DE DADOS ESSENCIAIS DE MUNICÍPIOS MINERADORES - Petronotícias",
@@ -687,7 +763,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM mantém permissões de garimpo no Tapajós mesmo após alertas de ‘esquentamento’ de ouro - InfoAmazonia",
@@ -702,7 +779,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ação do Ministério Público pode barrar planos de mineração na Chapada dos Veadeiros - Folha de S.Paulo",
@@ -715,7 +793,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Ministério Público de GO pede anulação de atos sobre mineração na Chapada dos Veadeiros - Jornal de Brasília",
@@ -728,7 +807,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - ICL Notícias",
@@ -741,7 +821,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Corrida por terras raras e acordo com os EUA ameaçam santuário ecológico no Brasil - NSC Total",
@@ -756,7 +837,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Cade analisa se houve irregularidades na venda de mina de terras raras para empresa dos EUA - G1",
@@ -771,7 +853,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Especialistas alertam para riscos de ‘corrida extrativista’ em PL sobre minerais críticos - Brasil de Fato",
@@ -784,7 +867,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Cade investiga acordos em terras raras entre a Serra Verde e a norte-americana USA Rare Earth - Valor Econômico",
@@ -799,7 +883,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "TRABALHO – Lundin Mining Brasil abre oportunidades na mineração em Alto Horizonte - Excelência Notícias",
@@ -812,7 +897,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazilian inspectors fine Sigma Lithium for using banned waste pile - Reuters",
@@ -827,7 +913,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Cade investiga compra de Serra Verde por americanos - Agência iNFRA",
@@ -842,7 +929,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil probes USA Rare Earth’s $2.8B deal for Serra Verde - Mining.com",
@@ -857,7 +945,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - infomoney.com.br",
@@ -870,7 +959,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência distribui mais de R$ 93 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
@@ -883,7 +973,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "São Luís recebe mais de R$ 2,5 milhões em royalties da mineração - Blogs O Estado",
@@ -896,7 +987,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Disputa processual marca ação contra Sigma, mineradora de lítio no Vale Do Jequitinhonha (MG) - Brasil de Fato",
@@ -911,7 +1003,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium é multada por usar pilha de resíduos interditada - Terra",
@@ -926,7 +1019,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Semad diz que revisão de plano não libera mineração imediata na Chapada dos Veadeiros - Poder Goiás",
@@ -939,7 +1033,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Cade apura acordos de combinação e de fornecimento em terras raras - www.gov.br",
@@ -954,7 +1049,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Cade vai investigar venda de mineradora brasileira de terras raras para empresa americana - Folha de S.Paulo",
@@ -969,7 +1065,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Cade investiga venda de mineradora de terras raras em Goiás para grupo dos EUA - SBT News",
@@ -984,7 +1081,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Cade analisa acordo de empresa brasileira de terras-raras com companhia dos EUA - O GLOBO",
@@ -999,7 +1097,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - climainfo.org.br",
@@ -1012,7 +1111,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1025,7 +1125,22 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-10-06T14:19:38.149713+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1038,7 +1153,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1051,7 +1167,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1064,7 +1181,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1077,7 +1195,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1090,7 +1209,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1103,7 +1223,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1116,7 +1237,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1129,7 +1251,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1142,7 +1265,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1155,7 +1279,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1168,7 +1293,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1181,7 +1307,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1194,7 +1321,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
@@ -1207,7 +1335,8 @@
    "fonte": "Busca · Bing · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - Folha de S.Paulo",
@@ -1220,7 +1349,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - Goiás 246",
@@ -1233,7 +1363,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás discute mineração na Chapada dos Veadeiros - Vero Notícias",
@@ -1246,7 +1377,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo de Goiás discute legalização da mineração na Chapada - Metrópoles",
@@ -1259,7 +1391,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Arrecadação da Cfem em Minas Gerais sobe 1,3% no quadrimestre - Diário do Comércio",
@@ -1272,7 +1405,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras colocam Goiás no centro da disputa global por minerais estratégicos - badiinho.com.br",
@@ -1287,7 +1421,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic atualiza dados sobre projeto Bandeira - brasilmineral.com.br",
@@ -1302,7 +1437,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Entenda como a Política Nacional de Minerais Críticos e Estratégicos afeta as terras raras em Goiás - maisgoias.com.br",
@@ -1317,7 +1453,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras-raras vendida a empresa dos EUA nunca foi brasileira - poder360.com.br",
@@ -1332,7 +1469,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Câmara aprova política de minerais críticos com fundo de R$ 2 bilhões e incentivos fiscais de R$ 5 bilhões para tentar transformar lítio, terras raras, grafita e níquel em nova fronteira econômica do Brasil - CPG Click Petróleo e Gás",
@@ -1349,7 +1487,8 @@
     "litio",
     "niquel",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CGU aponta falhas na ANM que permitem exportação de minério ilegal e baixa punição a lavra clandestina - O Fator",
@@ -1362,7 +1501,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mina de terras-raras em Goiás vendida aos EUA por US$ 2,8 bilhões nunca pertenceu ao Brasil, mas agora virou peça central da disputa global entre soberania mineral, influência geopolítica, indústria estratégica e corrida mundial por minerais críticos domin - CPG Click Petróleo e Gás",
@@ -1377,7 +1517,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Especialistas e municípios criticam PL sobre minerais críticos - Agência Brasil",
@@ -1390,7 +1531,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo Lula não quis regular venda de terras-raras em Goiás - poder360.com.br",
@@ -1405,7 +1547,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "MINA DE TALENTOS 2026 – Anglo American abre vagas de estágio em Niquelândia e em Barro Alto - Excelência Notícias",
@@ -1418,7 +1561,8 @@
    "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "“A Lógica Ficou Clara desde o Início”, Diz Executivo do Grupo Serra Verde sobre Acordo de R$ 14 Bilhões com a USA Rare Earth - Forbes Brasil",
@@ -1433,7 +1577,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Operação da única mina de terras raras do Brasil impacta córregos em Goiás - Instituto Humanitas Unisinos - IHU",
@@ -1448,7 +1593,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Crescimento da mineração em Corumbá contrasta com redução de receitas de royalties - Diário Corumbaense",
@@ -1461,7 +1607,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Arrecadação de royalties da mineração cai em Corumbá mesmo com produção em alta - Folha MS",
@@ -1474,7 +1621,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Única mineradora de terras raras do Brasil é autuada por poluir rios em Goiás; multa chega a R$ 12,5 milhões - Goiás 246",
@@ -1489,7 +1637,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Serra Verde impacta córregos em Goiás, diz análise de órgão ambiental - Brasil de Fato",
@@ -1504,7 +1653,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Serra Verde impacta córregos em Goiás, diz análise de órgão ambiental - apublica.org",
@@ -1519,7 +1669,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras ainda têm baixa participação na mineração de Goiás - Tribuna do Planalto",
@@ -1534,7 +1685,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "A ATLAS LITHIUM CONTRATA EMPRESAS PARA EXECUÇÃO DO PROJETO NEVES PARA PRODUÇÃO DE LÍTIO EM MINAS GERAIS - Petronotícias",
@@ -1549,7 +1701,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   }
  ]
 }

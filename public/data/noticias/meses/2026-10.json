@@ -1,7 +1,85 @@
 {
  "mes": "2026-10",
- "materias": 250,
+ "materias": 277,
  "itens": [
+  {
+   "title": "Sumitomo Metal expects global nickel market to stay in surplus in 2027",
+   "link": "https://www.mining.com/web/sumitomo-metal-expects-global-nickel-market-to-stay-in-surplus-in-2027/",
+   "published_at": "2026-10-06T13:53:09+00:00",
+   "first_seen": "2026-10-06T14:19:29.633168+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · níquel",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Polícia Federal faz ação contra garimpo ilegal no Pará",
+   "link": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/policia-federal-prende-seis-em-acao-contra-garimpo-ilegal-no-para",
+   "published_at": "2026-10-06T12:58:00+00:00",
+   "first_seen": "2026-10-06T14:19:20.507068+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Agência Brasil · últimas",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Perto de uma cidade goiana, uma cúpula de rocha formada por magma há cerca de 85 milhões de anos guarda uma das maiores reservas de terras raras do Brasil - midiamax.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQRDE1d2lMY2c4VXlEelpPU1EzWFQybjROUkhmRmxnalFET3NFZnJvTW1aYy03S2dqVDEzaTRnQTBURHdjcnE1QTZ3TnU4dmxxak5ORnZCQVlLWEZvTGpfc1RWMC1HR2xiekZVTV9pWEpsRUgxYmlXTjhxTE5JUXdfNlJaWHhpVTNmcm53Y0tKNUxHdTVxY3gzWWJKWGN5ZEZ5UmxQckNLOXR6R2xTUHd1RjFxdHhLR0RGVGgxSHpBQTN1Zk04NnNnLTBLV3ZlX09CWm0xd0VyN1d5QzJuZnhhS19DZm1vUHBZN2ZBcWtpTkh1R1piRjVoQzFTdmZEZjNCVUVqMzY3REJWUXJjT04wNFROTUExVFJzNm1mcHJ6T2hLZw?oc=5",
+   "published_at": "2026-10-06T12:05:00+00:00",
+   "first_seen": "2026-10-06T14:19:38.570531+00:00",
+   "regional": 1,
+   "regiao_termo": "goiana",
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Atlantic Nickel record production as underground transition advances",
+   "link": "https://im-mining.com/2026/10/06/atlantic-nickel-record-production-as-underground-transition-advances/",
+   "published_at": "2026-10-06T11:31:36+00:00",
+   "first_seen": "2026-10-06T14:19:24.957591+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "International Mining",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "BCM acquires inputs company to supply US$74 million rare earths project in Brazil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdEx4RFVjWlRsSjdsb2xpc3BQd3RPY0lZOG9IaEoxY0ozdWl1anptUDMyb2pGdURTOXF3T2VUSktBaUpzQU1KN3JxdGwxWGI2SGZMUTBBamsyVWNvYk1UZnhjc0thM1VLekRxYjVwWDdzSlBjbEtITEFERzBQbUVIT3EtN3NMVWtPM2ZGZ3BNY0JYMzJwOV9MSkpqejRQc0lmYm5xeXdhS01tS3h6b1JodnZVZGNYZw?oc=5",
+   "published_at": "2026-10-06T10:49:33+00:00",
+   "first_seen": "2026-10-06T10:51:48.888684+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
   {
    "title": "Electric E-Air compressors up productivity in Mexican silver & gold mines",
    "link": "https://im-mining.com/2026/10/06/electric-e-air-compressors-up-productivity-in-mexican-silver-gold-mines/",
@@ -15,7 +93,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "BCM compra empresa de insumos para abastecer projeto de terras raras de US$74 milhões no Brasil - BNamericas",
@@ -30,7 +109,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Groenlândia aprova planos de mineração e fechamento de terras raras de Tanbreez até 2050 - IndexBox",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSjRjUzVDOVhMdWpaWlBiMmd2QmY1S0phX0NHbTh0dmJ0Yy1PV0xnVGFYVWY5eXhCY24tQjRpZXVrbFh3TlBMZGw4UklWbk5tOE1kcFcyZ3oyMmxvaWdYM0QtS3RiWnp5Y0UtWE5XS1VTbzkwekpPemFqR1dQOElCSE5HaEdVekxsSHNFMlQycUdaQkxhOVBHMGNoMEl3TzRlWDNvOVlMV0oxOEliQUZaOVp3OA?oc=5",
+   "published_at": "2026-10-06T10:22:50+00:00",
+   "first_seen": "2026-10-06T14:19:38.571284+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "EBRD provides up to $62m for greener Bulgarian copper mining",
@@ -45,22 +141,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
-  },
-  {
-   "title": "Quais celebridades passaram pelo Ouro Minas e quais as exigências de cada um",
-   "link": "https://diariodocomercio.com.br/video/quais-celebridades-passaram-pelo-ouro-minas-e-quais-as-exigencias-de-cada-um/",
-   "published_at": "2026-10-06T10:01:30+00:00",
-   "first_seen": "2026-10-06T10:51:30.416656+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Diário do Comércio · MG",
-   "escopo": "nacional",
-   "tema": "geral",
-   "substancias": [
-    "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Fulcrum Metals heading for pilot testing of Extrakt’s non-cyanide gold recovery process",
@@ -75,7 +157,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Protecting mining’s hydraulic backbone to keep operations moving",
@@ -88,7 +171,8 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Protecting mining’s hydraulic backbone to keep operations moving",
@@ -101,7 +185,8 @@
    "fonte": "Power Technology",
    "escopo": "internacional",
    "tema": "energia",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Gold firms as easing oil prices soothe some inflation worries",
@@ -116,22 +201,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
-  },
-  {
-   "title": "Ouro Minas completa 30 anos e se reinventa como resort urbano em BH",
-   "link": "https://diariodocomercio.com.br/negocios/ouro-minas-completa-30-anos-e-se-reinventa-como-resort-urbano-em-bh/",
-   "published_at": "2026-10-06T08:30:00+00:00",
-   "first_seen": "2026-10-06T10:51:30.424320+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Diário do Comércio · MG",
-   "escopo": "nacional",
-   "tema": "geral",
-   "substancias": [
-    "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Greenland approves Tanbreez mine plans through 2050",
@@ -144,7 +215,8 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Gold teeters on $4,133 support in bearish triangle: Live levels",
@@ -159,22 +231,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
-  },
-  {
-   "title": "Geração Z cobre tudo de strass — e marcas entram na onda",
-   "link": "https://exame.com/casual/geracao-z-cobre-tudo-de-strass/",
-   "published_at": "2026-10-06T06:37:32+00:00",
-   "first_seen": "2026-10-06T10:51:29.591747+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Exame",
-   "escopo": "nacional",
-   "tema": "geral",
-   "substancias": [
-    "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Resources Top 5: Normandy rises after ASX debut as Gateway defines two large-scale gold targets",
@@ -189,7 +247,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Ariana closes in on key Dokwe gold resource and reserve milestones as DFS work ramps up",
@@ -204,7 +263,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Power opens up Morro do Ferro with 119m rare earth hit from surface",
@@ -219,7 +279,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Barkly Rare Earths on a roll as wider drill hits bolster resource growth push",
+   "link": "https://stockhead.com.au/resources/barkly-rare-earths-on-a-roll-as-wider-drill-hits-bolster-resource-growth-push/",
+   "published_at": "2026-10-06T02:41:40+00:00",
+   "first_seen": "2026-10-06T10:51:31.460761+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 0
   },
   {
    "title": "Flynn Gold puts Henty processing pathway to the test",
@@ -234,7 +311,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Black Bear uncovers gold upside in Shafter’s silver story",
@@ -249,7 +327,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Elk Range Mining logs more visible gold beyond Friday project’s historical drilling",
@@ -264,7 +343,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "White Cliff tightens its grip on copper storm brewing at Danvers",
@@ -279,7 +359,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "iTech Minerals pushes Sabre gold-antimony shoot deeper; finds second gold shoot",
@@ -294,7 +375,22 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "How Big Is Brazilian Rare Earths' (ASX:BRE) New Sulista South Find? - Kalkine Media",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQVGxYWVJVaUF5bXk1SEhnd1lhQjdLUktrTFpKRzhKbjRrWWtOY2JKcXkxbjFDLXF3MHVVdHI1TWFGbW52WVVVQmFfM0RvazRLQnE1TXhaQkhzZGZPVmZza2d4Yi1QeTkyNmRBWHBnajd3b2otRUZTUGdxSm9va0ExcGJYT2tnSXF0cVdaRmc0dXBJTGtDd0VRZDluTEZPem9lVk9BQkZhUzlOTThZVHZaTlBPaTZlcUFM?oc=5",
+   "published_at": "2026-10-06T01:28:00+00:00",
+   "first_seen": "2026-10-06T10:51:48.893041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "StockTake: Flagship Minerals grows Canadian copper claim",
@@ -309,7 +405,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "PC Gold strengthens board with mining veteran",
@@ -324,7 +421,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "StockTake: Copper-gold drilling to begin this month for Artemis",
@@ -340,7 +438,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "How Barton Gold built Tunkillia’s early advantage",
@@ -355,7 +454,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Westwin Elements to build $502M nickel refinery in Mississippi",
@@ -370,7 +470,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "MINERAIS CRÍTICOS | BNDES mobiliza R$ 45,8 bilhões visando transformar o Brasil em potência - Brasil Mineral",
@@ -383,7 +484,8 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brasil busca se manter neutro na disputa entre EUA e China por minerais críticos - JOTA Jornalismo",
@@ -396,7 +498,8 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Colorado summit video: Giustra says gold rally is missing retail",
@@ -411,7 +514,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Surge Battery boosts returns, cuts costs for Nevada lithium project",
@@ -426,7 +530,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Greenland advances Tanbreez rare earths project",
+   "link": "https://www.northernminer.com/news/greenland-advances-tanbreez-rare-earths-project/1003895442/",
+   "published_at": "2026-10-05T20:20:29+00:00",
+   "first_seen": "2026-10-06T10:51:31.762241+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Lynas targets Meteoric rare earth giant - Metal Tech News",
@@ -441,7 +560,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "World Bank backs $1.4B for Chile’s copper giant",
@@ -456,7 +576,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Long Shortz with CuFe: Copper campaign advances at Tennant Creek",
@@ -471,7 +592,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Mineradora BCM adquire fábrica em feira de Santana por R$ 1 em estratégia contra cerco chinês a terras raras - MundoBA",
@@ -486,7 +608,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Murchison copper revival gathers pace as ASX explorers pile on the drill hits",
@@ -501,7 +624,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Flávio x Lula: o que muda nos investimentos e na relação com EUA e China? O caso das terras raras - Estadão",
@@ -516,7 +640,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Colorado summit video: Giustra says gold rally is missing retail",
@@ -531,7 +656,24 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Flávio x Lula: o que muda nos investimentos e na relação com EUA e China? O caso das terras raras - Estadão",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPbnFSaW9vWERBQUtQNTBIU0FaZV9oZjQ2S1NRdXZlTnE5RnprUEMtTHFxZGFZMlRTLUF2c0tFSDNPWFd6VHY1dU5tVG1MQXM0Ym9mY09NeF9hN1hwY25hc01BZlJSME1zSTdLcTRlaDZNNExTZHVnbTJRNmY0SEdhT3JmRGxubGNfaG5CQ2RCMnJMckRobUN0SkVxVFNfd2pMMTdVX1hIRTRIMWVNN3pEdUZWQ2ZISzFPVTZMZFVIbnFpUV82YlFLaWdLU3dNZVhjMTI1YkNUYXk3RTBhMXdlLWU4a2hiRWPSAewBQVVfeXFMUGNOVjlHUVFwUS11UUVDWUg2dENnNHdsZzZ5X0xQX0ZwVjF6OW5yQVZtc1p6VzNwSDFzU3NVM184aHZzbzd4c3NtREtsanhhRVlCWGZ4cGEwVHhrdTIyNHhfUER0STRWeW56M1NNZWpzZW91MXVtOUxBSU43a3pSSFJ5VGlNaHhzRU55cC1jay1QYUlLTThXZ1ZPbXJmSWxlNkZreVdyN2F3SE1PaXEwSHRhNkItTVdrdlAxQ1pqQXFNUHBVeDNqV0hsMWNicXh2VUxmclpMWHRqSkVHLWJEREhiMEJ4WVFBV25qQjY?oc=5",
+   "published_at": "2026-10-05T19:24:56+00:00",
+   "first_seen": "2026-10-06T14:19:38.572696+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Barrick secures 15-year North Mara mining licences in Tanzania",
@@ -544,7 +686,8 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Pesquisa aponta caminho para recuperar elementos de terras raras a partir de rejeitos de mineração - Rádio Itatiaia",
@@ -559,7 +702,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Swanson results fall short despite 6.05-g/t gold highlight",
@@ -574,7 +718,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Swanson results fall short despite 6.05-g/t gold highlight",
@@ -589,7 +734,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Australiana compra 90% de fábrica na Bahia para projeto de terras raras",
@@ -604,7 +750,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold price rises as Europe debt risks boost appeal of haven assets",
@@ -619,7 +766,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazilian Critical Minerals compra 90% de fábrica na BA para projeto de terras raras",
@@ -634,7 +782,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold Mountain obtém direito exclusivo para adquirir mina histórica de tungstênio no Brasil",
@@ -649,7 +798,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Copper price firms on reduced likelihood of higher US interest rates",
@@ -664,7 +814,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Electra taps Garzon Duenas to lead refinery transition",
@@ -677,7 +828,8 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Greenland government approves Tanbreez rare earth mine plan",
@@ -692,7 +844,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Greenland advances Tanbreez rare earths project",
+   "link": "https://www.canadianminingjournal.com/news/greenland-advances-tanbreez-rare-earths-project/",
+   "published_at": "2026-10-05T15:18:29+00:00",
+   "first_seen": "2026-10-06T10:51:33.700572+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Canadian Mining Journal",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Surge Battery boosts returns, cuts costs for Nevada lithium project",
@@ -707,7 +874,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Surge Battery boosts returns, cuts costs for Nevada lithium project",
@@ -722,7 +890,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazilian Critical Minerals compra 90% de fábrica na Bahia para projeto de terras raras - InvestNews",
@@ -737,7 +906,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Thunder Gold drills 298 metres of 0.409 g/t gold at Ontario project",
+   "link": "https://resourceworld.com/thunder-gold-drills-298-metres-of-0-409-g-t-gold-at-ontario-project/?utm_source=rss&utm_medium=rss&utm_campaign=thunder-gold-drills-298-metres-of-0-409-g-t-gold-at-ontario-project",
+   "published_at": "2026-10-05T14:50:35+00:00",
+   "first_seen": "2026-10-06T14:19:27.485315+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Resource World",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
   },
   {
    "title": "Gold Mountain signs agreement for Brazilian tungsten mine",
@@ -752,7 +938,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ações da Critical Metals sobem após aprovação de projeto de terras raras na Groenlândia - ADVFN",
@@ -767,7 +954,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold retains key reserve status despite surging bond yields, central bankers say",
@@ -782,7 +970,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brasil pode transformar rejeitos de mineração em nova fonte de terras raras, ouro e prata, reduzir barragens e criar negócios onde antes havia apenas passivo ambiental - CPG Click Petróleo e Gás",
@@ -798,7 +987,8 @@
    "substancias": [
     "ouro",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Rio Tinto, Founders Factory back five mining startups",
@@ -813,7 +1003,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Rio Tinto, Founders Factory back five mining startups",
@@ -828,7 +1019,24 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Zacatecas Silver options Lourdes Gold-Silver Project, Mexico",
+   "link": "https://resourceworld.com/zacatecas-silver-options-lourdes-gold-silver-project-mexico/?utm_source=rss&utm_medium=rss&utm_campaign=zacatecas-silver-options-lourdes-gold-silver-project-mexico",
+   "published_at": "2026-10-05T13:14:45+00:00",
+   "first_seen": "2026-10-06T14:19:27.487545+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Resource World",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
   },
   {
    "title": "Minerais críticos colocam o Brasil diante de uma escolha bilionária: continuar exportando matéria-prima ou transformar terras raras em ímãs, motores e indústria de maior valor agregado - CPG Click Petróleo e Gás",
@@ -843,7 +1051,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Veja quais são as cidades que mais recebem royalties da mineração - Agência Cidades",
@@ -856,7 +1065,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazilian Critical Minerals compra planta de processamento da Magsul",
@@ -869,7 +1079,8 @@
    "fonte": "Folha · Mercado",
    "escopo": "nacional",
    "tema": "geral",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Flávio Bolsonaro Leads Lula Into Brazil Runoff as Rare Earth Policy Faces Political Test - Rare Earth Exchanges",
@@ -884,7 +1095,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Fifth cohort of start-ups join Founders Factory’s Mining Tech Accelerator with Rio Tinto",
@@ -897,7 +1109,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Brasil debaterá industrialização de minerais críticos - bnamericas.com",
@@ -910,7 +1123,8 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Wildsky signs LoI for Zimbabwe’s NewRidge Gold Project",
@@ -925,7 +1139,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "BNDES estuda participação em projeto de terras raras em Minas Gerais | Café com ESG, 05/10 - XP Investimentos",
@@ -940,7 +1155,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold prices steady after weekly slide as weak jobs data ease Fed hike bets",
@@ -955,7 +1171,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Metso to repower thickeners at Chile mine site",
@@ -968,7 +1185,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Macmahon secures two-year extension at Vault’s Daisy Milano underground mine",
@@ -983,7 +1201,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "South32’s Hermosa project earns mine safety award in the US",
@@ -996,7 +1215,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "King River strikes shallow gold at Mindoolah",
@@ -1011,7 +1231,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Mining remains Australia’s top company taxpayer",
@@ -1024,7 +1245,8 @@
    "fonte": "Australian Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Lodestar Minerals prepares for maiden resource at Ned’s Creek with final gold assays in hand",
@@ -1039,7 +1261,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brightstar hits 167m gold zone at Bull Oak",
@@ -1054,7 +1277,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazilian Critical Minerals Acquires 90% Stake in Brazilian Magnesium Sulphate Producer for Ema Rare Earth Project - Kalkine",
@@ -1069,7 +1293,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Explorers Podcast: Jacaranda Natural Resources blooms for copper-gold IPO",
@@ -1085,7 +1310,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Top 50 mining companies take $264 billion hit as gold trade unwinds, lithium stocks exit",
@@ -1102,7 +1328,8 @@
     "cobre",
     "litio",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Guy on Rocks: Atomic Eagle’s African uranium ascension",
@@ -1117,7 +1344,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "London gold body’s legal fight exposes threat to bullion market",
@@ -1132,7 +1360,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Inspired by a legend, Parbo Resources hunts gold in WA’s Murchison",
@@ -1147,7 +1376,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "US-Ukrainian investment fund seals first critical minerals deal",
@@ -1160,7 +1390,8 @@
    "fonte": "Mining.com · urânio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Origen Resources quer 70% de projeto de terras raras entre Bahia e Piauí - BPMoney",
@@ -1175,7 +1406,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LS Rare-Earth Alliance Extends to Brazilian Mine as Supply Chain Widens - Seoul Economic Daily",
@@ -1190,7 +1422,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil Rare Earth Refining Timeline and 2025 Election Impact - Rare Earth Exchanges",
@@ -1205,7 +1438,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa canadense avança para assumir 70% de projeto de terras raras de 33 mil hectares entre Bahia e Piauí - CPG Click Petróleo e Gás",
@@ -1220,7 +1454,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: afinal, o que são e por que se falou tanto nelas na eleição? - extra.sc",
@@ -1235,22 +1470,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Traíras: povoado de Goiás que viveu esplendor na era do ouro hoje é um museu a céu aberto - Mais Goiás",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNVkgybFNMQU1FSlNPcWxwaHo0bk9RRGdCTlNBRF9QU3ZnRTN5NWozdnVLU0VsZGJSbUFSZldYSW5XSlVJR2NhVUxyU0Z1ZWtXTVItMFhzcWE5YXVYVHJrUjNIV2tKUWNpMWd3Q1Zqa3dmLWlnNVozZzVBME5Ed2xlZGk3cHFyZnNmb3dsWGV3aFRrb1FZbUQxaUdqZ3lnekdsS0Ruckw5LVZsZHRoRVF5Qk02VGJoVnZ3RGw4WWdWVVlQRzdGNGJDY3U3bGctdTQ0eDY4VDFLck5JaFdMVXFn?oc=5",
-   "published_at": "2026-10-03T19:18:08+00:00",
-   "first_seen": "2026-10-04T10:17:06.079574+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · Niquelândia, Barro Alto e Alto Horizonte",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Eleições 2026: propostas presidenciais para terras raras e minerais - agoralitoral.com.br",
@@ -1265,7 +1486,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Eleições 2026: o que os candidatos propõem para terras raras e minerais críticos - Olhar Digital",
@@ -1280,7 +1502,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil Rare Earths Processing China US Investment 2026 - rareearthexchanges.com",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNVEtIMkY2d29aV25WUTJjQkRQM21yYVlrZkJfQWE3TzF2MVMwek1hanNtcmJKNGMwdGt4eFJhMkZkQ19OWHl4MVgwU2k2RW03NDV5X2t2T2tSUWJZcEFBbFFkQnBVRW03VVpqZ2swZ0ZuSk10R3dIc04xYXFpa2pMSQ?oc=5",
+   "published_at": "2026-10-03T03:15:47+00:00",
+   "first_seen": "2026-10-03T09:31:46.457599+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Lynas Buys Its Way Into Brazil's Clay Belt as BNDES Circles the Refinery - AD HOC NEWS",
@@ -1293,7 +1530,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Pension funds use gold as bond hedge weakens",
@@ -1308,7 +1546,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Cientistas querem transformar esporos de bactérias em filtros para recuperar terras raras e metais valiosos da água de minas e abrir caminho para novas fontes de metais estratégicos - CPG Click Petróleo e Gás",
@@ -1323,7 +1562,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Eleições 2026: o que os presidenciáveis propõem sobre minerais estratégicos e terras raras? - super.abril.com.br",
@@ -1338,7 +1578,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Eleições 2026: resumo das propostas dos 12 presidenciáveis para minerais estratégicos e terras raras - super.abril.com.br",
@@ -1353,7 +1594,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Why rare earth elements are hiding in plain sight",
@@ -1368,7 +1610,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Brazil’s Lula hails Chinese investors as rival pitches rare earths to Trump - South China Morning Post",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSm1GSjdRWVZXZE5RY0Y1NzE0dnIwb0Z5b0xTclA3OVh6VjJVd1Vfa0EtcG5vRnlVbDZuaGpKbUlURFJkWW5fZXNrZWRPbVF0ZmNXX2RuZVNEZWZSQzBZSGp6UW1obDl6eXI1dW9vYnZTR3hROFNJRHN1YVZscElHR0JzamxZcW9VZ1NHQ0t2VEZBV0wwYzNDRkdFZWQ3dVlMUXVOWWdIMkRaTE90OURxYUZDUU1uV3JOckxUV1JsVzNtUktxWTJsekZaRdIBywFBVV95cUxPdTAxZ19zZzhkWEx3TzVlSl9kek9mVlh4VzBZSEtOUEVUT2pDcDZpbVd3XzhNRTNEcWZxdEZYOWp3VHJEbC1VMVNqZkpKZ2Z3bl96MWVMbTRndFdrbW05RUFLb2pRcFhBRDh5cVdwSDV0eW1oWDNVaVczdjFERHlsN0Y5X29XY2F5MW4zQ1VSb0o0UUQtZ3U1anR3NW5BRzBsOHRFdE5LYi1wd19rem9vMFVQVFdYcWduLVgwcjB2RmhqWm9WYzc4Rmo1RQ?oc=5",
+   "published_at": "2026-10-02T21:04:21+00:00",
+   "first_seen": "2026-10-03T09:31:46.456453+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Investimentos de empresas estrangeiras colocam a região na disputa global por terras raras. - Conexão TV Web",
@@ -1383,7 +1640,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Glencore gets RIGI nod for $4B Argentina copper project",
@@ -1398,7 +1656,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Colombia reports expansion of mostly illegal alluvial gold mining",
@@ -1413,7 +1672,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Comitê de Terras Raras recebe secretários de Estado para discutir desenvolvimento, investimentos e meio ambiente - PocosCom",
@@ -1428,7 +1688,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras colocam o RS no radar da indústria mundial - força do vale",
@@ -1443,7 +1704,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Viridis Colossus Rare Earth Project Brazil 2028 Output - rareearthexchanges.com",
@@ -1458,7 +1720,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas Rare Earths e Meteoric Resources anunciam acordo para aquisição e nova etapa do Projeto Caldeira no Brasil - TV Poços",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOczVreTNGVFhmZjI0cXJqUndBNnNKdkdtcEo5NnE3V2pmdklhTTdITDI1TTI1M0NmRXVCckJoOTVxRWx2eUNyVFpzZVZCVUltUVdjTHItVXlpWFNQR24yOWtINjNxZzQ4NDJfZHZITmcwUW11MjNRb0hIR3FycmJlUkVQdlNNNTliTkU3MG9Nc0g0U1N1U0hMa3NBUGdaTVZveDhVek1HWnZXZ21XY0NrVjBEaVdFbXd0UjhKbGI5V3NvNDNlOS0waS1TYjktVzlEUWc?oc=5",
+   "published_at": "2026-10-02T20:03:17+00:00",
+   "first_seen": "2026-10-03T09:31:44.180609+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Half a million miners stand between Bolivia and a critical minerals rush",
@@ -1471,7 +1748,8 @@
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Advanced Gold Signs MOU to Acquire Corcoran Silver Gold Property with Historical Inferred Silver Resource",
@@ -1486,7 +1764,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Freeport’s Grasberg copper mill reaches 67% after mudslide",
@@ -1501,7 +1780,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Freeport’s Grasberg copper mill reaches 67% after last year’s mudslide",
@@ -1517,7 +1797,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Terras raras no Sul de Minas atraem investimento estrangeiro - Acia Araçatuba",
@@ -1532,7 +1813,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "New $850M debt deal moves Troilus copper-gold project closer to full funding",
@@ -1548,7 +1830,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brasil abriga um dos maiores depósitos de terras raras fora da China e vira alvo de acordo de R$ 3,5 bilhões com gigante australiana - Jornal Diário do Litoral",
@@ -1563,7 +1846,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sul de Minas entra na mira de empresas estrangeiras na corrida mundial por terras raras - folharegionaljornal.com.br",
@@ -1578,7 +1862,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Copper price crawls higher on softer dollar after weak US jobs data, tight supply",
@@ -1593,7 +1878,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Pension funds use gold as bond hedge weakens",
@@ -1608,7 +1894,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Most of Peru’s gold now comes from booming illegal mining sector",
@@ -1623,7 +1910,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Flávio Bolsonaro quer exploração de terras raras no Norte e a flexibilização de leis - Francês News",
@@ -1638,7 +1926,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Marília Campos defende que exploração de terras raras não prejudique qualidade de vida nas cidades - Rádio Itatiaia",
@@ -1653,7 +1942,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Grupo abandona garimpo e foge por mata durante confronto com policiais em Cavalcante - maisgoias.com.br",
@@ -1666,7 +1956,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Galvani prevê início de operação da unidade de mineração em Irecê (BA) em 2027",
@@ -1679,7 +1970,8 @@
    "fonte": "Revista Minérios",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Transição energética amplia demanda por terras raras no Brasil - Jornal do Comércio",
@@ -1694,7 +1986,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil mine licence system faces court test",
@@ -1707,7 +2000,8 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Aura Minerals internaliza frota de mina de ouro em três operações no Brasil por R$ 612 mi",
@@ -1722,7 +2016,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Rockland Signs Definitive Earn-In Agreement with Evolution Mining to Consolidate the Pipestone Bay Gold System, Red Lake, Ontario",
@@ -1737,7 +2032,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Justiça libera parte da mineração de lítio da Sigma em MG - tmc.com.br",
@@ -1752,7 +2048,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Novos projetos e investimentos vão de ETRs a fosfato e ouro",
@@ -1768,7 +2065,8 @@
    "substancias": [
     "fosfato",
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Asian gold demand improves as price pullback draws buyers",
@@ -1783,7 +2081,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "China demands copper supply commitments for Anglo-Teck merger approval",
@@ -1798,7 +2097,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Freeport says Indonesia’s Grasberg mine ramp-up on track after mudslide disruption",
@@ -1814,7 +2114,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Evergold drills 4.9 metres of 7.70 g/t gold at Toodoggone, B.C. project",
@@ -1829,7 +2130,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "TNM Drill Down: Lion One in Fiji leads gold assays for August-September",
@@ -1844,7 +2146,24 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Volta drills 68g gallium, heavy rare earths at Springer in Ontario",
+   "link": "https://www.northernminer.com/news/volta-drills-68g-gallium-heavy-rare-earths-at-springer-in-ontario/1003895395/",
+   "published_at": "2026-10-02T13:39:24+00:00",
+   "first_seen": "2026-10-03T09:31:32.746213+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 0
   },
   {
    "title": "Sponsored Q&A: Erdene shifts from gold mine build to district-scale exploration",
@@ -1859,7 +2178,36 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "$968 million rare earths deal thrust spotlight on Brazil - The Mercury",
+   "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOS1c3SVR4UWI5X1dGWDZTamdNSkhyQmk0cTQtbWhzZTczN2N4bVBtVTB5RHFzNUkwUXR4eE1ELU5pUlhWZXdjS0xxaTBJRmJveTI4bk12b0owQkV0VzdJVThwbUE3U0NOWTRZNWlCRER0QWZaRGpkU1h3RFZ5RFJCZGswaEpTNlZJdk1qYkZNaXRBa0dnaUVIR0V6WTBXeVk1SVM5aU5GQ3BMQURobUxDQzBQbHl6eGtHalNsTlVWRmRLSWpCaFZfemJUWUs5bE9XNmxyQXJSYjZobU40bnNtdG9MeVZnTWZucTB1alpkOFNKUWJIYmdDTTNQeVZUeTRN?oc=5",
+   "published_at": "2026-10-02T13:00:00+00:00",
+   "first_seen": "2026-10-05T10:56:00.430311+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "$968 million rare earths deal thrust spotlight on Brazil - NT News",
+   "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNTXVtU3l5azRwdFVpN3RCNjRtN3FncUtsYVVvRmpQYVhaMVVMQjFLVEVlbW1KQmgwOGNKX2haMlVna3llUFhybk9YWHJMQ0swNlJaVHRQaWRWYlY3ZGVkeUJDRm5kOFNxbEVuanNaWGowZDdRUWIzZnhGMDZyRTZpQ1MxZzV5dDh4S1VHQ3lXUE9qbENIaWNIcVE2aWhfUFpuLWRzSTZpUjBBcGNTZUZDaE1VanJMbE8wVGlsOF82eTVfNkJBUklUdlpSRTRBbDJxSW1ib1BXdVk3M2ZpTFRaYjJCcS0tcHkzUXR3VTBHTFFncW1HQU1yNkIwTQ?oc=5",
+   "published_at": "2026-10-02T13:00:00+00:00",
+   "first_seen": "2026-10-06T10:51:48.894297+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras: compra da Meteoric impulsiona ações de vizinhas em MG - cnnbrasil.com.br",
@@ -1874,7 +2222,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lula defende processamento de terras raras no Brasil - vermelho.org.br",
@@ -1889,7 +2238,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium prevê atraso em projetos de expansão no Brasil após suspensão das operações - BNamericas",
@@ -1904,7 +2254,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "World Bank unlocks $1.4B for Chile’s copper giant",
@@ -1919,7 +2270,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Pesquisador da Ufrgs aponta Porto Alegre com potencial para terras raras - Jornal do Comércio",
@@ -1934,7 +2286,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Barry FitzGerald: UBS sees iron ore holding up – here are the juniors to watch",
@@ -1947,7 +2300,8 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Gold steadies ahead of key U.S. jobs data",
@@ -1962,7 +2316,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Resumo do OD: o que seu candidato pensa sobre terras raras? E mais! IA, mudanças climáticas e lançamento da SpaceX - Olhar Digital",
@@ -1977,7 +2332,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "IMARC organisers look to match up METS companies with mining decision makers",
@@ -1990,7 +2346,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "BNDES pode virar sócio de refinaria de terras raras em MG - CNN Brasil",
@@ -2005,7 +2362,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold Digger: Picture for PGMs ‘constructive’ as tech gives obscure metals a leg up",
@@ -2020,7 +2378,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Copper clings to $6.57 Fibonacci support: Live levels",
@@ -2035,7 +2394,8 @@
    "tema": "geral",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Resources Top 5: Meteoric soars on Lynas takeover bid as Mamba ramps up Murchison copper push",
@@ -2050,7 +2410,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Eleições 2026: conheça os planos de candidatos à Presidência para terras raras e minerais críticos - Olhar Digital",
@@ -2065,7 +2426,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "$968 million rare earths deal thrust spotlight on Brazil - Townsville Bulletin",
+   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOTkxybExSdzhfOGJFQlpEa293Qk5UbTFEZ3ljRDI1Vk9EZm01aF9tbTczTjAtcm0zbWVpM3VKSTA2RXd0b09abThZQ2tHZ0I3NlNmaUp6NmpQeG9uaEhBbFozdjVjaGlQbmpDTXpCc2NXX3NHUGU3NVlfVm5GZVM5bUhmVGplNEV2R2J3SHVjVmRRYWZDdVROaFB6LThwenQ0ZkNRUGJNWE1hN2NSRUprLWw0UTh0NjRMU05mQXpMVHlpUlNPZ0hzZE1NSWh3Q0NjNklrNEtLdWNkSXpWTk9RQ3c5MW5fby1aLTNQeXZRWG1HR0ZUelVGNDQ3bXY1RlN1VjJFNGJsLVc3NXc?oc=5",
+   "published_at": "2026-10-02T06:19:09+00:00",
+   "first_seen": "2026-10-04T10:17:10.765361+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "BEML unveils India’s first battery electric 60 t class mining truck",
@@ -2078,7 +2454,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Monsters of Rock: Potential challengers for Lynas at Meteoric … and copper supply tightens again",
@@ -2093,7 +2470,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Investimentos de empresas estrangeiras colocam o Sul de MG na disputa global por terras raras; entenda - g1.globo.com",
@@ -2108,7 +2486,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Investimentos de empresas estrangeiras colocam o Sul de MG na disputa global por terras raras; entenda - G1",
@@ -2123,7 +2502,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Heavy Rare Earths announces plans for Subron resource upgrade",
+   "link": "https://stockhead.com.au/resources/heavy-rare-earths-announces-plans-for-subron-resource-upgrade/",
+   "published_at": "2026-10-02T01:08:32+00:00",
+   "first_seen": "2026-10-02T10:06:52.803444+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Australiana compra terras raras em Minas Gerais por R$ 3,5 bi - Acia Araçatuba",
@@ -2138,7 +2532,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Kantra Copper dives deeper at Nugent with 70m copper-gold hit",
@@ -2154,7 +2549,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Lynas Takes the Rare Earth Race to Brazil with Meteoric Bid - InvestorNews",
@@ -2169,7 +2565,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo prepara rito simplificado para análise de operações de minerais críticos - Capital Reset",
@@ -2182,7 +2579,8 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Sigma recupera licenças na Justiça para retomar produção de lítio em MG - CNN Brasil",
@@ -2197,7 +2595,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras pautam debate entre candidatos ao governo do Amazonas - Revista Oeste",
@@ -2212,7 +2611,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras-raras: compra de mineradora em MG ocorre 15 dias após sanção da Política de Minerais Críticos - O TEMPO",
@@ -2227,7 +2627,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras do Brasil entram na disputa global após negócio de US$ 672 milhões - Defesa em Foco",
@@ -2242,7 +2643,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "BC First Nation terminates agreements with Spanish Mountain Gold, shares plunge",
@@ -2257,7 +2659,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Explorers Podcast: Growing the copper war chest in Queensland",
@@ -2272,7 +2675,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Terras raras: aquisição no Brasil posiciona a australiana Lynas como grande fornecedora global - Estadão",
@@ -2287,7 +2691,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana compra dona de projeto de terras raras em Minas por R$ 3,5 bilhões - ICL Notícias",
@@ -2302,7 +2707,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ASX developers spring into action as copper supply gap looms",
@@ -2317,7 +2723,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Terras raras: aquisição no Brasil posiciona a australiana Lynas como grande fornecedora global - Estadão",
@@ -2332,7 +2739,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "$968 million rare earths deal thrust spotlight on Brazil - Adelaide Now",
+   "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNbVdMR0p2bkFRTFBEOGdiTXJtSTNJdmIwQTFOMU5McU1VVFZYaUVWUDFiYzdqc3pvY3FvNkwyNWhsVHNtWE9hbXhtZDdFT2Y2cmdVdnRZX3F6dW9naW5sSXoxSUtRXzlrbVM2OFJXcm1hMFE1NTdDNm51ZmNIZlAwRmRjUGNyWG5GLTlhdHlpSVlKblZnUVQ2LVptT2E3QzFyd2YwQnFtT2FwNTNTQTluTTc3dkt1dHlRcmxKTTRJaVh1MzJhNEdFQWFDZnlDOVh1N1Q0cGt5ZmpxckZkZFFERWt1OUNQX3YzQnVQU0ZrXzFia2xMeS0tcVJibWt1aEprbGc?oc=5",
+   "published_at": "2026-10-01T20:15:25+00:00",
+   "first_seen": "2026-10-03T09:31:46.462905+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Viridis entrega amostras de terras raras à UFSC - jornaldacidade1.com.br",
@@ -2347,7 +2769,36 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas’ $968 million play for Meteoric puts Brazilian rare earths back on the map",
+   "link": "https://stockhead.com.au/resources/lynas-968-million-play-for-meteoric-puts-brazilian-rare-earths-back-on-the-map/",
+   "published_at": "2026-10-01T20:00:47+00:00",
+   "first_seen": "2026-10-02T10:06:52.793236+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas’ $968 million play for Meteoric puts Brazilian rare earths back on the map - Stockhead",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbm8zOVVBcUZxRFRKbmNRSWZVVmFMd3JPd0NVZzNabl93dTdocWJKWHhnSHRSNlBWc2RsRzktVzFOLVdNWDRodXpzNXoyQ2wyNGx3bnpua1h3b2xsdmZ2R2hDZ2VOLXBxS204ZlR2UWNMRXZkZlM2bGluMmctOEd2SzAwR1gtLV9CLU1KdWRmSVZ3QmRFc25yWkJOY2RDMG00a3dieTcyQlNqUmZValo0cHhBS1E?oc=5",
+   "published_at": "2026-10-01T20:00:47+00:00",
+   "first_seen": "2026-10-02T10:07:09.960373+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CEO.CA's Inside the Boardroom: Origen Resources Dominates NE Brazil's Rare Earth Footprint - The Globe and Mail",
@@ -2362,7 +2813,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Nova versão do SIGMINE Mapa Interativo amplia acesso a dados e análises espaciais da mineração - gov.br",
@@ -2375,7 +2827,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mercado de terras raras movimenta bilhões e coloca projetos brasileiros no radar internacional - Folha BV",
@@ -2390,7 +2843,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CEO.CA's Inside the Boardroom: Origen Resources Dominates NE Brazil's Rare Earth Footprint - Yahoo Finance",
@@ -2405,7 +2859,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Beaver Creek: Gold’s bond break puts juniors in play",
@@ -2420,7 +2875,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazil court shuts Sigma Lithium mine",
@@ -2435,7 +2891,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lynas anuncia aquisição da Meteoric e projeto de terras raras em MG por R$ 3,5 bilhões",
@@ -2450,7 +2907,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mining’s future is up for sale",
@@ -2463,7 +2921,8 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Terras Raras Colocam Soberania e Desenvolvimento no Debate - Jornal GGN",
@@ -2478,7 +2937,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Projeto de terras raras em Caldas recebe oferta de R$ 3,5 bilhões - g1.globo.com",
@@ -2493,7 +2953,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Yukon Metals Intersects 23.5 Metres of 0.48 G/T Gold and 0.11% Copper Near Surface, Extending Birch Skarn System to Approximately 1 Kilometre of Drilled Strike",
@@ -2509,7 +2970,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Canadian Mining Hall of Fame announces 2027 inductees",
@@ -2522,7 +2984,8 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Elevra fires up NAL lithium mine expansion",
@@ -2537,7 +3000,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazil court order shuts Sigma Lithium mine",
@@ -2552,7 +3016,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil court order shuts Sigma Lithium mine",
@@ -2567,7 +3032,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas Bets AUD 968 Million on Brazilian Clay to Loosen China's Grip on Rare Earths - AD HOC NEWS",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOTjkzZGdxTm9lcWJSZTZ1Z0p4bkJjQUM5RUFVdnZ2b1BEemtNWkU2UHUzWVhPZXRlMktYY1F3T0llaXpOcHpVekY3Mmd5dHROSkk4NmVCaWs3Y2JPTUtWdklkdWxDTHd2ZFptODNkTEJEbU1RSC1pMlB0Sm5qaTlQN1ZVQUVJSnZQbjROM3h6RXQ1Mk83bVRxZ1BQUnh4Qk9TMHl6cmhtVkRqYkZCS09fUWNvNS02UlBHcVhDM2RNTklpMjVFbDR2MVpPN3BrWExiRHBzc3pIT2NlUQ?oc=5",
+   "published_at": "2026-10-01T17:11:38+00:00",
+   "first_seen": "2026-10-02T10:07:09.964283+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "FPX Nickel drills Birchy North target and launches drilling at expanded Wolverine target at Advocate Nickel property, Newfoundland",
@@ -2582,7 +3062,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Chilean lithium project draws investors despite metal rout",
@@ -2597,7 +3078,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Grande Portage Signs Definitive Commercial Agreement with Ocean Partners (UK) Limited for New Amalga Gold Offtake",
@@ -2612,7 +3094,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "EMP, Saltworks host lithium-demonstration-plant tour",
@@ -2627,7 +3110,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Ferramentas que ampliam transparência sobre recursos da mineração estão disponíveis - Confederação Nacional de Municípios",
@@ -2640,7 +3124,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mining’s future is up for sale",
@@ -2653,7 +3138,8 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "O que a Lynas, que pode assumir projeto no Sul de Minas, diz sobre sobre planos de separar terras raras no Brasil - ofator.com.br",
@@ -2668,7 +3154,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Beaver Creek: Gold’s bond break puts juniors in play",
@@ -2683,7 +3170,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Entrenched premium leaves gold primed to climb despite surge in US bond yields",
@@ -2698,7 +3186,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Projeto de terras raras comprado em MG está em licenciamento e tem parte da produção negociada com empresa sul-coreana - g1.globo.com",
@@ -2713,7 +3202,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas Rare Earths will buy Meteoric Resources for $672 million - Inspenet",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1zeTM0dURZbFVlRkthSTR2Uk5QclhpR0dFRVNIVHZwTlh0dk9SXzFTUnQyVXdEbUdINFpUM2VHZTFnT2IxTE02ZGhFWWRiOFpGVEpLQU1LckNHU0lkSUNKdEhUMzV0ZUZWWTdxNnNjZHJoX3pIaWJLeEd3?oc=5",
+   "published_at": "2026-10-01T15:17:46+00:00",
+   "first_seen": "2026-10-03T09:31:46.460357+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Solução de engenharia em mineradora aumenta 104% a massa processada em operação de minério de ferro",
@@ -2726,7 +3230,8 @@
    "fonte": "Revista Minérios",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras do Brasil na mira global: o que negócio bilionário indica além da Bolsa - InfoMoney",
@@ -2741,7 +3246,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Eramet plans $350 million lithium expansion in Argentina",
@@ -2756,7 +3262,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Agenda Global: Na mineração, desafios a superar - oglobo.globo.com",
@@ -2769,7 +3276,8 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas compra mineradora por R$ 3,5 bilhões e entra no mercado de terras raras do Brasil - InvestNews",
@@ -2784,7 +3292,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Bank of Korea plans gold purchase from domestic producers in December",
@@ -2799,7 +3308,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Mayfair lines up $310M for Fenn-Gib gold project in Ontario",
@@ -2814,7 +3324,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Standard Uranium drills Davidson River Project; Saskatchewan",
@@ -2829,7 +3340,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Sigma Lithium suspende operações de mineração no Brasil - Investing.com Brasil - Finanças, Câmbio e Investimentos",
@@ -2844,7 +3356,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ceará entra no radar da corrida pelo lítio com projeto de mineração e refinaria no Sertão Central - Focus Poder",
@@ -2859,7 +3372,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana fecha acordo de R$ 3,5 bi por projeto de terras raras em MG - VEJA",
@@ -2874,7 +3388,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Canagold Resources drills 30.46% antimony and 49.10 gold over 1.21 metres within 13.2 metres at 3.83% Sb and 19.38 Au at New Polaris Project, British Columbia",
@@ -2889,7 +3404,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Acordo abre nova etapa para projeto de terras raras - Agrolink",
@@ -2904,7 +3420,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mayfair lines up $310M for Ontario gold project",
@@ -2919,7 +3436,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Regulador brasileiro interdita área da mina Grota do Cirilo, da Sigma Lithium - BNamericas",
@@ -2934,7 +3452,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo anuncia refinaria de terras raras, mas empresa confirma apenas a compra de projeto em Minas Gerais - ConvergenciaDigital",
@@ -2949,7 +3468,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas anuncia compra da Meteoric e leva projeto de terras raras em MG por R$ 3,48 bi - Estadão",
@@ -2964,7 +3484,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Hannan Metals extends Previsto Gold Breccia, Peru; open in all directions",
@@ -2979,7 +3500,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Venda de mina de terras raras em MG por R$ 3 bi é primeiro teste de nova política - Capital Reset",
@@ -2994,7 +3516,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas anuncia compra da Meteoric e leva projeto de terras raras em MG por R$ 3,48 bi - Estadão",
@@ -3009,7 +3532,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana adquire megaprojeto de terras raras no Sul de Minas por R4 3,5 bilhões - O TEMPO",
@@ -3024,7 +3548,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lynas planeja planta de refino de terras raras em MG, diz ministro à CNN - CNN Brasil",
@@ -3039,7 +3564,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Riversgold submits mine plan for Kalgoorlie gold project in Australia",
@@ -3054,7 +3580,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Kinross Gold starts drilling at West Point project in Nevada",
@@ -3069,7 +3596,22 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "US$670 million deal between Australian firms boosts Brazil’s rare earths sector - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU2RaLWt4WEtfd1lNS2FlWGowNGdQVFlwTnlLUDc2RGFUTEZIUzg0ZHl1VFE0OWpLMlppUkdBT05nUzNrR2lJdGNHWEQwZ3pjdV9HWUdiYzZjYm01clFRTDdoODkyMW1vNmJIdkNLeTRYTUc5LVh4QUxMb0kyQkxVci1sU3U4RVJpTVVCZE5HTU4tWEk2R2steGZsMC1qUXRQYWpuc08ycGtqSnB0dGZxeDItVEYzYnM?oc=5",
+   "published_at": "2026-10-01T12:52:19+00:00",
+   "first_seen": "2026-10-02T10:07:09.959262+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Negócio de mais de US$670 milhões dá novo impulso ao já vibrante setor de terras raras no Brasil - BNamericas",
@@ -3084,7 +3626,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Viridis entrega amostras de terras raras à Universidade Federal de Santa Catarina - tvpocos.com.br",
@@ -3099,7 +3642,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Upside Gold extends drilling program at B.C. project",
@@ -3114,7 +3658,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Beaver Creek video: Gold gains new role vs bonds",
@@ -3129,7 +3674,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Australiana Lynas paga R$ 3,5 bi em projeto de terras-raras em MG - Poder360",
@@ -3144,7 +3690,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo anuncia refinaria de terras raras, mas mineradora ainda trata planta no Brasil como “potencial” - Blog do Magno",
@@ -3159,7 +3706,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Redpath on building the capability for Africa’s mining future beyond the orebody",
@@ -3172,7 +3720,8 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Empresa australiana compra projeto de terras raras em Minas Gerais por R$ 3,5 bilhões - radioviramundo.com",
@@ -3187,7 +3736,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana compra projeto de terras raras em Minas Gerais por R$ 3,5 bilhões",
@@ -3203,7 +3753,8 @@
    "substancias": [
     "terras_raras",
     "uranio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana compra projeto de terras raras em Minas Gerais por R$ 3,5 bilhões - g1.globo.com",
@@ -3218,7 +3769,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa australiana compra projeto de terras raras em Minas Gerais por R$ 3,5 bilhões - avozdocampo.com",
@@ -3233,7 +3785,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "DPM’s Vareš mine keeps running as concession faces review",
@@ -3246,7 +3799,8 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Governo anuncia refinaria de terras raras, mas mineradora ainda trata planta no Brasil como “potencial” - Capital Digital",
@@ -3261,7 +3815,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mariana Sanches: Governo Trump vê embate entre interesse na eleição e terras-raras no Brasil - UOL Notícias",
@@ -3276,7 +3831,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "BofA raises long-term copper forecast to $12,000 per ton",
@@ -3291,7 +3847,8 @@
    "tema": "geral",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Mineradora australiana compra projeto de terras raras no Sul de Minas por R$ 3,5 bi - Exame",
@@ -3306,7 +3863,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gold inches lower amid softer inflation data, elevated yields",
@@ -3321,7 +3879,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Análise da barragem da Emicon em Brumadinho está em fase final, diz ANM",
@@ -3334,7 +3893,8 @@
    "fonte": "Diário do Comércio · MG",
    "escopo": "nacional",
    "tema": "geral",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Yancoal closes $1.85bn deal for 80% stake in Kestrel Coal Mine",
@@ -3347,7 +3907,8 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Mineradora australiana compra projeto de terras raras no Sul de Minas por R$ 3,5 bi",
@@ -3362,7 +3923,8 @@
    "tema": "geral",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Aura puts its Tiris uranium build team in place as BFS nears",
@@ -3377,7 +3939,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Explorers Podcast: Going for gold in Cambodia with Unity Metals",
@@ -3392,7 +3955,36 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Lynas Rare Earths to Buy Meteoric Resources in $672 Million Deal - wsj.com",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeHl4XzhwNmR0Q3VSUG5XX01wTzFhS3l6QjFGZXpjdlMxNjdUZXZLZkRHM1YyazlJdDRpR3VRSGtRTVlGb1czQkhpaGFjUE1aMWdvU3NWNjl4YWZPa1AxNll4UDNjUFFTSFU4WkluYXc0SzVNaW1LOWwyWUZ0UzR4YmlOaVZ5MGQzV0pFWDhlVEMwdVNzZVhvWUo0T1FTZ1cweEc0?oc=5",
+   "published_at": "2026-10-01T04:56:00+00:00",
+   "first_seen": "2026-10-03T09:31:46.458558+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Lynas to buy Meteoric for $968m to secure Brazilian rare earths - AFR",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSGQwVWJQVUQ4NzVxZENkTHdvZXU5blJud1ZYZ1d2aUlCWk9sN05JVEp4WjBsRVp5eFEweTZ4OFlYTzNubjM0WUVtVkxaRklfTnlKQ3R1WG5JOGpOal8tNDRQTFkxNzl4djBYV1NZelZzWnM1eGhQU3BKU3VxeUtzZXZkbXJSdlNXXzBDajIyaWRtam9rVzNoREszM1N6dmVwLUFBZ0pwVFEybzR4ZWI5M2cxc1FhRXdRRGc?oc=5",
+   "published_at": "2026-10-01T04:52:00+00:00",
+   "first_seen": "2026-10-01T10:32:05.349207+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Renascor clears key hurdle at Marree copper-uranium project",
@@ -3408,7 +4000,22 @@
    "substancias": [
     "cobre",
     "uranio"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Does Brazilian Rare Earths (ASX:BRE) Gain From Sulista South? - Kalkine Media",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPZHJEaE9iQmFBSDVKRmQyR0NWbXJwSUM2akw4U0s1UHh4N2ppS1dHNXEtYWcyMzhLYmptS2s0RU41V1ZJdEtDajBWVS1oeXhteHRIeE45ZGNtcHZMYUxvWVpLNGQxVnRvb1B0eWxET0J0SFdfZV9TUUxoTm52SkhxRFhQM2RNa3B0aFRHSGdnZGhsN2xQd01TNkRzSHRiUlB1Z2tYOWJpX3dGYlhpSG12dkhR?oc=5",
+   "published_at": "2026-10-01T03:19:00+00:00",
+   "first_seen": "2026-10-01T10:32:05.353248+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CuFe mobilises 20km copper-gold drill campaign at Tennant Creek",
@@ -3424,7 +4031,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "New targets expand Delta Lithium’s exploration pipeline",
@@ -3439,7 +4047,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Long Shortz with Nordic Resources: Kopsa delivers strong gold and copper recoveries",
@@ -3455,7 +4064,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "A new rare earth discovery spans 500 meters in Brazil - Stock Titan",
@@ -3470,7 +4080,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "True North Copper stacks copper-gold hits on Wallace North",
@@ -3486,7 +4097,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "The chemistry behind better lithium recovery",
@@ -3501,7 +4113,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Australiana Lynas Rare Earth fecha acordo para a compra de 100% da Meteoric, dona de projeto brasileiro de terras-raras - O GLOBO",
@@ -3516,7 +4129,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas compra projeto de terras raras da Meteoric em Minas Gerais - Agência eixos",
@@ -3531,7 +4145,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas vai comprar Meteoric, que tem projeto de terras raras em MG - Valor Econômico",
@@ -3546,7 +4161,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas vai comprar Meteoric, que tem projeto de terras raras em MG - Valor Econômico",
@@ -3561,7 +4177,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lynas Bets On Brazil For More Rare Earth Supply - Finimize",
@@ -3576,7 +4193,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas anuncia compra de dona de megaprojeto de terras raras em MG por R$ 3,5 bilhões",
@@ -3591,7 +4209,8 @@
    "tema": "geral",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana Lynas anuncia compra de dona de megaprojeto de terras raras em MG por R$ 3,5 bilhões - Folha de S.Paulo",
@@ -3606,7 +4225,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Kantra extends Nugent copper-gold mineralisation in South Australia",
@@ -3622,7 +4242,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Lynas compra Meteoric com plano de avançar em processamento de terras raras - Agência iNFRA",
@@ -3637,7 +4258,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gina Rinehart backed Lynas to buy rare earths miner Meteoric - Mining.com",
@@ -3650,7 +4272,22 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Gina Rinehart backed Lynas to buy rare earths miner Meteoric",
+   "link": "https://www.mining.com/web/gina-rinehart-backed-lynas-to-buy-rare-earths-miner-meteoric/",
+   "published_at": "2026-10-01T00:12:00+00:00",
+   "first_seen": "2026-10-01T10:31:58.155195+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · terras raras",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Javelin awaits new gold-copper assays after drilling Coogee North deep target",
@@ -3666,7 +4303,8 @@
    "substancias": [
     "cobre",
     "ouro"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Maior mineradora de terras raras fora da China anuncia intenção de comprar empresa com projeto no Sul de Minas - O Fator",
@@ -3681,7 +4319,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brasil terá planta de terras raras após acordo bilionário em Minas - Brasil 247",
@@ -3696,7 +4335,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   }
  ]
 }

@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 259,
+ "materias": 273,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -15,7 +15,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Brazil rare earth mine shows hurdles of breaking free from China",
@@ -30,7 +31,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Smackover seals 10-year lithium-supply deal with LG Energy",
@@ -45,7 +47,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Defense Metals drills 6% rare earths in British Columbia",
+   "link": "https://www.mining.com/defense-metals-drills-6-rare-earths-in-bc/",
+   "published_at": "2026-08-31T14:57:55+00:00",
+   "first_seen": "2026-09-19T19:48:56.716004+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · terras raras",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Acionistas da USA Rare Earth aprovam capital para comprar Serra Verde por R$ 14,5 bilhões - InvestNews",
@@ -60,7 +77,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: acionistas da USA Rare Earth aprovam compra da Serra Verde - CNN Brasil",
@@ -75,7 +93,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Acionistas da USA Rare Earth aprovam compra da Serra Verde - capitalreset.uol.com.br",
@@ -90,7 +109,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Acionistas da USA Rare Earth aprovam aumento de capital para comprar Serra Verde, por R$ 14,5 bi - O GLOBO",
@@ -105,7 +125,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras raras no Brasil expõe desafio dos EUA para reduzir dependência da China - Bloomberg Línea Brasil",
@@ -120,7 +141,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras-raras no Brasil evidencia desafios de se libertar da dependência da China - O GLOBO",
@@ -135,7 +157,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Candidata do PSDB adverte que EUA vão explorar terras raras e deixar só 'um buraco no chão do Brasil' - Hora do Povo",
@@ -150,7 +173,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: projeto em MG atrai capital global às vésperas de marco legal - Brazil Journal",
@@ -165,7 +189,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Gestão da segurança de pilhas de mineração é tema de audiência pública - www.gov.br",
@@ -178,7 +203,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil rare earth mine shows hurdles of breaking free from China - Mining.com",
@@ -193,7 +219,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil Rare-Earth Mine Shows Hurdles of Breaking Free From China - bloomberg.com",
@@ -208,7 +235,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras de Minaçu colocam Goiás no centro da disputa entre EUA e China - folhadegoias.info",
@@ -223,7 +251,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ala do governo defende proibir ou taxar exportação de terras raras “brutas\" - CNN Brasil",
@@ -238,7 +267,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "As conversas que decidirão os rumos da arrecadação de Minas com as terras raras - O Fator",
@@ -253,20 +283,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Audiência Pública nº 2/2026 — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQa0UwT1ExWXVqQ0p2NWNDXzdLdUZUMzlXOTB6Z05SM1A4WGdBekNnU3ZoMEVkbDRuSm1HVnVRdVNJOVI4ZVNoLXpGSHludXVLTEZ1OGY0QzVwTXRSQTByazI0RUFwLVVUNU1GX3AwQlB4aGduSkJzU0g4TDk1SVlLSk5nLVhSTThoSW5CcC11cGZ1VG9wcGlCLVMtb3JfeVFJdjA1LVFfcEE4UWcxTFRBLS1YMUlQZnRF?oc=5",
-   "published_at": "2026-08-31T07:00:00+00:00",
-   "first_seen": "2026-09-19T19:49:06.223229+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "Acionistas da USA Rare Earth aprovam aumento de capital para comprar Serra Verde, por R$ 14,5 bi - oglobo.globo.com",
@@ -281,7 +299,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazilian Critical Minerals appoints Altris to advance Ema Rare Earth Project towards development - Proactive financial news",
@@ -296,7 +315,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -309,7 +329,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil Must Not Surrender Its Critical Minerals - Countercurrents",
@@ -322,7 +343,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale (VALE3) quer avançar em terras raras? Entenda os planos da empresa - InfoMoney",
@@ -337,7 +359,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Opinião - VÁRIOS AUTORES: Do urânio ao nióbio, as lições para o Brasil das terras raras - Folha de S.Paulo",
@@ -354,7 +377,8 @@
     "niobio",
     "terras_raras",
     "uranio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM outorga 19 alvarás de pesquisa mineral em Mato Grosso - Fatos de Mato Grosso",
@@ -367,7 +391,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Anfield Energy starts blasting at historic Velvet-Wood uranium mine in Utah",
@@ -382,7 +407,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Governments become ‘deal participants’ as critical minerals race accelerates",
@@ -395,7 +421,8 @@
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Técnicos da Funai pedem anulação de licença para Belo Sun minerar ouro no Xingu",
@@ -410,7 +437,8 @@
    "tema": "geral",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "IDB Invest to back Posco Argentina lithium expansion with up to $700 million",
@@ -425,7 +453,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "EUA avançam sobre mineradora de terras raras em Goiás e acendem alerta sobre soberania brasileira - 082noticias.com",
@@ -440,7 +469,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina em Goiás ganha destaque, mas refino de terras raras fica fora do país - UOL Economia",
@@ -455,7 +485,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lula cobra aprovação rápida de lei de minerais críticos após avanço de estrangeiros em 4 projetos de terras raras - Folha de S.Paulo",
@@ -470,7 +501,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Minerais críticos e tributação: o Brasil diante de uma nova corrida global - Agência eixos",
@@ -483,7 +515,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Collaboration and strong data work lead to exclusive on rare earth mining in Brazil - ap.org",
@@ -498,7 +531,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo atua contra venda de terras raras aos EUA e exige industrialização no Brasil - ICL Notícias",
@@ -513,7 +547,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Why Brazil’s rare earths will not break China’s magnet grip at least until 2032 - South China Morning Post",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNZndidW8tX180bTFYUmZGX2NQeW9maUZ0X19LX1dEZ255U2xxOEdhNEdrQm1jZkFrWnJnWEN1U3poRzhZOElwWHA1MExjNWZ1dkFyMTlULVhkSnBVaVNmN29OaENFbjZEczdKUVFRM0pta296VGtNOXZPdzJvaVFyeGFybFk4Xzl3YlNXaW1jN3JYUnpqekZvejVFQ1MtckZpd05jdmJIbzhkRWxCcm5uUlhFYlRiMUMzVDQ0MGNGcUhVbWPSAcMBQVVfeXFMTmtPMU5xSHkzNE50amhFR1JhalI0WV8tTW0wWktYczRXZlVrakRGVWxWRVNKSDViQWJBN3lhX0M3UGs3dHczVWNNR3IzVVRiRGlWdVVZLXRCTHZTRncxMEhZSjlJa1Vvbjc4d29udGRCOGVHS3lGT2doM2p3U1d3YVcwQ2UxT1pEQzZOM3ZXUnBLMGw2aG9GNDRjSjZVc1dMdTdHWjlEWWxnRm9rNEtLNC1NODZZbnJNbVp5RHc4bTF2b004?oc=5",
+   "published_at": "2026-08-28T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.910284+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Cyclic Materials lands $75M to expand US rare earth recycling",
@@ -528,7 +577,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Lithium price: BMI raises forecast, warns rally has outrun fundamentals",
@@ -543,7 +593,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "MinRes plans move into copper after record profit",
@@ -558,7 +609,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Departamento de Guerra dos EUA investe 750 milhões de dólares em terras raras brasileiras - Instituto Humanitas Unisinos - IHU",
@@ -573,7 +625,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -586,7 +639,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Spark Reports Second Gallium-Rare Earth Discovery in Brazil's Lithium Valley, Led by Project-Record 114.3 g/t Ga2O3 - newsfilecorp.com",
@@ -602,7 +656,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil Wants To Move Up The Rare Earth Supply Chain - Finimize",
@@ -617,7 +672,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo descarta intervenção em venda da Serra Verde, de terras raras - CNN Brasil",
@@ -632,7 +688,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Departamento de Guerra dos EUA investem US$ 750 milhões em terras raras brasileiras - Opera Mundi",
@@ -647,7 +704,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "US critical minerals proposals to Brazil go unanswered as China looms - South China Morning Post",
@@ -660,7 +718,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil’s Role in the Global Rare Earth Race Is Growing - The Globe and Mail",
@@ -675,7 +734,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Spark Reports Second Gallium-Rare Earth Discovery in Brazil's Lithium Valley, Led by Project-Record 114.3 g/t Ga2O3 - Yahoo Finance",
@@ -691,7 +751,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil’s Role in the Global Rare Earth Race Is Growing - The Globe and Mail",
@@ -706,7 +767,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil's Vale studies extracting rare earths, gold from mining waste - Reuters",
@@ -721,7 +783,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo Lula amplia crédito para fertilizantes e minerais críticos - Poder360",
@@ -734,7 +797,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "US critical minerals proposals to Brazil go unanswered as China looms - South China Morning Post",
@@ -747,7 +811,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo descarta barrar venda de mineradora de terras raras aos EUA - Brasil 247",
@@ -762,7 +827,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM interdita lavra e suspende envase e venda de água da Fonte Água Bita por risco à saúde - atlaspublico.com.br",
@@ -775,7 +841,22 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazilian Vale assesses entry into the rare earths market - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZERFYTVvV2gzbUdQeGdFQTJ1Y25mWm5oa2ZHWndxSE1MVW5YQzFDOS00R2dIeWdINFBNQy1sR3ZHVXBDWjJsNjc0MFlxc1dCQXR4Q1cxcTYzeFdWVUxMdTB5YVpwak1iUmI1TXZpTHJTMGp4SFZReHVZcnNLTmNncG5VM05nTlF0elp6My1WdmI3Sm9jUzA4?oc=5",
+   "published_at": "2026-08-27T07:00:00+00:00",
+   "first_seen": "2026-09-22T04:02:39.888112+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale studies extracting rare earths, gold from mining waste",
@@ -790,7 +871,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "US Department of Energy awards $10M for critical minerals R&D",
@@ -806,7 +888,8 @@
    "substancias": [
     "cobre",
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Maglut Heavy Industries unveils US rare earth processing strategy",
@@ -821,7 +904,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Defense Department to invest $750M in rare earth elements from Brazil - Homeland Preparedness News",
@@ -836,7 +920,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Canada Silent as Trump-Backed Deep-Sea Mining Threatens a ‘Vital Climate Buffer’",
@@ -849,7 +934,8 @@
    "fonte": "MiningWatch Canada",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Governo Lula é contrário à exploração de terras raras em Goiás por empresa dos EUA e avalia rever negócio",
@@ -864,7 +950,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "NexGen expands Sask program after high-grade uranium results",
@@ -879,7 +966,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -892,7 +980,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras: saiba como cidade goiana saiu da exploração de amianto para o centro da disputa internacional de minérios - G1",
@@ -907,7 +996,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo é contra a exploração de terras raras em Goiás por empresa americana e avalia como rever negócio - G1",
@@ -922,7 +1012,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "União estuda reverter contrato de terras raras em Goiás - SpaceMoney",
@@ -937,7 +1028,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Acordo de terras raras em Goiás enfrenta o Planalto - SpaceMoney",
@@ -952,7 +1044,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo contesta mineração de terras raras em Goiás - boca.com.br",
@@ -967,7 +1060,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo Lula é contrário à exploração de terras raras em Goiás por empresa dos EUA e avalia rever negócio - Brasil 247",
@@ -982,7 +1076,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo avalia rever exploração de terras raras em Goiás por empresa dos EUA - Agenda do Poder",
@@ -997,7 +1092,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo reage a negócio de terras raras e estuda revisão - SpaceMoney",
@@ -1012,7 +1108,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Principal mina de terras raras do Brasil cai nas graças dos EUA - InvestNews",
@@ -1027,7 +1124,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Donos de terras onde opera a Serra Verde pedem suspensão de venda da mineradora para empresa dos EUA - R7",
@@ -1040,7 +1138,8 @@
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo avalia submeter venda da Serra Verde ao futuro Conselho de Minerais Críticos. - Capital Digital",
@@ -1053,7 +1152,8 @@
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo federal estuda reverter exploração de terras raras em Minaçu por empresa americana - Jornal Opção",
@@ -1068,7 +1168,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA avançam em compra de mineradora e podem se apropriar de terras raras no Brasil - vermelho.org.br",
@@ -1083,7 +1184,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ministro vê terras raras como ativo para Brasil em disputa entre EUA e China - Folha de S.Paulo",
@@ -1098,7 +1200,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Trump quer comprar mineradora de terras raras pela bagatela de R$ 1,2 bi - bncamazonas.com.br",
@@ -1113,7 +1216,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA GARANTEM US$ 1,55 BILHÃO PARA OPERAÇÃO LIGADA ÀS TERRAS RARAS DA SERRA VERDE - Diário 360",
@@ -1128,7 +1232,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa chinesa anuncia entrada em lítio e terras raras no Brasil - CNN Brasil",
@@ -1144,7 +1249,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "From Africa to Brazil, US War Department unlocks $1.55 billion funding package as rare earth race with China escalates - Business Insider Africa",
@@ -1159,7 +1265,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth raises $1.5bn for Serra Verde - Valor International",
@@ -1174,7 +1281,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "St George signs MOU with Brazil’s Lima & Pergher for rare earth processing center - Mining.com",
@@ -1189,7 +1297,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "St George Mining joins push for Brazilian rare earths processing hub - Yahoo Finance",
@@ -1202,7 +1311,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Departamento de Guerra dos EUA investe 750 milhões de dólares em terras raras brasileiras - apublica.org",
@@ -1217,7 +1327,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM interdita lavra e suspende envase e venda de água da Fonte Água Bita por risco à saúde - atlaspublico.com.br",
@@ -1230,7 +1341,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Ema Rare Earth Project, Brazil - Mining Technology",
@@ -1245,7 +1357,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "St George Mining joins push for Brazilian rare earths processing hub - Proactive financial news",
@@ -1258,7 +1371,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Critical minerals drive M&As and financing operations in Brazil - BNamericas",
@@ -1271,7 +1385,8 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo Lula deve rever venda da mina de terras raras em Minaçu para os EUA - Jornal Onze de Maio",
@@ -1286,7 +1401,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras em Goiás: governo Lula contesta acordo com empresa dos EUA - BPMoney",
@@ -1301,7 +1417,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Departamento de Guerra dos EUA investe 750 milhões de dólares em terras raras brasileiras - Brasil de Fato",
@@ -1316,7 +1433,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Zacharias Calil defende exploração de terras raras em Goiás pelos EUA, mas sem \"entregar de mão beijada\" - Rádio São Francisco 97.7 FM - Anápolis",
@@ -1331,7 +1449,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras brasileiras. O governo dos Estados Unidos aporta dinheiro diretamente na única mina que está em fase de produção no país. - JC",
@@ -1346,7 +1465,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale estuda investimentos em terras raras e lítio em meio à possibilidade de aprovação da política de minerais críticos - CBN",
@@ -1362,7 +1482,24 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazilian Rare Earths confirms more mineralisation at Monte Alto deposit in Brazil - Mining Weekly",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcDE5Tl9zb2VlOWZETnNUT0pLc1JHTnd2aEdURFUxRjV5WlVFUkNnYmVSQ2F1TDEwY3ZPaXlsZ0V1dThkSmVLUG5obW5vQ2MtYTJRd1kxMDRKaHVHRDFabFBmZl9LVm1iSUFDVjJJTmxrUklIWkZFZ191YjBwUG50Z1hGRkVPcjBFUXNZcEpjaTEzQXRvZWRWRGhlRVNYTFpZRlNFcnY2djNnQWVfQkJJUVlNUXNSMlgwT21hbGw1U0dHWVJyMVNCV0pzcnRkWmZR?oc=5",
+   "published_at": "2026-08-26T07:00:00+00:00",
+   "first_seen": "2026-10-06T14:19:40.633724+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Atomic Eagle claws back Niger uranium project",
@@ -1377,7 +1514,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Silica Networks leva fibra óptica a mineração de lítio no norte argentino - BNamericas",
@@ -1392,7 +1530,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa americana compra mineradora brasileira de terras raras com financiamento do Pentágono - TVT News",
@@ -1407,7 +1546,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sinomine secures additional Zimbabwe lithium export quota",
@@ -1422,7 +1562,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Cidade de Goiás que viveu do amianto agora está no centro da corrida por terras raras - Folha de S.Paulo",
@@ -1437,7 +1578,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo americano aporta US$ 750 milhões, e compra de mineradora de terras-raras pode sair nesta semana - O GLOBO",
@@ -1452,7 +1594,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras atraem US$ 1,5 bi de americanos - Valor Econômico",
@@ -1467,7 +1610,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "The US Military Is Buying Rare Earth Minerals from Brazil - The National Interest",
@@ -1482,7 +1626,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "US gives $2.2 billion backing to Brazil’s only rare earth mine - Mining.com.au",
@@ -1497,7 +1642,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Pentagon to purchase $750 million in rare earth elements from Brazil mine - Baltimore Sun",
@@ -1512,7 +1658,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth raises US$1.55 billion from the US government to acquire mining company in Brazil - BNamericas",
@@ -1527,7 +1674,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA asseguram terras raras por 15 anos e colocam soberania mineral do Brasil à prova - Capital Digital",
@@ -1542,7 +1690,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "DOD Invests $750M To Buy Rare-Earth Elements From Brazil - Law360",
@@ -1557,7 +1706,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ontario ready to cut off electricity, critical minerals to US amid trade war",
@@ -1572,7 +1722,8 @@
    "tema": "mineracao",
    "substancias": [
     "energia_eletrica"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Agência de Comunicação - Sigma Lithium anuncia retomada de suas operações e planeja investir R$ 600 milhões para expandir produção de lítio no Vale do Jequitinhonha - Estadão Blue Studio",
@@ -1587,7 +1738,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo americano aporta US$ 750 milhões, e compra de mineradora de terras-raras pode sair nesta semana",
@@ -1602,7 +1754,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA elevam aporte e avançam para controlar mineradora brasileira de terras raras",
@@ -1617,7 +1770,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo Trump investe mais R$ 1,2 bi na compra de mineradora de terras raras em Goiás - Mais Goiás",
@@ -1632,7 +1786,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA anunciam US$ 750 milhões para garantir terras raras de mina em Goiás - portaltela.com",
@@ -1647,7 +1802,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Pentágono anuncia compra de terras raras extraídas em Goiás, usadas na produção de caças, inclusive do F-35 - AEROIN",
@@ -1662,7 +1818,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA avança na compra de mineradora brasileira de terras raras com apoio bilionário do governo - G1",
@@ -1677,7 +1834,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA põe mais R$ 1,2 bi, e compra de mineradora brasileira de terras raras deve sair nesta semana - Folha de S.Paulo",
@@ -1692,7 +1850,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Cade arquiva ação e destrava venda da Serra Verde para USAR - CNN Brasil",
@@ -1707,7 +1866,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA ampliam aporte em terras raras e USAR avança na compra da Serra Verde - CNN Brasil",
@@ -1722,7 +1882,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA investem US$ 750 mi para “assegurar” terras-raras da Serra Verde - poder360.com.br",
@@ -1737,7 +1898,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA põe mais R$ 1,2 bi para empresa comprar mineradora de terras raras no Brasil - Estadão",
@@ -1752,7 +1914,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Compra da Serra Verde avança enquanto Brasil busca ampliar cadeia de terras raras - Economic News Brasil",
@@ -1767,7 +1930,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo Trump investe na exploração de terras raras no Brasil - Gazeta do Povo",
@@ -1782,7 +1946,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Tenho certeza que Vale vai “olhar” para terras raras, diz ministro - CNN Brasil",
@@ -1797,7 +1962,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA elevam aporte e avançam para controlar mineradora brasileira de terras raras - Brasil 247",
@@ -1812,7 +1978,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: empresa dos EUA avança na compra de mineradora no Brasil - Metrópoles",
@@ -1827,7 +1994,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth capta US$ 1,55 bi com apoio do governo dos EUA para comprar Serra Verde - ADVFN",
@@ -1842,7 +2010,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA avança na compra de mineradora de terras raras no Brasil - Portal IN - Pompeu Vasconcelos - Balada IN",
@@ -1857,7 +2026,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA põe mais R$ 1,2 bi, e compra de mineradora brasileira de terras raras deve sair nesta semana - Jornal de Brasília",
@@ -1872,7 +2042,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Trump ajuda empresa americana a comprar mineradora de terras raras no Brasil; entenda - Diário do Centro do Mundo",
@@ -1887,7 +2058,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Após aporte de US$ 1,55 bi, USAR assume terras raras em Minaçu - Jornal Opção",
@@ -1902,7 +2074,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA avança na compra de mineradora brasileira de terras raras com apoio bilionário do governo - Portal do Triângulo",
@@ -1917,7 +2090,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA completam investimento de US$ 750 mi na Serra Verde como parte de projeto da USA Rare Earth - JC",
@@ -1932,7 +2106,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: ANM conclui avaliação de regras e aponta melhorias nos repasses a municípios afetados - Brasil 61",
@@ -1945,7 +2120,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth Completes $1.55 Billion SPV Funding for Serra Verde Offtake - Yahoo Finance",
@@ -1960,7 +2136,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA põe mais R$ 1,2 bi para empresa comprar mineradora de terras raras no Brasil - terra.com.br",
@@ -1975,7 +2152,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: EUA completam investimento de US$ 750 milhões na compra da Serra Verde - Times Brasil | CNBC",
@@ -1990,7 +2168,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: USA Rare Earth avança na compra da Serra Verde por US$ 1,5 bilhão - BPMoney",
@@ -2005,7 +2184,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA põe mais R$ 1,2 bi para empresa comprar mineradora de terras raras no Brasil - Estadão",
@@ -2020,7 +2200,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium anuncia retomada das operações após acordo com autoridades no Brasil - BNamericas",
@@ -2035,7 +2216,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA avança para comprar única mineradora de terras raras do Brasil - Correio de Carajás",
@@ -2050,7 +2232,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA investem US$ 750 milhões em terras raras de Goiás - SBT News",
@@ -2065,7 +2248,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA avança na compra de mineradora brasileira de terras raras com apoio bilionário do governo - G1",
@@ -2080,7 +2264,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA investem mais US$ 250 milhões em mineradora de terras raras do Brasil - UOL Economia",
@@ -2095,7 +2280,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "TERRAS RARAS | Alvo amplia área de projeto pesado Bluebush - Brasil Mineral",
@@ -2110,7 +2296,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "The old asbestos town at the heart of the rare earths race - Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdXFWVXpwaGJFWEptWmdLVS1TeXJmUWpmOWxnUlQ5cTJpRHpyaDRrNlpuNmFDdjNVbkZCOTZBVnF2NG94a1d2eThwSURpb056RDRRYlU2d05kdVhLU3JvTTl5S3gyTG5vTGRCWE5tcHY2b2lJbDJEXzc5R3hhU3VQNlNJdGQ?oc=5",
+   "published_at": "2026-08-24T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.936989+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Niger awards former Orano-operated uranium mine to state company",
@@ -2125,20 +2326,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
-  },
-  {
-   "title": "Tether's $120 million Uruguay bitcoin mining project collapsed over a power contract dispute: Reuters - The Block",
-   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPRWlGNnQxNWh0STllUm5FdVpLcVpsYXpzV0JoWkZHZXZEd1JIV056S0dMMmNjUm1sdHMxSWVoVjNTOHRwY0pNdExhVENocHZ2V0xqZUJyVGd0MHB6dkZrSExXeHJhaGo2emlCeS0tbGNKaTFNRnJabkMzZ0EtYXFDdmhkZ3NSQXpNUlNWUjBZUzQ4dmFieFZiQlU1MU5JUW5hWGkwWkttMUVzSWpNSXdzOUpVZXNtaUx0aGozWG1zRDVhaElOZEZyakRnZzZ0ampsbVVXYkRDWXVNME9qOExKVWxGRUF6UEpLS0E?oc=5",
-   "published_at": "2026-08-23T07:00:00+00:00",
-   "first_seen": "2026-09-19T19:49:07.609953+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 0
   },
   {
    "title": "SecPower amplia industrialização com nova fábrica de baterias de lítio em MG - Canal Solar",
@@ -2153,7 +2342,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Changing landscapes: Resistance against Canadian copper mining faces newly elected government in Colombia",
@@ -2168,7 +2358,8 @@
    "tema": "mineracao",
    "substancias": [
     "cobre"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Europe relies increasingly on Russia for uranium needs, Sprott says",
@@ -2183,7 +2374,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Centrus sees US military as key market for its enriched uranium",
@@ -2198,7 +2390,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "EUA e outros países recorrem ao Brasil em busca de terras raras, acirrando competição com a China - Estadão",
@@ -2213,7 +2406,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração: ANM não aceitará recursos fora do prazo contra lista de municípios afetados - brasil61.com",
@@ -2226,20 +2420,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "How Tether's bitcoin mining plans in Uruguay unraveled - Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVU1FcGpCUE84VVYwNkllLTczRmVidF9FYmtwYnRlYlFGNUZjU05CSFZTSjk3bzUwQ09vbzFnU0JvaWwyYnRGVWZHOW1DVVBwcG4tcHFSZW4wY1N6X3R1eDdFZDJQRXYzTFQ3X19kbjlZTmdqdEpqTGtWTkdoMjlrWGw2azJia0xfWjVQZFRZYTJra3ctdjFOam5kNjFHQTFBWFVz?oc=5",
-   "published_at": "2026-08-21T07:00:00+00:00",
-   "first_seen": "2026-09-19T19:49:07.592705+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "China calls Trump’s bluff over new Iran sanctions, Botswana saves citizens from shady Russian military recruitment, Brazil tries to cash in on rare earth reserves - GZERO Media",
@@ -2254,7 +2436,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "US, Australia and others turning to Brazil for rare earth minerals - Naharnet",
@@ -2269,7 +2452,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Viridis drums up funds for Brazil rare earth project - LatinFinance",
@@ -2284,7 +2468,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium retoma operações após acordo com Minas Gerais - Brasil Mineral",
@@ -2299,7 +2484,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Australia's Viridis raises US$120 million to fund rare earths project in Brazil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWHZ0SG5UZG9DZnFXeVdRYVlmTHpaMnVra0xHWlVpN1l5X0EzVkl2cl8yMndQUklFdEI5cFZXQVZFR1d1V1VvV3dqRGhoaFllNkc4cEFVUTE5R3RnMGJTM0trcXpjS3RHSFNwYUFpaU4tZ18tU0VaOUt1a3BfMS1ZM0pveFJLSjgzVXQtUmR6VmRJMGYwSG1QeWc4eGp6TktaVl9VTTcxclhTUk8tanQtRjZPZDZfZ0ZC?oc=5",
+   "published_at": "2026-08-21T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.962031+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Avaliação de regras da CFEM é concluída e projeta sistema dinâmico para repasses a municípios afetados - ZÉ DUDU",
@@ -2312,7 +2512,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Government cash reshapes mining’s capital: study",
@@ -2325,7 +2526,22 @@
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
+  },
+  {
+   "title": "The US and Others Turn to Brazil for Rare Earths, Raising Environmental Concerns - The National Herald",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZGtfNjBBTUpMUkdRSzRBSjdvbHVMRlVEcHN1dFg3VjdkZHlDOXZLZUtiakxTUWVnVXdHeUlzSDRiLWh3VFd1X2w3aFMtbWxKT1JNWG1HbTJzZ0U4dDhTRXllaG1aOWY4cnJZZElacDM3cFpNYmZ5QmwtZDNvQ2dXbWpxWHlzMHM1cWYxbXZ3aWhJUlNyS1d2QVpZNkJpblRYQzhyV3AzeGgwbXM5bHRYOE5qYTA?oc=5",
+   "published_at": "2026-08-20T17:15:23+00:00",
+   "first_seen": "2026-09-19T19:49:06.969407+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradoras estrangeiras detêm 4 a cada 10 projetos de terras raras no país - Nexo Jornal",
@@ -2340,7 +2556,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Op-Ed: Europe wants critical minerals, just not the mines",
@@ -2353,7 +2570,8 @@
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "A engrenagem que transformou terras raras de Goiás em ativo geopolítico dos EUA - observatoriodamineracao.com.br",
@@ -2368,7 +2586,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM conclui avaliação da CFEM e prepara repasses mais dinâmicos a municípios afetados pela mineração - Revista Amazônia",
@@ -2381,7 +2600,22 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "The US and others turn to Brazil for rare earths, raising environmental concerns - WKYC",
+   "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZkJJVW1jQlAySkUzX3NhdlBkd01ObGx1cktRcWhjRkhyNWkxcUhmY0NHQnQ3SDJHU0o5ZHpxNG5SV2JhdzlDVnRsNVlUUmRCdm9XNlk3UVlTOVFpcWhTVDg4QU9PeWt3RmtsczdiQ2IyUEM0WTRWeVpBcDVwSGcwSkhkVFprbHdic0l0WGpzdmFscjNQYklqN3pfdFB2YXhrT0twVTZYaGx0Vi1mZ1AzWUlMVldVeWpwRGF3aGw4cXc3YXI0TVZlWno0SjlVSE5oYVpmYUozSWZ3YnpQcFJsRGU3RWtIXzZndmpGRF8zRHpfNVZBV3VOSDlNSDhJdm9GeEhQWFVDb1U?oc=5",
+   "published_at": "2026-08-20T13:02:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.966138+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Carta do Encontro de Comunidades Atingidas pela Mineração em Goiás - Combate Racismo Ambiental",
@@ -2394,7 +2628,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradoras estrangeiras detêm 4 a cada 10 projetos de terras raras no país - reporterbrasil.org.br",
@@ -2409,7 +2644,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brasil precisa fortalecer controle de terras raras contra investidas estrangeiras - vermelho.org.br",
@@ -2424,7 +2660,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Takeaways from a story on the US, Australia and others turning to Brazil for rare earth minerals - AP News",
@@ -2439,7 +2676,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Takeaways from a story on the US, Australia and others turning to Brazil for rare earth minerals - Audacy",
@@ -2454,7 +2692,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Takeaways from a story on the US, Australia and others turning to Brazil for rare earth minerals - Fox 59",
@@ -2469,7 +2708,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Takeaways from a story on the US, Australia and others turning to Brazil for rare earth minerals - The Seattle Times",
@@ -2484,7 +2724,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Takeaways from a story on the US, Australia and others turning to Brazil for rare earth minerals - Audacy",
@@ -2499,7 +2740,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Em carta pública, comunidades afetadas reivindicam direito de participar de decisões que envolvem a mineração em Goiás - Comissão Pastoral da Terra - CPT",
@@ -2512,7 +2754,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Viridis obtains $120m equity backing for Colossus rare earth project - Yahoo Finance",
@@ -2527,7 +2770,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Australiana que explora terras raras no Brasil vende parte para estrangeiros e se antecipa à lei - Estadão",
@@ -2542,7 +2786,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradoras estrangeiras detêm 4 a cada 10 projetos de terras raras no país - UOL Notícias",
@@ -2557,7 +2802,64 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "The US and others turn to Brazil for rare earths, raising environmental concerns - AP News",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQ2thbFMyNUx2SDl6VEpuNE1TbExpendnUS1JbEJVMHB3NG0xd2ozS3J0Z1lac25aM2NMaWk3NGdmenpPQmFmTC1YaGh0OXQ1anFMYXAxb1dQV2QwdnI2YU5USjVxVUVTMlgxVDZtUnRTX3JyS3BtRElGTV8zZlVOdGh4V2lNdGp3b2FKUkVBMGxpanQycF9WOUZ2elZ5RVl1d2stQ1RYOWQ1WEY4REE?oc=5",
+   "published_at": "2026-08-20T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.916827+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "The US and others turn to Brazil for rare earths, raising environmental concerns - The Seattle Times",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWjFsUUMtOUtjeHQ2XzhLUHd0dVVodFRneHJkS3VPbl9jQkUxMnR6emk0OW9ZVkhfc3ZISEdDR0l1ZXcyVWNmSEs4ZWxRdGc2aks0Vk1FTkZGV19zT3RwaDRLci1wLTVrRS1idjFZaDRvbXo5dVdiYUNEcGhWRFltd2xrTlZkNFNsY1N3VU1pS0ZHRGtvanpCYk5ERHhzbjVGendVb0ZMZmFzMWdMZFU3bXM5MmZHaVplLVE?oc=5",
+   "published_at": "2026-08-20T07:00:00+00:00",
+   "first_seen": "2026-09-20T04:02:48.294594+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "The US and others turn to Brazil for rare earths, raising environmental concerns - The Independent",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcGRHT1E3TUw3WmM5UXVWZnJMWHNDSjdNZmtUd0I0VzBDOHVaZ0ZoVmtYQVFUclI2c3VRdkkxZEdpYjFyYmpFRW1sb0QtSkxWUGJLUGpNNWZJQUZrVzlIb05xZzJaRWFMOUZPUXJvSWxjSmNSLU5mM2FiZE5yU1JYbDBuOVo4QVp0Ty15d0o5YjR5eFNlWUswTWoyOU1RM2xST0h2LWw3NlFfSFk?oc=5",
+   "published_at": "2026-08-20T07:00:00+00:00",
+   "first_seen": "2026-09-26T04:03:03.925093+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "The US and others turn to Brazil for rare earths, raising environmental concerns - taylorvilledailynews.com",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1k0aGt3Vnk1MHM1LTlzMnVmRGxvcWVJdUlTelowM00tN2hFMHhWeFpVUXM4ZFFZbnk1YUxDa3Y5WEZaeUJzVjVqOUhVc1d5dnlKcHcwdDFnRERVcW0wakpOV1FXMmFRbzVsOVA5dUhFUHRuRDJ5Z0VHTXdlY0c3c1YydmFrN3BWZWQxajFVR3lZeHNsbm9EX2x1TWJSUHhTU0tjMTVhbkhPSWlYSjZTa0gwQ3ZSMVlR?oc=5",
+   "published_at": "2026-08-20T07:00:00+00:00",
+   "first_seen": "2026-10-05T10:56:00.431641+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CSN tem recurso negado e ANM cobra R$ 80 milhões em royalties - Agência iNFRA",
@@ -2570,7 +2872,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Carta do Encontro de Comunidades Atingidas pela Mineração em Goiás - cptnacional.org.br",
@@ -2583,7 +2886,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Reservas abundantes e diversidade de aplicações do lítio impulsionam investimentos, mas falta demanda local - Valor Econômico",
@@ -2598,7 +2902,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Avaliação de regras da CFEM é concluída e projeta sistema dinâmico para repasses a municípios afetados - www.gov.br",
@@ -2611,7 +2916,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Recursos contra lista de municípios afetados por mineração deverão observar prazos - www.gov.br",
@@ -2624,7 +2930,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Amig reúne candidatos ao governo e ao Senado para debater futuro da mineração em Minas - Diário do Comércio",
@@ -2637,7 +2944,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Operação contra garimpo ilegal prende três e apreende R$ 1 milhão em máquinas em Goiás - Portal PaNoRaMa",
@@ -2650,7 +2958,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração e garimpo ilegais são alvo de operação intermunicipal em Goiás - G1",
@@ -2663,7 +2972,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vídeo: PM explode balsas usadas para garimpo ilegal em Goiás - iG Último Segundo",
@@ -2676,7 +2986,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Operação desativa garimpo ilegal com três presos e R$ 1 milhão em equipamentos apreendidos - Mais Goiás",
@@ -2689,7 +3000,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Equipamentos avaliados em mais de R$ 1 milhão são apreendidos em operação contra garimpo ilegal em Goiás - Jornal Opção",
@@ -2702,7 +3014,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale “segue estudando” entrada em mercados de lítio e terras raras, diz CEO - CNN Brasil",
@@ -2718,7 +3031,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "BNDES quer Vale e Petrobras em terras raras e minerais críticos - CNN Brasil",
@@ -2733,7 +3047,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale mira lítio e terras raras em estratégia para minerais críticos - Brasil 247",
@@ -2749,7 +3064,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "A farra da sonegação da Cfem e a reação dos municípios - Estado de Minas",
@@ -2762,7 +3078,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vídeo: PM explode balsas usadas para garimpo ilegal em Goiás - iG Último Segundo",
@@ -2775,7 +3092,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Prefeito Ronivon lidera comitiva que visita empresa Hochschild em Goiás e projeta crescimento da mineração no Tocantins - Porto Nacional",
@@ -2788,7 +3106,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração pode destravar R$ 1,3 tri em arrecadação no Brasil, aponta Vale - Exame",
@@ -2801,7 +3120,8 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração, vício em jogos de apostas e proteção a crianças e adolescentes estão na pauta da reunião da CCJ desta terça-feira, 18 - Portal da Alego",
@@ -2814,7 +3134,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Canadian miner NexGen Energy holds talks with BHP as it seeks $1 billion for uranium project",
@@ -2829,7 +3150,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "MG: 10 cidades concentram 74% dos royalties da mineração no estado - Metrópoles",
@@ -2842,7 +3164,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM mantém cobrança de R$ 29,9 milhões contra Vale por royalties em Brumadinho - ofator.com.br",
@@ -2855,7 +3178,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Estados e municípios recebem mais de R$ 400 milhões em royalties da mineração - Brasil 61",
@@ -2868,7 +3192,36 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "How a Brazilian Governor Turned Rare Earths Into a Campaign—and Washington Into a Partner - Tech Policy Press",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPei1BUl9pcFhuUVJHTFlmUGhFSi1Vdm9WRFpnMmU0VlZJdVZzLWpZeWZlNTRLcWJjQkxiUkY4Vk1aVEFWLVdfWGRON1NNUmpaQ0g2TWItZTk0Q2ZpOHd0bERBR2ZGWHo1eGxhN0ZBN090YU5EQmlSQVZzd1B2aWszUlluQVd1WEc2bGN5bUVzRk80UjduS2k4bWZ4endaNlNORXpWOHNBbWVGY2NQMm1fU0RhTmRCSFBHWERN?oc=5",
+   "published_at": "2026-08-17T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.929920+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "BRE estimates US$970 million capex for its rare earths project in Brazil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMkxkZXhmZEx1M0F0bXR2R0VrckV6RWFoVnVIS202VUpvZmpYVDM5UXV1VTVtclliOFNpcG1nUGRVTDZXbnlaa0FTMVFCeTdjQlBmd1AwbzUzbFdDMl9ncDBsY2xMMWVEUEVuTVBLVG1IOFA4cGxoc1puSXZfUkJyclRyZnd3UzVqeG9lYzB6V09YazJYc0VvYnljQlhHbF9fWHVmNGN0RHVHQQ?oc=5",
+   "published_at": "2026-08-17T07:00:00+00:00",
+   "first_seen": "2026-09-22T04:02:39.889275+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Lithium Ionic vende ativos de lítio em Salinas à PLS por US$ 37,5 milhões - bluestudio.estadao.com.br",
@@ -2883,7 +3236,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale contesta cobrança de R$ 17,7 bi sobre revenda de minério no exterior - Agência iNFRA",
@@ -2896,7 +3250,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -2909,7 +3264,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "NexGen starts $1.6 billion uranium build to rival top mines",
@@ -2924,7 +3280,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Mais de R$ 504 milhões em CFEM são distribuídos a estados e municípios produtores - www.gov.br",
@@ -2937,7 +3294,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "PLS compra projeto da Lithium Ionic em MG por US$ 37,5 milhões - CNN Brasil",
@@ -2952,7 +3310,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lithium Ionic vende propriedades de lítio em Salinas para a PLS por US$ 37,5 milhões - Diário do Comércio",
@@ -2967,7 +3326,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -2980,7 +3340,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic vende ativos em Salinas(MG) para a PLS por US$ 37,5 milhões - Brasil Mineral",
@@ -2995,7 +3356,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Política de terras raras de Goiás concentra efeitos territoriais em Minaçu e novos polos minerais - Geocracia",
@@ -3010,7 +3372,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "MINERAIS CRÍTICOS | Sigma Lithium defende industrialização do lítio como estratégia do Brasil - Brasil Mineral",
@@ -3025,7 +3388,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração no Pará cresce 8,4% no faturamento e chega a R$ 52,2 bilhões no primeiro semestre de 2026 | Economia | O Liberal - O Liberal",
@@ -3038,7 +3402,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Nova regra da ANM eleva rigor sobre guia de utilização - Capital Aberto",
@@ -3051,7 +3416,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM rejeita defesa da Vale e mantém cobrança de R$ 29,9 milhões em royalties de mineração - atlaspublico.com.br",
@@ -3064,7 +3430,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração no Pará cresce 8,4% no faturamento e chega a R$ 52,2 bilhões no primeiro semestre de 2026 - O Liberal",
@@ -3077,7 +3444,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil Rare Earth Magnets Market Size, Share,Trends, Growth Analysis Report, 2030 - MarketsandMarkets",
@@ -3092,7 +3460,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Government of the Northwest Territories Dismantles Diamond Mining Independent Oversight",
@@ -3105,7 +3474,8 @@
    "fonte": "MiningWatch Canada",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "CFEM: ANM prorroga divulgação da lista provisória anual dos cálculos - Brasil 61",
@@ -3118,7 +3488,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Bernardo Rosa cobra fiscalização após Itabira poder ter perdido R$ 822 milhões em CFEM - DeFato Online",
@@ -3131,7 +3502,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth estrutura US$ 1,55 bilhão para concluir compra da Serra Verde - Portal BE News",
@@ -3146,7 +3518,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração Maracá / Lundin Mining - Brasil Mineral",
@@ -3159,7 +3532,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Governo dos EUA compromete US$ 10 bilhões em terras raras e ímãs para reduzir dependência da China - AEPET",
@@ -3174,7 +3548,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás aprova política para mineração sustentável e terras raras - Portal BE News",
@@ -3189,7 +3564,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "World’s biggest mining companies now worth $2.17 trillion",
@@ -3202,7 +3578,8 @@
    "fonte": "Mining.com · urânio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Agência de Comunicação - Projeto que cria política para terras raras avança em Goiás - Estadão Blue Studio",
@@ -3217,7 +3594,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "DRC probes how 5,000 tonnes of uranium ‘leaked’ into cobalt exports",
@@ -3232,7 +3610,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "ANM prorroga divulgação da lista provisória anual da CFem - AMM | Associação Mineira de Municípios",
@@ -3245,7 +3624,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "O silencioso enriquecimento da União e da ANM em desfavor dos municípios mineradores brasileiros - Congresso em Foco",
@@ -3258,7 +3638,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale é alvo de cobrança bilionária por royalties da mineração; Pará concentra 70% do valor - Belém.com.br",
@@ -3271,7 +3652,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Cobrança da ANM contra a Vale pode garantir mais de R$ 800 milhões para Itabira; saiba mais - DeFato Online",
@@ -3284,7 +3666,22 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Inside Goiás: the Brazilian state now at the heart of the US rare earths push - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNU2UxLVZXb3l0NGdTTjA4X19EeFJHTFdjS25raFVuTGpkUGdNWVF4MDA2Wjk2R2xYc0FMM2FraEJpVThKN0VtQmVXMzB1WjJ1OUdrWkh3TUNPeWhWZmpRTS05T2NmTGlxcU0wZ3d3YVl6NlFMazdvUEdrZ09BbUVBb3pranBNQ2dXN1JOVDJiQUFyV1p4eVRhZDlXUGp3NmNHS3Z5QnhSdzQ3emlvSjNuamFLb3NqQQ?oc=5",
+   "published_at": "2026-08-07T07:00:00+00:00",
+   "first_seen": "2026-10-03T09:31:46.462040+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Vale nega dívida bilionária de royalties da mineração - Estadão Blue Studio",
@@ -3297,7 +3694,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras podem adicionar R$ 2,39 bilhões ao PIB de Goiás e Minas Gerais, diz estudo da Amcham - Jornal Opção",
@@ -3312,7 +3710,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale é alvo de cobrança de mais de R$ 17 bilhões por royalties da mineração no PA e em MG - G1",
@@ -3325,7 +3724,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale diz que efetua regularmente recolhimento de royalties de mineração - Valor Econômico",
@@ -3338,7 +3738,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM cobra R$ 17,7 bilhões da Vale em royalties da mineração - Correio de Carajás",
@@ -3351,7 +3752,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "‘A mineração precisa de regulamentação’, cobra AMIG a futuros governantes de MG - rede98.com.br",
@@ -3364,7 +3766,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale contesta cobrança de R$ 17,7 bilhões em royalties de mineração e diz que valores não procedem - ADVFN",
@@ -3377,7 +3780,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração cobra R$ 17,62 bi em royalties da Vale - Agência iNFRA",
@@ -3390,7 +3794,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM cobra R$ 17,7 bilhões de Cfem da Vale; mineradora contesta - diariodocomercio.com.br",
@@ -3403,7 +3808,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração no PA e MG geram cobrança de R$ 17 bi à Vale - G1",
@@ -3416,7 +3822,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Regulador brasileiro cobra R$17,7 bi em royalties da mineradora Vale - bnamericas.com",
@@ -3429,7 +3836,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência Nacional de Mineração - www.gov.br",
@@ -3442,7 +3850,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "US uranium contracting wave is coming, Eagle Nuclear Energy CEO says",
@@ -3457,7 +3866,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "Lei de exploração sustentável de terras raras em Goiás é aprovada - O Popular",
@@ -3472,7 +3882,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Valor de exportação de ferro gera cobrança de R$17,7 bi à Vale — Agência Nacional de Mineração - www.gov.br",
@@ -3485,7 +3896,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM cobra R$ 17,7 bi em royalties da mineração da Vale - poder360.com.br",
@@ -3498,7 +3910,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Vale (VALE3) registra posição sobre cobrança de royalties de mineração - Visno Invest",
@@ -3511,7 +3924,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras - G1",
@@ -3526,7 +3940,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
@@ -3541,7 +3956,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
@@ -3556,7 +3972,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-06T14:19:38.152930+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Após visita Benchmark confirma: operação da Sigma Lithium em plena capacidade em Minas Gerais - Estadão Blue Studio",
@@ -3571,7 +4004,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás aprova política sustentável para impulsionar a mineração de terras raras; entenda o impacto para o estado - Jornal Opção",
@@ -3586,7 +4020,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Deputados aprovam projeto que cria a política de mineração de terras raras em Goiás - G1",
@@ -3601,7 +4036,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Canada can double uranium exports by 2035, but execution remains biggest risk, Marsh says",
@@ -3616,7 +4052,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "AI boom lifts mining while competing for power",
@@ -3629,7 +4066,8 @@
    "fonte": "Mining.com · urânio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 0
   },
   {
    "title": "Kazakhstan’s H1 uranium output up 9% year-on-year",
@@ -3644,7 +4082,8 @@
    "tema": "mineracao",
    "substancias": [
     "uranio"
-   ]
+   ],
+   "brasil": 0
   },
   {
    "title": "ANM prorroga prazo para entrada em vigor das restrições relacionadas aos trabalhadores nas ZAS - Demarest",
@@ -3657,7 +4096,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras brasileiras estão no radar do Departamento de Defesa dos EUA - apublica.org",
@@ -3672,7 +4112,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "‘O povo do Barroso não quer minas!’: anti-imperialistas declaram solidariedade à resistência contra megaprojeto minerário de lítio em Portugal - A Nova Democracia",
@@ -3687,7 +4128,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Brazil’s Critical Minerals Push And The Race For Strategic Autonomy – Analysis - Eurasia Review",
@@ -3700,7 +4142,22 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Australian Meteoric increases capex for rare earths project in Brazil to US$500 million - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPY1hrUHVqTzludDc0SkM4QVVTUWhJRktOV2pJY3JaZFhXR2F5b0twS1AybTZBVmR3UGcycmpHTU9DdGFKTnBLR3ZTVkRJNFl0cl9laEtPZ2JWaGNCYmc4MGJ1SW1lWjJhbHRkYUFTeEw4MUNIMUJBQklsMm9mVzNVOXpkWHg4X2pTd01SNXdCbThNb3J1aXoyci1xLVZvZm50WU5PYXhVY0QtVmhyTGY5NXVvcUdCMVJKR2hvY05B?oc=5",
+   "published_at": "2026-08-03T07:00:00+00:00",
+   "first_seen": "2026-09-19T19:49:06.956696+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Advogado viraliza ao mostrar rotina como intérprete de chineses em gigante da mineração de Goiás - Portal 6",
@@ -3713,7 +4170,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM mais Imposto Seletivo: a conta que ninguém fez - brasil61.com",
@@ -3726,7 +4184,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   }
  ]
 }
