@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 254,
+ "materias": 259,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -425,6 +425,21 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ]
+  },
+  {
+   "title": "EUA avançam sobre mineradora de terras raras em Goiás e acendem alerta sobre soberania brasileira - 082noticias.com",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOZDYzb2FWM0JqOFpObVlHVFhwUEdnVEt6ZWpOdEJqWkw3YkwwWVBDTGFNZ3Y1MFBQNUJxbDFTVXJZRkt6OVlqdG9ZdUp4cURtSXBUUV9HcmtDOVpkeWxPTUJOLVdEMkJ3NTN0dFNweHM2T1ZGSlM1UTVRdFVVcVhsdHFmeGhGVVdxTlMxSWVxbXAyUHhTUGVtbHNLTk5fV1RLWnMxQVpPN0NmN1Y1VmFNdHlkWUFuTHYwWDZYR2J6cmxwT3dtRl9n?oc=5",
+   "published_at": "2026-08-28T07:54:38+00:00",
+   "first_seen": "2026-10-06T10:51:43.345433+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ]
   },
   {
@@ -1330,6 +1345,22 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Vale estuda investimentos em terras raras e lítio em meio à possibilidade de aprovação da política de minerais críticos - CBN",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPSGJ3bXBBb1FNcUtydzc1ak11VHptYWVHX2tlX1ZOTkZvbTRBdzhlOWhxd1hOSThvemsxOHNuTnVJS0NEdS0xeXJnSjZtZ2dza043c3pqYm1tQVEzMTFaSmY5V09VT21PajlTQVRkR1N2NDNMejAxY3pPbEF0bHB1bmdQWnlTb2lILUNmTE54d3BPTzVVMVN4NkxqVnhHU0lkUjJ5TWxMQUIxRTBORDdMenktVkp2aklOeU5XSXdOamVVNEd2Ymw2RUlvUktOcjVJLV9aTzUwVFUtZTFzSFpqMmd5ZGEzZ3J6emhSdGVQVDJHR0V3Q18xV1RIcU01Unl5YmxQQ3Fn0gGUAkFVX3lxTFBpbC1RS3RoWlZZZzV6aEFYVzJMSVRBdzV2MUJZdEZ5OGFGUmNaMUlNa3IwcGotTDE3WlRfWGJxWVV1X01qQUVzZTZ6NVNvaE5hdGFzbjdNS0laOU5Idm5haDQzdEFIU2VNVmg5amVtYTFGdmF0NExjbEJKQ3BEdkpWQVZfRVBzeVVlbVBPTGtFeFJ5Q2VYa2FaWEc1THNhYVZTTFZmbmJkeTAxYndiSjVpUS0tRWFPQW9faGYxbmRaWDhqMUdlMXdUc184NEhoeTYwVGFaM0lVeldhR1pLaldLa0I3ZUhRTnV1TEFEcXZXOEtIbEk5QjRxaGtwdmNWU0RNbGpCdl9IMUlDRU5SNzNIRUVoag?oc=5",
+   "published_at": "2026-08-26T07:00:00+00:00",
+   "first_seen": "2026-10-06T10:51:47.135394+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio",
     "terras_raras"
    ]
   },
@@ -2840,6 +2871,21 @@
    "substancias": []
   },
   {
+   "title": "Agência de Comunicação - Lithium Ionic vende ativos de lítio em Salinas à PLS por US$ 37,5 milhões - bluestudio.estadao.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQN0VKV2FFdU4xVVp2S2s0Z2VJZXV4MXMyTjNyNDZHaG1DbXZ6cjNaYlZQTXRYVDRpbk0zVjVHQnU1ZlF2NzFxVWdiZDAyRUlDVm1YX2s5Rl9Bd1dIeGMzZkU1akVlWkJOTjR1UFFvOEE4YXpQT2dQUWtNUWZMR1c5TENhYXVzX2x2LVRUMU1VTmUxUzJuSXRmRmkzbmJnR1NxSGUwVFlNdFJkR0RMb2FvYXlYc1FfalVKdzN1NTZmTHEyZw?oc=5",
+   "published_at": "2026-08-15T12:47:46+00:00",
+   "first_seen": "2026-10-06T10:51:47.136709+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ]
+  },
+  {
    "title": "Vale contesta cobrança de R$ 17,7 bi sobre revenda de minério no exterior - Agência iNFRA",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWm1RaG5ORmZwNzA5NHNLYl9oY1hBelZBb2pycEFYNEdEajlUTkRfVVozWlJ4cC1fMVE1Tl8ta2ktcU93YjZwX1l6c2ZUbTFQcGF2cGJVQzJXUE5HeVRGLXpTckd2R3ctQVpKZFhBWEU3VEFhTXM4c3ozMmJCeVI4enRQOTFQOVZua1FqamZWMEFPc0llcUNwZGc2V18wSTUwS2VNQg?oc=5",
    "published_at": "2026-08-15T07:00:00+00:00",
@@ -3086,6 +3132,21 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": []
+  },
+  {
+   "title": "USA Rare Earth estrutura US$ 1,55 bilhão para concluir compra da Serra Verde - Portal BE News",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOY2FaeGtxN1hCT1FyYnhOVUNYZGMzaDUtbUVNN1pkaVByV3NOckx4ajMzVlBzRXgxcjFlaGx5bDVOZFQybWh1eC1OanVqZ0VHYU1nZ2RRNHR2U191U3hXX1Z5dHVCZVV3SWtsQ2xVSEdxOGhBbFhCWjVJYVloOTRKMk1fLTVhSWFUcXlveEdJem8zXzE3Z1hKRXkxYVdwZHFoekpiQXF3?oc=5",
+   "published_at": "2026-08-11T07:00:00+00:00",
+   "first_seen": "2026-10-06T10:51:45.216365+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
   },
   {
    "title": "Mineração Maracá / Lundin Mining - Brasil Mineral",
@@ -3472,6 +3533,21 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abe36a200c74df3985756aaf9371442&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-10-01T10:32:02.670788+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ]
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac4d2c1d0054ee295690d0b4a39b964&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-06T10:51:46.182964+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

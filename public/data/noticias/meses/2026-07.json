@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 98,
+ "materias": 99,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -892,6 +892,19 @@
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNanJVZzUyM1dSR0QxS045VERXMUItX0FjazZ2N09ZMHNpUDR4STN6MGxzZVM3TzBGRFJIejQweGtubFNIQTJQSmVPZVNzcGRjazZLY1hrU3Q4VGktRTcxM2xyWjBUWDhSaHZWZHZUa1RNUzRoOEsxQVJfSWYtYTl5ZURldWdpZ24tNmgzX3c0c2E0M0NkaU1rZXlwQ1ZqemlP?oc=5",
    "published_at": "2026-07-14T07:00:00+00:00",
    "first_seen": "2026-09-19T19:49:04.889095+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": []
+  },
+  {
+   "title": "ANM notifica Vale a pagar, parcelar ou recorrer de dívida de R$ 142 milhões de CFEM - atlaspublico.com.br",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORlZUdVpRRWhCa1BkVHFZanZsWUhoV2VNRV9PbEFnSXg5REVTZW1PeGlPaHdWa2w4b3ZXSkQ4dlBRVUtlU09KaHVXdUxNZFo1Y3ZXbmk0cUFWUkJmUEtuQ0lHczM5aFBTSUxGcGFxejRwVjcyQWkwYnZDTnlSVXpwbnEyS2lJMkhseWVRaU1tS05fb0phbFFLcE9JVmUwakNCOTdPQQ?oc=5",
+   "published_at": "2026-07-14T07:00:00+00:00",
+   "first_seen": "2026-10-06T10:51:47.562430+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

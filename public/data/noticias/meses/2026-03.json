@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 47,
+ "materias": 48,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -55,6 +55,19 @@
    "substancias": [
     "litio"
    ]
+  },
+  {
+   "title": "Alexandre Silveira | Os minerais críticos e estratégicos são nossos - Poder360",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ3h6WEhUTUVwU0d2V0k2cnlzVnljeTFJekxFRDBZV0tYSUsxdmdlMllud3o1UFJKU2lPS2hTSDRxbjdfQmVhRVlMNmRFdmlwcG1SbFRzak1YTC1lNkV2cHItRmtWTU9vWHJBWE9HamZJLW44Vlp2bHZLRzFYdzhpWkFBbjJ4bHVxaVc0?oc=5",
+   "published_at": "2026-03-27T07:00:00+00:00",
+   "first_seen": "2026-10-06T10:51:44.740767+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Catalão e Ouvidor",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": []
   },
   {
    "title": "Royalties da mineração distribuem mais de R$ 92 milhões e revelam nova geografia da presença no país - www.gov.br",
