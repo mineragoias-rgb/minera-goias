@@ -1,9 +1,9 @@
 name: Validar plataforma web
 on:
   push:
-    paths: ['public/**', 'Squad 3/backend/**', 'tests/test_web.py', 'tests/test_atlas.py', 'tests/test_i18n.py', 'tests/test_load_anm.py', 'tests/test_radar_api.py', 'Squad 3/database/**', 'data/atlas/**', 'data/panorama/**', 'tests/test_panorama.py', 'tests/test_simulador.py', 'tests/test_mercado.py', 'tests/simulador.test.js', 'Squad 2/modello_reale/parameters/**', 'scripts/build_simulador_base.py', 'scripts/extract_atlas.py', 'deploy/requirements-vps.txt', '.github/workflows/validate-web.yml']
+    paths: ['public/**', 'Squad 3/backend/**', 'tests/test_web.py', 'tests/test_atlas.py', 'tests/test_i18n.py', 'tests/test_load_anm.py', 'tests/test_radar_api.py', 'tests/test_radar_noticias.py', 'Squad 3/radar-noticias/**', 'Squad 3/database/**', 'data/atlas/**', 'data/panorama/**', 'tests/test_panorama.py', 'tests/test_simulador.py', 'tests/test_mercado.py', 'tests/simulador.test.js', 'Squad 2/modello_reale/parameters/**', 'scripts/build_simulador_base.py', 'scripts/extract_atlas.py', 'deploy/requirements-vps.txt', '.github/workflows/validate-web.yml']
   pull_request:
-    paths: ['public/**', 'Squad 3/backend/**', 'tests/test_web.py', 'tests/test_atlas.py', 'tests/test_i18n.py', 'tests/test_load_anm.py', 'tests/test_radar_api.py', 'Squad 3/database/**', 'data/atlas/**', 'data/panorama/**', 'tests/test_panorama.py', 'tests/test_simulador.py', 'tests/test_mercado.py', 'tests/simulador.test.js', 'Squad 2/modello_reale/parameters/**', 'scripts/build_simulador_base.py', 'scripts/extract_atlas.py', 'deploy/requirements-vps.txt', '.github/workflows/validate-web.yml']
+    paths: ['public/**', 'Squad 3/backend/**', 'tests/test_web.py', 'tests/test_atlas.py', 'tests/test_i18n.py', 'tests/test_load_anm.py', 'tests/test_radar_api.py', 'tests/test_radar_noticias.py', 'Squad 3/radar-noticias/**', 'Squad 3/database/**', 'data/atlas/**', 'data/panorama/**', 'tests/test_panorama.py', 'tests/test_simulador.py', 'tests/test_mercado.py', 'tests/simulador.test.js', 'Squad 2/modello_reale/parameters/**', 'scripts/build_simulador_base.py', 'scripts/extract_atlas.py', 'deploy/requirements-vps.txt', '.github/workflows/validate-web.yml']
 permissions:
   contents: read
 jobs:
@@ -23,5 +23,6 @@ jobs:
       - run: python -m unittest discover -s tests -p test_i18n.py -v
       - run: python -m unittest discover -s tests -p test_load_anm.py -v
       - run: python -m unittest discover -s tests -p test_radar_api.py -v
+      - run: python -m unittest discover -s tests -p test_radar_noticias.py -v
       - run: node --check public/radar.js && node --check public/mercado.js && node --check public/processes.js && node --check public/i18n.js && node --check public/atlas.js && node --check public/panorama-charts.js && node --check public/panorama-cards1.js && node --check public/panorama-cards2.js && node --check public/panorama-cards3.js && node --check public/panorama-analises.js && node --check public/panorama.js && node --check public/painel.js && node --check public/login.js && node --check public/landing.js && node --check public/simulador.js && node --check public/simulador-engine.js
       - run: node tests/simulador.test.js

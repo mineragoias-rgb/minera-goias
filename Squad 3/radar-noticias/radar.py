@@ -205,6 +205,99 @@ def mentions(folded, term):
     return re.search(rf'\b{re.escape(fold(term))}\b', folded) is not None
 
 
+# Páginas do site da ANM e do MME chegam pelo Google com o nome do órgão colado ao
+# título: "Ouvidoria — Agência Nacional de Mineração - www.gov.br".
+SUFIXO_ORGAO = re.compile(r'\s+[—–-]\s+(Agência Nacional de Mineração|Ministério de Minas e Energia)\s*$')
+
+
+def via_google(link):
+    return 'news.google.' in (link or '')
+
+
+def titulo_limpo(title, link=''):
+    """The headline without the outlet's name.
+
+    Google News writes "Headline - Outlet", and the outlet is often the very word the
+    classifier looks for: "- Mineração Brasil", "- Mining Weekly". Read whole, the
+    title let 84 stories into the sector count on the outlet's name alone - 69 of them
+    institutional pages of the ANM site, such as "Ouvidoria" and "Emissão de Boletos".
+    Measured on the archive of 06/10/2026.
+    """
+    titulo = title or ''
+    if via_google(link):
+        corte = titulo.rfind(' - ')
+        if corte > 15:
+            titulo = titulo[:corte]
+    return SUFIXO_ORGAO.sub('', titulo).strip()
+
+
+def noticia_da_anm(title, link=''):
+    """A news story from the ANM's own site, as opposed to one of its pages.
+
+    Everything the agency publishes is about the sector, so it needs no keyword - but
+    the search on its site also returns pages: "Ouvidoria", "Biblioteca", "Emissão de
+    Boletos". A page is named with a few words; a story is a sentence. Measured over
+    the 110 ANM items of 06/10/2026, seven words or more kept 13 real stories with no
+    keyword ("Nova resolução reforça segurança de barragens no país") and let five
+    long page names through, against about a hundred pages left out.
+    """
+    titulo = title or ''
+    if via_google(link):
+        corte = titulo.rfind(' - ')
+        if corte > 15:
+            titulo = titulo[:corte]
+    achado = SUFIXO_ORGAO.search(titulo)
+    if not achado or 'Mineração' not in achado.group(1):
+        return False
+    return len(titulo[:achado.start()].split()) >= 7
+
+
+def recente_o_bastante(item, config):
+    """Was it still news when the radar found it?
+
+    The first sweep pulled whatever the search engines still held, including a 2022
+    job advert and items from 2012. The test compares publication with first_seen,
+    not with today, so a story that was news on arrival stays in the archive as time
+    passes. A year before 2000 is a missing date - the feeds send 1970.
+    """
+    dias = config.get('idade_maxima_dias')
+    publicada = item.get('published_at')
+    if not dias or not publicada:
+        return True
+    try:
+        quando = datetime.fromisoformat(publicada.replace('Z', '+00:00'))
+        visto = item.get('first_seen')
+        coleta = datetime.fromisoformat(visto.replace('Z', '+00:00')) if visto else datetime.now(timezone.utc)
+    except ValueError:
+        return True
+    if quando.year < 2000:
+        return False
+    if quando.tzinfo is None:
+        quando = quando.replace(tzinfo=timezone.utc)
+    if coleta.tzinfo is None:
+        coleta = coleta.replace(tzinfo=timezone.utc)
+    return (coleta - quando).days <= dias
+
+
+def sobre_brasil(item, config):
+    """Is the story about Brazil? It decides what the page opens on.
+
+    A Brazilian source answers on its own. A foreign one counts when it is a search
+    aimed at Brazil, or when its headline names a Brazilian place or company - read on
+    the clean headline, so the outlet's name cannot decide it.
+    """
+    if item.get('regional'):
+        return True
+    fonte = next((s for s in config.get('sources') or () if s.get('name') == item.get('fonte')), {})
+    escopo = item.get('escopo') or fonte.get('escopo')
+    if escopo != 'internacional':
+        return True
+    if fonte.get('foco') == 'brasil':
+        return True
+    titulo = fold(titulo_limpo(item.get('title'), item.get('link')))
+    return any(mentions(titulo, termo) for termo in config.get('termos_brasil') or ())
+
+
 def region_hit(text, config):
     """Regional when the state is named, or when a Goias mining municipality appears
     next to a mining or energy term. A municipality alone is not enough: several of
@@ -240,14 +333,23 @@ def setorial(item, config):
     called 'casa loterica Aguia de Ouro'. Measured over the collection of 19/09/2026,
     dropping the summary cost two stories out of 176 - that one and a 'create an
     account to save locations' banner.
+
+    The headline is read without the outlet's name (see titulo_limpo), and a short
+    list of phrases seen in the archive ('fora_do_setor': the Ouro Minas hotel, the
+    footballer Yerry Mina) takes a story out even when it names gold or a mine.
     """
-    somente_titulo = {'title': item['title'], 'summary': ''}
+    titulo = titulo_limpo(item['title'], item.get('link'))
+    if any(mentions(fold(titulo), termo) for termo in config.get('fora_do_setor') or ()):
+        return False
+    if noticia_da_anm(item['title'], item.get('link')):
+        return True
+    somente_titulo = {'title': titulo, 'summary': ''}
     energeticas = set(config.get('substancias_energeticas') or ())
     if any(c not in energeticas for c in commodities_of(somente_titulo, config)):
         return True
     region = config.get('region') or {}
     termos = region.get('contexto_mineracao') or region.get('contexto') or []
-    folded = fold(item['title'])
+    folded = fold(titulo)
     return any(mentions(folded, termo) for termo in termos)
 
 
@@ -561,7 +663,12 @@ def revisar(item, config):
                 and not any(mentions(titulo, termo) for termo in mineracao)):
             substancias = [nome for nome in substancias if nome not in ambiguas]
     revisto = {**item, 'substancias': substancias}
+    # The Goias mark keeps reading the outlet's name on purpose: a mining story in
+    # "Mais Goiás" or "Poder Goiás" is regional press about Goias. Measured: reading
+    # the clean headline instead took the mark from four stories, and all four were
+    # about Goias (Chapada dos Veadeiros, an illegal mine raid, a UFG lecture).
     revisto['setorial'] = 1 if setorial(revisto, config) else 0
+    revisto['brasil'] = 1 if sobre_brasil(revisto, config) else 0
     return revisto
 
 
@@ -615,8 +722,13 @@ def export_archive(database, destination, recent=180, desde=None, config=None):
             guardadas[item['link']] = item
     antes = set(guardadas)
     # A matéria recoletada é atualizada; a que saiu do feed permanece onde está.
+    # Mas a primeira vez que ela foi vista é a do acervo: se o banco (que é cache)
+    # se perder, a recoleta não pode fingir que a matéria chegou hoje - isso mudaria
+    # a contagem de novas e, com o corte por idade, tiraria do ar matéria legítima.
     for item in pacote['itens']:
-        guardadas[item['link']] = item
+        anterior = guardadas.get(item['link']) or {}
+        primeira = min(filter(None, (anterior.get('first_seen'), item.get('first_seen'))), default=None)
+        guardadas[item['link']] = {**item, 'first_seen': primeira}
     # O léxico de hoje vale para o acervo inteiro, não só para o que entrou agora.
     guardadas = {link: revisar(item, config or {}) for link, item in guardadas.items()}
     # Só notícia do setor é publicada. O coletor lê os feeds inteiros - um veículo
@@ -627,6 +739,12 @@ def export_archive(database, destination, recent=180, desde=None, config=None):
     antes_do_corte = len(guardadas)
     guardadas = {link: item for link, item in guardadas.items() if item.get('setorial')}
     descartadas = antes_do_corte - len(guardadas)
+    # E só o que era notícia quando chegou: o que a busca devolve de anos atrás é
+    # arquivo, não radar. Como no setor, o corte vale para o acervo inteiro.
+    antes_da_idade = len(guardadas)
+    guardadas = {link: item for link, item in guardadas.items()
+                 if recente_o_bastante(item, config or {})}
+    antigas = antes_da_idade - len(guardadas)
     novas_por_mes = {}
     for link, item in guardadas.items():
         if link not in antes:
@@ -646,24 +764,25 @@ def export_archive(database, destination, recent=180, desde=None, config=None):
                        key=lambda i: (i.get('published_at') or i.get('first_seen') or ''), reverse=True)
         write_json(pasta / f'{mes}.json', {'mes': mes, 'materias': len(itens), 'itens': itens})
         indice.append({'mes': mes, 'materias': len(itens), 'novas': novas_por_mes.get(mes, 0),
+                       'brasileiras': sum(1 for i in itens if i.get('brasil')),
                        'regionais': sum(1 for i in itens if i.get('regional')),
                        'setoriais': sum(1 for i in itens if i.get('setorial')),
                        'regionais_setoriais': sum(1 for i in itens
                                                   if i.get('regional') and i.get('setorial'))})
         todas.extend(itens)
 
-    # Os arquivos de mês ficam em ordem de data; a abertura, não. O painel é de
-    # mineração, e por data pura ela encheria de concurso público e futebol do dia -
-    # medido: das 180 mais recentes, 6 eram do setor. Setor e Goiás vêm primeiro.
-    todas.sort(key=lambda i: (bool(i.get('regional')) and bool(i.get('setorial')),
-                              bool(i.get('setorial')), bool(i.get('regional')),
+    # Os arquivos de mês ficam em ordem de data. A abertura também, mas com o Brasil
+    # na frente: é por ele que a página começa, e o internacional é opção. (Só
+    # notícia do setor chega até aqui, então o setor já não precisa vir primeiro.)
+    todas.sort(key=lambda i: (bool(i.get('brasil')),
                               i.get('published_at') or i.get('first_seen') or ''), reverse=True)
     # Os contadores descrevem o acervo publicado. 'descartadas' conta quantas esta
     # execução deixou de fora por não serem do setor - é rastro da execução, não do
     # acervo, porque o que foi descartado antes já não está mais aqui para contar.
     pacote.update(
         itens=todas[:recent], meses=indice,
-        total=len(todas), descartadas=descartadas,
+        total=len(todas), descartadas=descartadas, descartadas_antigas=antigas,
+        brasileiras=sum(m['brasileiras'] for m in indice),
         # Contado no acervo, não no banco: o banco é cache e pode estar vazio.
         veiculos=len({i.get('fonte') for i in todas if i.get('fonte')}),
         regionais=sum(m['regionais'] for m in indice),
