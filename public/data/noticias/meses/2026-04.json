@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 106,
+ "materias": 108,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -606,6 +606,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T12:57:00+00:00",
    "first_seen": "2026-10-06T14:19:38.150484+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac6214906a243d39a05959914882219&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-07T10:39:05.966074+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1242,6 +1258,22 @@
    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQakx4TXlNbm5KZDhoSkV0UkJ6MzRZNFh1RG9BV0pRdU1zT3V0NWhVMkdnU3ZTejVfQi1xb3JieURZbHN6Q014bF9ST01WbG1ibU1CU2VxMjhROTUwbjNyZkNjV2c4alFlbkJaUlZ2YU40d3YxQmlqV19JeUxidUdNWGViVE1WWXZyZEhGRjl4bTNxTGpqWHJEOXhPbjhlR3BxQjhlNk5qUUxGSUVUV3BIckkzeUJOZG9hcnFLRHFOcnlBZw?oc=5",
    "published_at": "2026-04-20T07:00:00+00:00",
    "first_seen": "2026-09-29T10:12:01.929089+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora de Goiás é exemplo da disputa de terras raras entre China e EUA - BNC Amazonas",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONlJPbWJtTmV5RHB6dGxNS3A4YjlUb0FDTnpCZmlhWDI1b01SN04yVk03U1M0SFNHZ1BDc1NLU2RYTktYQ0NVWjk2aFJESU5tV3NKcUh3c2lfVkN3S3BOTVFQcjdvWnVtVjNpY3FjMXhzV2Z4Q2JpMy1GLTJ2TG4yLU1UOFh0aEdZN3dRUEt5TmVhek5QbW1JM1BVVWh5TGdlTEFDemdZSTdvbXBh?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-07T10:39:02.955706+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

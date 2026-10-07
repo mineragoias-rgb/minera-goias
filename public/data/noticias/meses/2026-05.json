@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 114,
+ "materias": 116,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -1115,6 +1115,22 @@
    "brasil": 1
   },
   {
+   "title": "Júlio Wiziack: Cade investiga venda de mineradora de terras raras de GO para EUA - UOL Economia",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPWHhxRVFVY2tIU0RoWktOS1VRZmZ0YVdxVXc0MHRVZ05pcFY0Y1pQWDlNQUNYRTBSZkRTdFBvVGJXQ2VlQTRINEdqeHZPYUdMS0ZfZzFoWWRaT1N4UV8xbWpDSnZYMVV1aUJ0cTNvczFjYU9nM3BMTVBKMTZCMzZ1eFBRU3p5Y2RmTWVNdU5KbFprYjROdVRtVW5yc1RqODNRdy1pcnlmYU5sbm1PVENLVzJ1anpWdzRnbjg5X0szTUNEMXd6WlZIdVV0U3k?oc=5",
+   "published_at": "2026-05-11T07:00:00+00:00",
+   "first_seen": "2026-10-07T10:39:02.954907+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac4d2c1d0054ee295690d0b4a39b964&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T18:38:00+00:00",
@@ -1133,6 +1149,20 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T18:38:00+00:00",
    "first_seen": "2026-10-06T14:19:38.149713+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac6214906a243d39a05959914882219&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-10-07T10:39:05.965064+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

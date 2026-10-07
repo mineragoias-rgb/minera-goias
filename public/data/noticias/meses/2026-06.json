@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 75,
+ "materias": 76,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -1055,6 +1055,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil senta sobre uma das maiores reservas de lítio - CPG Click Petróleo e Gás",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNd0RWcF9wazdNeUxDMVVycGxWX0VHY0ZXUTdrR19Xa2Q4STdQVDlKZGNQOG1faHo0UmVPQ0RWUEhuZWhoMHVITHpQMVg3RnZVeVdGcVh6Y1hjTGM1MFpMUHZpcHEzSko0YnluTFotNkx2dTYyYld1UlhNWDFSbFpCU0l0SU5zQ0h4bERnUnpLX3FRZWFURnpfVHFscndxcmtJcXJ6bm5NN1JadGNtVUpwTzJGbC1yVmtIVTB1SFE4Vk55WnBsY3B3WHJvRUtqYWNxLWQ3aEQyNjIzSE5mU01uc29CUzBMcFNRZ0hUMkJPQlhPZmlhSjduLURBaEw1MllSZlNVNW9B?oc=5",
+   "published_at": "2026-06-03T07:00:00+00:00",
+   "first_seen": "2026-10-07T10:39:06.990850+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },

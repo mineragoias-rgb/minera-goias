@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 273,
+ "materias": 275,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -2314,6 +2314,22 @@
    "brasil": 1
   },
   {
+   "title": "Terras raras colocam Goiás no mapa da nova economia da mineração - O Hoje",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONXR3TDZBaGgzQWg4VmM3czhieEROQUptejhaa01ucURIUkJJeVZjN2JrQ1BTWUh3VFFWUE5Oa2JpYWtLX2Q4NXBVcEY2eUc3TFNjQW5QaWM4SGxPa3RMWnVLdVRTOFdMZF83YVlpNEJxalNNZ1NqNkFkSm04QnJnOUlpVFAxUmRlcktzLTVtNjVvdmlES0l6ZVpR?oc=5",
+   "published_at": "2026-08-24T07:00:00+00:00",
+   "first_seen": "2026-10-07T10:39:02.954113+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Niger awards former Orano-operated uranium mine to state company",
    "link": "https://www.mining.com/web/niger-awards-former-orano-operated-uranium-mine-to-state-company/",
    "published_at": "2026-08-23T17:12:23+00:00",
@@ -3980,6 +3996,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-10-06T14:19:38.152930+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac6214906a243d39a05959914882219&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-07T10:39:05.969331+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
