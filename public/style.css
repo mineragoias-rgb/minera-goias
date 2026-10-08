@@ -59,6 +59,20 @@ header .lang-switch button.active{background:rgba(255,255,255,.14);color:inherit
 @media(max-width:1000px){.mk-two{grid-template-columns:1fr}}
 .mk-sub{font-size:12px;color:var(--muted);margin:26px 0 12px;border-top:1px solid var(--line);padding-top:18px}
 #mk-preco .bar-row{grid-template-columns:minmax(60px,.6fr) 1.15fr 78px}
+/* Carteira de projetos (levantamento do Squad 1): cada barra é um botão que filtra a tabela. */
+#mk-projetos .pn-filters{margin:4px 0 10px}
+.mk-pj-charts{display:grid;gap:28px}
+.mk-pj-bar{width:100%;border:0;background:transparent;padding:0;color:inherit;text-align:left;margin:8px 0;grid-template-columns:minmax(100px,1fr) 1.4fr 30px}
+.mk-pj-bar .bar-track,.mk-pj-bar .bar-fill{display:block}
+.mk-pj-bar:hover .bar-label,.mk-pj-bar:focus-visible .bar-label{color:var(--blue)}
+#mk-pj-tabela{margin-top:22px}
+#mk-pj-tabela td{min-width:96px}
+#mk-pj-tabela td:first-child{min-width:260px}
+#mk-pj-tabela .mk-code{font:10px monospace;color:var(--blue)}
+#mk-pj-tabela .pill{display:inline-block;margin-bottom:2px}
+#mk-pj-tabela details{margin-top:5px}
+#mk-projetos a{color:var(--blue)}
+.mk-pj-metodo{margin-top:14px}
 
 /* --- Radar · lista de notícias / News list --- */
 /* Duas linhas de filtro: período e busca em cima; substância e Goiás embaixo, em

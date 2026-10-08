@@ -106,3 +106,15 @@ python scripts/build_producao_base.py && python scripts/build_empresas_base.py
 python -m unittest discover -s tests -p test_empresas.py -v
 node --check public/empresas.js
 ```
+
+## Carteira de projetos (seção da aba Mercado)
+
+Integração de 08/10/2026. O quadro `Carteira de projetos em Goiás`, na aba `Mercado` logo abaixo de "Operações e alvos", publica o levantamento
+do aluno Lucas Maia (Squad 1): 15 projetos classificados nas sete etiquetas de maturidade da planilha (OPERAÇÃO > EXPANSÃO > CONSTRUÇÃO >
+DEFINIDO > PROVÁVEL > POSSÍVEL > SINAL), as notícias que sustentam a classificação e a nota metodológica. A planilha versionada fica em
+`Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx`; o pacote `public/data/mercado/projetos_go_v1.json` sai de
+`python scripts/build_projetos_go.py`, que copia o texto como está (`NA` vira `null`) e recusa a planilha quando ela foge do próprio vocabulário.
+Como o resto do Mercado, são fontes públicas e o pacote é estático em `public/`. Capacidade e produção ficam na unidade original e não se somam;
+CAPEX de anos diferentes também não. Os links da planilha levam à página da empresa, não ao documento citado, e nada foi conferido na origem.
+Ao atualizar a planilha, rode o gerador: `tests/test_mercado.py` compara o hash da planilha com o do pacote.
+
