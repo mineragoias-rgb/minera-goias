@@ -115,6 +115,6 @@ DEFINIDO > PROVÁVEL > POSSÍVEL > SINAL), as notícias que sustentam a classifi
 `Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx`; o pacote `public/data/mercado/projetos_go_v1.json` sai de
 `python scripts/build_projetos_go.py`, que copia o texto como está (`NA` vira `null`) e recusa a planilha quando ela foge do próprio vocabulário.
 Como o resto do Mercado, são fontes públicas e o pacote é estático em `public/`. Capacidade e produção ficam na unidade original e não se somam;
-CAPEX de anos diferentes também não. Os links da planilha levam à página da empresa, não ao documento citado, e nada foi conferido na origem.
+CAPEX de anos diferentes também não. Em 08/10/2026 os links de nove projetos e três notícias passaram a apontar para o documento citado (conferido título, data e conteúdo); os demais citam fonte genérica ou documento não localizado e seguem na página da empresa.
 Ao atualizar a planilha, rode o gerador: `tests/test_mercado.py` compara o hash da planilha com o do pacote.
 

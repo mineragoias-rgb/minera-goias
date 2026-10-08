@@ -2,7 +2,7 @@
  "versao": "v1",
  "meta": {
   "origem": "Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx",
-  "sha256_origem": "6e580b409b560deb5069051409e110166f48f770a11f5c56100bef7f15fb848f",
+  "sha256_origem": "c09ae32fd4fbd3bda64101b85945792cc0eb33e82a39b9644a2a21ed4da6bfe8",
   "autoria": {
    "pt": "Squad 1 · aluno Lucas Maia",
    "en": "Squad 1 · student Lucas Maia"
@@ -145,7 +145,7 @@
    "confianca": "ALTO",
    "evidencia": "A Hochschild confirmou o início da produção comercial no segundo trimestre de 2024.",
    "fonte": "Press Release Corporativo",
-   "link": "https://www.hochschildmining.com/",
+   "link": "https://www.investegate.co.uk/announcement/rns/hochschild-mining--hoc/commercial-production-achieved-at-mara-rosa/8193903",
    "outras_evidencias": "Licença de Operação SEMAD-GO",
    "links_adicionais": [],
    "observacoes": "Projeto desenvolvido inicialmente pela Amarillo Gold e adquirido pela Hochschild."
@@ -179,7 +179,7 @@
    "confianca": "ALTO",
    "evidencia": "Empresa anunciou produção comercial de concentrado misto de terras raras, a primeira operação de argila iônica em escala fora da Ásia.",
    "fonte": "Comunicado Serra Verde",
-   "link": "https://serraverde.com/",
+   "link": "https://www.serraverde.com/2024/01/serra-verde-enters-commercial-production/",
    "outras_evidencias": "Notícias Reuters / Valor Econômico",
    "links_adicionais": [],
    "observacoes": "A empresa já possui estudos para uma possível Fase 2 de expansão estrutural."
@@ -213,7 +213,7 @@
    "confianca": "ALTO",
    "evidencia": "Publicação do PEA demonstrando VPL de US$ 1,2 bilhão e projeto focado em terras raras pesadas magnéticas.",
    "fonte": "Relatório Técnico Aclara (PEA)",
-   "link": "https://www.aclara-re.com/",
+   "link": "https://cdn.prod.website-files.com/65bc531432a98553cc63c479/65bc531432a98553cc63c70b_PR_Carina%20Module_PEA%20VF_clean_2.pdf",
    "outras_evidencias": "Requerimentos ANM e licenciamento estadual",
    "links_adicionais": [],
    "observacoes": "Projeto abrange os municípios de Iporá e Diorama. Forte componente ESG focado em argilas iônicas sem uso de explosivos."
@@ -246,7 +246,7 @@
    "confianca": "ALTO",
    "evidencia": "Reporte anual da Anglo American aponta a continuidade da produção da planta integrada de Barro Alto e Codemin.",
    "fonte": "Relatório de Produção Anglo American",
-   "link": "https://www.angloamerican.com",
+   "link": "https://www.angloamerican.com/media/press-releases/2024/08-02-2024",
    "outras_evidencias": null,
    "links_adicionais": [],
    "observacoes": "Opera em conjunto técnico e logístico com o complexo Codemin, em Niquelândia."
@@ -276,7 +276,7 @@
    "confianca": "ALTO",
    "evidencia": "CMOC reporta produção regular de ferro-nióbio da unidade de Boa Vista em seus demonstrativos financeiros globais.",
    "fonte": "Site CMOC e relatórios anuais",
-   "link": "https://cmocbrasil.com/",
+   "link": "https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0322/2024032201879.pdf",
    "outras_evidencias": null,
    "links_adicionais": [],
    "observacoes": "A planta de nióbio é adjacente ao complexo de fosfato (Copebras), que a CMOC compartilha sinergias operacionais."
@@ -303,7 +303,7 @@
    "confianca": "ALTO",
    "evidencia": "Divulgações de resultados de sondagem indicando extensas interceptações de cobre e zinco em modelo VMS no greenstone belt.",
    "fonte": "Releases na Bolsa da Austrália (ASX)",
-   "link": "https://alvominerals.com/",
+   "link": "https://www.marketindex.com.au/asx/alv/announcements/high-grade-copper-zinc-intersected-at-c4-prospect-3A641114",
    "outras_evidencias": "Registros ANM",
    "links_adicionais": [],
    "observacoes": "Projeto regional de classe mundial (VMS - Sulfeto Maciço Vulcanogênico) descoberto historicamente pelo Serviço Geológico do Brasil, agora revitalizado pela junior australiana."
@@ -333,7 +333,7 @@
    "confianca": "ALTO",
    "evidencia": "Operação reportada no relatório corporativo anual de sustentabilidade e produção da AngloGold.",
    "fonte": "Relatórios Corporativos AGA",
-   "link": "https://www.anglogoldashanti.com",
+   "link": "https://reports.anglogoldashanti.com/23/wp-content/uploads/2024/04/AGA-OP23-SERRA-GRANDE.pdf",
    "outras_evidencias": "Venda anunciada pela AngloGold Ashanti em 02/06/2025; fechamento da aquisição informado pela Aura em 01/12/2025",
    "links_adicionais": [
     "https://www.auraminerals.com/investors/"
@@ -367,7 +367,9 @@
    "fonte": "Site Institucional Pilar Gold",
    "link": "https://pilargold.com/",
    "outras_evidencias": "Documentos corporativos e M&A",
-   "links_adicionais": [],
+   "links_adicionais": [
+    "https://www.equinoxgold.com/wp-content/uploads/2023/02/20210419-EQX-PR-PilarSale.pdf"
+   ],
    "observacoes": "Empresa canadense de capital fechado visando IPO futuro; retoma exploração na mina adjacente de Sertão."
   },
   {
@@ -392,11 +394,9 @@
    "confianca": "ALTO",
    "evidencia": "Acordo assinado com a CBA para processar estoque histórico de minério/rejeitos usando energia de microondas, evitando uso pesado de combustíveis fósseis.",
    "fonte": "Notícia Valor Econômico e Fato Relevante",
-   "link": "https://valor.globo.com",
+   "link": "https://api.mziq.com/mzfilemanager/v2/d/73a23c6c-b1fd-4abb-beba-056de474f2ec/646cc0f8-cbbe-ca64-c300-cff0fcb0372a?origin=1",
    "outras_evidencias": "Press release da CBA",
-   "links_adicionais": [
-    "https://cba.com.br"
-   ],
+   "links_adicionais": [],
    "observacoes": "Trata-se do aproveitamento das reservas minerais da antiga planta da CBA (Níquel Tocantins), paralisada desde 2016."
   },
   {
@@ -561,7 +561,7 @@
    "tipo_fonte": "Imprensa Especializada",
    "evidencia": "Declaração de produção comercial oficial no Q2, após término do ramp-up de 80 koz/ano.",
    "relevancia": "Alta",
-   "link": "https://www.hochschildmining.com/",
+   "link": "https://www.mining.com/hochschilds-mara-rosa-gold-mine-reaches-commercial-production/",
    "data_acesso": "2026-10-04",
    "observacoes": "Ratifica mudança de 'Construção' para 'Operação'."
   },
@@ -574,7 +574,7 @@
    "tipo_fonte": "Primária / Documento Regulatório",
    "evidencia": "Estudo estipula CAPEX de US$ 576 mi e entrada em operação para o fim da década (2029).",
    "relevancia": "Alta",
-   "link": "https://www.aclara-re.com/",
+   "link": "https://cdn.prod.website-files.com/65bc531432a98553cc63c479/65bc531432a98553cc63c70b_PR_Carina%20Module_PEA%20VF_clean_2.pdf",
    "data_acesso": "2026-10-04",
    "observacoes": "Projeta o pólo de Iporá como novo centro de terras raras."
   },
@@ -587,7 +587,7 @@
    "tipo_fonte": "Primária / Bolsa de Valores",
    "evidencia": "Resultados da sondagem diamantina indicando mineralização VMS de classe mundial.",
    "relevancia": "Média",
-   "link": "https://alvominerals.com/",
+   "link": "https://www.marketindex.com.au/asx/alv/announcements/high-grade-copper-zinc-intersected-at-c4-prospect-3A641114",
    "data_acesso": "2026-10-04",
    "observacoes": "Maturidade classificada como POSSÍVEL visto ainda ser fase de exploração."
   },
