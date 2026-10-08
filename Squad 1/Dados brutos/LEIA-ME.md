@@ -169,3 +169,31 @@ Não alimentam as abas de dados da base consolidada; ficam só na cópia de trab
 - **SRC_SGB_GEOQUIMICA_NAZARIO** — SGB — Geoquímica do Projeto Sudeste de Goiás, Folha Nazário (resultados analíticos em planilha) (disponível em dados/, ainda não usada).
 - **SRC_SGB_SIG_GEOLOGIA** — SGB — SIG geológicos 1:250.000 (ARIM Centro-Norte da Faixa Brasília, Oeste de Goiás integrado, Folha Barro Alto) (disponível em dados/, ainda não usada).
 - **SRC_SGB_MAPAS_REFERENCIA** — SGB — mapas de referência de Goiás em PDF (recursos minerais, favorabilidade, metalogenético, geológico-geofísico, agrominerais, geotécnico) (referência (PDF, não estruturado)).
+
+## Fontes de energia ainda não usadas pela base consolidada
+
+Coletadas pelo Eliel em 27/08/2026 na cópia de trabalho (`Squad 1/Dados/EPE/` e `Squad 1/Dados/energia/`) e nunca enviadas ao GitHub; entraram aqui em 08/10/2026, byte a byte. **Nenhum código do repositório as lê ainda** e elas não constam da aba `07_dim_fontes` da v17. São o lado da energia que o projeto vai precisar — demanda projetada (PDE), balanço por estado (BEN), geração (ANEEL) e rede (ONS) —, e o módulo de preços arquivado na tag `archive/claude-price-overview-20260914` listava PDE e ONS entre o que faltava coletar.
+
+Ao contrário do Cadastro Mineiro, **não foram recortadas para Goiás**: os arquivos são pequenos e linhas e subestações de divisa ligam Goiás a outros estados. Filtrar por UF é tarefa de quem for usá-los. A data de cada arquivo é a da coleta (27/08/2026), salvo quando o próprio arquivo traz outra.
+
+| Pasta | Fonte | Página oficial | Observação |
+|---|---|---|---|
+| `EPE - Balanço Energético Nacional (BEN)` | EPE — BEN 2026 (ano-base 2025): capítulo 2 (oferta e demanda por fonte, 1970–2025), capítulo 8 (dados estaduais, 2000–2025), matriz energética 2026 e matriz de autoprodução de eletricidade por setor e fonte | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/balanco-energetico-nacional-ben | a cópia local tinha o capítulo 2 duplicado (`(1)`), idêntico byte a byte; só uma cópia entrou |
+| `EPE - Plano Decenal de Energia (PDE 2035)` | EPE — PDE 2035: painel de resultados (dados abertos), caderno de demanda de energia e eficiência, e dados do relatório final (12 planilhas, uma por capítulo) | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/plano-decenal-de-expansao-de-energia-2035 | planilhas do zip datadas de 17/07/2026 |
+| `ANEEL - SIGA` | ANEEL — SIGA: empreendimentos de geração (25.133 linhas, todas as UFs) | https://dadosabertos.aneel.gov.br/dataset/siga-sistema-de-informacoes-de-geracao-da-aneel | `DatGeracaoConjuntoDados` = 2026-08-25 |
+| `ONS - Dados abertos` | ONS — linhas de transmissão (2.330) e subestações (1.687) da Rede Básica, todas as UFs | https://dados.ons.org.br/dataset/linha-transmissao · https://dados.ons.org.br/dataset/subestacao | — |
+
+| Arquivo | Tamanho | sha256 |
+|---|---:|---|
+| `EPE - Balanço Energético Nacional (BEN)/Capítulo 2 (Oferta e Demanda de Energia por Fonte) - 1970 a 2025.xlsx` | 0,3 MB | `7e03c244604e8ec8a63f0df2cdb7466ca89d33a0807cca11e0c61160dd51fdf3` |
+| `EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx` | 1,3 MB | `9d33d2a572e76672eb707d5798d09b34eeb85cc4392970eb88628e3d2f1dce7d` |
+| `EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx` | 0,2 MB | `575d3739438bc109116b274c5e8c434c0c1e33a89f935caed2d6635f4f040e9b` |
+| `EPE - Balanço Energético Nacional (BEN)/matriz_autoproducao_eletrecidade_setor_fonte.xlsx` | 0,0 MB | `aea097904560f06b0cfb0ccd9e06620e3745bfe5b1e391e556f21f6b572a8441` |
+| `EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx` | 0,2 MB | `7bcea0b7131cf311ba773ab5e79cad8231fcb1baf49c9d5db8077a3262028a20` |
+| `EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_caderno_demanda_energia_eficiencia.pdf` | 3,0 MB | `d544c1aa36629404f6ef0932925330c14cf5b090f246c052671802b77acdabda` |
+| `EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip` | 7,6 MB | `aac18732cc527fda40b6082593b53705eb596f7e443dd2a7aae81da5075c6f6f` |
+| `ANEEL - SIGA/aneel_siga_empreendimentos_geracao.csv` | 8,1 MB | `fd5e0bb41d6017f5a2b9c0014486aef304ed911bb63e59c652a85c125ed642fe` |
+| `ONS - Dados abertos/ons_linhas_transmissao.csv` | 0,7 MB | `cc27f9e38d59e7f0b3f70db50c7e227911180adc02822241e9f82c3228a25a03` |
+| `ONS - Dados abertos/ons_subestacoes.csv` | 0,2 MB | `e2846a3446ba016e61182bf014f170811313653045d88d306c2f4050d097f6bc` |
+
+O importador do site carrega os CSV e XLSX destas pastas no banco como fontes não validadas, como faz com o resto de `Dados brutos/`.
