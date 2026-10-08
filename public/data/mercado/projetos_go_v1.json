@@ -2,7 +2,7 @@
  "versao": "v1",
  "meta": {
   "origem": "Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx",
-  "sha256_origem": "028a79dfdb3a722c7715734541145f4efbaefc5e4ffe429e77d37ddc72a4a62b",
+  "sha256_origem": "6e580b409b560deb5069051409e110166f48f770a11f5c56100bef7f15fb848f",
   "autoria": {
    "pt": "Squad 1 · aluno Lucas Maia",
    "en": "Squad 1 · student Lucas Maia"
@@ -311,8 +311,8 @@
   {
    "id": "GO-008",
    "projeto": "Mina Crixás (Serra Grande)",
-   "empresa": "AngloGold Ashanti",
-   "controladora": "AngloGold Ashanti plc",
+   "empresa": "Aura Minerals",
+   "controladora": "Aura Minerals Inc.",
    "parceiros": null,
    "mineral": "Ouro",
    "outros_minerais": null,
@@ -329,14 +329,16 @@
    "capex": null,
    "ano_previsto": null,
    "data_anuncio": null,
-   "data_informacao": "2024-02-15",
+   "data_informacao": "2025-12-01",
    "confianca": "ALTO",
    "evidencia": "Operação reportada no relatório corporativo anual de sustentabilidade e produção da AngloGold.",
    "fonte": "Relatórios Corporativos AGA",
    "link": "https://www.anglogoldashanti.com",
-   "outras_evidencias": null,
-   "links_adicionais": [],
-   "observacoes": "Uma das frentes operacionais de ouro mais longevas do Brasil, com expansão constante de frentes subterrâneas profundas."
+   "outras_evidencias": "Venda anunciada pela AngloGold Ashanti em 02/06/2025; fechamento da aquisição informado pela Aura em 01/12/2025",
+   "links_adicionais": [
+    "https://www.auraminerals.com/investors/"
+   ],
+   "observacoes": "Uma das frentes operacionais de ouro mais longevas do Brasil, com expansão constante de frentes subterrâneas profundas. Operada pela AngloGold Ashanti até 11/2025; desde 01/12/2025 pertence à Aura Minerals. A evidência principal e a produção de 80.000 oz/ano são do período AngloGold (relatório de 2024)."
   },
   {
    "id": "GO-009",
