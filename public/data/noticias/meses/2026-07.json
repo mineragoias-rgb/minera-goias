@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 104,
+ "materias": 105,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -1399,6 +1399,22 @@
    "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQMUMwRndKTFg4MElXbmh2ZjEzOTIwVVFZSzFTYzI5SWVqYk1ZbWpVTHJsVGVFZkJkY3ZaRkU5bXJOMUpXRU13anRnTlkxOWFJTUhQME5fYURjSzRwUmxUb2ZnVGltbDBHMXRYZlV0bl95NTUyNFR1Y18xVUVpMHk2U3RWd2UtZWkzRnRjeHRhR2dBNEJ6LVEyQmM0ZVF4SERwSTZnR3dGNHhCeThZMF9nY1lrSlhtUVhBbEhpZ2RZVDBXZkgzdXhuWWRTejNwLTU4T3VfQUZXOUF4X1hVSWZaMVpaVVdhX2pr?oc=5",
    "published_at": "2026-07-06T15:52:42+00:00",
    "first_seen": "2026-09-19T19:49:06.962972+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil's Tiros Rare Earth and Titanium Project Gets Preliminary E... - Industrial Info",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNVFpfeHMtUUsyZ2QxWTl4VTBEQUFFaGFiVndPN25zRVRfM2dUaUpFb1FPRV9YNldWUFgwX2pfNnFpV0tWa0ZGN2RIM0VENWc3ZnRGMmg2MUVtaXNTYUgxODlJRnBtWHBpdEJVNDJCV1A5ckJKMFlwVUpaVWxOMTNqQmZKYjdralFMSURMYlF2QmRmMkJNcTNXMjZpX1ZCZXQ0enRBWXIxc1I1RzkzMER2N2dzcHZBSHNuVnptTWNXai0tbWxTcHFvR3FkejlMUTg?oc=5",
+   "published_at": "2026-07-06T06:45:19+00:00",
+   "first_seen": "2026-10-08T11:00:29.995548+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

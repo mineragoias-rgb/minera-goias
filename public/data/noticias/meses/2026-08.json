@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 275,
+ "materias": 280,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -392,6 +392,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: enquanto a União demorou, Goiás fez a lição de casa - Jornal Opção",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQQVB0YVBDY1M1SVBSekdPcHVDYnhaSEhubnp3WHZxX2czb1hhLWQzZ2taQjF0bkRWVnRHZlpQcHNJMTBNcGJjd0VUUDU2V0lOZjNGVThjS1VtOUdVMEVGWWktY1ZLeDNtTmpRZTlaTUkxelBOajB5SWJLU0JnOFZQakJJSF95QTBqM1lMRXdBVk1QTmY2YlBMdThzQ1FfV2RGVTVDZGp3RnZyTy1YMVg3ekNwRk5rNlV5TUNSTUZHMERhN3M0TkFIbUY1c2dIM1FtR3RKeGZXbnBpM1ZFSmU5aw?oc=5",
+   "published_at": "2026-08-29T07:00:00+00:00",
+   "first_seen": "2026-10-08T11:00:25.165744+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -856,6 +872,22 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo Lula tenta barrar venda de mina de terras raras de Minaçu a empresa dos EUA - Diário de Goiás",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPb3hqWkdXR3hhRUlvM29tMnRpTlA2VEg5TGtwWTF3VXoyUlkzNEgxR19TWEFtb1JJenFxQ1c0S0tlLURUWXd5QVBYNWlmeGlvenlLMUR0UVItUE5ER3NGT2JTYmVnYUlVQXE3d3A4YjdzLXdhbGNGb3lubnM2X2xjR1N2RktxWi1OOXRSaFRVNzhNMWtGcDlBZF9sM203czJCVzdKbTA2eVl2dmdoN2wyN0ZWNmJOV1A0RVpiag?oc=5",
+   "published_at": "2026-08-27T07:00:00+00:00",
+   "first_seen": "2026-10-08T11:00:25.166556+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3346,6 +3378,22 @@
    "brasil": 1
   },
   {
+   "title": "Mineração em terras raras gera medo e desconfiança entre moradores de Poços de Caldas - Portal da Assembleia Legislativa de Minas Gerais",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcWZxUzZGVWRCdXBpQ1RhcmlpS0podk5qQllWSkpEdEpQeUpUWnRvNkxDNGRjSTFfZkZMRDNTN3ZFUndyaHhiWUhscDViRE1mazFHa000WHVzTXQwMTdDVi03QWZfZHpJU0hZR1pKbzR3RGF1NXlKNVNocDV4VkNVbHUzSGFvbDdpNUhXLUNSMGNUZ1NTZ01WS3lnTEViNWdsNnp2S2o3N1lPWloxRldZbV9qeHlIekdPdW1EaXhOMExMX1daUG1jQjVDS3BIdXVGR291aExEVQ?oc=5",
+   "published_at": "2026-08-13T07:00:00+00:00",
+   "first_seen": "2026-10-08T11:00:28.022230+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Agência Nacional de Mineração - www.gov.br",
    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBnWm54TWxERXczSzA0bFJ1TWVfSUFleE9HWVZiRmY2VjlYb1BBOW43dDR6bC1LZjVkZ1JGTkRVb1VwcE9NWlZKZC1jUXEzNDA5d0FLVlZmdjhNZWZEakZRZXBMaEVMN1A5N2pxVXNLT0s?oc=5",
    "published_at": "2026-08-12T14:00:38+00:00",
@@ -3700,6 +3748,20 @@
    "brasil": 1
   },
   {
+   "title": "ANM prorroga divulgação da lista provisória anual da CFem e estende prazos processuais - Confederação Nacional de Municípios (CNM)",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSnh5MzgxYTJuUHlhS00tdEtHb29FNnlZaGR4bUJWTFVnX19CTWpuSFlxSEh4VUZ2NWlnRW9xaC10UVIxTXp3Mm1xeU9Lb1RRS2s3SXlXc2J4dHYwVExtVlpTZFNJbExrcXU4WjBfNTJQQ1daQklpVjhEcE43VFVCcE5JakNrR2pnWTJjSnZpRHFlaXZuaVNVcjQ4T085M3FBNjE1QWdvRkRMMWxIaVZpT1RXREVkZXpheDE3LVZMQktYNDR1?oc=5",
+   "published_at": "2026-08-07T07:00:00+00:00",
+   "first_seen": "2026-10-08T11:00:28.874810+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Agência de Comunicação - Vale nega dívida bilionária de royalties da mineração - Estadão Blue Studio",
    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNS1ZGWWFaX1JyLTZiS1o1TEpJdUYzeG1rWFVfMmVzcDVpUkU0TnBOYThvRlBEaUpKR0hONVExc0lVRGw0YUtVLXptR0trQ2tIOWJFakNGZi1vSzZ4MjZNaGgzbUdPQkExbDA5dmxwYVgycW9oNC0xVklGOWM4Ymc3eVdVTTg4M0xfcFJYdFBWd01DZzg0dEVydmpSZHhlTTZHaXk4bkdBRWQwNU9RYlBLUg?oc=5",
    "published_at": "2026-08-06T13:35:10+00:00",
@@ -4012,6 +4074,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac6214906a243d39a05959914882219&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-10-07T10:39:05.969331+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac777cbff6c43aaa9f22946a40ecc47&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-08T11:00:27.597846+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
