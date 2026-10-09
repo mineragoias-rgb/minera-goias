@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 105,
+ "materias": 106,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -1062,6 +1062,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo federal publica mapa de terras raras em São Paulo, mas ignora quilombo - Repórter Brasil",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbnJ2WVcybENueHVSZDA5UU5WTGVGQWhEYU03Z2NqeDlFWUdxYU9sTDZOSjBTaVU1dzgzaHZSdHZ5RDhQQjV5dXM5SUhvV1dVNXM0NEV0ZTNMLVNiUHRiM2tGVjNqb3lIWkhlQWRCOVRaSEw2WENGSzJOaTlSaUxXc1FWTGltdnY3dmJGMU9NYlVBdm1xaU1DYzRrWC1sSTQ?oc=5",
+   "published_at": "2026-07-14T07:00:00+00:00",
+   "first_seen": "2026-10-09T10:58:41.714403+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
