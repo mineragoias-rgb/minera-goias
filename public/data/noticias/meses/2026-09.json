@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1165,
+ "materias": 1166,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -16022,6 +16022,22 @@
    "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSVVQWFBjSHJlc2kyMWVYWDhOQW1TWFJmeElENkllaWtsejR6dExUTTlsWU9zSUpiSS1OMVdJUnlSN0hKaXhkQ3E0QjcyankxQlY0UEp0cG5uV09jWGJEbVpxZ3pab3A0cFp6U05Xcmt5RVFVVmpJR3BSUkJJczVXNjQ0SUIyQ3RJcjhMbDdzRlB2T3FfdHN6bEowVmNxa2F2NFRIMGVCUy1acVhpR0c5SmNhWTNpZw?oc=5",
    "published_at": "2026-09-08T07:00:00+00:00",
    "first_seen": "2026-10-01T10:32:03.678609+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Justiça Federal manda suspender atividades da maior produtora de lítio do país em MG - G1",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNWXEzVzh4NDRVUVluTVJyem9xejV0WXVMSjRSRDJ1NEt3Q0FvZUgwMnRTb0tNb3Jvd1pLU20wRG85SU1GVHpZVjgyQmJIUXlnOFNyb1Z5clhVWkk5VWUtVFR6cWVSb3Z1UXB2UnA0M0JfV1pxU1ZYWmFnX2YweUoxc04zQWFONlg2dW1zMTc1azZkVW1xT3ItaEpfQ1ZzZVRUWWo3UE4yODNlUXptRnp0dW5aemoxdy1VY1FTa0t3VmxhbjlPNDdqSngxem81MC1VNFBRWlpTUzZIZw?oc=5",
+   "published_at": "2026-09-08T07:00:00+00:00",
+   "first_seen": "2026-10-10T10:11:19.599611+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
