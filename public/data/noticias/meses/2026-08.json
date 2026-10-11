@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 285,
+ "materias": 286,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -594,6 +594,22 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: Quando a Mineração de Terras Raras Deixa de Ser Negócio e Passa a Ser Questão de Soberania Nacional - Por Amadeu Robalinho* - Jornal O PODER",
+   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOSHR3VkpXNjQzX1h6WFc5S3dtUW9BVHU1NlpfNVdEb1pQZWxXWmhsR21mMDlaUzI4UWhXR01qLU5fTVI0RFZNb21tM0hOMjJLdWhMSFNidF9Hb0RnVlZYdWNLS2tCYXB3UVEtQmxTS3VGRGNPbUZTZVFXYmwtSGtrS0NNNzQzc0hKbmpJaUc1TURUdFFrNnJncUJLOEN5T3ZhZl82RFBscGhNX09xYVRUdjdkTVhSNGhNbDV4NXcwTkRmUVpySFAzX1ZxeGs1dXh5Y2ZybGFSOVNJcjIwYzBycHhqS1dpUVJMU3BBYUlvVmlWUDRNQmhJYks4ZHFCUVp6cHBF?oc=5",
+   "published_at": "2026-08-28T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:28.429424+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

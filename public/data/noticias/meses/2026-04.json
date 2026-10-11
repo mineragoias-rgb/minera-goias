@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 113,
+ "materias": 115,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -286,6 +286,22 @@
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPY0VIY1VoakZZbVpod09rcGFsSThxWC0xUHZZSy1WWU5jT0txSkxrUW9QVTI4TVNUTXExSDBkQjBrRjVnaXhqVTg1SnMzSmVCbnBqenFadWVzNFM1aDc2ZDVIamE0TGdIWGpTUnlDaTMzUUhOU1hldjVTa3VzRkFvRGo2T25mZS1kU1ZNb1dOemJGenlHOWQzWi1XTTV2Y3lKS3pBYVhlMmJ6NU8tTFdvNEI2SFRrRWZfMFV5M1cwUQ?oc=5",
    "published_at": "2026-04-27T07:00:00+00:00",
    "first_seen": "2026-10-04T10:17:05.115264+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras de Goiás podem competir com a China, diz mineradora - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZUVXbkFtT0NnUHRmN05yWURVQkVVWEVkeUxhZnVXcU9UMW8wNGN0blQ3Skp4bHp1eGM3ZkxYWTNvTzJ5ZDFyNFdGWFFqaXJVbXBzbDZwaVh4S0dYS1NXQV8wd3kyWmhzRGhqRVo3el82U3NWN0hnbzhqOWxLU0c3aXBndWdrVktUclNQaVprMGw0eFFPVU55SGl0cWpQalotR0JtZXlR?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:26.428542+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -702,6 +718,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aca0f4646fd46e8af32ec829e2a3ee5&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T12:57:00+00:00",
    "first_seen": "2026-10-10T10:11:18.638063+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6acb63a1d7d24561b04c6e59d6fda1e0&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-11T10:23:29.323538+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

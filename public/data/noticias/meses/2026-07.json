@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 106,
+ "materias": 107,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -1590,6 +1590,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "‘Zona de sacrifício’: exposição sobre impactos da mineração no Vale do Jequitinhonha (MG) chega ao Rio - Brasil de Fato",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOYjVqYVRscEZfUHNmUEdaWEU0aklWS3hOMzFHSVY3N0d3MWNtYUtoN21xeVJTMU1qcU9NME54dUJyNkNZWVlTZXpwWWdFYjBKSXA5TG9oYkVvYnR6Nk0yOFhvaWRjSGFOc055bU1OeUlveGx1VGVILXhCUHo5TERFZ1p6VXJXMmlVS3JIX0J0UTh3Wk1DS0c1c2pxdHlUeW1ZLVN3MjVhWExQU1lCWGc3ajRtcTQwRmxIVzQwRUdiU3BKY1ZZdG1wdkJZdUFoOHllN1FXemNlbXU?oc=5",
+   "published_at": "2026-07-01T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:30.601719+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   }
  ]

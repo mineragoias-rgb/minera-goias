@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 30,
+ "materias": 31,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -295,6 +295,20 @@
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "To reduce China dependence, India explores critical minerals deals with Brazil, Canada & France - Firstpost",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNaGFxWE1GNEhObzNUUnV0U0J2QkxpZkJyOU9hdklVNEg1dS1GNkNYei1aWHRrV3dlaHVleXJFVUV0WVRzVWowcTVvWW15S1ZpNG9zdXhuVXI0cUdHWFMxankwekhIVFNJUWxGUzNpbFVvcnJhN29mZGU3M2pSQUJISGJfOVhJcE5lUzlKbUl3TFA4SEdUa1BtWEVpTEozUnV6a25UbjFnNUdyRlNSanZaSWVMZ1pDZ21QbF9hNThTVFZwbWtmLUxWdDBxeVdpczdGbEVZ0gHYAUFVX3lxTE9qZUJUWFZFMFYyWUdnRVRwWkRoTFdCRVZfUlZwZ0w5SnFFYU50S2oxWVNaR2xuYV9nTVAxN0doamVSM3VoMEU5NEJxMmJMbDBXUXpXZ3BaanVoYUpITk9OdkU5bUFmZWZzSXJSRENyNy1UbkpuT3FQZmZibHBhZjd3ZWowZXlybFJ1SkFKNnRtNHhzbS1HMnUyZHFrNE8xcURiTnVfMWN4c00xTmhpLUlUM21MOTNMRlhLeXhwS0dxM1dmdklmaFIxUFl1ZTRHVkV5Q002dnBIZg?oc=5",
+   "published_at": "2026-02-10T08:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:33.027128+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1166,
+ "materias": 1168,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -2181,6 +2181,22 @@
    "escopo": "nacional",
    "tema": "geral",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Power Minerals extends high-grade rare earths at depth at Brazil’s Morro do Ferro - The Globe and Mail",
+   "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNd1R2b01ZVHRFUDRIYk12QWdISTVXNlYxbWpVNlFFWFlTN0R3aVU3MVgtRWplM3RJU1FaYmNScW9xMWhPeWh2XzhNd3ROTlo5YnZaRkc3bUJpaS1oYmFaX1FGY1BMamxKVVFpbUZSYjd1WVYxM2JpU0lqbmZ1cW9MTjFpTG5WZjhmb1JVLXpIT3ZJakxGQ0JEU1FxN3FWaFFnOWZ0SGxmZUtBQVA5ZEVUYnZDdVFRd1h2dGZmNkNXUHBvMkN0RHJwMnJValpCVVFzMkxxdkJGb0F3Wk1oZE5JZkNTLXV4czM5bUxiSWFNM3ZtVWJOLThGZnJR?oc=5",
+   "published_at": "2026-09-29T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:32.516069+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -10418,6 +10434,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Com base em Solonópole, lítio cearense reúne 30 empresas e R$ 5 mi em pesquisa - Movimento Econômico",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQT1dLVEFDWEV2T1Nuejk0emtXZ0pVOXhRWDJNcHFySmE1RDlkdzZVSlQ2dWN1NUx5TFNfYUVVZ2s1UG5CamdyWlB2eU1kOFBVcjlfUFc2QnctVTdBU19rS0lOOWt0XzRfd0UzNVNzSG9laW1pUFFWNzJraUtaUVJVT05VXzFEUzh5QUNRR01BSjRIczY4RFlRYnVxOS1OQ3F6UGVSNlZsbmNuVFpSbXk4RnlkWmJkdDdxZ0VnQ0ZMQTlfZTVhNEE0OGRncmw?oc=5",
+   "published_at": "2026-09-20T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:30.600404+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },
