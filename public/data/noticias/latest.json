@@ -23,9 +23,41 @@
   "itumbiara": "Itumbiara",
   "quirinopolis": "Quirinópolis"
  },
- "atualizado_em": "2026-10-11T10:23:34.773167+00:00",
+ "atualizado_em": "2026-10-12T11:26:04.471887+00:00",
  "ultima_execucao": "partial",
  "itens": [
+  {
+   "title": "Henrique Marques leva ouro, o 2º do Brasil em Grand Prix de taekwond",
+   "link": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/henrique-marques-leva-ouro-o-2o-do-brasil-em-grand-prix-de-taekwond",
+   "published_at": "2026-10-11T23:58:00+00:00",
+   "first_seen": "2026-10-12T11:24:20.919447+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Agência Brasil · últimas",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Goiás concentra projetos bilionários de terras raras e se torna peça-chave na disputa de empresas estrangeiras por minerais",
+   "link": "https://www.jornalopcao.com.br/ultimas-noticias/goias-concentra-projetos-bilionarios-de-terras-raras-e-se-torna-peca-chave-na-disputa-de-empresas-estrangeiras-por-minerais-878077/",
+   "published_at": "2026-10-11T14:40:17+00:00",
+   "first_seen": "2026-10-12T11:23:59.786445+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Jornal Opção",
+   "escopo": "regional",
+   "tema": "geral",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
   {
    "title": "Terras raras no Brasil atraem 18 grupos estrangeiros e R$ 17,5 bilhões - Brasil 247",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNemFDNG1mZ09ERmEySVdxejhzZ3JERGE4Z3BKRmtmQ3NObkoxOGI4SEgyZDZ3RWpoT2VPdVdRTjFTcUR1ZnNYdFc4S21ySUl4dUFZMVJnZi1sZTgtVEhfVmdoRWRqSkJqSXNveGE5c2NQanV5eE9felRFYmt3UnRMZVk4WWpxQ2gweERiNkxKVW84VW5RSlk3elg0aHhuazhCa0Fqcg?oc=5",
@@ -2798,52 +2830,20 @@
     "terras_raras"
    ],
    "brasil": 1
-  },
-  {
-   "title": "Lula defende processamento de terras raras no Brasil - vermelho.org.br",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPcC1BWmlfajZsZFgzUWtSNjRXalhlbnRpRHpVWGFsbE9pTTlUcWtHY3doaHVyYzMwckRhd0NaRl9ncWFnc0pQR0FGeGVtTjZCMHllZUl1UFh3SEpWVnhSYTZvNEszUDJGTjZJRjA0c2QzQTZtUVBCYVQ3REdjdVlSaXM2eFhTcHJiWVNaODVkdlpPUQ?oc=5",
-   "published_at": "2026-10-02T11:20:00+00:00",
-   "first_seen": "2026-10-03T09:31:44.167780+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Sigma Lithium prevê atraso em projetos de expansão no Brasil após suspensão das operações - BNamericas",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPS09lOXoyWGM2NVh2Rmh0dmYyWUNFQXJmX3M5Y0N2dllia19jc3REMlJNOFY2Rl9xekJPR0NneG1PSHdrbDFmZ0pvQnA3LXdJVi1CWVpSMkhTZ2hRYmVMcFNZWGprSzJnT2lLbmtWby12MWdwZGpucWxoamRYbG1DSVhCS1NLX2JVSmtJWEVKelZicDZRRjJMX2FXVDVfYXNJTzQ4RFcwZFJJempWelU4LWtzM0tVWGtaN2Z1N3R4bHV0U2trYkpj?oc=5",
-   "published_at": "2026-10-02T11:12:40+00:00",
-   "first_seen": "2026-10-03T09:31:44.683021+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · lítio no Brasil",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
-   "brasil": 1
   }
  ],
  "tendencias": [],
- "total": 2634,
- "regionais": 330,
- "setoriais": 2634,
- "regionais_setoriais": 330,
- "fontes_vivas": 60,
+ "total": 2665,
+ "regionais": 336,
+ "setoriais": 2665,
+ "regionais_setoriais": 336,
+ "fontes_vivas": 62,
  "fontes": 63,
  "substancias": {
-  "terras_raras": 917,
-  "ouro": 449,
-  "litio": 267,
-  "cobre": 189,
+  "terras_raras": 922,
+  "ouro": 460,
+  "litio": 271,
+  "cobre": 197,
   "niquel": 59,
   "uranio": 51,
   "niobio": 9,
@@ -2853,17 +2853,17 @@
  "meses": [
   {
    "mes": "2026-10",
-   "materias": 548,
-   "novas": 13,
-   "brasileiras": 261,
-   "regionais": 5,
-   "setoriais": 548,
-   "regionais_setoriais": 5
+   "materias": 573,
+   "novas": 25,
+   "brasileiras": 263,
+   "regionais": 6,
+   "setoriais": 573,
+   "regionais_setoriais": 6
   },
   {
    "mes": "2026-09",
    "materias": 1168,
-   "novas": 2,
+   "novas": 0,
    "brasileiras": 668,
    "regionais": 39,
    "setoriais": 1168,
@@ -2872,7 +2872,7 @@
   {
    "mes": "2026-08",
    "materias": 286,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 255,
    "regionais": 49,
    "setoriais": 286,
@@ -2881,7 +2881,7 @@
   {
    "mes": "2026-07",
    "materias": 107,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 105,
    "regionais": 15,
    "setoriais": 107,
@@ -2898,20 +2898,20 @@
   },
   {
    "mes": "2026-05",
-   "materias": 120,
+   "materias": 121,
    "novas": 1,
-   "brasileiras": 120,
-   "regionais": 54,
-   "setoriais": 120,
-   "regionais_setoriais": 54
+   "brasileiras": 121,
+   "regionais": 55,
+   "setoriais": 121,
+   "regionais_setoriais": 55
   },
   {
    "mes": "2026-04",
-   "materias": 115,
-   "novas": 2,
-   "brasileiras": 115,
+   "materias": 116,
+   "novas": 1,
+   "brasileiras": 116,
    "regionais": 49,
-   "setoriais": 115,
+   "setoriais": 116,
    "regionais_setoriais": 49
   },
   {
@@ -2926,7 +2926,7 @@
   {
    "mes": "2026-02",
    "materias": 31,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 31,
    "regionais": 4,
    "setoriais": 31,
@@ -2943,21 +2943,21 @@
   },
   {
    "mes": "2025-12",
-   "materias": 80,
+   "materias": 83,
    "novas": 3,
-   "brasileiras": 80,
-   "regionais": 67,
-   "setoriais": 80,
-   "regionais_setoriais": 67
+   "brasileiras": 83,
+   "regionais": 70,
+   "setoriais": 83,
+   "regionais_setoriais": 70
   },
   {
    "mes": "2025-11",
-   "materias": 19,
+   "materias": 20,
    "novas": 1,
-   "brasileiras": 19,
-   "regionais": 13,
-   "setoriais": 19,
-   "regionais_setoriais": 13
+   "brasileiras": 20,
+   "regionais": 14,
+   "setoriais": 20,
+   "regionais_setoriais": 14
   },
   {
    "mes": "anteriores",
@@ -2969,9 +2969,9 @@
    "regionais_setoriais": 3
   }
  ],
- "descartadas": 8891,
- "descartadas_antigas": 276,
- "brasileiras": 1814,
+ "descartadas": 9132,
+ "descartadas_antigas": 278,
+ "brasileiras": 1822,
  "veiculos": 48,
  "coleta_desde": "2026-09",
  "janela": "2025-11"
