@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 107,
+ "materias": 108,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -141,6 +141,20 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mineração acumula bilhões em dívidas, benefícios fiscais e sonegação de CFEM - YouTube",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE12VG1CNU83R3Z5ZENpeVl6S0NDcDl2ZDgxMTF6U0E4NWNzZGhzaG9qMFJNeFRtNzVfcHUtMmxpWmFKTzV2Unk1cF83RkpjaGw3ZmcycUkyUjRjWE1y?oc=5",
+   "published_at": "2026-07-30T07:00:00+00:00",
+   "first_seen": "2026-10-13T11:14:50.693089+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],

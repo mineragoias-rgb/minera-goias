@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 48,
+ "materias": 49,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -659,6 +659,22 @@
    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTmdLRjFhOFI4N1dsaHM1TC13T18wNXQwcTNpWWdNczBfc2FXTEg0LU4xOVI4cnlRVmUzTkwtZG1yM0hrN29aVEJqQlBpT2pTNHpHY3U1ZUtFcXlPTTFfVmk4blEyMDdlNTdBdjZPZExEVEtEa2YxZ0ROVU9LMlBQQ29GdVF5NThNbG5sbGVhWjJVNzdTUWRuc3hyZG9tbzdtU1ZxNHZsdUdMN1o3TGhKdFBxanVueUtGczUwLUhWbUw0eGp1QUNBWTd30gHYAUFVX3lxTE1VazNHRllGa3NUQXBqZl91eDdnYURXSWp6ZC1xWV9fQmFtcnN2UV9JbHhRaWkzRUpndlpBOWdvaHBNMWJkLUExLWp2dWE0Ukk4VDFBb2UtZ3NCVk1ld1BQUkpKRWVDRlJQc3VsQmktcm9vWXdqeVZyaUVyM1JNX3F1X1ZISHNmeVU5WjVqY0tQRUNOT0lSbnpCVzR1MGNJWmt2VVZaWEJvVS1abEFWZnV5N0xXcVRkSjBNc3IwQWZULWNpZEU3TGE1TjJocGNtVkpCTDRFZEtocg?oc=5",
    "published_at": "2026-03-07T08:00:00+00:00",
    "first_seen": "2026-09-23T04:02:48.617020+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras em Goiás: exploração pode gerar mais de 12 mil empregos diretos - G1",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTmdLRjFhOFI4N1dsaHM1TC13T18wNXQwcTNpWWdNczBfc2FXTEg0LU4xOVI4cnlRVmUzTkwtZG1yM0hrN29aVEJqQlBpT2pTNHpHY3U1ZUtFcXlPTTFfVmk4blEyMDdlNTdBdjZPZExEVEtEa2YxZ0ROVU9LMlBQQ29GdVF5NThNbG5sbGVhWjJVNzdTUWRuc3hyZG9tbzdtU1ZxNHZsdUdMN1o3TGhKdFBxanVueUtGczUwLUhWbUw0eGp1QUNBWTd3?oc=5",
+   "published_at": "2026-03-07T08:00:00+00:00",
+   "first_seen": "2026-10-13T11:14:46.289745+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
