@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 116,
+ "materias": 118,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -762,6 +762,22 @@
    "brasil": 1
   },
   {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6acf460e10c84f9b839bdeb641004c82&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-14T09:06:22.977729+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Ministro diz que compra dos EUA de mineradora de terras raras em Goiás não deve avançar - OpiniãoCE",
    "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOTzh5aTZxWEhfR0ZWUThvQlNQOWxwS0pUMk9JS1V0NmI2QzhmZTFxQzN1bDktN2pLM3lMNGwxZ0ZHUGNtTEJwT1pGZi1HM3BJUTVIRGFBTU9iMFBYZC05WDg0TnhEZ3kxTU4yT0lKdU1TQ2x1YkYzOF9pbUNDcDFZWC1TaktyeEJiZEYyYmpKV1R2aU4yeW1hcTBKZlNtRjFLMDBpREo5ZEZ6RzlNbHhIV2M2TW91eFFQZHR6WXNzZ1NMTWtwM1BGUEYyOXV2Sy0wVFhB?oc=5",
    "published_at": "2026-04-24T07:00:00+00:00",
@@ -1406,6 +1422,22 @@
    "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde anuncia fusão com a USA Rare Earth e fecha contrato de 15 anos para fornecimento aos EUA - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPaW1iNHFObnZ4SWl1SFhHSlE1QXo2S0pUWk5uR1EwT3o3ZVJJNzUxOXcxUDB2emNQdkFFQzhPM3doaGt5RmZVS2tvRHNHMzNsYkdfaVFNajM2RGt3NlVTa0ZlZF9ZOFFPV0ZQRi1PVTNXNGZnYjAyVFNMX3htUHAzV1N1OFRjWDQtN1Q4bWs1MEE2OWllOWZVcGtGUVVFck0yQTFJTXQtTklwdXZ3YUxPWkIwYUtnUkttSU16X1lOcVlQTlhBR1libU96c2NZMGpRLTBNZzdiUE9LNDVMVUIxMXlQSGNaWldmU0E?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-14T09:06:22.237385+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
