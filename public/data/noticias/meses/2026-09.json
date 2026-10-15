@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1177,
+ "materias": 1179,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -6182,6 +6182,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Dependência dos EUA de terras raras da China deve pesar sobre encontro de Trump e Xi - Valor Econômico",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPemJVV19EWVUtZlNZWTRVMUdiR01uYzdjMDBTbGpvaUVzaTlDaHQ5WkhjS3kzNDh1VV9kSGhPSWF1TWZpTzZuQWREOVotQUQtSVFNZWhicHBNa1BKT0dhSVlnbVFoUkVuVmdTelB6djdCaDNkQXUtVnhUWVFJNzZRclhpb05FQU9wV2xSMjl3eVFIY2VRdHZkakVzMVp5ZmZCYmpsa1prNmZUUEsxekxoT0w3V3R2REVpcDhVaWhYM2hfSzJmcFNtM2ljN282aWc4dXdOdw?oc=5",
+   "published_at": "2026-09-24T07:00:00+00:00",
+   "first_seen": "2026-10-15T08:39:14.608669+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -16316,22 +16332,6 @@
    "brasil": 1
   },
   {
-   "title": "Justiça Federal paralisa atividade de mina de lítio em Minas Gerais - Dourados News",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPR1pVYjZXbFc4ZlZUMl9sX2hSdHBhSEwxWFp5NHN0SmhPY2Jia1BhT0MwVWZYUURPazFhUEtubUU2c3I0NDhRSC03cTY0clA0cXdRQURQSHVJZTlBaTNOT2gyX1Q5YzA4cXFnYzVPNFJHblRCS3Y5Z3JULUlqOWI1ay1zdHFzb1B6Zk1BejJGZXlCRGF6VVZDZXhEVkMtLWxYNWFMdUNUdm9LVjJYV2toS3lKTFBZSXU2ZGxnVVo3MzVlUdIBvAFBVV95cUxOQWVWV0EyUFNlUmJGT21tbnoteHNqc2lINzgyM01jczF2QnBMRFNWOTdGTUFkRGRaOFc1UXhnbHAwTDI0TWFhNExUaXdVaHdiemJsYzNrMGxpSGxPWUZaQTdCNkRKdk95XzJxMFI0TllmcEpNMzR0NmVvcFczWTV4U3FibDBEa2JySW1KblJILVcyd3FJWkgzVlZoOGhPeFRQM3ZqbDZMQXRYejJ6eUVZcndVUEtNQnpyTWVkcg?oc=5",
-   "published_at": "2026-09-07T14:15:00+00:00",
-   "first_seen": "2026-09-19T18:32:49.373602+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · lítio no Brasil",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
-   "brasil": 1
-  },
-  {
    "title": "Justiça Federal paralisa atividade de mina de lítio em Minas Gerais - gazetanews.com",
    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeUxacDZseW80U1FLRTNocG9mQ3hoYmFsYXdhTHJ0YXhUOHkxS3FlMlRGOVpwbkc2dml1UXZsVHhjTl9QMDMtTDJiVjJ6WTNmYVcwMlJJR2VmVlNieWE5RlZ1U25jRk1vellkS3luaUkwWG8wM3NZeVpmbnRsYnZwbDhKTHlqd0FBelJ6TlJvNzVhbG43NEtORU92VmJ6bFhqZFVmbVNKWk1BbjlJby11SXBvbjEzZTZhVk5lX2UycU1Zc2V1UFQxVVhB?oc=5",
    "published_at": "2026-09-07T12:11:34+00:00",
@@ -16360,6 +16360,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Justiça Federal paralisa atividade de mina de lítio em Minas Gerais - Dourados News",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPR1pVYjZXbFc4ZlZUMl9sX2hSdHBhSEwxWFp5NHN0SmhPY2Jia1BhT0MwVWZYUURPazFhUEtubUU2c3I0NDhRSC03cTY0clA0cXdRQURQSHVJZTlBaTNOT2gyX1Q5YzA4cXFnYzVPNFJHblRCS3Y5Z3JULUlqOWI1ay1zdHFzb1B6Zk1BejJGZXlCRGF6VVZDZXhEVkMtLWxYNWFMdUNUdm9LVjJYV2toS3lKTFBZSXU2ZGxnVVo3MzVlUdIBvAFBVV95cUxOQWVWV0EyUFNlUmJGT21tbnoteHNqc2lINzgyM01jczF2QnBMRFNWOTdGTUFkRGRaOFc1UXhnbHAwTDI0TWFhNExUaXdVaHdiemJsYzNrMGxpSGxPWUZaQTdCNkRKdk95XzJxMFI0TllmcEpNMzR0NmVvcFczWTV4U3FibDBEa2JySW1KblJILVcyd3FJWkgzVlZoOGhPeFRQM3ZqbDZMQXRYejJ6eUVZcndVUEtNQnpyTWVkcg?oc=5",
+   "published_at": "2026-09-07T07:00:00+00:00",
+   "first_seen": "2026-09-19T18:32:49.373602+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },
@@ -16524,6 +16540,22 @@
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbWNKalJGMHNLNUZwMGttN1ZCUXE0RFE3ZlhWQVU2RzFRbWxlU1pYNzhTTjdhcjZxNzJfOVVNUDlOSzFjU3ByWEcyVVkyN2g5cEVmLWtfWHJ0R1ZuY05td3BxV3J2b054UjhnRC1NZklKd1JtY2Z1TFd6Yll5cjhKdF90emQ3QTZ1RTFQTDg2MWIyY3ZfYnV5aHBCOA?oc=5",
    "published_at": "2026-09-07T07:00:00+00:00",
    "first_seen": "2026-10-09T10:58:42.137979+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Justiça Federal paralisa atividade de mina de lítio em Minas Gerais - D24AM",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdG8tMW9SN0FZZlJERXY2Q0ZiTmk3ZVFWeWtyTldsc0FZLUNyVDB5ZXJFSTl5TTAxYkNFZE5CUFVFSGFTZ2JzN0FxYnpsZWZzT2hUbTh1MkpjS3U4Sk1uQXFMVF9TSGdBeE4wbFNsclpicTN5VnhNVXhFSHctdWtEY2lCMGZKckpMMkY5SWhmdlFOTzRRUUhPMQ?oc=5",
+   "published_at": "2026-09-07T07:00:00+00:00",
+   "first_seen": "2026-10-15T08:39:15.062096+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

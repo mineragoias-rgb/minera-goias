@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 108,
+ "materias": 109,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -532,6 +532,20 @@
    "substancias": [
     "litio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "O impulso do Brasil no setor de minerais críticos e a corrida pela autonomia estratégica - Diálogo Americas",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQV0Z0NXZwSE5fYTJRUjB0ZWQ5SEdyczVJVFJTQkdFWWFKVTl6eDhUc1F2b2xxa3AwaVBRbzNFYnV1SWROMzlUY0Nnbzlxb3pNbGpfU2p0V0dkaHNHdVFsNXA2RDhfSm9ieGpXUUpUY0xSbktWcUphR0FrWXZjVkpRMFFCNUtFVHB2MzZGc1ZZUEhHOVk1UWxhckpJS1FYR21nTkNOdk5GM3hONV9EYWZiSG9CaXFmUFhFOC10MXJqREE0TXdFSnktV1hFMVZ0QQ?oc=5",
+   "published_at": "2026-07-23T07:00:00+00:00",
+   "first_seen": "2026-10-15T08:39:15.059232+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
