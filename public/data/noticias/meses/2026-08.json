@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 291,
+ "materias": 293,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -1790,6 +1790,22 @@
    "brasil": 1
   },
   {
+   "title": "MPMG suspende escolha de ATI no caso Sigma Lithium após denúncias de irregularidades na votação - Brasil de Fato",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOMFIxbTdycW5HMndSN2hWZ1dYQ1JNbWZ0M1NOeXFDZlg1aHlDSWtOS0JiWHNQbVBHV1k5WThUa0l0RG1qaHZzNl9kY2hLcGtpN0E1MmFEUnhLTWk5VXlFR2ZpLW9sV2pROHhIdzU3M3VaaVB4WHR1Y01iSGRJTWIxVlNQcHJtRjF5NnVMUHp3amZpVnNMNmloWGNjUEZVVzJxR0lzOExpMnBZVGhGLVAzeF83MVNOUlFtNWVfU19tLUtpcDhXR3ktZHJ4aU5pZm14Szc4cVRn?oc=5",
+   "published_at": "2026-08-25T07:00:00+00:00",
+   "first_seen": "2026-10-16T08:34:22.265766+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "DOD Invests $750M To Buy Rare-Earth Elements From Brazil - Law360",
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdXlsLUsxNDM5UGNmQlFDSUp5bzFLR2xFTTJiRTZ6TTA3dHhlMmpKTVl1Ykhoa3ZkaS1VcHI0Y1JyeWxnUVY0Rmh5RTNsaWdGZGJqMTlMT2lnZTNtMWFmUk82bHNDVHpCbkVUWWp6YWNPd0pXZlRVQ0RhVWRpcV9SMW1wVEFlUk1pTFh6SWtEbk1mdFEtNVd4ZDJwQdIBVkFVX3lxTE1kZ1dmeDRncVliMk8teUlvUzBLUXVuZTF3a2ZiT1lzdUY3MUZnTzc0bGxvcDNWdVRXUmliUmY5VXpUV1Q4ZklQYjF5X0Q4MjVXN21ld1ZR?oc=5",
    "published_at": "2026-08-25T00:21:00+00:00",
@@ -3529,6 +3545,22 @@
    "setorial": 1,
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Scoping study on Brazilian Rare Earths' Rocha da Rocha project confirms lowest-cost Western supply opportunity - Mining Weekly",
+   "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOdVdiSGc0UkJYcEFHQ1NPS2V5WDZpY0kyamRZOThFWDZ3dlNUQm9xVmc3czVtTHlHWVFMWVE0Vzh4Q0xRZFExcG5Ud3VhdHhCeGhYTjFmbFRWcEthNUY5aGZEZERyZFFKandIQ2J5a0hRV1FrTWNjajY0SkotN3l3bFdCdndNU1lXYkVPWEljX19ZNERvd0ozamI1TnpuYjE5SnJ5cS1hZjlRN1VxZUxZNkVDaUh2RllaUW5CVllXN0pIaHE0Vk5NMDRla1JRNnNpSHBhVktaX1pyMy1IbV9UV0FRS2daUkotQ0hZcVln?oc=5",
+   "published_at": "2026-08-13T07:00:00+00:00",
+   "first_seen": "2026-10-16T08:34:24.256489+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
