@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1181,
+ "materias": 1183,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -1092,6 +1092,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Australiana Lynas Rare Earth fecha acordo para a compra de 100% da Meteoric, dona de projeto brasileiro de terras-raras - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxPbHl5NWVSanVybHZjNEN2WUNzX0tSTF85LVkyM3VJUk1RVnI5VG9kM25EbkxBZHJuQ2VIQ0JZY1MzMG5EWW9vM0tTSGt3V2NqMVJGamhQU0xpaDZCMGxaVU1WM0JtTG9fS0J2d0ZVZWFkRURqWC1UaXg4TWsweU0xSExFQVJXTlpNTG01dlhQamNCbUlmcFA1bUYwSm16cTVHOHFOdmIxSV9qZDNiZkNJV1lHOUljcHp6TlRCSHFUa0ZWTWlheDJTWG5SMFVPTjFOTF9hU0Z1ZjJzZi1JSm1yek1JMEFLZGJDRDFZNHV0NjMtVzVpNU5IQWhRNGMybU9MWE8xeTB4ZWNvN0FuenBzUU0xTldTbDZEZ0V4a0Fn?oc=5",
+   "published_at": "2026-09-30T07:00:00+00:00",
+   "first_seen": "2026-10-17T08:06:38.961137+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -4983,6 +4999,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "LÍTIO | Justiça volta a suspender cinco licenças ambientais da Sigma Lithium - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdTZnaGZLcnBBSVJBSkd2aVpHcXQzZ2w2Nnd1d2MxZzdKeUg4d0tGRDZ6NnJLWmJmRnBMdFFHWHU3cnphZWswejRLQS1DUUh4Z0hFNGFDRS1jMldWcEhQV1RGZy10QTZTTHdBaGRvUngzaXhRSkdFeDBmSlJ2OWRUMzBXZ3NxOUdLNFc0Q2RaMGkyNjJFVk5Zd2gtUnRzQU5waUJEMlpoUWYxQQ?oc=5",
+   "published_at": "2026-09-25T07:00:00+00:00",
+   "first_seen": "2026-10-17T08:06:39.420280+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },
