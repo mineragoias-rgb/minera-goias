@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 127,
+ "materias": 130,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -56,6 +56,20 @@
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mineração fortalece gestão de barragens e pilhas com tecnologia, transparência e novas exigências de segurança - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPb3NDX3hVRXdtNy1URUxmbUpoRzRuazJFNFUtSURieGQzdTNiWkJfMXo2UFlvT1JaZWhxeVJSa0oxcGpyLUNscWdfWm5sMXJOd00tNjhkMGJzNXYzYVk1MmR4ZEZObXhlNmxiZ3p5LWg3cEkzNFNXRWNMRzJkXzlFaDJrTkx1NzZZaXloSWdkNFVacjVJaERnZmlWNEUyQmtsbloxa1RrcFRveW96bTh4NExJZHRFX2F5a01aa29pQ01UbHVsNGE1Ui1lUkNSX1BxeFhOVXd4a3VEUG9Bc0pNVzRRcFd0VVZYeEZEUA?oc=5",
+   "published_at": "2026-05-29T07:00:00+00:00",
+   "first_seen": "2026-10-18T08:23:45.579492+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
@@ -1302,6 +1316,20 @@
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad4820fcc0d4d90bab08d482b5226ac&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-10-18T08:23:43.518479+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-19T19:49:02.787499+00:00",
@@ -1587,6 +1615,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad32c8e589648338ec2b8f71d63c064&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
    "published_at": "2026-05-08T08:17:00+00:00",
    "first_seen": "2026-10-17T08:06:38.494503+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Ação judicial em Goiás quer barrar venda da Serra Verde à USA Rare Earth",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad4820fcc0d4d90bab08d482b5226ac&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
+   "published_at": "2026-05-08T08:17:00+00:00",
+   "first_seen": "2026-10-18T08:23:43.519705+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 118,
+ "materias": 119,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -1832,6 +1832,20 @@
    "setorial": 1,
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Nova página oficial do Programa de Gestão e Desempenho no portal gov.br — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQVp5N2ktaWVfc1Y4SkpnU01wUWdXa3pGLVZLNXYyTjJ2VDRNRDBIQkVhUUtzWUFQYTNYS0NucVR3VlI0SndLRkhCaUVRbXVhcWVNTGdpRU5aYlJYUUt3dF85aWNhUXpFMkQ1RHRSV2JnazFYZjk3eVNHYUJsTlZRTFBtUkhreTFRbGRCZ05GWUw3VldCVXJuYjZJX3JfUlNOck02RExGZDFhZFJobVlJQ2pGaGctTlYxSEE?oc=5",
+   "published_at": "2026-04-02T07:00:00+00:00",
+   "first_seen": "2026-10-18T08:23:45.565736+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

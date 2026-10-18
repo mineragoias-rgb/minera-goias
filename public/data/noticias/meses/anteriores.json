@@ -1,6 +1,6 @@
 {
  "mes": "anteriores",
- "materias": 14,
+ "materias": 15,
  "itens": [
   {
    "title": "Agência Nacional de Mineração reorganiza estrutura com nova coordenação em Minas - Diário do Comércio",
@@ -77,6 +77,20 @@
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQYVNLeDVNR0FYd3VBSTlrNkJwaHdob1dLWkFMWFFrWUxORVdSSjZicDB3T1RTVDVHNXA1bmNWMnJ0c1BLNmkyTjI1UXZpM2lKU2VreFppVV9DZXJSZ0UtaXBoTmVDdDBxQ2Q1N0ptWG1qU0Q4NWFqLVpTYXRtOEZzRm91UmZVSThpSGs5NHBDeVN4TFFNQmlDQ01Mckl6MjdsQmc?oc=5",
    "published_at": "2025-10-21T07:00:00+00:00",
    "first_seen": "2026-09-19T19:49:06.272257+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQaGI2bmo3X1ZTdTB3UU5YV2IyREVsMG15ZE1ZUVdOc1NHZ0VqdUJiOE1vY2t1NlVlNHMxOE5yYmg0eDVYZTZXQlR5aVlxN0tVYjExMVpvUHdndjVxY0sxRGwwaVYtOVpad0JtYTJhWWVrNUtXS0VuWHc1TklHa0JJWm5JdFJKYkJ6blBUSGdYS2V3SndPaktzY2NFR0NhZnlBbm1kVHVNYms2OEZ4Z1V6QXVCOUlOY0tONGhieEs0ZmV6bGYyMURoZXoxOG1RNE9WQk1ReQ?oc=5",
+   "published_at": "2025-10-17T13:31:04+00:00",
+   "first_seen": "2026-10-18T08:23:45.555720+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

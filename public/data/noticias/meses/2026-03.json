@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 50,
+ "materias": 51,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -608,6 +608,20 @@
    "setorial": 1,
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Relatório destaca melhora no cenário de segurança das barragens de mineração em 2025 - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNVWVnN21SdDNCeHM4ckk3UHhmQUg3TG1wSnNWaVZfaWgyeWlIR2VwdFJGdDhKNS1adEZUMGZIcU10MVRIak40U083SW5hbkVlX29zaXdJR2tVUUl4NGZRUC1BY3Z1c0pLaUtFVy1FU1A1RGVzYVhoblVleDdpSVFVVDZvaThvN3puM0p5Nno5d2trTVhfSTNWQ2k2cmltT3cxalFfQTVmRFA3bTRuTk1lamo5anoyZUpvdzA2QlVLZmtadlNNb0JGWmxGQQ?oc=5",
+   "published_at": "2026-03-10T07:00:00+00:00",
+   "first_seen": "2026-10-18T08:23:45.570740+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

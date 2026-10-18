@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 31,
+ "materias": 33,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -369,6 +369,34 @@
    "setorial": 1,
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mapa Digital das Localidades Fossilíferas do Brasil — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOM0o0cU5Ta1ViUlh3ZWQ1ZUptZHFlbHcyUy1hU3pHa0Y5UFpBR3BQZzJEVGVmV21XWTZOQUFHT3ZVVHVRd29qT09iQlNMZnZMTlBpWTg2eFBxVWZvakVKeDA2T3pmaE1tNDFDMU5lTnBBNThlLWRERTVOaVFLTl9iWHhmQUU1NWVwcjQ3WHVKNWxDT0dWSS1fUk50Q1VmZWtfVEQ5YVdjUWZOQk94cDQydTNsYmNaTUozX2tZSkRWYW9FOTY4MTlyVw?oc=5",
+   "published_at": "2026-02-04T21:18:17+00:00",
+   "first_seen": "2026-10-18T08:23:45.580851+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mineração em Números — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5EVnNkd1phN3hHRS1xdWd0dXBVREJKRFRmbzRrRGVpWkNEeWpZM2JSNnBHNUNtS3puV2Nya1E2UXY2dzJ2YkwzN2FwZ2dnVnpXcURGdUVtTmtzX0JPU3dEa2Nic3U5OHpKT2RUQ2J2aWNBTlQtbnhERDlzQQ?oc=5",
+   "published_at": "2026-02-04T20:13:28+00:00",
+   "first_seen": "2026-10-18T08:23:45.571970+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
