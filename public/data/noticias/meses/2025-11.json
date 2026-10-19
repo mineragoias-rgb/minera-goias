@@ -1,6 +1,6 @@
 {
  "mes": "2025-11",
- "materias": 24,
+ "materias": 25,
  "itens": [
   {
    "title": "Repasses da mineração ultrapassam R$ 1 bilhão em novembro — Agência Nacional de Mineração - www.gov.br",
@@ -58,6 +58,20 @@
    "setorial": 1,
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Prazo para entrega da DIEF-CFEM referente a setembro/2025 encerra em 26 de novembro - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxONG03Yi1LbFQzNkFqaW1Kd0Q5OENxMGlKYndVSWZmeW5pY1NDQUZZSV9HRXpydmRxVThocm1DLUp2aWE4bkh5Y1hFOHdvRUxid2ZIeGg0djYxaEEwUk1YU0g1TFZlekxKYVpHX2JheGw0SEZKcGZ1azU5ZFh1X0oyUlpwYVc5WE5MdUp3Z0Z6MmdaM1k2OGtkQmR2bG5WZEtqZTViS09VS2poYUVyblQ0MXdqN1hYMGlrRU4yZUlZSllhekZIUlloNW9R?oc=5",
+   "published_at": "2025-11-17T08:00:00+00:00",
+   "first_seen": "2026-10-19T09:23:24.263521+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

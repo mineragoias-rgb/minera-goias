@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 119,
+ "materias": 120,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -881,6 +881,22 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra única mineradora brasileira de terras raras em Goiás - O Fluminense",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVnhxT2xJOXYwbXpLamZmU2dMdlFuWkJaSklJLVpWYkRwRFlZVlBya0trelJFSjlaUGVFTVJPcnVSSkZmZEFzSXYtbElwZGNqQjUyR2VYb2k5V2oyd1ZWYXEtdi1HN2RZWXo2UjljTnhYTFNYalpZMFN2NUFQbDRpNUhxXy0wZkFBR0tfR05nT1ZBR2FfLU9Cb25xN01MVnI4SlVnX0Vn?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-19T09:23:19.288364+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

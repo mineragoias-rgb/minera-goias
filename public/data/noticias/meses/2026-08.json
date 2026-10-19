@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 295,
+ "materias": 296,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -3803,6 +3803,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Minerais críticos podem elevar PIB de Goiás em até 10% até 2050, aponta estudo - Poder Goiás",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMGFkaTdRSTEwSTNXMFJZUFpsd2d2d0NmWkJXMVVKVFVjangwZUJDcDh3cG9ZbnoxSnVhVnZfZlBXalBVZWNTZkdlalZEUTN3QjRvRmxic1FpeEp4bEZoT2tzSGlBWHB1XzNjcHppclFzZnhEYTRQYXBLTU9vYzlHMHBsb2dlXzJxS2ZvalJOMWM2d0dvNVhQR0tVa25XSG1ZZ21CN2ZZN25meXozNWhMdElIUElYbjdSWDFPNw?oc=5",
+   "published_at": "2026-08-08T07:00:00+00:00",
+   "first_seen": "2026-10-19T09:23:19.287613+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
