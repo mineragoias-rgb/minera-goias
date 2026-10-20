@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 51,
+ "materias": 52,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -26,6 +26,20 @@
    "setorial": 1,
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Ferramenta brasileira de inteligência de dados revela falhas bilionárias nos royalties da mineração e recebe prêmio - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOM1c1UDR3ZlNDS0tfZUVTdVlxckFUNlU1eWduTkR6eUx6WUkyemRNa2pkRjVDeVRRMXQxZHBHaFVReWRLbmQtWDV4OTRydXpoVzI1TXJ1dGY1RmRBOXdURGYwOTFpN3lvc1hCYkE4ZDhITF80WjNLaHE1X2JueHNyb1NYeHlfNUEwZVp6ZTV1dDhCQ2ExdFozTlBzQVY5NkpuaHRkU2ZvQzZPZFc4akpuMGltNTR2M0hRU2RHejYxY21pNzFRTUxoQ045c3FHLXI2a2NkUGZGamRIbGN2aHNVd3ppX2Ridmw5WjBTNnBQU01KWXNn?oc=5",
+   "published_at": "2026-03-31T07:00:00+00:00",
+   "first_seen": "2026-10-20T08:57:55.798906+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

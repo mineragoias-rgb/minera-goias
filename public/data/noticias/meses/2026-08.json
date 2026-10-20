@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 296,
+ "materias": 298,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -3686,6 +3686,20 @@
    "brasil": 1
   },
   {
+   "title": "Nova regra da ANM eleva rigor sobre guia de utilização - Capital Aberto",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNM29kV3lHbG5OREFPVkNFUG41RUU0VXJTZXQwcFlITy1DcjZzMHNtUHdja3BoT3otYVpvRVRvWHFrZ2ZMZmVNOW1GRGxwV1F6ZWk2YjlySHdVZ2FiNGFtcXdTUkh4eGxleGNEaF82ejNNM3pLUWxkV09Dd0hNbENGODZvOWtfb0w3cnlubXA1azljSThXelRzX05DOHhGeGVqeDNmUnJ4cTMxbjFQNV90UGJGRzhFYVRrdXhOaUQxVlBRV00?oc=5",
+   "published_at": "2026-08-12T07:00:00+00:00",
+   "first_seen": "2026-10-20T08:57:56.128498+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Brazil Rare Earth Magnets Market Size, Share,Trends, Growth Analysis Report, 2030 - MarketsandMarkets",
    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMlhGM3BOY0w0aWdDRkVxOUVKNlJOZUc2c2RmSk00YW5wcmhlaTJpN25RUzJ5MnNkV3U5M05hSk45anpZT2V4SlhQeWFhQnRIMzdDLWNCbkRBUlRNUnc1aXBmbVlVSGRMeUVrYmpHUW0weE01aExkT3pTMUZ6RUhwU1F1WnFWamU1M1JhaTU4Y3F5eEhieWc?oc=5",
    "published_at": "2026-08-12T06:00:50+00:00",
@@ -4340,6 +4354,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad4820fcc0d4d90bab08d482b5226ac&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-10-18T08:23:43.525382+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad72d12af194d058489400fa5016e35&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-20T08:57:54.224586+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
