@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1184,
+ "materias": 1188,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -2229,6 +2229,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Lista provisória de Municípios afetados pela atividade de mineração está disponível para consulta - Confederação Nacional de Municípios",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZHl6ZkluX3VhLWwxMm1nYjFFc2ZZbExjOElDeHlPX25XY25nWnZWYTJoUjBkTGNfendxc3lsRWViMzhUczFRS1dUUVNoZk5qQlRZa09rSmpWRWMtVFlXejNzUWtOcHBKY182SGZxWndTWnpoeDR3cnBxQ3BHbERDNUZDc3RTTE9tWHpwbl9ubGIwYUEtcVQxenJQenBBZjBsRjBfaWpVRlFMdnU5dnFUS2hzdG9hTkZCOHVxSzhVNVk4UElzZXdBanlLVGJJN0c3aFA0?oc=5",
+   "published_at": "2026-09-29T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:12.057533+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -12990,6 +13004,20 @@
    "brasil": 1
   },
   {
+   "title": "Mineração no Pará movimenta US$ 8,7 bilhões em exportações no primeiro semestre de 2026 - O Liberal",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPbnltLTdOMS1fdkFnWXhPYzZhY1YzQVdMMzBWOERLc2Q5VVVoOE5fX01EV3V2WEZvNXQ3cHEwR09wd1h1Y21xUWhRWERKTzRDbGtybVhpeHNpdWJhYW40U0hNRmpSMUQ1c0hMampuWkxMSnY0MGJYc1hYaGVBS29Hb1ExUmRvSTV0VTNWSGFsNGJpUXZKcGNxdTlMWkh3azRkY2MwelR4ZGRSakVpanR1bUZ1cnM4SWR5cFNNSmdBY3R2aTFnZ0Ezc19n?oc=5",
+   "published_at": "2026-09-17T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:12.058926+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Resources Top 5: Latrobe scores US$15m magnesium backing as Arrow eyes iron ore next to Rio",
    "link": "https://stockhead.com.au/resources/resources-top-5-latrobe-scores-us15m-magnesium-backing-as-arrow-eyes-iron-ore-next-to-rio/",
    "published_at": "2026-09-17T06:52:41+00:00",
@@ -16774,6 +16802,22 @@
    "brasil": 1
   },
   {
+   "title": "Justiça Federal suspende licenças da mina da Sigma Lithium em Minas Gerais - InfoMoney",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPR1p0MnA2cTBjdHUzd3N1SEowb2lTenE0ZU5DZmFMZi1QeUR0aGJJTnoyZGFNWXRsSXY0QTZFU2dwbkRJRmJiM0pvQUJuMktQMVg2UHdLYXF5UFJMc185ZXI4eUF3dVFoRHFjXzVqQ3FSMV9fckx6V2tGLUU2YjJlVG1oU2ZqRGNLSDIzUnd0RURmb04zLVcxVHFkYW53d0h0VXJXcEpsRWJlZEVNZEdUMtIBtgFBVV95cUxQV3lDUnlJV0dJY0tINFFnbWRWeEc4WXNndnFQLVJVZHFoN2ktaHlSeWNEbW95R3QtZTNqUm1HNVR1aUJPZWZaQ2pZRW40S01TVy13UktGWldGV1FPWW9sNE5JSlpheDRYNUZveUN3M2w1Mm9qWlE3aUdJQ3VsVWJBNDl1QThsZDZBSGZ2ajFaSVFHRUZ1bW5OVW9YNEFwTEVkZzB5NEs2SjN4dWhMUHBkTmV5SUVyQQ?oc=5",
+   "published_at": "2026-09-06T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.542756+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Porto da Flórida pode abrir nova rota para minerais críticos de Goiás e do Brasil aos EUA - Jornal Opção",
    "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPNXFrLXhBUnlJcTNKTHYzbXJHdWw2Y241Nk8zVEl5Q3Vub0FkdzVaT2tMSEdGMDF2OUNOT1VlbW5oYVRKME1BbGhmanRpaV93X0t3eFo5djh1VTU1bURBaTRLb1ViTkwxRXNxUUhkV0x6dW8zTkRkR09RS2gwR1l3TlhheTZmSjhiaWxNV01jZktlVFlnTFhtSHNLNkZvaDctTlNjNnd0aEx2RXRoa25tczVnOGRnSzRVMy1TakRiMF9vYkcyWlpGd25ESU1rZ2Z4NEJvQ2V3ZERXMmljLUE?oc=5",
    "published_at": "2026-09-05T17:54:00+00:00",
@@ -17897,6 +17941,22 @@
    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPWnUtSHNZNGlnX2dvV2IwUzhOQlRreDY4Y0JBZkxaamo0Y25VY1I5T045dUFpdHVYQWFlT2Z3QnFxVWpQQVh4cDdoZXVpckM5ZHhpVGdDcGNWRW1qZFN4dlB0R1lmMXlndmlJYlBDVWUxdDlZX2NVYVUzU1VoYzU2UEZPNGdyT0QxUmQydWJYeG9haGJqUE5kaDREUVkyQ0c4WkVDU29ZR1FSUXhmQk9WX1B0X0FDdU9NRVJVLVFTR0I4SGRJNVlwekpUMkhhWnBlazFkXzNlbUdmV0Y10gHiAUFVX3lxTFBqNHhtT0dsR0M5ZXZHVDY4dHVYemhZeENVQzA5enZXOXlIZ0pzTFNUTlA4VnlQdlc4Q0oyR3JoZU5BR2w2YWV3TVBWc05LYlk0UXc1X19WMVc5YkRKUVUwMVpzRXQtMGhlLThCd3RQNWtlQmNrcmFGbGZBQTlERTBkdThGNXdmbTdqSW51c2RadUdhRThwWlBWQ09scWNoUkU2ekd1WmhOZF9oR1pfNTJzRnpxVEFVQksxd3UtQVVjNmg4QjJlRmk5c2N0MEtOVmZubVdZMFduV1FVMTRjWl8wVEE?oc=5",
    "published_at": "2026-09-03T07:00:00+00:00",
    "first_seen": "2026-10-16T08:34:24.253773+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s Senate Passes Rare Earth Minerals Regulation, Paving the Way for Boosted Exploration - U.S. News & World Report",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQdF91anpNbnYzY01VVzV0TmFyR2MtZGpfWFR1cDI5WDh1RUw2T3dWRUNtY0dsYlZqZllJLU9qRG5xYWN0aXdDdXM0em45dXMyWWdNcHVOcHk4VzFyMzNJd3V4eVN6al9iOGFWenRJQlB5QjBkcGcyS1BxQ0J5M2ltZ2tETElNQXhERmlURFZ1UGVsWU05elpoVW00ck1VSTZ5cXdWZ1BTS3JFaWJsNmtoTGlOSUI2T3p6WEItc3Q5NWRKZ2hYRFhHVUtNN2VqWXRSMndSd1pta3ZLZ2ZiSE9lNnRR?oc=5",
+   "published_at": "2026-09-03T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:13.589198+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

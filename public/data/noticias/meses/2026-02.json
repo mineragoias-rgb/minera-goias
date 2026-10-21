@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 33,
+ "materias": 35,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -110,6 +110,22 @@
    "brasil": 1
   },
   {
+   "title": "Brasil e Índia assinam acordo sobre terras raras e minerais críticos - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSk05WXlzc0hXTlZyZXJObGVnQWFleWNNbExLQVBiT2RaSjlJeW9pbngwR0xtVkRwZENDWk9qQ0twdDBwc2thTHBjbGdJSzg4eGc3OU1TMV9Cei1ycjZGUk1qdmw1TjlWZFRIZ0daVm96cFRDM0VQSGVHbEVkaEhiNUdNZUJPM3dvaTczaTFCX3FVbFpBUVNYMHhITUhEejZnNUVudUExQTVaOEhSUm5MdXBhcjBkcXYzSmQ1SkVSVzJpcl9QbFFJWTBnWQ?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.031216+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Alerta: mensagens que simulam cobranças a regulados são tentativa de golpe — Agência Nacional de Mineração - www.gov.br",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPdXRTRFBUOUpHNkhZSzh0eE1IN0VLWUdTV3JXV0VOX3ZrRC1adWdnOWJfeEhTb2dRc3BJc1VoTDM4MzdHNTRjYXdSTXZfbUNjWWpVVkNnU09DaHRUdEJVbTBhbDNVZW1Tbkkyd01yd2xQUXlieE83OGU2aFFPal9Kc2V5NDFDZk5wS2hWd2ZxLXFmV3J5OTc2TzZvUEJQbHZjRmhtOEJRNFFIVVE4U1NKRG1TWWw1a0RTbUVhTw?oc=5",
    "published_at": "2026-02-20T08:00:00+00:00",
@@ -179,6 +195,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "O que são as terras-raras? - Revista Pesquisa FAPESP",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5yVER5YUprODIwNVk3alhDMFlTUVNzZGJaT0hxcnE5WE03OTNMeENmaThPcTVSNzlXeFhHZjVNeGFoNWxPdHp5WEZ5NkhwT1ZIWE16TkVoY1dGQzhCMV8tNGNKVkhLMHNpalBETA?oc=5",
+   "published_at": "2026-02-15T08:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.027777+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

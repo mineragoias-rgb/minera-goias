@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 52,
+ "materias": 53,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -696,6 +696,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: entenda por que esses minerais são tão importantes - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQUGl1ajczak5NOEJTb2NWZFR3YUVfMWk0TldIUGJWM2duQUFfR3g3WjRvOEkzUDVwb3p6MkY4MXF0SC1YSjlnQUJQbkM5d18xcVotNEl6TDRsdVFWd0NoNWIzTFQ3R3lRc0pWam5POFQzekltQ3k2Zms4eTNwa3dzcTBSM2x0WDdaTm14S0JDZUdTVDRBaXRrWkVBaUxpWTAxVlZBYU9jcEo5VmJncm1rdk50SVZIYTk5ZE52M09xWFpybVctNlBhanVseG9pZ0lra1NuR3M3VGQ?oc=5",
+   "published_at": "2026-03-09T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.030531+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

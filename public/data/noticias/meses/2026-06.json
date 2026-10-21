@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 76,
+ "materias": 77,
  "itens": [
   {
    "title": "Recolhimento de royalties da mineração passará a ser digital a partir de 7/7 - www.gov.br",
@@ -1142,6 +1142,22 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras-raras: comissão discute marco legal para minerais estratégicos - Senado",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNeUluVks5ZGp2RE02ZW9IVE13Rm9wT093V2hMNTlHS3F0dElPWGxKZVhLMlFKTlBFcmpTdkZBbUlSdXRwUl9MLVRWWjA2MlYzQjRncEtQamgtOUdoaDNZazJOdThxM3E0VV82bm5QdHE4WWFXbExrMXRRX2RlM3ZFUHl6YTVOS3Z2ZG5wdGkzbXdEMTFoWjVNdGxXWE1DUTgtdGR4WU1KRUR3QzVOVXNyR0g0bEo4TlF3V0RzbQ?oc=5",
+   "published_at": "2026-06-01T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.021290+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

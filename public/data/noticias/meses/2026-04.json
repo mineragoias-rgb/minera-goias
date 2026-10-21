@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 120,
+ "materias": 124,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -123,6 +123,22 @@
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Grupo australiano conclui compra de projeto de terras raras no Sul de Minas por R$ 80 milhões - G1",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOaUZTVlhwR2cwVk5YLU5vTGlVdGt5UUY1TkVfdFdyQ1hXN1JVWDBHZnlkN1Z0V1JyeEJrMXlPbEphcTliM2c0bUN5QWFkYWVWWkRNZVNNeGFZUS1wVjBDVUExLXdjZm1WTkphY0xfUHVYYk9xU1JtczB5a1BSZUFCVkQ0RTc2OEMwUlJuS19BTmZjMzUzd0hiNDNxM3JoZTZ5TmtxV3JPdS1tV253OWt1VV9Wc0d6YlQ3SWxlbFZBdHY1dmlJVHVVa1FRMm00MkpCUUlGR1hkZlNEZ0nSAeoBQVVfeXFMUDhfTGtNc2c3LWlLNmh5RzEzOUFTQUpBQUNWSjVBcXVYdGZZUWVYdVNvcUVJaGdEUGJqdDRUNlR0dGVtZm5MVHkzdjVTa01oOVhQamtvTGxMV19qc1hVVjFlNkF5TzFNeThjblY3WWtRZ0g0cE45Q1lqZGZCcEtZQWJ1X3VfYWlKX19MRGFGWXdEWjNnMVFWa0hEWTMtZGpVdjVxak9VYVY0dnJNc0pnQ18ybFRKZmhkTjM3ODBVZDBpbnhQRWY2Tld2c3VORDBuZ2U3LUhwS0IxVkNpWGFsaW1MOXdFYk9wb0V3?oc=5",
+   "published_at": "2026-04-28T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.026974+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -1042,6 +1058,22 @@
    "brasil": 1
   },
   {
+   "title": "A quem interessa minerar terras raras no Rio Grande do Sul? - ((o))eco | Jornalismo Ambiental",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNQnlfeWY1b0JEUUxkRUlaUklxMldVOWZpanBhMEVfaVhRTE5MUm5tVEhoam1JLXgzTzUtalpzVWJrSlRFVlNFaldyWVZVako1Z3BmNS1yQzJPbFJubUV3ZmhZdHdjMGNjWGVxOTltX2ctcEpjLWN2dU0tckNZZ2FkMEp3VVNiUlV4NDJ4a0hoUDJ4QQ?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.029129+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Exclusivo: Serra Verde, primeira mineradora de terras raras no Brasil, foi multada por desmatar vegetação nativa em nascentes do Cerrado - Observatório da Mineração",
    "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxONDhkX3ZUSnJ3RlMxZFpwZWdLVDhOcFZoYXlYTDR1emJTNnZFZFpUVmQ3RDAySUVrZWdhVGRNTzE1aHpxMFcxMGlJNTdaNUhBWmFKc2RwUmNVdEJ1dzRzS3VScDA3THpLSWZHcWMtTkZxRHZUaUFLS2k1S3oxdHBrNDRtMEZjMVprSW9EWkpIeF9DdnNsYjIwUXFDZnRnS1NHM1Y2UVRGc1M3eE5acmZ4RlltRXhXa3lfMUw3QmFab1lydkw5VHdnOFlYc3RWUWtLcFA1by0ydEs5cF8wdkZjTllmbS1lazVhZkRVM0syNkhLOHdxTUVTMDNGUkhKZkR1M2dB?oc=5",
    "published_at": "2026-04-23T06:05:30+00:00",
@@ -1462,6 +1494,22 @@
    "brasil": 1
   },
   {
+   "title": "Empresa dos EUA anuncia compra de mineradora brasileira de terras raras - G1",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd0pMTkh2WlVwYUI2bjBDdTNyOUZZdWFYYjQzNVBxZ2VIR3JfZG5ZOTRndjFYREdqM3g0VTdiZ0NNdEdfR3JWRkg0RFZ2STMyc3VEdG1veklsekRhakRLbE5idEMxc2lWNFFCb0ZRMFU0dmNyams3c01JZTQzNFFQX3ZuWUptMXVfUkJtVmNIR0kwMFhNZTFUVzgtbmkyZmZ5Z3FYV19DRkFzOFZSR2VESEdsSk1RN0llQm15TmJBUi1FT1Rz0gHTAUFVX3lxTFBDS2pQcTBSQ0JhSWRWSkZ4NXBobThpSUZEYkN4TW5wODl3YzZfYUlHeUMtZ19RbzBHaTJRaXA1bVBwaWZPZXFRTFE2a3ZnQjR1VHBXZklpVEhLZHZvZjgxREhrU2N2V2YwNThJNXFqRlNwYUVZRzExY0I3U0dJZy15UlBGcS1tWjZyZjJHSjF3WmpONkdfTkZ1dzBTVmRiVjluT1hvMUYxTnJOQjhOT0JvN01kbFpiTDdaVDJpRU9ra3JheGFrN2hUNVR4Tm5QNEhxaWc?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.029865+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "MPF apura esquema de mineração ilegal com indícios de dano ambiental grave em Goiás - Jornal Opção",
    "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNdXNSRVNiLW5nUDQ0blRuNGN6c2RqMk9KMm9kTWxSek5sSVk3MGJPSjdkQUdBd1ZESlpjeEl0V3B4LUh4V29ZbzZrRGo2VUFLMG4yYUstSEgyTTYwQzhaWmRFMUY2dnM2MGx0OFlBbkVNUzh4b2JmZ3hPRi1uVEJ3ZWltQWlXTmxKVE9CMHlfZnEwQ1RwcjA4dVpKREo1WUlaek1kZUxQeFI5cWFadXROY1VOenhxSkRvYllTd0ZiTXRpcVAxd05tVkRtRW05UQ?oc=5",
    "published_at": "2026-04-18T07:00:00+00:00",
@@ -1767,6 +1815,22 @@
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que são e por que defendê-las dos interesses estrangeiros? - Partido dos Trabalhadores",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUzZidjB0alYzbkg4anZoMG9JaUlYaUNpaFN4ZU8tNUhBaEJGYWpLR3lISjZqMWxXdk03V0g1SXkybXotRmoxTkZhb1RVLUU2Q0xIZVZXUERfbmdDRGNQOXY2WmxxcnFrUS1haDBTUGd1THprZ1RLR1d2WlhhLWFCZ1M3cDg4TzRoMHpYcXREQk5GR2pEbEHSAZ4BQVVfeXFMT3VBTjBYampLam5IR2RvdFFsQ1hoNFpSNEUzMW9fYVdHV1NseVd6Z2xoT0hNZTNtZ0dxVXFMbEFsSEhBZl9aWW5ZYWhvamFCTFBkSDg1elJyT3l2aWdONGZkNDlkMmFTLWpKTXVpc2k2R09ZS3pEQWltaUE4b2VCSkpQbzNzYkQtc2JyWFRMWXBveTIxcUZqZXlIMnoweXc?oc=5",
+   "published_at": "2026-04-03T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.028374+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
