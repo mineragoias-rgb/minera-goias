@@ -1,22 +1,23 @@
 // Testes do motor de cálculo do simulador (public/simulador-engine.js).
 // Os valores de referência foram extraídos de
-// Squad 2/modello_reale/outputs/future/future_projection_by_mineral.csv.
+// Squad 2/modello_reale/outputs/future/future_projection_by_mineral.csv, com as intensidades do coeficiente estadual
+// do Squad 2 (Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv), que o modelo usa desde 23/09/2026.
 // Execução: node tests/simulador.test.js
 
 // Energia total em MWh, por cenário, nos extremos do horizonte.
 var MODELO_SQUAD2 = {
-  conservador: { 2027: 10561939.834208, 2040: 15655399.254880 },
-  referencia: { 2027: 10868128.123801, 2040: 19299991.867175 },
-  expansao: { 2027: 11174444.700407, 2040: 23660502.625987 }
+  conservador: { 2027: 4955895.571979, 2040: 9438041.460239 },
+  referencia: { 2027: 5096572.178565, 2040: 11568669.759542 },
+  expansao: { 2027: 5237259.737403, 2040: 14104142.171063 }
 };
 
 // Referência em 2040, por mineral.
 var POR_MINERAL_2040 = {
-  MIN_022: { producao: 256772.509133, intensidade: 39.7746237, energia: 10213029.924561 },
   MIN_005: { producao: 6931318.960980, intensidade: 1.2224549, energia: 8473224.969393 },
-  MIN_049: { producao: 2385690.562801, intensidade: 0.1309773, energia: 312471.339352 },
-  MIN_011: { producao: 27770.415338, intensidade: 9.7796394, energia: 271584.646991 },
-  MIN_033: { producao: 106224.217691, intensidade: 0.2794183, energia: 29680.986878 }
+  MIN_022: { producao: 256772.509133, intensidade: 10.1935643, energia: 2617427.094239 },
+  MIN_049: { producao: 2385690.562801, intensidade: 0.1058698, energia: 252572.666740 },
+  MIN_011: { producao: 27770.415338, intensidade: 7.0796276, energia: 196604.199726 },
+  MIN_033: { producao: 106224.217691, intensidade: 0.2715090, energia: 28840.829443 }
 };
 
 function executarTestes(engine, parametros) {
@@ -51,13 +52,13 @@ function executarTestes(engine, parametros) {
   var referencia = engine.simular(parametros, { scenario: 'referencia' });
   ok('horizonte cobre 2027 a 2040',
     referencia.anos.length === 14 && referencia.anos[0] === 2027 && referencia.anos[13] === 2040);
-  perto('referência começa em 10,868 TWh', referencia.serie[0].energia_twh, 10.868128, 1e-6);
-  perto('referência termina em 19,300 TWh', referencia.serie[13].energia_twh, 19.299992, 1e-6);
+  perto('referência começa em 5,097 TWh', referencia.serie[0].energia_twh, 5.096572, 1e-6);
+  perto('referência termina em 11,569 TWh', referencia.serie[13].energia_twh, 11.568670, 1e-6);
 
   var minerais2040 = engine.energiaPorMineral(referencia, 2040);
   ok('cobre os cinco minerais do modelo', minerais2040.length === 5, 'obtido ' + minerais2040.length);
-  ok('o níquel é o maior consumidor em 2040', minerais2040[0].mineral_id === 'MIN_022');
-  ok('a bauxita vem logo depois', minerais2040[1].mineral_id === 'MIN_005');
+  ok('a bauxita é a maior consumidora em 2040', minerais2040[0].mineral_id === 'MIN_005');
+  ok('o níquel vem logo depois', minerais2040[1].mineral_id === 'MIN_022');
   minerais2040.forEach(function (m) {
     var esperado = POR_MINERAL_2040[m.mineral_id];
     perto('produção do Squad 2 · ' + m.mineral_id, m.producao_t, esperado.producao, 1e-5);
@@ -74,8 +75,8 @@ function executarTestes(engine, parametros) {
     return m.mineral_id === 'MIN_022';
   })[0];
   perto('níquel · expansão · 2033 · produção', niquel2033.producao_t, 237846.903280691, 1e-6);
-  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 40.692707030, 1e-7);
-  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 9678634.353236686, 1e-5);
+  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 10.428853602, 1e-7);
+  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 2480470.534064465, 1e-5);
 
   // Controle 1: cenário. O ajuste de crescimento é em pontos percentuais.
   var conservador = engine.simular(parametros, { scenario: 'conservador' });
@@ -94,7 +95,7 @@ function executarTestes(engine, parametros) {
       - engine.energiaPorMineral(referencia, 2040)[0].producao_t) < 1e-6);
   perto('sem ganho a intensidade fica na base',
     engine.energiaPorMineral(semGanho, 2040).filter(function (m) { return m.mineral_id === 'MIN_049'; })[0].intensidade_mwh_t,
-    0.15, 1e-12);
+    0.121246, 1e-12);
 
   // Controle 3: sensibilidade da intensidade, um mineral por vez.
   var ajustado = engine.simular(parametros, {

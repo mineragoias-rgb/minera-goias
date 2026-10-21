@@ -73,12 +73,16 @@ conteúdo mineral e os demais usam produção beneficiada.
 | Camada | Origem | Natureza |
 |---|---|---|
 | Produção histórica | Squad 1, séries consolidadas 2010–2025 (bauxita desde 2014) | observado |
-| Intensidade energética | Benchmarks da apresentação FGV Energia-EPGE, em `Squad 2/modello_reale/parameters/energy_intensity.csv` | estimado |
+| Intensidade energética | Coeficiente estadual do Squad 2 (`Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv`): energia CCEE 2025 ÷ produção 2025; a bauxita, sem carga na CCEE, segue com o benchmark FGV Energia-EPGE | estimado |
 | Crescimento e eficiência dos cenários | Hipóteses do Squad 2, em `scenarios.csv` | ilustrativo |
 | Faixa de sensibilidade | Contrato `intensity_sensitivity_contract.json` do Squad 2 | — |
 
-As intensidades são **benchmarks ou proxies operacionais**, não medição do consumo observado
-de cada operação. Os resultados são cenários condicionais, não previsão oficial.
+As intensidades são as que o modelo do Squad 2 carrega (`load_parameters()` em
+`Squad 2/modello_reale/src/common.py`), lidas pela mesma função — o simulador não aponta para
+um arquivo próprio. Desde 23/09/2026 são coeficientes calculados com a carga observada na CCEE
+em 2025 dividida pela produção do mesmo ano; a bauxita, sem carga identificada, segue com
+benchmark. São coeficientes por mineral, não medição de cada planta. Os resultados são cenários
+condicionais, não previsão oficial.
 
 ### Cobertura e limites
 
@@ -88,8 +92,9 @@ disponíveis com o coeficiente energético.
 
 O erro do backtest do Squad 2 aparece no painel de fontes, por mineral. A **bauxita** tem
 44,3%: a produção caiu em 2024 depois de anos de crescimento, e uma projeção de tendência não
-antecipa interrupções operacionais nem decisões de mercado. Como a bauxita é o segundo maior
-consumidor projetado, esse número merece atenção ao interpretar o total.
+antecipa interrupções operacionais nem decisões de mercado. Com as intensidades da CCEE, a bauxita
+passou a ser o **maior** consumidor projetado (o níquel caiu de 45,55 para 11,67 MWh/t), então
+esse número pesa ainda mais ao interpretar o total.
 
 O modelo ainda **não inclui carteira física de projetos**. As bases atuais não trazem
 capacidade, ano de entrada e grau de certeza de forma estruturada e validada.

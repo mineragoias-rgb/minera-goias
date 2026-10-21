@@ -56,6 +56,8 @@ ETAPAS = [
 ]
 # Campos que só registram quando o arquivo foi gerado; mudança só neles não é mudança de dado.
 DATAS_DE_GERACAO = {"built_on", "integrated_on", "data_versao"}
+# O Simulador grava a data do dia como data de acesso de cada fonte do repositório: também é data de geração.
+DATAS_POR_ARQUIVO = {"public/data/simulador/parametros_v1.json": {"data_acesso"}}
 
 
 def git(*args, check=True):
@@ -71,11 +73,12 @@ def alterados(saidas):
     return [e[3:] for e in out.split("\0") if e]
 
 
-def sem_datas(dado):
+def sem_datas(dado, extras=frozenset()):
+    ignorar = DATAS_DE_GERACAO | set(extras)
     if isinstance(dado, dict):
-        return {k: sem_datas(v) for k, v in dado.items() if k not in DATAS_DE_GERACAO}
+        return {k: sem_datas(v, extras) for k, v in dado.items() if k not in ignorar}
     if isinstance(dado, list):
-        return [sem_datas(v) for v in dado]
+        return [sem_datas(v, extras) for v in dado]
     return dado
 
 
@@ -90,7 +93,8 @@ def mudou_de_verdade(caminho):
         return False
     if caminho.endswith(".json"):
         try:
-            return sem_datas(json.loads(novo.decode("utf-8-sig"))) != sem_datas(json.loads(velho.decode("utf-8-sig")))
+            extras = DATAS_POR_ARQUIVO.get(caminho, set())
+            return sem_datas(json.loads(novo.decode("utf-8-sig")), extras) != sem_datas(json.loads(velho.decode("utf-8-sig")), extras)
         except ValueError:
             return True
     return True

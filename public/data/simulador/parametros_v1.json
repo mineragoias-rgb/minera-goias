@@ -1,6 +1,6 @@
 {
   "versao": "1.0.0",
-  "data_versao": "2026-09-17",
+  "data_versao": "2026-10-21",
   "responsavel": "Squad 3 — Henrique Falci (simulador e rastreabilidade)",
   "modelo": "produção projetada × intensidade energética",
   "origem_modelo": {
@@ -32,13 +32,13 @@
     "contrato_versao": "1.0.0",
     "nota": "Faixa e fórmula definidas pelo contrato de sensibilidade do Squad 2, intensity_sensitivity_contract.json."
   },
-  "aviso": "As intensidades energéticas são benchmarks, não medições do consumo observado de cada operação. As hipóteses de crescimento e eficiência dos cenários são ilustrativas. Os resultados são cenários condicionais, não previsão oficial.",
+  "aviso": "As intensidades energéticas vêm da base do Squad 2: energia das cargas na CCEE em 2025 dividida pela produção do mesmo ano, nas operações que a CCEE cobre; a bauxita, sem carga identificada, segue com benchmark. São coeficientes por mineral, não medição de cada planta. As hipóteses de crescimento e eficiência dos cenários são ilustrativas. Os resultados são cenários condicionais, não previsão oficial.",
   "conferencia_modelo": {
-    "referencia_2027_twh": 10.868128,
-    "referencia_2040_twh": 19.299992,
-    "conservador_2040_twh": 15.655399,
-    "expansao_2040_twh": 23.660503,
-    "maior_diferenca_mwh": 2e-09,
+    "referencia_2027_twh": 5.096572,
+    "referencia_2040_twh": 11.56867,
+    "conservador_2040_twh": 9.438041,
+    "expansao_2040_twh": 14.104142,
+    "maior_diferenca_mwh": 1e-09,
     "nota": "Diferença máxima entre a fórmula que o navegador executa e a energia publicada pelo modelo do Squad 2, em todos os minerais, anos e cenários."
   },
   "cenarios": [
@@ -92,12 +92,12 @@
       "ano_base": 2025,
       "producao_base_t": 43983.54999999999,
       "crescimento_historico": -0.0301911572045376,
-      "energy_intensity_mwh_t": 11.2,
+      "energy_intensity_mwh_t": 8.107848,
       "mape_backtest": 0.0298797493248945,
       "anos_testados_backtest": 2,
       "valor_observado_estimado": "estimado",
-      "data_nature": "benchmark_proxy",
-      "source_id": "SRC_FGV_EPGE_001"
+      "data_nature": "calculado",
+      "source_id": "SRC_CCEE_PARCELA_CARGA;SRC_EMPRESA_RELATORIO"
     },
     {
       "mineral_id": "MIN_022",
@@ -106,12 +106,12 @@
       "ano_base": 2025,
       "producao_base_t": 156885.63,
       "crescimento_historico": 0.0333902442547546,
-      "energy_intensity_mwh_t": 45.551351,
+      "energy_intensity_mwh_t": 11.674042,
       "mape_backtest": 0.0779186694745528,
       "anos_testados_backtest": 2,
       "valor_observado_estimado": "estimado",
-      "data_nature": "benchmark_proxy",
-      "source_id": "SRC_FGV_EPGE_001"
+      "data_nature": "estimado",
+      "source_id": "SRC_CCEE_PARCELA_CARGA;SRC_ANM_PROD_BENEF;SRC_ANM_CFEM"
     },
     {
       "mineral_id": "MIN_033",
@@ -120,12 +120,12 @@
       "ano_base": 2025,
       "producao_base_t": 179184.29999999993,
       "crescimento_historico": -0.0342569921483285,
-      "energy_intensity_mwh_t": 0.32,
+      "energy_intensity_mwh_t": 0.310942,
       "mape_backtest": 0.0862924685044787,
       "anos_testados_backtest": 2,
       "valor_observado_estimado": "estimado",
-      "data_nature": "benchmark_proxy",
-      "source_id": "SRC_FGV_EPGE_001"
+      "data_nature": "estimado",
+      "source_id": "SRC_CCEE_PARCELA_CARGA;SRC_ANM_PROD_BENEF;SRC_ANM_CFEM"
     },
     {
       "mineral_id": "MIN_049",
@@ -134,33 +134,98 @@
       "ano_base": 2025,
       "producao_base_t": 2511254.38,
       "crescimento_historico": -0.0034137435303356,
-      "energy_intensity_mwh_t": 0.15,
+      "energy_intensity_mwh_t": 0.121246,
       "mape_backtest": 0.0231439532305456,
       "anos_testados_backtest": 2,
       "valor_observado_estimado": "estimado",
-      "data_nature": "benchmark_proxy",
-      "source_id": "SRC_FGV_EPGE_001"
+      "data_nature": "estimado",
+      "source_id": "SRC_CCEE_PARCELA_CARGA;SRC_ANM_PROD_BENEF;SRC_ANM_CFEM"
     }
   ],
   "fontes": [
     {
+      "source_id": "SRC_S2_INTENSIDADE_V1",
+      "source_name": "Squad 2 — base de intensidade energética v1 (coeficiente estadual por mineral)",
+      "source_url": "Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv",
+      "data_acesso": "2026-10-21",
+      "periodo_referencia": "2025",
+      "tipo_fonte": "interna_projeto",
+      "valor_observado_estimado": "estimado",
+      "metodo_estimacao": "Consumo específico (EPE): energia das cargas na CCEE em 2025 ÷ produção física de 2025 da mesma entidade, somando as operações cobertas de cada mineral. Mineral sem carga na CCEE mantém o benchmark anterior. É a tabela que o modelo do Squad 2 carrega.",
+      "status_validacao": "pendente_validacao",
+      "responsavel_validacao": "Squad 2 — intensidade energética",
+      "notas": "Gerada por Squad 2/intensidade_energetica/build_intensidade.py, que o fluxo de derivados refaz quando as bases mudam. Cada mineral cita as fontes primárias abaixo no campo source_id."
+    },
+    {
+      "source_id": "SRC_CCEE_PARCELA_CARGA",
+      "source_name": "CCEE — consumo das parcelas de carga em Goiás",
+      "source_url": "https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo",
+      "data_acesso": "2026-10-21",
+      "periodo_referencia": "2025 (doze meses)",
+      "tipo_fonte": "oficial",
+      "valor_observado_estimado": "observado",
+      "metodo_estimacao": null,
+      "status_validacao": "conferido_squad1",
+      "responsavel_validacao": "Squad 1 — bases públicas e diagnóstico mineral",
+      "notas": "Carga ligada à empresa pela raiz do CNPJ. Não inclui autoprodução nem geração própria. Cópia filtrada para Goiás em Squad 1/dados/CCEE."
+    },
+    {
+      "source_id": "SRC_EMPRESA_RELATORIO",
+      "source_name": "Relatórios das empresas — produção declarada da operação",
+      "source_url": null,
+      "data_acesso": "2026-10-21",
+      "periodo_referencia": "2025",
+      "tipo_fonte": "empresa",
+      "valor_observado_estimado": "observado",
+      "metodo_estimacao": null,
+      "status_validacao": "pendente_validacao",
+      "responsavel_validacao": "Squad 2 — intensidade energética",
+      "notas": "Usado quando a empresa publica a produção da própria operação em Goiás (ex.: cobre contido da Lundin em Alto Horizonte). Fonte de cada número em Squad 2/intensidade_energetica/base_intensidade_energetica_v1.csv."
+    },
+    {
+      "source_id": "SRC_ANM_PROD_BENEF",
+      "source_name": "ANM — Anuário Mineral Brasileiro, produção beneficiada",
+      "source_url": "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv",
+      "data_acesso": "2026-10-21",
+      "periodo_referencia": "2025",
+      "tipo_fonte": "oficial",
+      "valor_observado_estimado": "observado",
+      "metodo_estimacao": null,
+      "status_validacao": "validado_squad1",
+      "responsavel_validacao": "Squad 1 — bases públicas e diagnóstico mineral",
+      "notas": "Produção estadual por substância, lida da base consolidada do Squad 1."
+    },
+    {
+      "source_id": "SRC_ANM_CFEM",
+      "source_name": "ANM — arrecadação da CFEM por processo",
+      "source_url": "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv",
+      "data_acesso": "2026-10-21",
+      "periodo_referencia": "2025",
+      "tipo_fonte": "oficial",
+      "valor_observado_estimado": "estimado",
+      "metodo_estimacao": "A produção estadual da ANM é aberta por operação pela participação de cada processo na CFEM do mineral no município (aba 12 da base consolidada do Squad 1).",
+      "status_validacao": "pendente_validacao",
+      "responsavel_validacao": "Squad 1 — bases públicas e diagnóstico mineral",
+      "notas": "Serve só para atribuir a produção a cada operação; não entra como valor monetário no simulador."
+    },
+    {
       "source_id": "SRC_FGV_EPGE_001",
       "source_name": "Apresentação FGV Energia-EPGE — intensidades energéticas de referência",
       "source_url": null,
-      "data_acesso": "2026-09-17",
+      "data_acesso": "2026-10-21",
       "periodo_referencia": "não informado no material-base",
       "tipo_fonte": "institucional",
       "valor_observado_estimado": "estimado",
-      "metodo_estimacao": "Coeficientes usados pelo Squad 2 como benchmark ou proxy operacional por mineral, em Squad 2/modello_reale/parameters/energy_intensity.csv. Não são medição do consumo observado de cada operação.",
+      "metodo_estimacao": "Benchmark ou proxy operacional por mineral, mantido pelo Squad 2 só onde não há energia observada na CCEE. Não é medição do consumo observado de cada operação.",
       "status_validacao": "pendente_validacao",
       "responsavel_validacao": "Squad 2 — intensidade energética",
-      "notas": "A intensidade do níquel é a média ponderada pela produção das duas operações da tabela original."
+      "notas": "Hoje usado só para: Alumínio (Bauxita). Os demais minerais têm coeficiente calculado com a CCEE (SRC_S2_INTENSIDADE_V1)."
     },
     {
       "source_id": "SRC_SQUAD1_PRODUCAO_001",
       "source_name": "Squad 1 — produção mineral histórica consolidada de Goiás",
       "source_url": "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
-      "data_acesso": "2026-09-17",
+      "data_acesso": "2026-10-21",
       "periodo_referencia": "2010–2025 (2014–2025 para a bauxita)",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -173,7 +238,7 @@
       "source_id": "SRC_S2_ASSUMPTION_001",
       "source_name": "Squad 2 — hipóteses de cenário do modelo real",
       "source_url": "Squad 2/modello_reale/parameters/scenarios.csv",
-      "data_acesso": "2026-09-17",
+      "data_acesso": "2026-10-21",
       "periodo_referencia": "2027–2040",
       "tipo_fonte": "interna_projeto",
       "valor_observado_estimado": "ilustrativo",

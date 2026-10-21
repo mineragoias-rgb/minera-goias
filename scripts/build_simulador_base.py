@@ -5,7 +5,8 @@
     python scripts/build_simulador_base.py --repo <clone>
 
 Executa os três scripts de `Squad 2/modello_reale/src` e lê os arquivos que eles produzem em
-`Squad 2/modello_reale/outputs/`. Nenhum número é recalculado aqui: o script extrai as primitivas do
+`Squad 2/modello_reale/outputs/`. As intensidades vêm de `load_parameters()` do próprio modelo — a mesma tabela que ele
+usa no cálculo —, para o simulador nunca apontar para um arquivo que o Squad 2 deixou de usar. Nenhum número é recalculado aqui: o script extrai as primitivas do
 modelo (ano-base, produção do último ano observado, crescimento histórico composto, intensidade
 energética e as hipóteses de cenário) para que o navegador reproduza a mesma projeção sem depender de
 artefatos do GitHub Actions, que não ficam versionados.
@@ -101,7 +102,10 @@ def main():
 
     projecao = pd.read_csv(modelo / "outputs" / "future" / "future_projection_by_mineral.csv", encoding="utf-8-sig")
     backtest = pd.read_csv(modelo / "outputs" / "backtest" / "backtest_summary.csv", encoding="utf-8-sig")
-    intensidade = pd.read_csv(modelo / "parameters" / "energy_intensity.csv")
+    sys.path.insert(0, str(modelo / "src"))
+    import common  # noqa: E402 — o carregador de parâmetros do modelo do Squad 2
+    intensidade, _ = common.load_parameters()
+    arquivo_intensidade = Path(common.FINAL_ENERGY_PARAMETERS).resolve().relative_to(raiz).as_posix()
     hipoteses = pd.read_csv(modelo / "parameters" / "scenarios.csv")
     contrato = json.loads((modelo / "outputs" / "sensitivity" / "intensity_sensitivity_contract.json").read_text(encoding="utf-8"))
 
@@ -162,9 +166,10 @@ def main():
             ("nota", "Faixa e fórmula definidas pelo contrato de sensibilidade do Squad 2, "
                      "intensity_sensitivity_contract.json."),
         ])),
-        ("aviso", "As intensidades energéticas são benchmarks, não medições do consumo observado de cada operação. "
-                  "As hipóteses de crescimento e eficiência dos cenários são ilustrativas. Os resultados são "
-                  "cenários condicionais, não previsão oficial."),
+        ("aviso", "As intensidades energéticas vêm da base do Squad 2: energia das cargas na CCEE em 2025 dividida pela "
+                  "produção do mesmo ano, nas operações que a CCEE cobre; a bauxita, sem carga identificada, segue com "
+                  "benchmark. São coeficientes por mineral, não medição de cada planta. As hipóteses de crescimento e "
+                  "eficiência dos cenários são ilustrativas. Os resultados são cenários condicionais, não previsão oficial."),
         ("conferencia_modelo", OrderedDict([
             ("referencia_2027_twh", total(2027, "referencia")),
             ("referencia_2040_twh", total(2040, "referencia")),
@@ -176,7 +181,7 @@ def main():
         ])),
         ("cenarios", list(cenarios.values())),
         ("minerais", minerais),
-        ("fontes", fontes(projecao, minerais)),
+        ("fontes", fontes(projecao, minerais, arquivo_intensidade)),
     ])
 
     saida.parent.mkdir(parents=True, exist_ok=True)
@@ -190,9 +195,83 @@ def main():
     print(f"maior diferença para o modelo do Squad 2: {maior_diferenca:.2e} MWh")
 
 
-def fontes(projecao, minerais):
+def fontes(projecao, minerais, arquivo_intensidade):
+    """Catálogo de fontes: as que os minerais citam (o `source_id` do Squad 2 pode juntar várias com `;`) e as fixas."""
     hoje = date.today().isoformat()
-    return [
+    usadas = {sid for m in minerais for sid in m["source_id"].split(";")}
+    so_benchmark = sorted(m["mineral_name"] for m in minerais if m["source_id"] == "SRC_FGV_EPGE_001")
+    catalogo = [
+        OrderedDict([
+            ("source_id", "SRC_S2_INTENSIDADE_V1"),
+            ("source_name", "Squad 2 — base de intensidade energética v1 (coeficiente estadual por mineral)"),
+            ("source_url", arquivo_intensidade),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "Consumo específico (EPE): energia das cargas na CCEE em 2025 ÷ produção física de 2025 da "
+                                 "mesma entidade, somando as operações cobertas de cada mineral. Mineral sem carga na CCEE "
+                                 "mantém o benchmark anterior. É a tabela que o modelo do Squad 2 carrega."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 2 — intensidade energética"),
+            ("notas", "Gerada por Squad 2/intensidade_energetica/build_intensidade.py, que o fluxo de derivados refaz quando "
+                      "as bases mudam. Cada mineral cita as fontes primárias abaixo no campo source_id."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_CCEE_PARCELA_CARGA"),
+            ("source_name", "CCEE — consumo das parcelas de carga em Goiás"),
+            ("source_url", "https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025 (doze meses)"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "conferido_squad1"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Carga ligada à empresa pela raiz do CNPJ. Não inclui autoprodução nem geração própria. Cópia filtrada "
+                      "para Goiás em Squad 1/dados/CCEE."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_EMPRESA_RELATORIO"),
+            ("source_name", "Relatórios das empresas — produção declarada da operação"),
+            ("source_url", None),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "empresa"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 2 — intensidade energética"),
+            ("notas", "Usado quando a empresa publica a produção da própria operação em Goiás (ex.: cobre contido da Lundin "
+                      "em Alto Horizonte). Fonte de cada número em Squad 2/intensidade_energetica/base_intensidade_energetica_v1.csv."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_ANM_PROD_BENEF"),
+            ("source_name", "ANM — Anuário Mineral Brasileiro, produção beneficiada"),
+            ("source_url", "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "validado_squad1"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Produção estadual por substância, lida da base consolidada do Squad 1."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_ANM_CFEM"),
+            ("source_name", "ANM — arrecadação da CFEM por processo"),
+            ("source_url", "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "A produção estadual da ANM é aberta por operação pela participação de cada processo na CFEM "
+                                 "do mineral no município (aba 12 da base consolidada do Squad 1)."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Serve só para atribuir a produção a cada operação; não entra como valor monetário no simulador."),
+        ]),
         OrderedDict([
             ("source_id", "SRC_FGV_EPGE_001"),
             ("source_name", "Apresentação FGV Energia-EPGE — intensidades energéticas de referência"),
@@ -201,12 +280,12 @@ def fontes(projecao, minerais):
             ("periodo_referencia", "não informado no material-base"),
             ("tipo_fonte", "institucional"),
             ("valor_observado_estimado", "estimado"),
-            ("metodo_estimacao", "Coeficientes usados pelo Squad 2 como benchmark ou proxy operacional por mineral, "
-                                 "em Squad 2/modello_reale/parameters/energy_intensity.csv. Não são medição do "
-                                 "consumo observado de cada operação."),
+            ("metodo_estimacao", "Benchmark ou proxy operacional por mineral, mantido pelo Squad 2 só onde não há energia "
+                                 "observada na CCEE. Não é medição do consumo observado de cada operação."),
             ("status_validacao", "pendente_validacao"),
             ("responsavel_validacao", "Squad 2 — intensidade energética"),
-            ("notas", "A intensidade do níquel é a média ponderada pela produção das duas operações da tabela original."),
+            ("notas", "Hoje usado só para: " + (", ".join(so_benchmark) or "nenhum mineral") + ". Os demais minerais têm "
+                      "coeficiente calculado com a CCEE (SRC_S2_INTENSIDADE_V1)."),
         ]),
         OrderedDict([
             ("source_id", "SRC_SQUAD1_PRODUCAO_001"),
@@ -240,6 +319,7 @@ def fontes(projecao, minerais):
                       "não há, nas bases atuais, capacidade, ano de entrada e grau de certeza estruturados."),
         ]),
     ]
+    return [f for f in catalogo if f["source_id"] in usadas | {"SRC_S2_INTENSIDADE_V1", "SRC_SQUAD1_PRODUCAO_001", "SRC_S2_ASSUMPTION_001"}]
 
 
 if __name__ == "__main__":
