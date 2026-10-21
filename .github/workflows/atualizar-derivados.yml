@@ -1,0 +1,99 @@
+name: Atualizar derivados das bases
+
+# Quando uma base do Squad 1 muda na main, tudo o que sai dela é refeito aqui e volta para a main:
+#   1. scripts/atualizar_derivados.py roda os geradores na ordem de dependência — pacote do Squad 2, Panorama, Produção,
+#      Empresas, intensidade energética do Squad 2, carteira de projetos e parâmetros do Simulador — e os testes das saídas;
+#   2. se algum derivado mudou e os testes passaram, o commit vai para a main;
+#   3. a VPS baixa o commit em até 2 minutos, como faz com as notícias.
+# O commit deste job é feito com o GITHUB_TOKEN, que não dispara outros workflows: não há laço, e por isso os testes
+# rodam aqui antes do commit. O atlas e o download da CCEE continuam manuais (dependem de arquivo fora do repositório).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v*.xlsx'
+      - 'Squad 1/Bases consolidadas/base_consolidada_work/scripts/**'
+      - 'Squad 1/dados/**'
+      - 'Squad 1/Dados brutos/**'
+      - 'producao/**'
+      - 'scripts/atualizar_derivados.py'
+      - 'tests/test_derivados.py'
+      - 'scripts/build_panorama_base.py'
+      - 'scripts/build_producao_base.py'
+      - 'scripts/build_empresas_base.py'
+      - 'scripts/build_projetos_go.py'
+      - 'scripts/build_simulador_base.py'
+      - 'Squad 2/intensidade_energetica/build_intensidade.py'
+      - 'Squad 2/modello_reale/**'
+      - '.github/workflows/atualizar-derivados.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Duas atualizações ao mesmo tempo brigariam pelos mesmos arquivos.
+concurrency:
+  group: atualizar-derivados
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências dos geradores
+        run: python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+
+      - name: Conferir que orquestrador e workflow descrevem a mesma cadeia
+        run: python -m unittest discover -s tests -p test_derivados.py -v
+
+      # 0 = ok; 1 = alguma etapa falhou (as outras seguem atualizadas e testadas); 2 = teste falhou (nada muda na árvore).
+      - name: Refazer os derivados
+        id: refazer
+        run: |
+          set +e
+          python scripts/atualizar_derivados.py --resumo "$RUNNER_TEMP/resumo.md"
+          codigo=$?
+          set -e
+          echo "codigo=$codigo" >> "$GITHUB_OUTPUT"
+          { echo '### Derivados das bases'; echo; cat "$RUNNER_TEMP/resumo.md"; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$codigo" -ne 0 ] && [ "$codigo" -ne 1 ]; then
+            echo "::error::a atualização falhou com código $codigo; nada foi publicado"
+            exit "$codigo"
+          fi
+
+      - name: Publicar na main
+        run: |
+          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
+                  "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
+          git add -A -- "${saidas[@]}"
+          if git diff --cached --quiet; then
+            echo 'Nenhum derivado mudou.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          {
+            echo "chore(derivados): refaz o que sai das bases alteradas em ${GITHUB_SHA::7}"
+            echo
+            cat "$RUNNER_TEMP/resumo.md"
+            echo
+            echo 'Gerado por .github/workflows/atualizar-derivados.yml (scripts/atualizar_derivados.py).'
+          } > "$RUNNER_TEMP/mensagem.txt"
+          git commit -F "$RUNNER_TEMP/mensagem.txt"
+          # Outra pessoa (ou a coleta de notícias) pode ter empurrado enquanto o job rodava.
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Avisar etapa que falhou
+        if: steps.refazer.outputs.codigo == '1'
+        run: |
+          echo '::error::alguma etapa não pôde ser refeita; o que deu certo foi publicado. Veja o resumo da execução.'
+          exit 1

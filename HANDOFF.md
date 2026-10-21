@@ -107,6 +107,10 @@ python -m unittest discover -s tests -p test_empresas.py -v
 node --check public/empresas.js
 ```
 
+## Derivados atualizados sozinhos
+
+Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
+
 ## Carteira de projetos (seção da aba Mercado)
 
 Integração de 08/10/2026. O quadro `Carteira de projetos em Goiás`, na aba `Mercado` logo abaixo de "Operações e alvos", publica o levantamento
