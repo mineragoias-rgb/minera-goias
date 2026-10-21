@@ -27,7 +27,7 @@ Os scripts só leem arquivos de outras pastas; não alteram nenhum arquivo fora 
 | | O quê | De / para quem | Onde |
 |---|---|---|---|
 | **Entrada** | Energia de 2025 por unidade consumidora (CCEE, 12 meses) e produção declarada pelas empresas | Squad 1: painel "Panorama Mineração Goiás" | `Squad 1/dados/Panorama Mineracao Goias.html` (payload: `ee_cargas`, `coef`) |
-| **Entrada** | CCEE bruta jun–dez/2025, usada só para conferir a energia | Squad 1 | `Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv` |
+| **Entrada** | CCEE bruta de 2025, usada só para conferir a energia | Squad 1 | `Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv` |
 | **Entrada** | Produção beneficiada 2025 por titular e operação (ANM, rateada pela CFEM) e IDs `mineral_id`, `company_id`, `operation_id` | Squad 1 / Estudante 1 (aba 12) | `Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv` |
 | **Entrada** | Parâmetros de intensidade do motor, incluídos como `benchmark` | Squad 2 / Estudante 3 | `Squad 2/modello_reale/parameters/energy_intensity.csv` (só leitura) |
 | **Saída** | Intensidade por operação no formato do contrato do motor | Squad 2 / Estudante 3 (motor 2027–2040) | `energy_intensity_para_motor_v1.csv` |
@@ -128,7 +128,7 @@ Energia da CCEE 2025 ÷ produção beneficiada da ANM 2025 (estimada pelo Squad 
 ## Limitações
 
 1. **Só energia elétrica do mercado livre:** a CCEE traz consumo individual apenas de quem está no ACL. Diesel, outros combustíveis, autoprodução e compras no mercado cativo não entram. Mineradoras que compram da distribuidora não aparecem; esta versão cobre 8 empresas.
-2. **Energia de 12 meses vem do painel do Squad 1:** o arquivo bruto no repositório tem só jun–dez/2025. A coluna `checagem_ccee_bruta` compara os dois: diferença de −7% a +3%, e −19% em Mara Rosa, que teve parada no ano.
+2. **Energia de 12 meses vem do painel do Squad 1:** a coluna `checagem_ccee_bruta` a confere com o arquivo bruto da CCEE no repositório, nos meses que ele tiver (o rótulo sai do arquivo). Desde 21/10/2026 o arquivo traz jan–dez/2025 e as duas fontes coincidem (0,0%) nas 19 linhas; antes, com só jun–dez, a diferença ia de −7% a +3%, e −19% em Mara Rosa.
 3. **Denominador da ANM é estimado:** as linhas `titular_mineral_ano` usam o rateio da CFEM do Squad 1, que o próprio Squad 1 indica não usar como denominador observado. Por isso estão marcadas como `estimado`, com faixa de erro.
 4. **Rotas tecnológicas:** levantadas para 2 das 8 empresas. As demais ficam como `nao_levantada_v1` até haver fonte documental.
 5. **Nióbio na ANM:** a produção "beneficiada" da ANM para a CMOC (cerca de 3,3 Mt) é massa processada, não Nb contido. A intensidade nessa base (0,033 MWh/t) só vale aplicada à mesma série da ANM.

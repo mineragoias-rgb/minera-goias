@@ -1,0 +1,3 @@
+# Os geradores escrevem CSV com CRLF (padrão do módulo csv) e o repositório guarda LF: normaliza na entrada,
+# para a automação (scripts/atualizar_derivados.py) não ver mudança onde só mudou a quebra de linha.
+*.csv text

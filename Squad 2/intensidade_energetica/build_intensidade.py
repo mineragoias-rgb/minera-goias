@@ -6,7 +6,8 @@ Uso (na raiz do repositório):
 Só lê arquivos que já estão no repositório e só escreve dentro desta pasta:
   - energia 2025 por unidade consumidora (CCEE, 12 meses) e produção declarada pelas empresas:
     payload do "Squad 1/dados/Panorama Mineracao Goias.html" (chaves ee_cargas e coef);
-  - CCEE bruta jun–dez/2025 ("Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv"), usada só como checagem;
+  - CCEE bruta de 2025 ("Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv"), usada só como checagem — o rótulo
+    dos meses sai do próprio arquivo, então a checagem acompanha a base quando ela é atualizada;
   - produção da ANM por operação (Squad 1, aba 12): "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv";
   - benchmarks do motor (Federico): "Squad 2/modello_reale/parameters/energy_intensity.csv".
 
@@ -105,8 +106,18 @@ def energia_por_carga(d):
     return {c["SIGLA_PARCELA_CARGA"]: (c["consumo_mwh"], c["meses"], c["capacidade_mw"]) for c in d["ee_cargas"]}
 
 
+MESES = "jan fev mar abr mai jun jul ago set out nov dez".split()
+
+
+def periodo(meses):
+    """'jun–dez/2025' a partir de {'202506', …, '202512'}: o rótulo vem dos meses observados, nunca fixo no código."""
+    m = sorted(meses)
+    ini, fim = MESES[int(m[0][4:]) - 1], MESES[int(m[-1][4:]) - 1]
+    return f"{ini}/{m[0][:4]}" if m[0] == m[-1] else f"{ini}–{fim}/{m[-1][:4]}"
+
+
 def ccee_bruta_2025():
-    """Soma jun–dez/2025 por (raiz CNPJ, sigla) direto do arquivo bruto da CCEE — só para checagem."""
+    """Soma 2025 por (raiz CNPJ, sigla) direto do arquivo bruto da CCEE, nos meses que ele tiver — só para checagem."""
     soma, meses = defaultdict(float), defaultdict(set)
     with open(CCEE_2025, encoding="utf-8-sig") as f:
         for r in csv.DictReader(f, delimiter=";"):
@@ -190,7 +201,7 @@ def build():
         if not meses:
             return "sem registro no arquivo bruto do repositório"
         anual = jd / len(meses) * 12
-        return (f"jun–dez/2025 no arquivo bruto: {jd:,.0f} MWh em {len(meses)} meses; anualizado {anual:,.0f} MWh "
+        return (f"{periodo(meses)} no arquivo bruto: {jd:,.0f} MWh em {len(meses)} meses; anualizado {anual:,.0f} MWh "
                 f"({(anual / energia_12m - 1) * 100:+.1f}% contra os 12 meses do painel)")
 
     for pos, op in OPERACOES.items():
