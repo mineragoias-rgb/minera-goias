@@ -109,7 +109,7 @@ node --check public/empresas.js
 
 ## Derivados atualizados sozinhos
 
-Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
+Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, `Squad 1/P3M`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o inventário do P3M e o Mapa mineral (`data/mapa`, que lê do inventário a data, a pasta e a ficha de cada camada), o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
 
 ## Carteira de projetos (seção da aba Mercado)
 
@@ -142,10 +142,23 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
 - **O que a aba faz.**
   - Cabeçalho compacto: recorte fixo Goiás, filtros ativos em chips com "Limpar filtros" e o retrato da camada em análise.
   - Painel lateral recolhível (gaveta no celular) com duas abas.
-    - **Camadas:** 38 camadas. Primeiro as 33 do P3M, nos 7 grupos temáticos (da Base territorial ao Contexto socioambiental);
-      depois o Radar de Projetos ("Levantamento da equipe"); por último as 5 que a aba reaproveita do Atlas ("Também na aba Atlas e
-      panorama": municípios, processos, barragens, projetos ANM e ocorrências). O seletor da camada em análise segue a mesma ordem; o
-      grupo temático do catálogo continua decidindo o plano de desenho. Cada camada tem ligar e desligar, legenda, opacidade,
+    - **Camadas:** 44 camadas. Primeiro as 39 do P3M, nos grupos que são as 8 pastas temáticas do Squad 1 (1 · Geologia a
+      8 · Infraestrutura; o grupo sai da pasta do zip no inventário `Squad 1/P3M/inventario_p3m.csv`); depois o Radar de Projetos
+      ("Levantamento da equipe"); por último as 5 que a aba reaproveita do Atlas ("Também na aba Atlas e panorama": municípios,
+      processos, barragens, projetos ANM e ocorrências, cada uma com a pasta da camada equivalente do P3M). O seletor da camada em
+      análise segue a mesma ordem; as áreas de "5 · Atividade mineira" ficam no plano de cima.
+    - **Inventário do P3M (22/10/2026):** o retrato de cada camada é o dia exato do download (`data_download`: 21/10 ou 19/10/2026),
+      no lugar do antigo "out/2026"; o painel "i" mostra a pasta, a classificação no site P3M (categoria › tema › subtema e as
+      outras), o órgão, o resumo, a última atualização no SGB quando ele publica (com a fonte) e a ficha de metadados. O link do
+      inventário no GitHub está no painel "i", na linha de fontes, no CSV, no GeoJSON, no LEIAME do shapefile e na seção Fontes da
+      página inicial. Camadas novas: poços do SIAGAS (sem proprietário, perfurador e endereço), levantamentos aerogeofísicos,
+      amostras geoquímicas do SGB, recursos minerais do SIG estadual (símbolos químicos lidos por `apelidos`), índice dos
+      mapeamentos geológicos (com link para o RIGEO) e usinas de etanol. As 105 camadas do inventário que ficaram fora, com o
+      motivo, estão em `data/mapa/README.md`. A etapa `mapa` de `scripts/atualizar_derivados.py` refaz `data/mapa` depois do
+      inventário (pyshp 3.1.6 e shapely 2.2.0 fixos no workflow, para o GEOS simplificar igual).
+    - **Tela cheia:** o botão no canto do mapa, abaixo de "Voltar para Goiás", põe camadas, filtros, mapa e detalhes em tela cheia
+      (API do navegador; no iPhone, uma camada fixa sobre a página). Fica no mapa porque o painel de detalhes cobre a direita da
+      barra de cima. Esc ou o botão saem. Cada camada tem ligar e desligar, legenda, opacidade,
       aproximar para a extensão, fonte, retrato e período de referência, notas, campos omitidos, estado de carregamento e falha com
       "tentar de novo".
     - **Download por camada (como no P3M):** o ícone ↓ da camada, ou o link do painel "i", baixa a camada inteira, sem os filtros,
@@ -239,5 +252,5 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
 - **Fora, e o motivo** (sem mudança desde a etapa 2).
   - Produção por mina ou por município: não existe nas fontes, e quantidade da CFEM não é produção.
   - Classe de mineral crítico ou estratégico: não há taxonomia documentada.
-  - Geofísica: só existe como imagem.
-  - SIGEF, cobertura do solo e hidrografia: volume.
+  - Geofísica: os dados só existem como imagem; o mapa mostra a área coberta pelos levantamentos aerogeofísicos.
+  - SIGEF, cobertura do solo, hidrografia, afloramentos e litologia estadual: volume (lista completa em `data/mapa/README.md`).

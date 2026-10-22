@@ -8,9 +8,8 @@
     "limite_estadual": "Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip",
     "portal": "https://p3mgeo.sgb.gov.br/#/map",
     "servico": "https://opendata.sgb.gov.br/geoserver/wfs",
-    "retrato_baixados": "2026-10-21",
-    "retrato_primeiros": "2026-10",
-    "nota_retrato": "Os 138 zips de 'Baixados do P3M - recorte Goiás' foram baixados em 21/10/2026; os demais (camadas vw_cprm_go_* e nacionais) em outubro de 2026, sem dia registrado (Squad 1/P3M/LEIA-ME.md)."
+    "inventario_url": "https://github.com/mineragoias-rgb/minera-goias/blob/main/Squad%201/P3M/inventario_p3m.csv",
+    "nota_retrato": "O retrato de cada camada do P3M é o dia em que o Squad 1 baixou o zip (coluna data_download do inventário Squad 1/P3M/inventario_p3m.csv): 21/10/2026 para as camadas pedidas com o retângulo de Goiás e 19/10/2026 para as estaduais (vw_cprm_go_*) e as nacionais. Quando o SGB publica a data da última atualização da camada, ela aparece ao lado, com a fonte (portal de dados do SGB ou metadado do catálogo do P3M); nas demais o SGB não informa."
   },
   "apelidos_municipios": {
     "SAO LUIZ DE MONTES BELOS": "São Luís de Montes Belos",
@@ -20,20 +19,20 @@
   },
   "nulos_padrao": ["", "-", "--", "NA", "N/A", "nd", "ND", "Not Available", "Não informado", "Não se aplica", "Desconhecido", "Desconhecida", "sem informação", "DADO NÃO CADASTRADO"],
   "grupos": [
-    {"id": "territorio", "nome": "Base territorial", "nome_en": "Territorial base"},
-    {"id": "mineracao", "nome": "Mineração · direitos minerários (ANM)", "nome_en": "Mining · mineral rights (ANM)"},
-    {"id": "empreendimentos", "nome": "Mineração · projetos e empreendimentos", "nome_en": "Mining · projects and operations"},
-    {"id": "recursos", "nome": "Mineração · ocorrências e recursos", "nome_en": "Mining · occurrences and resources"},
-    {"id": "geologia", "nome": "Geociências", "nome_en": "Geoscience"},
-    {"id": "infraestrutura", "nome": "Infraestrutura · energia e transporte", "nome_en": "Infrastructure · energy and transport"},
-    {"id": "restricoes", "nome": "Contexto socioambiental", "nome_en": "Socio-environmental context"}
+    {"id": "geologia", "pasta": "1- Geologia", "nome": "1 · Geologia", "nome_en": "1 · Geology"},
+    {"id": "geofisica", "pasta": "2- Geofísica", "nome": "2 · Geofísica", "nome_en": "2 · Geophysics"},
+    {"id": "geoquimica", "pasta": "3- Geoquímica", "nome": "3 · Geoquímica", "nome_en": "3 · Geochemistry"},
+    {"id": "recursos", "pasta": "4- Recursos minerais", "nome": "4 · Recursos minerais", "nome_en": "4 · Mineral resources"},
+    {"id": "atividade_mineira", "pasta": "5- Atividade mineira", "nome": "5 · Atividade mineira", "nome_en": "5 · Mining activity"},
+    {"id": "cartografia", "pasta": "6- Cartografia", "nome": "6 · Cartografia: território e áreas especiais", "nome_en": "6 · Cartography: territory and special areas"},
+    {"id": "pesquisa", "pasta": "7- Pesquisa", "nome": "7 · Pesquisa: levantamentos e mapeamentos", "nome_en": "7 · Research: surveys and mapping"},
+    {"id": "infraestrutura", "pasta": "8- Infraestrutura", "nome": "8 · Infraestrutura: energia e transporte", "nome_en": "8 · Infrastructure: energy and transport"}
   ],
   "camadas": [
     {
       "id": "limite_goias",
       "nome": "Limite de Goiás",
       "nome_en": "Goiás state boundary",
-      "grupo": "territorio",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -71,7 +70,7 @@
       "id": "municipios",
       "nome": "Municípios",
       "nome_en": "Municipalities",
-      "grupo": "territorio",
+      "grupo": "cartografia",
       "geometria": "poligono",
       "origem": {
         "tipo": "atlas",
@@ -112,7 +111,7 @@
       "id": "processos",
       "nome": "Processos minerários",
       "nome_en": "Mining rights (claims)",
-      "grupo": "mineracao",
+      "grupo": "atividade_mineira",
       "geometria": "poligono",
       "origem": {
         "tipo": "atlas",
@@ -158,7 +157,6 @@
       "id": "minas_ativas",
       "nome": "Minas ativas (SGB)",
       "nome_en": "Active mines (SGB)",
-      "grupo": "mineracao",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -221,7 +219,6 @@
       "id": "guias_utilizacao",
       "nome": "Guias de utilização",
       "nome_en": "Pre-mining extraction permits (Guias de Utilização)",
-      "grupo": "mineracao",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -287,7 +284,6 @@
       "id": "servidoes",
       "nome": "Servidões minerárias",
       "nome_en": "Mining easements",
-      "grupo": "mineracao",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -330,7 +326,6 @@
       "id": "reservas_garimpeiras",
       "nome": "Reservas garimpeiras",
       "nome_en": "Artisanal mining reserves",
-      "grupo": "mineracao",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -368,7 +363,7 @@
       "id": "barragens",
       "nome": "Barragens de mineração",
       "nome_en": "Mining dams",
-      "grupo": "mineracao",
+      "grupo": "atividade_mineira",
       "geometria": "ponto",
       "origem": {
         "tipo": "atlas",
@@ -419,7 +414,6 @@
       "id": "ativos_sgb",
       "nome": "Ativos do SGB em leilão",
       "nome_en": "SGB mineral assets for auction",
-      "grupo": "mineracao",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -478,7 +472,7 @@
       "id": "projetos_anm",
       "nome": "Projetos que ainda não produzem (ANM)",
       "nome_en": "Pre-production projects (ANM)",
-      "grupo": "empreendimentos",
+      "grupo": "atividade_mineira",
       "geometria": "ponto",
       "origem": {
         "tipo": "atlas",
@@ -534,7 +528,6 @@
       "id": "empreendimentos_sig",
       "nome": "Empreendimentos mineiros (levantamento SGB)",
       "nome_en": "Mining operations (SGB survey)",
-      "grupo": "empreendimentos",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -755,7 +748,6 @@
       "id": "depositos_pdac",
       "nome": "Depósitos e minas de referência (SGB/PDAC 2024)",
       "nome_en": "Reference deposits and mines (SGB/PDAC 2024)",
-      "grupo": "recursos",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -813,7 +805,6 @@
       "id": "uranio",
       "nome": "Recursos de urânio (SIG)",
       "nome_en": "Uranium resources (GIS)",
-      "grupo": "recursos",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -862,7 +853,6 @@
       "id": "potencial_mineral",
       "nome": "Áreas de potencial mineral (SIG)",
       "nome_en": "Mineral potential areas (GIS)",
-      "grupo": "recursos",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -907,7 +897,6 @@
       "id": "distritos_auriferos",
       "nome": "Distritos auríferos",
       "nome_en": "Gold districts",
-      "grupo": "recursos",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -945,7 +934,6 @@
       "id": "provincias_auriferas",
       "nome": "Províncias auríferas",
       "nome_en": "Gold provinces",
-      "grupo": "recursos",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -981,7 +969,6 @@
       "id": "ocorrencias_diamante",
       "nome": "Ocorrências de diamante",
       "nome_en": "Diamond occurrences",
-      "grupo": "recursos",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1025,7 +1012,6 @@
       "id": "litoestratigrafia",
       "nome": "Unidades litoestratigráficas 1:1.000.000",
       "nome_en": "Lithostratigraphic units 1:1,000,000",
-      "grupo": "geologia",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1089,7 +1075,6 @@
       "id": "estruturas",
       "nome": "Estruturas geológicas (falhas e fraturas)",
       "nome_en": "Geological structures (faults and fractures)",
-      "grupo": "geologia",
       "geometria": "linha",
       "origem": {
         "tipo": "p3m",
@@ -1131,7 +1116,6 @@
       "id": "provincias_estruturais",
       "nome": "Províncias estruturais",
       "nome_en": "Structural provinces",
-      "grupo": "geologia",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1174,7 +1158,6 @@
       "id": "linhas_transmissao",
       "nome": "Linhas de transmissão existentes",
       "nome_en": "Existing transmission lines",
-      "grupo": "infraestrutura",
       "geometria": "linha",
       "origem": {
         "tipo": "p3m",
@@ -1221,7 +1204,6 @@
       "id": "subestacoes",
       "nome": "Subestações existentes",
       "nome_en": "Existing substations",
-      "grupo": "infraestrutura",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1263,7 +1245,6 @@
       "id": "hidreletricas",
       "nome": "Hidrelétricas existentes (UHE, PCH e CGH)",
       "nome_en": "Existing hydropower plants",
-      "grupo": "infraestrutura",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1332,7 +1313,6 @@
       "id": "termeletricas",
       "nome": "Termelétricas existentes",
       "nome_en": "Existing thermal power plants",
-      "grupo": "infraestrutura",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1394,7 +1374,6 @@
       "id": "ferrovias",
       "nome": "Ferrovias",
       "nome_en": "Railways",
-      "grupo": "infraestrutura",
       "geometria": "linha",
       "origem": {
         "tipo": "p3m",
@@ -1437,7 +1416,6 @@
       "id": "terminais_ferroviarios",
       "nome": "Terminais ferroviários",
       "nome_en": "Rail terminals",
-      "grupo": "infraestrutura",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1473,7 +1451,6 @@
       "id": "rodovias_federais",
       "nome": "Rodovias federais",
       "nome_en": "Federal highways",
-      "grupo": "infraestrutura",
       "geometria": "linha",
       "origem": {
         "tipo": "p3m",
@@ -1512,7 +1489,6 @@
       "id": "rodovias_estaduais",
       "nome": "Rodovias estaduais",
       "nome_en": "State highways",
-      "grupo": "infraestrutura",
       "geometria": "linha",
       "origem": {
         "tipo": "p3m",
@@ -1550,7 +1526,6 @@
       "id": "aeroportos",
       "nome": "Aeroportos e aeródromos",
       "nome_en": "Airports and airfields",
-      "grupo": "infraestrutura",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1605,7 +1580,6 @@
       "id": "uc_protecao_integral",
       "nome": "Unidades de conservação — proteção integral",
       "nome_en": "Protected areas — strict protection",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1646,7 +1620,6 @@
       "id": "uc_uso_sustentavel",
       "nome": "Unidades de conservação — uso sustentável",
       "nome_en": "Protected areas — sustainable use",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1687,7 +1660,6 @@
       "id": "terras_indigenas",
       "nome": "Terras indígenas",
       "nome_en": "Indigenous lands",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1728,7 +1700,6 @@
       "id": "quilombolas",
       "nome": "Territórios quilombolas",
       "nome_en": "Quilombola territories",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1774,7 +1745,6 @@
       "id": "assentamentos",
       "nome": "Projetos de assentamento",
       "nome_en": "Land reform settlements",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1824,7 +1794,6 @@
       "id": "cavidades",
       "nome": "Cavidades naturais",
       "nome_en": "Natural caves",
-      "grupo": "restricoes",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1869,7 +1838,6 @@
       "id": "sitios_arqueologicos",
       "nome": "Sítios arqueológicos",
       "nome_en": "Archaeological sites",
-      "grupo": "restricoes",
       "geometria": "ponto",
       "origem": {
         "tipo": "p3m",
@@ -1912,7 +1880,6 @@
       "id": "biomas",
       "nome": "Biomas",
       "nome_en": "Biomes",
-      "grupo": "restricoes",
       "geometria": "poligono",
       "origem": {
         "tipo": "p3m",
@@ -1949,6 +1916,350 @@
         "titulo": "bioma",
         "id": ["bioma"]
       }
+    },
+    {
+      "id": "pocos_siagas",
+      "nome": "Poços de água subterrânea (SIAGAS)",
+      "nome_en": "Groundwater wells (SIAGAS)",
+      "geometria": "ponto",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Siagas (vw_cprm_pocos_siagas).zip"}
+        ]
+      },
+      "fonte": {
+        "nome": "SGB — SIAGAS (Sistema de Informações de Águas Subterrâneas), pelo P3M",
+        "camada": "vw_cprm_pocos_siagas"
+      },
+      "periodo_referencia": null,
+      "chave": "ponto",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "campos": [
+        {"id": "ponto", "fonte": "idt_ponto", "rotulo": "Código do ponto no SIAGAS", "rotulo_en": "SIAGAS point code", "tipo": "inteiro"},
+        {"id": "natureza", "fonte": "str_nature", "rotulo": "Natureza do ponto", "rotulo_en": "Point type", "tipo": "categoria"},
+        {"id": "uso", "fonte": "str_uso_ag", "rotulo": "Uso da água", "rotulo_en": "Water use", "tipo": "categoria"},
+        {"id": "situacao", "fonte": "str_tipo_s", "rotulo": "Situação do poço", "rotulo_en": "Well status", "tipo": "categoria"},
+        {"id": "profundidade_m", "fonte": "num_profun", "rotulo": "Profundidade", "rotulo_en": "Depth", "tipo": "numero", "unidade": "m", "casas": 1},
+        {"id": "nivel_estatico_m", "fonte": "num_ne", "rotulo": "Nível estático", "rotulo_en": "Static water level", "tipo": "numero", "unidade": "m", "casas": 2},
+        {"id": "nivel_dinamico_m", "fonte": "num_nd", "rotulo": "Nível dinâmico", "rotulo_en": "Pumping water level", "tipo": "numero", "unidade": "m", "casas": 2},
+        {"id": "vazao_m3h", "fonte": "num_vazao_", "rotulo": "Vazão de estabilização", "rotulo_en": "Stabilized yield", "tipo": "numero", "unidade": "m³/h", "casas": 2},
+        {"id": "vazao_especifica", "fonte": "num_vazao0", "rotulo": "Vazão específica", "rotulo_en": "Specific capacity", "tipo": "numero", "unidade": "m³/h/m", "casas": 3},
+        {"id": "bacia", "fonte": "str_bacia", "rotulo": "Bacia hidrográfica", "rotulo_en": "River basin", "tipo": "categoria"},
+        {"id": "subbacia", "fonte": "str_subbac", "rotulo": "Sub-bacia", "rotulo_en": "Sub-basin", "tipo": "categoria"},
+        {"id": "instituicao", "fonte": "str_instit", "rotulo": "Instituição que cadastrou", "rotulo_en": "Registering institution", "tipo": "categoria"},
+        {"id": "municipio", "fonte": "str_munici", "rotulo": "Município (texto da fonte)", "rotulo_en": "Municipality (source text)", "tipo": "categoria"},
+        {"id": "municipios_ibge", "fonte": "str_munici", "rotulo": "Municípios (código IBGE)", "rotulo_en": "Municipalities (IBGE code)", "tipo": "municipios_nome", "nota": "nome da fonte casado com a malha do IBGE (sem acento e sem a UF); o que não casa fica sem código"}
+      ],
+      "omitidos": {
+        "str_propri": "proprietário do poço: muitos são pessoas físicas",
+        "str_perfur": "quem perfurou: empresa ou pessoa",
+        "str_local_": "endereço ou nome da propriedade, que identificam o imóvel",
+        "str_nome_p": "nome dado ao poço pelo dono ('Poço 01')",
+        "num_coefic, num_permea, num_transm, dat_data_i, fid": "vazios em todos os registros de Goiás",
+        "num_latitu, num_longit, num_utmn, num_utme, num_cota_t, num_altura": "repetem a geometria ou são detalhe do levantamento",
+        "str_uf": "UF do cadastro (6 registros dizem BA ou PA); a geometria está em Goiás",
+        "id, objectid": "identificadores internos do GeoServer"
+      },
+      "filtros": ["situacao", "uso"],
+      "legenda": {"tipo": "simples", "cor": "#1f78b4"},
+      "notas": [
+        "O arquivo não traz as unidades: são as do SIAGAS (metros e m³/h), coerentes com os valores (profundidade mais comum, 100 m).",
+        "Proprietário, perfurador e endereço ficam de fora: identificam pessoas e imóveis."
+      ],
+      "papeis": {
+        "titulo": "ponto",
+        "municipio": "municipios_ibge",
+        "id": ["ponto"],
+        "situacao": "situacao"
+      },
+      "entidade": "Poços cadastrados no SIAGAS",
+      "entidade_en": "Wells registered in SIAGAS"
+    },
+    {
+      "id": "levantamentos_aerogeofisicos",
+      "nome": "Levantamentos aerogeofísicos (área coberta)",
+      "nome_en": "Airborne geophysical surveys (coverage)",
+      "geometria": "poligono",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Levantamento Aerogeofísico 1000.zip"},
+          {"arquivo": "Levantamento Aerogeofísico 2000.zip"},
+          {"arquivo": "Levantamento Aerogeofísico 3000.zip"},
+          {"arquivo": "Levantamento Aerogeofísico 4000.zip"}
+        ]
+      },
+      "fonte": {
+        "nome": "SGB — P3M, Mapa Índice dos Levantamentos Aerogeofísicos (séries 1000 a 4000)",
+        "camada": "vw_cprm_lev_aerogf_1; vw_cprm_lev_aerogf_2; vw_cprm_lev_aerogf_3; vw_cprm_lev_aerogf_4"
+      },
+      "periodo_referencia": "ano de conclusão de cada levantamento no campo próprio",
+      "chave": "id_fonte",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "tolerancia": 0.002,
+      "nota_tolerancia": "0,002° ≈ 220 m, muito abaixo do espaçamento entre linhas de voo e do tamanho das áreas",
+      "campos": [
+        {"id": "id_fonte", "fonte": "id_projeto", "rotulo": "Código do projeto no SGB", "rotulo_en": "SGB project code", "tipo": "texto"},
+        {"id": "titulo", "fonte": "titulo", "rotulo": "Levantamento", "rotulo_en": "Survey", "tipo": "texto"},
+        {"id": "metodos", "fonte": "metodos", "rotulo": "Métodos", "rotulo_en": "Methods", "tipo": "categoria"},
+        {"id": "ano_conclusao", "fonte": "ano_conclu", "rotulo": "Ano de conclusão", "rotulo_en": "Year completed", "tipo": "ano"},
+        {"id": "ano_projeto", "fonte": "ano_projet", "rotulo": "Ano do projeto", "rotulo_en": "Project year", "tipo": "ano"},
+        {"id": "espacamento_m", "fonte": "espacament", "rotulo": "Espaçamento das linhas de voo", "rotulo_en": "Flight-line spacing", "tipo": "numero", "unidade": "m", "casas": 0},
+        {"id": "altura_voo_m", "fonte": "altura_voo", "rotulo": "Altura de voo", "rotulo_en": "Flight height", "tipo": "numero", "unidade": "m", "casas": 0},
+        {"id": "area_km2", "fonte": "area_levan", "rotulo": "Área levantada", "rotulo_en": "Surveyed area", "tipo": "numero", "unidade": "km²", "casas": 0, "nota": "área do levantamento inteiro, também fora de Goiás"},
+        {"id": "contratante", "fonte": "contratant", "rotulo": "Contratante", "rotulo_en": "Client", "tipo": "categoria"},
+        {"id": "executora", "fonte": "contratada", "rotulo": "Executora", "rotulo_en": "Contractor", "tipo": "categoria"},
+        {"id": "situacao", "fonte": "situacao", "rotulo": "Situação dos dados", "rotulo_en": "Data status", "tipo": "categoria"},
+        {"id": "imagens", "fonte": "imagens", "rotulo": "Imagens do levantamento", "rotulo_en": "Survey images", "tipo": "url", "aceita_texto": true, "nota": "link para baixar as imagens; quando não há link, o texto da fonte diz como obter (por exemplo, pedir à CNEN)"}
+      ],
+      "omitidos": {
+        "id, objectid, id_serie, serie": "identificadores e série interna do SGB",
+        "shape__are, shape__len": "área e perímetro em graus",
+        "direcao_lv, direcao_lc, espacame_1": "direções da malha de voo e espaçamento das linhas de controle",
+        "quilometra, disponibil, intervalo, decada, localizaca": "vazios em todos os registros"
+      },
+      "filtros": ["situacao"],
+      "legenda": {"tipo": "simples", "cor": "#6a3d9a"},
+      "notas": [
+        "Mostra a área coberta por cada levantamento; os dados (magnetometria, gamaespectrometria) ficam no GeoSGB.",
+        "Levantamentos grandes cobrem boa parte do estado e se sobrepõem aos menores."
+      ],
+      "papeis": {
+        "titulo": "titulo",
+        "id": ["titulo", "id_fonte"],
+        "situacao": "situacao",
+        "data": "ano_conclusao"
+      },
+      "entidade": "Levantamentos aerogeofísicos",
+      "entidade_en": "Airborne geophysical surveys"
+    },
+    {
+      "id": "amostras_geoquimicas",
+      "nome": "Amostras geoquímicas do SGB (sedimento, solo, rocha e bateia)",
+      "nome_en": "SGB geochemical samples (stream sediment, soil, rock and pan concentrate)",
+      "geometria": "ponto",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Sedimento de Corrente (vw_cprm_geoq_sedimento_de_corrente).zip"},
+          {"arquivo": "Solo (vw_cprm_geoq_solo).zip"},
+          {"arquivo": "Rocha (vw_cprm_geoq_rocha).zip"},
+          {"arquivo": "Concentrado de bateia (vw_cprm_geoq_concentrado_de_bateia).zip"}
+        ]
+      },
+      "fonte": {
+        "nome": "SGB — P3M, Geoquímica: amostras analisadas (sedimento de corrente, solo, rocha e concentrado de bateia)",
+        "camada": "vw_cprm_geoq_sedimento_de_corrente; vw_cprm_geoq_solo; vw_cprm_geoq_rocha; vw_cprm_geoq_concentrado_de_bateia"
+      },
+      "periodo_referencia": "data de cada análise no campo próprio",
+      "chave": "amostra",
+      "agrupar_por": "amostra",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "campos": [
+        {"id": "amostra", "fonte": "numero_de_", "rotulo": "Amostra (número de campo)", "rotulo_en": "Sample (field number)", "tipo": "texto"},
+        {"id": "classe", "fonte": "classe", "rotulo": "Material amostrado", "rotulo_en": "Sampled material", "tipo": "categoria"},
+        {"id": "projeto", "fonte": "projeto_pu", "rotulo": "Projeto", "rotulo_en": "Project", "tipo": "categoria"},
+        {"id": "numero_lab", "fonte": "numero_de0", "rotulo": "Números de laboratório", "rotulo_en": "Laboratory numbers", "tipo": "lista", "agregar": "distintos"},
+        {"id": "laboratorio", "fonte": "laboratori", "rotulo": "Laboratórios", "rotulo_en": "Laboratories", "tipo": "lista", "agregar": "distintos"},
+        {"id": "data_analise", "fonte": "data_de_an", "rotulo": "Datas das análises", "rotulo_en": "Analysis dates", "tipo": "data", "agregar": "distintos"},
+        {"id": "abertura", "fonte": "abertura", "rotulo": "Aberturas (digestão)", "rotulo_en": "Digestions", "tipo": "lista", "agregar": "distintos"},
+        {"id": "leitura", "fonte": "leitura", "rotulo": "Métodos de leitura", "rotulo_en": "Reading methods", "tipo": "lista", "agregar": "distintos"}
+      ],
+      "omitidos": {
+        "analitos": "elementos e teores de cada análise, cortados em 254 caracteres no arquivo do P3M: incompletos; a análise inteira está no GeoSGB",
+        "objectid": "identificador de cada análise; aqui uma feição é a amostra",
+        "projeto_am": "projeto de amostragem; quase sempre igual ao de publicação (projeto_pu)",
+        "centro_de_": "código interno do centro de custo",
+        "latitude, longitude": "repetem a geometria",
+        "observacao": "texto livre do laboratório, preenchido em parte das análises"
+      },
+      "filtros": ["classe"],
+      "legenda": {"tipo": "categorias", "campo": "classe", "cores": {"Sedimento de corrente": "#0f6fb0", "Solo": "#c2681b", "Rocha": "#5d4037", "Concentrado de bateia": "#b8860b"}},
+      "notas": [
+        "Uma feição por amostra: a camada do SGB repete a amostra uma vez por análise (método ou lote), e as análises viram listas.",
+        "Mostra onde há amostra analisada e por qual método; os teores não vêm completos no arquivo baixado."
+      ],
+      "papeis": {
+        "titulo": "amostra",
+        "id": ["amostra", "numero_lab", "projeto"],
+        "situacao": "classe",
+        "data": "data_analise"
+      },
+      "entidade": "Amostras geoquímicas",
+      "entidade_en": "Geochemical samples"
+    },
+    {
+      "id": "recursos_minerais_go",
+      "nome": "Recursos minerais do mapa geológico de Goiás (SIG, 2008)",
+      "nome_en": "Mineral resources of the Goiás geological map (GIS, 2008)",
+      "geometria": "ponto",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Recursos Minerais SIG.zip"}
+        ]
+      },
+      "fonte": {
+        "nome": "SGB — SIG de Goiás, Recursos Minerais (Mapa Geológico Estadual de Goiás, 2008)",
+        "camada": "vw_cprm_go_rec_min"
+      },
+      "periodo_referencia": "data de cadastro de cada registro no campo próprio",
+      "chave": "id_fonte",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "campos": [
+        {"id": "id_fonte", "fonte": "codigo_obj", "rotulo": "Código na fonte", "rotulo_en": "Source code", "tipo": "inteiro"},
+        {"id": "toponimia", "fonte": "toponimia", "rotulo": "Local (toponímia)", "rotulo_en": "Place name", "tipo": "texto"},
+        {"id": "substancia", "fonte": "subst_prin", "rotulo": "Substância principal (texto da fonte)", "rotulo_en": "Main commodity (source text)", "tipo": "categoria"},
+        {"id": "mineral", "fonte": "subst_prin", "rotulo": "Mineral (categoria ANM)", "rotulo_en": "Mineral (ANM category)", "tipo": "mineral",
+         "apelidos": {"Au": "Ouro", "Ag": "Prata", "Mn": "Manganês", "Sn": "Estanho", "Ni": "Níquel", "Cu": "Cobre", "Ti": "Titânio", "Fe": "Ferro", "Ta": "Tântalo", "Ba": "Bário", "Nb": "Nióbio", "Cr": "Minério de cromo", "Pb": "Minério de chumbo", "Zn": "Minério de zinco", "W": "Minério de tungstênio", "Pt": "Minério de platina", "Be": "Minério de berílio", "Al": "Minério de alumínio", "F": "Fluorita", "P": "Fosfato", "Brita": "Rochas (Britadas) e Cascalho", "Quartzo Hialino (cristal de rocha)": "Quartzo", "Água-marinha": "Água marinha", "Água Termal": "Água termo mineral", "Crisoprásio": "Calcedônia"},
+         "nota": "símbolo químico da fonte lido como a substância (Au = ouro; F = fluorita; P = fosfato) e grafias da fonte lidas pelo nome do crosswalk (brita, água termal, água-marinha); V, U, Mo, pirita, folhelho, epsomita, andaluzita, trona e quartzos de gema não têm categoria na ANM e ficam sem"},
+        {"id": "substancia_sec", "fonte": "subst_sec", "rotulo": "Substância secundária", "rotulo_en": "Secondary commodity", "tipo": "categoria"},
+        {"id": "status", "fonte": "status_eco", "rotulo": "Status econômico", "rotulo_en": "Economic status", "tipo": "categoria"},
+        {"id": "importancia", "fonte": "grau_de_im", "rotulo": "Grau de importância", "rotulo_en": "Importance", "tipo": "categoria"},
+        {"id": "classe_utilitaria", "fonte": "classe_uti", "rotulo": "Classe utilitária", "rotulo_en": "Use class", "tipo": "categoria"},
+        {"id": "tipologia", "fonte": "tipologia", "rotulo": "Tipologia do depósito", "rotulo_en": "Deposit typology", "tipo": "categoria"},
+        {"id": "modelo", "fonte": "modelo_dep", "rotulo": "Modelo de depósito", "rotulo_en": "Deposit model", "tipo": "categoria"},
+        {"id": "rocha_encaixante", "fonte": "rocha_enca", "rotulo": "Rocha encaixante", "rotulo_en": "Wall rock", "tipo": "categoria"},
+        {"id": "rocha_hospedeira", "fonte": "rocha_hosp", "rotulo": "Rocha hospedeira", "rotulo_en": "Host rock", "tipo": "categoria"},
+        {"id": "associacao_mineral", "fonte": "assoc_mine", "rotulo": "Associação mineral", "rotulo_en": "Mineral association", "tipo": "categoria"},
+        {"id": "erro_posicao", "fonte": "erro_metod", "rotulo": "Erro de posição", "rotulo_en": "Position error", "tipo": "categoria"},
+        {"id": "data_cadastro", "fonte": "data_cad", "rotulo": "Data de cadastro", "rotulo_en": "Record date", "tipo": "data"},
+        {"id": "municipio", "fonte": "municipio", "rotulo": "Município (texto da fonte)", "rotulo_en": "Municipality (source text)", "tipo": "categoria"},
+        {"id": "municipios_ibge", "fonte": "municipio", "rotulo": "Municípios (código IBGE)", "rotulo_en": "Municipalities (IBGE code)", "tipo": "municipios_nome", "nota": "nome da fonte casado com a malha do IBGE (sem acento e sem a UF); o que não casa fica sem código"}
+      ],
+      "omitidos": {
+        "gid, inc": "identificadores internos",
+        "abrev": "abreviação da substância principal",
+        "latitude, longitude": "repetem a geometria",
+        "metodo_geo": "método de georreferenciamento (o erro de posição que ele dá está publicado)",
+        "classe_gen, assoc_geoq, textura_mi, tipos_alte, extrmin_x_": "detalhe metalogenético preenchido em parte dos registros",
+        "origem": "sigla da compilação (TOC, PAR, SFC) sem dicionário no arquivo",
+        "uf": "UF do registro (2 dizem DF); a geometria está em Goiás"
+      },
+      "filtros": ["mineral", "status"],
+      "legenda": {"tipo": "categorias", "campo": "status", "cores": {"Mina": "#b03a55", "Garimpo": "#c2681b", "Não explotado": "#57768b"}, "outros": "#8a9aa8"},
+      "notas": [
+        "Compilação do SIG do Mapa Geológico Estadual de Goiás (2008): mina e garimpo são o status registrado ali, não a situação de hoje.",
+        "A posição tem erro de 250 m a 1 km em 9 de cada 10 registros (campo próprio)."
+      ],
+      "papeis": {
+        "titulo": "toponimia",
+        "municipio": "municipios_ibge",
+        "mineral": "mineral",
+        "id": ["toponimia", "id_fonte"],
+        "situacao": "status",
+        "data": "data_cadastro"
+      },
+      "entidade": "Ocorrências, depósitos e minas do mapa estadual",
+      "entidade_en": "Occurrences, deposits and mines of the state map"
+    },
+    {
+      "id": "mapeamentos_geologicos",
+      "nome": "Mapeamentos geológicos do SGB (índice das folhas, 1:25.000 a 1:1.000.000)",
+      "nome_en": "SGB geological mapping (sheet index, 1:25,000 to 1:1,000,000)",
+      "geometria": "poligono",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Mapeamentos 1-25.000 (vw_cprm_map_geo_25k).zip", "constantes": {"escala_mapa": "1:25.000"}},
+          {"arquivo": "Mapeamentos 1-50.000 (vw_cprm_map_geo_50k).zip", "constantes": {"escala_mapa": "1:50.000"}},
+          {"arquivo": "Mapeamentos 1-100.000 (vw_cprm_map_geo_100k).zip", "constantes": {"escala_mapa": "1:100.000"}},
+          {"arquivo": "Mapeamentos 1-250.000 (vw_cprm_map_geo_250k).zip", "constantes": {"escala_mapa": "1:250.000"}},
+          {"arquivo": "Mapeamentos 1-1.000.000 (vw_cprm_map_geo_1m).zip", "constantes": {"escala_mapa": "1:1.000.000"}}
+        ]
+      },
+      "fonte": {
+        "nome": "SGB — P3M, Mapas Índices de Mapeamento Geológico (1:25.000 a 1:1.000.000)",
+        "camada": "vw_cprm_map_geo_25k; vw_cprm_map_geo_50k; vw_cprm_map_geo_100k; vw_cprm_map_geo_250k; vw_cprm_map_geo_1m"
+      },
+      "periodo_referencia": "ano de cada mapa no campo próprio",
+      "chave": "id_fonte",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "tolerancia": 0.0005,
+      "nota_tolerancia": "0,0005° ≈ 55 m: as folhas são retângulos da articulação sistemática",
+      "campos": [
+        {"id": "id_fonte", "fonte": "objectid", "rotulo": "Identificador na fonte", "rotulo_en": "Source identifier", "tipo": "inteiro"},
+        {"id": "escala_mapa", "rotulo": "Escala", "rotulo_en": "Scale", "tipo": "categoria"},
+        {"id": "projeto", "fonte": "projeto", "rotulo": "Projeto", "rotulo_en": "Project", "tipo": "texto"},
+        {"id": "folha", "fonte": "cod_folha", "rotulo": "Folha (código)", "rotulo_en": "Sheet (code)", "tipo": "texto"},
+        {"id": "nome_folha", "fonte": "nome_folha", "rotulo": "Folha (nome)", "rotulo_en": "Sheet (name)", "tipo": "texto"},
+        {"id": "ano_mapa", "fonte": "ano_mapa", "rotulo": "Ano do mapa", "rotulo_en": "Map year", "tipo": "ano"},
+        {"id": "execucao", "fonte": "execucao", "rotulo": "Execução", "rotulo_en": "Executed by", "tipo": "categoria"},
+        {"id": "ciclo", "fonte": "ciclo_map", "rotulo": "Ciclo de mapeamento", "rotulo_en": "Mapping cycle", "tipo": "categoria"},
+        {"id": "relatorio", "fonte": "url_rigeo", "rotulo": "Relatório no RIGEO", "rotulo_en": "Report in RIGEO", "tipo": "url"}
+      ],
+      "omitidos": {
+        "escala": "repete a escala do arquivo (publicada como texto)",
+        "enquadrant, download_m, download_s, download_r, foto": "vazios ou preenchidos em poucas folhas; os arquivos do mapa estão no RIGEO"
+      },
+      "filtros": ["escala_mapa"],
+      "legenda": {"tipo": "categorias", "campo": "escala_mapa", "cores": {"1:25.000": "#7a0177", "1:50.000": "#c51b8a", "1:100.000": "#f768a1", "1:250.000": "#3182bd", "1:1.000.000": "#9ecae1"}},
+      "notas": [
+        "Mostra que folhas já têm mapa geológico publicado e em que escala; o mapa em si está no relatório do RIGEO.",
+        "Folhas de escalas diferentes se sobrepõem."
+      ],
+      "papeis": {
+        "titulo": ["projeto", "folha"],
+        "id": ["folha", "nome_folha", "projeto"],
+        "situacao": "escala_mapa",
+        "data": "ano_mapa"
+      },
+      "entidade": "Folhas mapeadas",
+      "entidade_en": "Mapped sheets"
+    },
+    {
+      "id": "usinas_etanol",
+      "nome": "Usinas de etanol (EPE)",
+      "nome_en": "Ethanol plants (EPE)",
+      "geometria": "ponto",
+      "origem": {
+        "tipo": "p3m",
+        "arquivos": [
+          {"arquivo": "Etanol (vw_epe_plt_et).zip"}
+        ]
+      },
+      "fonte": {
+        "nome": "EPE, pelo P3M — Biocombustíveis: usinas de etanol",
+        "camada": "vw_epe_plt_et"
+      },
+      "periodo_referencia": null,
+      "chave": "id_fonte",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "campos": [
+        {"id": "id_fonte", "fonte": "id", "rotulo": "Identificador na fonte", "rotulo_en": "Source identifier", "tipo": "inteiro"},
+        {"id": "nome", "fonte": "nome", "rotulo": "Usina", "rotulo_en": "Plant", "tipo": "texto"},
+        {"id": "tipo", "fonte": "tipo", "rotulo": "Tipo", "rotulo_en": "Type", "tipo": "categoria"},
+        {"id": "situacao", "fonte": "situacao", "rotulo": "Situação", "rotulo_en": "Status", "tipo": "categoria"},
+        {"id": "anidro_m3d", "fonte": "cpanhm3d", "rotulo": "Capacidade de etanol anidro", "rotulo_en": "Anhydrous ethanol capacity", "tipo": "numero", "unidade": "m³/dia", "casas": 0, "nota": "0 na fonte: a usina não tem capacidade registrada para etanol anidro"},
+        {"id": "hidratado_m3d", "fonte": "cphidrm3d", "rotulo": "Capacidade de etanol hidratado", "rotulo_en": "Hydrous ethanol capacity", "tipo": "numero", "unidade": "m³/dia", "casas": 0, "nota": "0 na fonte: a usina não tem capacidade registrada para etanol hidratado"},
+        {"id": "classe_capacidade", "fonte": "classecap", "rotulo": "Classe de capacidade (texto da fonte, sem unidade)", "rotulo_en": "Capacity class (source text, no unit)", "tipo": "categoria"},
+        {"id": "municipio", "fonte": "cidade", "rotulo": "Município (texto da fonte)", "rotulo_en": "Municipality (source text)", "tipo": "categoria"},
+        {"id": "municipios_ibge", "fonte": "cidade", "rotulo": "Municípios (código IBGE)", "rotulo_en": "Municipalities (IBGE code)", "tipo": "municipios_nome", "nota": "nome da fonte casado com a malha do IBGE (sem acento e sem a UF); o que não casa fica sem código"}
+      ],
+      "omitidos": {
+        "caprocmi": "capacidade de processamento sem unidade no arquivo (zero em 41 das 48 usinas)",
+        "região, uf, latitude, longitude": "repetem a localização"
+      },
+      "filtros": ["tipo", "situacao"],
+      "legenda": {"tipo": "categorias", "campo": "tipo", "cores": {"Etanol Cana 1G": "#2e7d32", "Etanol 1G e Açúcar": "#66bb6a", "Etanol Milho Flex": "#f9a825", "Etanol Milho Full": "#c2681b"}, "outros": "#8a9aa8"},
+      "notas": [
+        "As 23 termelétricas a biomassa da camada da EPE queimam bagaço de cana (cogeração das usinas); esta camada mostra a produção de etanol."
+      ],
+      "papeis": {
+        "titulo": "nome",
+        "municipio": "municipios_ibge",
+        "id": ["nome"],
+        "situacao": "situacao"
+      },
+      "entidade": "Usinas de etanol",
+      "entidade_en": "Ethanol plants"
     }
   ],
   "tabelas": [

@@ -23,7 +23,7 @@ const ORDEM_TOQUE=['mp-pontos','mp-linhas','mp-areas','mp-fundo','mp-limites'];
 const BASE=new Set(['limite_goias','municipios']);   // context layers: drawn whole, never thinned by filters
 const POR_PAGINA=50,RAIO=5;
 
-let cat=null,map=null,carregando=null,mascara=null,tiles=null,destaque=null,legendaCtrl=null,munDestaque=null;
+let cat=null,map=null,carregando=null,mascara=null,tiles=null,destaque=null,legendaCtrl=null,munDestaque=null,botaoCheia=null;
 let COMP=null,compProm=null,MUNTAB=null,RADAR=null,ATLAS_MUN=null,MUN_POR_NOME=null,MIN_CANON=null,GO_BOUNDS=null;
 const estados=new Map();
 const filtros={municipios:new Set(),minerais:new Set(),titular:'',id:'',situacao:new Set(),periodo:null,busca:'',area:false};
@@ -34,7 +34,7 @@ function paneDe(e){
  if(BASE.has(e.id))return 'mp-limites';
  if(e.geometria==='ponto')return 'mp-pontos';
  if(e.geometria==='linha')return 'mp-linhas';
- return e.grupo==='mineracao'||e.grupo==='empreendimentos'?'mp-areas':'mp-fundo';
+ return e.grupo==='atividade_mineira'?'mp-areas':'mp-fundo';  // mineral rights and projects above the background areas
 }
 function estadoInicial(entrada,tipo){
  return {id:entrada.id,entrada,tipo,visivel:!!entrada.visivel_padrao,opacidade:1,cores:new Map(),status:'ocioso',erro:'',modelo:null,prom:null,
@@ -337,6 +337,23 @@ function fonteHtml(e,radar){
   (radar?'':`<p><b>${escape(t('mp.snapshot'))}:</b> ${escape(dataR)} · <b>${escape(t('mp.refPeriod'))}:</b> ${ref}</p>`)+`</div>`;
 }
 
+// What the P3M inventory (Squad 1/P3M/inventario_p3m.csv) says of each source layer: Squad 1 folder, classification on the P3M site,
+// agency, summary, the day Squad 1 downloaded it and the last update at SGB when SGB publishes one.
+function p3mHtml(e){
+ if(!e.p3m)return '';
+ const inv=cat.p3m.inventario,ext=u=>/^https:\/\//.test(u||'');
+ return `<div class="mp-source mp-p3m"><p class="mp-p3m-head">${escape(t('mp.p3mTitle'))}</p>`+e.p3m.map(f=>
+   `<p><b>${escape(f.titulo)}</b> <code>${escape(f.camada)}</code></p>`+
+   `<p><b>${escape(t('mp.p3mClass'))}:</b> ${escape(f.classificacao.join(' › ')||t('mp.notInformed'))}</p>`+
+   (f.outras_classificacoes.length?`<details class="mp-omit"><summary>${escape(t('mp.p3mOther',{n:f.outras_classificacoes.length}))}</summary><ul>${f.outras_classificacoes.map(x=>`<li>${escape(x)}</li>`).join('')}</ul></details>`:'')+
+   `<p><b>${escape(t('mp.p3mFolder'))}:</b> ${escape(f.pasta)} · <b>${escape(t('mp.p3mAgency'))}:</b> ${escape(f.orgao)}</p>`+
+   `<p><b>${escape(t('mp.p3mDownloaded'))}:</b> ${escape(dataBR(f.baixado_em))} · <b>${escape(t('mp.p3mUpdated'))}:</b> `+
+    `${f.atualizacao_sgb?escape(dataBR(f.atualizacao_sgb))+' <span class="mp-note">· '+escape(f.fonte_atualizacao_sgb)+'</span>':escape(t('mp.p3mNotPublished'))}</p>`+
+   (f.resumo?`<p class="mp-note">${escape(f.resumo)}</p>`:'')+
+   (ext(f.metadados)?`<p><a href="${escape(f.metadados)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.p3mMetadata'))} ↗</a></p>`:'')).join('')+
+  (ext(inv.url)?`<p><a href="${escape(inv.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.inventoryLink'))} ↗</a> <span class="mp-note">${escape(t('mp.inventoryNote',{n:num(inv.camadas,0),m:num(inv.no_mapa,0)}))}</span></p>`:'')+`</div>`;
+}
+
 /* ---------- universe under analysis: table + indicators ---------- */
 function estadoAnalise(){return estados.get(analise)}
 function linhasAnalise(){
@@ -442,7 +459,7 @@ function exportarCsv(){
  const safe=v=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
  const e=st.entrada,f=e.fonte||{};
  const meta=[[t('mp.csvLayer'),rot(e)],[t('mp.source'),typeof f==='string'?f:f.nome||''],[t('mp.snapshot'),String(e.data_retrato??t('mp.notRecorded'))],[t('mp.refPeriod'),e.periodo_referencia||t('mp.refNotInformed')],
-  [t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
+  ...(e.p3m?[[t('mp.inventoryLink'),cat.p3m.inventario.url]]:[]),[t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
  const linhas=[...meta,[],cols.map(c=>rotulo(c)+(c.unidade?' ('+c.unidade+')':'')),...idx.map(i=>cols.map(c=>textoExport(c,c.get(i))))];
  baixar(`mapa-mineral-goias-${st.id}.csv`,'text/csv;charset=utf-8','﻿'+linhas.map(r=>r.map(safe).join(';')).join('\r\n'));
  el('mp-export-msg').textContent=t('mp.csvDone',{n:num(idx.length,0)});
@@ -473,7 +490,8 @@ function exportarGeojson(){
   feats.push({type:'Feature',geometry:g,properties:Object.fromEntries(cols.map(c=>{const v=c.get(i)??null;return [c.id.replace('@',''),c.tipo==='numero'&&v!=null?+Number(v).toFixed(c.casas??2):v]}))})}
  const e=st.entrada,f=e.fonte||{};
  const fc={type:'FeatureCollection',name:`mapa-mineral-goias-${st.id}`,
-  metadados:{camada:rot(e),fonte:typeof f==='string'?f:f.nome||'',data_retrato:e.data_retrato??null,periodo_referencia:e.periodo_referencia??null,filtros:descricaoFiltros(),
+  metadados:{camada:rot(e),fonte:typeof f==='string'?f:f.nome||'',data_retrato:e.data_retrato??null,periodo_referencia:e.periodo_referencia??null,
+   ...(e.p3m?{inventario_p3m:cat.p3m.inventario.url}:{}),filtros:descricaoFiltros(),
    registros_no_recorte:idx.length,registros_sem_geometria:sem,crs:'WGS 84 / SIRGAS 2000 (graus, longitude e latitude)',aviso:t('mp.geoWarning')},features:feats};
  baixar(`mapa-mineral-goias-${st.id}.geojson`,'application/geo+json',JSON.stringify(fc));
  el('mp-export-msg').textContent=t('mp.geoDone',{n:num(feats.length,0),sem:num(sem,0)});
@@ -507,6 +525,9 @@ async function baixarShapefile(st){
   const leiame=['Mapa Mineral de Goiás — '+rot(e),'',
    t('mp.source')+': '+(typeof f==='string'?f:[f.nome,f.url].filter(Boolean).join(' · ')),
    t('mp.snapshot')+': '+dataR+' · '+t('mp.refPeriod')+': '+(e.periodo_referencia||t('mp.refNotInformed')),
+   ...(e.p3m||[]).map(f=>`P3M: ${f.titulo} (${f.camada}) · ${f.classificacao.join(' › ')} · ${t('mp.p3mFolder')}: ${f.pasta} · ${t('mp.p3mAgency')}: ${f.orgao} · `+
+    `${t('mp.p3mDownloaded')}: ${dataBR(f.baixado_em)} · ${t('mp.p3mUpdated')}: ${f.atualizacao_sgb?dataBR(f.atualizacao_sgb)+', '+f.fonte_atualizacao_sgb:t('mp.p3mNotPublished')}`),
+   ...(e.p3m?[t('mp.inventoryLink')+': '+cat.p3m.inventario.url]:[]),
    t('mp.shpGenerated',{data:dataBR(iso)}),'',
    t('mp.shpWhole'),t('mp.shpCount',{n:num(registros.length,0),sem:num(sem,0)}),prj?t('mp.shpCrs',{crs}):t('mp.shpNoCrs'),
    t('mp.geoWarning'),...(e.geometria==='poligono'?[t('mp.shpInvalid')]:[]),t('mp.csvUseText'),t('mp.shpText'),'',
@@ -546,7 +567,7 @@ function gruposPainel(){
   .map(g=>({g,camadas:[...estados.values()].filter(st=>secao(st)===g.id)})).filter(x=>x.camadas.length);
 }
 function painelCamadas(){
- const aberto=new Set(['territorio','mineracao','empreendimentos']);
+ const aberto=new Set(['recursos','atividade_mineira']);
  el('mp-groups').innerHTML=gruposPainel().map(({g,camadas})=>`<details class="mp-group" ${aberto.has(g.id)?'open':''}><summary>${escape(rot(g))} <small>${camadas.length}</small></summary>`+
   (g.id==='site'?`<p class="mp-hint">${escape(t('mp.groupSiteHint'))}</p>`:'')+
   camadas.map(st=>{const e=st.entrada,cor=(itensLegenda(st)[0]||[])[1]||'#57768b';
@@ -563,7 +584,7 @@ function infoCamada(st){
  const feicoes=st.tipo==='radar'?t('mp.radarRows',{n:num(e.linhas,0)}):t('mp.features',{n:num(e.n_feicoes,0)})+(e.n_registros_fonte?' '+t('mp.fromRecords',{n:num(e.n_registros_fonte,0)}):'');
  box.innerHTML=`<div class="mp-leg">${legendaEditavel(st)}</div><p class="mp-note">${escape(t('mp.styleHint'))}</p>`+
   (e.ponto_ate_zoom?`<p class="mp-note">${escape(t('mp.pointMode',{z:e.ponto_ate_zoom}))}</p>`:'')+
-  fonteHtml(e,st.tipo==='radar')+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
+  fonteHtml(e,st.tipo==='radar')+p3mHtml(e)+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
   `<p><button type="button" class="link-button" data-acao="baixar">${escape(t('mp.shpDownload'))} ↓</button></p>`+
   (e.notas&&e.notas.length?`<ul class="mp-notes-list">${e.notas.map(n=>`<li>${escape(n)}</li>`).join('')}</ul>`:'')+
   (e.recorte?`<p class="mp-note">${escape(e.recorte)}</p>`:'')+
@@ -679,7 +700,8 @@ function fontes(){
  const vis=[...estados.values()].filter(s=>s.visivel||s.id===analise),vistos=new Set();
  const itens=[];for(const st of vis){const e=st.entrada,nome=st.tipo==='radar'?e.fonte:(e.fonte||{}).nome;if(!nome||vistos.has(nome))continue;vistos.add(nome);
   const d=st.tipo==='radar'?'':Array.isArray(e.data_retrato)?e.data_retrato.map(dataBR).join(', '):e.data_retrato?dataBR(e.data_retrato):t('mp.notRecorded');itens.push(nome+(d?' ('+d+')':''))}
- el('mp-sources').textContent=t('mp.sourcesLine',{fontes:itens.join('; ')});
+ const inv=cat.p3m.inventario;
+ el('mp-sources').innerHTML=escape(t('mp.sourcesLine',{fontes:itens.join('; ')}))+` · <a href="${escape(inv.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.inventoryLink'))} ↗</a>`;
 }
 
 /* ---------- init ---------- */
@@ -688,6 +710,11 @@ function controles(){
  const Voltar=L.Control.extend({onAdd(){const b=L.DomUtil.create('button','mp-home leaflet-bar');b.type='button';b.textContent=t('mp.backToGoias');b.title=t('mp.backToGoias');
   L.DomEvent.disableClickPropagation(b);b.onclick=()=>map.fitBounds(GO_BOUNDS,{padding:[12,12]});return b}});
  new Voltar({position:'topleft'}).addTo(map);
+ // inside the map, under "back to Goiás": the details panel covers the right of the toolbar, never this corner
+ const Cheia=L.Control.extend({onAdd(){const b=L.DomUtil.create('button','mp-home mp-fs leaflet-bar');b.type='button';b.id='mp-fullscreen';b.setAttribute('aria-pressed','false');
+  b.innerHTML=`<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path d="M1 6V1h5M10 1h5v5M15 10v5h-5M6 15H1v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span id="mp-fullscreen-label">${escape(t('mp.fullscreen'))}</span>`;
+  L.DomEvent.disableClickPropagation(b);b.onclick=()=>telaCheia(!emTelaCheia());botaoCheia=b;return b}});
+ new Cheia({position:'topleft'}).addTo(map);
  const Leg=L.Control.extend({onAdd(){const d=L.DomUtil.create('div','mp-legend leaflet-bar');d.innerHTML=`<button type="button" class="mp-legend-toggle" aria-expanded="true">${escape(t('mp.legend'))}</button><div class="mp-legend-body"></div>`;
   L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);
   d.querySelector('.mp-legend-toggle').onclick=ev=>{const on=d.classList.toggle('fechada');ev.currentTarget.setAttribute('aria-expanded',String(!on))};return d}});
@@ -720,7 +747,9 @@ function eventos(){
   el('mp-side-toggle').setAttribute('aria-expanded',String(abrir));if(abrir&&movel)el('mp-side-close').focus()};
  el('mp-side-toggle').onclick=()=>{const work=el('mp-work'),movel=window.matchMedia('(max-width:900px)').matches;lado(movel?!work.classList.contains('mp-side-open'):work.classList.contains('mp-side-off'))};
  el('mp-side-close').onclick=()=>lado(false);el('mp-backdrop').onclick=()=>lado(false);
- document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&el('mp-work').classList.contains('mp-side-open'))lado(false)});
+ document.addEventListener('fullscreenchange',marcarTelaCheia);
+ document.addEventListener('keydown',ev=>{if(ev.key!=='Escape')return;if(el('mp-work').classList.contains('mp-side-open'))lado(false);
+  else if(el('mp-work').classList.contains('mp-cheia'))telaCheia(false)});  // the browser's own full screen leaves on Esc by itself
  el('mp-f-titular').oninput=ev=>{filtros.titular=ev.target.value.trim();mudouFiltroTexto()};
  el('mp-f-id').oninput=ev=>{filtros.id=ev.target.value.trim();mudouFiltroTexto()};
  el('mp-search').oninput=ev=>{filtros.busca=ev.target.value.trim();mudouFiltroTexto()};
@@ -756,6 +785,20 @@ function eventos(){
 }
 let espTexto=null;function mudouFiltroTexto(){clearTimeout(espTexto);espTexto=setTimeout(mudouFiltro,250)}
 
+/* ---------- full screen: the work area (layers, filters, map and details) fills the screen; Esc or the button leave ---------- */
+// The Fullscreen API where the browser has it for any element; elsewhere (iPhone Safari) a fixed layer over the page does the same.
+function emTelaCheia(){return document.fullscreenElement===el('mp-work')||el('mp-work').classList.contains('mp-cheia')}
+function telaCheia(entrar){
+ const w=el('mp-work');
+ if(entrar){if(w.requestFullscreen&&document.fullscreenEnabled)w.requestFullscreen().catch(()=>{w.classList.add('mp-cheia');marcarTelaCheia()});else{w.classList.add('mp-cheia');marcarTelaCheia()}}
+ else{w.classList.remove('mp-cheia');if(document.fullscreenElement)document.exitFullscreen().catch(()=>null);marcarTelaCheia()}
+}
+function marcarTelaCheia(){
+ const on=emTelaCheia();
+ botaoCheia.setAttribute('aria-pressed',String(on));botaoCheia.querySelector('span').textContent=t(on?'mp.fullscreenExit':'mp.fullscreen');
+ if(map)requestAnimationFrame(()=>map.invalidateSize());
+}
+
 async function init(){
  if(!window.L)throw Error(t('mp.leafletFail'));
  if(!window.MapaDados)throw Error(t('mp.loaderFail'));
@@ -767,7 +810,7 @@ async function init(){
  cfemPeriodo=[+MUNTAB.medidas.cfem_recolhida.periodo_padrao,+MUNTAB.medidas.cfem_recolhida.periodo_padrao];
  for(const e of cat.camadas)estados.set(e.id,estadoInicial(e,'catalogo'));
  const r=cat.tabelas.find(x=>x.id==='radar_projetos');
- const radarEntrada={...r,id:'radar_projetos',nome:t('mp.radarLayer'),nome_en:t('mp.radarLayer'),grupo:'empreendimentos',geometria:'poligono',visivel_padrao:false,chave:'id',
+ const radarEntrada={...r,id:'radar_projetos',nome:t('mp.radarLayer'),nome_en:t('mp.radarLayer'),grupo:'atividade_mineira',geometria:'poligono',visivel_padrao:false,chave:'id',
   legenda:{tipo:'categorias',campo:'maturidade',cores:MATURIDADE},bytes:r.bytes,linhas:r.linhas};
  estados.set('radar_projetos',estadoInicial(radarEntrada,'radar'));
  el('mp-content').hidden=false;

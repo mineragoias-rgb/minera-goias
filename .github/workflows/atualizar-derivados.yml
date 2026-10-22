@@ -1,8 +1,9 @@
 name: Atualizar derivados das bases
 
 # Quando uma base do Squad 1 muda na main, tudo o que sai dela é refeito aqui e volta para a main:
-#   1. scripts/atualizar_derivados.py roda os geradores na ordem de dependência — pacote do Squad 2, Panorama, Produção,
-#      Empresas, intensidade energética do Squad 2, carteira de projetos e parâmetros do Simulador — e os testes das saídas;
+#   1. scripts/atualizar_derivados.py roda os geradores na ordem de dependência — inventário do P3M e Mapa mineral, pacote do
+#      Squad 2, Panorama, Produção, Empresas, intensidade energética do Squad 2, carteira de projetos e parâmetros do Simulador —
+#      e os testes das saídas;
 #   2. se algum derivado mudou e os testes passaram, o commit vai para a main;
 #   3. a VPS baixa o commit em até 2 minutos, como faz com as notícias.
 # O commit deste job é feito com o GITHUB_TOKEN, que não dispara outros workflows: não há laço, e por isso os testes
@@ -21,6 +22,11 @@ on:
       - 'scripts/atualizar_derivados.py'
       - 'tests/test_derivados.py'
       - 'scripts/build_inventario_p3m.py'
+      - 'scripts/build_mapa_base.py'
+      - 'scripts/mapa_camadas.json'
+      - 'scripts/build_projetos_minerais_goias.py'
+      - 'Squad 1/Radar de Projetos/**'
+      - 'data/atlas/**'
       - 'scripts/build_panorama_base.py'
       - 'scripts/build_producao_base.py'
       - 'scripts/build_empresas_base.py'
@@ -51,7 +57,8 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependências dos geradores
-        run: python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+        # pyshp e shapely nas versões em que data/mapa foi gerado: outra versão do GEOS simplifica diferente e mudaria o mapa
+        run: python -m pip install -r "Squad 2/modello_reale/requirements.txt" pyshp==3.1.6 shapely==2.2.0
 
       - name: Conferir que orquestrador e workflow descrevem a mesma cadeia
         run: python -m unittest discover -s tests -p test_derivados.py -v
@@ -74,7 +81,7 @@ jobs:
       - name: Publicar na main
         run: |
           saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
-                  "Squad 1/P3M/inventario_p3m.csv"
+                  "Squad 1/P3M/inventario_p3m.csv" data/mapa
                   "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
           git add -A -- "${saidas[@]}"
           if git diff --cached --quiet; then

@@ -4,7 +4,9 @@
 Entradas (todas no repositório):
   Squad 1/P3M/Recortado pelo polígono de Goiás/<pasta temática>/*.zip   camadas do P3M já cortadas pelo limite de Goiás (SIRGAS 2000)
   Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip                     limite estadual do IBGE usado no recorte (marca as feições na divisa)
-  Squad 1/P3M/inventario_p3m.csv                                         data de download de cada zip (retrato de cada camada)
+  Squad 1/P3M/inventario_p3m.csv                                         de cada zip: data de download (retrato da camada), data de
+                                                                         atualização no SGB, pasta temática (grupo do painel),
+                                                                         classificação do site P3M, órgão e resumo
   data/atlas/atlas.json e processes.json               municípios, CFEM, projetos (aba 04), ocorrências e processos já publicados
   Squad 1/Radar de Projetos/ e Squad 1/Dados brutos/   Radar de Projetos e titulares PJ (scripts/build_projetos_minerais_goias.py)
   Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx   crosswalk de substâncias (aba 01b)
@@ -320,7 +322,7 @@ class Coluna:
                     raise ValueError
                 return d
             if tipo == 'url':
-                if not s.startswith('http'):
+                if not s.startswith('http') and not sp.get('aceita_texto'):  # aceita_texto: o aviso no lugar do link também é dado
                     raise ValueError
                 return s
             if tipo == 'municipios':
@@ -338,7 +340,7 @@ class Coluna:
                     self.sem_municipio[n] += 1
                 return codigos or None
             if tipo == 'mineral':
-                k = sem_acento(s)
+                k = sem_acento(sp.get('apelidos', {}).get(s, s))
                 if k in self.minerais:
                     return self.minerais[k]
                 self.sem_mineral[('ambígua: ' if k in self.ambiguos else '') + s] += 1
@@ -415,21 +417,37 @@ def zips_p3m(pasta):
     return {n: v[0] for n, v in achados.items()}
 
 
-def baixados_no_retrato(cfg):
-    """Zips cuja data de download no inventário do P3M é a do retrato de 21/10/2026 (antes: os da pasta 'Baixados')."""
+def inventario_p3m(cfg):
+    """Linha do inventário do P3M (Squad 1/P3M/inventario_p3m.csv, gerado por scripts/build_inventario_p3m.py) de cada zip, pelo
+    nome. Devolve (zip -> linha, número de camadas do inventário)."""
     with open(RAIZ / cfg['p3m']['inventario'], encoding='utf-8-sig', newline='') as f:
-        return {Path(a).name for r in csv.DictReader(f, delimiter=';') if r['data_download'] == cfg['p3m']['retrato_baixados']
-                for a in r['arquivo_original'].split(';') if a}
+        linhas = list(csv.DictReader(f, delimiter=';'))
+    por_zip = {}
+    for r in linhas:
+        for col in ('arquivo_recortado', 'arquivo_original'):
+            for a in r[col].split(';'):
+                if a:
+                    por_zip.setdefault(Path(a).name, r)
+    return por_zip, len(linhas)
 
 
-def camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_proc, mun_por_nome):
+def ficha_p3m(r):
+    """O que o painel mostra de cada camada de origem: classificação do site P3M, pasta temática do Squad 1, órgão, resumo e datas."""
+    return {'camada': r['camada'], 'titulo': r['titulo_p3m'], 'pasta': r['pasta_tematica'],
+            'classificacao': [x for x in (r['categoria_p3m'], r['tema_p3m'], r['subtema_p3m']) if x],
+            'outras_classificacoes': [x.strip() for x in r['outras_classificacoes_p3m'].split('|') if x.strip()],
+            'orgao': r['orgao'], 'resumo': r['resumo'] if r['resumo'] and r['resumo'] != 'Resumo não fornecido' else None,
+            'baixado_em': r['data_download'], 'atualizacao_sgb': r['data_atualizacao_sgb'] or None,
+            'fonte_atualizacao_sgb': r['fonte_data_sgb'], 'metadados': r['metadado_url'] or None}
+
+
+def camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambiguos, titular_proc, mun_por_nome):
     zips = zips_p3m(RAIZ / cfg['p3m']['pasta'])
-    baixados = baixados_no_retrato(cfg)
     nulos = set(cfg['nulos_padrao']) | {s.casefold() for s in cfg['nulos_padrao']}
     tipo = spec['geometria']
     val = {'arquivos': [], 'erros': [], 'alertas': []}
     colunas = [Coluna(c, nulos | set(c.get('nulos', [])), minerais, ambiguos, spec.get('posicao'), mun_por_nome) for c in spec['campos']]
-    registros, retratos = [], set()
+    registros, retratos, fichas = [], set(), {}
     titular_origem = collections.Counter()
     ausentes = collections.defaultdict(list)  # campo -> arquivos da camada que não o têm (fica nulo nesses arquivos)
     for arq in spec['origem']['arquivos']:
@@ -440,7 +458,12 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_
         esperado = int(indice[nome]['registros_em_goias']) if nome in indice else None
         if esperado is not None and esperado != n:
             val['erros'].append(f'{nome}: {n} registros, o índice do recorte diz {esperado}')
-        retratos.add(cfg['p3m']['retrato_baixados'] if nome in baixados else cfg['p3m']['retrato_primeiros'])
+        linha = inventario.get(nome)
+        if linha is None or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', linha['data_download']):
+            val['erros'].append(f'{nome}: sem linha ou sem data de download no inventário do P3M')
+        else:
+            retratos.add(linha['data_download'])  # o retrato de cada camada é o dia em que o Squad 1 baixou o zip
+            fichas.setdefault(linha['camada'], ficha_p3m(linha))
         val['arquivos'].append({'arquivo': nome, 'registros': n, 'registros_no_indice': esperado,
                                 'fiapos_removidos_no_recorte': int(indice[nome]['fiapos_de_divisa_removidos']) if nome in indice else None})
         campos_fonte = [f[0] for f in leitor.fields[1:]]
@@ -555,7 +578,7 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_
     valores, dic = colunas_de_saida(feicoes, campos)
     pacote = {'id': spec['id'], 'formato': 'mapa-v1', 'geometria': tipo, 'n': len(feicoes), 'bounds': caixa, **geo,
               'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
-    meta = {'retratos': sorted(retratos), 'campos': campos}
+    meta = {'retratos': sorted(retratos), 'campos': campos, 'p3m': list(fichas.values())}
     return pacote, meta, val
 
 
@@ -737,6 +760,7 @@ def entrada_catalogo(spec, cfg, meta, n, n_fonte, nbytes, val=None):
         e['data_retrato'] = retratos[0] if len(retratos) == 1 else retratos
         e['campos'] = meta['campos']
         e['fonte_arquivos'] = [a['arquivo'] for a in o['arquivos']]
+        e['p3m'] = meta['p3m']
         e['recorte'] = ('Cortada pelo limite estadual do IBGE (GO_UF_2024): pontos dentro ou na divisa; linhas e polígonos que cruzam a divisa '
                         'cortados no limite, com os atributos da feição inteira (área, extensão e contagens não são rateados).')
         if spec.get('tolerancia'):
@@ -770,14 +794,20 @@ def montar(cfg):
     # grafias da fonte que não são o nome do IBGE (erro de digitação ou nome sem 'de Goiás'), listadas no catálogo
     mun_por_nome.update({sem_acento(a): mun_por_nome[sem_acento(n)] for a, n in cfg.get('apelidos_municipios', {}).items()})
 
+    inventario, n_inventario = inventario_p3m(cfg)
     grupos = {g['id'] for g in cfg['grupos']}
+    grupo_da_pasta = {g['pasta']: g['id'] for g in cfg['grupos']}
     ids = [c['id'] for c in cfg['camadas']]
     assert len(ids) == len(set(ids)), 'id de camada repetido no catálogo'
     camadas_saida, entradas, validacao = {}, [], {'camadas': {}, 'erros': [], 'alertas': []}
     chaves_processos = None
     minas_por_mun = []
     for spec in cfg['camadas']:
-        assert spec['grupo'] in grupos, f"{spec['id']}: grupo {spec['grupo']} não existe"
+        # O grupo do painel é a pasta temática do Squad 1: nas camadas do P3M ele vem do inventário, nas do Atlas, do catálogo.
+        if spec['origem']['tipo'] == 'atlas':
+            assert spec['grupo'] in grupos, f"{spec['id']}: grupo {spec['grupo']} não existe"
+        else:
+            assert 'grupo' not in spec, f"{spec['id']}: o grupo de uma camada do P3M vem da pasta temática no inventário"
         if spec['origem']['tipo'] == 'atlas':
             val, chaves = camada_atlas(spec, atlas, processos_atlas)
             if spec['origem']['formato'] == 'processos-atlas':
@@ -788,7 +818,12 @@ def montar(cfg):
             if val['distintos'] != val['feicoes']:
                 validacao['alertas'].append(f"{spec['id']}: {val['feicoes'] - val['distintos']} chaves repetidas no Atlas")
             continue
-        pacote, meta, val = camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_proc, mun_por_nome)
+        pacote, meta, val = camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambiguos, titular_proc, mun_por_nome)
+        pastas = {f['pasta'] for f in meta['p3m']}
+        if len(pastas) != 1 or next(iter(pastas)) not in grupo_da_pasta:
+            val['erros'].append(f'pasta temática dos zips no inventário: {sorted(pastas)} (precisa ser uma das pastas dos grupos)')
+            pastas = {cfg['grupos'][0]['pasta']}
+        spec = {**spec, 'grupo': grupo_da_pasta[next(iter(pastas))]}
         if spec['id'] == 'minas_ativas':
             cods = pacote['dic']['municipios']
             minas_por_mun = [(p, [cods[i] for i in (c or [])]) for p, c in zip(pacote['valores']['processo'], pacote['valores']['municipios'])]
@@ -842,7 +877,10 @@ def montar(cfg):
     presentes |= {categorias[sem_acento(x)] for r in atlas['occurrences']['rows'] for x in str(r[atlas['occurrences']['cols'].index('substancias')] or '').split(';')
                   if sem_acento(x) in categorias}
     catalogo = {'versao': cfg['versao'], 'titulo': 'Mapa Mineral de Goiás', 'descricao': cfg['descricao'],
-                'crs': UNIDADE_CRS, 'p3m': {k: cfg['p3m'][k] for k in ('portal', 'servico', 'nota_retrato')},
+                'crs': UNIDADE_CRS,
+                'p3m': {**{k: cfg['p3m'][k] for k in ('portal', 'servico', 'nota_retrato')},
+                        'inventario': {'arquivo': cfg['p3m']['inventario'], 'url': cfg['p3m']['inventario_url'], 'camadas': n_inventario,
+                                       'no_mapa': len({f['camada'] for e in entradas for f in e.get('p3m', [])})}},
                 'temporalidade': ('Toda camada é um retrato na data_retrato (situação naquele dia); escolher um ano anterior não a transforma '
                                   'em histórico. Séries anuais só existem nas medidas da tabela municipios, cada uma com seus períodos.'),
                 'formato_camadas': {

@@ -1606,6 +1606,384 @@
    "nao_convertidos": {},
    "mineral_sem_categoria": {},
    "bytes": 27534
+  },
+  "pocos_siagas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Siagas (vw_cprm_pocos_siagas).zip",
+     "registros": 6133,
+     "registros_no_indice": 6133,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 6133,
+   "chave": {
+    "campo": "ponto",
+    "feicoes": 6133,
+    "distintos": 6133,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 6133,
+    "vertices_simplificados": 6133,
+    "vertices_publicados": 6133,
+    "partes": 6133,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.042778,
+    "lat0": -19.187222,
+    "lon1": -45.983332,
+    "lat1": -12.721388
+   },
+   "nulos": {
+    "natureza": 28,
+    "uso": 562,
+    "situacao": 1600,
+    "profundidade_m": 90,
+    "nivel_estatico_m": 1824,
+    "nivel_dinamico_m": 2076,
+    "vazao_m3h": 1795,
+    "vazao_especifica": 2094,
+    "bacia": 4,
+    "subbacia": 4
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipio_sem_codigo": {
+    "municipios_ibge": {
+     "SAO DESIDERIO": 4,
+     "GOIANESIA DO PARA": 1,
+     "JABORANDI": 1
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 6127
+   },
+   "bytes": 467293
+  },
+  "levantamentos_aerogeofisicos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Levantamento Aerogeofísico 1000.zip",
+     "registros": 15,
+     "registros_no_indice": 15,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Levantamento Aerogeofísico 2000.zip",
+     "registros": 3,
+     "registros_no_indice": 3,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Levantamento Aerogeofísico 3000.zip",
+     "registros": 13,
+     "registros_no_indice": 13,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Levantamento Aerogeofísico 4000.zip",
+     "registros": 8,
+     "registros_no_indice": 8,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 39,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 39,
+    "distintos": 39,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 35,
+   "simplificacao": {
+    "tolerancia_graus": 0.002,
+    "vertices_fonte": 229242,
+    "vertices_simplificados": 9190,
+    "vertices_publicados": 8973,
+    "partes": 201,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.498364,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {
+    "altura_voo_m": 1,
+    "imagens": 3
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 59542
+  },
+  "amostras_geoquimicas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Sedimento de Corrente (vw_cprm_geoq_sedimento_de_corrente).zip",
+     "registros": 3869,
+     "registros_no_indice": 3869,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Solo (vw_cprm_geoq_solo).zip",
+     "registros": 107,
+     "registros_no_indice": 107,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Rocha (vw_cprm_geoq_rocha).zip",
+     "registros": 5391,
+     "registros_no_indice": 5391,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Concentrado de bateia (vw_cprm_geoq_concentrado_de_bateia).zip",
+     "registros": 500,
+     "registros_no_indice": 500,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 9867,
+   "agrupamento": {
+    "por": "amostra",
+    "registros": 9867,
+    "feicoes": 3980,
+    "geometrias_diferentes_unidas": 55,
+    "campos_com_valor_diferente_no_grupo": {
+     "projeto": 50
+    }
+   },
+   "chave": {
+    "campo": "amostra",
+    "feicoes": 3980,
+    "distintos": 3980,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 4035,
+    "vertices_simplificados": 4035,
+    "vertices_publicados": 4035,
+    "partes": 4035,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.19954,
+    "lat0": -18.176638,
+    "lon1": -46.334482,
+    "lat1": -12.7979
+   },
+   "nulos": {
+    "abertura": 390,
+    "leitura": 835
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 356722
+  },
+  "recursos_minerais_go": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Recursos Minerais SIG.zip",
+     "registros": 1673,
+     "registros_no_indice": 1673,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 1673,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 1673,
+    "distintos": 1673,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 1673,
+    "vertices_simplificados": 1673,
+    "vertices_publicados": 1673,
+    "partes": 1673,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.116667,
+    "lat0": -19.181389,
+    "lon1": -46.136806,
+    "lat1": -13.003611
+   },
+   "nulos": {
+    "substancia_sec": 1634,
+    "status": 6,
+    "modelo": 102,
+    "rocha_encaixante": 873,
+    "rocha_hospedeira": 585,
+    "associacao_mineral": 202,
+    "data_cadastro": 67
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {
+    "mineral": {
+     "Pirita": 11,
+     "Folhelho Carbonoso": 11,
+     "Epsomita": 8,
+     "V": 4,
+     "U": 4,
+     "Mo": 2,
+     "Andaluzita": 2,
+     "Trona": 2,
+     "Quartzo Fumê": 1,
+     "Quartzo Citrino": 1,
+     "Folhelho": 1,
+     "Ca": 1
+    }
+   },
+   "municipio_sem_codigo": {
+    "municipios_ibge": {
+     "BRASILIA": 2
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 1671
+   },
+   "bytes": 205063
+  },
+  "mapeamentos_geologicos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Mapeamentos 1-25.000 (vw_cprm_map_geo_25k).zip",
+     "registros": 13,
+     "registros_no_indice": 13,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Mapeamentos 1-50.000 (vw_cprm_map_geo_50k).zip",
+     "registros": 28,
+     "registros_no_indice": 28,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Mapeamentos 1-100.000 (vw_cprm_map_geo_100k).zip",
+     "registros": 46,
+     "registros_no_indice": 46,
+     "fiapos_removidos_no_recorte": 17
+    },
+    {
+     "arquivo": "Mapeamentos 1-250.000 (vw_cprm_map_geo_250k).zip",
+     "registros": 15,
+     "registros_no_indice": 15,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Mapeamentos 1-1.000.000 (vw_cprm_map_geo_1m).zip",
+     "registros": 4,
+     "registros_no_indice": 4,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 106,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 106,
+    "distintos": 106,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 30,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 157153,
+    "vertices_simplificados": 16439,
+    "vertices_publicados": 16324,
+    "partes": 115,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.498364,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {
+    "nome_folha": 42
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 101124
+  },
+  "usinas_etanol": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Etanol (vw_epe_plt_et).zip",
+     "registros": 48,
+     "registros_no_indice": 48,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 48,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 48,
+    "distintos": 48,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 48,
+    "vertices_simplificados": 48,
+    "vertices_publicados": 48,
+    "partes": 48,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.029,
+    "lat0": -18.9715,
+    "lon1": -47.136899,
+    "lat1": -14.416299
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipios_com_codigo": {
+    "municipios_ibge": 48
+   },
+   "bytes": 4532
   }
  },
  "erros": [],

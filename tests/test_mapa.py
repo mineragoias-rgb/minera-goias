@@ -1,6 +1,7 @@
 """Mapa Mineral de Goiás (data/mapa/, gerado por scripts/build_mapa_base.py): o catálogo tem de bater com os arquivos, as chaves com
 o grão de cada camada, os dados com a regra de pessoa física, e a API só entrega o que o catálogo publica a quem tem sessão."""
 import base64
+import csv
 import importlib.util
 import json
 import os
@@ -20,7 +21,8 @@ from build_projetos_go import ler_xlsx, registros  # noqa: E402
 
 CPF = re.compile(r'\d{3}\.\d{3}\.\d{3}-\d{2}')
 PROCESSO = re.compile(r'\d{1,6}/\d{4}')
-CAMPOS_PESSOAIS = {'nm_pessoa', 'cpf_cnpj', 'endereco', 'fone'}
+# nome de pessoa, documento e endereço; no SIAGAS, proprietário, perfurador e local do poço
+CAMPOS_PESSOAIS = {'nm_pessoa', 'cpf_cnpj', 'endereco', 'fone', 'str_propri', 'str_perfur', 'str_local_'}
 TIPOS = {'texto', 'categoria', 'numero', 'inteiro', 'ano', 'data', 'url', 'processo', 'municipio', 'municipios', 'municipios_nome', 'lista',
          'mineral', 'titular', 'posicao', 'booleano'}
 
@@ -165,6 +167,44 @@ class CatalogoTests(unittest.TestCase):
         self.assertTrue(any(r.startswith('aproximada') for r in rotulos))
 
 
+class InventarioTests(unittest.TestCase):
+    """O inventário do P3M (Squad 1/P3M/inventario_p3m.csv) dá a data, a pasta temática e a ficha de cada camada do P3M."""
+    @classmethod
+    def setUpClass(cls):
+        cls.cat = ler(MAPA / 'catalogo.json')
+        with open(ROOT / 'Squad 1' / 'P3M' / 'inventario_p3m.csv', encoding='utf-8-sig', newline='') as f:
+            cls.linhas = list(csv.DictReader(f, delimiter=';'))
+        cls.por_zip = {Path(a).name: r for r in cls.linhas for col in ('arquivo_recortado', 'arquivo_original') for a in r[col].split(';') if a}
+
+    def test_grupos_sao_as_pastas_tematicas(self):
+        self.assertEqual([g['pasta'] for g in self.cat['grupos']], sorted({r['pasta_tematica'] for r in self.linhas}))
+
+    def test_retrato_pasta_e_ficha_vem_do_inventario(self):
+        pasta_do_grupo = {g['id']: g['pasta'] for g in self.cat['grupos']}
+        for c in self.cat['camadas']:
+            if c['dados']['formato'] != 'mapa-v1':
+                self.assertNotIn('p3m', c, c['id'])
+                continue
+            linhas = [self.por_zip[z] for z in c['fonte_arquivos']]
+            datas = sorted({r['data_download'] for r in linhas})
+            self.assertEqual(c['data_retrato'], datas[0] if len(datas) == 1 else datas, c['id'])
+            self.assertEqual({r['pasta_tematica'] for r in linhas}, {pasta_do_grupo[c['grupo']]}, c['id'])
+            self.assertEqual([f['camada'] for f in c['p3m']], list(dict.fromkeys(r['camada'] for r in linhas)), c['id'])
+            for f in c['p3m']:
+                r = next(x for x in linhas if x['camada'] == f['camada'])
+                self.assertEqual((f['orgao'], f['baixado_em'], f['atualizacao_sgb'] or '', f['fonte_atualizacao_sgb']),
+                                 (r['orgao'], r['data_download'], r['data_atualizacao_sgb'], r['fonte_data_sgb']), c['id'])
+                self.assertEqual(f['classificacao'], [x for x in (r['categoria_p3m'], r['tema_p3m'], r['subtema_p3m']) if x], c['id'])
+
+    def test_resumo_e_link_do_inventario(self):
+        inv = self.cat['p3m']['inventario']
+        self.assertEqual(inv['camadas'], len(self.linhas))
+        self.assertEqual(inv['no_mapa'], len({f['camada'] for c in self.cat['camadas'] for f in c.get('p3m', [])}))
+        self.assertTrue(inv['url'].startswith('https://github.com/mineragoias-rgb/minera-goias/blob/main/'), inv['url'])
+        self.assertTrue(inv['url'].endswith('/P3M/inventario_p3m.csv'), inv['url'])
+        self.assertNotIn('sem dia registrado', self.cat['p3m']['nota_retrato'])
+
+
 class TabelasTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -276,6 +316,8 @@ class AbaTests(unittest.TestCase):
         self.assertIsNone(re.search(r"api\('/(?!mapa|atlas)", self.js))
 
 
+@unittest.skipUnless(importlib.util.find_spec('fastapi') and importlib.util.find_spec('httpx'),
+                     'a API precisa de fastapi e httpx (deploy/requirements-vps.txt)')
 class ApiTests(unittest.TestCase):
     def setUp(self):
         sys.path.insert(0, str(ROOT / 'Squad 3' / 'backend'))
