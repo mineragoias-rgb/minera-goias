@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 35,
+ "materias": 37,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -114,6 +114,22 @@
    "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSk05WXlzc0hXTlZyZXJObGVnQWFleWNNbExLQVBiT2RaSjlJeW9pbngwR0xtVkRwZENDWk9qQ0twdDBwc2thTHBjbGdJSzg4eGc3OU1TMV9Cei1ycjZGUk1qdmw1TjlWZFRIZ0daVm96cFRDM0VQSGVHbEVkaEhiNUdNZUJPM3dvaTczaTFCX3FVbFpBUVNYMHhITUhEejZnNUVudUExQTVaOEhSUm5MdXBhcjBkcXYzSmQ1SkVSVzJpcl9QbFFJWTBnWQ?oc=5",
    "published_at": "2026-02-21T08:00:00+00:00",
    "first_seen": "2026-10-21T08:57:11.031216+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras e minerais críticos: o que são e o acordo Brasil-Índia - G1",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMWVtMFVyQjVRTHViSjZxa1hobmdnbkEyUkNQMGVuY2dzcjNURXQtbEFINmgzdmRCQnJ6dG1WdE9YXzJtS2lnNnYxOVhfLXZrbURjUGRNcVdkYnNXU0piVURVTE16bEdyZVZROXBJcWw2VXVsNUJIX2hEOTdyU3ZXeGczQ25kcFdvUldnNnhpUUVaQ0lqYS1EbUUzeVgwRmNRRmRScw?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-10-22T09:00:26.732718+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -403,6 +419,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Alvo da China, terras raras de Goiás recebem US$ 565 milhões dos EUA - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTXF4b1JhZ3lGYmxuWlNIZ0Z6d1lmZ20zY0VNUjBEN1VhQXgyMHBaSDU2Tk5VLTRORzNsaUh1akhtamlYN3V1SXcybjhFZFQwZ3lDc2cteGdCS25uSnFLTTBiSWcySXhvVFhJNFhubnZKUmkzb1hfVDB1ZjJGSDE4SDdVbGozQU9PWmpmZ0dZa2JYZTFvQU5v?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-22T09:00:25.959441+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineradoras em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

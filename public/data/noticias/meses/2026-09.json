@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1188,
+ "materias": 1190,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -8477,6 +8477,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil: Justiça suspende atividades de mineração da Sigma Lithium até realização de consulta à comunidade quilombola em Minas Gerais - Business and Human Rights Centre",
+   "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQbnlRbm53X0F2emJwZ2tZOUZqTGdkZTBPOTRPNG1hYkw4TG8yZkNWT055LUg5bDh1Y21HeC1QRHlzWXMzNHVfSjVLSkVtWTFGWm5hYkllSmlLRHZ3OHNXeUtybXY1LTFHdWdvUlV4dXBMTWtNOEpYUnlPZjZsNHpFVXpBLTY2M2o4UHAyNmN0WEJCbUwyRmRDa0taZ21RTGhvcjNaWG12UjJ6dlNvNER2OUZRVVdSa1dyM2ZTdXc1WmlxRDU3SHRiendPQ1l2M01VdTFTZERqbDFmeWRsalEtb0Q4d3Ytek5nd3pCd0NVYXdBYTdZbUE?oc=5",
+   "published_at": "2026-09-22T14:17:46+00:00",
+   "first_seen": "2026-10-22T09:00:27.191431+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },
@@ -17345,6 +17361,22 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de terras raras em Goiás gera tensão entre mineração e proteção do território Kalunga - O Hoje",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNX0NCc0tUN3htNk13SDBfOXBKQXlWQVJUZjYxaGczNVNuSXlLc3l3Szh0STNxV0gtUzh2MFd2SWhQaGthYi1ySUNMMHlXWEJTYWtRcXJTRVV5ZElZMnFRaXVvSEdqMlhKTWl3QVItYU5vbmpjMkxaR3RTQ2dWbzREYjhRdVlqbUtlNFYxMTRyOV9ZaXR1SkRTY1hhUU82djNvbTNFTVFtSHg1cWtrRjd6d1lCSnhsdmg1SEtr?oc=5",
+   "published_at": "2026-09-04T07:00:00+00:00",
+   "first_seen": "2026-10-22T09:00:23.975484+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
