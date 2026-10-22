@@ -52,9 +52,11 @@ O mesmo de `data/atlas/processes.json`, generalizado para pontos e linhas:
 ## Camadas (versão de 22/10/2026)
 
 44 camadas: 39 do P3M e 5 reaproveitadas do Atlas. Os grupos do painel são as 8 pastas temáticas do Squad 1
-(`Squad 1/P3M/<pasta>`, encaixadas na classificação do site P3M). O grupo de cada camada do P3M sai do inventário, pela pasta do seu
-zip; as do Atlas ficam na pasta da camada equivalente do P3M. No painel vêm as camadas do P3M pasta por pasta, depois o Radar de
-Projetos ("Levantamento da equipe") e por último as 5 reaproveitadas ("Também na aba Atlas e panorama"). Cada camada pode ser
+(`Squad 1/P3M/<pasta>`, encaixadas na classificação do site P3M), na ordem das pastas e com o nome sem o número. O grupo de cada
+camada do P3M sai do inventário, pela pasta do seu zip; as do Atlas ficam na pasta da camada equivalente do P3M. No topo do painel,
+fora dos grupos, ficam o limite de Goiás e os municípios, e logo abaixo o "Fundo liso" (tira o mapa-base: sem vegetação, ruas e
+cidades). Depois vêm as camadas do P3M pasta por pasta, o Radar de Projetos ("Levantamento da equipe") e por último as outras 4
+reaproveitadas ("Também na aba Atlas e panorama"). Cada camada pode ser
 baixada inteira como shapefile (.zip montado no navegador por `public/mapa-shp.js`).
 
 As 39 camadas próprias somam 4,0 MB (1,9 MB na rede); as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
@@ -74,53 +76,53 @@ publicada não muda.
 
 | Grupo (pasta) | Camada | Feições | Tamanho | Na divisa | Baixada em | Atualização no SGB |
 |---|---|---:|---:|---:|---|---|
-| 1 · Geologia | `estruturas` | 7.065 | 342 KB | 59 | 19/10/2026 | não publica |
-| 1 · Geologia | `provincias_estruturais` | 3 | 40 KB | 3 | 21/10/2026 | não publica |
-| 1 · Geologia | `pocos_siagas` | 6.133 | 456 KB | — | 21/10/2026 | não publica |
-| 2 · Geofísica | `levantamentos_aerogeofisicos` | 39 | 58 KB | 35 | 19/10/2026 | não publica |
-| 3 · Geoquímica | `amostras_geoquimicas` | 3.980 (de 9.867 registros) | 348 KB | — | 21/10/2026 | 02/10/2026 (portal de dados do SGB) |
-| 4 · Recursos minerais | `depositos_pdac` | 34 | 8 KB | — | 19/10/2026 | não publica |
-| 4 · Recursos minerais | `uranio` | 18 | 2 KB | — | 19/10/2026 | não publica |
-| 4 · Recursos minerais | `potencial_mineral` | 146 | 81 KB | 16 | 19/10/2026 | não publica |
-| 4 · Recursos minerais | `distritos_auriferos` | 14 | 6 KB | 0 | 19/10/2026 | não publica |
-| 4 · Recursos minerais | `provincias_auriferas` | 4 | 1 KB | 0 | 21/10/2026 | não publica |
-| 4 · Recursos minerais | `ocorrencias_diamante` | 114 | 7 KB | — | 21/10/2026 | não publica |
-| 4 · Recursos minerais | `recursos_minerais_go` | 1.673 | 200 KB | — | 19/10/2026 | não publica |
-| 5 · Atividade mineira | `minas_ativas` | 689 (de 743 registros) | 172 KB | 77 | 21/10/2026 | 19/10/2026 (catálogo do P3M) |
-| 5 · Atividade mineira | `guias_utilizacao` | 445 (de 646 registros) | 191 KB | 34 | 21/10/2026 | 19/10/2026 (catálogo do P3M) |
-| 5 · Atividade mineira | `servidoes` | 200 | 36 KB | 3 | 21/10/2026 | não publica |
-| 5 · Atividade mineira | `reservas_garimpeiras` | 2 | 1 KB | 0 | 21/10/2026 | 05/01/2024 (catálogo do P3M) |
-| 5 · Atividade mineira | `ativos_sgb` | 8 | 2 KB | 0 | 21/10/2026 | 15/04/2026 (catálogo do P3M) |
-| 5 · Atividade mineira | `empreendimentos_sig` | 1.374 | 130 KB | — | 19/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `limite_goias` | 1 | 54 KB | 1 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `uc_protecao_integral` | 25 | 19 KB | 4 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `uc_uso_sustentavel` | 137 | 68 KB | 10 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `terras_indigenas` | 6 | 3 KB | 0 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `quilombolas` | 8 | 5 KB | 2 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `assentamentos` | 401 | 140 KB | 25 | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `cavidades` | 1.051 | 84 KB | — | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `sitios_arqueologicos` | 925 | 62 KB | — | 21/10/2026 | não publica |
-| 6 · Cartografia: território e áreas especiais | `biomas` | 2 | 27 KB | 2 | 21/10/2026 | não publica |
-| 7 · Pesquisa: levantamentos e mapeamentos | `litoestratigrafia` | 4.124 | 1,1 MB | 177 | 21/10/2026 | não publica |
-| 7 · Pesquisa: levantamentos e mapeamentos | `mapeamentos_geologicos` | 106 | 99 KB | 30 | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `linhas_transmissao` | 112 | 21 KB | 58 | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `subestacoes` | 35 | 3 KB | — | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `hidreletricas` | 42 | 6 KB | — | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `termeletricas` | 27 | 4 KB | — | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `ferrovias` | 42 | 10 KB | 6 | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `terminais_ferroviarios` | 10 | 1 KB | — | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `rodovias_federais` | 629 | 40 KB | 19 | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `rodovias_estaduais` | 1.949 | 146 KB | 44 | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `aeroportos` | 45 | 3 KB | — | 21/10/2026 | não publica |
-| 8 · Infraestrutura: energia e transporte | `usinas_etanol` | 48 | 4 KB | — | 21/10/2026 | não publica |
+| Geologia | `estruturas` | 7.065 | 342 KB | 59 | 19/10/2026 | não publica |
+| Geologia | `provincias_estruturais` | 3 | 40 KB | 3 | 21/10/2026 | não publica |
+| Geologia | `pocos_siagas` | 6.133 | 456 KB | — | 21/10/2026 | não publica |
+| Geofísica | `levantamentos_aerogeofisicos` | 39 | 58 KB | 35 | 19/10/2026 | não publica |
+| Geoquímica | `amostras_geoquimicas` | 3.980 (de 9.867 registros) | 348 KB | — | 21/10/2026 | 02/10/2026 (portal de dados do SGB) |
+| Recursos minerais | `depositos_pdac` | 34 | 8 KB | — | 19/10/2026 | não publica |
+| Recursos minerais | `uranio` | 18 | 2 KB | — | 19/10/2026 | não publica |
+| Recursos minerais | `potencial_mineral` | 146 | 81 KB | 16 | 19/10/2026 | não publica |
+| Recursos minerais | `distritos_auriferos` | 14 | 6 KB | 0 | 19/10/2026 | não publica |
+| Recursos minerais | `provincias_auriferas` | 4 | 1 KB | 0 | 21/10/2026 | não publica |
+| Recursos minerais | `ocorrencias_diamante` | 114 | 7 KB | — | 21/10/2026 | não publica |
+| Recursos minerais | `recursos_minerais_go` | 1.673 | 200 KB | — | 19/10/2026 | não publica |
+| Atividade mineira | `minas_ativas` | 689 (de 743 registros) | 172 KB | 77 | 21/10/2026 | 19/10/2026 (catálogo do P3M) |
+| Atividade mineira | `guias_utilizacao` | 445 (de 646 registros) | 191 KB | 34 | 21/10/2026 | 19/10/2026 (catálogo do P3M) |
+| Atividade mineira | `servidoes` | 200 | 36 KB | 3 | 21/10/2026 | não publica |
+| Atividade mineira | `reservas_garimpeiras` | 2 | 1 KB | 0 | 21/10/2026 | 05/01/2024 (catálogo do P3M) |
+| Atividade mineira | `ativos_sgb` | 8 | 2 KB | 0 | 21/10/2026 | 15/04/2026 (catálogo do P3M) |
+| Atividade mineira | `empreendimentos_sig` | 1.374 | 130 KB | — | 19/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `limite_goias` | 1 | 54 KB | 1 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `uc_protecao_integral` | 25 | 19 KB | 4 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `uc_uso_sustentavel` | 137 | 68 KB | 10 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `terras_indigenas` | 6 | 3 KB | 0 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `quilombolas` | 8 | 5 KB | 2 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `assentamentos` | 401 | 140 KB | 25 | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `cavidades` | 1.051 | 84 KB | — | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `sitios_arqueologicos` | 925 | 62 KB | — | 21/10/2026 | não publica |
+| Cartografia: território e áreas especiais | `biomas` | 2 | 27 KB | 2 | 21/10/2026 | não publica |
+| Pesquisa: levantamentos e mapeamentos | `litoestratigrafia` | 4.124 | 1,1 MB | 177 | 21/10/2026 | não publica |
+| Pesquisa: levantamentos e mapeamentos | `mapeamentos_geologicos` | 106 | 99 KB | 30 | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `linhas_transmissao` | 112 | 21 KB | 58 | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `subestacoes` | 35 | 3 KB | — | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `hidreletricas` | 42 | 6 KB | — | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `termeletricas` | 27 | 4 KB | — | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `ferrovias` | 42 | 10 KB | 6 | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `terminais_ferroviarios` | 10 | 1 KB | — | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `rodovias_federais` | 629 | 40 KB | 19 | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `rodovias_estaduais` | 1.949 | 146 KB | 44 | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `aeroportos` | 45 | 3 KB | — | 21/10/2026 | não publica |
+| Infraestrutura: energia e transporte | `usinas_etanol` | 48 | 4 KB | — | 21/10/2026 | não publica |
 
 | Grupo (pasta) | Camada reaproveitada do Atlas | Feições | Arquivo | Retrato |
 |---|---|---:|---|---|
-| 6 · Cartografia: território e áreas especiais | `municipios` | 246 | `atlas.json` | 10/09/2026 |
-| 5 · Atividade mineira | `processos` | 16.656 | `processes.json` | 10/09/2026 |
-| 5 · Atividade mineira | `barragens` | 23 | `atlas.json` | não registrado |
-| 5 · Atividade mineira | `projetos_anm` | 3.377 | `atlas.json` | 10/09/2026 |
-| 4 · Recursos minerais | `ocorrencias` | 1.796 | `atlas.json` | 12/09/2026 |
+| Cartografia: território e áreas especiais | `municipios` | 246 | `atlas.json` | 10/09/2026 |
+| Atividade mineira | `processos` | 16.656 | `processes.json` | 10/09/2026 |
+| Atividade mineira | `barragens` | 23 | `atlas.json` | não registrado |
+| Atividade mineira | `projetos_anm` | 3.377 | `atlas.json` | 10/09/2026 |
+| Recursos minerais | `ocorrencias` | 1.796 | `atlas.json` | 12/09/2026 |
 
 "Baixada em" é o retrato da camada (`data_retrato` no catálogo): o dia em que o Squad 1 baixou o zip, tirado da coluna `data_download`
 do inventário. "Atualização no SGB" é a última atualização que o próprio SGB publica para a camada (portal de dados do SGB ou metadado

@@ -19,14 +19,14 @@
   },
   "nulos_padrao": ["", "-", "--", "NA", "N/A", "nd", "ND", "Not Available", "Não informado", "Não se aplica", "Desconhecido", "Desconhecida", "sem informação", "DADO NÃO CADASTRADO"],
   "grupos": [
-    {"id": "geologia", "pasta": "1- Geologia", "nome": "1 · Geologia", "nome_en": "1 · Geology"},
-    {"id": "geofisica", "pasta": "2- Geofísica", "nome": "2 · Geofísica", "nome_en": "2 · Geophysics"},
-    {"id": "geoquimica", "pasta": "3- Geoquímica", "nome": "3 · Geoquímica", "nome_en": "3 · Geochemistry"},
-    {"id": "recursos", "pasta": "4- Recursos minerais", "nome": "4 · Recursos minerais", "nome_en": "4 · Mineral resources"},
-    {"id": "atividade_mineira", "pasta": "5- Atividade mineira", "nome": "5 · Atividade mineira", "nome_en": "5 · Mining activity"},
-    {"id": "cartografia", "pasta": "6- Cartografia", "nome": "6 · Cartografia: território e áreas especiais", "nome_en": "6 · Cartography: territory and special areas"},
-    {"id": "pesquisa", "pasta": "7- Pesquisa", "nome": "7 · Pesquisa: levantamentos e mapeamentos", "nome_en": "7 · Research: surveys and mapping"},
-    {"id": "infraestrutura", "pasta": "8- Infraestrutura", "nome": "8 · Infraestrutura: energia e transporte", "nome_en": "8 · Infrastructure: energy and transport"}
+    {"id": "geologia", "pasta": "1- Geologia", "nome": "Geologia", "nome_en": "Geology"},
+    {"id": "geofisica", "pasta": "2- Geofísica", "nome": "Geofísica", "nome_en": "Geophysics"},
+    {"id": "geoquimica", "pasta": "3- Geoquímica", "nome": "Geoquímica", "nome_en": "Geochemistry"},
+    {"id": "recursos", "pasta": "4- Recursos minerais", "nome": "Recursos minerais", "nome_en": "Mineral resources"},
+    {"id": "atividade_mineira", "pasta": "5- Atividade mineira", "nome": "Atividade mineira", "nome_en": "Mining activity"},
+    {"id": "cartografia", "pasta": "6- Cartografia", "nome": "Cartografia: território e áreas especiais", "nome_en": "Cartography: territory and special areas"},
+    {"id": "pesquisa", "pasta": "7- Pesquisa", "nome": "Pesquisa: levantamentos e mapeamentos", "nome_en": "Research: surveys and mapping"},
+    {"id": "infraestrutura", "pasta": "8- Infraestrutura", "nome": "Infraestrutura: energia e transporte", "nome_en": "Infrastructure: energy and transport"}
   ],
   "camadas": [
     {

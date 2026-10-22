@@ -142,11 +142,13 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
 - **O que a aba faz.**
   - Cabeçalho compacto: recorte fixo Goiás, filtros ativos em chips com "Limpar filtros" e o retrato da camada em análise.
   - Painel lateral recolhível (gaveta no celular) com duas abas.
-    - **Camadas:** 44 camadas. Primeiro as 39 do P3M, nos grupos que são as 8 pastas temáticas do Squad 1 (1 · Geologia a
-      8 · Infraestrutura; o grupo sai da pasta do zip no inventário `Squad 1/P3M/inventario_p3m.csv`); depois o Radar de Projetos
-      ("Levantamento da equipe"); por último as 5 que a aba reaproveita do Atlas ("Também na aba Atlas e panorama": municípios,
+    - **Camadas:** 44 camadas. No topo, fora dos grupos, o limite de Goiás e os municípios, e logo abaixo o "Fundo liso", que tira
+      o mapa-base (sem vegetação, ruas e cidades; Goiás em branco sobre cinza-claro; a escolha fica guardada no navegador). Depois
+      as 39 do P3M, nos grupos que são as 8 pastas temáticas do Squad 1, na ordem das pastas e sem o número no nome (Geologia a
+      Infraestrutura; o grupo sai da pasta do zip no inventário `Squad 1/P3M/inventario_p3m.csv`); o Radar de Projetos
+      ("Levantamento da equipe"); por último as outras 4 que a aba reaproveita do Atlas ("Também na aba Atlas e panorama":
       processos, barragens, projetos ANM e ocorrências, cada uma com a pasta da camada equivalente do P3M). O seletor da camada em
-      análise segue a mesma ordem; as áreas de "5 · Atividade mineira" ficam no plano de cima.
+      análise segue a mesma ordem, com Municípios no topo; as áreas de "Atividade mineira" ficam no plano de cima.
     - **Inventário do P3M (22/10/2026):** o retrato de cada camada é o dia exato do download (`data_download`: 21/10 ou 19/10/2026),
       no lugar do antigo "out/2026"; o painel "i" mostra a pasta, a classificação no site P3M (categoria › tema › subtema e as
       outras), o órgão, o resumo, a última atualização no SGB quando ele publica (com a fonte) e a ficha de metadados. O link do
@@ -174,7 +176,7 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
         `860.337/2020` = `860337/2020`);
       - valem só para a camada em análise: situação e período.
       - Cada filtro diz a que camadas se aplica.
-  - Mapa único, sem instâncias duplicadas: Leaflet com zoom, escala, legenda, "Voltar para Goiás" e mapa-base OpenStreetMap ou nenhum.
+  - Mapa único, sem instâncias duplicadas: Leaflet com zoom, escala, legenda, "Voltar para Goiás" e mapa-base OpenStreetMap ou fundo liso.
     - Goiás fica destacado, com o entorno esmaecido.
     - "Ir para município" só aproxima, não filtra.
     - Áreas pequenas da ANM aparecem como ponto em escala estadual.

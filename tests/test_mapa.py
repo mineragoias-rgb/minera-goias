@@ -178,6 +178,8 @@ class InventarioTests(unittest.TestCase):
 
     def test_grupos_sao_as_pastas_tematicas(self):
         self.assertEqual([g['pasta'] for g in self.cat['grupos']], sorted({r['pasta_tematica'] for r in self.linhas}))
+        # a ordem vem da pasta; o nome mostrado na aba não leva o número dela
+        self.assertEqual([g['nome'] for g in self.cat['grupos'] if re.match(r'\d', g['nome'] + g['nome_en'])], [])
 
     def test_retrato_pasta_e_ficha_vem_do_inventario(self):
         pasta_do_grupo = {g['id']: g['pasta'] for g in self.cat['grupos']}

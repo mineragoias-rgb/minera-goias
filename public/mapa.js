@@ -23,7 +23,7 @@ const ORDEM_TOQUE=['mp-pontos','mp-linhas','mp-areas','mp-fundo','mp-limites'];
 const BASE=new Set(['limite_goias','municipios']);   // context layers: drawn whole, never thinned by filters
 const POR_PAGINA=50,RAIO=5;
 
-let cat=null,map=null,carregando=null,mascara=null,tiles=null,destaque=null,legendaCtrl=null,munDestaque=null,botaoCheia=null;
+let cat=null,map=null,carregando=null,mascara=null,tiles=null,destaque=null,legendaCtrl=null,munDestaque=null,botaoCheia=null,fundoLiso=false;
 let COMP=null,compProm=null,MUNTAB=null,RADAR=null,ATLAS_MUN=null,MUN_POR_NOME=null,MIN_CANON=null,GO_BOUNDS=null;
 const estados=new Map();
 const filtros={municipios:new Set(),minerais:new Set(),titular:'',id:'',situacao:new Set(),periodo:null,busca:'',area:false};
@@ -195,8 +195,10 @@ function desenharMascara(st){
  if(mascara){mascara.remove();mascara=null}
  if(!st.visivel||!st.modelo)return;
  const mundo=[[-89,-179.9],[-89,179.9],[89,179.9],[89,-179.9]];
- mascara=L.polygon([mundo,...st.modelo.partes.flat()],{renderer:RENDER['mp-mascara'],stroke:false,fillColor:'#eef3f7',fillOpacity:.62,fillRule:'evenodd',interactive:false}).addTo(map);
+ mascara=L.polygon([mundo,...st.modelo.partes.flat()],{renderer:RENDER['mp-mascara'],stroke:false,fillRule:'evenodd',interactive:false,...estiloMascara()}).addTo(map);
 }
+// over the basemap the surroundings are dimmed; on the plain background they turn light grey so white Goiás stands out
+function estiloMascara(){return fundoLiso?{fillColor:'#e4ebf1',fillOpacity:1}:{fillColor:'#eef3f7',fillOpacity:.62}}
 function redesenharTudo(){for(const st of estados.values())if(st.visivel&&st.modelo)desenhar(st);desenharDestaque();legenda()}
 
 /* ---------- hit test: every feature under the click, topmost first ---------- */
@@ -559,24 +561,31 @@ function linhaCamada(st){
  const retry=row.querySelector('.mp-retry');retry.hidden=st.status!=='erro';
  if(st.status==='erro')retry.title=st.erro;
 }
-// Panel and selector order: the P3M layers by theme first, then the team's own survey (Radar de Projetos), and last the layers this
-// tab reuses from the atlas packet, already shown in the Atlas and panorama tab. The thematic group still sets the drawing pane.
+// Panel and selector order: Goiás and its municipalities on top, outside the groups (painelCamadas); then the P3M layers by theme,
+// the team's own survey (Radar de Projetos), and last the layers this tab reuses from the atlas packet, already shown in the Atlas
+// and panorama tab. The thematic group still sets the drawing pane.
 function gruposPainel(){
- const secao=st=>st.tipo==='radar'?'equipe':st.entrada.dados.formato==='mapa-v1'?st.entrada.grupo:'site';
+ const secao=st=>BASE.has(st.id)?null:st.tipo==='radar'?'equipe':st.entrada.dados.formato==='mapa-v1'?st.entrada.grupo:'site';
  return [...cat.grupos,{id:'equipe',nome:t('mp.groupTeam')},{id:'site',nome:t('mp.groupSite')}]
   .map(g=>({g,camadas:[...estados.values()].filter(st=>secao(st)===g.id)})).filter(x=>x.camadas.length);
 }
 function painelCamadas(){
  const aberto=new Set(['recursos','atividade_mineira']);
- el('mp-groups').innerHTML=gruposPainel().map(({g,camadas})=>`<details class="mp-group" ${aberto.has(g.id)?'open':''}><summary>${escape(rot(g))} <small>${camadas.length}</small></summary>`+
-  (g.id==='site'?`<p class="mp-hint">${escape(t('mp.groupSiteHint'))}</p>`:'')+
-  camadas.map(st=>{const e=st.entrada,cor=(itensLegenda(st)[0]||[])[1]||'#57768b';
-   return `<div class="mp-layer" data-id="${escape(st.id)}"><div class="mp-layer-line"><label><input type="checkbox" ${st.visivel?'checked':''}><span class="mp-sw mp-sw-${e.geometria}" style="--c:${escape(cor)}"></span><span class="mp-layer-name">${escape(rot(e))}</span></label>`+
+ // the plain background is not a data layer: its row has no .mp-layer, so the layer handlers leave it alone
+ el('mp-groups').innerHTML=`<div class="mp-base">${[...BASE].map(id=>linhaHtml(estados.get(id))).join('')}`+
+  `<div class="mp-flat"><label><input type="checkbox" id="mp-flat" ${fundoLiso?'checked':''}><span class="mp-sw mp-sw-liso"></span><span class="mp-layer-name">${escape(t('mp.flat'))}</span></label>`+
+  `<p class="mp-note">${escape(t('mp.flatHint'))}</p></div></div>`+
+  gruposPainel().map(({g,camadas})=>`<details class="mp-group" ${aberto.has(g.id)?'open':''}><summary>${escape(rot(g))} <small>${camadas.length}</small></summary>`+
+  (g.id==='site'?`<p class="mp-hint">${escape(t('mp.groupSiteHint'))}</p>`:'')+camadas.map(linhaHtml).join('')+'</details>').join('');
+ for(const st of estados.values())linhaCamada(st);
+}
+function linhaHtml(st){
+ const e=st.entrada,cor=(itensLegenda(st)[0]||[])[1]||'#57768b';
+ return `<div class="mp-layer" data-id="${escape(st.id)}"><div class="mp-layer-line"><label><input type="checkbox" ${st.visivel?'checked':''}><span class="mp-sw mp-sw-${e.geometria}" style="--c:${escape(cor)}"></span><span class="mp-layer-name">${escape(rot(e))}</span></label>`+
     `<span class="mp-layer-status"></span><button type="button" class="mp-ico mp-retry" hidden data-acao="retry" aria-label="${escape(t('mp.retry'))}">↻</button>`+
     `<button type="button" class="mp-ico" data-acao="extensao" title="${escape(t('mp.zoomLayer'))}" aria-label="${escape(t('mp.zoomLayer'))}: ${escape(rot(e))}">⤢</button>`+
     `<button type="button" class="mp-ico" data-acao="baixar" title="${escape(t('mp.shpDownload'))}" aria-label="${escape(t('mp.shpDownload'))}: ${escape(rot(e))}">↓</button>`+
-    `<button type="button" class="mp-ico" data-acao="info" aria-expanded="false" title="${escape(t('mp.layerInfo'))}" aria-label="${escape(t('mp.layerInfo'))}: ${escape(rot(e))}">i</button></div><div class="mp-layer-info" hidden></div></div>`}).join('')+'</details>').join('');
- for(const st of estados.values())linhaCamada(st);
+    `<button type="button" class="mp-ico" data-acao="info" aria-expanded="false" title="${escape(t('mp.layerInfo'))}" aria-label="${escape(t('mp.layerInfo'))}: ${escape(rot(e))}">i</button></div><div class="mp-layer-info" hidden></div></div>`;
 }
 function infoCamada(st){
  const e=st.entrada,box=document.querySelector(`#mapa-view .mp-layer[data-id="${st.id}"] .mp-layer-info`);
@@ -721,13 +730,19 @@ function controles(){
  legendaCtrl=new Leg({position:'topright'}).addTo(map);
  if(window.matchMedia('(max-width:1400px)').matches){const c=legendaCtrl.getContainer();c.classList.add('fechada');c.querySelector('.mp-legend-toggle').setAttribute('aria-expanded','false')}
 }
-function basemap(v){
+// Plain background: no basemap (no vegetation, roads or towns), Goiás in white and the surroundings dimmed by the mask.
+// Remembered in this browser only; without storage it simply starts with the OpenStreetMap basemap.
+function fundo(liso){
+ fundoLiso=liso;el('mapa-map').classList.toggle('mp-liso',liso);if(mascara)mascara.setStyle(estiloMascara());
  if(tiles){tiles.remove();tiles=null}
- if(v==='osm'){tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+ if(liso)el('mp-mapnote').textContent=t('mp.mapNote');  // a tile failure no longer matters
+ else{tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
   tiles.on('tileerror',()=>{el('mp-mapnote').textContent=t('mp.tileFail')});tiles.addTo(map)}
+ try{localStorage.setItem('minera-mp-fundo-liso',liso?'1':'0')}catch{/* private mode: the choice lasts while the page is open */}
 }
+function fundoGuardado(){try{return localStorage.getItem('minera-mp-fundo-liso')==='1'}catch{return false}}
 function eventos(){
- el('mp-groups').addEventListener('change',ev=>{const row=ev.target.closest('.mp-layer');if(row&&ev.target.type==='checkbox')alternar(estados.get(row.dataset.id),ev.target.checked)});
+ el('mp-groups').addEventListener('change',ev=>{if(ev.target.id==='mp-flat'){fundo(ev.target.checked);return}const row=ev.target.closest('.mp-layer');if(row&&ev.target.type==='checkbox')alternar(estados.get(row.dataset.id),ev.target.checked)});
  const estilo=raiz=>ev=>{const a=ev.target.dataset.acao;if(a==='opacidade'||a==='cor')mudarEstilo(estados.get(ev.target.closest(raiz).dataset.id),ev.target)};
  el('mp-groups').addEventListener('input',estilo('.mp-layer'));
  const lc=legendaCtrl.getContainer();lc.addEventListener('input',estilo('.mp-legend-layer'));
@@ -739,7 +754,6 @@ function eventos(){
   else if(b.dataset.acao==='restaurar')restaurarEstilo(st);
   else if(b.dataset.acao==='retry'){st.status='ocioso';alternar(st,true)}
   else if(b.dataset.acao==='analisar')trocarAnalise(st.id)});
- el('mp-basemap').onchange=ev=>basemap(ev.target.value);
  for(const [tab,painel] of [['mp-tab-layers','mp-panel-layers'],['mp-tab-filters','mp-panel-filters']])el(tab).onclick=()=>{
   for(const [t2,p2] of [['mp-tab-layers','mp-panel-layers'],['mp-tab-filters','mp-panel-filters']]){el(t2).setAttribute('aria-selected',String(t2===tab));el(p2).hidden=p2!==painel}};
  const lado=abrir=>{const work=el('mp-work'),movel=window.matchMedia('(max-width:900px)').matches;
@@ -824,10 +838,11 @@ async function init(){
  const b=caixa(limite.modelo.partes.flat());
  GO_BOUNDS=L.latLngBounds([b[0],b[1]],[b[2],b[3]]);
  map.fitBounds(GO_BOUNDS,{padding:[12,12]});map.setMaxBounds(GO_BOUNDS.pad(.8));
- basemap('osm');controles();
+ fundo(fundoGuardado());controles();
  el('mp-goto').innerHTML=`<option value="">${escape(t('mp.gotoMun'))}</option>`+[...ATLAS_MUN].sort((x,y)=>x[1].localeCompare(y[1],'pt')).map(([code,name])=>`<option value="${escape(code)}">${escape(name)}</option>`).join('');
- el('mp-universe').innerHTML=gruposPainel().map(({g,camadas})=>{const o=camadas.filter(s=>s.id!=='limite_goias');
-  return o.length?`<optgroup label="${escape(rot(g))}">${o.map(s=>`<option value="${escape(s.id)}">${escape(rot(s.entrada))}</option>`).join('')}</optgroup>`:''}).join('');
+ const opcao=s=>`<option value="${escape(s.id)}">${escape(rot(s.entrada))}</option>`;
+ el('mp-universe').innerHTML=opcao(estados.get('municipios'))+  // on top, as in the panel; the state outline is not a table
+  gruposPainel().map(({g,camadas})=>`<optgroup label="${escape(rot(g))}">${camadas.map(opcao).join('')}</optgroup>`).join('');
  el('mp-universe').value=analise;
  multiSelect(el('mp-f-mun'),[...ATLAS_MUN].map(([v,r])=>({v,r})),filtros.municipios,mudouFiltro,t('mp.searchMun'));
  multiSelect(el('mp-f-min'),cat.minerais.map(v=>({v,r:v})),filtros.minerais,mudouFiltro,t('mp.searchMineral'));

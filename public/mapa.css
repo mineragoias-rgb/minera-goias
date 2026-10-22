@@ -27,9 +27,8 @@
 #mapa-view .mp-tabs button{border:0;background:none;padding:12px 14px 10px;font-size:12px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent}
 #mapa-view .mp-tabs button[aria-selected=true]{color:var(--navy);border-bottom-color:var(--blue)}
 #mapa-view #mp-panel-layers,#mapa-view #mp-panel-filters{padding:12px 0}
-#mapa-view #mp-panel-filters,#mapa-view #mp-panel-layers>.mp-hint,#mapa-view .mp-basemap{padding-left:14px;padding-right:14px}
-#mapa-view .mp-basemap{margin-top:12px}
-#mapa-view .mp-basemap select,#mapa-view .mp-period select,#mapa-view .mp-universe select{padding:7px 10px;font-size:12px}
+#mapa-view #mp-panel-filters,#mapa-view #mp-panel-layers>.mp-hint{padding-left:14px;padding-right:14px}
+#mapa-view .mp-period select,#mapa-view .mp-universe select{padding:7px 10px;font-size:12px}
 #mapa-view .mp-group summary{cursor:pointer;font:700 12px Manrope,sans-serif;padding:9px 14px;background:var(--bg);border-top:1px solid var(--line);color:var(--navy)}
 #mapa-view .mp-group summary small{font:400 10px 'DM Sans',sans-serif;color:var(--muted);margin-left:4px}
 #mapa-view .mp-layer{padding:6px 10px 6px 14px;border-top:1px solid #eef3f6}
@@ -58,6 +57,12 @@
 #mapa-view .mp-sw{display:inline-block;width:14px;height:14px;flex:0 0 auto;background:var(--c);opacity:.85;border:1px solid rgba(7,52,92,.35)}
 #mapa-view .mp-sw-ponto{border-radius:50%;border-color:white;box-shadow:0 0 0 1px rgba(7,52,92,.35)}
 #mapa-view .mp-sw-linha{height:4px;border:0;border-radius:2px;opacity:1}
+#mapa-view .mp-sw-liso{background:white;opacity:1}
+/* Goiás, municipalities and the plain background: above the groups, without a heading */
+#mapa-view .mp-base{border-bottom:1px solid var(--line);margin-bottom:-1px}
+#mapa-view .mp-flat{padding:6px 10px 6px 14px;border-top:1px solid #eef3f6}
+#mapa-view .mp-flat label{display:flex;align-items:center;gap:8px;margin:0;font-size:12px;font-weight:500;color:var(--ink);cursor:pointer}
+#mapa-view .mp-flat .mp-note{margin:2px 0 0 26px}
 #mapa-view .mp-layer-info{margin:8px 0 4px 22px;font-size:11px;color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
 #mapa-view .mp-op{display:flex;align-items:center;gap:8px;margin:0 0 6px}
 #mapa-view .mp-op output{font-size:11px;color:var(--ink);min-width:34px}
@@ -86,6 +91,7 @@
 #mapa-view .mp-busy:before{content:'';display:inline-block;width:9px;height:9px;margin-right:6px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:mp-gira .8s linear infinite;vertical-align:-1px}
 @keyframes mp-gira{to{transform:rotate(360deg)}}
 #mapa-map{height:var(--mp-h);background:#ecf1f5;z-index:0}
+#mapa-map.mp-liso{background:white}
 #mapa-view .mp-fs{display:inline-flex;align-items:center;gap:6px}
 /* full screen: the work area fills the screen and the map takes the height the toolbar and footer leave */
 #mapa-view .mp-work:fullscreen,#mapa-view .mp-work.mp-cheia{height:100vh;height:100dvh;border:0;grid-template-rows:100%}
