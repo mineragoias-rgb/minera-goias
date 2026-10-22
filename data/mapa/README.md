@@ -50,8 +50,10 @@ O mesmo de `data/atlas/processes.json`, generalizado para pontos e linhas:
 ## Camadas (versão de 21/10/2026)
 
 38 camadas em 7 grupos, na ordem do painel. As 33 próprias somam 2,8 MB; as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
-`processes.json` (2,6 MB). O nginx não comprime e a API manda `no-store`. Por isso só três camadas são de carga inicial:
-`limite_goias` (54 KB), `minas_ativas` (172 KB) e `municipios` (do Atlas). O resto é sob demanda.
+`processes.json` (2,6 MB). A API manda esses arquivos em gzip quando o navegador aceita (`Squad 3/backend/compressed.py`), e na
+rede as 33 próprias somam 1,6 MB, `atlas.json` 520 KB e `processes.json` 1,7 MB. A API também manda `no-store`, então cada abertura do
+painel baixa tudo de novo. Por isso só três camadas são de carga inicial: `limite_goias` (54 KB, 40 KB na rede), `minas_ativas`
+(172 KB, 94 KB na rede) e `municipios` (do Atlas). O resto é sob demanda. A coluna Tamanho abaixo é a do arquivo, sem compressão.
 
 O catálogo também diz, para cada camada, que campo responde a cada filtro da aba (`papeis`):
 - `titulo`: o nome mostrado no painel de detalhes;

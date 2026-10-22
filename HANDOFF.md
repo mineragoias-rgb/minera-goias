@@ -217,7 +217,10 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
     - mapa-base OpenStreetMap e fontes do Google (barrados pelo proxy deste ambiente);
     - aba Radar: `/api/radar` depende de MySQL, ausente aqui.
 - **Limitações que continuam.**
-  - Sem compressão no nginx: `processos` (2,6 MB) e `litoestratigrafia` (1,2 MB) só carregam quando a camada é ligada.
+  - Compressão: desde 22/10/2026 a API manda em gzip os dados do mapa e do atlas (`Squad 3/backend/compressed.py`), porque o nginx da
+    VPS só comprime HTML e não acompanha o deploy (`deploy/README.md`). Na rede, 9,3 MB viram 4,2 MB. `mapa.js`, os CSS e `i18n.js`
+    seguem sem compressão até alguém com root na VPS incluir `gzip_types` no nginx. `processos` (1,7 MB na rede) e `litoestratigrafia`
+    (720 KB) continuam carregando só quando a camada é ligada.
   - A consulta de feição no mapa é por clique ou toque; pelo teclado, o caminho é a tabela.
   - Os números das guias (quantidade e prazo) continuam como texto da ANM, e não são somados.
 - **Fora, e o motivo** (sem mudança desde a etapa 2).

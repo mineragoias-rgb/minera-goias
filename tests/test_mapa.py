@@ -295,8 +295,10 @@ class ApiTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_sem_sessao_nada_sai(self):
-        for url in ('/api/mapa/catalogo', '/api/mapa/camadas/minas_ativas', '/api/mapa/tabelas/municipios'):
+        for url in ('/api/mapa/catalogo', '/api/mapa/camadas/minas_ativas', '/api/mapa/tabelas/municipios', '/api/atlas',
+                    '/api/atlas/processes'):
             self.assertEqual(self.client.get(url).status_code, 401, url)
+            self.assertEqual(self.client.get(url, headers={'Accept-Encoding': 'gzip'}).status_code, 401, url)
 
     def test_leitor_recebe_so_o_que_o_catalogo_publica(self):
         r = self.client.post('/api/auth/login', json={'username': 'reader', 'password': 'long-test-password'})
@@ -313,6 +315,35 @@ class ApiTests(unittest.TestCase):
         for proibido in ('processos', 'catalogo', 'validacao', 'NADA', '..%2Fcatalogo', 'minas_ativas.json'):
             self.assertEqual(self.client.get(f'/api/mapa/camadas/{proibido}').status_code, 404, proibido)
             self.assertEqual(self.client.get(f'/api/mapa/tabelas/{proibido}').status_code, 404, proibido)
+
+    def test_dados_saem_em_gzip_so_para_quem_aceita(self):
+        # o nginx da VPS só comprime HTML; a API manda os dados do mapa e do atlas já em gzip
+        self.client.post('/api/auth/login', json={'username': 'reader', 'password': 'long-test-password'})
+        atlas = ROOT / 'data' / 'atlas'
+        arquivos = {'/api/mapa/catalogo': MAPA / 'catalogo.json',
+                    '/api/mapa/camadas/litoestratigrafia': MAPA / 'camadas' / 'litoestratigrafia.json',
+                    '/api/mapa/tabelas/radar_projetos': MAPA / 'tabelas' / 'radar_projetos.json',
+                    '/api/atlas': atlas / 'atlas.json', '/api/atlas/processes': atlas / 'processes.json'}
+        for url, arquivo in arquivos.items():
+            bruto = arquivo.read_bytes()
+            r = self.client.get(url, headers={'Accept-Encoding': 'gzip, deflate, br, zstd'})
+            self.assertEqual(r.headers.get('content-encoding'), 'gzip', url)
+            self.assertLess(int(r.headers['content-length']), len(bruto), url)
+            self.assertEqual(r.content, bruto, url)  # o cliente descompacta, como o navegador
+            self.assertEqual(r.headers['vary'], 'Accept-Encoding', url)
+            self.assertEqual(r.headers['cache-control'], 'no-store', url)
+            for pedido in ('identity', 'gzip;q=0', 'br'):
+                r = self.client.get(url, headers={'Accept-Encoding': pedido})
+                self.assertIsNone(r.headers.get('content-encoding'), (url, pedido))
+                self.assertEqual(r.content, bruto, (url, pedido))
+
+    def test_leitura_do_accept_encoding(self):
+        from compressed import accepts_gzip
+        for cabecalho, aceita in (('gzip, deflate, br', True), ('GZIP', True), ('br;q=1.0, gzip;q=0.5', True), ('*', True),
+                                  ('deflate, *;q=0.1', True), ('', False), ('identity', False), ('br', False),
+                                  ('gzip;q=0', False), ('gzip; q=0.0', False), ('*;q=0', False), ('gzip;q=0, *', False),
+                                  ('gzip;q=x', False)):
+            self.assertIs(accepts_gzip(cabecalho), aceita, cabecalho)
 
 
 @unittest.skipUnless(all(importlib.util.find_spec(m) for m in ('shapefile', 'shapely', 'openpyxl')),

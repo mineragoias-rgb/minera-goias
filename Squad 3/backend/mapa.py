@@ -2,15 +2,15 @@
 
 Like the atlas, it stays behind the reader dependency (titular names, company links) and never under public/. Only ids that the
 catalogue publishes are served, so a request cannot reach any other file. Layers that already exist in the atlas are not copied:
-the catalogue points them to /api/atlas and /api/atlas/processes.
+the catalogue points them to /api/atlas and /api/atlas/processes. Files go out gzipped when the browser accepts it (compressed.py).
 """
 import json
 import re
 from functools import lru_cache
 from pathlib import Path
-from fastapi import APIRouter,Depends,HTTPException
-from fastapi.responses import FileResponse
+from fastapi import APIRouter,Depends,HTTPException,Request
 from auth import reader
+from compressed import json_file
 router=APIRouter(prefix='/api/mapa')
 DATA=Path(__file__).resolve().parents[2]/'data'/'mapa'
 ID=re.compile(r'[a-z0-9_]{1,40}')
@@ -21,19 +21,19 @@ def published():
     cat=json.loads((DATA/'catalogo.json').read_text(encoding='utf-8'))
     return {'camadas':{c['id'] for c in cat['camadas'] if c['dados']['formato']=='mapa-v1'},'tabelas':{t['id'] for t in cat['tabelas']}}
 
-def serve(kind,ident):
+def serve(request,kind,ident):
     if not ID.fullmatch(ident) or ident not in published()[kind]:
         raise HTTPException(status_code=404,detail='Not found')
-    return FileResponse(DATA/kind/f'{ident}.json',media_type='application/json')
+    return json_file(request,DATA/kind/f'{ident}.json')
 
 @router.get('/catalogo')
-def catalogo(user=Depends(reader)):
-    return FileResponse(DATA/'catalogo.json',media_type='application/json')
+def catalogo(request:Request,user=Depends(reader)):
+    return json_file(request,DATA/'catalogo.json')
 
 @router.get('/camadas/{camada}')
-def camada(camada:str,user=Depends(reader)):
-    return serve('camadas',camada)
+def camada(camada:str,request:Request,user=Depends(reader)):
+    return serve(request,'camadas',camada)
 
 @router.get('/tabelas/{tabela}')
-def tabela(tabela:str,user=Depends(reader)):
-    return serve('tabelas',tabela)
+def tabela(tabela:str,request:Request,user=Depends(reader)):
+    return serve(request,'tabelas',tabela)
