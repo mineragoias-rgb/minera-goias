@@ -49,7 +49,9 @@ O mesmo de `data/atlas/processes.json`, generalizado para pontos e linhas:
 
 ## Camadas (versão de 21/10/2026)
 
-38 camadas em 7 grupos, na ordem do painel. As 33 próprias somam 2,8 MB; as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
+38 camadas em 7 grupos temáticos, na ordem do catálogo. No painel, as 33 do P3M vêm primeiro, por grupo; depois o Radar de
+Projetos; por último as 5 reaproveitadas do Atlas. Cada camada pode ser baixada inteira como shapefile (.zip montado no navegador
+por `public/mapa-shp.js`). As 33 próprias somam 2,8 MB; as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
 `processes.json` (2,6 MB). A API manda esses arquivos em gzip quando o navegador aceita (`Squad 3/backend/compressed.py`), e na
 rede as 33 próprias somam 1,6 MB, `atlas.json` 520 KB e `processes.json` 1,7 MB. A API também manda `no-store`, então cada abertura do
 painel baixa tudo de novo. Por isso só três camadas são de carga inicial: `limite_goias` (54 KB, 40 KB na rede), `minas_ativas`

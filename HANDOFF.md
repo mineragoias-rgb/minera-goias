@@ -142,9 +142,20 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
 - **O que a aba faz.**
   - Cabeçalho compacto: recorte fixo Goiás, filtros ativos em chips com "Limpar filtros" e o retrato da camada em análise.
   - Painel lateral recolhível (gaveta no celular) com duas abas.
-    - **Camadas:** 38 camadas em 7 grupos, da Base territorial ao Contexto socioambiental. Cada camada tem ligar e desligar, legenda,
-      opacidade, aproximar para a extensão, fonte, retrato e período de referência, notas, campos omitidos, estado de carregamento e
-      falha com "tentar de novo".
+    - **Camadas:** 38 camadas. Primeiro as 33 do P3M, nos 7 grupos temáticos (da Base territorial ao Contexto socioambiental);
+      depois o Radar de Projetos ("Levantamento da equipe"); por último as 5 que a aba reaproveita do Atlas ("Também na aba Atlas e
+      panorama": municípios, processos, barragens, projetos ANM e ocorrências). O seletor da camada em análise segue a mesma ordem; o
+      grupo temático do catálogo continua decidindo o plano de desenho. Cada camada tem ligar e desligar, legenda, opacidade,
+      aproximar para a extensão, fonte, retrato e período de referência, notas, campos omitidos, estado de carregamento e falha com
+      "tentar de novo".
+    - **Download por camada (como no P3M):** o ícone ↓ da camada, ou o link do painel "i", baixa a camada inteira, sem os filtros,
+      como shapefile num .zip (.shp, .shx, .dbf em UTF-8, .cpg, .prj SIRGAS 2000 e LEIAME com fonte, retrato, campos e avisos).
+      O arquivo é montado no navegador a partir dos mesmos dados e colunas das exportações (`public/mapa-shp.js`); pessoa física
+      segue sem nome. Texto acima de 254 bytes, limite do .dbf, é cortado e contado no LEIAME. Partes que não desenham nada
+      (anel sem área, linha de 1 ponto) ficam fora e contam como "sem geometria". Se montar o .zip passar de 4 s (rede lenta), a
+      linha da camada oferece "baixar o .zip ↓", porque o navegador já não trata o download como pedido pelo usuário.
+    - **Estilo da legenda:** na legenda do mapa e no painel "i" cada cor é um seletor, com a opacidade da camada e "Restaurar cor e
+      opacidade originais". Vale enquanto a página está aberta e não muda os arquivos baixados.
     - **Filtros:**
       - valem para todas as camadas: município e mineral (múltiplos), empresa ou titular e processo ou identificador (sem acento,
         `860.337/2020` = `860337/2020`);
@@ -163,6 +174,8 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
     - linha selecionada destacada no mapa, sem virar filtro;
     - "Só a área visível do mapa" é uma opção explícita;
     - CSV e GeoJSON levam o conjunto filtrado inteiro e informam os registros sem geometria.
+    - Anéis que se tocam depois da simplificação não somem mais da exportação: antes, 860752/2021, 860975/2024 e 864052/2023 saíam
+      com geometria vazia no GeoJSON (22/10/2026).
   - Indicadores e gráficos do mesmo recorte: processos e titulares PJ distintos, municípios com registros e CFEM recolhida no período
     escolhido (o padrão é 2025).
     - Cada gráfico diz a medida (quantidade de processos, R$ correntes…).
