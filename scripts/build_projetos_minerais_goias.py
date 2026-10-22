@@ -488,6 +488,10 @@ def montar(raiz):
                 if nt['link'] not in links and nt['link'] != p['link']:
                     links.append(nt['link'])
         linha['Links adicionais'] = '; '.join(links) if links else 'NA'
+        # Chaves internas para o Mapa Mineral (scripts/build_mapa_base.py); escrever() só grava COLUNAS.
+        linha['_origem'] = 'web'
+        linha['_processos'] = sorted({*p.get('_processos', []), *(q for x in extra for q in x['processos'])})
+        linha['_municipios'] = list(p.get('_municipios', []))
         if extra:
             linha['Observações'] = (linha['Observações'] if linha['Observações'] != 'NA' else '') + \
                 (f" Absorve {len(extra)} registro{'s' if len(extra) > 1 else ''} da ANM do mesmo empreendimento — mesmo titular (ou arranjo "
@@ -505,6 +509,7 @@ def montar(raiz):
         pid = f'GO-{n:0{largura}d}'
         linha = {c: na(d.get(CAMPO.get(c))) for c in COLUNAS}
         linha['ID'], linha['Estado'] = pid, 'GO'
+        linha['_origem'], linha['_processos'], linha['_municipios'] = d['origem'], sorted(d['processos']), list(d['municipios'])
         projetos.append(linha)
         for nt in d.get('noticias') or [d['noticia']]:
             nova_noticia(pid, linha, nt)

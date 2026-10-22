@@ -122,3 +122,106 @@ Como o resto do Mercado, são fontes públicas e o pacote é estático em `publi
 CAPEX de anos diferentes também não. Em 08/10/2026 os links de nove projetos e três notícias passaram a apontar para o documento citado (conferido título, data e conteúdo); os demais citam fonte genérica ou documento não localizado e seguem na página da empresa.
 Ao atualizar a planilha, rode o gerador: `tests/test_mercado.py` compara o hash da planilha com o do pacote.
 
+
+## Mapa Mineral de Goiás — checkpoint final (etapas 1 a 5, 22/10/2026)
+
+Nova aba inspirada no visualizador P3M do SGB, recorte Goiás. Há cinco etapas: diagnóstico, dados, interface, validação e envio à `main`.
+As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa mineral interativo de Goiás` na `main`.
+
+- **Aba e rota.**
+  - Botão "Mapa mineral" logo abaixo de "Atlas e panorama" (`data-view="mapa"`), seção `#mapa-view` em `public/painel.html`.
+  - `public/painel.js` chama `window.showMapa`.
+  - A mesma sessão de leitor das outras abas. Os dados vêm de `GET /api/mapa/*` e de `/api/atlas`, e o 401 volta ao login como no resto do painel.
+- **Arquivos.**
+  - Etapa 3: `public/mapa.js` (aba), `public/mapa.css` (tudo sob `#mapa-view`), `public/painel.html`, `public/painel.js`, `public/i18n.js`
+    (chaves `mp.*` em PT e EN), `public/mapa-dados.js`, `scripts/mapa_camadas.json`, `scripts/build_mapa_base.py`, `data/mapa/`,
+    `tests/test_mapa.py`, `tests/mapa-dados.test.js`, `tests/test_i18n.py` e `tests/test_panorama.py` (ordem do menu com `mapa`),
+    `.github/workflows/validate-web.yml`.
+  - Da etapa 2: `Squad 3/backend/mapa.py`, `Squad 3/backend/main.py` e `scripts/build_projetos_minerais_goias.py`.
+  - Detalhes dos dados em `data/mapa/README.md`.
+- **O que a aba faz.**
+  - Cabeçalho compacto: recorte fixo Goiás, filtros ativos em chips com "Limpar filtros" e o retrato da camada em análise.
+  - Painel lateral recolhível (gaveta no celular) com duas abas.
+    - **Camadas:** 38 camadas em 7 grupos, da Base territorial ao Contexto socioambiental. Cada camada tem ligar e desligar, legenda,
+      opacidade, aproximar para a extensão, fonte, retrato e período de referência, notas, campos omitidos, estado de carregamento e
+      falha com "tentar de novo".
+    - **Filtros:**
+      - valem para todas as camadas: município e mineral (múltiplos), empresa ou titular e processo ou identificador (sem acento,
+        `860.337/2020` = `860337/2020`);
+      - valem só para a camada em análise: situação e período.
+      - Cada filtro diz a que camadas se aplica.
+  - Mapa único, sem instâncias duplicadas: Leaflet com zoom, escala, legenda, "Voltar para Goiás" e mapa-base OpenStreetMap ou nenhum.
+    - Goiás fica destacado, com o entorno esmaecido.
+    - "Ir para município" só aproxima, não filtra.
+    - Áreas pequenas da ANM aparecem como ponto em escala estadual.
+    - Abre com o limite, os municípios e as minas ativas; o resto carrega quando é ligado.
+  - Clique numa feição: destaque e painel de detalhes com unidades, retrato, fonte, "Não informado" e lista para escolher entre
+    feições sobrepostas. O processo mostra os projetos do Radar que o citam; o município mostra a CFEM por ano (2026 parcial).
+  - Tabela da camada em análise:
+    - pesquisa, ordenação e páginas de 50 linhas;
+    - contagem de registros e dos que têm localização;
+    - linha selecionada destacada no mapa, sem virar filtro;
+    - "Só a área visível do mapa" é uma opção explícita;
+    - CSV e GeoJSON levam o conjunto filtrado inteiro e informam os registros sem geometria.
+  - Indicadores e gráficos do mesmo recorte: processos e titulares PJ distintos, municípios com registros e CFEM recolhida no período
+    escolhido (o padrão é 2025).
+    - Cada gráfico diz a medida (quantidade de processos, R$ correntes…).
+    - Título minerário vem rotulado como "não comprova operação".
+    - O Radar entra no mapa pelos polígonos dos processos, sem coordenada inventada.
+- **Dados acrescentados nesta etapa.**
+  - Camada `limite_goias`.
+  - Papéis de filtro por camada (`papeis`).
+  - Municípios IBGE derivados dos nomes, com apelidos explícitos no catálogo.
+  - Tabela `processos_complemento`, que substitui `processos_titulares`: titular PJ, municípios e mineral. Na etapa 4, municípios e
+    mineral passaram a vir da aba 03 da base consolidada; ver abaixo.
+  - Mineral do Radar na categoria da ANM.
+- **Conferido.**
+  - Testes web do CI rodados localmente em Python 3.10, mais `node tests/mapa-dados.test.js`.
+  - Roteiro no Chromium (desktop 1440 px e celular 390 px), sem erro de página:
+    - filtros com "ou" e "e";
+    - escopo de cada filtro;
+    - identificador com pontos e titular sem acento;
+    - paginação, área visível e período da CFEM;
+    - Radar, opacidade e extensão;
+    - troca de aba sem mapa duplicado;
+    - painel recolhido e gaveta no celular;
+    - CSV de 15 linhas e GeoJSON de 15 polígonos para Catalão + fosfato.
+  - A CFEM de 2025 na aba (R$ 229.924.046) e a de 2022–2025 (R$ 751.671.930) batem com o Atlas.
+- **Validação (etapa 4).**
+  - Referência independente: os valores esperados foram calculados direto de `data/mapa`, `data/atlas` e dos zips do P3M, sem o código
+    do gerador nem o da aba. O script ficou fora do repositório; o teste que restou é o de consistência município × Atlas.
+  - Roteiro no Chromium com 61 asserções, todas aprovadas: visão inicial, Catalão, fosfato, Catalão e fosfato, união de municípios,
+    limpar filtros, visibilidade, opacidade, pan e zoom, área visível, seleção pela tabela e pelo mapa, sobreposição, vazio, CSV e
+    GeoJSON além da 1ª página, Radar sem geometria, período, CFEM parcial, valor ausente, teclado, falhas simuladas, camada pesada,
+    sair e voltar, outras abas e celular.
+  - Corrigido na validação:
+    - **Municípios dos processos:** a contagem do filtro diferia do Atlas em 152 municípios (Catalão: 285 contra 289). O complemento
+      passou a usar `municipios_intersectados` e `mineral_ids` da aba 03, e agora filtro, perfil do município e Atlas dão o mesmo
+      número.
+    - **Codificação estragada na fonte:** 953 nomes reparados. Dois nomes de pessoa ("…INÃ¡CIA…", "PATRÃ\x8dCIA…") passavam por empresa
+      pelo "CIA" isolado. Agora saem sem nome, e há um teste contra texto estragado. A planilha do Radar não tinha esses nomes.
+    - **Rótulos:** a contagem passou a dizer o que é contado (`entidade` no catálogo), sem chamar processo de mina.
+    - **Busca por identificador:** "GO-0001" casava também com "GO-0010…". Agora a comparação é por chave (`chaveId`/`casaId`, com
+      teste).
+    - **Exportação:** o CSV e o GeoJSON levavam a área em 6 casas ("147,229996"); agora usam as casas declaradas.
+    - **Telas:** mensagem própria quando os gráficos ficam vazios; a mensagem de exportação some quando o recorte muda.
+    - **Carga:** `atlas.json` (2,1 MB) é baixado uma vez e compartilhado por Atlas, Panorama e Mapa (`window.loadAtlas`).
+  - Medido no navegador local:
+    - aba pronta em cerca de 0,3 s, só com catálogo, municípios, limite e minas ativas (342 KB);
+    - processos: 4 tarefas longas, a maior de 296 ms;
+    - sair e voltar não repete requisição nem cria outro mapa.
+  - Checagens do repositório: as suítes do `validate-web` em Python 3.10, `node --check`, `tests/mapa-dados.test.js` e
+    `tests/simulador.test.js`. O gerador foi conferido em Python 3.11. `ruff` (F, E9) e `eslint` (no-undef) sem achados no código novo.
+  - Não executado:
+    - nginx real (não instalado aqui); a configuração em `deploy/labfgv.com.br.conf` serve `public/` e repassa `/api/` como nas outras abas;
+    - mapa-base OpenStreetMap e fontes do Google (barrados pelo proxy deste ambiente);
+    - aba Radar: `/api/radar` depende de MySQL, ausente aqui.
+- **Limitações que continuam.**
+  - Sem compressão no nginx: `processos` (2,6 MB) e `litoestratigrafia` (1,2 MB) só carregam quando a camada é ligada.
+  - A consulta de feição no mapa é por clique ou toque; pelo teclado, o caminho é a tabela.
+  - Os números das guias (quantidade e prazo) continuam como texto da ANM, e não são somados.
+- **Fora, e o motivo** (sem mudança desde a etapa 2).
+  - Produção por mina ou por município: não existe nas fontes, e quantidade da CFEM não é produção.
+  - Classe de mineral crítico ou estratégico: não há taxonomia documentada.
+  - Geofísica: só existe como imagem.
+  - SIGEF, cobertura do solo e hidrografia: volume.

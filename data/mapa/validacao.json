@@ -1,0 +1,1647 @@
+{
+ "camadas": {
+  "limite_goias": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Malha Estadual (vw_ibge_lim_uf).zip",
+     "registros": 1,
+     "registros_no_indice": 1,
+     "fiapos_removidos_no_recorte": 6
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 1,
+   "chave": {
+    "campo": "codigo",
+    "feicoes": 1,
+    "distintos": 1,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 1,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 161694,
+    "vertices_simplificados": 10336,
+    "vertices_publicados": 10331,
+    "partes": 1,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.498364,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 55423
+  },
+  "municipios": {
+   "origem": "atlas",
+   "arquivo": "data/atlas/atlas.json",
+   "feicoes": 246,
+   "distintos": 246
+  },
+  "processos": {
+   "origem": "atlas",
+   "arquivo": "data/atlas/processes.json",
+   "feicoes": 16656,
+   "distintos": 16656,
+   "extensao": {
+    "lon0": -53.218023,
+    "lon1": -45.992798,
+    "lat0": -19.500388,
+    "lat1": -12.384239
+   }
+  },
+  "minas_ativas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Minas Ativas (mvw_minas_ativas_grp).zip",
+     "registros": 743,
+     "registros_no_indice": 743,
+     "fiapos_removidos_no_recorte": 6
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 743,
+   "agrupamento": {
+    "por": "processo",
+    "registros": 743,
+    "feicoes": 689,
+    "geometrias_diferentes_unidas": 1,
+    "campos_com_valor_diferente_no_grupo": {
+     "area_ha": 1
+    }
+   },
+   "chave": {
+    "campo": "processo",
+    "feicoes": 689,
+    "distintos": 689,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 77,
+   "simplificacao": {
+    "tolerancia_graus": 0.0002,
+    "vertices_fonte": 41943,
+    "vertices_simplificados": 20625,
+    "vertices_publicados": 19892,
+    "partes": 709,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.709038,
+    "lat0": -19.190927,
+    "lon1": -46.099246,
+    "lat1": -13.0016
+   },
+   "titular": {
+    "Cadastro Mineiro / SIGMINE pelo processo": 743
+   },
+   "nulos": {
+    "tipo_uso": 203
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 175905
+  },
+  "guias_utilizacao": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Guia de Utilização (mvw_guia_utilizacao).zip",
+     "registros": 646,
+     "registros_no_indice": 646,
+     "fiapos_removidos_no_recorte": 6
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 646,
+   "agrupamento": {
+    "por": "processo",
+    "registros": 646,
+    "feicoes": 445,
+    "geometrias_diferentes_unidas": 0,
+    "campos_com_valor_diferente_no_grupo": {
+     "localidade": 9,
+     "municipios_ibge": 8
+    }
+   },
+   "chave": {
+    "campo": "processo",
+    "feicoes": 445,
+    "distintos": 445,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 34,
+   "simplificacao": {
+    "tolerancia_graus": 0.0002,
+    "vertices_fonte": 46213,
+    "vertices_simplificados": 22442,
+    "vertices_publicados": 21936,
+    "partes": 473,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.732371,
+    "lat0": -19.135888,
+    "lon1": -46.321729,
+    "lat1": -12.841587
+   },
+   "titular": {
+    "Cadastro Mineiro / SIGMINE pelo processo": 646
+   },
+   "nulos": {
+    "substancias": 3,
+    "mineral": 3,
+    "quantidades": 2,
+    "prazos": 1,
+    "localidade": 1,
+    "municipios_ibge": 1
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {
+    "mineral": {
+     "AREIA (agregado)": 7,
+     "MINÉRIO DE TERRAS RARAS": 7,
+     "GRANITO (ROCHA ORNAMENTAL)": 5,
+     "QUARTZITO (ROCHA ORNAMENTAL)": 4,
+     "Granito (Rocha Ornamental)": 3,
+     "Areia e Cascalho": 3,
+     "areia/cascalho": 3,
+     "Areia (agregado)": 2,
+     "Diamante (beneficiado)": 2,
+     "GRANITO (rocha ornamental)": 2,
+     "MÁRMORE (rocha ornamental)": 2,
+     "MINÉRIO DE OURO e AREIA": 2,
+     "cascalho/areia": 2,
+     "Minério de Elementos de Terras Raras": 2,
+     "Areia e Quartzo": 2
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 445
+   },
+   "bytes": 195942
+  },
+  "servidoes": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Servidões Minerárias (vw_anm_svd_min).zip",
+     "registros": 200,
+     "registros_no_indice": 200,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 200,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 200,
+    "distintos": 200,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 3,
+   "simplificacao": {
+    "tolerancia_graus": 0.0002,
+    "vertices_fonte": 8593,
+    "vertices_simplificados": 4134,
+    "vertices_publicados": 3932,
+    "partes": 201,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -50.475327,
+    "lat0": -18.544539,
+    "lon1": -46.39337,
+    "lat1": -13.213284
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 36758
+  },
+  "reservas_garimpeiras": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Reservas Garimpeiras (vw_anm_reserv_garip).zip",
+     "registros": 2,
+     "registros_no_indice": 2,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 2,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 2,
+    "distintos": 2,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0002,
+    "vertices_fonte": 46,
+    "vertices_simplificados": 44,
+    "vertices_publicados": 42,
+    "partes": 2,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -50.615003,
+    "lat0": -15.380176,
+    "lon1": -49.6101,
+    "lat1": -14.19851
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 706
+  },
+  "barragens": {
+   "origem": "atlas",
+   "arquivo": "data/atlas/atlas.json",
+   "feicoes": 23,
+   "distintos": 23,
+   "sem_coordenada": 0,
+   "fora_da_caixa_de_goias": 0
+  },
+  "ativos_sgb": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Ativos SGB (projetos CINFO) (mvw_ativos_sgb_cinfo).zip",
+     "registros": 8,
+     "registros_no_indice": 8,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 8,
+   "chave": {
+    "campo": "processo",
+    "feicoes": 8,
+    "distintos": 8,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0002,
+    "vertices_fonte": 40,
+    "vertices_simplificados": 40,
+    "vertices_publicados": 32,
+    "partes": 8,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.149468,
+    "lat0": -16.428552,
+    "lon1": -51.0754,
+    "lat1": -15.491288
+   },
+   "titular": {
+    "Cadastro Mineiro / SIGMINE pelo processo": 8
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 2254
+  },
+  "projetos_anm": {
+   "origem": "atlas",
+   "arquivo": "data/atlas/atlas.json",
+   "feicoes": 3377,
+   "distintos": 3377,
+   "sem_coordenada": 0,
+   "fora_da_caixa_de_goias": 0
+  },
+  "empreendimentos_sig": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Empreendimento Mineiro SIG.zip",
+     "registros": 1374,
+     "registros_no_indice": 1374,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [
+    "processo: 10 valores não convertidos (ex.: '8 6839/1972')"
+   ],
+   "registros_fonte": 1374,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 1374,
+    "distintos": 1374,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 1374,
+    "vertices_simplificados": 1374,
+    "vertices_publicados": 1374,
+    "partes": 1374,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.21738,
+    "lat0": -19.187759,
+    "lon1": -46.10306,
+    "lat1": -12.91321
+   },
+   "posicao_aproximada": 852,
+   "posicao_sem_informacao": 0,
+   "titular": {
+    "nome da própria camada": 1365,
+    "sem titular": 9
+   },
+   "nulos": {
+    "processo": 141,
+    "mina": 1181,
+    "produto": 120,
+    "lavra": 106,
+    "beneficiamento": 714,
+    "producao_declarada": 1183,
+    "mercado": 176,
+    "situacao_levantamento": 45
+   },
+   "nao_convertidos": {
+    "processo": {
+     "8 6839/1972": 1,
+     "8 3988/1975": 1,
+     "8 1067/2005": 1,
+     "8 0805/1998": 1,
+     "860611/200": 1,
+     "8 1076/2005": 1,
+     "860667/200": 1,
+     "8 0751/2004": 1,
+     "860978/200": 1,
+     "8 2053/2005": 1
+    }
+   },
+   "mineral_sem_categoria": {
+    "mineral": {
+     "areia/cascalho": 31,
+     "calcario calcitico e dolomitico": 27,
+     "agua termal": 25,
+     "ferro/titanio": 17,
+     "garnierita": 7,
+     "areia/saibro": 6,
+     "areia/argila": 3,
+     "quatzo": 3,
+     "calcario/dolomita": 2,
+     "cobre/ouro": 2,
+     "marmore/granulito": 2,
+     "muscovita xisto": 2,
+     "silicato de Niquel": 2,
+     "niquel silicatado": 2,
+     "argila/areia/saibro": 1
+    }
+   },
+   "municipio_sem_codigo": {
+    "municipios_ibge": {
+     "DISTRITO FEDERAL": 1
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 1373
+   },
+   "bytes": 133111
+  },
+  "ocorrencias": {
+   "origem": "atlas",
+   "arquivo": "data/atlas/atlas.json",
+   "feicoes": 1796,
+   "distintos": 1796,
+   "sem_coordenada": 0,
+   "fora_da_caixa_de_goias": 0
+  },
+  "depositos_pdac": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Recursos Minerais PDAC - 2024.zip",
+     "registros": 34,
+     "registros_no_indice": 34,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 34,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 34,
+    "distintos": 34,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 34,
+    "vertices_simplificados": 34,
+    "vertices_publicados": 34,
+    "partes": 34,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.0733,
+    "lat0": -18.130599,
+    "lon1": -46.98639,
+    "lat1": -13.335999
+   },
+   "nulos": {
+    "empresa": 11,
+    "status": 1,
+    "porte": 9,
+    "sistema": 2,
+    "recurso_declarado": 11,
+    "ano_estimativa": 21,
+    "referencia": 9
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 7763
+  },
+  "uranio": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Recursos Minerais SIG Urânio.zip",
+     "registros": 18,
+     "registros_no_indice": 18,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 18,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 18,
+    "distintos": 18,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 18,
+    "vertices_simplificados": 18,
+    "vertices_publicados": 18,
+    "partes": 18,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.558691,
+    "lat0": -18.047878,
+    "lon1": -46.310983,
+    "lat1": -13.077918
+   },
+   "nulos": {
+    "local": 5,
+    "substancia": 7,
+    "status": 11,
+    "faixa_recurso": 15
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipios_com_codigo": {
+    "municipios_ibge": 18
+   },
+   "bytes": 2077
+  },
+  "potencial_mineral": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Potencial Mineral SIG.zip",
+     "registros": 146,
+     "registros_no_indice": 146,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 146,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 146,
+    "distintos": 146,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 16,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 17426,
+    "vertices_simplificados": 11919,
+    "vertices_publicados": 11720,
+    "partes": 195,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.24321,
+    "lat0": -19.164025,
+    "lon1": -46.168361,
+    "lat1": -12.848075
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 82787
+  },
+  "distritos_auriferos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Distritos Auríferos.zip",
+     "registros": 14,
+     "registros_no_indice": 14,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 14,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 14,
+    "distintos": 14,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 1017,
+    "vertices_simplificados": 873,
+    "vertices_publicados": 859,
+    "partes": 14,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.181447,
+    "lat0": -17.695028,
+    "lon1": -46.792085,
+    "lat1": -13.125445
+   },
+   "nulos": {
+    "provincia": 3
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 5759
+  },
+  "provincias_auriferas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Províncias Auríferas (vw_cprm_au_prov_br).zip",
+     "registros": 4,
+     "registros_no_indice": 4,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 4,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 4,
+    "distintos": 4,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.001,
+    "vertices_fonte": 144,
+    "vertices_simplificados": 138,
+    "vertices_publicados": 134,
+    "partes": 4,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.236379,
+    "lat0": -17.754182,
+    "lon1": -46.750464,
+    "lat1": -13.02696
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 1345
+  },
+  "ocorrencias_diamante": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Ocorrências de Diamantes (vw_cprm_ocorr_diamante).zip",
+     "registros": 114,
+     "registros_no_indice": 114,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 114,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 114,
+    "distintos": 114,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 114,
+    "vertices_simplificados": 114,
+    "vertices_publicados": 114,
+    "partes": 114,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.05,
+    "lat0": -18.712683,
+    "lon1": -46.148716,
+    "lat1": -13.991024
+   },
+   "nulos": {
+    "local": 15,
+    "status": 15,
+    "importancia": 35,
+    "projeto": 92
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 7074
+  },
+  "litoestratigrafia": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Levantamento Litoestratigráfico Escala 1-1.000.000 (vw_cprm_lev_litostrat_1000000).zip",
+     "registros": 4124,
+     "registros_no_indice": 4124,
+     "fiapos_removidos_no_recorte": 9
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 4124,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 4124,
+    "distintos": 4124,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 177,
+   "simplificacao": {
+    "tolerancia_graus": 0.002,
+    "vertices_fonte": 1393518,
+    "vertices_simplificados": 173535,
+    "vertices_publicados": 167104,
+    "partes": 6394,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.462049,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 1202753
+  },
+  "estruturas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Estruturas SIG.zip",
+     "registros": 7065,
+     "registros_no_indice": 7065,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 7065,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 7065,
+    "distintos": 7065,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 59,
+   "simplificacao": {
+    "tolerancia_graus": 0.001,
+    "vertices_fonte": 31572,
+    "vertices_simplificados": 24931,
+    "vertices_publicados": 24931,
+    "partes": 7073,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.21383,
+    "lat0": -19.394061,
+    "lon1": -46.313934,
+    "lat1": -12.836271
+   },
+   "nulos": {
+    "grupo": 12
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 350363
+  },
+  "provincias_estruturais": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Províncias Estruturais (vw_cprm_provincias_estruturais).zip",
+     "registros": 3,
+     "registros_no_indice": 3,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 3,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 3,
+    "distintos": 3,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 3,
+   "simplificacao": {
+    "tolerancia_graus": 0.002,
+    "vertices_fonte": 139440,
+    "vertices_simplificados": 7514,
+    "vertices_publicados": 7506,
+    "partes": 8,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.498364,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 40493
+  },
+  "linhas_transmissao": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Existentes (vw_epe_lin_trans_exist).zip",
+     "registros": 112,
+     "registros_no_indice": 112,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 112,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 112,
+    "distintos": 112,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 58,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 11205,
+    "vertices_simplificados": 1902,
+    "vertices_publicados": 1902,
+    "partes": 114,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.239261,
+    "lat0": -19.247411,
+    "lon1": -46.104428,
+    "lat1": -12.842831
+   },
+   "nulos": {
+    "concessionaria": 4,
+    "ano_operacao": 28
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 21469
+  },
+  "subestacoes": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Subestação (vw_epe_sub_exist).zip",
+     "registros": 35,
+     "registros_no_indice": 35,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 35,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 35,
+    "distintos": 35,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 35,
+    "vertices_simplificados": 35,
+    "vertices_publicados": 35,
+    "partes": 35,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.091032,
+    "lat0": -19.143466,
+    "lon1": -47.831925,
+    "lat1": -13.399595
+   },
+   "nulos": {
+    "concessionaria": 2,
+    "ano_operacao": 8
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 2824
+  },
+  "hidreletricas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Usina Hidrelétrica (vw_epe_uhe_exist).zip",
+     "registros": 16,
+     "registros_no_indice": 16,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Pequena Central Hidrelétrica (vw_epe_pch_exist).zip",
+     "registros": 23,
+     "registros_no_indice": 23,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Central Geradora Hidrelétrica (vw_epe_cgh_exist).zip",
+     "registros": 3,
+     "registros_no_indice": 3,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 42,
+   "chave": {
+    "campo": "ceg",
+    "feicoes": 42,
+    "distintos": 42,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 42,
+    "vertices_simplificados": 42,
+    "vertices_publicados": 42,
+    "partes": 42,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.812289,
+    "lat0": -19.142701,
+    "lon1": -46.197964,
+    "lat1": -13.395277
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 6354
+  },
+  "termeletricas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Termelétrica a Biomassa (vw_epe_ute_bio_exist).zip",
+     "registros": 23,
+     "registros_no_indice": 23,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Termelétrica a Combustível Fóssil (vw_epe_ute_fos_exist).zip",
+     "registros": 4,
+     "registros_no_indice": 4,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 27,
+   "chave": {
+    "campo": "ceg",
+    "feicoes": 27,
+    "distintos": 27,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 27,
+    "vertices_simplificados": 27,
+    "vertices_publicados": 27,
+    "partes": 27,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.021924,
+    "lat0": -18.601273,
+    "lon1": -47.689922,
+    "lat1": -15.082835
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 3953
+  },
+  "ferrovias": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Ferrovias (vw_infra_ferrov).zip",
+     "registros": 42,
+     "registros_no_indice": 42,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 42,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 42,
+    "distintos": 42,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 6,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 11697,
+    "vertices_simplificados": 1651,
+    "vertices_publicados": 1651,
+    "partes": 45,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.129123,
+    "lat0": -18.642242,
+    "lon1": -47.776417,
+    "lat1": -12.845839
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 10673
+  },
+  "terminais_ferroviarios": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Terminais Ferroviários (vw_infra_term_ferrov).zip",
+     "registros": 10,
+     "registros_no_indice": 10,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 10,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 10,
+    "distintos": 10,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 10,
+    "vertices_simplificados": 10,
+    "vertices_publicados": 10,
+    "partes": 10,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -49.203797,
+    "lat0": -18.169495,
+    "lon1": -47.880798,
+    "lat1": -16.443908
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 985
+  },
+  "rodovias_federais": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Federal (vw_ibge_rdv_fed).zip",
+     "registros": 629,
+     "registros_no_indice": 629,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 629,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 629,
+    "distintos": 629,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 19,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 11999,
+    "vertices_simplificados": 3663,
+    "vertices_publicados": 3663,
+    "partes": 630,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.211969,
+    "lat0": -19.106413,
+    "lon1": -46.212024,
+    "lat1": -12.835606
+   },
+   "nulos": {
+    "sigla": 62,
+    "administracao": 5
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 40458
+  },
+  "rodovias_estaduais": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Estadual e Distrital (vw_ibge_rdv_est_dist).zip",
+     "registros": 1949,
+     "registros_no_indice": 1949,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 1949,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 1949,
+    "distintos": 1949,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 44,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 60736,
+    "vertices_simplificados": 16327,
+    "vertices_publicados": 16325,
+    "partes": 1951,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.189707,
+    "lat0": -19.267878,
+    "lon1": -46.385138,
+    "lat1": -12.875145
+   },
+   "nulos": {
+    "sigla": 1219,
+    "situacao": 3
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 149711
+  },
+  "aeroportos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Aeroportos (vw_ibge_complex_aero).zip",
+     "registros": 5,
+     "registros_no_indice": 5,
+     "fiapos_removidos_no_recorte": 0
+    },
+    {
+     "arquivo": "Aeródromos (vw_ibge_aerodromo).zip",
+     "registros": 40,
+     "registros_no_indice": 40,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 45,
+   "campos_ausentes_em_arquivos": {
+    "revestimen": [
+     "Aeroportos (vw_ibge_complex_aero).zip"
+    ],
+    "homologaca": [
+     "Aeroportos (vw_ibge_complex_aero).zip"
+    ]
+   },
+   "chave": {
+    "campo": "nome",
+    "feicoes": 45,
+    "distintos": 45,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 45,
+    "vertices_simplificados": 45,
+    "vertices_publicados": 45,
+    "partes": 45,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.047162,
+    "lat0": -19.097361,
+    "lon1": -46.870512,
+    "lat1": -13.185392
+   },
+   "nulos": {
+    "revestimento": 5,
+    "homologado": 6
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 2970
+  },
+  "uc_protecao_integral": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Proteção Integral (vw_mma_uc_pi).zip",
+     "registros": 25,
+     "registros_no_indice": 25,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 25,
+   "chave": {
+    "campo": "cnuc",
+    "feicoes": 25,
+    "distintos": 25,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 4,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 20999,
+    "vertices_simplificados": 3175,
+    "vertices_publicados": 3135,
+    "partes": 32,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.118908,
+    "lat0": -19.155056,
+    "lon1": -46.029752,
+    "lat1": -12.990516
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 19662
+  },
+  "uc_uso_sustentavel": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Uso Sustentável (vw_mma_uc_us).zip",
+     "registros": 137,
+     "registros_no_indice": 137,
+     "fiapos_removidos_no_recorte": 2
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 137,
+   "chave": {
+    "campo": "cnuc",
+    "feicoes": 137,
+    "distintos": 137,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 10,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 75067,
+    "vertices_simplificados": 10181,
+    "vertices_publicados": 9330,
+    "partes": 504,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.14324,
+    "lat0": -18.761522,
+    "lon1": -45.908584,
+    "lat1": -12.394973
+   },
+   "nulos": {
+    "area_ha": 1
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 69928
+  },
+  "terras_indigenas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Terras Indígenas (vw_funai_ter_indg).zip",
+     "registros": 6,
+     "registros_no_indice": 6,
+     "fiapos_removidos_no_recorte": 1
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 6,
+   "chave": {
+    "campo": "codigo",
+    "feicoes": 6,
+    "distintos": 6,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 7182,
+    "vertices_simplificados": 433,
+    "vertices_publicados": 426,
+    "partes": 7,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -51.090909,
+    "lat0": -15.13417,
+    "lon1": -48.140784,
+    "lat1": -13.715871
+   },
+   "nulos": {
+    "superficie_ha": 1
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 3264
+  },
+  "quilombolas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Áreas de Quilombolas (vw_incra_area_qlb).zip",
+     "registros": 8,
+     "registros_no_indice": 8,
+     "fiapos_removidos_no_recorte": 1
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 8,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 8,
+    "distintos": 8,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 2,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 15475,
+    "vertices_simplificados": 829,
+    "vertices_publicados": 818,
+    "partes": 11,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.820415,
+    "lat0": -17.593025,
+    "lon1": -46.462395,
+    "lat1": -13.103545
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipios_com_codigo": {
+    "municipios_ibge": 8
+   },
+   "bytes": 5584
+  },
+  "assentamentos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Projetos de Assentamento Total (vw_incra_ast).zip",
+     "registros": 401,
+     "registros_no_indice": 401,
+     "fiapos_removidos_no_recorte": 4
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 401,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 401,
+    "distintos": 401,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 25,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 132674,
+    "vertices_simplificados": 19850,
+    "vertices_publicados": 19325,
+    "partes": 525,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.980532,
+    "lat0": -19.286967,
+    "lon1": -45.960813,
+    "lat1": -12.872414
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipio_sem_codigo": {
+    "municipios_ibge": {
+     "UNAI": 1,
+     "BURITIS": 1
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 399
+   },
+   "bytes": 143031
+  },
+  "cavidades": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Cavidades Naturais Subterrâneas (vw_icmbio_cav_nat).zip",
+     "registros": 1051,
+     "registros_no_indice": 1051,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 1051,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 1051,
+    "distintos": 1051,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 1051,
+    "vertices_simplificados": 1051,
+    "vertices_publicados": 1051,
+    "partes": 1051,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.152672,
+    "lat0": -18.445258,
+    "lon1": -46.084754,
+    "lat1": -12.858616
+   },
+   "nulos": {
+    "registro": 5
+   },
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "municipio_sem_codigo": {
+    "municipios_ibge": {
+     "PONTE BRANCA": 1
+    }
+   },
+   "municipios_com_codigo": {
+    "municipios_ibge": 1050
+   },
+   "bytes": 85983
+  },
+  "sitios_arqueologicos": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Sítios Arqueológicos (vw_iphan_sitio_arq).zip",
+     "registros": 925,
+     "registros_no_indice": 925,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 925,
+   "chave": {
+    "campo": "codigo",
+    "feicoes": 925,
+    "distintos": 925,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "pontos_fora_de_goias": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0,
+    "vertices_fonte": 925,
+    "vertices_simplificados": 925,
+    "vertices_publicados": 925,
+    "partes": 925,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.594988,
+    "lat0": -19.143012,
+    "lon1": -46.355321,
+    "lat1": -12.888202
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 63985
+  },
+  "biomas": {
+   "origem": "p3m",
+   "arquivos": [
+    {
+     "arquivo": "Biomas (vw_ibge_biomas).zip",
+     "registros": 2,
+     "registros_no_indice": 2,
+     "fiapos_removidos_no_recorte": 0
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 2,
+   "chave": {
+    "campo": "id_fonte",
+    "feicoes": 2,
+    "distintos": 2,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "na_divisa": 2,
+   "simplificacao": {
+    "tolerancia_graus": 0.002,
+    "vertices_fonte": 120579,
+    "vertices_simplificados": 5079,
+    "vertices_publicados": 5058,
+    "partes": 21,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248563,
+    "lat0": -19.498364,
+    "lon1": -45.907155,
+    "lat1": -12.394973
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "mineral_sem_categoria": {},
+   "bytes": 27534
+  }
+ },
+ "erros": [],
+ "alertas": [
+  "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')"
+ ],
+ "radar_projetos": {
+  "projetos": 1040,
+  "com_processo": 1027,
+  "ligados_por_processo": 1027,
+  "so_municipio": 12,
+  "sem_ligacao": 1,
+  "processos_citados": 5434,
+  "processos_fora_do_mapa": 7,
+  "sem_categoria_mineral": {
+   "Feldspato e nefelina-sienito": 4,
+   "Laterita (não classificada)": 3,
+   "Urânio": 2
+  }
+ },
+ "processos_complemento": {
+  "processos": 16656,
+  "na_aba_03": 16656,
+  "titular": {
+   "pessoa jurídica": 10725,
+   "pessoa física (sem nome)": 5931
+  },
+  "sem_municipio": 0,
+  "municipio_sem_codigo": {},
+  "sem_mineral": 381,
+  "mais_de_um_mineral": 0
+ },
+ "municipios": {
+  "linhas": 246,
+  "codigos_distintos": 246,
+  "cfem_sem_linha_no_atlas": 0
+ },
+ "sem_geometria": {}
+}
