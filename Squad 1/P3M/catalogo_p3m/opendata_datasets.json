@@ -1,0 +1,122 @@
+{
+ "vw_cprm_geoq_concentrado_de_bateia": {
+  "title": "vw_cprm_geoq_concentrado_de_bateia",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:03:01.982337Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:05:36.335930Z",
+  "created": "2026-10-02T14:03:01.994279Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/713"
+ },
+ "vw_cprm_geoq_contagem_de_pintas_au": {
+  "title": "vw_cprm_geoq_contagem_de_pintas_au",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:03:13.792286Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:04:15.923738Z",
+  "created": "2026-10-02T14:03:13.798718Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/714"
+ },
+ "vw_cprm_furos_sondagem": {
+  "title": "vw_cprm_furos_sondagem",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:02:38.521692Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:07:53.455839Z",
+  "created": "2026-10-02T14:02:38.528664Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/711"
+ },
+ "vw_cprm_geoq_mineralometria": {
+  "title": "vw_cprm_geoq_mineralometria",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:03:35.251373Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:02:47.938668Z",
+  "created": "2026-10-02T14:03:35.257523Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/716"
+ },
+ "vw_cprm_geoq_outros": {
+  "title": "vw_cprm_geoq_outros",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:03:50.764295Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:02:12.185369Z",
+  "created": "2026-10-02T14:03:50.770304Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/717"
+ },
+ "vw_cprm_geoq_rocha": {
+  "title": "vw_cprm_geoq_rocha",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:04:01.572651Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:00:40.730335Z",
+  "created": "2026-10-02T14:04:01.579064Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/718"
+ },
+ "vw_cprm_geoq_sedimento_de_corrente": {
+  "title": "vw_cprm_geoq_sedimento_de_corrente",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:04:20.324644Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T20:26:03.779041Z",
+  "created": "2026-10-02T14:04:20.330511Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/719"
+ },
+ "vw_cprm_geoq_solo": {
+  "title": "vw_cprm_geoq_solo",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:04:56.138599Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T19:59:41.235871Z",
+  "created": "2026-10-02T14:04:56.144696Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/720"
+ },
+ "vw_cprm_cartas_anomalia": {
+  "title": "vw_cprm_cartas_anomalia",
+  "abstract": "Resumo não fornecido",
+  "date": "2026-10-02T14:02:19.937991Z",
+  "date_type": "publication",
+  "last_updated": "2026-10-02T18:43:57.462949Z",
+  "created": "2026-10-02T14:02:19.967484Z",
+  "attribution": null,
+  "maintenance_frequency": null,
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/710"
+ },
+ "vw_cprm_ocorr_min": {
+  "title": "Ocorrências Minerais - Brasil",
+  "abstract": "<p data-start=\"325\" data-end=\"760\">Camada composta por fei&ccedil;&otilde;es pontuais que representam esta&ccedil;&otilde;es geol&oacute;gicas onde foram cadastradas ocorr&ecirc;ncias de minerais ou min&eacute;rio com potencial interesse econ&ocirc;mico. Essas ocorr&ecirc;ncias est&atilde;o associadas a corpos rochosos ou aparecem dispersas na superf&iacute;cie, e foram registradas no contexto dos programas e projetos de mapeamento geol&oacute;gico realizados pelo Servi&ccedil;o Geol&oacute;gico do Brasil (SGB/CPRM), desde a d&eacute;cada de 1970 at&eacute; os dias atuais.</p>\r\n<p data-start=\"762\" data-end=\"931\">A base &eacute; integrada ao banco de dados corporativo GeoSGB, sendo continuamente atualizada com dados provenientes de novos projetos &agrave; medida que s&atilde;o conclu&iacute;dos e validados.</p>\r\n<p data-start=\"933\" data-end=\"1086\">Cada ponto representa uma ocorr&ecirc;ncia mineral categorizada segundo seu grau de conhecimento (ind&iacute;cio, ocorr&ecirc;ncia ou dep&oacute;sito), incluindo informa&ccedil;&otilde;es como:</p>\r\n<ul data-start=\"1087\" data-end=\"1511\">\r\n<li data-start=\"1087\" data-end=\"1119\">\r\n<p data-start=\"1089\" data-end=\"1119\">Subst&acirc;ncia mineral registrada;</p>\r\n</li>\r\n<li data-start=\"1120\" data-end=\"1159\">\r\n<p data-start=\"1122\" data-end=\"1159\">Status econ&ocirc;mico a &eacute;poca do cadastro&nbsp; da ocorr&ecirc;ncia;</p>\r\n</li>\r\n<li data-start=\"1160\" data-end=\"1192\">\r\n<p data-start=\"1162\" data-end=\"1192\">Tipologia do dep&oacute;sito mineral;</p>\r\n</li>\r\n<li data-start=\"1193\" data-end=\"1231\">\r\n<p data-start=\"1195\" data-end=\"1231\">Rocha hospedeira e rocha encaixante;</p>\r\n</li>\r\n<li data-start=\"1232\" data-end=\"1266\">\r\n<p data-start=\"1234\" data-end=\"1266\">Associa&ccedil;&atilde;o geoqu&iacute;mica observada;</p>\r\n</li>\r\n<li data-start=\"1267\" data-end=\"1301\">\r\n<p data-start=\"1269\" data-end=\"1301\">Textura e estrutura do dep&oacute;sito;</p>\r\n</li>\r\n<li data-start=\"1302\" data-end=\"1340\">\r\n<p data-start=\"1304\" data-end=\"1340\">Evid&ecirc;ncias de altera&ccedil;&atilde;o hidrotermal;</p>\r\n</li>\r\n<li data-start=\"1341\" data-end=\"1392\">\r\n<p data-start=\"1343\" data-end=\"1392\">Modelo gen&eacute;tico do dep&oacute;sito, quando identificado;</p>\r\n</li>\r\n<li data-start=\"1393\" data-end=\"1511\">\r\n<p data-start=\"1395\" data-end=\"1511\">Localiza&ccedil;&atilde;o geogr&aacute;fica, m&eacute;todo de posicionamento, prov&iacute;ncia geol&oacute;gica associada e grau de import&acirc;ncia da ocorr&ecirc;ncia.</p>\r\n</li>\r\n</ul>\r\n<p data-start=\"1513\" data-end=\"1857\">A Base de Ocorr&ecirc;ncias Minerais constitui um reposit&oacute;rio estrat&eacute;gico de informa&ccedil;&otilde;es geocient&iacute;ficas voltado ao conhecimento e ao potencial mineral do territ&oacute;rio brasileiro. Pode ser utilizada como insumo para atividades de pesquisa mineral, planejamento territorial, avalia&ccedil;&atilde;o de recursos naturais, ensino e outras aplica&ccedil;&otilde;es t&eacute;cnico-cient&iacute;ficas</p>",
+  "date": "2024-11-26T16:09:00Z",
+  "date_type": "publication",
+  "last_updated": "2026-08-14T11:45:35.147640Z",
+  "created": "2024-11-26T16:09:48.765000Z",
+  "attribution": "Livre para uso",
+  "maintenance_frequency": "notPlanned",
+  "srid": "EPSG:4674",
+  "detail_url": "https://opendata.sgb.gov.br/catalogue/#/dataset/141"
+ }
+}

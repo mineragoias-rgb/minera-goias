@@ -4,8 +4,8 @@
   "p3m": {
     "pasta": "Squad 1/P3M/Recortado pelo polígono de Goiás",
     "indice": "_indice_recorte.csv",
-    "pasta_baixados": "Squad 1/P3M/Original/Baixados do P3M - recorte Goiás",
-    "limite_estadual": "Squad 1/P3M/Original/GO_UF_2024.zip",
+    "inventario": "Squad 1/P3M/inventario_p3m.csv",
+    "limite_estadual": "Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip",
     "portal": "https://p3mgeo.sgb.gov.br/#/map",
     "servico": "https://opendata.sgb.gov.br/geoserver/wfs",
     "retrato_baixados": "2026-10-21",

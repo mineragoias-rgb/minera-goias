@@ -17,8 +17,10 @@ on:
       - 'Squad 1/dados/**'
       - 'Squad 1/Dados brutos/**'
       - 'producao/**'
+      - 'Squad 1/P3M/**'
       - 'scripts/atualizar_derivados.py'
       - 'tests/test_derivados.py'
+      - 'scripts/build_inventario_p3m.py'
       - 'scripts/build_panorama_base.py'
       - 'scripts/build_producao_base.py'
       - 'scripts/build_empresas_base.py'
@@ -72,6 +74,7 @@ jobs:
       - name: Publicar na main
         run: |
           saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
+                  "Squad 1/P3M/inventario_p3m.csv"
                   "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
           git add -A -- "${saidas[@]}"
           if git diff --cached --quiet; then

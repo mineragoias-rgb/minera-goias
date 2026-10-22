@@ -1,10 +1,9 @@
 # Camadas do P3M recortadas pelo polígono de Goiás
 
-156 camadas (513,6 MB), uma por zip, com o mesmo nome do zip de origem. Recorte feito em 21/10/2026 com
-`GO_UF_2024.zip` (limite estadual do IBGE, na pasta acima), sobre:
-
-- os 19 zips do P3M que já estavam em `P3M/` (inclusive os nacionais, que estavam com o Brasil inteiro);
-- os 138 zips de `P3M/Baixados do P3M - recorte Goiás/`, que vieram com o retângulo em volta de Goiás.
+156 camadas (513,6 MB), uma por zip, com o mesmo nome do zip de origem, na mesma pasta temática que ele tem em `Original/`.
+Recorte feito em 21/10/2026 com `Original/6- Cartografia/GO_UF_2024.zip` (limite estadual do IBGE), sobre os zips de `Original/` —
+os baixados com o Brasil inteiro ou só com Goiás e os baixados com o retângulo em volta de Goiás (a coluna `extensao_original` de
+`../inventario_p3m.csv` diz qual é qual).
 
 **Os originais não foram alterados.** Fica de fora `Recursos Minerais SIG Lítio.zip`: os 46 pontos ficam todos em Minas Gerais.
 
@@ -24,4 +23,5 @@
 - Alguns pontos dentro do limite do IBGE trazem outra UF no atributo (ex.: 2 das 1.796 ocorrências minerais), por diferença entre os
   limites usados pelo SGB e pelo IBGE; foram mantidos como estão.
 
-Contagem de registros antes e depois, por camada, em `_indice_recorte.csv`.
+Contagem de registros antes e depois, por camada, em `_indice_recorte.csv` (o gerador do Mapa mineral confere o recorte por ele) e,
+junto com o resto da descrição de cada camada, em `../inventario_p3m.csv`.

@@ -10,6 +10,7 @@ Cadeia (cada etapa só roda depois das que ela usa):
     bases brutas do Squad 1 + CCEE ─► Panorama ─┐
     curadoria de produção ──────────► Produção ─┴► Empresas
     levantamento do Lucas Maia ─────► carteira de projetos (Mercado)
+    camadas do P3M (Squad 1/P3M) ───► inventário (classificação, metadados do site, registros, datas)
 
 Fica de fora, porque depende de arquivo que não está no repositório: o atlas (`build_atlas_base.py`, precisa do GeoPackage do
 projeto) e o download da CCEE (`build_ccee_go.py`, o portal bloqueia acesso automatizado — os CSVs nacionais são baixados à mão).
@@ -38,6 +39,8 @@ INT = "Squad 2/intensidade_energetica"
 
 # nome, comando (relativo à raiz), pasta onde roda, saídas (arquivos ou pastas), etapas de que depende, testes da saída
 ETAPAS = [
+    ("inventario_p3m", [PY, "scripts/build_inventario_p3m.py"], ".",
+     ["Squad 1/P3M/inventario_p3m.csv"], [], ["tests/test_inventario_p3m.py"]),
     ("pacote_squad2", [PY, "base_consolidada_work/scripts/gerar_pacote_squad2.py"], S1,
      [f"{S1}/documentacao/pacote_squad2"], [], []),
     ("panorama", [PY, "scripts/build_panorama_base.py"], ".",

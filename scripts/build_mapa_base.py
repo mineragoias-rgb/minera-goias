@@ -2,8 +2,9 @@
 """Gera os dados do Mapa Mineral de Goiás (data/mapa/) a partir do catálogo scripts/mapa_camadas.json.
 
 Entradas (todas no repositório):
-  Squad 1/P3M/Recortado pelo polígono de Goiás/*.zip   camadas do P3M já cortadas pelo limite de Goiás (SIRGAS 2000)
-  Squad 1/P3M/Original/GO_UF_2024.zip                  limite estadual do IBGE usado no recorte (marca as feições na divisa)
+  Squad 1/P3M/Recortado pelo polígono de Goiás/<pasta temática>/*.zip   camadas do P3M já cortadas pelo limite de Goiás (SIRGAS 2000)
+  Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip                     limite estadual do IBGE usado no recorte (marca as feições na divisa)
+  Squad 1/P3M/inventario_p3m.csv                                         data de download de cada zip (retrato de cada camada)
   data/atlas/atlas.json e processes.json               municípios, CFEM, projetos (aba 04), ocorrências e processos já publicados
   Squad 1/Radar de Projetos/ e Squad 1/Dados brutos/   Radar de Projetos e titulares PJ (scripts/build_projetos_minerais_goias.py)
   Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx   crosswalk de substâncias (aba 01b)
@@ -404,9 +405,26 @@ def colunas_de_saida(feicoes, campos):
 
 
 # ---------------------------------------------------------------- camadas do P3M
+def zips_p3m(pasta):
+    """Nome do zip -> caminho, em qualquer pasta temática (Squad 1/P3M é organizado por tema desde 22/10/2026)."""
+    achados = collections.defaultdict(list)
+    for z in pasta.rglob('*.zip'):
+        achados[z.name].append(z)
+    repetidos = {n: v for n, v in achados.items() if len(v) > 1}
+    assert not repetidos, f'zip com o mesmo nome em mais de uma pasta: {repetidos}'
+    return {n: v[0] for n, v in achados.items()}
+
+
+def baixados_no_retrato(cfg):
+    """Zips cuja data de download no inventário do P3M é a do retrato de 21/10/2026 (antes: os da pasta 'Baixados')."""
+    with open(RAIZ / cfg['p3m']['inventario'], encoding='utf-8-sig', newline='') as f:
+        return {Path(a).name for r in csv.DictReader(f, delimiter=';') if r['data_download'] == cfg['p3m']['retrato_baixados']
+                for a in r['arquivo_original'].split(';') if a}
+
+
 def camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_proc, mun_por_nome):
-    pasta = RAIZ / cfg['p3m']['pasta']
-    baixados = RAIZ / cfg['p3m']['pasta_baixados']
+    zips = zips_p3m(RAIZ / cfg['p3m']['pasta'])
+    baixados = baixados_no_retrato(cfg)
     nulos = set(cfg['nulos_padrao']) | {s.casefold() for s in cfg['nulos_padrao']}
     tipo = spec['geometria']
     val = {'arquivos': [], 'erros': [], 'alertas': []}
@@ -416,13 +434,13 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, minerais, ambiguos, titular_
     ausentes = collections.defaultdict(list)  # campo -> arquivos da camada que não o têm (fica nulo nesses arquivos)
     for arq in spec['origem']['arquivos']:
         nome = arq['arquivo']
-        leitor, prj = abrir_zip(pasta / nome)
+        leitor, prj = abrir_zip(zips[nome])
         val['erros'] += conferir_crs(nome, prj, leitor.bbox)
         n = len(leitor)
         esperado = int(indice[nome]['registros_em_goias']) if nome in indice else None
         if esperado is not None and esperado != n:
             val['erros'].append(f'{nome}: {n} registros, o índice do recorte diz {esperado}')
-        retratos.add(cfg['p3m']['retrato_baixados'] if (baixados / nome).exists() else cfg['p3m']['retrato_primeiros'])
+        retratos.add(cfg['p3m']['retrato_baixados'] if nome in baixados else cfg['p3m']['retrato_primeiros'])
         val['arquivos'].append({'arquivo': nome, 'registros': n, 'registros_no_indice': esperado,
                                 'fiapos_removidos_no_recorte': int(indice[nome]['fiapos_de_divisa_removidos']) if nome in indice else None})
         campos_fonte = [f[0] for f in leitor.fields[1:]]
