@@ -8,6 +8,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
 from caminhos import BASE, TMP  # caminhos relativos ao projeto — ver caminhos.py
+import qualidade_cfem
 SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v3.xlsx"
 OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v4.xlsx"
 
@@ -15,6 +16,7 @@ NAVY, TEAL, LBLUE, WHITE, AMBER = "17365D", "1F6D7A", "DCE6F1", "FFFFFF", "C6591
 
 emp_dim = json.load(open(f"{TMP}/_emp_dim.json", encoding="utf-8"))
 crosswalk = json.load(open(f"{TMP}/_crosswalk_emp.json", encoding="utf-8"))
+_q = json.load(open(f"{TMP}/_cfem_qualidade.json", encoding="utf-8"))  # contagens do CPF_CNPJ e da ponte (build_base3)
 base3 = json.load(open(f"{TMP}/_base3_rows.json", encoding="utf-8"))
 
 wb = openpyxl.load_workbook(SRC)
@@ -106,11 +108,11 @@ cols2 = [
     dict(key="tipo_correspondencia", label="tipo_correspondência / achado", width=52),
 ]
 style_header(ws2, "Auditoria — Normalização e cruzamento da chave 'empresa' (pente fino)",
-             "TRÊS ACHADOS ESTRUTURAIS. (1) O campo CPF_CNPJ do CFEM está IRRECUPERAVELMENTE corrompido: 34.212 das 38.854 linhas vieram em notação "
-             "científica ('9,69944E+11') — o CNPJ virou float e perdeu precisão (sobram ~6 dígitos significativos de 14). Ele agrupa de forma estável, "
-             "mas NÃO identifica a empresa, e o CFEM não tem coluna de nome. (2) Por isso a ligação CFEM→empresa é feita pela PONTE DO NÚMERO DO PROCESSO "
+             "TRÊS ACHADOS ESTRUTURAIS. (1) " + qualidade_cfem.achado_02b(_q) + " (2) "
+             + ("Por isso a ligação" if qualidade_cfem.corrompido(_q) else "A ligação")
+             + " CFEM→empresa é feita pela PONTE DO NÚMERO DO PROCESSO "
              "(CFEM.Processo+AnoDoProcesso → Cadastro Mineiro.Processo), que exige canonizar o formato ('860582'+1995 ↔ '860582/1995' ↔ '002393/1935'). "
-             "Cobertura: 93,1% das linhas e 90,1% do valor. (3) Identidade pela RAIZ do CNPJ: só 3 raízes têm mais de uma grafia (fundidas) e 5 nomes "
+             f"Cobertura: {qualidade_cfem.cobertura_ponte(_q)}. (3) Identidade pela RAIZ do CNPJ: só 3 raízes têm mais de uma grafia (fundidas) e 5 nomes "
              "apontam para raízes diferentes (NÃO fundidos — são empresas distintas de nome parecido).",
              len(cols2), 90)
 write_table(ws2, cols2, crosswalk, "CrosswalkEmpresas")

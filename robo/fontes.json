@@ -51,7 +51,8 @@
     "codificacao": "cp1252",
     "separador": ";",
     "recorte": {"coluna": "UF", "valor": "GO"},
-    "converter_formato": true
+    "converter_formato": true,
+    "diagnostico_soma": {"por": "Ano", "coluna": "ValorRecolhido"}
    },
    {
     "id": "AMB_BRUTA",

@@ -35,6 +35,10 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
 
+Os volumes da CFEM e do cadastro mineiro são os dos arquivos baixados em 10/09/2026. Toda segunda, o robô das bases (`robo/`) baixa de
+novo P3M, SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral. Os números do dia ficam na planilha consolidada (aba 07) e em
+`Squad 1/Dados brutos/LEIA-ME.md`.
+
 ---
 
 ## 3. Como cada indicador é calculado
@@ -157,7 +161,7 @@ Declarar isto é parte da metodologia.
 ## 5. Precisão e incerteza declaradas
 
 - **Geometrias do atlas:** municípios da malha IBGE 2025 simplificados como cobertura (tolerância de 0,003°); processos do SIGMINE simplificados (~45 m) e quantizados em UInt16. Projetos são o ponto representativo dos seus processos (73 caem fora de Goiás porque os processos cruzam a divisa); ocorrências usam a coordenada do RECMIN, 83% posicionada em carta 1:250.000. Servem para localizar e comparar; **não são limites cadastrais**.
-- **Identificadores em notação científica:** 34.212 registros da CFEM trazem CPF/CNPJ como número em notação científica. Dígitos perdidos na origem não são recuperados por aproximação — são sinalizados como alerta.
+- **Identificadores em notação científica:** no arquivo da CFEM baixado em 10/09/2026, 34.212 dos 38.854 registros traziam CPF/CNPJ como número em notação científica. Na publicação de outubro de 2026, a ANM passou a trazer o CNPJ completo. A planilha consolidada informa, a cada atualização, quantas linhas do arquivo em uso ainda vêm em notação científica (aba 07 e aba 02b). Dígitos perdidos na origem não são recuperados por aproximação — são sinalizados como alerta.
 - **CPF de pessoa física** vem mascarado da ANM (`***370285**`). CNPJ de pessoa jurídica vem íntegro, e é dado público.
 - **Fórmulas de planilha** não são recalculadas: 2.358 células da base consolidada estão sem valor em cache e aparecem como alerta, não como zero.
 - **Barragens** trazem classificação de risco, dano potencial e nível de emergência como categorias de uma extração sem data. **Não servem para avaliar condição atual.**

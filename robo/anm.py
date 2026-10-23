@@ -105,7 +105,7 @@ class ANM:
                 convertido = None
                 if f.get("converter_formato"):  # a fonte mudou de formato: volta ao do repositório (robo/formato_csv.py)
                     convertido = formato_csv.converter(dados, atual.read_bytes(), f["codificacao"], f["separador"],
-                                                       f["recorte"]["coluna"], f["recorte"]["valor"])
+                                                       f["recorte"]["coluna"], f["recorte"]["valor"], f.get("diagnostico_soma"))
                 if convertido:
                     dados, cont, notas, diag = convertido
                     r.avisos += notas

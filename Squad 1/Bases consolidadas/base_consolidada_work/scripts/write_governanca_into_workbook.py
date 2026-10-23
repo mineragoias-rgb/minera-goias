@@ -22,7 +22,8 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 warnings.filterwarnings("ignore")
 sys.stdout.reconfigure(encoding="utf-8")
-from caminhos import ARRANJO, BASE, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
+from caminhos import ARRANJO, BASE, TMP, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
+import qualidade_cfem
 SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx"  # v5 + 06/06b + 04/04b + 12 + 08 (write_ocorrencias_06 → write_projetos_04 → write_interface_12 → write_fato_08)
 OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v17.xlsx"
 VERSAO = "v17"
@@ -290,6 +291,20 @@ try:
     periodo_cfem = f"{_comp.min() // 100}-{_comp.min() % 100:02d} a {_comp.max() // 100}-{_comp.max() % 100:02d} (registros criados até {_dc.max():%Y-%m-%d})"
 except Exception as e:
     _cf, periodo_cfem = None, f"(não calculado: {e})"
+# qualidade do CPF_CNPJ contada no arquivo em uso (a ANM passou a publicar o CNPJ completo em out/2026) e cobertura da ponte do
+# processo (build_base3): os textos da fonte SRC_ANM_CFEM e o aviso das contagens de titulares saem daqui
+_q_cfem = qualidade_cfem.contar(_cf["CPF_CNPJ"]) if _cf is not None else None
+try:
+    _q_ponte = json.load(open(f"{TMP}/_cfem_qualidade.json", encoding="utf-8"))
+except (OSError, ValueError):
+    _q_ponte = None
+_cob = qualidade_cfem.cobertura_ponte(_q_ponte)
+if _q_cfem is None:
+    _lim_cpf, _conf_cfem, AVISO_CNPJ = "CPF_CNPJ não verificado", "alta (oficial) para valores", "Contado pelo CPF_CNPJ da CFEM."
+else:
+    _lim_cpf, AVISO_CNPJ = qualidade_cfem.limitacao_catalogo(_q_cfem), qualidade_cfem.aviso_titulares(_q_cfem)
+    _conf_cfem = "alta (oficial) para valores; " + ("baixa para identificação do titular" if qualidade_cfem.corrompido(_q_cfem)
+                                                   else "média para identificação do titular (CNPJ completo, sem nome)")
 
 
 def periodo_json(p):
@@ -433,10 +448,11 @@ FONTES = [
          metadados_oficiais="https://dadosabertos.anm.gov.br/CFEM/metadados-cfem.ods (cópia em dados/ANM/cfem/)",
          padroes=["dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv"], granularidade="mês × processo × substância × município × titular",
          formato_declarado="CSV separado por ponto e vírgula; Windows-1252", frequencia_atualizacao="diária (metadados ANM)",
-         periodo=lambda: periodo_cfem, confiabilidade="alta (oficial) para valores; baixa para identificação do titular",
+         periodo=lambda: periodo_cfem, confiabilidade=_conf_cfem,
          limitacoes="Recorte UF=GO do arquivo nacional feito antes de chegar em dados/ (passo não documentado — registrar no GitHub). "
-                    "CPF_CNPJ IRRECUPERÁVEL: 88% das linhas em notação científica ('9,69944E+11'); CPF de pessoa física mascarado por LGPD; sem nome do titular. "
-                    "Empresa só pela ponte do número do processo (93,1% das linhas; 90,1% do valor). Quantidade comercializada ≠ produção. 2026 parcial."),
+                    f"{_lim_cpf}; sem nome do titular. "
+                    "Empresa só pela ponte do número do processo" + (f" ({_cob.replace(' das linhas e ', ' das linhas; ')})" if _cob else "")
+                    + ". Quantidade comercializada ≠ produção. 2026 parcial."),
     dict(source_id="SRC_ANM_CADASTRO", nome_fonte="ANM — Cadastro Mineiro (SCM): títulos e requerimentos", orgao="ANM", tipo_fonte="oficial",
          url_catalogo="https://dadosabertos.anm.gov.br/SCM/",
          url_recurso="https://dadosabertos.anm.gov.br/SCM/<arquivo>.csv — 13 arquivos (Alvara_de_Pesquisa, Cessoes_de_Direitos, Guia_de_Utilizacao_Autorizada, Licenciamento, PLG, Portaria_de_Lavra, …)",
@@ -744,8 +760,6 @@ except Exception as e:
     nota_cfem_qtd = f"(checagem de unidades não executada: {e})"
 print("CFEM qtd comercializada:", nota_cfem_qtd[:160])
 
-AVISO_CNPJ = ("ATENÇÃO: contado pelo CPF_CNPJ da CFEM, que está corrompido (notação científica) — CNPJs diferentes podem colidir, "
-              "então é um limite inferior aproximado. Recalcular pela ponte do número do processo (pendente).")
 D = {  # campo -> (descrição, unidade/domínio, fonte ou derivação)
     "mineral_id": ("Identificador estável do mineral. Atribuído por ordenação (classe, nome) sobre as 57 categorias oficiais da ANM + subitens justificados; nunca por hash do nome. Para rochas, a categoria depende do tipo de uso declarado (ver 01c).", "MIN_### (3 dígitos)", "Derivado — 01_dim_minerais / crosswalk 01b"),
     "company_id": ("Identificador estável do titular. PJ: raiz do CNPJ (agrupa matriz e filiais). PF: CPF íntegro ou sha1 do nome normalizado (CPF mascarado por LGPD). COM_NAO_IDENTIFICADO = CFEM de processo ausente do Cadastro Mineiro e do SIGMINE.", "COM_CNPJ_########, COM_CPF_###########, COM_NOME_<8 hex>, COM_NAO_IDENTIFICADO", "Derivado — Cadastro Mineiro (Titular, CPF/CNPJ)"),

@@ -3,9 +3,11 @@
 
 Pente fino da chave 'empresa'. Tres achados que definem a arquitetura desta base:
 
-1. O campo CPF_CNPJ do CFEM esta IRRECUPERAVELMENTE corrompido: 34.212 das 38.854 linhas
-   estao em notacao cientifica ('9,69944E+11'), ou seja, o CNPJ foi convertido para float em
-   algum passo da exportacao e perdeu precisao (sobram ~6 digitos significativos de 14).
+1. Ate a publicacao de out/2026, o campo CPF_CNPJ do CFEM vinha IRRECUPERAVELMENTE corrompido: 34.212
+   das 38.854 linhas em notacao cientifica ('9,69944E+11'), ou seja, o CNPJ foi convertido para float em
+   algum passo da exportacao e perdeu precisao (sobram ~6 digitos significativos de 14). Depois disso a
+   ANM passou a publicar o CNPJ completo; os textos da planilha saem das contagens do arquivo em uso
+   (qualidade_cfem.py).
    O valor AGRUPA de forma estavel (mesmo CNPJ -> mesma string), mas NAO IDENTIFICA a empresa,
    e colisoes entre CNPJs distintos sao possiveis. Alem disso o CFEM nao tem coluna de nome.
    => O CFEM NAO pode ser a fonte de identidade da empresa.
@@ -25,6 +27,7 @@ import pandas as pd
 
 sys.stdout.reconfigure(encoding="utf-8")
 from caminhos import BASE, TMP, arquivo  # caminhos relativos ao projeto — ver caminhos.py
+import qualidade_cfem
 
 
 def norm(s):
@@ -298,7 +301,7 @@ for nm, c in sig_sem_match.most_common(40):
                            tipo_correspondencia="nome do SIGMINE sem titular equivalente no Cadastro Mineiro"))
 
 # ---------------------------------------------------------------------------
-# 4) CFEM -> empresa pela PONTE DO PROCESSO (o CNPJ do CFEM esta corrompido)
+# 4) CFEM -> empresa pela PONTE DO PROCESSO (o CNPJ do CFEM vinha corrompido ate out/2026, e o CFEM nao tem nome)
 # ---------------------------------------------------------------------------
 proc2company = {}
 for reg in registros:
@@ -338,6 +341,12 @@ for _, r in cfem.iterrows():
 print(f"\nPonte CFEM -> empresa (via processo): {casou} linhas casadas, {naocasou} sem par "
       f"({100*casou/(casou+naocasou):.1f}% das linhas; {100*valor_casou/(valor_casou+valor_naocasou):.1f}% do valor em R$)")
 print(f"   processos do CFEM sem titular no Cadastro Mineiro: {len(procs_sem_par)}")
+# qualidade do CPF_CNPJ e cobertura da ponte: os textos da 02b e do catálogo (aba 07) saem daqui
+qualidade = dict(qualidade_cfem.contar(cfem["CPF_CNPJ"]), ponte_linhas=casou, ponte_sem_par=naocasou,
+                 ponte_valor=valor_casou, ponte_valor_sem_par=valor_naocasou)
+with open(f"{TMP}/_cfem_qualidade.json", "w", encoding="utf-8") as f:
+    json.dump(qualidade, f, ensure_ascii=False)
+print("   CPF_CNPJ do CFEM:", {k: qualidade[k] for k in ("linhas", "cientifica", "mascarado", "completo")})
 for p, c in procs_sem_par.most_common(30):
     crosswalk.append(dict(fonte="CFEM(GO)", valor_original=f"processo {p}", chave_normalizada=p, contagem=c,
                            atribuido="SEM_PAR_NO_CADASTRO",

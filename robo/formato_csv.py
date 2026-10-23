@@ -96,9 +96,10 @@ def _data(v, formato_antigo):
     return None
 
 
-def converter(dados, atual, codificacao, separador, coluna=None, valor=None):
+def converter(dados, atual, codificacao, separador, coluna=None, valor=None, soma=None):
     """Converte `dados` (o arquivo nacional, em qualquer dialeto) para o formato de `atual` (bytes do arquivo do repositório),
-    ficando só com as linhas em que `coluna` == `valor` quando pedido.
+    ficando só com as linhas em que `coluna` == `valor` quando pedido. `soma` = {"por": coluna, "coluna": coluna numérica} põe no
+    diagnóstico a soma por grupo, no atual e no convertido (ex.: ValorRecolhido por Ano), para ver se o passado mudou.
 
     Devolve None quando `dados` já está no formato antigo (o recorte byte a byte de anm_recorte serve), ou
     (bytes, contagens, notas, diagnostico)."""
@@ -174,10 +175,21 @@ def converter(dados, atual, codificacao, separador, coluna=None, valor=None):
     except UnicodeEncodeError as e:
         raise ValueError(f"caractere que {codificacao} não representa: {e.object[e.start:e.end]!r}") from None
     return convertido, {"linhas_nacional": total, "linhas_goias": len(linhas), "linhas_tortas": tortas}, notas, \
-        diagnostico(cab_a, lin_a, linhas, brutos_a, saida, fim)
+        diagnostico(cab_a, lin_a, linhas, brutos_a, saida, fim, soma)
 
 
-def diagnostico(cab, lin_a, lin_n, brutos_a, saida, fim):
+def _somas(cab, linhas, por, coluna):
+    i, j = cab.index(por), cab.index(coluna)
+    total = collections.defaultdict(float)
+    for ln in linhas:
+        try:
+            total[ln[i].strip()] += float(ln[j].strip().replace(".", "").replace(",", "."))
+        except (ValueError, IndexError):
+            continue
+    return total
+
+
+def diagnostico(cab, lin_a, lin_n, brutos_a, saida, fim, soma=None):
     """Para o log: as formas mais comuns de cada coluna (dígito vira 9, letra vira a), antes e depois, e quanto do arquivo atual
     reaparece igual no convertido. Nenhum valor vai para o log."""
     linhas_novas = set(saida.split(fim)[1:])
@@ -190,6 +202,11 @@ def diagnostico(cab, lin_a, lin_n, brutos_a, saida, fim):
         novos = {ln[i] for ln in lin_n if i < len(ln)}
         comuns = len(antigos & novos) / len(antigos) if antigos else 0
         texto.append(f"  {nome}: atual {fmt(va)} | convertido {fmt(vn)} | valores do atual que reaparecem: {comuns:.0%}")
+    if soma and soma["por"] in cab and soma["coluna"] in cab:  # um total por grupo, nunca um valor de linha
+        sa, sn = _somas(cab, lin_a, soma["por"], soma["coluna"]), _somas(cab, lin_n, soma["por"], soma["coluna"])
+        partes = [f"{g}: " + ("(igual)" if abs(sa.get(g, 0) - sn.get(g, 0)) < 0.005 else f"{sa.get(g, 0):,.2f} → {sn.get(g, 0):,.2f}")
+                  for g in sorted(set(sa) | set(sn))]
+        texto.append(f"  {soma['coluna']} por {soma['por']}: " + "; ".join(partes))
     return texto
 
 

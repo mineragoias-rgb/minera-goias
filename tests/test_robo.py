@@ -245,17 +245,21 @@ class FormatoCsvTests(unittest.TestCase):
     """A CFEM nova (vírgula e aspas) volta ao formato que o repositório, o pipeline e o Radar leem."""
 
     def converter(self, dados):
-        return formato_csv.converter(dados, CFEM.read_bytes(), "cp1252", ";", "UF", "GO")
+        f = next(f for f in json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))["anm"]["fontes"] if f["id"] == "CFEM")
+        return formato_csv.converter(dados, CFEM.read_bytes(), f["codificacao"], f["separador"], f["recorte"]["coluna"],
+                                     f["recorte"]["valor"], f["diagnostico_soma"])
 
     def test_mesmo_conteudo_volta_byte_a_byte(self):
         de_mg = "2026;1;800001;2001;PJ;1,2E+11;AREIA;MG;3106200;BELO HORIZONTE;5;t  ;10,5;02/01/2026 08:00"
         convertido, cont, notas, diag = self.converter(cfem_formato_novo(extra=[de_mg]))
         self.assertEqual(convertido, CFEM.read_bytes())
-        self.assertEqual((cont["linhas_nacional"], cont["linhas_goias"]), (38855, 38854))
+        n = CFEM.read_bytes().count(b"\r\n") - 1  # linhas de dados do arquivo atual
+        self.assertEqual((cont["linhas_nacional"], cont["linhas_goias"]), (n + 1, n))
         self.assertIn("separador ','", notas[0])
         self.assertTrue(any(n.startswith("ValorRecolhido: separador decimal '.' → ','") for n in notas), notas)
         self.assertTrue(any(n.startswith("DataCriacao: data no padrão") for n in notas), notas)
-        self.assertEqual(diag[0], "linhas do arquivo atual que reaparecem iguais no convertido: 38854 de 38854")
+        self.assertEqual(diag[0], f"linhas do arquivo atual que reaparecem iguais no convertido: {n} de {n}")
+        self.assertTrue(any(ln.startswith("  ValorRecolhido por Ano:") and "(igual)" in ln for ln in diag), diag)
         texto = "\n".join(diag)
         for valor in ("ANÁPOLIS", "860582", "41474", "9,69944E+11", "ÁGUA"):  # o diagnóstico vai para o log: só formas, nenhum valor
             self.assertNotIn(valor, texto)
@@ -264,11 +268,11 @@ class FormatoCsvTests(unittest.TestCase):
         self.assertIsNone(self.converter(CFEM.read_bytes()))
 
     def test_correcao_da_fonte_entra_e_passa_na_checagem(self):
-        # a ANM corrigindo o CNPJ que vinha em notação científica: fica corrigido, e a forma continua a do site
+        # a ANM corrigindo um valor (como o CNPJ, que até out/2026 vinha em notação científica): fica como a ANM publicou
         def cnpj(c):
-            return c[:5] + ["11222333000181"] + c[6:] if "E+" in c[5] else c
+            return c[:5] + ["11222333000181"] + c[6:] if c[4] == "PJ" and c[2] == primeira[2] and c[1] == primeira[1] else c
+        primeira = next(r.split(";") for r in CFEM.read_bytes().decode("cp1252").split("\r\n")[1:] if ";PJ;" in r)
         convertido, *_ = self.converter(cfem_formato_novo(cnpj))
-        self.assertNotIn(b"E+11;", convertido.split(b"\r\n", 2)[1])
         self.assertIn(b";11222333000181;", convertido)
         bloq, _ = forma.checar_csv(convertido, CFEM.read_bytes(), "cp1252", ";")
         self.assertEqual(bloq, [])
@@ -397,7 +401,8 @@ class AnmPontaAPontaTests(unittest.TestCase):
         p, saida = self.rodar()
         cfem = next(r for r in saida["resultados"] if r["nome"] == "CFEM — arrecadação")
         self.assertEqual(cfem["situacao"], "sem_mudanca", p.stdout + p.stderr)  # mesmo conteúdo: nada a gravar
-        self.assertIn("[ANM]   linhas do arquivo atual que reaparecem iguais no convertido: 38854 de 38854", p.stdout)
+        n = CFEM.read_bytes().count(b"\r\n") - 1
+        self.assertIn(f"[ANM]   linhas do arquivo atual que reaparecem iguais no convertido: {n} de {n}", p.stdout)
         nova = "2026;9;860582;1995;PJ;9,69944E+11;AREIA;GO;5201108;ANÁPOLIS;10;t  ;99,90;01/09/2026 10:00"
         self.servir(self.cfem_url, cfem_formato_novo(extra=[nova]))
         p, saida = self.rodar()
@@ -434,7 +439,9 @@ class AnmPontaAPontaTests(unittest.TestCase):
         p, saida = self.rodar()
         r = saida["problemas"][0]
         self.assertEqual((r["nome"], r["motivo"]), ("Cadastro Mineiro — Portaria_de_Lavra.csv", "nenhuma linha de dados"))
-        self.assertIn("linhas no arquivo nacional: 0 (antes 15493)", r["avisos"][-1])
+        antes = next(a for a in json.loads((BRUTOS / "ANM - Cadastro Mineiro" / "recorte_goias.json").read_text(encoding="utf-8"))["arquivos"]
+                     if a["arquivo"] == "Portaria_de_Lavra.csv")["linhas_nacional"]
+        self.assertIn(f"linhas no arquivo nacional: 0 (antes {antes})", r["avisos"][-1])
 
     def test_download_que_falha_nao_derruba_as_outras_fontes(self):
         self.espelho[self.cfem_url] = (self.portal / "nao_existe.csv").as_uri()
