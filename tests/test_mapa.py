@@ -292,9 +292,9 @@ class AbaTests(unittest.TestCase):
         self.assertIn("'mapa'", self.painel)
         self.assertIn("if(name==='mapa'&&window.showMapa)window.showMapa()", self.painel)
         self.assertIn('<section id="mapa-view" hidden>', self.html)
-        ordem = [self.html.index(f'<script src="/{n}"') for n in ('i18n.js', 'painel.js', 'processes.js', 'mapa-dados.js', 'mapa-shp.js', 'mapa.js')]
+        ordem = [self.html.index(f'<script src="/{n}?v=') for n in ('i18n.js', 'painel.js', 'processes.js', 'mapa-dados.js', 'mapa-shp.js', 'mapa.js')]
         self.assertEqual(ordem, sorted(ordem))
-        self.assertIn('<link rel="stylesheet" href="/mapa.css">', self.html)
+        self.assertIn('<link rel="stylesheet" href="/mapa.css?v=', self.html)
 
     def test_elementos_usados_existem(self):
         ids = set(re.findall(r'\sid="([^"]+)"', self.html))

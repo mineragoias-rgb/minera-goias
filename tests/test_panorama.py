@@ -70,9 +70,9 @@ class PanoramaTests(unittest.TestCase):
         self.assertLess(markup.index('id="atlas-map"'), markup.index('id="panorama-view"'))
         self.assertLess(markup.index('id="panorama-view"'), markup.index('id="radar-view"'))
         for script in ('panorama-charts.js', 'panorama-cards1.js', 'panorama-cards2.js', 'panorama-cards3.js', 'panorama-analises.js', 'panorama.js'):
-            self.assertIn(f'src="/{script}"', markup)
-        self.assertLess(markup.index('/panorama-cards3.js'), markup.index('/panorama.js"'))
-        self.assertLess(markup.index('/panorama-analises.js'), markup.index('/panorama.js"'))
+            self.assertIn(f'src="/{script}?v=', markup)
+        self.assertLess(markup.index('/panorama-cards3.js'), markup.index('/panorama.js?v='))
+        self.assertLess(markup.index('/panorama-analises.js'), markup.index('/panorama.js?v='))
         # The category tabs sit above the filters.
         self.assertIn('id="pn-tabs"', markup)
         self.assertLess(markup.index('id="pn-tabs"'), markup.index('class="pn-filters"'))
