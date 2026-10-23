@@ -188,6 +188,17 @@ class RecorteAnmTests(unittest.TestCase):
         esperado = cab + b"".join(ln for ln, (_, _, fica) in zip(linhas, casos) if fica)
         self.assertEqual(recorte, esperado)
 
+    def test_caracteres_que_nao_sao_quebra_de_linha(self):
+        # \x85 é "…" em cp1252 (em latin-1, "próxima linha"); \x0c e \x0b também quebram linha para str.splitlines
+        cab = b'"Processo","Municipio(s)","Obs"\r\n'
+        linhas = [b'"4/1900","GOIANIA - GO","texto com retic\x85ncias"\r\n',
+                  b'"6/1900","ANAPOLIS - GO",sem aspas \x85 e \x0c no meio\r\n',
+                  b'"7/1900","SALVADOR - BA","\x0bfora"\r\n',
+                  b'"8/1900","CATALAO - GO",cr\rsolto\r\n']
+        recorte, cont = anm_recorte.recortar_cadastro(cab + b"".join(linhas), "municipio_ou_processo", self.municipios, set())
+        self.assertEqual(recorte, cab + linhas[0] + linhas[1] + linhas[3])
+        self.assertEqual((cont["linhas_nacional"], cont["linhas_goias"]), (4, 3))
+
     def test_campo_com_quebra_de_linha_fica_inteiro(self):
         cab = b'"Processo","Municipio(s)","Obs"\r\n'
         linha = b'"4/1900","GOIANIA - GO","primeira\r\nsegunda; com, virgula"\r\n'

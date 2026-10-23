@@ -33,8 +33,10 @@ def registros_brutos(texto):
     """Divide o texto em registros sem perder nenhum caractere: um registro termina na quebra de linha que fecha um número par
     de aspas. Devolve os pedaços exatamente como estavam (com a quebra de linha), para o recorte gravar as linhas da fonte
     sem reescrever nada."""
+    # Só "\n" fecha linha. str.splitlines também quebraria em \x0b, \x0c, \x1c-\x1e e \x85 — e o \x85 é o "…" da ANM em cp1252,
+    # que aparece dentro de campos nos arquivos nacionais (lido em latin-1, vira o caractere de "próxima linha").
     atual, aspas = [], 0
-    for linha in texto.splitlines(keepends=True):
+    for linha in re.findall(r"[^\n]*\n|[^\n]+$", texto):
         atual.append(linha)
         aspas += linha.count('"')
         if aspas % 2 == 0:
@@ -45,7 +47,13 @@ def registros_brutos(texto):
 
 
 def campos(registro, separador):
-    return next(csv.reader([registro.rstrip("\r\n")], delimiter=separador))
+    """Campos de um registro. Um \r solto no meio da linha (fora de aspas) vira espaço só para esta leitura: o registro gravado
+    continua com os bytes da fonte."""
+    texto = registro.rstrip("\r\n").replace("\r", " ")
+    try:
+        return next(csv.reader([texto], delimiter=separador))
+    except csv.Error:  # linha mal formada: o recorte decide pelo que der para ler, e a checagem de forma conta a linha torta
+        return texto.split(separador)
 
 
 def ler_csv(dados, codificacao, separador):
