@@ -133,6 +133,10 @@ class ANM:
             r.detalhes = cont
             sub = {**f, "arquivo": f"{f['pasta']}/{nome}", "logico": f["logico"] + nome}
             self._conferir_e_gravar_csv(goias, pasta / nome, sub, r)
+            if r.situacao == "bloqueada":  # o arquivo nacional encolheu, ou mudou o que casa com Goiás?
+                r.avisos.append("; ".join(f"{rotulo}: {cont[k]} (antes {item.get(k, '?')})" for k, rotulo in (
+                    ("linhas_nacional", "linhas no arquivo nacional"), ("linhas_com_municipio_de_goias", "com município de Goiás"),
+                    ("processos_do_sigmine_go", "processos do SIGMINE de Goiás"))))
             if r.situacao == "atualizada":
                 item.update(cont)
                 item.update({"mb_nacional": round(len(dados) / 1e6, 2), "mb_goias": round(len(goias) / 1e6, 2),

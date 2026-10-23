@@ -102,7 +102,7 @@ def recortar_uf(dados, separador=";", coluna="UF", valor="GO"):
     regs = list(registros_brutos(texto))
     cab = campos(regs[0], separador)
     if coluna not in cab:
-        raise ValueError(f"o arquivo não tem a coluna '{coluna}' (separador '{separador}'); cabeçalho: {[c[:40] for c in cab[:15]]}")
+        raise ValueError(f"o arquivo não tem a coluna '{coluna}' (separador '{separador}'); cabeçalho: {regs[0].strip()[:300]}")
     i = cab.index(coluna)
     ficam = [r for r in regs[1:] if r.strip() and (lambda c: len(c) > i and c[i].strip() == valor)(campos(r, separador))]
     saida = bom + regs[0] + "".join(ficam)

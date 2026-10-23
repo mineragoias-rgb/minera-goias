@@ -173,5 +173,6 @@ jobs:
       - name: Avisar fonte bloqueada ou que não baixou
         if: steps.robo.outputs.codigo == '1'
         run: |
-          echo '::error::alguma fonte foi bloqueada pela checagem de forma ou não baixou; o que passou foi publicado. Veja o resumo da execução.'
+          if [ "$PUBLICAR" = 'true' ]; then o_resto='o que passou foi publicado'; else o_resto='nada foi publicado (execução de teste)'; fi
+          echo "::error::alguma fonte foi bloqueada pela checagem de forma ou não baixou; $o_resto. Veja o resumo e o artefato robo-bases."
           exit 1

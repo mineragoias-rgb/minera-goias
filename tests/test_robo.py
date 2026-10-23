@@ -338,6 +338,16 @@ class AnmPontaAPontaTests(unittest.TestCase):
         self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), metade)
         self.assertEqual(checagem.checar_anm(self.raiz), [])
 
+    def test_queda_no_cadastro_diz_se_o_arquivo_nacional_encolheu(self):
+        cfg = json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))["anm"]
+        url = next(f["url_base"] for f in cfg["fontes"] if f["tipo"] == "cadastro") + "Portaria_de_Lavra.csv"
+        atual = (BRUTOS / "ANM - Cadastro Mineiro" / "Portaria_de_Lavra.csv").read_bytes()
+        self.servir(url, atual.split(b"\n", 1)[0] + b"\n")  # só o cabeçalho
+        p, saida = self.rodar()
+        r = saida["problemas"][0]
+        self.assertEqual((r["nome"], r["motivo"]), ("Cadastro Mineiro — Portaria_de_Lavra.csv", "nenhuma linha de dados"))
+        self.assertIn("linhas no arquivo nacional: 0 (antes 15493)", r["avisos"][-1])
+
     def test_download_que_falha_nao_derruba_as_outras_fontes(self):
         self.espelho[self.cfem_url] = (self.portal / "nao_existe.csv").as_uri()
         p, saida = self.rodar()
