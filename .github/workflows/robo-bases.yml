@@ -9,6 +9,7 @@ name: Robô das bases (P3M e ANM)
 #   4. os testes do site e do robô rodam de novo e só então tudo vai para a main.
 # O commit é feito com o GITHUB_TOKEN, que não dispara outros workflows (nem o "Validar plataforma web"): por isso os
 # testes rodam aqui. Fonte bloqueada ou que não baixou não impede as outras; o job termina vermelho para alguém olhar.
+# O que a fonte publicou e foi barrado sobe como artefato da execução ("robo-bases"), com o motivo de cada um.
 
 on:
   schedule:
@@ -28,6 +29,10 @@ on:
         description: 'publicar na main o que passar'
         type: boolean
         default: true
+      aceitar_queda:
+        description: 'queda grande de linhas já conferida na fonte (ids da ANM, nomes de arquivo ou camadas do P3M, separados por vírgula)'
+        default: ''
+        required: false
 
 permissions:
   contents: write
@@ -45,6 +50,7 @@ jobs:
       FONTES: ${{ inputs.fontes || 'anm,p3m' }}
       ESCOPO: ${{ inputs.escopo_p3m || 'mapa' }}
       PUBLICAR: ${{ github.event_name == 'schedule' || inputs.publicar }}
+      ACEITAR: ${{ inputs.aceitar_queda || '' }}
       PLANILHA: Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx
     steps:
       - uses: actions/checkout@v5
@@ -70,8 +76,8 @@ jobs:
         id: robo
         run: |
           set +e
-          python robo/robo_bases.py --fontes "$FONTES" --p3m-escopo "$ESCOPO" --catalogo-p3m \
-            --relatorio "$RUNNER_TEMP/robo.md" --json "$RUNNER_TEMP/robo.json"
+          python robo/robo_bases.py --fontes "$FONTES" --p3m-escopo "$ESCOPO" --catalogo-p3m --aceitar-queda "$ACEITAR" \
+            --guardar-barrados "$RUNNER_TEMP/saida/barrados" --relatorio "$RUNNER_TEMP/robo.md" --json "$RUNNER_TEMP/robo.json"
           codigo=$?
           set -e
           { echo '### Robô das bases'; echo; cat "$RUNNER_TEMP/robo.md"; } >> "$GITHUB_STEP_SUMMARY"
@@ -116,8 +122,12 @@ jobs:
       - name: Refazer os derivados
         if: steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim'
         run: |
+          set +e
           python scripts/atualizar_derivados.py --resumo "$RUNNER_TEMP/derivados.md"
+          codigo=$?
+          set -e
           { echo '### Derivados'; echo; cat "$RUNNER_TEMP/derivados.md"; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$codigo" -ne 0 ]; then exit "$codigo"; fi
           saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
                   "Squad 1/P3M/inventario_p3m.csv" data/mapa
                   "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
@@ -142,6 +152,23 @@ jobs:
           [ "$(git rev-parse HEAD)" = "$GITHUB_SHA" ] && { echo 'Nada a publicar.'; exit 0; }
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Guardar o relatório e o que foi barrado (artefato)
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/saida"
+          for f in robo.md robo.json planilha.md derivados.md; do
+            [ -f "$RUNNER_TEMP/$f" ] && cp "$RUNNER_TEMP/$f" "$RUNNER_TEMP/saida/"
+          done
+          true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robo-bases
+          path: ${{ runner.temp }}/saida
+          retention-days: 14
+          if-no-files-found: ignore
 
       - name: Avisar fonte bloqueada ou que não baixou
         if: steps.robo.outputs.codigo == '1'

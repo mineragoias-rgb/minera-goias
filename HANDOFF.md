@@ -137,7 +137,9 @@ Quando a ANM muda, o workflow também:
 - refaz o atlas e o Radar de Projetos;
 - roda `scripts/atualizar_derivados.py` e os testes, e publica na `main`.
 
-Fonte barrada ou que não baixou deixa o job vermelho, e o resumo da execução diz qual foi e por quê.
+Fonte barrada ou que não baixou deixa o job vermelho, e o resumo da execução diz qual foi e por quê. Só ela fica de fora:
+numa camada do mapa feita de vários zips, a chave repetida ou vazia barra só os zips daquela camada. O que foi barrado sobe
+como artefato da execução (`robo-bases`). Uma queda de linhas conferida na fonte passa com `aceitar_queda` no Run workflow.
 
 Sem rede, `python robo/robo_bases.py --checar` diz se os arquivos do repositório estão no padrão do site, e `tests/test_robo.py`
 roda o robô contra um portal falso. Os portais da ANM e do SGB ainda não foram acessados pelos servidores do GitHub. A primeira

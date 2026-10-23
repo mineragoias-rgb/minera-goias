@@ -218,8 +218,12 @@ def checar_shapefile(novo, atual, exigidos=(), fracao_minima=0.5, perto_de=RETAN
     try:
         pn = ler_shapefile_zip(novo)
     except zipfile.BadZipFile:
-        dados = novo if isinstance(novo, (bytes, bytearray)) else Path(novo).read_bytes()[:400]
-        return ["não é um zip; o servidor devolveu: " + bytes(dados[:160]).decode("utf-8", "replace").strip()], avisos
+        dados = bytes(novo if isinstance(novo, (bytes, bytearray)) else Path(novo).read_bytes()[:4000])
+        texto = dados.decode("utf-8", "replace")
+        erro = re.search(r"<(?:\w+:)?(?:ServiceException|ExceptionText)(?:\s[^>]*)?>\s*(.*?)\s*</", texto, re.S)
+        if erro:
+            return ["o GeoServer devolveu um erro em vez do zip: " + re.sub(r"\s+", " ", erro.group(1))[:300]], avisos
+        return ["não é um zip; o servidor devolveu: " + re.sub(r"\s+", " ", texto[:200]).strip()], avisos
     except (ValueError, struct.error, KeyError) as e:
         return [f"zip sem shapefile legível: {e}"], avisos
     pa = ler_shapefile_zip(atual)

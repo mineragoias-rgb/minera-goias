@@ -128,6 +128,14 @@ class ShapefileFormaTests(unittest.TestCase):
     def test_xml_de_erro_do_geoserver(self):
         b = self.checa(bruto=b'<?xml version="1.0"?><ServiceExceptionReport>Feature type unknown</ServiceExceptionReport>')[0]
         self.assertIn("não é um zip", b[0])
+        # o texto do erro vem no resumo, nas duas formas que o GeoServer usa (WFS 1.0 e 2.0)
+        wfs1 = (b'<?xml version="1.0" ?>\n<ServiceExceptionReport version="1.2.0">\n   <ServiceException code="InvalidParameterValue" '
+                b'locator="typeName">\n      Feature type geosgb:vw_xpto unknown\n</ServiceException></ServiceExceptionReport>')
+        wfs2 = (b'<ows:ExceptionReport version="2.0.0"><ows:Exception exceptionCode="NoApplicableCode"><ows:ExceptionText>'
+                b'java.lang.RuntimeException: Unable to find feature type</ows:ExceptionText></ows:Exception></ows:ExceptionReport>')
+        self.assertEqual(self.checa(bruto=wfs1)[0], ["o GeoServer devolveu um erro em vez do zip: Feature type geosgb:vw_xpto unknown"])
+        self.assertEqual(self.checa(bruto=wfs2)[0],
+                         ["o GeoServer devolveu um erro em vez do zip: java.lang.RuntimeException: Unable to find feature type"])
 
     def test_campo_que_o_site_usa_some(self):
         b = self.checa(lambda n, d: d.replace(b"ds_process", b"ds_procxxx", 1) if n.endswith(".dbf") else d)[0]
@@ -171,6 +179,13 @@ class RecorteAnmTests(unittest.TestCase):
         recorte, cont = anm_recorte.recortar_uf(nacional)
         self.assertEqual(recorte, goias)
         self.assertEqual(cont["linhas_nacional"], cont["linhas_goias"] + 1)
+
+    def test_coluna_do_recorte_que_sumiu_aparece_no_motivo(self):
+        sem_uf = CFEM.read_bytes().replace(b";UF;", b";SiglaEstado;", 1)
+        with self.assertRaises(ValueError) as e:
+            anm_recorte.recortar_uf(sem_uf)
+        self.assertIn("não tem a coluna 'UF'", str(e.exception))
+        self.assertIn("SiglaEstado", str(e.exception))  # o cabeçalho novo vai junto, para quem for ajustar
 
     def test_cadastro_regra_de_municipio_e_processo(self):
         goias = ALVARA.read_bytes()
@@ -267,9 +282,9 @@ class AnmPontaAPontaTests(unittest.TestCase):
         p.write_bytes(dados)
         self.espelho[url] = p.as_uri()
 
-    def rodar(self):
+    def rodar(self, *args):
         (self.raiz / "espelho.json").write_text(json.dumps(self.espelho), encoding="utf-8")
-        return robo(self.raiz, "--fontes", "anm", "--espelho", str(self.raiz / "espelho.json"))
+        return robo(self.raiz, "--fontes", "anm", "--espelho", str(self.raiz / "espelho.json"), *args)
 
     def test_sem_novidade_nao_grava_nada(self):
         p, saida = self.rodar()
@@ -302,6 +317,26 @@ class AnmPontaAPontaTests(unittest.TestCase):
         self.assertEqual([r["situacao"] for r in saida["problemas"]], ["bloqueada"])
         self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), CFEM.read_bytes())
         self.assertEqual(saida["gravados"], [])
+
+    def test_queda_grande_e_barrada_guardada_e_pode_ser_aceita(self):
+        goias = CFEM.read_bytes()
+        metade = b"".join(goias.splitlines(keepends=True)[: goias.count(b"\r\n") // 2])
+        self.servir(self.cfem_url, metade)
+        barrados = self.raiz / "barrados"
+        p, saida = self.rodar("--guardar-barrados", str(barrados))
+        self.assertEqual(p.returncode, 1)
+        self.assertEqual([r["situacao"] for r in saida["problemas"]], ["bloqueada"])
+        self.assertIn("menos de 90%", saida["problemas"][0]["motivo"])
+        # o que a fonte publicou fica guardado para alguém conferir, com o motivo
+        guardado = barrados / ("ANM_" + self.cfem_url.rsplit("/", 1)[1])
+        self.assertEqual(guardado.read_bytes(), metade)
+        self.assertIn("menos de 90%", (barrados / "LEIA-ME.txt").read_text(encoding="utf-8"))
+        self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), goias)
+        # conferida na fonte, a queda é aceita só para a CFEM; as outras checagens continuam valendo
+        p, saida = self.rodar("--aceitar-queda", "CFEM")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), metade)
+        self.assertEqual(checagem.checar_anm(self.raiz), [])
 
     def test_download_que_falha_nao_derruba_as_outras_fontes(self):
         self.espelho[self.cfem_url] = (self.portal / "nao_existe.csv").as_uri()
@@ -374,6 +409,47 @@ class P3mTests(unittest.TestCase):
         finally:
             shutil.rmtree(raiz)
             shutil.rmtree(portal)
+
+
+class ChaveDoMapaTests(unittest.TestCase):
+    """Camada do mapa que junta vários zips (os mapeamentos geológicos, um por escala): chave repetida barra só os zips dela."""
+
+    def setUp(self):
+        self.raiz = Path(tempfile.mkdtemp())
+        mapeamentos = [z for z in REC.glob("*/Mapeamentos 1-*.zip")]
+        self.assertEqual(len(mapeamentos), 5)
+        copiar(self.raiz, "scripts/mapa_camadas.json", "Squad 1/P3M/inventario_p3m.csv", (REC / "_indice_recorte.csv").relative_to(ROOT),
+               achar(REC, MINAS).relative_to(ROOT), *(z.relative_to(ROOT) for z in mapeamentos))
+        import p3m
+        from comum import Resultado
+        self.p3m = p3m.P3M(self.raiz, "2030-01-02", {}, pasta_tmp=self.raiz)
+        self.Resultado = Resultado
+
+    def tearDown(self):
+        shutil.rmtree(self.raiz)
+
+    def pendente(self, nome, novo_rec):
+        r = self.Resultado("P3M", nome, situacao="atualizada")
+        self.p3m.pendentes[nome] = {"r": r, "novo_rec": novo_rec}
+        return r
+
+    def test_chave_repetida_barra_so_a_camada_dela(self):
+        m50, m100 = "Mapeamentos 1-50.000 (vw_cprm_map_geo_50k).zip", "Mapeamentos 1-100.000 (vw_cprm_map_geo_100k).zip"
+        r50 = self.pendente(m50, achar(REC, m100))  # a escala 1:50.000 nova com os objectid da 1:100.000
+        minas = self.pendente(MINAS, achar(REC, MINAS))
+        barrados = self.p3m.conferir_chaves()
+        self.assertEqual(barrados, [r50])
+        self.assertEqual(r50.situacao, "bloqueada")
+        self.assertIn("mapeamentos_geologicos", r50.motivo)
+        self.assertIn("objectid repetida", r50.motivo)
+        self.assertEqual(minas.situacao, "atualizada")
+        self.assertEqual(list(self.p3m.pendentes), [MINAS])
+
+    def test_zip_novo_com_chave_unica_passa(self):
+        m50 = "Mapeamentos 1-50.000 (vw_cprm_map_geo_50k).zip"
+        r = self.pendente(m50, achar(REC, m50))
+        self.assertEqual(self.p3m.conferir_chaves(), [])
+        self.assertEqual(r.situacao, "atualizada")
 
 
 @unittest.skipUnless(importlib.util.find_spec("openpyxl"), "precisa de openpyxl")

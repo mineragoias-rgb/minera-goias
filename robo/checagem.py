@@ -3,7 +3,8 @@
 
 `checar_repositorio`: os arquivos do P3M e da ANM que estão no repositório seguem o formato que o site e os geradores usam?
   - P3M: cada recortado existe, tem .shp/.shx/.dbf/.prj, está em SIRGAS 2000 com .cpg UTF-8, tem o número de registros do
-    `_indice_recorte.csv` e traz os campos que `scripts/mapa_camadas.json` lê; cada camada do mapa tem URL e data no inventário.
+    `_indice_recorte.csv` e traz os campos que `scripts/mapa_camadas.json` lê; a chave de cada camada do mapa é única e
+    preenchida no conjunto dos zips dela; cada camada do mapa tem URL e data no inventário.
   - ANM: o recorte de Goiás refeito sobre o próprio arquivo não muda nenhum byte (CFEM só com UF = GO; Cadastro Mineiro com as
     contagens de `recorte_goias.json`); os CSV abrem com a codificação e o separador esperados; o SIGMINE tem PROCESSO e está em
     SIRGAS 2000; cada arquivo tem data em `datas_de_acesso.json` e o sha256 e o tamanho certos no LEIA-ME de `Dados brutos`.
@@ -16,6 +17,7 @@ from pathlib import Path
 
 import anm_recorte
 import forma
+import p3m as p3m_robo
 from comum import sha256
 
 P3M_REL = Path("Squad 1") / "P3M"
@@ -78,6 +80,11 @@ def checar_p3m(raiz):
         faltam = sorted(campos - presentes)
         if faltam and all(z in lidos for z in zips):
             problemas.append(f"P3M: a camada {camada} do mapa lê campos que os zips não têm: {faltam}")
+    for camada, (zips, campo) in p3m_robo.chaves_do_site(raiz).items():
+        valores = [v for z in zips for c in rec_dir.glob(f"*/{p3m_robo.glob_escape(z)}") for v in p3m_robo.valores_do_campo(c, campo)]
+        problema = p3m_robo.problema_de_chave(campo, valores)
+        if problema:
+            problemas.append(f"P3M: a camada {camada} do mapa tem {problema}")
     with open(p3m / "inventario_p3m.csv", encoding="utf-8-sig", newline="") as f:
         inventario = list(csv.DictReader(f, delimiter=";"))
     no_mapa = {z for zs, _ in campos_por_camada(raiz).values() for z in zs}

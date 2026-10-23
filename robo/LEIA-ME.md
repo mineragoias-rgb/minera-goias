@@ -13,7 +13,8 @@ A VPS baixa a `main` em até 2 minutos.
 O robô **não inventa nem corrige dado**:
 
 - arquivo igual ao atual não gera commit;
-- arquivo com forma diferente é **barrado** e o atual continua no ar;
+- arquivo com forma diferente é **barrado** e o atual continua no ar. Só aquele arquivo (ou aquela camada do mapa) fica de
+  fora; os outros seguem;
 - o que passou vai como a fonte publicou, com o mesmo recorte de antes.
 
 ## O que ele atualiza
@@ -64,6 +65,7 @@ escrito. Um **bloqueio** impede o arquivo de entrar; um **aviso** só vai para o
 | CSV (ANM) | página HTML ou XML de erro no lugar do arquivo; arquivo vazio; não decodifica na codificação esperada (cp1252); separador trocado; colunas diferentes (nome ou ordem); linhas com número de campos errado; menos de 90% das linhas atuais; coluna numérica ou de data que deixou de ser; coluna que estava preenchida e esvaziou | linhas a mais ou a menos |
 | Shapefile (P3M e SIGMINE) | não é zip (erro do GeoServer); falta `.shx`, `.dbf` ou `.prj`; geometria mudou; sistema de coordenadas mudou; caixa fora do Brasil (coordenadas trocadas) ou longe de Goiás; menos de 50% dos registros (90% no SIGMINE); sumiu ou mudou de tipo um campo que o mapa lê (`scripts/mapa_camadas.json`; no SIGMINE, qualquer campo) | registros a mais ou a menos; campos novos; campo que o site não usa sumiu |
 | Recorte do P3M | ficou sem nenhuma feição em Goiás; o recortado novo falha nas mesmas regras acima | |
+| Chave das camadas do mapa | a chave da camada (`chave` em `scripts/mapa_camadas.json`) ficaria repetida ou vazia no conjunto dos zips dela, contando os novos e os atuais. Barra só os zips novos daquela camada | |
 | Planilha consolidada | ALERTA novo na aba 14b. São exceção os listados em `fontes.json` (`planilha.alertas_esperados`), cada um com o motivo | |
 
 `python robo/robo_bases.py --checar` faz a checagem inversa, sem rede: confere se os arquivos que **estão** no repositório seguem o
@@ -102,6 +104,21 @@ python robo/robo_bases.py --checar                        # o repositório está
 
 No GitHub: **Actions → Robô das bases (P3M e ANM) → Run workflow**. Dá para escolher as fontes, o escopo do P3M e se publica.
 O resumo de cada execução fica na página dela: o que mudou, o que foi barrado e por quê, a aba 14b e os derivados.
+
+### Arquivo barrado
+
+O que a fonte publicou e foi barrado sobe como artefato da execução, **robo-bases**, junto com `robo.md` e `robo.json`. O
+`LEIA-ME.txt` do artefato diz o motivo de cada arquivo. Arquivo acima de 60 MB vai só com os primeiros 2 MB, que bastam para
+ver o cabeçalho.
+
+Às vezes a queda de linhas é real: a fonte limpou registros, ou mudou a regra do que publica. Quem conferir isso na fonte pode
+rodar o workflow com **aceitar_queda** (ou `--aceitar-queda`). O campo leva:
+
+- o id da ANM em `fontes.json` (`CFEM`, `CADASTRO`…);
+- ou o nome do arquivo (`Alvara_de_Pesquisa.csv`);
+- ou a camada do P3M (código `vw_…` ou nome do zip).
+
+Separe por vírgula. Só a trava de quantidade sai, e só nessa execução. As outras checagens continuam.
 
 Saída do robô:
 

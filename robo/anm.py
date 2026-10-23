@@ -25,9 +25,10 @@ BRUTOS_REL = Path("Squad 1") / "Dados brutos"
 
 
 class ANM:
-    def __init__(self, raiz, hoje, cfg, gravar=True, espelho=None, pasta_tmp=None):
+    def __init__(self, raiz, hoje, cfg, gravar=True, espelho=None, pasta_tmp=None, aceitar=()):
         self.raiz, self.hoje, self.cfg, self.gravar = Path(raiz), hoje, cfg, gravar
         self.espelho = espelho or {}
+        self.aceitar = set(aceitar)  # fontes ou arquivos em que uma queda grande de linhas foi aceita por alguém
         self.tmp = Path(pasta_tmp)
         self.brutos = self.raiz / BRUTOS_REL
         self.datas_path = self.brutos / "datas_de_acesso.json"
@@ -46,10 +47,15 @@ class ANM:
         destino = self.tmp / nome
         try:
             baixar(self._url(url), destino, limite_mb=self.cfg.get("limite_download_mb"))
+            r.baixado = str(destino)
             return destino
         except FalhaDownload as e:
             r.situacao, r.motivo = "falhou", f"{url}: {e}"
             return None
+
+    def _fracao(self, *nomes):
+        """Fração mínima de linhas (ou registros) do arquivo atual; zero quando a queda foi aceita (`--aceitar-queda`)."""
+        return 0.0 if self.aceitar & set(nomes) else self.cfg.get("fracao_minima", 0.9)
 
     # ----------------------------------------------------------------------------------------------------------- fontes
     def rodar(self, so=None):
@@ -72,7 +78,7 @@ class ANM:
         if novo is None:
             return r
         # o pipeline lê vários campos do SIGMINE: todos os campos de hoje são exigidos
-        bloq, av = forma.checar_shapefile(novo, atual, todos_exigidos=True, fracao_minima=self.cfg.get("fracao_minima", 0.9))
+        bloq, av = forma.checar_shapefile(novo, atual, todos_exigidos=True, fracao_minima=self._fracao(f["id"], atual.name))
         r.avisos += av
         if bloq:
             r.situacao, r.motivo = "bloqueada", "; ".join(bloq)
@@ -137,7 +143,7 @@ class ANM:
     # ---------------------------------------------------------------------------------------------------------- comum
     def _conferir_e_gravar_csv(self, dados, atual, f, r):
         bloq, av = forma.checar_csv(dados, atual.read_bytes(), f["codificacao"], f["separador"],
-                                    fracao_minima=self.cfg.get("fracao_minima", 0.9))
+                                    fracao_minima=self._fracao(f["id"], atual.name, atual.stem))
         r.avisos += av
         if bloq:
             r.situacao, r.motivo = "bloqueada", "; ".join(bloq)

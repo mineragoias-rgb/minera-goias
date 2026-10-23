@@ -98,6 +98,7 @@ class Resultado:
     avisos: list = field(default_factory=list)
     detalhes: dict = field(default_factory=dict)
     arquivos: list = field(default_factory=list)
+    baixado: str = ""  # arquivo baixado nesta execução (guardado para inspeção quando a fonte é barrada)
 
     def como_dict(self):
         return {k: getattr(self, k) for k in ("fonte", "nome", "situacao", "motivo", "avisos", "detalhes", "arquivos")}
