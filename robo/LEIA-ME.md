@@ -24,7 +24,7 @@ O robô **não inventa nem corrige dado**:
 | P3M (SGB) | as camadas que o mapa usa (`--p3m-escopo todas`: as 157 com URL), pela URL de cada uma no inventário | recorte pelo limite de Goiás (`recorte.py`) | `Squad 1/P3M/Original` e `Recortado pelo polígono de Goiás` |
 | ANM — SIGMINE | `SIGMINE/PROCESSOS_MINERARIOS/GO.zip` | nenhum (já vem só Goiás) | `Squad 1/Dados brutos/ANM - SIGMINE` |
 | ANM — Cadastro Mineiro | os 13 CSV nacionais de `SCM/` | linha com município de Goiás ou processo com poligonal em Goiás | `ANM - Cadastro Mineiro` |
-| ANM — CFEM | `CFEM/CFEM_Arrecadacao_2022_2026.csv` | linhas com UF = GO | `ANM - CFEM` |
+| ANM — CFEM | `CFEM/CFEM_Arrecadacao_2022_2026.csv` | linhas com UF = GO, no formato antigo (ver abaixo) | `ANM - CFEM` |
 | ANM — Anuário Mineral | `AMB/Producao_Bruta.csv` e `Producao_Beneficiada.csv` | nenhum (arquivo nacional) | `ANM - Anuário Mineral Brasileiro (AMB)` |
 
 As URLs e a forma esperada de cada fonte da ANM ficam em [`fontes.json`](fontes.json). As do P3M ficam na coluna
@@ -54,6 +54,20 @@ Ficam de fora:
   Mineiro é a do pipeline (`go_municipio_id`): um município com sufixo de outra UF, como "BARRO ALTO - BA", não casa pelo nome.
   Refeito sobre os arquivos do repositório, o recorte reproduziu as contagens que o Eliel registrou a partir dos arquivos
   nacionais em `recorte_goias.json`: linhas, linhas com município de Goiás e processos do SIGMINE, nos 13 arquivos.
+- **CFEM no formato antigo** (`formato_csv.py`). Em outubro de 2026 a ANM passou a publicar a CFEM separada por vírgula e com
+  aspas. O pipeline do Squad 1 e o Radar leem o formato antigo: ponto e vírgula, sem aspas, cp1252, CRLF. A conversão muda só a
+  escrita:
+  - separador, aspas, codificação e quebra de linha voltam a ser os do arquivo atual;
+  - o separador decimal volta a ser a vírgula. O Radar tira os pontos como milhar, então `41474.14` viraria 4.147.414;
+  - a data volta a `dd/mm/aaaa hh:mm`, que é como a governança da planilha lê.
+
+  O resto do valor fica como a ANM publicou, inclusive o que ela tiver corrigido. A CFEM do repositório reescrita no formato
+  novo volta byte a byte. Um valor que o formato antigo não representa (com `;`, aspas ou quebra de linha) barra o arquivo.
+  O mesmo vale para uma coluna com dois estilos de número.
+
+  O log da execução mostra a forma de cada coluna (dígito vira 9, letra vira a), sem nenhum valor. Mostra também quantas
+  linhas do arquivo atual reaparecem iguais. A conversão vale só para fonte com `converter_formato` em `fontes.json`; hoje,
+  só a CFEM. Em qualquer outra, formato novo é barrado.
 
 ## Checagem de forma (`forma.py`)
 
@@ -62,7 +76,7 @@ escrito. Um **bloqueio** impede o arquivo de entrar; um **aviso** só vai para o
 
 | | Bloqueia | Avisa |
 |---|---|---|
-| CSV (ANM) | página HTML ou XML de erro no lugar do arquivo; arquivo vazio; não decodifica na codificação esperada (cp1252); separador trocado; colunas diferentes (nome ou ordem); linhas com número de campos errado; menos de 90% das linhas atuais; coluna numérica ou de data que deixou de ser; coluna que estava preenchida e esvaziou | linhas a mais ou a menos |
+| CSV (ANM) | página HTML ou XML de erro no lugar do arquivo; arquivo vazio; não decodifica na codificação esperada (cp1252); separador trocado; colunas diferentes (nome ou ordem); linhas com número de campos errado; menos de 90% das linhas atuais; coluna numérica ou de data que deixou de ser; número com um separador que a coluna não tinha (`41474.14` onde era `41474,14`); data com outra escrita (`2026-08-31` onde era `31/08/2026`); coluna que estava preenchida e esvaziou | linhas a mais ou a menos |
 | Shapefile (P3M e SIGMINE) | não é zip (erro do GeoServer); falta `.shx`, `.dbf` ou `.prj`; geometria mudou; sistema de coordenadas mudou; caixa fora do Brasil (coordenadas trocadas) ou longe de Goiás; menos de 50% dos registros (90% no SIGMINE); sumiu ou mudou de tipo um campo que o mapa lê (`scripts/mapa_camadas.json`; no SIGMINE, qualquer campo) | registros a mais ou a menos; campos novos; campo que o site não usa sumiu |
 | Recorte do P3M | ficou sem nenhuma feição em Goiás; o recortado novo falha nas mesmas regras acima | |
 | Chave das camadas do mapa | a chave da camada (`chave` em `scripts/mapa_camadas.json`) ficaria repetida ou vazia no conjunto dos zips dela, contando os novos e os atuais. Barra só os zips novos daquela camada | |
