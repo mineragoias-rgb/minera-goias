@@ -152,12 +152,17 @@ Saída do robô:
   antiga falha e alguém precisa trocar a URL e o nome do arquivo, no robô e no pipeline.
 - **Uma planilha só.** O robô refaz a v17 no lugar e não cria v18: a estrutura é a mesma e os dados são os do dia.
 - **Catálogo do P3M.** Só é baixado de novo, com a data de atualização de cada camada no SGB, quando alguma camada mudou.
-- **Encontrado no teste de 23/10/2026, ainda sem solução:**
-  - a **CFEM** passou a vir separada por vírgula e com aspas em todos os campos (`"Ano","Mês","Processo",…`). Antes vinha
-    com `;` e sem aspas. O pipeline e o Radar leem o formato antigo, então o robô barra o arquivo. Falta decidir entre
-    converter o arquivo novo para o formato antigo no recorte ou ensinar os leitores o formato novo. Antes, é preciso ver no
-    artefato se os números também mudaram de formato;
-  - quatro arquivos nacionais do **Cadastro Mineiro** encolheram na ANM:
+- **CFEM em formato novo (23/10/2026).** A ANM passou a publicar a CFEM separada por vírgula e com aspas, e a data em
+  outra escrita. O robô converte o arquivo para o formato antigo (ver "CFEM no formato antigo" acima). No teste sem publicar:
+  - a soma de ValorRecolhido de 2022 a 2024 ficou idêntica;
+  - 2025 e 2026 ganharam só os lançamentos novos (+2.225 linhas);
+  - pipeline, aba 14b, derivados e testes do site passaram.
+
+  O arquivo novo traz uma melhoria, que foi mantida: o CPF_CNPJ completo em 89% das linhas, no lugar da notação científica.
+  Os textos da planilha sobre o CPF_CNPJ saem agora das contagens do arquivo em uso
+  (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/qualidade_cfem.py`).
+- **Encontrado no teste de 23/10/2026, ainda sem solução:** quatro arquivos nacionais do **Cadastro Mineiro** encolheram na
+  ANM:
 
     | Arquivo | Linhas antes | Linhas em 23/10/2026 |
     |---|---|---|

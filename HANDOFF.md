@@ -152,13 +152,21 @@ Testes sem publicar de 23/10/2026: o GitHub baixou da ANM e do SGB. A cadeia int
 - derivados;
 - testes do site.
 
-Entrariam no site o SIGMINE (+244 processos), 7 arquivos do Cadastro Mineiro e o Anuário Mineral. As 53 camadas do P3M vieram
-iguais às do repositório. Ficaram barradas duas coisas, descritas em `robo/LEIA-ME.md` (Limites):
+Entrariam no site:
 
-- a CFEM, que mudou de formato;
-- quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM.
+- o SIGMINE (+244 processos);
+- 7 arquivos do Cadastro Mineiro;
+- o Anuário Mineral;
+- a CFEM.
 
-O workflow ainda não publicou nada.
+As 53 camadas do P3M vieram iguais às do repositório.
+
+A CFEM passou a vir com vírgula e aspas, e o robô a converte para o formato antigo (`robo/formato_csv.py`). Nessa conversão,
+2022–2024 ficaram com a mesma soma. O CNPJ completo que a ANM passou a publicar foi mantido, e os textos da planilha sobre o
+CPF_CNPJ saem do arquivo (`qualidade_cfem.py`).
+
+Ficaram barrados quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM (ver `robo/LEIA-ME.md`, Limites). O
+workflow ainda não publicou nada: a primeira publicação será a da segunda-feira, ou um Run workflow com `publicar`.
 
 ## Carteira de projetos (seção da aba Mercado)
 
