@@ -73,6 +73,12 @@ Radar de Projetos (`curadoria_web.json`), carteira do Lucas Maia, leitura de mer
 (`producao/base_curada.json`, que já tem o agente semanal `producao/agente.py` propondo candidatos) e os parâmetros do Squad 2.
 Pela `METODOLOGIA.md`, importar não é validar: aqui o robô sugere e uma pessoa aprova.
 
+## O robô (primeira versão, 23/10/2026)
+
+O P3M e a ANM (Anuário Mineral, CFEM, Cadastro Mineiro e SIGMINE) já são atualizados toda semana pelo robô em [`robo/`](../robo/LEIA-ME.md):
+ele baixa, confere a forma contra o arquivo que o site usa, aplica os mesmos recortes de Goiás, refaz a base consolidada, o atlas e
+os derivados quando a ANM muda, roda os testes e publica. As demais fontes desta página continuam manuais.
+
 ## Sugestão para o robô
 
 1. **Começar pelo P3M e pela ANM.** São as fontes com link direto e as que mais mudam (CFEM e Cadastro Mineiro são diárias). O robô

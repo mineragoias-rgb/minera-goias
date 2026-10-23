@@ -1,0 +1,148 @@
+# -*- coding: utf-8 -*-
+"""Robô de atualização das bases do P3M e da ANM.
+
+    python robo/robo_bases.py                          # P3M (camadas do mapa) e ANM: baixa, confere, trata e grava
+    python robo/robo_bases.py --fontes p3m --p3m-escopo todas
+    python robo/robo_bases.py --so SIGMINE,CFEM        # só estas fontes da ANM (ou camadas do P3M, pelo código vw_…)
+    python robo/robo_bases.py --sem-gravar             # baixa e confere, mas não grava nada
+    python robo/robo_bases.py --checar                 # sem rede: os arquivos do repositório estão no formato que o site usa?
+    python robo/robo_bases.py --conferir-planilha ANTES.xlsx DEPOIS.xlsx   # a base consolidada refeita ganhou alerta novo?
+    python robo/robo_bases.py --comparar-xlsx A.xlsx B.xlsx                # mesmos valores? (o .xlsx muda de bytes a cada gravação)
+
+O robô só mexe nos dados brutos (Squad 1/P3M e Squad 1/Dados brutos). O que sai deles — base consolidada, atlas, mapa,
+panorama… — é refeito depois pelo workflow `.github/workflows/robo-bases.yml`, que também roda os testes antes de publicar.
+Detalhes em robo/LEIA-ME.md.
+
+Saída: 0 = tudo certo (com ou sem mudança); 1 = alguma fonte foi bloqueada pela checagem de forma ou não baixou (o que
+passou foi gravado); 3 = `--checar` ou `--conferir-planilha` acharam problema.
+"""
+import argparse
+import datetime as dt
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.dont_write_bytecode = True
+
+from comum import RAIZ, Resultado, gravar_json, pasta_temporaria, relatorio_md  # noqa: E402
+
+CONFIG = Path(__file__).resolve().parent / "fontes.json"
+
+
+def carregar_config():
+    return json.loads(CONFIG.read_text(encoding="utf-8"))
+
+
+def rodar(args):
+    cfg = carregar_config()
+    raiz = Path(args.raiz).resolve()
+    hoje = args.hoje or dt.date.today().isoformat()
+    espelho = json.loads(Path(args.espelho).read_text(encoding="utf-8")) if args.espelho else {}
+    so = set(filter(None, (args.so or "").split(",")))
+    fontes = set(args.fontes.split(","))
+    tmp = pasta_temporaria()
+    resultados, gravados = [], []
+    try:
+        if "anm" in fontes:
+            from anm import ANM
+            anm = ANM(raiz, hoje, cfg["anm"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp)
+            so_anm = so & {f["id"] for f in cfg["anm"]["fontes"]}
+            if not so or so_anm:
+                resultados += anm.rodar(so_anm or None)
+            gravados += anm.salvar()
+        so_p3m = so - {f["id"] for f in cfg["anm"]["fontes"]}
+        if "p3m" in fontes and (not so or so_p3m):
+            from p3m import P3M
+            p3m = P3M(raiz, hoje, cfg["p3m"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp)
+            alvos = p3m.alvos(args.p3m_escopo or cfg["p3m"]["escopo_padrao"], so_p3m or None)
+            for i, linha in enumerate(alvos, 1):
+                r = p3m.atualizar(linha)
+                print(f"[P3M {i}/{len(alvos)}] {r.situacao:11s} {r.nome} {r.motivo}", flush=True)
+                resultados.append(r)
+            gravados += p3m.salvar()
+            if p3m.mudou and not args.sem_inventario:
+                resultados.append(refazer_inventario(raiz, args.catalogo_p3m))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    for r in resultados:
+        if r.fonte == "ANM":
+            print(f"[ANM] {r.situacao:11s} {r.nome} {r.motivo}")
+    md = relatorio_md(resultados, hoje)
+    print("\n" + md)
+    resumo = {
+        "data": hoje,
+        "anm_mudou": any(r.fonte == "ANM" and r.situacao == "atualizada" for r in resultados),
+        "p3m_mudou": any(r.fonte == "P3M" and r.situacao == "atualizada" for r in resultados),
+        "problemas": [r.como_dict() for r in resultados if r.situacao in ("bloqueada", "falhou")],
+        "gravados": sorted(set(gravados + [a for r in resultados for a in r.arquivos])),
+        "resultados": [r.como_dict() for r in resultados],
+    }
+    if args.relatorio:
+        Path(args.relatorio).write_text(md, encoding="utf-8")
+    if args.json:
+        gravar_json(args.json, resumo)
+    return 1 if resumo["problemas"] else 0
+
+
+def refazer_inventario(raiz, catalogo):
+    """Refaz o inventário do P3M (registros, tamanhos, classificação) depois das camadas novas. Com `catalogo`, baixa antes o
+    catálogo do site (traz a data de atualização de cada camada no SGB); se o catálogo novo quebrar o inventário, volta ao antigo."""
+    r = Resultado("P3M", "inventário (scripts/build_inventario_p3m.py)")
+    script = [sys.executable, str(raiz / "scripts" / "build_inventario_p3m.py"), "--mover"]
+    if catalogo:
+        p = subprocess.run(script + ["--atualizar-catalogo"], cwd=raiz, capture_output=True, text=True)
+        if p.returncode == 0:
+            r.situacao, r.motivo = "atualizada", "inventário refeito com o catálogo do site baixado hoje"
+            return r
+        subprocess.run(["git", "checkout", "--", "Squad 1/P3M/catalogo_p3m"], cwd=raiz)
+        r.avisos.append("o catálogo novo do site não serviu e foi descartado: " + (p.stdout + p.stderr).strip()[-300:])
+    p = subprocess.run(script, cwd=raiz, capture_output=True, text=True)
+    if p.returncode:
+        r.situacao, r.motivo = "bloqueada", "inventário não refez: " + (p.stdout + p.stderr).strip()[-400:]
+    else:
+        r.situacao, r.motivo = "atualizada", "inventário refeito"
+    return r
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--fontes", default="anm,p3m", help="anm, p3m ou anm,p3m (padrão)")
+    ap.add_argument("--p3m-escopo", choices=["mapa", "todas"], help="camadas do P3M: as que o mapa usa (padrão) ou todas")
+    ap.add_argument("--so", help="só estas fontes da ANM (ids de robo/fontes.json) ou camadas do P3M (código vw_… ou nome do zip)")
+    ap.add_argument("--sem-gravar", action="store_true", help="baixa e confere, sem gravar nada")
+    ap.add_argument("--catalogo-p3m", action="store_true", help="baixa de novo o catálogo do site P3M ao refazer o inventário")
+    ap.add_argument("--sem-inventario", action="store_true", help="não refaz o inventário do P3M (os testes usam)")
+    ap.add_argument("--hoje", help="data a registrar (AAAA-MM-DD); padrão: hoje")
+    ap.add_argument("--raiz", default=str(RAIZ), help="raiz do repositório (os testes usam uma cópia)")
+    ap.add_argument("--espelho", default=os.environ.get("ROBO_ESPELHO"),
+                    help="JSON {url: arquivo local}: lê dali em vez de baixar (testes e reprocessamento; ou a variável ROBO_ESPELHO)")
+    ap.add_argument("--relatorio", help="grava o relatório em Markdown aqui")
+    ap.add_argument("--json", help="grava o resumo em JSON aqui (o workflow usa)")
+    ap.add_argument("--checar", action="store_true", help="checagem de forma dos arquivos do repositório, sem rede")
+    ap.add_argument("--conferir-planilha", nargs=2, metavar=("ANTES", "DEPOIS"), help="compara os alertas da aba 14b")
+    ap.add_argument("--comparar-xlsx", nargs=2, metavar=("A", "B"), help="sai com 0 se as duas planilhas têm os mesmos valores")
+    args = ap.parse_args()
+    if args.checar:
+        from checagem import checar_repositorio
+        problemas = checar_repositorio(Path(args.raiz).resolve())
+        print("\n".join(problemas) or "ok: os arquivos do P3M e da ANM estão no formato que o site usa")
+        sys.exit(3 if problemas else 0)
+    if args.conferir_planilha:
+        from checagem import conferir_planilha
+        problemas, texto = conferir_planilha(*args.conferir_planilha)
+        print(texto)
+        sys.exit(3 if problemas else 0)
+    if args.comparar_xlsx:
+        from checagem import mesmo_conteudo_xlsx
+        igual = mesmo_conteudo_xlsx(*args.comparar_xlsx)
+        print("mesmo conteúdo" if igual else "conteúdo diferente")
+        sys.exit(0 if igual else 1)
+    sys.exit(rodar(args))
+
+
+if __name__ == "__main__":
+    main()

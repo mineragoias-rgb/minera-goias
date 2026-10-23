@@ -9,7 +9,7 @@
     "portal": "https://p3mgeo.sgb.gov.br/#/map",
     "servico": "https://opendata.sgb.gov.br/geoserver/wfs",
     "inventario_url": "https://github.com/mineragoias-rgb/minera-goias/blob/main/Squad%201/P3M/inventario_p3m.csv",
-    "nota_retrato": "O retrato de cada camada do P3M é o dia em que o Squad 1 baixou o zip (coluna data_download do inventário Squad 1/P3M/inventario_p3m.csv): 21/10/2026 para as camadas pedidas com o retângulo de Goiás e 19/10/2026 para as estaduais (vw_cprm_go_*) e as nacionais. Quando o SGB publica a data da última atualização da camada, ela aparece ao lado, com a fonte (portal de dados do SGB ou metadado do catálogo do P3M); nas demais o SGB não informa."
+    "nota_retrato": "O retrato de cada camada do P3M é o dia em que o zip foi baixado (coluna data_download do inventário Squad 1/P3M/inventario_p3m.csv). O Squad 1 baixou as camadas em 19 e 21/10/2026; desde então o robô de atualização (robo/) baixa de novo toda semana e troca a camada, com a data nova, quando o conteúdo muda. Quando o SGB publica a data da última atualização da camada, ela aparece ao lado, com a fonte (portal de dados do SGB ou metadado do catálogo do P3M); nas demais o SGB não informa."
   },
   "apelidos_municipios": {
     "SAO LUIZ DE MONTES BELOS": "São Luís de Montes Belos",

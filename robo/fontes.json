@@ -1,0 +1,79 @@
+{
+ "comentario": "Configuração do robô de atualização (robo/robo_bases.py). As camadas do P3M e suas URLs vêm do inventário (Squad 1/P3M/inventario_p3m.csv); aqui ficam só os limites. As fontes da ANM ficam listadas aqui, cada uma com a URL oficial, o arquivo do repositório que ela substitui, o caminho lógico que a planilha consolidada cita (datas_de_acesso.json) e a forma esperada.",
+ "p3m": {
+  "escopo_padrao": "mapa",
+  "limite_mb": 95,
+  "fracao_minima": 0.5,
+  "crs_area": "EPSG:5880",
+  "fiapo_fracao": 0.01,
+  "fiapo_km2": 10
+ },
+ "planilha": {
+  "comentario": "Trava da base consolidada refeita pelo pipeline (robo_bases.py --conferir-planilha): um ALERTA novo na aba 14b bloqueia a publicação, salvo os listados aqui, que são próprios do arranjo do GitHub.",
+  "alertas_esperados": {
+   "Arquivos de dados/ sem source_id no catálogo 07": "No GitHub, Squad 1/Dados brutos guarda também as fontes de energia (ANEEL, EPE, ONS), a planilha do Lucas Maia e o .gitattributes, que ainda não entraram no catálogo 07 da planilha. Na cópia de trabalho do Eliel esses arquivos não ficam em dados/, por isso lá a verificação dá OK."
+  }
+ },
+ "anm": {
+  "fracao_minima": 0.9,
+  "limite_download_mb": 600,
+  "fontes": [
+   {
+    "id": "SIGMINE",
+    "nome": "SIGMINE — processos minerários de Goiás",
+    "src": "SRC_ANM_SIGMINE",
+    "tipo": "shapefile",
+    "url": "https://dadosabertos.anm.gov.br/SIGMINE/PROCESSOS_MINERARIOS/GO.zip",
+    "arquivo": "ANM - SIGMINE/GO.zip",
+    "logico": "dados/ANM/sigmine/GO.zip"
+   },
+   {
+    "id": "CADASTRO",
+    "nome": "Cadastro Mineiro (SCM)",
+    "src": "SRC_ANM_CADASTRO",
+    "tipo": "cadastro",
+    "url_base": "https://dadosabertos.anm.gov.br/SCM/",
+    "pasta": "ANM - Cadastro Mineiro",
+    "logico": "dados/ANM/cadastro_mineiro/",
+    "codificacao": "cp1252",
+    "separador": ",",
+    "malha_municipal": "Squad 1/Dados brutos/IBGE - Malha municipal 2025/GO_Municipios_2025.zip",
+    "sigmine": "ANM - SIGMINE/GO.zip"
+   },
+   {
+    "id": "CFEM",
+    "nome": "CFEM — arrecadação",
+    "src": "SRC_ANM_CFEM",
+    "tipo": "csv",
+    "url": "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv",
+    "arquivo": "ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv",
+    "logico": "dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv",
+    "codificacao": "cp1252",
+    "separador": ";",
+    "recorte": {"coluna": "UF", "valor": "GO"}
+   },
+   {
+    "id": "AMB_BRUTA",
+    "nome": "Anuário Mineral — produção bruta",
+    "src": "SRC_ANM_PROD_BRUTA",
+    "tipo": "csv",
+    "url": "https://dadosabertos.anm.gov.br/AMB/Producao_Bruta.csv",
+    "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv",
+    "logico": "dados/ANM/producao_amb_ral/Producao_Bruta.csv",
+    "codificacao": "cp1252",
+    "separador": ","
+   },
+   {
+    "id": "AMB_BENEFICIADA",
+    "nome": "Anuário Mineral — produção beneficiada",
+    "src": "SRC_ANM_PROD_BENEF",
+    "tipo": "csv",
+    "url": "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv",
+    "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Beneficiada.csv",
+    "logico": "dados/ANM/producao_amb_ral/Producao_Beneficiada.csv",
+    "codificacao": "cp1252",
+    "separador": ","
+   }
+  ]
+ }
+}

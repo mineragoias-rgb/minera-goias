@@ -39,6 +39,10 @@ URL do download e da ficha de metadados; resumo do site.
 `data_atualizacao_sgb` é a última atualização da camada no SGB, quando ele publica: só 16 das 158 têm essa data (pelo portal de
 dados do SGB ou pelo metadado do próprio P3M; a coluna `fonte_data_sgb` diz qual). As demais o SGB não informa.
 
+**Atualização automática.** Toda semana o robô de atualização (`robo/`, ver `robo/LEIA-ME.md`) baixa de novo, pela `url_download`,
+as camadas que o mapa usa, confere a forma, recorta por Goiás com as mesmas regras do Recortado e troca o zip (com a data nova em
+`data_download`) só quando o conteúdo mudou.
+
 Para refazer depois de acrescentar ou trocar um zip: `python scripts/build_inventario_p3m.py` (com `--mover` ele também põe o zip na
 pasta temática). `--verificar` confere sem gravar nada. Camada nova precisa ter a data de download e a extensão registradas no
 inventário; o script avisa quando falta. `--atualizar-catalogo` baixa de novo o catálogo do site.

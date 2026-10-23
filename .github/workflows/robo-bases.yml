@@ -1,0 +1,150 @@
+name: Robô das bases (P3M e ANM)
+
+# Toda segunda de manhã o robô baixa as bases do P3M (camadas que o mapa usa) e da ANM, confere a forma, trata como o
+# repositório guarda e refaz o que vai ao site. Detalhes em robo/LEIA-ME.md.
+#   1. robo/robo_bases.py baixa e confere; grava só os dados brutos que mudaram e passaram na checagem de forma;
+#   2. se a ANM mudou: o pipeline do Squad 1 refaz a planilha consolidada (v17), que não pode ganhar ALERTA novo na aba 14b;
+#      depois o atlas, os documentos da base e o Radar de Projetos;
+#   3. scripts/atualizar_derivados.py refaz o resto (inventário do P3M, mapa, panorama, Squad 2, simulador…) e testa;
+#   4. os testes do site e do robô rodam de novo e só então tudo vai para a main.
+# O commit é feito com o GITHUB_TOKEN, que não dispara outros workflows (nem o "Validar plataforma web"): por isso os
+# testes rodam aqui. Fonte bloqueada ou que não baixou não impede as outras; o job termina vermelho para alguém olhar.
+
+on:
+  schedule:
+    - cron: '17 9 * * 1'   # segunda, 09:17 UTC (06:17 em Brasília)
+  workflow_dispatch:
+    inputs:
+      fontes:
+        description: 'anm, p3m ou anm,p3m'
+        default: 'anm,p3m'
+        required: true
+      escopo_p3m:
+        description: 'camadas do P3M'
+        type: choice
+        options: [mapa, todas]
+        default: mapa
+      publicar:
+        description: 'publicar na main o que passar'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+# O mesmo grupo do workflow dos derivados: os dois mexem nos mesmos arquivos.
+concurrency:
+  group: atualizar-derivados
+  cancel-in-progress: false
+
+jobs:
+  robo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      FONTES: ${{ inputs.fontes || 'anm,p3m' }}
+      ESCOPO: ${{ inputs.escopo_p3m || 'mapa' }}
+      PUBLICAR: ${{ github.event_name == 'schedule' || inputs.publicar }}
+      PLANILHA: Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências
+        run: |
+          # robô, mapa e derivados: pyshp e shapely nas versões em que data/mapa foi gerado
+          python -m pip install -r "Squad 2/modello_reale/requirements.txt" pyshp==3.1.6 shapely==2.2.0 geopandas==1.1.3 pyogrio==0.12.1 pyproj==3.7.2
+          # pipeline da base consolidada e atlas: num ambiente à parte, com as versões da planilha
+          python -m venv "$RUNNER_TEMP/pipeline"
+          "$RUNNER_TEMP/pipeline/bin/pip" install -r "Squad 1/Bases consolidadas/base_consolidada_work/requirements.txt"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Testes do robô
+        run: python -m unittest discover -s tests -p test_robo.py -v
+
+      - name: Baixar, conferir e gravar
+        id: robo
+        run: |
+          set +e
+          python robo/robo_bases.py --fontes "$FONTES" --p3m-escopo "$ESCOPO" --catalogo-p3m \
+            --relatorio "$RUNNER_TEMP/robo.md" --json "$RUNNER_TEMP/robo.json"
+          codigo=$?
+          set -e
+          { echo '### Robô das bases'; echo; cat "$RUNNER_TEMP/robo.md"; } >> "$GITHUB_STEP_SUMMARY"
+          python -c "import json,sys; d=json.load(open(sys.argv[1])); print('anm=' + ('sim' if d['anm_mudou'] else 'nao')); print('p3m=' + ('sim' if d['p3m_mudou'] else 'nao'))" \
+            "$RUNNER_TEMP/robo.json" >> "$GITHUB_OUTPUT"
+          echo "codigo=$codigo" >> "$GITHUB_OUTPUT"
+          if [ "$codigo" -gt 1 ]; then exit "$codigo"; fi
+
+      - name: Guardar os dados brutos novos (commit local)
+        if: steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim'
+        run: |
+          git add -A -- "Squad 1/P3M" "Squad 1/Dados brutos"
+          git diff --cached --quiet && exit 0
+          { echo "dados(robo): bases do P3M e da ANM baixadas em $(date +%F)"; echo; cat "$RUNNER_TEMP/robo.md"; echo;
+            echo 'Gerado por .github/workflows/robo-bases.yml (robo/robo_bases.py).'; } > "$RUNNER_TEMP/msg.txt"
+          git commit -q -F "$RUNNER_TEMP/msg.txt"
+
+      - name: Base consolidada, atlas e Radar de Projetos (a ANM mudou)
+        if: steps.robo.outputs.anm == 'sim'
+        run: |
+          PIPE="$RUNNER_TEMP/pipeline/bin/python"
+          S1="Squad 1/Bases consolidadas"
+          cp "$PLANILHA" "$RUNNER_TEMP/planilha_antes.xlsx"
+          MINERA_DATA_DADOS=$(date +%F) "$PIPE" "$S1/base_consolidada_work/scripts/rodar_pipeline.py"
+          rm -f "$S1"/documentacao/prototipo_bases_consolidadas_v[1-5]*_*.xlsx "$S1"/documentacao/prototipo_bases_consolidadas_v[345].xlsx
+          # trava: a planilha refeita não pode ganhar ALERTA novo na aba 14b
+          python robo/robo_bases.py --conferir-planilha "$RUNNER_TEMP/planilha_antes.xlsx" "$PLANILHA" | tee "$RUNNER_TEMP/planilha.md"
+          { echo '### Aba 14b da planilha refeita'; echo; cat "$RUNNER_TEMP/planilha.md"; } >> "$GITHUB_STEP_SUMMARY"
+          "$PIPE" "$S1/base_consolidada_work/scripts/gerar_relatorio_qualidade.py"
+          "$PIPE" "$S1/base_consolidada_work/scripts/gerar_nota_sem_coordenadas.py"
+          for f in relatorio_qualidade.md nota_squad2_operacoes_sem_coordenadas.md operacoes_sem_coordenadas.csv; do
+            git diff --quiet --ignore-cr-at-eol -- "$S1/documentacao/$f" && git checkout -- "$S1/documentacao/$f"  # só a quebra de linha mudou
+          done
+          "$PIPE" scripts/build_atlas_base.py --base "$S1"
+          # o Radar lê CFEM, Cadastro Mineiro e a aba 04: troca o arquivo só quando os valores mudam (o .xlsx muda de bytes sempre)
+          python scripts/build_projetos_minerais_goias.py --saida "$RUNNER_TEMP/radar.xlsx"
+          python robo/robo_bases.py --comparar-xlsx "$RUNNER_TEMP/radar.xlsx" "Squad 1/Radar de Projetos/projetos_minerais_goias.xlsx" \
+            || cp "$RUNNER_TEMP/radar.xlsx" "Squad 1/Radar de Projetos/projetos_minerais_goias.xlsx"
+          git add -A -- "$S1/documentacao" data/atlas "Squad 1/Radar de Projetos"
+          git diff --cached --quiet || git commit -q -m "dados(robo): base consolidada, atlas e Radar refeitos com a ANM de $(date +%F)"
+
+      - name: Refazer os derivados
+        if: steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim'
+        run: |
+          python scripts/atualizar_derivados.py --resumo "$RUNNER_TEMP/derivados.md"
+          { echo '### Derivados'; echo; cat "$RUNNER_TEMP/derivados.md"; } >> "$GITHUB_STEP_SUMMARY"
+          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
+                  "Squad 1/P3M/inventario_p3m.csv" data/mapa
+                  "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
+          git add -A -- "${saidas[@]}"
+          git diff --cached --quiet || git commit -q -F - <<EOF
+          chore(derivados): refaz o que sai das bases baixadas pelo robô
+
+          $(cat "$RUNNER_TEMP/derivados.md")
+          EOF
+
+      - name: Testes do site
+        if: steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim'
+        run: |
+          for t in test_robo test_inventario_p3m test_mapa test_atlas test_panorama test_simulador test_mercado test_radar_projetos test_derivados; do
+            python -m unittest discover -s tests -p "$t.py"
+          done
+          python robo/robo_bases.py --checar
+
+      - name: Publicar na main
+        if: env.PUBLICAR == 'true' && (steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim')
+        run: |
+          [ "$(git rev-parse HEAD)" = "$GITHUB_SHA" ] && { echo 'Nada a publicar.'; exit 0; }
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Avisar fonte bloqueada ou que não baixou
+        if: steps.robo.outputs.codigo == '1'
+        run: |
+          echo '::error::alguma fonte foi bloqueada pela checagem de forma ou não baixou; o que passou foi publicado. Veja o resumo da execução.'
+          exit 1

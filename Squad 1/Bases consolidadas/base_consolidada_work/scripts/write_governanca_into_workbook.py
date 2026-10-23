@@ -1838,6 +1838,9 @@ assert not _com_rotulo, f"título ainda com rótulo de versão: {_com_rotulo}"
 # COM_###/OPE_#####). Agora descreve a planilha como ela é; as notas de cada versão ficam embaixo, como histórico, sem reescrita.
 # ---------------------------------------------------------------------------
 DATA_VERSAO = "2026-09-13"
+# Quando o robô de atualização (robo/robo_bases.py) refaz a planilha com arquivos novos da ANM, ele passa a data em
+# MINERA_DATA_DADOS: a estrutura continua a da v17, os dados são os baixados naquele dia.
+DATA_DADOS = os.environ.get("MINERA_DATA_DADOS")
 _lin = list(wb["00_LEIA-ME"].iter_rows(max_col=2, values_only=True))
 HIST = [(b, _lin[i + 1][1] if i + 1 < len(_lin) else "") for i, (_, b) in enumerate(_lin) if isinstance(b, str) and b.startswith("ATUALIZAÇÃO")]
 assert [h[0].split()[1] for h in HIST] == [f"v{i}" for i in range(1, 12)], [h[0][:24] for h in HIST]
@@ -2020,7 +2023,8 @@ for _titulo, _texto in HIST:
     _faixa(_r, _titulo, LBLUE, 11, NAVY)
     _paragrafo(_r + 1, str(_texto or ""))
     _r += 3
-_paragrafo(_r, f"Última atualização: {DATA_VERSAO} · {VERSAO} · autor: Eliel (Squad 1 / Estudante 1) com apoio do Claude Code.", 9, "808080")
+_paragrafo(_r, f"Última atualização: {DATA_VERSAO} · {VERSAO} · autor: Eliel (Squad 1 / Estudante 1) com apoio do Claude Code."
+              + (f" Dados das fontes atualizados pelo robô de atualização em {DATA_DADOS} (robo/robo_bases.py)." if DATA_DADOS else ""), 9, "808080")
 
 wb._sheets.sort(key=lambda s: s.title)
 wb.active = 0

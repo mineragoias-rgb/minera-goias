@@ -111,6 +111,38 @@ node --check public/empresas.js
 
 Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, `Squad 1/P3M`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o inventário do P3M e o Mapa mineral (`data/mapa`, que lê do inventário a data, a pasta e a ficha de cada camada), o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
 
+## Robô de atualização das bases (P3M e ANM)
+
+Primeira versão, de 23/10/2026, em `robo/` (detalhes em `robo/LEIA-ME.md`). O workflow `.github/workflows/robo-bases.yml` roda toda
+segunda às 06:17 de Brasília, ou à mão em Actions. Ele baixa:
+
+- as camadas do P3M que o mapa usa, pela URL de cada uma no inventário;
+- da ANM: SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral.
+
+Para cada arquivo:
+
+1. **Checagem de forma** contra o arquivo que o site usa: colunas, codificação, separador e tipos nos CSV; geometria, sistema de
+   coordenadas, caixa e campos nos shapefiles, com os campos que `scripts/mapa_camadas.json` lê obrigatórios; queda grande de
+   registros; página de erro no lugar do arquivo. O que não passa é barrado e o arquivo atual fica.
+2. **Mesmo tratamento de antes**, conferido contra o repositório:
+   - P3M: recorte por Goiás; das 155 camadas de um zip só, 154 saem idênticas byte a byte e 1 com a mesma geometria;
+   - ANM: CFEM com UF = GO; Cadastro Mineiro pela regra do pipeline, com as mesmas contagens de `recorte_goias.json`.
+3. **Grava só o que mudou**, com a data em `datas_de_acesso.json` ou no inventário do P3M, e o sha256 e o tamanho no LEIA-ME de
+   `Dados brutos`.
+
+Quando a ANM muda, o workflow também:
+
+- roda o pipeline do Squad 1, que refaz a v17 no lugar. A aba 14b não pode ganhar ALERTA novo; a exceção esperada no GitHub está
+  em `robo/fontes.json`;
+- refaz o atlas e o Radar de Projetos;
+- roda `scripts/atualizar_derivados.py` e os testes, e publica na `main`.
+
+Fonte barrada ou que não baixou deixa o job vermelho, e o resumo da execução diz qual foi e por quê.
+
+Sem rede, `python robo/robo_bases.py --checar` diz se os arquivos do repositório estão no padrão do site, e `tests/test_robo.py`
+roda o robô contra um portal falso. Os portais da ANM e do SGB ainda não foram acessados pelos servidores do GitHub. A primeira
+execução vai dizer se respondem; se não, o robô roda na VPS.
+
 ## Carteira de projetos (seção da aba Mercado)
 
 Integração de 08/10/2026. O quadro `Carteira de projetos em Goiás`, na aba `Mercado` logo abaixo de "Operações e alvos", publica o levantamento

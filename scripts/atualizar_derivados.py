@@ -14,6 +14,8 @@ Cadeia (cada etapa só roda depois das que ela usa):
 
 Fica de fora, porque depende de arquivo que não está no repositório: o atlas (`build_atlas_base.py`, precisa do GeoPackage do
 projeto) e o download da CCEE (`build_ccee_go.py`, o portal bloqueia acesso automatizado — os CSVs nacionais são baixados à mão).
+O robô de atualização (`robo/`, workflow robo-bases.yml) roda o pipeline da base consolidada e o atlas antes desta cadeia quando
+baixa arquivos novos da ANM.
 
 Regras:
 - Etapa que falha não deixa saída pela metade: os arquivos dela voltam ao que está versionado, e as etapas que dependem dela não rodam.
