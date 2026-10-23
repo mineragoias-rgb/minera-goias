@@ -128,14 +128,31 @@ Saída do robô:
 
 ## Limites desta primeira versão
 
-- **Rede.** Os portais da ANM e do SGB nunca foram acessados pelos servidores do GitHub. Se algum recusar, a fonte aparece como
-  "não baixou" no resumo e o resto segue. Nesse caso, o robô pode rodar na VPS (`python robo/robo_bases.py`) e o commit seguir
-  por lá.
-- **A ANM trocou os links dos dados abertos em fevereiro de 2026.** As URLs de `fontes.json` são as que o repositório
-  registrava. Se uma não responder, ela aparece no resumo como "não baixou".
+- **Rede.** Nos testes de 23/10/2026, os servidores do GitHub baixaram da ANM e do SGB todas as URLs de `fontes.json` e do
+  inventário. Mesmo assim, um portal pode recusar ou cair. Nesse caso, a fonte aparece como "não baixou" no resumo e o resto
+  segue. Se a recusa continuar, o robô pode rodar na VPS (`python robo/robo_bases.py`) e o commit seguir por lá.
+- **O GeoServer do SGB oscila.** No teste das 17:40 de 23/10/2026, seis camadas voltaram com erro do GeoServer, e os
+  mapeamentos geológicos vieram com `objectid` repetido entre as escalas. Quarenta minutos depois, as 53 camadas vieram iguais
+  às do repositório. A conferência da chave de cada camada do mapa existe por causa disso.
 - **Nome de arquivo que muda.** A CFEM traz a faixa de anos no nome (`2022_2026`). Quando a ANM publicar `2022_2027`, a URL
   antiga falha e alguém precisa trocar a URL e o nome do arquivo, no robô e no pipeline.
 - **Uma planilha só.** O robô refaz a v17 no lugar e não cria v18: a estrutura é a mesma e os dados são os do dia.
 - **Catálogo do P3M.** Só é baixado de novo, com a data de atualização de cada camada no SGB, quando alguma camada mudou.
+- **Encontrado no teste de 23/10/2026, ainda sem solução:**
+  - a **CFEM** passou a vir separada por vírgula e com aspas em todos os campos (`"Ano","Mês","Processo",…`). Antes vinha
+    com `;` e sem aspas. O pipeline e o Radar leem o formato antigo, então o robô barra o arquivo. Falta decidir entre
+    converter o arquivo novo para o formato antigo no recorte ou ensinar os leitores o formato novo. Antes, é preciso ver no
+    artefato se os números também mudaram de formato;
+  - quatro arquivos nacionais do **Cadastro Mineiro** encolheram na ANM:
+
+    | Arquivo | Linhas antes | Linhas em 23/10/2026 |
+    |---|---|---|
+    | Portaria de Lavra | 15.493 | 549 |
+    | Requerimento de Lavra | 21.371 | 2.748 |
+    | Relatório de Pesquisa Aprovado | 15.695 | 4.686 |
+    | Alvará de Pesquisa | 111.614 | 81.479 |
+
+    O robô barrou os quatro, e o site segue com os arquivos anteriores. Antes de usar `aceitar_queda`, confira na ANM se a
+    queda é real.
 - **Ainda à mão:** CCEE (o portal recusa download automatizado), investimento em pesquisa e rodadas de disponibilidade (sem URL
   registrada), SIGBM e as fontes de energia. Ver `docs/fontes_de_dados.md`.

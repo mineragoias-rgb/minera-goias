@@ -142,8 +142,23 @@ numa camada do mapa feita de vários zips, a chave repetida ou vazia barra só o
 como artefato da execução (`robo-bases`). Uma queda de linhas conferida na fonte passa com `aceitar_queda` no Run workflow.
 
 Sem rede, `python robo/robo_bases.py --checar` diz se os arquivos do repositório estão no padrão do site, e `tests/test_robo.py`
-roda o robô contra um portal falso. Os portais da ANM e do SGB ainda não foram acessados pelos servidores do GitHub. A primeira
-execução vai dizer se respondem; se não, o robô roda na VPS.
+roda o robô contra um portal falso.
+
+Testes sem publicar de 23/10/2026: o GitHub baixou da ANM e do SGB. A cadeia inteira passou:
+
+- pipeline;
+- aba 14b sem alerta novo;
+- atlas;
+- derivados;
+- testes do site.
+
+Entrariam no site o SIGMINE (+244 processos), 7 arquivos do Cadastro Mineiro e o Anuário Mineral. As 53 camadas do P3M vieram
+iguais às do repositório. Ficaram barradas duas coisas, descritas em `robo/LEIA-ME.md` (Limites):
+
+- a CFEM, que mudou de formato;
+- quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM.
+
+O workflow ainda não publicou nada.
 
 ## Carteira de projetos (seção da aba Mercado)
 
