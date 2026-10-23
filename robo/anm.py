@@ -19,6 +19,7 @@ from pathlib import Path
 
 import anm_recorte
 import forma
+import formato_csv
 from comum import FalhaDownload, Resultado, baixar, digital_zip, sha256
 
 BRUTOS_REL = Path("Squad 1") / "Dados brutos"
@@ -101,11 +102,20 @@ class ANM:
             return r
         if f.get("recorte"):
             try:
-                dados, cont = anm_recorte.recortar_uf(dados, f["separador"], f["recorte"]["coluna"], f["recorte"]["valor"])
+                convertido = None
+                if f.get("converter_formato"):  # a fonte mudou de formato: volta ao do repositório (robo/formato_csv.py)
+                    convertido = formato_csv.converter(dados, atual.read_bytes(), f["codificacao"], f["separador"],
+                                                       f["recorte"]["coluna"], f["recorte"]["valor"])
+                if convertido:
+                    dados, cont, notas, diag = convertido
+                    r.avisos += notas
+                    r.detalhes["diagnostico"] = diag
+                else:
+                    dados, cont = anm_recorte.recortar_uf(dados, f["separador"], f["recorte"]["coluna"], f["recorte"]["valor"])
             except (ValueError, IndexError) as e:
                 r.situacao, r.motivo = "bloqueada", f"não deu para recortar Goiás: {e}"
                 return r
-            r.detalhes = cont
+            r.detalhes.update(cont)
         return self._conferir_e_gravar_csv(dados, atual, f, r)
 
     def cadastro(self, f):

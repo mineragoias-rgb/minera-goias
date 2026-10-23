@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT / "robo"))
 import anm_recorte  # noqa: E402
 import checagem  # noqa: E402
 import forma  # noqa: E402
+import formato_csv  # noqa: E402
 from comum import digital_zip  # noqa: E402
 
 BRUTOS = ROOT / "Squad 1" / "Dados brutos"
@@ -223,6 +224,79 @@ class RecorteAnmTests(unittest.TestCase):
         self.assertEqual((cont["linhas_nacional"], cont["linhas_goias"]), (2, 1))
 
 
+def cfem_formato_novo(troca=None, extra=()):
+    """A CFEM de Goiás do repositório escrita como a ANM passou a publicar em out/2026: vírgula, aspas em tudo, UTF-8, LF. Aqui
+    também com ponto decimal e data ISO, para exercitar a volta. `troca(campos)` mexe em cada linha; `extra` são linhas a mais."""
+    import datetime as dt
+    import io
+    regs = [r for r in CFEM.read_bytes().decode("cp1252").split("\r\n") if r]
+    saida = io.StringIO()
+    w = csv.writer(saida, delimiter=",", quoting=csv.QUOTE_ALL, lineterminator="\n")
+    w.writerow(regs[0].split(";"))
+    for r in [*regs[1:], *extra]:
+        c = r.split(";")
+        c[10], c[12] = c[10].replace(",", "."), c[12].replace(",", ".")
+        c[13] = dt.datetime.strptime(c[13], "%d/%m/%Y %H:%M").strftime("%Y-%m-%d %H:%M:00")
+        w.writerow(troca(c) if troca else c)
+    return saida.getvalue().encode("utf-8")
+
+
+class FormatoCsvTests(unittest.TestCase):
+    """A CFEM nova (vírgula e aspas) volta ao formato que o repositório, o pipeline e o Radar leem."""
+
+    def converter(self, dados):
+        return formato_csv.converter(dados, CFEM.read_bytes(), "cp1252", ";", "UF", "GO")
+
+    def test_mesmo_conteudo_volta_byte_a_byte(self):
+        de_mg = "2026;1;800001;2001;PJ;1,2E+11;AREIA;MG;3106200;BELO HORIZONTE;5;t  ;10,5;02/01/2026 08:00"
+        convertido, cont, notas, diag = self.converter(cfem_formato_novo(extra=[de_mg]))
+        self.assertEqual(convertido, CFEM.read_bytes())
+        self.assertEqual((cont["linhas_nacional"], cont["linhas_goias"]), (38855, 38854))
+        self.assertIn("separador ','", notas[0])
+        self.assertTrue(any(n.startswith("ValorRecolhido: separador decimal '.' → ','") for n in notas), notas)
+        self.assertTrue(any(n.startswith("DataCriacao: data no padrão") for n in notas), notas)
+        self.assertEqual(diag[0], "linhas do arquivo atual que reaparecem iguais no convertido: 38854 de 38854")
+        texto = "\n".join(diag)
+        for valor in ("ANÁPOLIS", "860582", "41474", "9,69944E+11", "ÁGUA"):  # o diagnóstico vai para o log: só formas, nenhum valor
+            self.assertNotIn(valor, texto)
+
+    def test_arquivo_no_formato_antigo_nao_e_convertido(self):
+        self.assertIsNone(self.converter(CFEM.read_bytes()))
+
+    def test_correcao_da_fonte_entra_e_passa_na_checagem(self):
+        # a ANM corrigindo o CNPJ que vinha em notação científica: fica corrigido, e a forma continua a do site
+        def cnpj(c):
+            return c[:5] + ["11222333000181"] + c[6:] if "E+" in c[5] else c
+        convertido, *_ = self.converter(cfem_formato_novo(cnpj))
+        self.assertNotIn(b"E+11;", convertido.split(b"\r\n", 2)[1])
+        self.assertIn(b";11222333000181;", convertido)
+        bloq, _ = forma.checar_csv(convertido, CFEM.read_bytes(), "cp1252", ";")
+        self.assertEqual(bloq, [])
+
+    def test_valor_que_o_formato_antigo_nao_representa_barra(self):
+        def junta(c):
+            return c[:6] + [c[6] + "; CASCALHO"] + c[7:] if c[6] == "AREIA" else c
+        with self.assertRaises(ValueError) as e:
+            self.converter(cfem_formato_novo(junta))
+        self.assertIn("Substância", str(e.exception))
+
+    def test_numero_com_dois_estilos_barra(self):
+        def mistura(c):
+            return c[:12] + [c[12].replace(".", ",")] + c[13:] if c[1] == "1" else c
+        with self.assertRaises(ValueError) as e:
+            self.converter(cfem_formato_novo(mistura))
+        self.assertIn("ValorRecolhido", str(e.exception))
+
+    def test_checagem_barra_ponto_decimal_e_data_iso_sem_conversao(self):
+        regs = CFEM.read_bytes().decode("cp1252").split("\r\n")
+        ponto = "\r\n".join([regs[0]] + [";".join(c[:12] + [c[12].replace(",", ".")] + c[13:]) for c in (r.split(";") for r in regs[1:] if r)])
+        bloq, _ = forma.checar_csv(ponto.encode("cp1252"), CFEM.read_bytes(), "cp1252", ";")
+        self.assertTrue(any("ValorRecolhido" in b and "'.'" in b for b in bloq), bloq)
+        iso = "\r\n".join([regs[0]] + [";".join(c[:13] + ["2026-08-31 14:05:00"]) for c in (r.split(";") for r in regs[1:] if r)])
+        bloq, _ = forma.checar_csv(iso.encode("cp1252"), CFEM.read_bytes(), "cp1252", ";")
+        self.assertTrue(any("DataCriacao" in b and "escrita da data" in b for b in bloq), bloq)
+
+
 class RepositorioTests(unittest.TestCase):
     def test_arquivos_do_repositorio_no_formato_do_site(self):
         self.assertEqual(checagem.checar_repositorio(ROOT), [])
@@ -317,6 +391,20 @@ class AnmPontaAPontaTests(unittest.TestCase):
         self.assertEqual([r["situacao"] for r in saida["problemas"]], ["bloqueada"])
         self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), CFEM.read_bytes())
         self.assertEqual(saida["gravados"], [])
+
+    def test_cfem_no_formato_novo_entra_no_formato_antigo(self):
+        self.servir(self.cfem_url, cfem_formato_novo())
+        p, saida = self.rodar()
+        cfem = next(r for r in saida["resultados"] if r["nome"] == "CFEM — arrecadação")
+        self.assertEqual(cfem["situacao"], "sem_mudanca", p.stdout + p.stderr)  # mesmo conteúdo: nada a gravar
+        self.assertIn("[ANM]   linhas do arquivo atual que reaparecem iguais no convertido: 38854 de 38854", p.stdout)
+        nova = "2026;9;860582;1995;PJ;9,69944E+11;AREIA;GO;5201108;ANÁPOLIS;10;t  ;99,90;01/09/2026 10:00"
+        self.servir(self.cfem_url, cfem_formato_novo(extra=[nova]))
+        p, saida = self.rodar()
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        gravado = (self.raiz / CFEM.relative_to(ROOT)).read_bytes()
+        self.assertEqual(gravado, CFEM.read_bytes() + nova.encode("cp1252") + b"\r\n")
+        self.assertEqual(checagem.checar_anm(self.raiz), [])
 
     def test_queda_grande_e_barrada_guardada_e_pode_ser_aceita(self):
         goias = CFEM.read_bytes()

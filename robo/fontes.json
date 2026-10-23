@@ -50,7 +50,8 @@
     "logico": "dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv",
     "codificacao": "cp1252",
     "separador": ";",
-    "recorte": {"coluna": "UF", "valor": "GO"}
+    "recorte": {"coluna": "UF", "valor": "GO"},
+    "converter_formato": true
    },
    {
     "id": "AMB_BRUTA",

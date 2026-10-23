@@ -79,6 +79,8 @@ def rodar(args):
     for r in resultados:
         if r.fonte == "ANM":
             print(f"[ANM] {r.situacao:11s} {r.nome} {r.motivo}")
+            for linha in r.detalhes.get("diagnostico", []):  # formato da fonte convertida, sem nenhum valor
+                print(f"[ANM]   {linha}")
     md = relatorio_md(resultados, hoje)
     print("\n" + md)
     resumo = {

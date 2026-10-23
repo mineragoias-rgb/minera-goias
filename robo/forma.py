@@ -7,6 +7,7 @@ um bloqueio impede o arquivo novo de entrar; um aviso entra no relatório e não
 
 Lê CSV e shapefile só com a biblioteca padrão, para rodar em qualquer lugar (inclusive no CI do site, sem GDAL).
 """
+import collections
 import csv
 import io
 import re
@@ -97,8 +98,14 @@ def perfil_colunas(cab, linhas, limite=50000):
                 if sum(cabe(v, t) for v in cheios) >= FRACAO_TIPO_ATUAL * len(cheios):
                     tipo = t
                     break
-        perfil[nome] = {"tipo": tipo, "preenchida": len(cheios) / len(valores) if valores else 0.0}
+        perfil[nome] = {"tipo": tipo, "preenchida": len(cheios) / len(valores) if valores else 0.0,
+                        "sinais": {s: sum(s in v for v in cheios) for s in ",."} if tipo == "decimal" else {},
+                        "formas": {forma_da_data(v) for v in cheios} if tipo == "data" else set()}
     return perfil
+
+
+def forma_da_data(v):
+    return re.sub(r"\d", "9", v)
 
 
 def checar_csv(novo, atual, codificacao, separador, fracao_minima=0.9, rotulo="arquivo"):
@@ -149,6 +156,18 @@ def checar_csv(novo, atual, codificacao, separador, fracao_minima=0.9, rotulo="a
             fora = [v for v in cheios if not cabe(v, p["tipo"])]
             if len(fora) > (1 - FRACAO_TIPO_NOVO) * len(cheios):
                 bloqueios.append(f"coluna '{nome}' deixou de ser {p['tipo']}: {len(fora)} valores fora, ex.: {fora[:3]}")
+                continue
+        # o mesmo tipo com outra escrita também quebra quem lê: '41474.14' onde o site lê '41474,14', '2026-08-31' onde lê '31/08/2026'
+        tolerancia = max(10, 0.01 * len(cheios))
+        for sinal in p["sinais"]:
+            n = sum(sinal in v for v in cheios)
+            if not p["sinais"][sinal] and n > tolerancia:
+                bloqueios.append(f"coluna '{nome}' passou a ter '{sinal}' nos números ({n} valores); no arquivo atual não tem")
+        if p["formas"]:
+            novas = collections.Counter(forma_da_data(v) for v in cheios if forma_da_data(v) not in p["formas"])
+            if sum(novas.values()) > tolerancia:
+                bloqueios.append(f"coluna '{nome}' mudou a escrita da data: {sum(novas.values())} valores como "
+                                 f"{[k for k, _ in novas.most_common(2)]}; no atual, {sorted(p['formas'])[:2]}")
     return bloqueios, avisos
 
 
