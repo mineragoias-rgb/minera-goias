@@ -1,6 +1,6 @@
 {
  "mes": "2025-11",
- "materias": 28,
+ "materias": 30,
  "itens": [
   {
    "title": "Repasses da mineração ultrapassam R$ 1 bilhão em novembro — Agência Nacional de Mineração - www.gov.br",
@@ -46,6 +46,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "MPF garante suspensão de requerimentos de mineração no Território Kalunga (GO) - Ministério Público Federal",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPR2hnREowZUdxQWxHUTJIVlRfd3ljWEVETEZMY2tQSHFDbXM0XzhuUVNfbWZ3QWlfZmkwZFYyaVBDeTZBQktjeVFKcnpXUEVidTRJYnh1T0U1S2VPaW1tUkI3eS1MdVV2S0x2RnAwTGN6eGxrUkZaNXBtaGU4XzVYdExJdnczSksxU3ZLTmw0UmpIVzRFLTBrZ0RtVkpqUF9TWFFGbFFTY2pYYzdCWWdKOTN0d0tWNUIwR1ZzejMycURrNUFTd3Rn?oc=5",
+   "published_at": "2025-11-19T08:00:00+00:00",
+   "first_seen": "2026-10-23T08:54:38.094096+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -385,6 +399,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad9d0a91bc842c9b1b061e4dcd07032&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
    "published_at": "2025-11-11T04:43:00+00:00",
    "first_seen": "2026-10-22T09:00:26.232064+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: Estados Unidos financiam projeto em Goiás com até U$ 465 milhões",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adb20d0afc74c8c83ed940293ffacbc&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
+   "published_at": "2025-11-11T04:43:00+00:00",
+   "first_seen": "2026-10-23T08:54:40.383829+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
