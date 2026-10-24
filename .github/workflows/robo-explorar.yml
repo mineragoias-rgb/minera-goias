@@ -1,0 +1,34 @@
+name: Robô — reconhecer fontes novas
+
+# Só lê: lista as pastas de dados abertos da ANM, consulta os portais CKAN (CCEE, ANEEL, ONS), testa se o download é aceito,
+# vê o último período no SIDRA e as malhas no geoftp do IBGE. Serve para registrar as URLs das fontes que o robô ainda não
+# atualiza (robo/explorar.py). Não grava nada no repositório; o relatório fica na página da execução e no artefato.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  explorar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: robo
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Reconhecer
+        run: |
+          python robo/explorar.py --saida "$RUNNER_TEMP/explorar.md"
+          cat "$RUNNER_TEMP/explorar.md" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robo-explorar
+          path: ${{ runner.temp }}/explorar.md
+          retention-days: 14
+          if-no-files-found: ignore
