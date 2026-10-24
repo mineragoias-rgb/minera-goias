@@ -13,14 +13,14 @@ Arquivos originais usados para gerar a base consolidada do Squad 1 (pasta [`../B
 
 | Pasta | Fonte | Tipo | Período coberto | Arquivo do dia | Usada em |
 |---|---|---|---|---|---|
-| `ANM - Anuário Mineral Brasileiro (AMB)` | **SRC_ANM_PROD_BRUTA** — ANM — Anuário Mineral Brasileiro (AMB): produção bruta (minério ROM) | oficial | 2010–2025 | 2026-09-10 | 01_dim_minerais; 08_fato_producao_energia; 09_cons_mineral_ano; 12_interface_squad1_squad2 |
-| `ANM - Anuário Mineral Brasileiro (AMB)` | **SRC_ANM_PROD_BENEF** — ANM — Anuário Mineral Brasileiro (AMB): produção beneficiada | oficial | 2010–2025 | 2026-09-10 | 01_dim_minerais; 08_fato_producao_energia; 09_cons_mineral_ano; 12_interface_squad1_squad2 |
-| `ANM - CFEM` | **SRC_ANM_CFEM** — ANM — CFEM: arrecadação (recorte Goiás de CFEM_Arrecadacao_2022_2026) | oficial | 2022-01 a 2026-08 (registros criados até 2026-08-04) | 2026-09-10 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 08_fato_producao_energia; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
-| `ANM - Cadastro Mineiro` | **SRC_ANM_CADASTRO** — ANM — Cadastro Mineiro (SCM): títulos e requerimentos | oficial | fotografia da situação cadastral na data dos arquivos | 2026-09-10 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
+| `ANM - Anuário Mineral Brasileiro (AMB)` | **SRC_ANM_PROD_BRUTA** — ANM — Anuário Mineral Brasileiro (AMB): produção bruta (minério ROM) | oficial | 2010–2025 | 2026-10-24 | 01_dim_minerais; 08_fato_producao_energia; 09_cons_mineral_ano; 12_interface_squad1_squad2 |
+| `ANM - Anuário Mineral Brasileiro (AMB)` | **SRC_ANM_PROD_BENEF** — ANM — Anuário Mineral Brasileiro (AMB): produção beneficiada | oficial | 2010–2025 | 2026-10-24 | 01_dim_minerais; 08_fato_producao_energia; 09_cons_mineral_ano; 12_interface_squad1_squad2 |
+| `ANM - CFEM` | **SRC_ANM_CFEM** — ANM — CFEM: arrecadação (recorte Goiás de CFEM_Arrecadacao_2022_2026) | oficial | 2022-01 a 2026-08 (registros criados até 2026-08-04) | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 08_fato_producao_energia; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
+| `ANM - Cadastro Mineiro` | **SRC_ANM_CADASTRO** — ANM — Cadastro Mineiro (SCM): títulos e requerimentos | oficial | fotografia da situação cadastral na data dos arquivos | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
 | `ANM - Investimento em pesquisa mineral` | **SRC_ANM_INVEST_PESQUISA** — ANM — Investimento em pesquisa mineral por UF | oficial | 2001–2025 | 2026-09-10 | disponível em dados/, ainda não usada |
 | `ANM - Planilhas derivadas` | **SRC_ANM_PANORAMA_DERIVADO** — Panorama da Mineração em Goiás (análise derivada de dados ANM, extração de 04/08/2026) | derivada | 2007–2026 conforme a aba | 2026-08-27 | usada só como validação cruzada |
 | `ANM - Planilhas derivadas` | **SRC_ANM_MINERADORAS_DERIVADO** — Mineradoras de Goiás: operação atual e potencial (análise derivada de SIGMINE, CFEM, TAH e REPEM da ANM) | derivada | CFEM de 2022 a 2026 nas colunas da planilha; 'operação atual' = CFEM positiva em 2025 ou 2026 (critério da própria planilha) | 2026-08-27 | disponível em dados/, ainda não usada |
-| `ANM - SIGMINE` | **SRC_ANM_SIGMINE** — ANM — SIGMINE: polígonos dos processos minerários de Goiás | oficial | fotografia na data do arquivo | 2026-09-10 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 06_dim_ocorrencias_geologicas; 09_cons_mineral_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
+| `ANM - SIGMINE` | **SRC_ANM_SIGMINE** — ANM — SIGMINE: polígonos dos processos minerários de Goiás | oficial | fotografia na data do arquivo | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 06_dim_ocorrencias_geologicas; 09_cons_mineral_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
 | `IBGE - Malha municipal 2025` | **SRC_IBGE_MALHA_2025** — IBGE — Malha Municipal Digital 2025 (Goiás) | oficial | limites vigentes em 2025 (arquivo publicado em 26/02/2026) | 2026-09-10 | 03_dim_operacoes; 04_dim_projetos; 05_dim_municipios; 06_dim_ocorrencias_geologicas; 10_cons_municipio_ano; 12_interface_squad1_squad2; 13_mapas_camadas |
 | `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_POP** — IBGE — Estimativas de população (SIDRA, tabela 6579, variável 9324) | oficial | 2025 (5571 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2026-08-27 | 10_cons_municipio_ano; 13_mapas_camadas |
 | `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_PIB** — IBGE — PIB dos Municípios (SIDRA, tabela 5938, variável 37) | oficial | 2023 (5570 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2026-08-27 | 10_cons_municipio_ano; 13_mapas_camadas |
@@ -53,15 +53,15 @@ Links oficiais:
 
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
-| `Producao_Beneficiada.csv` | 0,7 MB | `027cde9a3bec8d016f67bf5cdebfcfeaf4efaefb1dc7a0f4254d67725e324616` |
-| `Producao_Bruta.csv` | 1,0 MB | `6fca5e529bee0b1e7a6822802ba2e19cb6b8109f83707913e4254086ef4a2894` |
+| `Producao_Beneficiada.csv` | 0,7 MB | `1fd7068bbd84a58e28f06fa1088c53de4bbbb0a89803ca71c2ee2b64ea00f77a` |
+| `Producao_Bruta.csv` | 1,0 MB | `e68e1ba1f2a87ce3e4ec8083df3bdabc8e5ce567633cdf7621e47f9900acf7b5` |
 | `metadados-amb.ods` | 0,0 MB | `4028572f4f5d345912e7143e126ecb12adfa249fe33ae6f614b8553ed215926c` |
 
 ### ANM - CFEM
 
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
-| `CFEM_Arrecadacao_2022_2026_GO.csv` | 3,9 MB | `bc86b23e7347adcf03609e889b237984ba952c7799ccae3850e11d7a8e3db339` |
+| `CFEM_Arrecadacao_2022_2026_GO.csv` | 4,2 MB | `0326af4439e4700cb018c5ef9599e389853fe793dc55663735e768ad82e89434` |
 | `metadados-cfem.ods` | 0,0 MB | `87cbdbbbc852c9cf83ef0bbe3114e85c259a0e9808b106c191611b7b9bfd7902` |
 
 ### ANM - Cadastro Mineiro
@@ -69,18 +69,18 @@ Links oficiais:
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
 | `Alvara_de_Pesquisa.csv` | 1,9 MB | `c4360a30ce9bb1ee3933914a733153e025bffd6ec68f1ef0dfde416728b90423` |
-| `Cessoes_de_Direitos.csv` | 1,0 MB | `5a893a7ec26130421930380541742208815dfcc78221ef338bd9b662cbe31228` |
-| `Guia_de_Utilizacao_Autorizada.csv` | 0,1 MB | `1d5a1d82b95282c032f8708e862f9acb1ee8cb46dbb3ee39e85d99e804f68e10` |
-| `Licenciamento.csv` | 0,3 MB | `ee47e23b9e7dbf442f879cf5175657e91f8f212dca89d9abe1f7c90f626a7abd` |
-| `PLG.csv` | 0,0 MB | `cc7dc11802bceb26373fccecb476ec83aa1e53baae87772c1e03aa7c4de6e18a` |
+| `Cessoes_de_Direitos.csv` | 1,0 MB | `96d9f32118d907161b2e0c54a77e8208b035312d3cf4de1c49dc8323c36f87ad` |
+| `Guia_de_Utilizacao_Autorizada.csv` | 0,1 MB | `2c9c70670fb383540d37e3e5670bb3d374da2b448585749da32606abdad74048` |
+| `Licenciamento.csv` | 0,3 MB | `bf8e1fa960daf7d0aed1212f958df53bf353ec345f78a0568c6cbfe20e5509e4` |
+| `PLG.csv` | 0,0 MB | `974ed37f22170937e60e477f7485d3cfa7f7e48007710091d42c4ac3c9ed46db` |
 | `Portaria_de_Lavra.csv` | 0,3 MB | `f5805f5addd0e77f560a8f1943387169e9d1014f066dbb74509e9643a491f1be` |
 | `Registro_de_Extracao_Publicado.csv` | 0,0 MB | `a44cf6559887b35db73a09b639d9d85c85392821cf9c75610ed8801dd22eb8b9` |
 | `Relatorio_de_Pesquisa_Aprovado.csv` | 0,3 MB | `fbfaec42ef30e61885cf4a14cc1365beff2cd68ae9aaec07e673b0cb799fbc1f` |
 | `Requerimento_de_Lavra.csv` | 0,3 MB | `c1add5e59592c033a4792dca47861d51bb295c870ef43329c2f956804f1d08a5` |
-| `Requerimento_de_Licenciamento.csv` | 0,2 MB | `f867df3a64f9a16ad821f7e56e4d8cb5e6f4e92c09c7a31fe9e78aaffd61abaa` |
-| `Requerimento_de_PLG.csv` | 0,2 MB | `6d017c4784a84d39f118e603ca605b5e0f7b770dfe0c0d1892d1a940876e5aa3` |
-| `Requerimento_de_Pesquisa.csv` | 0,2 MB | `5bdc41cf3def3771a64bea62ea515e02e4509a672b3e825a3517bc2c24e1e4c9` |
-| `Requerimento_de_Registro_de_Extracao_Protocolizado.csv` | 0,0 MB | `040335d8a42993beee7b76d8b130af275aa45d9a7b06b4ff542e9c044fc7da3d` |
+| `Requerimento_de_Licenciamento.csv` | 0,2 MB | `31f866e88538522224457944a3eb65ae043cd41ec9501b250d5797685d884f63` |
+| `Requerimento_de_PLG.csv` | 0,2 MB | `d919b272dbc023d28e7b7378ce0ab501a66a36d99a3413a41855b48d917a8c72` |
+| `Requerimento_de_Pesquisa.csv` | 0,2 MB | `81d89da74ce4fe17a5cb5296ef5650d61b1e7daadb9d2e489b5c7fa35a02d204` |
+| `Requerimento_de_Registro_de_Extracao_Protocolizado.csv` | 0,0 MB | `c2bc8fa61dd2828074f05fd16ed540d3c03e0fa689ed40dc537cee1593d63887` |
 | `mer-microdados-scm.pdf` | 0,2 MB | `25c441c6eaefcc232448ef18d05f863dc91b31a4d22f17a10e944378fdd7927b` |
 | `metadados-microdados-scm.ods` | 0,0 MB | `e0d80cf6e750061d508991ebdc4454b5c5bcb363af6da71db15f7f8253b5e06e` |
 | `metadados-scm.ods` | 0,0 MB | `6dc51381dd00a7ea36e3da329a3bac5438e45f5ad795908d85b4aee89ea50abb` |
@@ -91,18 +91,18 @@ Recorte de Goiás (linhas no arquivo nacional → aqui):
 | Arquivo | Regra | Linhas nacionais | Linhas aqui | sha256 do arquivo nacional |
 |---|---|---:|---:|---|
 | `Alvara_de_Pesquisa.csv` | municipio_ou_processo | 111.614 | 8.130 | `2c3bd1bae003ec47dd91c55dab949c4781df7c15638fcd71f4daa81ee35efaf1` |
-| `Cessoes_de_Direitos.csv` | municipio_ou_processo | 55.081 | 4.022 | `59d9482213b73ea9966820761cea1602c49a95ddeb86e972d0ab607461a1ebe2` |
-| `Guia_de_Utilizacao_Autorizada.csv` | processo | 12.260 | 652 | `35ca5577cef7a14dde44f0bc8c80c9b7a81fe63a9d0cd03d1b53f843041d4ff6` |
-| `Licenciamento.csv` | municipio_ou_processo | 21.553 | 1.652 | `40058091fc646e6bd14e49800c51ccc431cf48adc6751a437cda3ef44910a2ce` |
-| `PLG.csv` | municipio_ou_processo | 3.244 | 103 | `6ad95b893823ea20a3efd44f4a4404c870d250d2f5fbf75044975a32e5ad5e88` |
+| `Cessoes_de_Direitos.csv` | municipio_ou_processo | 55.373 | 4.049 | `620a9eba166076dfd446e8a4449d3b50407560536b173bb65ee83d3f5849ccf6` |
+| `Guia_de_Utilizacao_Autorizada.csv` | processo | 12.307 | 654 | `6c4f61c5c12ba879520ed3343acda27a0d7461a8911138f8398daed803637d28` |
+| `Licenciamento.csv` | municipio_ou_processo | 21.654 | 1.658 | `e6e3d7a41de0314e8b5b90b2866b7eafae440c33078ea560a66d156d5f82e3f3` |
+| `PLG.csv` | municipio_ou_processo | 3.242 | 100 | `efaecc8413d68250607579581d8f6c5da9fbe8d27407f6339811e0ccce1e0fd5` |
 | `Portaria_de_Lavra.csv` | municipio_ou_processo | 15.493 | 1.136 | `382c0e28fd1df469ea8646f103c57dccc14d6c90621210b5f91f17328a933cd9` |
 | `Registro_de_Extracao_Publicado.csv` | municipio_ou_processo | 3.968 | 43 | `1f58d82f59c7cd5c36dde5decad34e2a7f62288139cb2d5db22ced5bb2718f60` |
 | `Relatorio_de_Pesquisa_Aprovado.csv` | municipio_ou_processo | 15.695 | 1.179 | `bb69c04de5d69d07308cfb2317a3ac6460fa10f3d8d3f234b60a814db30be3fd` |
 | `Requerimento_de_Lavra.csv` | municipio_ou_processo | 21.371 | 1.237 | `bbfa50fe50f2361b2ad5fb7b0c2423ecae06136cb03002a9609f171bb678d7dc` |
-| `Requerimento_de_Licenciamento.csv` | municipio_ou_processo | 9.136 | 916 | `7fff5438a2d9c0fe4aa897c6d5819c8d4c386b615df1f243e372bf66832c011f` |
-| `Requerimento_de_PLG.csv` | municipio_ou_processo | 19.317 | 1.000 | `1cbb63b6967a135856fd97191f4b834f373b11d3c3d9e1a7715e258964bd9390` |
-| `Requerimento_de_Pesquisa.csv` | municipio_ou_processo | 18.916 | 954 | `0d8e3c1bc45d00eb2e656070b2f4db868ea3338ddb6449387128e2f343eada64` |
-| `Requerimento_de_Registro_de_Extracao_Protocolizado.csv` | municipio_ou_processo | 2.302 | 24 | `bb1fc4347a4510121ac520d87a6a181d814bb273254460b388ff600e36189dfe` |
+| `Requerimento_de_Licenciamento.csv` | municipio_ou_processo | 9.113 | 924 | `c5d4dd4c1f36a894e0315ce38aebf4977a04b69188388c870fd0914ccb32414a` |
+| `Requerimento_de_PLG.csv` | municipio_ou_processo | 19.318 | 1.001 | `e4a053b90a82f001680ea423a6d6e23b65444c7fcdcb4de873d2af46caee4bfe` |
+| `Requerimento_de_Pesquisa.csv` | municipio_ou_processo | 18.830 | 1.041 | `2c4d7dd2beebc0467e7393b045ac7c290afddbf9189eed2e413835e0920ae3e9` |
+| `Requerimento_de_Registro_de_Extracao_Protocolizado.csv` | municipio_ou_processo | 2.388 | 27 | `288c638ad58a5ce640b3112a4babb89b6f78e634e0e684805ce016b12337b142` |
 
 ### ANM - Investimento em pesquisa mineral
 
@@ -121,7 +121,7 @@ Recorte de Goiás (linhas no arquivo nacional → aqui):
 
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
-| `GO.zip` | 10,3 MB | `f6a43c2aef6adfeb71734573b638a070711e6244214f3cd6030b2d32e0379bbb` |
+| `GO.zip` | 10,5 MB | `1030ec1d2d9d51ffe0922a03954a5e4b3a6c8713bbb05686caa05febacd6ace0` |
 
 ### IBGE - Malha municipal 2025
 
