@@ -12,7 +12,7 @@ dicionário dos campos e a correspondência com o `production_history` do motor.
 
 Em resumo:
 - **Nível estado** (745 linhas, 2010–2025): produção observada de Goiás no AMB, por mineral, ano e base.
-- **Nível operação** (4.856 linhas, 2022–2025, 932 processos): estimativa, o total do estado rateado pela CFEM
+- **Nível operação** (4.831 linhas, 2022–2025, 931 processos): estimativa, o total do estado rateado pela CFEM
   recolhida por processo. Os dois níveis não se somam.
 
 Para fechar o formato antes da Entrega 1 (21/09), precisamos que vocês confirmem:

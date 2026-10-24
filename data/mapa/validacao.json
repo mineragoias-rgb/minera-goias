@@ -50,8 +50,8 @@
   "processos": {
    "origem": "atlas",
    "arquivo": "data/atlas/processes.json",
-   "feicoes": 16656,
-   "distintos": 16656,
+   "feicoes": 16875,
+   "distintos": 16875,
    "extensao": {
     "lon0": -53.218023,
     "lon1": -45.992798,
@@ -333,8 +333,8 @@
   "projetos_anm": {
    "origem": "atlas",
    "arquivo": "data/atlas/atlas.json",
-   "feicoes": 3377,
-   "distintos": 3377,
+   "feicoes": 3403,
+   "distintos": 3403,
    "sem_coordenada": 0,
    "fora_da_caixa_de_goias": 0
   },
@@ -1991,12 +1991,12 @@
   "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')"
  ],
  "radar_projetos": {
-  "projetos": 1040,
-  "com_processo": 1027,
-  "ligados_por_processo": 1027,
+  "projetos": 1059,
+  "com_processo": 1046,
+  "ligados_por_processo": 1046,
   "so_municipio": 12,
   "sem_ligacao": 1,
-  "processos_citados": 5434,
+  "processos_citados": 5556,
   "processos_fora_do_mapa": 7,
   "sem_categoria_mineral": {
    "Feldspato e nefelina-sienito": 4,
@@ -2005,15 +2005,15 @@
   }
  },
  "processos_complemento": {
-  "processos": 16656,
-  "na_aba_03": 16656,
+  "processos": 16875,
+  "na_aba_03": 16875,
   "titular": {
-   "pessoa jurídica": 10725,
-   "pessoa física (sem nome)": 5931
+   "pessoa jurídica": 10902,
+   "pessoa física (sem nome)": 5973
   },
   "sem_municipio": 0,
   "municipio_sem_codigo": {},
-  "sem_mineral": 381,
+  "sem_mineral": 387,
   "mais_de_um_mineral": 0
  },
  "municipios": {
