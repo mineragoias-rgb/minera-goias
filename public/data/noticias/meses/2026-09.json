@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1196,
+ "materias": 1203,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -1906,6 +1906,20 @@
    "fonte": "Folha · Mercado",
    "escopo": "nacional",
    "tema": "geral",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Novo portal revela rota dos royalties entre municípios afetados por mineração - IBRAM - Mineração do Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSGxhR2RaMEw3YnNfWVZYeE5xMnJpVGtCMEJXTnBwOU5vbFJKMzB0ZjUwMDAtZnJNaUxuTEk3VERlV0hCMUhjZ2pfUk4wZGhnNlhRY004WVBZRWdISXFZMk9wWEJVRktlSG9tQ3JTUEhzNldrRVJWTE9XRzZkQmFIcU1VVGNBMTd5b1N3YzhIQTRHVzNxalVxekhEaTAyMmV4MlNPTEdDMFNmWWc?oc=5",
+   "published_at": "2026-09-29T13:13:25+00:00",
+   "first_seen": "2026-10-24T08:28:16.872404+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
    "substancias": [],
    "brasil": 1
   },
@@ -13064,6 +13078,20 @@
    "brasil": 1
   },
   {
+   "title": "Municípios produtores podem consultar valores da Cfem e devem estar atentos a regras de uso dos recursos - Confederação Nacional de Municípios",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOdVEyY19ma05YcTRPc2hFSkl0OUQxb1VDWXE5NV8yYzJ2TkZuTzlQdzd5M0I5RjVQSXh0VGxnSTVBNjUtM0d5VDJTR2ExMjZlR0VXZVRHZkszXzhFMDVoWEw1b05zdW9DTldqR0FaMEZ4bExPRFJMMDJPQ1F5MnFYd2o0YzJhTkNxZHJwSTlOSVIyNUNwN0RueXktNjFhakZ5c2tWODB6azdzTVZOempJZTlhVHNjSGJwOW16Nm1RX0tqOXFEQURpd2RSNktDT3lIUzJMYjg4TUdKUkRm?oc=5",
+   "published_at": "2026-09-17T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.869481+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Resources Top 5: Latrobe scores US$15m magnesium backing as Arrow eyes iron ore next to Rio",
    "link": "https://stockhead.com.au/resources/resources-top-5-latrobe-scores-us15m-magnesium-backing-as-arrow-eyes-iron-ore-next-to-rio/",
    "published_at": "2026-09-17T06:52:41+00:00",
@@ -14133,6 +14161,34 @@
    "substancias": [
     "uranio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Lula sanciona política para exploração de minerais críticos e estratégicos em território nacional - G1",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxObmk5dG5HbkZXOFJyVWtlLUhsOTlvXzlPQ1NyZk5TTURLdzE5MTFLWEF0WU1FTkhDUWd4cV94Yzg2WVhHQ1Q0OWpVUnh2enFRYXVTREZERlF2MEktV0VRbk5GSjEyV3pFeVJfZTNOQV9wV1RxOXRPa3F6Vnh4N2xWdjliek95SGhsd0ZadmdaRElINlZZaDJrM1hYN1ZHckpBMVM1NUVtM3JxWWtGUVRYMGxlN0hRQXVfbTUyZmk5d3dUQXYxYXdCQkFTVkdCVFI5b2tVVXpEcXliSHNRS3RGaGIweE5VUDTSAfYBQVVfeXFMT2NuMThxYzNmVklEVk5wS3dPb3djVXZNaWp3Wi1kZmZCSXNVam1RQTBtWVlVUEFLVHVvS2lxYWlZMTY4ZFdWQ1ZLeXlxa2t3UW03NUlKWkxna2R5Rm94MFpPVkE0dVBfR0w3VGF3RGQ2NVB2UmNUbnkzMWhaQ1pUYWx6VjFfXzNCY0ZCV2RVc2gyR2h1cy02NXF5eWlhOGh6Y2ROYzhBZThlczNZaXk1Y3BjR3EwNngwY0MzRXlsTE5qN1dSVGNlZFh5bk5SN2NkNmprQVlQQ1FHek8waEJ1UU9vOUNHaG5QYkM3NFhMWDFPU1lxUFlB?oc=5",
+   "published_at": "2026-09-16T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:14.723018+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil cria política para ampliar produção de minerais críticos - Brasil de Fato",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZUdVSWpTVDVJSmI0c242SjBBdldtd1g4MEtyeWhaVlhvTjRtZHA2S3FrNzIwb2lreEp4TkRQeXNsWHNkZVl2VzBfM2h3cjB3Y2o5V1doT1g4WTIzU3NVQlE2N0pRVnJKNHR1ODNBUFFlZlFOZWY2S3hxLW9xdGpQYmhWQ0R6WEdxVFIyeHp3RERscE8wemhEeWNkemZDSTh5aEoteFNHV0FjTG8?oc=5",
+   "published_at": "2026-09-16T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.432431+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -16374,6 +16430,38 @@
    "brasil": 1
   },
   {
+   "title": "Sigma Lithium mantém operações e contesta decisão judicial - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOazZQM0JxSmRscEdURWp1QjFaVkpNSmx3ck1pRWFMbzkxeG1lWEg0QVlPZXpHWVFkWHVjazVBRUtLVGpGbFZyOFp2MEdBLXp3NnhOQ0FLOUxSenc4ZkYzZkdweHNMbWJ0VmJ0ZlJzS1BBbThNRXB0eTNnZTB2ZHh3ejJyYkxWY0hZNktaUXZwWlltWlA0RENCS3lPUXNEcWFNUGU4NTBLTjNKUQ?oc=5",
+   "published_at": "2026-09-08T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.431107+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Tribunal determina paralisação da Sigma Lithium; empresa nega ter sido notificada - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZDJrSGIzMzhFT2ZaOTlfZ2M4dzVGLUxhOHhjNDI3YURxamRtRi01eGdObHhhWHJaYlZweTlrOC04TTUxODRNbU1DTjV1b3FQcHZWYzNpVjhzM1pUMk02amRodlBzT0pGcF9TZV90c1dWbTZ5UmFjclhHOXFYZEsyOURra0swZFByemhzS2oyWDJFSVFfdlJIRHcxYlhDaFdHNWI2YWFxYkFYSk40WFoxcWRiSFJrNHg2UmFj?oc=5",
+   "published_at": "2026-09-08T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.435230+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Brazil’s bigger role in critical minerals: policy and project signals for engineers - Geomechanics.io",
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZmxwUV9zUzNuakJDbWttY0NGbG4yVzZEVzlCeUVkVjFiMEpMd0xRUmp1NmNJczFPR0o0UHAyVEhGZ3plaDFGSzJFRTNtRFI3YTVSWkRwX1pWUkE5S1AyUWhfb195ZHJSTmJKRnE1VHF0c0hxSHBxX3ZGbzdmMjdEa25Bb0V3bkJpOUJpVFU1NTBBOVpFX3NKSGdhUGhWeEhqbHFieUtNb0ZEUjZMT0h0b01DRloyX29wa09VSHZQYw?oc=5",
    "published_at": "2026-09-08T00:00:57+00:00",
@@ -17441,6 +17529,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Coletivo aciona MPMG e CNDH sobre ‘irregularidades’ na escolha da ATI do caso Sigma Lithium - Brasil de Fato",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNTnB2XzR3MnFBUnR1TG1YbUdrUEdjRjZUTDYyRVA0MXhCY1NnNUQ4Ui1SSEhPN3lVeHVucmdEMi1ZU0gyOXhkLV92RnJONVB2blE5SVQwandsWm1LRG5IWDNocXppTEdUN3lsYjlFSFZPMUlqXzBMR2tkTWxBbWVkaXNqSzBaSGdKWjBwOEZmS3VKU2hCemd5Q0xlUVY4akxwUnpuREhnUTltMU4xQnJudS16cFY1eldvZHBCUmRkMDZuZF9hSDlfdGw0N19LUQ?oc=5",
+   "published_at": "2026-09-04T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.433856+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },

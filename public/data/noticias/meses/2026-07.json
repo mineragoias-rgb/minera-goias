@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 110,
+ "materias": 111,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -1210,6 +1210,20 @@
    "substancias": [
     "litio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Arrecadação da CFEM por Gerências Regionais - 2026 — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQc1hlZEFlV2EtRzQ4b3Nyc1BRUUktZFBTclQzcXpBcUFtNzF6Y0JmTG9WWFh6dl9CQzI5c1EteTFGU09jY0gtNlY3czJ0QWZBOVBteFlmV3p2dVBEQmhUYkItRjJPM3FaS0J0cnBMOGh4WXlQaGVCd2M0VHV0MlhQbFdLWWh2N3hxaUk3bTYxQkEwZlVNMmxKdjRfeUhSY1p2bnJBMVppelhacUYxOExjMm9ab3F1bjQ2U3FVOE9QcUs1NGY1SlBFUDhFVXFYRXV1VEttMXZnZXdMNFd0WkIyWEN3NzJOYU85VVFwaTRwLTdMZERjOVNnMG5BbDkyd1N0T0lNNDRzNlUwWWNXWjB0aWJB?oc=5",
+   "published_at": "2026-07-10T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:17.687810+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {

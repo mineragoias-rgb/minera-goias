@@ -1,7 +1,752 @@
 {
  "mes": "2026-10",
- "materias": 1305,
+ "materias": 1360,
  "itens": [
+  {
+   "title": "Gold Digger: Why US$4000/oz could be gold’s ‘comfort zone’",
+   "link": "https://stockhead.com.au/resources/gold-digger-why-us4000-oz-could-be-golds-comfort-zone/",
+   "published_at": "2026-10-24T02:27:27+00:00",
+   "first_seen": "2026-10-24T08:27:53.186231+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Stockhead",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Índia cruza o oceano atrás dos minerais críticos do Brasil",
+   "link": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/10/india-cruza-o-oceano-atras-dos-minerais-criticos-do-brasil.shtml",
+   "published_at": "2026-10-24T02:00:00+00:00",
+   "first_seen": "2026-10-24T08:27:49.517608+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Folha · Mercado",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Lavras do Sul, no Rio Grande do Sul, veem a canadense Lavras Gold pôr uma quarta sonda para abrir 22 furos num alvo a 2 km do depósito de Cerrito, onde rochas deram até 6,52 g/t de ouro",
+   "link": "https://mineracaobrasil.com/lavras-gold-quarta-sonda-cerrito-norte-lavras-do-sul/?utm_source=rss&utm_medium=rss&utm_campaign=lavras-gold-quarta-sonda-cerrito-norte-lavras-do-sul",
+   "published_at": "2026-10-24T01:40:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.698787+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Trabalhadores da mina de vanádio de Maracás, na Bahia, que produz desde 2014, podem ver o minério virar bateria de data center, aposta da Largo depois de uma encomenda de US$ 60,1 milhões do governo dos EUA",
+   "link": "https://mineracaobrasil.com/largo-vanadio-maracas-bahia-baterias-data-centers/?utm_source=rss&utm_medium=rss&utm_campaign=largo-vanadio-maracas-bahia-baterias-data-centers",
+   "published_at": "2026-10-24T00:35:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.702368+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Produtores rurais de Parauapebas podem acompanhar em 18 de novembro a audiência do Ibama sobre a mina subterrânea do Alemão, que a Vale quer operar por 20 anos na Floresta Nacional de Carajás",
+   "link": "https://mineracaobrasil.com/mina-do-alemao-vale-audiencia-ibama-parauapebas/?utm_source=rss&utm_medium=rss&utm_campaign=mina-do-alemao-vale-audiencia-ibama-parauapebas",
+   "published_at": "2026-10-23T23:30:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.704612+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Flávio Bolsonaro quer entregar as terras raras para os EUA? - Revista Fórum",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZ0l3Z1ctcC1YcHMxQWNZN05CN2k3SmhJYmJGQkI4aGFiTzF1aUxhVmNGdE90MG9QUEVaODNqVGdCSWg2d3ppSXZsb1F1ZXZQdmROR1dqT3R4blI2OFdKSjNieHJmcnVQNWdtVmpGNFBvRFpvWmtRWHlxVm1uNXhUYXdzN2NBOUp4dG9rT05WMFJsYndubE52Z3F0dEM?oc=5",
+   "published_at": "2026-10-23T22:45:53+00:00",
+   "first_seen": "2026-10-24T08:28:15.962593+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Bannerman pulls trigger on $353M uranium mine",
+   "link": "https://www.mining.com/bannerman-pulls-trigger-on-353m-uranium-mine/",
+   "published_at": "2026-10-23T22:39:00+00:00",
+   "first_seen": "2026-10-24T08:27:52.848891+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "uranio"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Copper price rebounds as inventories, stock markets stabilize",
+   "link": "https://www.mining.com/web/copper-price-rebounds-as-inventories-stock-markets-stabilize/",
+   "published_at": "2026-10-23T20:27:00+00:00",
+   "first_seen": "2026-10-24T08:28:07.740564+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · cobre",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Lithium’s $100B question: Who will build 134 new mines?",
+   "link": "https://www.northernminer.com/news/lithiums-100b-question-who-will-build-134-new-mines/1003896015/",
+   "published_at": "2026-10-23T20:26:21+00:00",
+   "first_seen": "2026-10-24T08:27:53.340225+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "New Found Gold doubles Queensway valuation to $1.7B",
+   "link": "https://www.northernminer.com/news/new-found-gold-doubles-queensway-valuation-to-1-7b/1003896000/",
+   "published_at": "2026-10-23T20:20:14+00:00",
+   "first_seen": "2026-10-24T08:27:53.341650+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "O que é britagem móvel e quais são suas vantagens na mineração?",
+   "link": "https://revistaminerios.com.br/o-que-e-britagem-movel-e-quais-sao-suas-vantagens-na-mineracao/",
+   "published_at": "2026-10-23T20:09:50+00:00",
+   "first_seen": "2026-10-24T08:27:23.820339+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Gold price set for steep weekly loss as rising oil prices bolster Fed rate hike bets",
+   "link": "https://www.mining.com/web/gold-price-set-for-steep-weekly-loss-as-rising-oil-prices-bolster-fed-rate-hike-bets/",
+   "published_at": "2026-10-23T20:08:35+00:00",
+   "first_seen": "2026-10-24T08:28:08.776816+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · ouro",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Southern Copper weighs $680M Cuajone expansion",
+   "link": "https://www.northernminer.com/news/southern-copper-weighs-680m-cuajone-expansion/1003896008/",
+   "published_at": "2026-10-23T20:00:00+00:00",
+   "first_seen": "2026-10-24T08:27:53.343320+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Acionistas da Vale, da CSN e da Anglo American devem escapar no início de 2027 de um imposto de até 0,25% sobre o minério de ferro que custaria R$ 383 milhões por ano às mineradoras",
+   "link": "https://mineracaobrasil.com/imposto-seletivo-minerio-de-ferro-zerado-2027/?utm_source=rss&utm_medium=rss&utm_campaign=imposto-seletivo-minerio-de-ferro-zerado-2027",
+   "published_at": "2026-10-23T19:55:06+00:00",
+   "first_seen": "2026-10-24T08:27:34.709268+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Sandvik e Máquina Solo ampliam soluções de britagem móvel para mineração no Brasil",
+   "link": "https://revistaminerios.com.br/sandvik-maquina-solo-britagem-movel/",
+   "published_at": "2026-10-23T19:40:57+00:00",
+   "first_seen": "2026-10-24T08:27:23.825486+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Bannerman pulls trigger on $353M uranium mine",
+   "link": "https://www.northernminer.com/news/bannerman-pulls-trigger-on-353m-uranium-mine/1003896039/",
+   "published_at": "2026-10-23T19:39:13+00:00",
+   "first_seen": "2026-10-24T08:27:53.345025+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "uranio"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Op-Ed: Nicaragua mining – the golden bridgehead threatening US national security",
+   "link": "https://www.mining.com/op-ed-nicaragua-mining-the-golden-bridgehead-threatening-us-national-security/",
+   "published_at": "2026-10-23T19:09:48+00:00",
+   "first_seen": "2026-10-24T08:27:52.851332+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
+  },
+  {
+   "title": "Agência de Comunicação - Power Minerals confirma terras raras de alto teor em profundidade e amplia potencial do Projeto Morro do Ferro, em Minas Gerais - Estadão Blue Studio",
+   "link": "https://news.google.com/rss/articles/CBMirwJBVV95cUxQczhWdEdCdFJQUzZNc3RUWWFkUmd6VnZZcUlmaEliaDJQZWFndlVuUkhfaVhURDNpVjJJbjJpM053aDM1c2F5Q0JnMVBHX2J6WFcwWU5nSFlzX09tSGVOcTVES2dnZndETFNMZENWNEFhcW5Md2Jyb1hMeTF5QU5nWlljcmVSS3plQVNkampyTGZGQS00aGl2TjI5VGFnR0x3MTZjdHctbTZ3cnFoNnlqVHhRRkdDOTY3MHJyaE5JN0pnOVBxVGZNMjUyTXc4ek5xWW0tdmRNMWNOVmdBWUcwR1lFcEsxZEpROWtONVllaUlfQjlCZ2pzOUpFanRGMFZ0cXktLTl3OGljdzF2VnFhRDRaUTdqWEMxM054N2pqYkNYVTJZMGZSLUQzbGREV2c?oc=5",
+   "published_at": "2026-10-23T19:09:09+00:00",
+   "first_seen": "2026-10-24T08:28:15.958998+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Comitê debate licenciamento de terras raras com Estado - Jornal da Cidade",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQdzZNQ1RjVElOZ0hvYUxsdGdFYmN0S3NuWGxxN0c4cFVPLXVvSWNFSXV0YzRkVjNkYVZyRERLOGIxd0ZtZ0RNQ3k5S2wtUHoyZEdleUtrMm1PR2FNX2VFanVrSlJNbVNoeGp4eVRDQ1NmbUl2ZjBIYzRoQWpTOXp0VmVtTWF3TzNhazdsaVlIN082QmM?oc=5",
+   "published_at": "2026-10-23T18:54:00+00:00",
+   "first_seen": "2026-10-24T08:28:15.965970+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Power Minerals confirma terras raras de alto teor em profundidade e amplia potencial do Projeto Morro do Ferro, em Minas Gerais",
+   "link": "https://minerabrasil.com.br/power-minerals-confirma-terras-raras-de-alto-teor-em-profundidade-e-amplia-potencial-do-projeto-morro-do-ferro-em-minas-gerais/2026/10/23/",
+   "published_at": "2026-10-23T18:51:51+00:00",
+   "first_seen": "2026-10-24T08:27:25.179190+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Minera Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Power Minerals identifica alto teor de terras raras em projeto em MG",
+   "link": "https://revistaminerios.com.br/power-minerals-identifica-alto-teor-de-terras-raras-em-projeto-em-mg/",
+   "published_at": "2026-10-23T18:00:25+00:00",
+   "first_seen": "2026-10-24T08:27:23.826954+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras ganham espaço no debate eleitoral; entenda por que Goiás é estratégico para a exploração do minério no Brasil",
+   "link": "https://g1.globo.com/go/goias/noticia/2026/10/23/terras-raras-ganham-espaco-no-debate-eleitoral-entenda-por-que-goias-e-estrategico-para-a-exploracao-do-minerio-no-brasil.ghtml",
+   "published_at": "2026-10-23T17:17:35+00:00",
+   "first_seen": "2026-10-24T08:27:35.699299+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "G1 Goiás",
+   "escopo": "regional",
+   "tema": "geral",
+   "substancias": [
+    "cobre",
+    "niquel",
+    "ouro",
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras ganham espaço no debate eleitoral; entenda por que Goiás é estratégico para a exploração do minério no Brasil - G1",
+   "link": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQbWQ3aVQtSUFYVEszTkZzQ01QdUxFWF9EbmZ1c1ROZDFVQ1hETVk0R055UklIR1lwcWd1c3V2ZFI5YXdhRVk2MnNZS1NsTC1GNmg4U0xOajZya1ZRWVNaVWFVYnNEckRkYWVlTVZDRlFBaERkeFloaWM2VGdkeUtXVVNvbjNBQjdkYjZBR0VUVjZKbU9nR2Z6VVlhUHlUZGY1dV9SNFYybHNHbVN2RTNkNTVsckY2N0hKVE9GZzdJYnotdUEwZ3NXMGFWRUE5eDBXVFVPektENE9fcUs5cEh4amFVV1R6SnlvS1ROQUhranR6UTV2UGl5US14LU5oaTdCQ0ZIWTdUNNIBlgJBVV95cUxOMGVwaTFVd1V0d1dSQ1owRkctd3QzZ25wNEJFd1N5bm9Lb1h4NjlxeFNPdkZOeEhMZjUtNWFjUlpiUkVWY3d1V1hLcDFWN0NKejlZeXBfR1Z6a2hxQ0FMRkN1MEY2NGIyWEcxSUJxYklfRFRjd1FDQkFoZVk0SDZJWnA5LVFDTVZBandwbkVKUGZnZXRLWFd3LW83T3k0SmdxSmswMDNEOEhGMmNFMnktMUM2T21nWkZ5UkI1TUROY0h3LWNCVHg1akZyTDhnOUFkczdqYVRyd0s3TkVhTnpadi1peGl3UmM4cl80UElXQTk4dzJlWnR6NTFyaWdyOXl2Y1VXUGFuZG14c0dDNWdXTGV3MGh2QQ?oc=5",
+   "published_at": "2026-10-23T17:17:35+00:00",
+   "first_seen": "2026-10-24T08:28:13.047264+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Antônio Pereira, distrito de Ouro Preto, sentem as janelas tremerem desde 2019 ao lado da Barragem Doutor, da Vale, enquanto a auditoria registrava acionamentos de sismógrafos",
+   "link": "https://mineracaobrasil.com/antonio-pereira-tremores-barragem-doutor-vale-auditoria/?utm_source=rss&utm_medium=rss&utm_campaign=antonio-pereira-tremores-barragem-doutor-vale-auditoria",
+   "published_at": "2026-10-23T17:15:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.713598+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "First Quantum readies Argentina tax-break plans for $5.3 billion Taca Taca copper project",
+   "link": "https://www.mining.com/web/first-quantum-readies-argentina-tax-break-plans-for-5-3-billion-taca-taca-copper-project/",
+   "published_at": "2026-10-23T16:50:43+00:00",
+   "first_seen": "2026-10-24T08:28:07.742212+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · cobre",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Integra needs production jump to hit gold target",
+   "link": "https://www.northernminer.com/news/integra-needs-production-jump-to-hit-gold-target/1003896035/",
+   "published_at": "2026-10-23T16:30:56+00:00",
+   "first_seen": "2026-10-24T08:27:53.348336+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Mining Forum video: B2Gold looks beyond Goose setbacks to cash growth",
+   "link": "https://www.northernminer.com/news/mining-forum-video-b2gold-looks-beyond-goose-setbacks-to-cash-growth/1003896024/",
+   "published_at": "2026-10-23T16:17:31+00:00",
+   "first_seen": "2026-10-24T08:27:53.350018+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "India gold demand strengthens on lower prices, festive purchases",
+   "link": "https://www.mining.com/web/india-gold-demand-strengthens-on-lower-prices-festive-purchases/",
+   "published_at": "2026-10-23T16:02:43+00:00",
+   "first_seen": "2026-10-24T08:28:08.778365+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · ouro",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Copper pricing fragments as markets regionalise, CME says",
+   "link": "https://www.mining.com/web/copper-pricing-fragments-as-markets-regionalise-cme-says/",
+   "published_at": "2026-10-23T15:22:37+00:00",
+   "first_seen": "2026-10-24T08:28:07.745167+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · cobre",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "INTR amplia diálogo institucional com o TRF5 e destaca potencial estratégico dos minerais críticos - Balada IN",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPdlVqSnZqSHJrR1pZQlJvdUNRMmEzM2FJNkwyYVBaZVJYbDM3V0pIWDNmbUczQzlYRjR2WWFzaC1hVlhCVDMtRnBxaXpkV2JVM2xDX3ozcTJ5YmJDb1BvMnYtRHR5emhxWTVzeWdST01fczNhN2VLU1pRNUthenVtc1NwVFFiZFFQQVBZX3U3WXNwWmdYcVhEZk1iVUg1TVJGZVlrcHFDVlpTZzVJZDFvSzBBcXIwMnV4NFB4VDFPaFdkM25hekY2WFhDV2xGTHFrN3c?oc=5",
+   "published_at": "2026-10-23T15:18:00+00:00",
+   "first_seen": "2026-10-24T08:28:15.966929+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Grupo Mexico to press ahead with major US copper projects after output dip",
+   "link": "https://www.mining.com/web/grupo-mexico-to-press-ahead-with-major-us-copper-projects-after-output-dip/",
+   "published_at": "2026-10-23T15:16:22+00:00",
+   "first_seen": "2026-10-24T08:28:07.746549+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · cobre",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Mining Forum video: Garofalo’s Gold Royalty seeks growth without dilution",
+   "link": "https://www.northernminer.com/news/mining-forum-video-garofalos-gold-royalty-seeks-growth-without-dilution/1003896026/",
+   "published_at": "2026-10-23T14:56:47+00:00",
+   "first_seen": "2026-10-24T08:27:53.351840+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "The Northern Miner",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Moradores de Canaã dos Carajás viram a CFEM da prefeitura saltar de R$ 19,4 milhões em 2016 para R$ 753,8 milhões em 2025, quase 39 vezes mais, e passar Parauapebas pela primeira vez",
+   "link": "https://mineracaobrasil.com/canaa-dos-carajas-cfem-royalties-2025-parauapebas/?utm_source=rss&utm_medium=rss&utm_campaign=canaa-dos-carajas-cfem-royalties-2025-parauapebas",
+   "published_at": "2026-10-23T14:40:13+00:00",
+   "first_seen": "2026-10-24T08:27:34.718277+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Diesel price surge putting mining profits to test",
+   "link": "https://www.mining.com/diesel-price-surge-putting-mining-profits-to-test/",
+   "published_at": "2026-10-23T14:24:08+00:00",
+   "first_seen": "2026-10-24T08:27:52.854267+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "ANM destina R$ 10,38 milhões à modernização da fiscalização de barragens",
+   "link": "https://revistamineracao.com.br/2026/10/23/anm-destina-r-1038-milhoes-a-modernizacao-da-fiscalizacao-de-barragens/",
+   "published_at": "2026-10-23T14:05:00+00:00",
+   "first_seen": "2026-10-24T08:27:24.085960+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Mineração",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "GM cancels deal with new US rare-earth magnet plant, documents say",
+   "link": "https://www.mining.com/web/gm-cancels-deal-with-new-us-rare-earth-magnet-plant-documents-say/",
+   "published_at": "2026-10-23T14:03:37+00:00",
+   "first_seen": "2026-10-24T08:28:11.195265+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · terras raras",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "New Found Gold doubles Queensway valuation to $1.2B",
+   "link": "https://www.mining.com/new-found-gold-doubles-queensway-valuation-to-1-2b/",
+   "published_at": "2026-10-23T13:42:07+00:00",
+   "first_seen": "2026-10-24T08:27:52.855593+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Moradores da zona rural de Ibiraci, no Sul de Minas, veem a PF apreender 7 máquinas e caminhões numa fazenda que tirava areia sem autorização da ANM e já degradou 12 hectares, quase 4 meses depois da primeira ação",
+   "link": "https://mineracaobrasil.com/ibiraci-pf-extracao-ilegal-areia-12-hectares-anm/?utm_source=rss&utm_medium=rss&utm_campaign=ibiraci-pf-extracao-ilegal-areia-12-hectares-anm",
+   "published_at": "2026-10-23T13:30:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.720476+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Central banks pile into gold as China leads buying spree",
+   "link": "https://www.mining.com/central-banks-pile-into-gold-as-china-leads-buying-spree/",
+   "published_at": "2026-10-23T13:10:00+00:00",
+   "first_seen": "2026-10-24T08:27:52.856925+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Media Advisory: Community Representatives from Six Countries to Testify on Canadian Mining Abuses at International Human Rights Hearing",
+   "link": "https://miningwatch.ca/news/2026/10/23/media-advisory-community-representatives-six-countries-testify-canadian-mining",
+   "published_at": "2026-10-23T13:08:45+00:00",
+   "first_seen": "2026-10-24T08:28:05.509093+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "MiningWatch Canada",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
+  },
+  {
+   "title": "Comitê de Terras Raras de Poços de Caldas faz reunião com representantes do Governo Estadual - Rádio Itatiaia",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPX05aMGZQWlZCMDh4ajVyajNCTnpYYl8yaEdQODl5TjdFQXJfUzJ4bU9fSFFKSmo2cnk3VzlGQ3B4UnQweERDQzh1ZnZGemFJM0NyNlpDOV83a0JrWmtsV3JiUkJkS2JtakVqUm5GcUNqeGxDSHUySGZtX2lpQzZlUFh3MjA0U3gtRjctUzViUGFyNWM0S2dJN0lncU5tNS12M01rSnl5WHdVLWs2UmVxY2tGRVhRa2NZX1RWcXZBenJodGItMDJQcW5lTTE?oc=5",
+   "published_at": "2026-10-23T12:45:15+00:00",
+   "first_seen": "2026-10-24T08:28:15.960494+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Thiess secures two five-year mining contracts in Mongolia",
+   "link": "https://www.mining-technology.com/news/thiess-mining-contracts-mongolia/",
+   "published_at": "2026-10-23T12:27:08+00:00",
+   "first_seen": "2026-10-24T08:28:05.267994+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining Technology",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
+  },
+  {
+   "title": "Halo Minerals clears key hurdle at Chile copper project",
+   "link": "https://www.mining.com/halo-minerals-clears-key-hurdle-at-chile-copper-project/",
+   "published_at": "2026-10-23T11:53:00+00:00",
+   "first_seen": "2026-10-24T08:27:52.858430+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Cariri paraibano atrai mineradoras australianas em busca de titânio e terras raras - Paraíba Mix",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWTlhMC1CZ3VkclVHbmktNlpPU01oT3JTRk1ZWTRrYTdPQjZSS2JmWjd1NHV2VnFOXzlrMzE5TnViVU9BTmhycXZUSjhQSXo3cWx2RThmSEp5MnROS3ZxQ3dRNVhzTkQ5aDRmX01DY1BEUjh5Y2dyYWs2VGFvZWt4VHkyQjlvNzQ1OE01WlY2WmNZcDU5Ml9kbnZPWVpJczhkS01MV01kY18wUzVrYlRpWnlDUQ?oc=5",
+   "published_at": "2026-10-23T11:46:52+00:00",
+   "first_seen": "2026-10-24T08:28:15.969842+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Trabalhadores da mina de ouro Coringa, no Pará, dependem de uma guia da ANM que vence em 29 de janeiro de 2027, e a Serabi já desistiu da meta de 53 mil onças no ano",
+   "link": "https://mineracaobrasil.com/serabi-mina-coringa-guia-anm-vence-meta-ouro/?utm_source=rss&utm_medium=rss&utm_campaign=serabi-mina-coringa-guia-anm-vence-meta-ouro",
+   "published_at": "2026-10-23T11:30:08+00:00",
+   "first_seen": "2026-10-24T08:27:34.722839+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Kodal targets Ghana lithium growth beyond Mali mine",
+   "link": "https://www.mining.com/kodal-targets-ghana-lithium-growth-beyond-mali-mine/",
+   "published_at": "2026-10-23T10:59:00+00:00",
+   "first_seen": "2026-10-24T08:27:52.859840+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Hitachi EX5500-6 mining excavator passes 100,000 hours at Moatize",
+   "link": "https://im-mining.com/2026/10/23/hitachi-ex5500-6-mining-excavator-passes-100000-hours-at-moatize/",
+   "published_at": "2026-10-23T10:58:20+00:00",
+   "first_seen": "2026-10-24T08:28:04.784809+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "International Mining",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 0
+  },
+  {
+   "title": "Moradores de Cáceres, na fronteira com a Bolívia, veem o governo federal liberar a análise de pesquisa de diamante e calcário em 4.376 hectares do município, em ato que também destrava ouro em Mato Grosso e Rondônia",
+   "link": "https://mineracaobrasil.com/caceres-diamante-calcario-pesquisa-conselho-defesa-nacional/?utm_source=rss&utm_medium=rss&utm_campaign=caceres-diamante-calcario-pesquisa-conselho-defesa-nacional",
+   "published_at": "2026-10-23T10:00:07+00:00",
+   "first_seen": "2026-10-24T08:27:34.725194+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
   {
    "title": "Palabora Mining Company improves electrical reliability with ABB",
    "link": "https://im-mining.com/2026/10/23/palabora-mining-company-improves-electrical-reliability-with-abb/",
@@ -218,6 +963,22 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Olhar do Amanhã: eleições podem definir o futuro das terras raras brasileiras - Olhar Digital",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWENiRDZZSDJuZW5pekxRM2hWSzFnQlY5Rkp1UW5McHV6Vjc0bFdLTTgzQ3hIR1F1MDBTNFhhM3Ywb083WVdWa0E4cHBLMkZZaTZYZGg5YldIR05qUkxOcHc2Q0VZYU9TdkliU0FvNkhSSFpyaVNBODhRb2lORk9EcmhtTTN0S2RXZnRXTkh1MUdfdkRvQ2NIVlBIZ1dVYktmVzRkdTlqSnJXWkxoa2tTaUpIZkhuc2xDNlZPd2VmenV6UmVaemc?oc=5",
+   "published_at": "2026-10-23T01:19:00+00:00",
+   "first_seen": "2026-10-24T08:28:15.961592+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -502,6 +1263,22 @@
    "brasil": 1
   },
   {
+   "title": "Bolsonaro victory could bring Brazil’s rare-earth riches closer to Washington - Washington Times",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQVVlpdVBQT0E1VHBtRGdNR2t4RGlncWk5ajQ4SjkxTWdWUFVUVzM1M1E1TlVuSXVIY3V6cEFHWF9hU0QwRVc1bjh4NGhCSk5pNi1DQTJNMF90VWtqZVhmYmFGRzhrYWxqUWdUa1JjVThkWTY5cUlKbHRGNF9EQ1JLWVN3VnNwN1BDeHg1bUpDLUx0TnlYT0pyd3oyRXRPLWI1TFZWUkxOdUVrVWtiTTZGOEt6RTMxUlR0ajZV?oc=5",
+   "published_at": "2026-10-22T21:13:02+00:00",
+   "first_seen": "2026-10-24T08:28:18.171474+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Impactos do Tarifaço dos EUA e Oportunidades nas Terras-Raras do Brasil - Metrô News Jornal",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNckk4NGJTTUJ3QlFsZHNkX2FUTV8xOVQwTk1kcmlRdDQwSUdOdm5USTRVcWZTM3JPc2VSeEtJdGx0OElUTHBTdUJpVWlUYkJRZ2ZzdU1zLVUwdkUteG1yN2p4ZTRCbXVqNjZyVjdXZlowREZpRXFfNUkxSlptZXlnVWhCVHBQZU9pLUVSb2RnbnF6VE9jdXdaMWktNy1HQQ?oc=5",
    "published_at": "2026-10-22T21:04:00+00:00",
@@ -522,6 +1299,22 @@
    "link": "https://www.mining.com/web/norwegians-leave-gold-in-forest-as-some-fall-for-scam/",
    "published_at": "2026-10-22T21:01:49+00:00",
    "first_seen": "2026-10-23T08:54:33.909029+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mining.com · ouro",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 0
+  },
+  {
+   "title": "Scam victims leave gold in forest in growing Norwegian fraud",
+   "link": "https://www.mining.com/web/scam-victims-leave-gold-in-forest-in-growing-norwegian-fraud/",
+   "published_at": "2026-10-22T21:01:49+00:00",
+   "first_seen": "2026-10-24T08:28:08.779778+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -589,6 +1382,20 @@
    "setorial": 1,
    "fonte": "Mineração Brasil",
    "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Goiás vai escolher seis representantes da sociedade civil para debater impactos da mineração - GYN Noticias",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNT0JadHNoYlFHLXV4VlNEYzVFX21VaGIzQlJPQmxBX3Q2WnpidlNaUkR5aXZ0N2pIQjZxbF93VG41SFU1NzBrejFJT2t3emlzZENYakNnc1oxcHFhV1FibHpyYVh1b0paZUhhNGlxbUZDaHJ0dkVNc3BwbWJBaDl0Ukx6LXB2UmhpNGdSUWdDcVZtN3BIb3V5OXItb0RRNGZwMzJVdHlnTE53aHpKTWVWSWhmdERZeUgyVnc0N3VWTkxpbmJfdnBzaC00NDdPVU1SVkE?oc=5",
+   "published_at": "2026-10-22T19:36:00+00:00",
+   "first_seen": "2026-10-24T08:28:13.048297+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
@@ -2116,6 +2923,22 @@
    "brasil": 1
   },
   {
+   "title": "Mineradora australiana encontra alto teor de terras raras em Minas Gerais - Investidor10",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSE9CS3Y2eUs0U3hBbXZ0UVNxM0hja252MEw5X0RYc1dTTVJabjMtWlhYYUh3dFRreGc1NHVabUNvVUlNYU9ydXBZLW5XOGNlczc2aGs5TG93YVBMNlJoR1gzUmdldE4tOWpDV2ZrR29UaDBScVVQREFXTzFzQ0FiQUVEZ0ZZRnBsZEdFWXRkWGxpM3lHRWFNV1lhZzB0aWdtUURpajBxZHJfeEVDMnJYYWpteV96Q2RqNTI0X3NoMNIBvwFBVV95cUxNSE9CS3Y2eUs0U3hBbXZ0UVNxM0hja252MEw5X0RYc1dTTVJabjMtWlhYYUh3dFRreGc1NHVabUNvVUlNYU9ydXBZLW5XOGNlczc2aGs5TG93YVBMNlJoR1gzUmdldE4tOWpDV2ZrR29UaDBScVVQREFXTzFzQ0FiQUVEZ0ZZRnBsZEdFWXRkWGxpM3lHRWFNV1lhZzB0aWdtUURpajBxZHJfeEVDMnJYYWpteV96Q2RqNTI0X3NoMA?oc=5",
+   "published_at": "2026-10-21T17:25:31+00:00",
+   "first_seen": "2026-10-24T08:28:15.965012+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Moradores de Canaã dos Carajás ganham uma vizinha nova: a canadense Bravo comprou 6.185 hectares onde furos antigos acharam 28 metros de rocha com 2,43% de cobre e vai perfurar mais 8.400 metros",
    "link": "https://mineracaobrasil.com/bravo-compra-projeto-cobre-canaa-dos-carajas/?utm_source=rss&utm_medium=rss&utm_campaign=bravo-compra-projeto-cobre-canaa-dos-carajas",
    "published_at": "2026-10-21T17:25:07+00:00",
@@ -2414,6 +3237,22 @@
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbFV4SDZHTmxlLXNiRS1DbEJnd0ZuenR5Q2pfUlpNN2ptcjNSalhDRUYyYmswWmNTNDhHSk5VRzNuZ05XZUFYcm5CMjdaOWpHek5xbHczQmdqZjNPbnlEUjBROHNNYnYwX1BJMlpRTklUbGtMWWg4ZENQX3YzQ1VZRDhCbE5jS2xLRl9NTDB3?oc=5",
    "published_at": "2026-10-21T14:02:00+00:00",
    "first_seen": "2026-10-22T09:00:26.722029+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Projeto de mineração de terras raras no Vale do Jiquiriçá levanta preocupações ambientais e sociais - Criativa On Line",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQN21yZnVMeUpEZXpNelh2aUJQeW1JZ1J4el82UFFrZW5LdDNkWm93aFBDbWxxaldWLUtvM3VCdFBHZDhiYmRNV3Jjcm00V3d2S2loMXgwU0dMVHM2RVFaM1BrWFNsTGdFOTlvRmhOTlpCLU9vWUlOUFhKNDJCQ1RuN09lT1gtalN6d3ppNTRfaGJBMFB3OXg5RHhfVzhJM0FRZVJTVi00Zk9Yak9OTHNBcFR4aXJDWUhKMUxpdW1JZUZMY1IwYmNJcmpB?oc=5",
+   "published_at": "2026-10-21T13:56:39+00:00",
+   "first_seen": "2026-10-24T08:28:15.970939+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -20009,6 +20848,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "ANM usa incidência de IPI como referência na cobrança de royalty - Agência iNFRA",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxORnJmdzk3RWhLa2RxV0kxT0R3TFBiVnJlcUNsaEQyYW9kbUxrT1NJOHhuM1lUdHQzMTNWNjQwbjRoYXE4emNWaUozdDR2blNIVjV2YkU4d2ZFS2Z0RHZMdWF3YkVzS3N6NDNYNHN2bjNEWms4YUQ1dmFrM0d4aWlST1FJTG9LakctUV9TN3c1MjF4ZmNZQ1ZQM0g4dw?oc=5",
+   "published_at": "2026-10-01T07:00:00+00:00",
+   "first_seen": "2026-10-24T08:28:16.871194+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
