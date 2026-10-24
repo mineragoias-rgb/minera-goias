@@ -17,14 +17,14 @@ Arquivos originais usados para gerar a base consolidada do Squad 1 (pasta [`../B
 | `ANM - Anuário Mineral Brasileiro (AMB)` | **SRC_ANM_PROD_BENEF** — ANM — Anuário Mineral Brasileiro (AMB): produção beneficiada | oficial | 2010–2025 | 2026-10-24 | 01_dim_minerais; 08_fato_producao_energia; 09_cons_mineral_ano; 12_interface_squad1_squad2 |
 | `ANM - CFEM` | **SRC_ANM_CFEM** — ANM — CFEM: arrecadação (recorte Goiás de CFEM_Arrecadacao_2022_2026) | oficial | 2022-01 a 2026-08 (registros criados até 2026-08-04) | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 08_fato_producao_energia; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
 | `ANM - Cadastro Mineiro` | **SRC_ANM_CADASTRO** — ANM — Cadastro Mineiro (SCM): títulos e requerimentos | oficial | fotografia da situação cadastral na data dos arquivos | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 09_cons_mineral_ano; 10_cons_municipio_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
-| `ANM - Investimento em pesquisa mineral` | **SRC_ANM_INVEST_PESQUISA** — ANM — Investimento em pesquisa mineral por UF | oficial | 2001–2025 | 2026-09-10 | disponível em dados/, ainda não usada |
+| `ANM - Investimento em pesquisa mineral` | **SRC_ANM_INVEST_PESQUISA** — ANM — Investimento em pesquisa mineral por UF | oficial | 2001–2025 | 2026-10-24 | disponível em dados/, ainda não usada |
 | `ANM - Planilhas derivadas` | **SRC_ANM_PANORAMA_DERIVADO** — Panorama da Mineração em Goiás (análise derivada de dados ANM, extração de 04/08/2026) | derivada | 2007–2026 conforme a aba | 2026-08-27 | usada só como validação cruzada |
 | `ANM - Planilhas derivadas` | **SRC_ANM_MINERADORAS_DERIVADO** — Mineradoras de Goiás: operação atual e potencial (análise derivada de SIGMINE, CFEM, TAH e REPEM da ANM) | derivada | CFEM de 2022 a 2026 nas colunas da planilha; 'operação atual' = CFEM positiva em 2025 ou 2026 (critério da própria planilha) | 2026-08-27 | disponível em dados/, ainda não usada |
 | `ANM - SIGMINE` | **SRC_ANM_SIGMINE** — ANM — SIGMINE: polígonos dos processos minerários de Goiás | oficial | fotografia na data do arquivo | 2026-10-24 | 01_dim_minerais; 02_dim_empresas; 03_dim_operacoes; 04_dim_projetos; 06_dim_ocorrencias_geologicas; 09_cons_mineral_ano; 11_cons_empresa_ano_mineral; 12_interface_squad1_squad2; 13_mapas_camadas |
 | `IBGE - Malha municipal 2025` | **SRC_IBGE_MALHA_2025** — IBGE — Malha Municipal Digital 2025 (Goiás) | oficial | limites vigentes em 2025 (arquivo publicado em 26/02/2026) | 2026-09-10 | 03_dim_operacoes; 04_dim_projetos; 05_dim_municipios; 06_dim_ocorrencias_geologicas; 10_cons_municipio_ano; 12_interface_squad1_squad2; 13_mapas_camadas |
-| `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_POP** — IBGE — Estimativas de população (SIDRA, tabela 6579, variável 9324) | oficial | 2025 (5571 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2026-08-27 | 10_cons_municipio_ano; 13_mapas_camadas |
+| `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_POP** — IBGE — Estimativas de população (SIDRA, tabela 6579, variável 9324) | oficial | 2026 (5571 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2026-10-24 | 10_cons_municipio_ano; 13_mapas_camadas |
 | `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_PIB** — IBGE — PIB dos Municípios (SIDRA, tabela 5938, variável 37) | oficial | 2023 (5570 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2026-08-27 | 10_cons_municipio_ano; 13_mapas_camadas |
-| `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_POP_UF** — IBGE — Estimativa de população de Goiás (SIDRA, tabela 6579, variável 9324, nível UF) | oficial | 2025 (Goiás: 7.423.629 pessoas) | 2026-08-27 | disponível em dados/, ainda não usada |
+| `IBGE - População e PIB (SIDRA)` | **SRC_IBGE_POP_UF** — IBGE — Estimativa de população de Goiás (SIDRA, tabela 6579, variável 9324, nível UF) | oficial | 2026 (Goiás: 7.495.033 pessoas) | 2026-10-24 | disponível em dados/, ainda não usada |
 | `IMB - Goiás em Dados` | **SRC_IMB_GOIAS_EM_DADOS** — IMB — Goiás em Dados (4 consultas: energia elétrica e produção mineral estadual) | oficial | consulta (1).csv: colunas 2005–2025, último ano com valor 2025 / consulta (2).csv: colunas 2005–2025, último ano com valor 2025 / consulta (3).csv: colunas 2005–2025, último ano com valor 2016 / consulta.csv: colunas 2005–2025, último ano com valor 2025 | 2026-09-10 | usada só como validação cruzada (14b: produção do estado × AMB) |
 | `SGB - GeoSGB geoquímica` | **SRC_SGB_GEOSGB** — SGB — GeoSGB: pacotes de geoquímica (Oeste de Goiás, Noroeste de Goiás/Bonópolis, Folha Goiás PLGB) | oficial | Folha Goiás - PLGB (1991): coleta 1991–1997; Geologia e Metalogenia do Oeste de Goiás (2017): coleta 1916–2017; Noroeste de Goiás - Folha Bonópolis (2007): coleta 2007–2008 | 2026-09-10 | 13_mapas_camadas |
 | `SGB - RECMIN` | **SRC_SGB_RECMIN** — SGB — GeoSGB: Ocorrências de Recursos Minerais (RECMIN), recorte de Goiás pelo WFS oficial | oficial | cadastros no GeoSGB de 2001-10-21 a 2020-02-03 (68% em 2003, carga do banco); baixado em 2026-09-12 | 2026-09-12 | 01_dim_minerais; 06_dim_ocorrencias_geologicas; 13_mapas_camadas |
@@ -40,9 +40,9 @@ Links oficiais:
 - **SRC_ANM_MINERADORAS_DERIVADO**: —
 - **SRC_ANM_SIGMINE**: https://dadosabertos.anm.gov.br/SIGMINE/PROCESSOS_MINERARIOS/GO.zip (metadados: https://dadosabertos.anm.gov.br/SIGMINE/metadados-sigmine.ods (NÃO baixado))
 - **SRC_IBGE_MALHA_2025**: https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/UFs/GO/GO_Municipios_2025.zip (metadados: Nota metodológica da Malha Municipal (leitura exigida pelo leia-me do arquivo))
-- **SRC_IBGE_POP**: https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/2025 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
+- **SRC_IBGE_POP**: https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/2026 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
 - **SRC_IBGE_PIB**: https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/2023 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=5938)
-- **SRC_IBGE_POP_UF**: https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/2025 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
+- **SRC_IBGE_POP_UF**: https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/2026 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
 - **SRC_IMB_GOIAS_EM_DADOS**: exportação manual do Goiás em Dados (parâmetros da consulta não registrados)
 - **SRC_SGB_GEOSGB**: não verificável automaticamente (o portal é uma aplicação JavaScript) — registrar o link de download à mão
 - **SRC_SGB_RECMIN**: https://geoservicos.sgb.gov.br/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=geosgb:ocorrencias_recursos_minerais&outputFormat=application/json&bbox=-19.7,-53.4,-12.2,-45.8,urn:ogc:def:crs:EPSG::4326 (metadados: DescribeFeatureType do WFS (geosgb:ocorrencias_recursos_minerais); ArcGIS REST: https://geoportal.sgb.gov.br/server/rest/services/geologia/ocorrencias/MapServer/0)
@@ -108,7 +108,7 @@ Recorte de Goiás (linhas no arquivo nacional → aqui):
 
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
-| `InvestimentoPesquisaMineralUf.csv` | 1,3 MB | `1e15bc35c5af92f5285d0de2ccc28b2b2d3c503976eeb00be512839fd802f315` |
+| `InvestimentoPesquisaMineralUf.csv` | 1,3 MB | `01e1af8f769c6f7f6698de9db41826a9019c6619f26914f593cb65f487da9486` |
 
 ### ANM - Planilhas derivadas
 
@@ -134,8 +134,8 @@ Recorte de Goiás (linhas no arquivo nacional → aqui):
 | Arquivo | Tamanho | sha256 |
 |---|---:|---|
 | `pib_municipal_goias_ultimo_ano.json` | 1,6 MB | `4033d9c02d3bb49e5f8bb6128feaa6e40ee2e1f556a1d7251133ee332106237c` |
-| `populacao_goias_ultimo_ano.json` | 0,0 MB | `283a2e45946d943ee3d977452c06de8d78b5d3998f045e180daebe67dbb533db` |
-| `populacao_municipal_goias_ultimo_ano.json` | 1,5 MB | `70dd0b961e2eaa28932bd74b4763f396d32e8fa2508cd1df66491aff0d833653` |
+| `populacao_goias_ultimo_ano.json` | 0,0 MB | `5bf3f5cd244e4413aa1cbd0ef3160c21d196956432c4f8eec062fa2c35d02fcb` |
+| `populacao_municipal_goias_ultimo_ano.json` | 1,5 MB | `bf6160161f2cbcf2080d73f3da4961e8e1986848856e39501f3e9cc4876790da` |
 
 ### IMB - Goiás em Dados
 
