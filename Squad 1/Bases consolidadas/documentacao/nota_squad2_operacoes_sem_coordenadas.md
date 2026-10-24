@@ -4,7 +4,7 @@ Gerada por `gerar_nota_sem_coordenadas.py` a partir da planilha; a lista complet
 
 ## O que é
 
-No nível `operacao` da aba `12_interface_squad1_squad2`, a produção observada do AMB em Goiás é aberta por processo pela participação na CFEM recolhida. Das 4.856 linhas desse nível, **457 (9,4%) não têm `operation_id`, `latitude` nem `longitude`**. Elas vêm de 112 processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás (86 da série 96xxxx, 25 da série 86xxxx, 1 da série 92xxxx); nenhum está na aba 03.
+No nível `operacao` da aba `12_interface_squad1_squad2`, a produção observada do AMB em Goiás é aberta por processo pela participação na CFEM recolhida. Das 4.831 linhas desse nível, **457 (9,5%) não têm `operation_id`, `latitude` nem `longitude`**. Elas vêm de 112 processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás (86 da série 96xxxx, 25 da série 86xxxx, 1 da série 92xxxx); nenhum está na aba 03.
 
 A produção dessas linhas **não se perde**: o total de cada mineral e ano continua igual ao do estado. Só a localização da operação fica desconhecida. 457 das 457 linhas trazem o município de arrecadação da CFEM (`municipality_id`).
 
@@ -29,7 +29,7 @@ Minerais mais afetados (produção bruta, ROM):
 | Calcário | 2025 | 2,90 Mt | 20,3% |
 | Calcário | 2024 | 2,85 Mt | 21,0% |
 | Calcário | 2023 | 2,19 Mt | 15,9% |
-| Areia | 2025 | 2,09 Mt | 37,3% |
+| Areia | 2025 | 2,10 Mt | 37,3% |
 | Areia | 2024 | 1,14 Mt | 39,7% |
 | Areia | 2023 | 0,97 Mt | 35,3% |
 | Rochas (Britadas) e Cascalho | 2025 | 0,79 Mt | 5,8% |
@@ -58,7 +58,7 @@ Minerais mais afetados (produção bruta, ROM):
 
 ## Por que acontece
 
-- Esses processos aparecem na CFEM, mas não no SIGMINE nem no Cadastro Mineiro de Goiás usados na base (arquivo do SIGMINE de 2026-09-10). Sem poligonal não há coordenada nem município pela geometria, e sem Cadastro não há titular: 108 dos 112 processos ficam em `COM_NAO_IDENTIFICADO`.
+- Esses processos aparecem na CFEM, mas não no SIGMINE nem no Cadastro Mineiro de Goiás usados na base (arquivo do SIGMINE de 2026-10-24). Sem poligonal não há coordenada nem município pela geometria, e sem Cadastro não há titular: 108 dos 112 processos ficam em `COM_NAO_IDENTIFICADO`.
 - A base não inventa coordenada nem titular (Contrato de Dados: nada é preenchido sem fonte).
 
 ## Sugestões de uso (a decidir com o Squad 2)
