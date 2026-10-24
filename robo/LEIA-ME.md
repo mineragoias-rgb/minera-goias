@@ -28,7 +28,7 @@ O robô **não inventa nem corrige dado**:
 | ANM — Anuário Mineral | `AMB/Producao_Bruta.csv` e `Producao_Beneficiada.csv` | nenhum (arquivo nacional) | `ANM - Anuário Mineral Brasileiro (AMB)` |
 | ANM — investimento em pesquisa | `DIPEM/InvestimentoPesquisaMineralUf.csv` | nenhum (arquivo nacional) | `ANM - Investimento em pesquisa mineral` |
 | ANM — rodadas de disponibilidade | `SOPLE/ResultadoRodadaDisponibilidade.csv` | nenhum (arquivo nacional) | `Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv` |
-| IBGE — SIDRA | população municipal e de Goiás (tabela 6579) e PIB municipal (5938), último ano (`p/last`) | nenhum (resposta da API) | `IBGE - População e PIB (SIDRA)` |
+| IBGE — SIDRA | população municipal e de Goiás (tabela 6579) e PIB municipal (5938), último ano (`p/last`). A população de Goiás só entra no mesmo ano da municipal, que ela confere | nenhum (resposta da API) | `IBGE - População e PIB (SIDRA)` |
 | SGB — RECMIN | ocorrências de recursos minerais pelo WFS, caixa de Goiás | nenhum (resposta do WFS); o `.metadados.json` ganha data, tamanho, sha256 e contagens | `SGB - RECMIN` |
 | IBGE — malhas | malha municipal 2025 e limite de Goiás 2024 | **só confere**: avisa quando sai o ano seguinte e barra quando o IBGE republica o mesmo ano | — |
 

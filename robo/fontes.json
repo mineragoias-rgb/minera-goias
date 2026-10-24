@@ -129,7 +129,8 @@
     "url_registro": "https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/{ano}",
     "periodo": "uf",
     "arquivo": "IBGE - População e PIB (SIDRA)/populacao_goias_ultimo_ano.json",
-    "logico": "dados/IBGE/populacao_goias_ultimo_ano.json"
+    "logico": "dados/IBGE/populacao_goias_ultimo_ano.json",
+    "mesmo_ano_que": "IBGE_POP"
    },
    {
     "id": "IBGE_PIB",

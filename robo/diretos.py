@@ -33,10 +33,11 @@ class Diretos:
         self.brutos = self.reg.brutos
         self.mudou = False
 
-    def _baixar(self, url, nome, r):
+    def _baixar(self, url, nome, r, tentativas=3, espera=5):
         destino = self.tmp / nome
         try:
-            baixar(self.espelho.get(url, url), destino, limite_mb=self.cfg.get("limite_download_mb", 200))
+            baixar(self.espelho.get(url, url), destino, limite_mb=self.cfg.get("limite_download_mb", 200), tentativas=tentativas,
+                   espera=espera)
         except FalhaDownload as e:
             r.situacao, r.motivo = "falhou", f"{url}: {e}"
             return None
@@ -70,7 +71,8 @@ class Diretos:
     def sidra(self, f):
         r = Resultado("IBGE", f["nome"])
         atual = self.brutos / f["arquivo"]
-        novo = self._baixar(f["url"], Path(f["arquivo"]).name, r)
+        # a API do SIDRA às vezes demora na consulta nacional (HTTP 522 no teste de 24/10/2026): mais tentativas, mais espaçadas
+        novo = self._baixar(f["url"], Path(f["arquivo"]).name, r, tentativas=4, espera=20)
         if novo is None:
             return r
         dados, antes = novo.read_bytes(), atual.read_bytes()
@@ -82,6 +84,14 @@ class Diretos:
         if dados == antes:
             r.situacao = "sem_mudanca"
             return r
+        if f.get("mesmo_ano_que"):
+            # a população de Goiás confere a soma dos municípios no mesmo ano: só entra junto com a municipal desse ano
+            par = self.brutos / next(x["arquivo"] for x in self.cfg["fontes"] if x["id"] == f["mesmo_ano_que"])
+            ano_par = json.loads(par.read_bytes())[1]["D3N"]
+            if info["ano"] != ano_par:
+                r.situacao = "pulada"
+                r.motivo = f"espera a população municipal de {info['ano']} (o repositório tem a de {ano_par}); entra junto com ela"
+                return r
         r.detalhes = info
         if self._gravar(novo, atual, f, r):
             self.reg.celula_da_fonte(f["src"], 3, periodo_sidra(json.loads(dados), f.get("periodo", "municipal")))

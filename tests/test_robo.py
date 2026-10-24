@@ -604,7 +604,8 @@ class DiretosTests(unittest.TestCase):
         shutil.rmtree(self.portal)
 
     def servir(self, url, dados):
-        arq = self.portal / f"{len(self.espelho)}.dat"
+        self.n_servidos = getattr(self, "n_servidos", 0) + 1  # um arquivo novo por chamada, mesmo para uma URL já servida
+        arq = self.portal / f"{self.n_servidos}.dat"
         arq.write_bytes(dados)
         self.espelho[url] = arq.as_uri()
 
@@ -644,6 +645,22 @@ class DiretosTests(unittest.TestCase):
         self.assertIn("/n6/all/n3/52/v/9324/p/2026 (consulta equivalente ao arquivo local) (metadados:", leiame)
         datas = json.loads((self.raiz / "Squad 1/Dados brutos/datas_de_acesso.json").read_text(encoding="utf-8"))
         self.assertEqual(datas[self.cfg["IBGE_POP"]["logico"]], "2030-01-02")
+        self.assertEqual(self.problemas(), [])
+
+    def test_populacao_de_goias_espera_a_municipal_do_mesmo_ano(self):
+        def ano_novo(r):
+            r.update(D3C="2026", D3N="2026")
+            return r
+        uf = self.sidra("IBGE_POP_UF", ano_novo)
+        self.servir(self.cfg["IBGE_POP_UF"]["url"], uf)
+        p, saida = self.rodar("IBGE_POP_UF")  # a municipal continua em 2025
+        r = saida["resultados"][0]
+        self.assertEqual(r["situacao"], "pulada", p.stdout + p.stderr)
+        self.assertIn("espera a população municipal de 2026", r["motivo"])
+        self.assertEqual(p.returncode, 0)
+        self.servir(self.cfg["IBGE_POP"]["url"], self.sidra("IBGE_POP", ano_novo))
+        p, saida = self.rodar("IBGE_POP,IBGE_POP_UF")  # as duas no mesmo ano: entram juntas
+        self.assertEqual([x["situacao"] for x in saida["resultados"]], ["atualizada", "atualizada"], p.stdout + p.stderr)
         self.assertEqual(self.problemas(), [])
 
     def test_sidra_fora_da_forma_e_barrado(self):
