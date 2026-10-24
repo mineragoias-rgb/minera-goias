@@ -34,10 +34,10 @@ function rampScale(vals){const values=vals.filter(v=>Number.isFinite(v)&&v>0).so
 function legend(items){el('atlas-legend').innerHTML=items.map(([label,color])=>`<div class="legend-item"><span class="legend-swatch" style="background:${color}"></span><span>${escape(label)}</span></div>`).join('')}
 function selectedMunicipality(m,record){const target=municipalLayers.find(x=>x.code===m.code);if(target){target.shape.openTooltip();map.fitBounds(target.shape.getBounds(),{maxZoom:10,padding:[30,30]})}detail(m.name,[[t('at.ibge'),m.code],...record.detail]);}
 /* Focus on Goiás and white background: two quiet switches on the map, the same idea as the Mapa Mineral's state outline and
-   "Fundo liso". The outline is the Mapa Mineral's limite_goias layer (IBGE), fetched only the first time the focus is turned on;
-   the mask sits in its own pane, under the data. Both choices are remembered in this browser only. */
+   "Fundo liso". The outline is the Mapa Mineral's limite_goias layer (IBGE), fetched when the focus is first on; the mask sits
+   in its own pane, under the data. The focus starts on and the white background off; a change is remembered in this browser only. */
 let atTiles=null,atMascara=null,atContorno=null,atRender=null,atFoco=false,atBranco=false;
-function atGuardado(k){try{return localStorage.getItem(k)==='1'}catch{return false}}
+function atGuardado(k,padrao=false){try{const v=localStorage.getItem(k);return v===null?padrao:v==='1'}catch{return padrao}}
 function atGuardar(k,v){try{localStorage.setItem(k,v?'1':'0')}catch{/* private mode: the choice lasts while the page is open */}}
 // over the basemap the surroundings are dimmed; on white they turn light grey so white Goiás stands out (as in the Mapa Mineral)
 function atEstiloMascara(){return atBranco?{fillColor:'#e4ebf1',fillOpacity:1}:{fillColor:'#eef3f7',fillOpacity:.62}}
@@ -55,7 +55,7 @@ const AtOpcoes=L.Control.extend({onAdd(){const d=L.DomUtil.create('div','at-opco
  d.innerHTML=`<label><input type="checkbox" id="at-foco"${atFoco?' checked':''}> ${escape(t('at.focusGoias'))}</label><label><input type="checkbox" id="at-branco"${atBranco?' checked':''}> ${escape(t('at.whiteBg'))}</label>`;
  L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);
  d.addEventListener('change',ev=>{if(ev.target.id==='at-foco')atFocar(ev.target.checked);else if(ev.target.id==='at-branco')atFundo(ev.target.checked)});return d}});
-async function init(){packet=await (window.loadAtlas?window.loadAtlas():api('/atlas'));if(!window.L)throw Error(t('at.leafletFail'));el('atlas-content').hidden=false;map=L.map('atlas-map',{preferCanvas:true,scrollWheelZoom:true,minZoom:5,maxZoom:14,zoomSnap:.25}).fitBounds(bounds);L.control.scale({imperial:false}).addTo(map);map.createPane('at-mascara').style.zIndex=350;map.getPane('at-mascara').style.pointerEvents='none';atRender=L.canvas({pane:'at-mascara',padding:.4});atFundo(atGuardado('minera-at-fundo-branco'));if(atGuardado('minera-at-foco-goias'))atFocar(true);new AtOpcoes({position:'topright'}).addTo(map);layers=L.layerGroup().addTo(map);
+async function init(){packet=await (window.loadAtlas?window.loadAtlas():api('/atlas'));if(!window.L)throw Error(t('at.leafletFail'));el('atlas-content').hidden=false;map=L.map('atlas-map',{preferCanvas:true,scrollWheelZoom:true,minZoom:5,maxZoom:14,zoomSnap:.25}).fitBounds(bounds);L.control.scale({imperial:false}).addTo(map);map.createPane('at-mascara').style.zIndex=350;map.getPane('at-mascara').style.pointerEvents='none';atRender=L.canvas({pane:'at-mascara',padding:.4});atFundo(atGuardado('minera-at-fundo-branco'));if(atGuardado('minera-at-foco-goias',true))atFocar(true);new AtOpcoes({position:'topright'}).addTo(map);layers=L.layerGroup().addTo(map);
 el('atlas-mineral').innerHTML=packet.production.subs.map(s=>`<option>${escape(s.sub)}</option>`).join('');
 el('atlas-mun').innerHTML=`<option value="">${escape(t('at.selectMunicipality'))}</option>`+[...packet.municipalities].sort((a,b)=>a.name.localeCompare(b.name,'pt')).map(m=>`<option value="${escape(m.code)}">${escape(m.name)}</option>`).join('');
 yearLabel();
