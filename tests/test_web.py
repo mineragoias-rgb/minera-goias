@@ -1,4 +1,5 @@
 import importlib
+import json
 import os
 from pathlib import Path
 import sys
@@ -71,7 +72,11 @@ class WebTests(unittest.TestCase):
         r=self.client.get('/api/atlas')
         self.assertEqual(r.status_code,200)
         self.assertEqual(len(r.json()['municipalities']),246)
-        self.assertEqual(self.client.get('/api/atlas/processes').json()['n'],16656)
+        # o SIGMINE é atualizado pelo robô das bases (robo/): o número de processos vem do atlas publicado, não de uma constante
+        publicado=json.loads((Path(__file__).resolve().parents[1]/'data'/'atlas'/'processes.json').read_text(encoding='utf-8'))
+        servido=self.client.get('/api/atlas/processes').json()
+        self.assertEqual(servido['n'],publicado['n'])
+        self.assertEqual(servido['n'],len(publicado['processo'].split('\x01')))
         self.assertEqual(len(self.client.get('/api/panorama').json()['dims']['mun']),246)
 
     def test_api_supports_every_database_schema(self):

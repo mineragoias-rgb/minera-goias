@@ -305,6 +305,17 @@ class RepositorioTests(unittest.TestCase):
     def test_arquivos_do_repositorio_no_formato_do_site(self):
         self.assertEqual(checagem.checar_repositorio(ROOT), [])
 
+    def test_robo_roda_todos_os_testes_do_site_antes_de_publicar(self):
+        # o commit do robô usa o GITHUB_TOKEN e não dispara o validate-web.yml: um teste de lá que falte no robô só quebra depois
+        # de publicado (em 24/10/2026, o test_web esperava o número de processos do SIGMINE antigo)
+        import re
+        validar = (ROOT / ".github" / "workflows" / "validate-web.yml").read_text(encoding="utf-8")
+        robo_wf = (ROOT / ".github" / "workflows" / "robo-bases.yml").read_text(encoding="utf-8")
+        passo = robo_wf.split("- name: Testes do site", 1)[1].split("- name:", 1)[0]
+        faltam = [t for t in re.findall(r"-p (test_\w+)\.py", validar) if not re.search(rf"\b{t}\b", passo)]
+        faltam += [js for js in re.findall(r"node (tests/[\w.-]+\.js)", validar) if js not in passo]
+        self.assertEqual(faltam, [])
+
     def test_config_aponta_para_arquivos_que_existem(self):
         cfg = json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))
         for f in cfg["anm"]["fontes"]:

@@ -61,8 +61,9 @@ jobs:
 
       - name: Instalar dependências
         run: |
-          # robô, mapa e derivados: pyshp e shapely nas versões em que data/mapa foi gerado
-          python -m pip install -r "Squad 2/modello_reale/requirements.txt" pyshp==3.1.6 shapely==2.2.0 geopandas==1.1.3 pyogrio==0.12.1 pyproj==3.7.2
+          # robô, mapa e derivados: pyshp e shapely nas versões em que data/mapa foi gerado; a API, para os testes do site
+          python -m pip install -r "Squad 2/modello_reale/requirements.txt" pyshp==3.1.6 shapely==2.2.0 geopandas==1.1.3 pyogrio==0.12.1 pyproj==3.7.2 \
+            -r deploy/requirements-vps.txt httpx==0.28.1
           # pipeline da base consolidada e atlas: num ambiente à parte, com as versões da planilha
           python -m venv "$RUNNER_TEMP/pipeline"
           "$RUNNER_TEMP/pipeline/bin/pip" install -r "Squad 1/Bases consolidadas/base_consolidada_work/requirements.txt"
@@ -138,12 +139,18 @@ jobs:
           $(cat "$RUNNER_TEMP/derivados.md")
           EOF
 
+      # Os mesmos testes do "Validar plataforma web" (validate-web.yml), que não roda depois deste commit, mais os dos derivados.
+      # tests/test_robo.py confere que nenhum teste de lá falta aqui.
       - name: Testes do site
         if: steps.robo.outputs.anm == 'sim' || steps.robo.outputs.p3m == 'sim'
         run: |
-          for t in test_robo test_inventario_p3m test_mapa test_atlas test_panorama test_simulador test_mercado test_radar_projetos test_derivados; do
+          for t in test_robo test_web test_load_anm test_i18n test_radar_api test_radar_noticias test_inventario_p3m test_mapa \
+                   test_atlas test_panorama test_simulador test_mercado test_radar_projetos test_derivados; do
             python -m unittest discover -s tests -p "$t.py"
           done
+          node tests/simulador.test.js
+          node tests/mapa-dados.test.js
+          node tests/mapa-shp.test.js
           python robo/robo_bases.py --checar
 
       - name: Publicar na main

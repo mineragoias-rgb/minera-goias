@@ -165,8 +165,18 @@ A CFEM passou a vir com vírgula e aspas, e o robô a converte para o formato an
 2022–2024 ficaram com a mesma soma. O CNPJ completo que a ANM passou a publicar foi mantido, e os textos da planilha sobre o
 CPF_CNPJ saem do arquivo (`qualidade_cfem.py`).
 
-Ficaram barrados quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM (ver `robo/LEIA-ME.md`, Limites). O
-workflow ainda não publicou nada: a primeira publicação será a da segunda-feira, ou um Run workflow com `publicar`.
+Ficaram barrados quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM (ver `robo/LEIA-ME.md`, Limites).
+
+**Primeira publicação: 24/10/2026.** Foram três commits do robô: 2376b6f (dados brutos), 60dd978 (planilha, atlas e Radar) e
+579ce0b (derivados). Entraram:
+
+- a CFEM convertida, com 41.079 linhas e CNPJ completo;
+- o SIGMINE, com 17.644 registros;
+- 8 arquivos do Cadastro Mineiro;
+- o Anuário Mineral.
+
+O P3M veio igual. Os quatro arquivos do Cadastro seguem barrados. O de Alvará de Pesquisa continuou encolhendo na ANM entre 23 e
+24/10 (81.479 → 78.220 linhas no arquivo nacional). A partir daqui, o robô roda no dia 1º de cada mês.
 
 ## Carteira de projetos (seção da aba Mercado)
 
