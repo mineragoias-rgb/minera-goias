@@ -52,7 +52,7 @@ def resumo_http(status, cab):
 
 def links(html, base):
     """Links de uma página de índice que ficam abaixo de `base` (subpastas e arquivos)."""
-    urls = (urllib.parse.urljoin(base, h) for h in re.findall(r'href="([^"?#]+)"', html))
+    urls = (urllib.parse.urljoin(base, h) for h in re.findall(r'href=["\']([^"\'?#]+)', html))
     return [u for u in urls if u.startswith(base) and u != base]
 
 
@@ -64,7 +64,13 @@ def anm(raiz="https://dadosabertos.anm.gov.br/"):
     if st != 200:
         p("corpo:", corpo[:300])
         return
-    pastas = sorted({u for u in links(corpo.decode("utf-8", "replace"), raiz) if u.endswith("/")})
+    html = corpo.decode("utf-8", "replace")
+    p("página inicial (texto):", re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).strip()[:600])
+    p("hrefs da página inicial:", re.findall(r'href=["\']([^"\']+)', html)[:40])
+    pastas = sorted({u for u in links(html, raiz) if u.endswith("/")})
+    # as pastas que o robô já usa: se a raiz não lista, o índice de cada uma pode listar
+    pastas = sorted(set(pastas) | {raiz + d for d in ("AMB/", "CFEM/", "SCM/", "SIGMINE/", "DIPEM/", "ARRECADACAO/", "PESQUISA/",
+                                                       "SOPLE/", "RODADAS/", "SIGBM/", "BARRAGENS/", "RAL/")})
     p("pastas:", ", ".join(u[len(raiz):] for u in pastas))
     procurados = re.compile(r"invest|dipem|pesquisa|rodada|disponib|leil|sople|barrag|sigbm|agua", re.I)
     for pasta in pastas:
@@ -111,6 +117,25 @@ def ckan(portal, pacote, testar_download=False):
 
 
 # ------------------------------------------------------------------------------------------------------------------ IBGE
+def bloqueio_ccee():
+    p("\n## CCEE — o bloqueio é do robô ou do lugar?\n")
+    for url in ("https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo",
+                "https://dadosabertos.ccee.org.br/api/3/action/package_show?id=parcela_carga_consumo"):
+        for nome, agente in (("robô", AGENTE), ("navegador", NAVEGADOR)):
+            st, cab, corpo = pedir(url, agente=agente)
+            texto = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", corpo.decode("utf-8", "replace"))).strip()
+            p(f"- {url} como {nome}: HTTP {st} · {texto[:300] if st != 200 else 'ok'}")
+
+
+def dados_gov():
+    p("\n## dados.gov.br — conjuntos da ANM\n")
+    for url in ("https://dados.gov.br/api/publico/conjuntos-dados?isPrivado=false&pagina=1&nomeConjuntoDados=investimento",
+                "https://dados.gov.br/dados/api/publico/conjuntos-dados?isPrivado=false&pagina=1&nomeConjuntoDados=investimento",
+                "https://dados.gov.br/api/3/action/package_search?q=investimento%20pesquisa%20mineral"):
+        st, cab, corpo = pedir(url)
+        p(f"- {url}: {resumo_http(st, cab)} · {corpo[:300]!r}")
+
+
 def sidra():
     p("\n## IBGE — SIDRA (último período)\n")
     for nome, url in (("população 6579/9324", "https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/last"),
@@ -161,6 +186,8 @@ def main():
     anm()
     sigbm()
     ckan("https://dadosabertos.ccee.org.br", "parcela_carga_consumo", testar_download=True)
+    bloqueio_ccee()
+    dados_gov()
     ckan("https://dadosabertos.aneel.gov.br", "siga-sistema-de-informacoes-de-geracao-da-aneel")
     ckan("https://dados.ons.org.br", "linha-transmissao")
     ckan("https://dados.ons.org.br", "subestacao")
