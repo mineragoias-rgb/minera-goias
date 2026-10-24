@@ -1,0 +1,7 @@
+﻿classe_mapbiomas,nome,grupo,vegetacao_nativa,area_ha,pct_do_estado
+3,Formação Florestal,florestal,True,5627070.0,16.54
+4,Formação Savânica,florestal,True,4685536.0,13.77
+11,Campo Alagado e Área Pantanosa,não florestal,True,454683.0,1.34
+12,Formação Campestre,não florestal,True,454086.0,1.33
+33,"Rio, Lago e Oceano",água,False,441271.0,1.3
+29,Afloramento Rochoso,não florestal,True,151532.0,0.45
