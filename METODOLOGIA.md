@@ -35,7 +35,7 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
 
-Os volumes da CFEM e do cadastro mineiro são os dos arquivos baixados em 10/09/2026. Toda segunda, o robô das bases (`robo/`) baixa de
+Os volumes da CFEM e do cadastro mineiro são os dos arquivos baixados em 10/09/2026. No dia 1º de cada mês, o robô das bases (`robo/`) baixa de
 novo P3M, SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral. Os números do dia ficam na planilha consolidada (aba 07) e em
 `Squad 1/Dados brutos/LEIA-ME.md`.
 

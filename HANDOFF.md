@@ -113,8 +113,8 @@ Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`
 
 ## Robô de atualização das bases (P3M e ANM)
 
-Primeira versão, de 23/10/2026, em `robo/` (detalhes em `robo/LEIA-ME.md`). O workflow `.github/workflows/robo-bases.yml` roda toda
-segunda às 06:17 de Brasília, ou à mão em Actions. Ele baixa:
+Primeira versão, de 23/10/2026, em `robo/` (detalhes em `robo/LEIA-ME.md`). O workflow `.github/workflows/robo-bases.yml` roda uma
+vez por mês, no dia 1º às 06:17 de Brasília, ou à mão em Actions. Ele baixa:
 
 - as camadas do P3M que o mapa usa, pela URL de cada uma no inventário;
 - da ANM: SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral.

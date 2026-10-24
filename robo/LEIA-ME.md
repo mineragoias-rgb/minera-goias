@@ -1,6 +1,6 @@
 # Robô de atualização das bases (P3M e ANM)
 
-Primeira versão, de 23/10/2026. Toda segunda-feira, às 06:17 de Brasília, o workflow
+Primeira versão, de 23/10/2026. Uma vez por mês, no dia 1º às 06:17 de Brasília, o workflow
 [`robo-bases.yml`](../.github/workflows/robo-bases.yml) baixa de novo as bases do P3M e da ANM. Em seguida ele:
 
 1. confere se cada arquivo novo tem a forma que o site usa;

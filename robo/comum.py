@@ -63,7 +63,7 @@ def digital_zip(caminho):
     """Impressão digital do CONTEÚDO de um zip de shapefile.
 
     O GeoServer refaz o zip a cada pedido: muda a data dos membros e a data gravada no cabeçalho do .dbf (bytes 1 a 3).
-    Comparar o zip byte a byte acusaria mudança toda semana. Aqui entram só os bytes de .shp, .shx, .dbf (com a data
+    Comparar o zip byte a byte acusaria mudança a cada execução. Aqui entram só os bytes de .shp, .shx, .dbf (com a data
     zerada) e .prj, na ordem dos nomes; .cst e .cpg (codificação) também, porque mudam a leitura dos textos."""
     h = hashlib.sha256()
     with zipfile.ZipFile(caminho) as z:
