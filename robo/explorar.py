@@ -52,7 +52,7 @@ def resumo_http(status, cab):
 
 def links(html, base):
     """Links de uma página de índice que ficam abaixo de `base` (subpastas e arquivos)."""
-    urls = (urllib.parse.urljoin(base, h) for h in re.findall(r'href=["\']([^"\'?#]+)', html))
+    urls = (urllib.parse.urljoin(base, h) for h in re.findall(r'href=["\']([^"\'?#]+)', html, re.I))  # o IIS da ANM escreve HREF
     return [u for u in urls if u.startswith(base) and u != base]
 
 
@@ -66,11 +66,10 @@ def anm(raiz="https://dadosabertos.anm.gov.br/"):
         return
     html = corpo.decode("utf-8", "replace")
     p("página inicial (texto):", re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).strip()[:600])
-    p("hrefs da página inicial:", re.findall(r'href=["\']([^"\']+)', html)[:40])
+    p("hrefs da página inicial:", re.findall(r'href=["\']([^"\']+)', html, re.I)[:40])
     pastas = sorted({u for u in links(html, raiz) if u.endswith("/")})
     # as pastas que o robô já usa: se a raiz não lista, o índice de cada uma pode listar
-    pastas = sorted(set(pastas) | {raiz + d for d in ("AMB/", "CFEM/", "SCM/", "SIGMINE/", "DIPEM/", "ARRECADACAO/", "PESQUISA/",
-                                                       "SOPLE/", "RODADAS/", "SIGBM/", "BARRAGENS/", "RAL/")})
+    pastas = sorted(set(pastas) | {raiz + d for d in ("AMB/", "CFEM/", "SCM/", "SIGMINE/", "DIPEM/", "SOPLE/", "SIGBM/")})
     p("pastas:", ", ".join(u[len(raiz):] for u in pastas))
     procurados = re.compile(r"invest|dipem|pesquisa|rodada|disponib|leil|sople|barrag|sigbm|agua", re.I)
     for pasta in pastas:
@@ -79,11 +78,19 @@ def anm(raiz="https://dadosabertos.anm.gov.br/"):
             p(f"- {pasta[len(raiz):]}: HTTP {st}")
             continue
         arquivos = sorted({u[len(pasta):] for u in links(corpo.decode("utf-8", "replace"), pasta) if u != pasta})
-        marcados = [a for a in arquivos if procurados.search(a)]
+        # nas pastas novas (DIPEM, SOPLE, SIGBM) tudo interessa; nas que o robô já usa, só o que parece fonte nova
+        marcados = arquivos if pasta.rstrip("/").rsplit("/", 1)[-1] in ("DIPEM", "SOPLE", "SIGBM") else \
+            [a for a in arquivos if procurados.search(a)]
         p(f"- {pasta[len(raiz):]} ({len(arquivos)} itens): {', '.join(arquivos[:40])}{' …' if len(arquivos) > 40 else ''}")
-        for a in marcados:
-            st, cab, _ = pedir(pasta + a, "HEAD")
-            p(f"    procurado → {pasta + a} · {resumo_http(st, cab)}")
+        for a in marcados[:30]:
+            if a.endswith("/"):
+                st, _, corpo = pedir(pasta + a)
+                sub = sorted({u[len(pasta + a):] for u in links(corpo.decode("utf-8", "replace"), pasta + a)})
+                p(f"    pasta {pasta + a}: {', '.join(sub[:30])}")
+                continue
+            st, cab, corpo = pedir(pasta + a, intervalo=2048, limite=2048)
+            primeira = corpo.split(b"\n", 1)[0][:300].decode("cp1252", "replace") if st in (200, 206) else ""
+            p(f"    {pasta + a} · {resumo_http(st, cab)}" + (f" · 1ª linha: {primeira}" if a.lower().endswith((".csv", ".txt")) else ""))
 
 
 # ------------------------------------------------------------------------------------------------------------------ CKAN
@@ -150,6 +157,33 @@ def sidra():
             p(f"- {nome}: HTTP {st} · resposta não é JSON: {corpo[:200]}")
 
 
+def sidra_equivalente():
+    """Qual consulta reproduz byte a byte os arquivos do repositório? Eles terminam com a linha da UF de Goiás, como na consulta
+    de dois níveis (municípios e depois a UF)."""
+    import hashlib
+    p("\n## IBGE — SIDRA: consulta que reproduz o arquivo do repositório\n")
+    pasta = Path(__file__).resolve().parents[1] / "Squad 1" / "Dados brutos" / "IBGE - População e PIB (SIDRA)"
+    casos = (("populacao_municipal_goias_ultimo_ano.json", "https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/{ano}"),
+             ("pib_municipal_goias_ultimo_ano.json", "https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/{ano}"),
+             ("populacao_goias_ultimo_ano.json", "https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/{ano}"))
+    for nome, modelo in casos:
+        arq = pasta / nome
+        if not arq.exists():
+            p(f"- {nome}: não está no checkout")
+            continue
+        atual = arq.read_bytes()
+        ano = json.loads(atual)[1]["D3N"]
+        for url in (modelo.format(ano=ano), modelo.format(ano="last")):
+            st, _, corpo = pedir(url, limite=10_000_000)
+            igual = hashlib.sha256(corpo).hexdigest() == hashlib.sha256(atual).hexdigest()
+            try:
+                anos = sorted({r.get("D3N") for r in json.loads(corpo)[1:]})
+            except ValueError:
+                anos = "?"
+            p(f"- {nome} ← {url}: HTTP {st} · {len(corpo)} bytes (repositório: {len(atual)}) · anos {anos} · "
+              f"{'IGUAL byte a byte' if igual else 'diferente'}")
+
+
 def malhas():
     p("\n## IBGE — malhas no geoftp\n")
     base = "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais"
@@ -192,6 +226,7 @@ def main():
     ckan("https://dados.ons.org.br", "linha-transmissao")
     ckan("https://dados.ons.org.br", "subestacao")
     sidra()
+    sidra_equivalente()
     malhas()
     recmin()
     if args.saida:
