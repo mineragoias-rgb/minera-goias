@@ -50,9 +50,15 @@
     "logico": "dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv",
     "codificacao": "cp1252",
     "separador": ";",
-    "recorte": {"coluna": "UF", "valor": "GO"},
+    "recorte": {
+     "coluna": "UF",
+     "valor": "GO"
+    },
     "converter_formato": true,
-    "diagnostico_soma": {"por": "Ano", "coluna": "ValorRecolhido"}
+    "diagnostico_soma": {
+     "por": "Ano",
+     "coluna": "ValorRecolhido"
+    }
    },
    {
     "id": "AMB_BRUTA",
@@ -75,6 +81,97 @@
     "logico": "dados/ANM/producao_amb_ral/Producao_Beneficiada.csv",
     "codificacao": "cp1252",
     "separador": ","
+   },
+   {
+    "id": "DIPEM",
+    "nome": "ANM — investimento em pesquisa mineral por UF (DIPEM)",
+    "src": "SRC_ANM_INVEST_PESQUISA",
+    "tipo": "csv",
+    "url": "https://dadosabertos.anm.gov.br/DIPEM/InvestimentoPesquisaMineralUf.csv",
+    "arquivo": "ANM - Investimento em pesquisa mineral/InvestimentoPesquisaMineralUf.csv",
+    "logico": "dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv",
+    "codificacao": "cp1252",
+    "separador": ";"
+   },
+   {
+    "id": "RODADAS",
+    "nome": "ANM — resultado das rodadas de disponibilidade (SOPLE)",
+    "tipo": "csv",
+    "url": "https://dadosabertos.anm.gov.br/SOPLE/ResultadoRodadaDisponibilidade.csv",
+    "arquivo_raiz": "Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv",
+    "codificacao": "utf-8",
+    "separador": ";"
+   }
+  ]
+ },
+ "diretos": {
+  "comentario": "Fontes de arquivo direto (robo/diretos.py), sem tratamento: o arquivo vai como a fonte publica. As consultas do SIDRA reproduzem byte a byte os arquivos do repositório (conferido em 24/10/2026 por robo/explorar.py) e pedem o último ano; url_registro é a consulta com o ano, que vai para o LEIA-ME. As malhas do IBGE só são conferidas: a troca de ano é à mão.",
+  "limite_download_mb": 200,
+  "fontes": [
+   {
+    "id": "IBGE_POP",
+    "grupo": "ibge",
+    "tipo": "sidra",
+    "nome": "IBGE — população municipal (SIDRA 6579)",
+    "src": "SRC_IBGE_POP",
+    "url": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/last",
+    "url_registro": "https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/{ano}",
+    "arquivo": "IBGE - População e PIB (SIDRA)/populacao_municipal_goias_ultimo_ano.json",
+    "logico": "dados/IBGE/populacao_municipal_goias_ultimo_ano.json"
+   },
+   {
+    "id": "IBGE_POP_UF",
+    "grupo": "ibge",
+    "tipo": "sidra",
+    "nome": "IBGE — população de Goiás (SIDRA 6579)",
+    "src": "SRC_IBGE_POP_UF",
+    "url": "https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/last",
+    "url_registro": "https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/{ano}",
+    "periodo": "uf",
+    "arquivo": "IBGE - População e PIB (SIDRA)/populacao_goias_ultimo_ano.json",
+    "logico": "dados/IBGE/populacao_goias_ultimo_ano.json"
+   },
+   {
+    "id": "IBGE_PIB",
+    "grupo": "ibge",
+    "tipo": "sidra",
+    "nome": "IBGE — PIB municipal (SIDRA 5938)",
+    "src": "SRC_IBGE_PIB",
+    "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/last",
+    "url_registro": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/{ano}",
+    "arquivo": "IBGE - População e PIB (SIDRA)/pib_municipal_goias_ultimo_ano.json",
+    "logico": "dados/IBGE/pib_municipal_goias_ultimo_ano.json"
+   },
+   {
+    "id": "IBGE_MALHA_MUN",
+    "grupo": "ibge",
+    "tipo": "malha",
+    "nome": "IBGE — malha municipal de Goiás",
+    "ano": 2025,
+    "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_{ano}/UFs/GO/GO_Municipios_{ano}.zip",
+    "arquivo_raiz": "Squad 1/Dados brutos/IBGE - Malha municipal 2025/GO_Municipios_2025.zip",
+    "troca": "pasta e nome do arquivo em Dados brutos, caminhos do pipeline (caminhos.py) e SRC_IBGE_MALHA_<ano> na governança"
+   },
+   {
+    "id": "IBGE_LIMITE_UF",
+    "grupo": "ibge",
+    "tipo": "malha",
+    "nome": "IBGE — limite de Goiás (recorte do P3M)",
+    "ano": 2024,
+    "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_{ano}/UFs/GO/GO_UF_{ano}.zip",
+    "arquivo_raiz": "Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip",
+    "troca": "o limite recorta todas as camadas do P3M: trocar o arquivo, refazer o Recortado e o inventário"
+   },
+   {
+    "id": "RECMIN",
+    "grupo": "sgb",
+    "tipo": "geojson",
+    "nome": "SGB — ocorrências de recursos minerais (RECMIN)",
+    "src": "SRC_SGB_RECMIN",
+    "url": "https://geoservicos.sgb.gov.br/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=geosgb:ocorrencias_recursos_minerais&outputFormat=application/json&bbox=-19.7,-53.4,-12.2,-45.8,urn:ogc:def:crs:EPSG::4326",
+    "arquivo": "SGB - RECMIN/ocorrencias_recursos_minerais_GO.geojson",
+    "logico": "dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.geojson",
+    "logico_metadados": "dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.metadados.json"
    }
   ]
  }

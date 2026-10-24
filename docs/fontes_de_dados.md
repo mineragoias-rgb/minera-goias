@@ -46,22 +46,23 @@ inventário do P3M, Mapa, pacote do Squad 2, Panorama, Produção, Empresas, int
 | ANM — CFEM | `https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv` | o nome muda com a faixa de anos: listar a pasta `CFEM/` e escolher o mais recente; recortar Goiás |
 | ANM — Cadastro Mineiro (13 arquivos) | `https://dadosabertos.anm.gov.br/SCM/<arquivo>.csv` | nacional (~72 MB); recortar pela regra de `recorte_goias.json` |
 | ANM — SIGMINE Goiás | `https://dadosabertos.anm.gov.br/SIGMINE/PROCESSOS_MINERARIOS/GO.zip` | já vem só Goiás |
-| IBGE — malha municipal | `https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/UFs/GO/GO_Municipios_2025.zip` | anual: trocar o ano no caminho |
-| IBGE — limite de Goiás | `…/municipio_2024/UFs/GO/GO_UF_2024.zip` | pelo padrão do geoftp; conferir |
-| IBGE — população e PIB | `https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/last` e `…/t/5938/n6/all/v/37/p/last` | API; `p/last` traz o último ano |
-| SGB — RECMIN | WFS `geoservicos.sgb.gov.br` (URL completa no CSV) | GeoJSON pela caixa de Goiás |
+| ANM — investimento em pesquisa (DIPEM) | `https://dadosabertos.anm.gov.br/DIPEM/InvestimentoPesquisaMineralUf.csv` | arquivo nacional; **no robô** |
+| ANM — rodadas de disponibilidade (SOPLE) | `https://dadosabertos.anm.gov.br/SOPLE/ResultadoRodadaDisponibilidade.csv` | arquivo nacional; **no robô** |
+| ANM — barragens (SIGBM) | `https://dadosabertos.anm.gov.br/SIGBM/Barragens.csv` | achado em 24/10/2026; o Atlas ainda usa o retrato congelado |
+| IBGE — malha municipal | `https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/UFs/GO/GO_Municipios_2025.zip` | anual: trocar o ano no caminho; o robô confere e avisa quando sai o ano seguinte |
+| IBGE — limite de Goiás | `…/municipio_2024/UFs/GO/GO_UF_2024.zip` (conferido em 24/10/2026; já existe o de 2025) | o robô confere e avisa; a troca refaz o recorte do P3M |
+| IBGE — população e PIB | `https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/last`, `…/t/6579/n3/52/v/9324/p/last` e `…/t/5938/n6/all/n3/52/v/37/p/last` | API; reproduz byte a byte os arquivos do repositório; **no robô** |
+| SGB — RECMIN | WFS `geoservicos.sgb.gov.br` (URL completa no CSV) | GeoJSON pela caixa de Goiás; **no robô** |
 | SGB — P3M (157 camadas) | uma URL WFS por camada na coluna `url_download` de `Squad 1/P3M/inventario_p3m.csv` | a melhor candidata: URL pronta, catálogo com API e o resto da cadeia já automático |
-| ANEEL — SIGA; ONS — linhas e subestações | portais CKAN (`dadosabertos.aneel.gov.br`, `dados.ons.org.br`) | falta registrar a URL do recurso; ainda não usadas pelo site |
+| ANEEL — SIGA; ONS — linhas e subestações | URLs no CSV (`siga-empreendimentos-geracao.csv`; `LINHA_TRANSMISSAO.csv` e `SUBESTACAO.csv` no S3 do ONS) | registradas em 24/10/2026; ainda não usadas pelo site |
 | Notícias | `news/feeds.json` | **já automático** (todo dia às 04:00 UTC) |
 
 ### Exigem navegador ou um link que ainda não foi registrado
 
 | Fonte | Situação |
 |---|---|
-| CCEE — parcela de carga e consumo | o servidor de download (`pda-download.ccee.org.br`) recusa `curl`; hoje se baixa à mão e se filtra com `scripts/build_ccee_go.py`. Testar a API CKAN do portal ou um navegador automatizado |
-| ANM — investimento em pesquisa (DIPEM) | URL não registrada; procurar o conjunto da ANM em dados.gov.br |
-| ANM — rodadas de disponibilidade | URL não registrada; a ANM publica a base de oferta pública e leilão de áreas (SOPLE) |
-| ANM — SIGBM (barragens) | o Atlas usa um retrato congelado; o SIGBM Público não tem exportação conhecida. Alternativa automática: a camada de barragens do P3M |
+| CCEE — parcela de carga e consumo | o portal e a API CKAN bloqueiam os servidores do GitHub ("Acesso bloqueado", HTTP 403), também como navegador (testado em 24/10/2026). Só de uma máquina no Brasil, como a VPS; hoje se baixa à mão e se filtra com `scripts/build_ccee_go.py` |
+| ANM — SIGBM (barragens) | a ANM publica `SIGBM/Barragens.csv`, mas o Atlas usa um retrato congelado. Ligar o arquivo ao Atlas é mudança no site |
 | Energia por município no Atlas | retrato congelado do `eliel.html`; dá para refazer a partir da CCEE |
 | EPE — BEN e PDE | publicações anuais ou por edição, com nomes que mudam; ainda não usadas |
 | IMB — Goiás em Dados | exportação manual sem parâmetros registrados; só validação |
@@ -75,9 +76,17 @@ Pela `METODOLOGIA.md`, importar não é validar: aqui o robô sugere e uma pesso
 
 ## O robô (primeira versão, 23/10/2026)
 
-O P3M e a ANM (Anuário Mineral, CFEM, Cadastro Mineiro e SIGMINE) já são atualizados uma vez por mês (dia 1º) pelo robô em [`robo/`](../robo/LEIA-ME.md):
-ele baixa, confere a forma contra o arquivo que o site usa, aplica os mesmos recortes de Goiás, refaz a base consolidada, o atlas e
-os derivados quando a ANM muda, roda os testes e publica. As demais fontes desta página continuam manuais.
+O robô em [`robo/`](../robo/LEIA-ME.md) atualiza estas fontes uma vez por mês (dia 1º):
+
+- o P3M;
+- a ANM: Anuário Mineral, CFEM, Cadastro Mineiro, SIGMINE, investimento em pesquisa e rodadas;
+- o IBGE: população e PIB pelo SIDRA, com as malhas só conferidas;
+- o SGB: RECMIN.
+
+Ele baixa, confere a forma contra o arquivo que o site usa e aplica os mesmos recortes de Goiás. Quando uma base da planilha
+muda, refaz a base consolidada, o atlas e os derivados. Depois roda os testes e publica. As URLs que faltavam foram achadas pelo
+reconhecimento no GitHub (`robo/explorar.py`). Seguem manuais a CCEE (bloqueada para o GitHub), o SIGBM (falta ligar ao Atlas)
+e as fontes que o site não usa.
 
 ## Sugestão para o robô
 
@@ -88,4 +97,4 @@ os derivados quando a ANM muda, roda os testes e publica. As demais fontes desta
 3. **Pôr a base consolidada na cadeia** (`rodar_pipeline.py` → v18), senão um arquivo da ANM novo não chega ao Atlas e ao Panorama.
 4. **Guardas**: CPF e nome de pessoa física continuam mascarados; arquivo vazio, muito menor que o anterior ou com cabeçalho diferente
    para a execução em vez de publicar.
-5. **Registrar as URLs que faltam** (DIPEM, rodadas, ANEEL, ONS, recurso da CCEE) na coluna `url_download` do CSV.
+5. **Registrar as URLs que faltam**: feito em 24/10/2026 para DIPEM, rodadas, SIGBM, ANEEL e ONS. A CCEE bloqueia o GitHub.

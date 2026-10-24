@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Robô de atualização das bases do P3M e da ANM.
 
-    python robo/robo_bases.py                          # P3M (camadas do mapa) e ANM: baixa, confere, trata e grava
+    python robo/robo_bases.py                          # P3M (camadas do mapa), ANM, IBGE e SGB: baixa, confere, trata e grava
     python robo/robo_bases.py --fontes p3m --p3m-escopo todas
-    python robo/robo_bases.py --so SIGMINE,CFEM        # só estas fontes da ANM (ou camadas do P3M, pelo código vw_…)
+    python robo/robo_bases.py --so SIGMINE,CFEM        # só estas fontes (ids de fontes.json) ou camadas do P3M (código vw_…)
     python robo/robo_bases.py --sem-gravar             # baixa e confere, mas não grava nada
     python robo/robo_bases.py --guardar-barrados DIR   # copia para DIR o que a fonte publicou e foi barrado (para inspeção)
     python robo/robo_bases.py --aceitar-queda Alvara_de_Pesquisa.csv   # queda grande de linhas conferida e aceita por alguém
@@ -11,7 +11,7 @@
     python robo/robo_bases.py --conferir-planilha ANTES.xlsx DEPOIS.xlsx   # a base consolidada refeita ganhou alerta novo?
     python robo/robo_bases.py --comparar-xlsx A.xlsx B.xlsx                # mesmos valores? (o .xlsx muda de bytes a cada gravação)
 
-O robô só mexe nos dados brutos (Squad 1/P3M e Squad 1/Dados brutos). O que sai deles — base consolidada, atlas, mapa,
+O robô só mexe nos dados brutos (Squad 1/P3M, Squad 1/Dados brutos e as rodadas em Squad 1/dados). O que sai deles — base consolidada, atlas, mapa,
 panorama… — é refeito depois pelo workflow `.github/workflows/robo-bases.yml`, que também roda os testes antes de publicar.
 Detalhes em robo/LEIA-ME.md.
 
@@ -49,15 +49,32 @@ def rodar(args):
     fontes = set(args.fontes.split(","))
     tmp = pasta_temporaria()
     resultados, gravados = [], []
+    ids_anm = {f["id"] for f in cfg["anm"]["fontes"]}
+    ids_diretos = {f["id"] for f in cfg["diretos"]["fontes"]}
     try:
+        # ANM, IBGE e SGB gravam em Dados brutos: um registro só de datas_de_acesso.json e do LEIA-ME para os três
+        grupos = fontes & {"ibge", "sgb"}
+        registro = None
+        if "anm" in fontes or grupos:
+            from brutos import Registro
+            registro = Registro(raiz, hoje, gravar=not args.sem_gravar)
         if "anm" in fontes:
             from anm import ANM
-            anm = ANM(raiz, hoje, cfg["anm"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp, aceitar=aceitar)
-            so_anm = so & {f["id"] for f in cfg["anm"]["fontes"]}
+            anm = ANM(raiz, hoje, cfg["anm"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp, aceitar=aceitar,
+                      registro=registro)
+            so_anm = so & ids_anm
             if not so or so_anm:
                 resultados += anm.rodar(so_anm or None)
             gravados += anm.salvar()
-        so_p3m = so - {f["id"] for f in cfg["anm"]["fontes"]}
+        so_diretos = so & ids_diretos
+        if grupos and (not so or so_diretos):
+            from diretos import Diretos
+            diretos = Diretos(raiz, hoje, cfg["diretos"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp, aceitar=aceitar,
+                              registro=registro)
+            resultados += diretos.rodar(grupos, so_diretos or None)
+        if registro:
+            gravados += registro.salvar()
+        so_p3m = so - ids_anm - ids_diretos
         if "p3m" in fontes and (not so or so_p3m):
             from p3m import P3M
             p3m = P3M(raiz, hoje, cfg["p3m"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp, aceitar=aceitar)
@@ -77,15 +94,17 @@ def rodar(args):
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     for r in resultados:
-        if r.fonte == "ANM":
-            print(f"[ANM] {r.situacao:11s} {r.nome} {r.motivo}")
+        if r.fonte != "P3M":
+            print(f"[{r.fonte}] {r.situacao:11s} {r.nome} {r.motivo}" + (f" ({'; '.join(r.avisos)})" if r.avisos else ""))
             for linha in r.detalhes.get("diagnostico", []):  # formato da fonte convertida, sem nenhum valor
-                print(f"[ANM]   {linha}")
+                print(f"[{r.fonte}]   {linha}")
     md = relatorio_md(resultados, hoje)
     print("\n" + md)
     resumo = {
         "data": hoje,
         "anm_mudou": any(r.fonte == "ANM" and r.situacao == "atualizada" for r in resultados),
+        # a base consolidada lê ANM, IBGE (SIDRA) e SGB (RECMIN): qualquer uma que mudou refaz a planilha
+        "base_mudou": any(r.fonte in ("ANM", "IBGE", "SGB") and r.situacao == "atualizada" for r in resultados),
         "p3m_mudou": any(r.fonte == "P3M" and r.situacao == "atualizada" for r in resultados),
         "problemas": [r.como_dict() for r in resultados if r.situacao in ("bloqueada", "falhou")],
         "gravados": sorted(set(gravados + [a for r in resultados for a in r.arquivos])),
@@ -146,9 +165,9 @@ def refazer_inventario(raiz, catalogo):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--fontes", default="anm,p3m", help="anm, p3m ou anm,p3m (padrão)")
+    ap.add_argument("--fontes", default="anm,p3m,ibge,sgb", help="quais fontes, separadas por vírgula: anm, p3m, ibge, sgb (padrão: todas)")
     ap.add_argument("--p3m-escopo", choices=["mapa", "todas"], help="camadas do P3M: as que o mapa usa (padrão) ou todas")
-    ap.add_argument("--so", help="só estas fontes da ANM (ids de robo/fontes.json) ou camadas do P3M (código vw_… ou nome do zip)")
+    ap.add_argument("--so", help="só estas fontes (ids de robo/fontes.json) ou camadas do P3M (código vw_… ou nome do zip)")
     ap.add_argument("--sem-gravar", action="store_true", help="baixa e confere, sem gravar nada")
     ap.add_argument("--guardar-barrados", metavar="PASTA", help="copia para PASTA o que cada fonte barrada publicou, com o motivo")
     ap.add_argument("--aceitar-queda", metavar="LISTA",
@@ -169,7 +188,7 @@ def main():
     if args.checar:
         from checagem import checar_repositorio
         problemas = checar_repositorio(Path(args.raiz).resolve())
-        print("\n".join(problemas) or "ok: os arquivos do P3M e da ANM estão no formato que o site usa")
+        print("\n".join(problemas) or "ok: os arquivos do P3M, da ANM, do IBGE e do SGB estão no formato que o site usa")
         sys.exit(3 if problemas else 0)
     if args.conferir_planilha:
         from checagem import conferir_planilha

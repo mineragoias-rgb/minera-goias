@@ -51,6 +51,18 @@ def baixar(url, destino, limite_mb=None, tentativas=3, espera=5, timeout=300):
     raise FalhaDownload(f"{type(ultimo).__name__}: {ultimo}")
 
 
+def existe(url, timeout=60):
+    """True se o servidor tem o arquivo (HEAD 200), False se responde 404/410; None se não deu para saber."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": AGENTE}, method="HEAD")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status == 200
+    except urllib.error.HTTPError as e:
+        return False if e.code in (404, 410) else None
+    except (urllib.error.URLError, OSError, TimeoutError):
+        return None
+
+
 def sha256(caminho):
     h = hashlib.sha256()
     with open(caminho, "rb") as f:

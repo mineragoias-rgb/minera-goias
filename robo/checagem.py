@@ -133,25 +133,78 @@ def checar_anm(raiz):
                 problemas += [f"ANM: {item['arquivo']}: {b}" for b in forma.checar_csv(dados, dados, f["codificacao"], f["separador"])[0]]
                 arquivos.append((caminho, f["logico"] + item["arquivo"]))
         else:
-            caminho = brutos / f["arquivo"]
+            caminho = raiz / f["arquivo_raiz"] if f.get("arquivo_raiz") else brutos / f["arquivo"]
             dados = caminho.read_bytes()
             if f.get("recorte"):
                 novo, _ = anm_recorte.recortar_uf(dados, f["separador"], f["recorte"]["coluna"], f["recorte"]["valor"])
                 if novo != dados:
                     problemas.append(f"ANM: {f['arquivo']} tem linhas fora de {f['recorte']['coluna']} = {f['recorte']['valor']}")
-            problemas += [f"ANM: {f['arquivo']}: {b}" for b in forma.checar_csv(dados, dados, f["codificacao"], f["separador"])[0]]
-            arquivos.append((caminho, f["logico"]))
+            problemas += [f"ANM: {caminho.name}: {b}" for b in forma.checar_csv(dados, dados, f["codificacao"], f["separador"])[0]]
+            if f.get("logico"):  # as rodadas (Squad 1/dados) não têm data nem linha no LEIA-ME de Dados brutos
+                arquivos.append((caminho, f["logico"]))
+    return problemas + registro_em_dia(arquivos, datas, leiame, "ANM")
+
+
+def registro_em_dia(arquivos, datas, leiame, rotulo):
+    """Cada arquivo tem data em datas_de_acesso.json e o tamanho e o sha256 certos no LEIA-ME de Dados brutos."""
+    problemas = []
     for caminho, logico in arquivos:
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", datas.get(logico, "")):
-            problemas.append(f"ANM: {logico} sem data em datas_de_acesso.json")
+            problemas.append(f"{rotulo}: {logico} sem data em datas_de_acesso.json")
         mb = f"{caminho.stat().st_size / 1e6:.1f}".replace(".", ",")
         if f"| `{caminho.name}` | {mb} MB | `{sha256(caminho)}` |" not in leiame:
-            problemas.append(f"ANM: {caminho.name}: tamanho ou sha256 desatualizado no LEIA-ME de Dados brutos")
+            problemas.append(f"{rotulo}: {caminho.name}: tamanho ou sha256 desatualizado no LEIA-ME de Dados brutos")
     return problemas
 
 
+def periodo_no_leiame(leiame, src):
+    """A célula 'Período coberto' da linha da fonte na tabela de fontes do LEIA-ME."""
+    for ln in leiame.split("\n"):
+        if f"**{src}**" in ln and ln.startswith("| `"):
+            return ln.split(" | ")[3]
+    return None
+
+
+def checar_diretos(raiz):
+    """SIDRA, RECMIN e malhas: forma do arquivo, período no LEIA-ME, metadados do RECMIN, datas e sha256."""
+    import diretos
+    problemas, arquivos = [], []
+    raiz = Path(raiz)
+    brutos = raiz / BRUTOS_REL
+    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))["diretos"]
+    datas = json.loads((brutos / "datas_de_acesso.json").read_text(encoding="utf-8"))
+    leiame = (brutos / "LEIA-ME.md").read_text(encoding="utf-8")
+    for f in cfg["fontes"]:
+        rotulo = f["grupo"].upper()
+        if f["tipo"] == "malha":
+            if not (raiz / f["arquivo_raiz"]).exists():
+                problemas.append(f"{rotulo}: {f['arquivo_raiz']} não existe")
+            continue
+        caminho = brutos / f["arquivo"]
+        dados = caminho.read_bytes()
+        if f["tipo"] == "sidra":
+            bloq, _, _ = diretos.checar_sidra(dados, dados)
+            periodo = diretos.periodo_sidra(json.loads(dados), f.get("periodo", "municipal"))
+        else:
+            bloq, _ = diretos.checar_geojson(dados, dados)
+            meta_path = caminho.with_name(caminho.name.replace(".geojson", ".metadados.json"))
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            j = json.loads(dados)
+            for campo, valor in (("sha256", sha256(caminho)), ("bytes", len(dados)), ("feicoes", len(j["features"]))):
+                if meta.get(campo) != valor:
+                    problemas.append(f"{rotulo}: {meta_path.name}: {campo} = {meta.get(campo)}, o arquivo tem {valor}")
+            periodo = diretos.periodo_recmin(j, meta["data_download_utc"])
+            arquivos.append((meta_path, f["logico_metadados"]))
+        problemas += [f"{rotulo}: {caminho.name}: {b}" for b in bloq]
+        if periodo_no_leiame(leiame, f["src"]) != periodo:
+            problemas.append(f"{rotulo}: período de {f['src']} no LEIA-ME de Dados brutos ({periodo_no_leiame(leiame, f['src'])}) "
+                             f"difere do arquivo ({periodo})")
+        arquivos.append((caminho, f["logico"]))
+    return problemas + registro_em_dia(arquivos, datas, leiame, "IBGE/SGB")
+
+
 def checar_repositorio(raiz):
-    return checar_p3m(raiz) + checar_anm(raiz)
+    return checar_p3m(raiz) + checar_anm(raiz) + checar_diretos(raiz)
 
 
 # ---------------------------------------------------------------------------------------------------------- planilha

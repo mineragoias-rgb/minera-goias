@@ -1,7 +1,7 @@
-# Robô de atualização das bases (P3M e ANM)
+# Robô de atualização das bases (P3M, ANM, IBGE e SGB)
 
 Primeira versão, de 23/10/2026. Uma vez por mês, no dia 1º às 06:17 de Brasília, o workflow
-[`robo-bases.yml`](../.github/workflows/robo-bases.yml) baixa de novo as bases do P3M e da ANM. Em seguida ele:
+[`robo-bases.yml`](../.github/workflows/robo-bases.yml) baixa de novo as bases do P3M, da ANM, do IBGE e do SGB. Em seguida ele:
 
 1. confere se cada arquivo novo tem a forma que o site usa;
 2. trata o arquivo como o repositório guarda (recorte de Goiás);
@@ -26,14 +26,26 @@ O robô **não inventa nem corrige dado**:
 | ANM — Cadastro Mineiro | os 13 CSV nacionais de `SCM/` | linha com município de Goiás ou processo com poligonal em Goiás | `ANM - Cadastro Mineiro` |
 | ANM — CFEM | `CFEM/CFEM_Arrecadacao_2022_2026.csv` | linhas com UF = GO, no formato antigo (ver abaixo) | `ANM - CFEM` |
 | ANM — Anuário Mineral | `AMB/Producao_Bruta.csv` e `Producao_Beneficiada.csv` | nenhum (arquivo nacional) | `ANM - Anuário Mineral Brasileiro (AMB)` |
+| ANM — investimento em pesquisa | `DIPEM/InvestimentoPesquisaMineralUf.csv` | nenhum (arquivo nacional) | `ANM - Investimento em pesquisa mineral` |
+| ANM — rodadas de disponibilidade | `SOPLE/ResultadoRodadaDisponibilidade.csv` | nenhum (arquivo nacional) | `Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv` |
+| IBGE — SIDRA | população municipal e de Goiás (tabela 6579) e PIB municipal (5938), último ano (`p/last`) | nenhum (resposta da API) | `IBGE - População e PIB (SIDRA)` |
+| SGB — RECMIN | ocorrências de recursos minerais pelo WFS, caixa de Goiás | nenhum (resposta do WFS); o `.metadados.json` ganha data, tamanho, sha256 e contagens | `SGB - RECMIN` |
+| IBGE — malhas | malha municipal 2025 e limite de Goiás 2024 | **só confere**: avisa quando sai o ano seguinte e barra quando o IBGE republica o mesmo ano | — |
 
-As URLs e a forma esperada de cada fonte da ANM ficam em [`fontes.json`](fontes.json). As do P3M ficam na coluna
-`url_download` de [`inventario_p3m.csv`](../Squad%201/P3M/inventario_p3m.csv).
+As URLs e a forma esperada de cada fonte ficam em [`fontes.json`](fontes.json) (`anm` e `diretos`). As do P3M ficam na coluna
+`url_download` de [`inventario_p3m.csv`](../Squad%201/P3M/inventario_p3m.csv). As URLs da ANM que faltavam (DIPEM, SOPLE) e a
+consulta exata do SIDRA vieram do reconhecimento feito no GitHub (`robo/explorar.py`, workflow `robo-explorar.yml`). As
+consultas do SIDRA reproduzem byte a byte os arquivos do repositório.
 
 Ficam de fora:
 
 - as camadas do P3M guardadas em partes (SIGEF), que precisam ser atualizadas à mão;
-- o limite de Goiás (`GO_UF_2024`), que é do IBGE.
+- a troca de ano das malhas do IBGE. O nome do arquivo muda, e o limite de Goiás recorta todas as camadas do P3M. O robô só
+  avisa;
+- a CCEE. O portal bloqueia os servidores do GitHub ("Acesso bloqueado", HTTP 403), mesmo como navegador. O bloqueio é pelo
+  lugar de onde vem o pedido, então só daria para automatizar a partir de uma máquina no Brasil, como a VPS;
+- as barragens do SIGBM. A ANM publica `SIGBM/Barragens.csv`, mas o atlas usa um retrato antigo copiado do `eliel.html`.
+  Ligar o arquivo ao atlas é uma mudança no site, não só no robô.
 
 ## Os tratamentos são os mesmos de antes, conferidos
 
@@ -80,6 +92,8 @@ escrito. Um **bloqueio** impede o arquivo de entrar; um **aviso** só vai para o
 | Shapefile (P3M e SIGMINE) | não é zip (erro do GeoServer); falta `.shx`, `.dbf` ou `.prj`; geometria mudou; sistema de coordenadas mudou; caixa fora do Brasil (coordenadas trocadas) ou longe de Goiás; menos de 50% dos registros (90% no SIGMINE); sumiu ou mudou de tipo um campo que o mapa lê (`scripts/mapa_camadas.json`; no SIGMINE, qualquer campo) | registros a mais ou a menos; campos novos; campo que o site não usa sumiu |
 | Recorte do P3M | ficou sem nenhuma feição em Goiás; o recortado novo falha nas mesmas regras acima | |
 | Chave das camadas do mapa | a chave da camada (`chave` em `scripts/mapa_camadas.json`) ficaria repetida ou vazia no conjunto dos zips dela, contando os novos e os atuais. Barra só os zips novos daquela camada | |
+| SIDRA (IBGE) | não é a tabela do SIDRA; cabeçalho, níveis territoriais, variável ou unidade de medida diferentes; o ano voltou; faltam municípios (menos de 99%) ou algum município de Goiás; município de Goiás sem valor numérico | ano novo |
+| GeoJSON (RECMIN) | página de erro; não é FeatureCollection; download incompleto (menos feições que `numberMatched`); menos de 90% das feições; sistema de coordenadas ou geometria mudou; sumiu algum campo; pontos fora da caixa de Goiás | feições a mais ou a menos; campos novos |
 | Planilha consolidada | ALERTA novo na aba 14b. São exceção os listados em `fontes.json` (`planilha.alertas_esperados`), cada um com o motivo | |
 
 `python robo/robo_bases.py --checar` faz a checagem inversa, sem rede: confere se os arquivos que **estão** no repositório seguem o
@@ -109,14 +123,15 @@ algumas fontes do catálogo. A primeira vez que o robô refizer a planilha, essa
 ## Rodar à mão
 
 ```bash
-pip install geopandas==1.1.3 pyogrio==0.12.1 shapely==2.2.0 pyshp==3.1.6    # o P3M precisa; a ANM roda só com a biblioteca padrão
+pip install geopandas==1.1.3 pyogrio==0.12.1 shapely==2.2.0 pyshp==3.1.6    # o P3M precisa; ANM, IBGE e SGB rodam só com a biblioteca padrão
 python robo/robo_bases.py --sem-gravar                    # baixa e confere tudo, sem gravar
 python robo/robo_bases.py --fontes anm --so CFEM          # só a CFEM
 python robo/robo_bases.py --fontes p3m --so mvw_minas_ativas_grp
+python robo/robo_bases.py --fontes ibge,sgb               # SIDRA, malhas e RECMIN
 python robo/robo_bases.py --checar                        # o repositório está no padrão?
 ```
 
-No GitHub: **Actions → Robô das bases (P3M e ANM) → Run workflow**. Dá para escolher as fontes, o escopo do P3M e se publica.
+No GitHub: **Actions → Robô das bases (P3M, ANM, IBGE e SGB) → Run workflow**. Dá para escolher as fontes, o escopo do P3M e se publica.
 O resumo de cada execução fica na página dela: o que mudou, o que foi barrado e por quê, a aba 14b e os derivados.
 
 ### Arquivo barrado
@@ -173,5 +188,11 @@ Saída do robô:
 
     O robô barrou os quatro, e o site segue com os arquivos anteriores. Antes de usar `aceitar_queda`, confira na ANM se a
     queda é real.
-- **Ainda à mão:** CCEE (o portal recusa download automatizado), investimento em pesquisa e rodadas de disponibilidade (sem URL
-  registrada), SIGBM e as fontes de energia. Ver `docs/fontes_de_dados.md`.
+- **Ainda à mão:**
+  - CCEE, que bloqueia o GitHub;
+  - SIGBM, que o atlas ainda não lê do arquivo;
+  - IMB, a curadoria do Radar e os parâmetros do Squad 2;
+  - as fontes de energia que o site não usa: ANEEL SIGA, ONS e EPE. As URLs da ANEEL e do ONS já estão registradas em
+    `docs/fontes_de_dados.md`.
+
+  Ver `docs/fontes_de_dados.md`.

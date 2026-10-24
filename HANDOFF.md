@@ -111,13 +111,27 @@ node --check public/empresas.js
 
 Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, `Squad 1/P3M`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o inventário do P3M e o Mapa mineral (`data/mapa`, que lê do inventário a data, a pasta e a ficha de cada camada), o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
 
-## Robô de atualização das bases (P3M e ANM)
+## Robô de atualização das bases (P3M, ANM, IBGE e SGB)
 
 Primeira versão, de 23/10/2026, em `robo/` (detalhes em `robo/LEIA-ME.md`). O workflow `.github/workflows/robo-bases.yml` roda uma
 vez por mês, no dia 1º às 06:17 de Brasília, ou à mão em Actions. Ele baixa:
 
 - as camadas do P3M que o mapa usa, pela URL de cada uma no inventário;
-- da ANM: SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral.
+- da ANM: SIGMINE, Cadastro Mineiro, CFEM, Anuário Mineral, investimento em pesquisa (DIPEM) e rodadas de disponibilidade
+  (SOPLE);
+- do IBGE: população e PIB pelo SIDRA. As malhas só são conferidas: o robô avisa quando sai o ano seguinte;
+- do SGB: RECMIN, pelo WFS.
+
+Fase 2 (24/10/2026): `robo/explorar.py` (workflow `robo-explorar.yml`, manual, só lê) achou as URLs que faltavam.
+
+- Achou DIPEM, SOPLE, `SIGBM/Barragens.csv`, os recursos da ANEEL e do ONS, e a consulta do SIDRA que reproduz os arquivos byte
+  a byte.
+- A CCEE bloqueia os servidores do GitHub (HTTP 403, também como navegador). Fica à mão, ou para a VPS.
+- O SIGBM está disponível, mas ligar o arquivo ao atlas é mudança no site.
+- `robo/brutos.py` guarda o registro comum de `datas_de_acesso.json` e do LEIA-ME de `Dados brutos`; `robo/diretos.py`
+  cuida de SIDRA, RECMIN e malhas.
+- O pipeline roda quando muda qualquer base da planilha.
+- Os textos do catálogo 07 sobre SIDRA, RECMIN e DIPEM saem dos arquivos.
 
 Para cada arquivo:
 

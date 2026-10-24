@@ -20,22 +20,18 @@ from pathlib import Path
 import anm_recorte
 import forma
 import formato_csv
+from brutos import Registro
 from comum import FalhaDownload, Resultado, baixar, digital_zip, sha256
-
-BRUTOS_REL = Path("Squad 1") / "Dados brutos"
 
 
 class ANM:
-    def __init__(self, raiz, hoje, cfg, gravar=True, espelho=None, pasta_tmp=None, aceitar=()):
+    def __init__(self, raiz, hoje, cfg, gravar=True, espelho=None, pasta_tmp=None, aceitar=(), registro=None):
         self.raiz, self.hoje, self.cfg, self.gravar = Path(raiz), hoje, cfg, gravar
         self.espelho = espelho or {}
         self.aceitar = set(aceitar)  # fontes ou arquivos em que uma queda grande de linhas foi aceita por alguém
         self.tmp = Path(pasta_tmp)
-        self.brutos = self.raiz / BRUTOS_REL
-        self.datas_path = self.brutos / "datas_de_acesso.json"
-        self.datas = json.loads(self.datas_path.read_text(encoding="utf-8"))
-        self.leiame_path = self.brutos / "LEIA-ME.md"
-        self.leiame = self.leiame_path.read_text(encoding="utf-8")
+        self.reg = registro or Registro(raiz, hoje, gravar)  # datas_de_acesso.json e LEIA-ME de Dados brutos (robo/brutos.py)
+        self.brutos = self.reg.brutos
         self.recorte_path = self.brutos / "ANM - Cadastro Mineiro" / "recorte_goias.json"
         self.recorte_json = json.loads(self.recorte_path.read_text(encoding="utf-8"))
         self.mudou = False
@@ -92,7 +88,8 @@ class ANM:
 
     def csv(self, f):
         r = Resultado("ANM", f["nome"])
-        atual = self.brutos / f["arquivo"]
+        # quase tudo fica em Dados brutos; as rodadas de disponibilidade ficam em Squad 1/dados (arquivo_raiz)
+        atual = self.raiz / f["arquivo_raiz"] if f.get("arquivo_raiz") else self.brutos / f["arquivo"]
         baixado = self._baixar(f["url"], Path(f["url"]).name, r)
         if baixado is None:
             return r
@@ -178,43 +175,21 @@ class ANM:
             return
         shutil.copyfile(novo, atual)
         r.arquivos.append(atual.relative_to(self.raiz).as_posix())
-        self.datas[f["logico"]] = self.hoje
-        self._linha_arquivo_leiame(atual)
-        if f.get("src"):
-            self._data_da_fonte_leiame(f["src"])
+        self.reg.arquivo(atual, f.get("logico"), f.get("src"))
         self.fontes_alteradas.add(f.get("src") or f["nome"])
         self.mudou = True
 
     # ------------------------------------------------------------------------------------------------- LEIA-ME e índices
-    def _linha_arquivo_leiame(self, caminho):
-        """| `arquivo` | 1,9 MB | `sha256` | na lista de arquivos da pasta da fonte."""
-        mb = f"{caminho.stat().st_size / 1e6:.1f}".replace(".", ",")
-        padrao = re.compile(r"^(\| `" + re.escape(caminho.name) + r"` \| )[\d,]+ MB \| `[0-9a-f]{64}` \|$", re.M)
-        self.leiame = padrao.sub(lambda m: f"{m.group(1)}{mb} MB | `{sha256(caminho)}` |", self.leiame, count=1)
-
     def _linha_recorte_leiame(self, nome, item):
         """| `arquivo` | regra | linhas nacionais | linhas aqui | `sha256 nacional` | na tabela do recorte do Cadastro."""
         num = lambda n: f"{n:,}".replace(",", ".")  # noqa: E731
         padrao = re.compile(r"^\| `" + re.escape(nome) + r"` \| (\w+) \| [\d.]+ \| [\d.]+ \| `[0-9a-f]{64}` \|$", re.M)
-        self.leiame = padrao.sub(lambda m: f"| `{nome}` | {m.group(1)} | {num(item['linhas_nacional'])} | {num(item['linhas_goias'])} | "
-                                           f"`{item['sha256_nacional']}` |", self.leiame, count=1)
-
-    def _data_da_fonte_leiame(self, src):
-        """A coluna 'Arquivo do dia' da linha da fonte na tabela de fontes."""
-        linhas = self.leiame.split("\n")
-        for i, ln in enumerate(linhas):
-            if f"**{src}**" in ln and ln.startswith("| `"):
-                cel = ln.split(" | ")
-                if len(cel) >= 6 and re.fullmatch(r"\d{4}-\d{2}-\d{2}", cel[4]):
-                    cel[4] = self.hoje
-                    linhas[i] = " | ".join(cel)
-        self.leiame = "\n".join(linhas)
+        self.reg.leiame = padrao.sub(lambda m: f"| `{nome}` | {m.group(1)} | {num(item['linhas_nacional'])} | {num(item['linhas_goias'])} | "
+                                               f"`{item['sha256_nacional']}` |", self.reg.leiame, count=1)
 
     def salvar(self):
+        """Grava recorte_goias.json; datas_de_acesso.json e o LEIA-ME saem do registro comum (Registro.salvar)."""
         if not (self.gravar and self.mudou):
             return []
-        # mesma forma de gravar dos arquivos de hoje (indentação 1, sem quebra de linha no fim)
-        self.datas_path.write_text(json.dumps(dict(sorted(self.datas.items())), ensure_ascii=False, indent=1), encoding="utf-8")
-        self.leiame_path.write_text(self.leiame, encoding="utf-8")
         self.recorte_path.write_text(json.dumps(self.recorte_json, ensure_ascii=False, indent=1), encoding="utf-8")
-        return [p.relative_to(self.raiz).as_posix() for p in (self.datas_path, self.leiame_path, self.recorte_path)]
+        return [self.recorte_path.relative_to(self.raiz).as_posix()]

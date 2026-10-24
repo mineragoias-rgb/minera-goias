@@ -318,8 +318,8 @@ class RepositorioTests(unittest.TestCase):
 
     def test_config_aponta_para_arquivos_que_existem(self):
         cfg = json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))
-        for f in cfg["anm"]["fontes"]:
-            alvo = BRUTOS / (f.get("arquivo") or f["pasta"])
+        for f in cfg["anm"]["fontes"] + cfg["diretos"]["fontes"]:
+            alvo = ROOT / f["arquivo_raiz"] if f.get("arquivo_raiz") else BRUTOS / (f.get("arquivo") or f["pasta"])
             self.assertTrue(alvo.exists(), alvo)
             self.assertTrue((f.get("url") or f.get("url_base", "")).startswith("https://"), f["id"])
 
@@ -345,6 +345,7 @@ class AnmPontaAPontaTests(unittest.TestCase):
         self.raiz = Path(tempfile.mkdtemp())
         copiar(self.raiz, "Squad 1/Dados brutos/ANM - CFEM", "Squad 1/Dados brutos/ANM - Cadastro Mineiro",
                "Squad 1/Dados brutos/ANM - SIGMINE", "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)",
+               "Squad 1/Dados brutos/ANM - Investimento em pesquisa mineral", "Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv",
                "Squad 1/Dados brutos/IBGE - Malha municipal 2025", "Squad 1/Dados brutos/datas_de_acesso.json",
                "Squad 1/Dados brutos/LEIA-ME.md", "scripts/mapa_camadas.json")
         self.portal = Path(tempfile.mkdtemp())
@@ -359,8 +360,9 @@ class AnmPontaAPontaTests(unittest.TestCase):
                 rezipar(BRUTOS / f["arquivo"], self.portal / "GO.zip")  # o mesmo conteúdo, zip refeito
                 self.espelho[f["url"]] = (self.portal / "GO.zip").as_uri()
             else:
-                self.servir(f["url"], (BRUTOS / f["arquivo"]).read_bytes())
+                self.servir(f["url"], (ROOT / f["arquivo_raiz"] if f.get("arquivo_raiz") else BRUTOS / f["arquivo"]).read_bytes())
         self.cfem_url = next(f["url"] for f in cfg["fontes"] if f["id"] == "CFEM")
+        self.rodadas = next(f for f in cfg["fontes"] if f["id"] == "RODADAS")
 
     def tearDown(self):
         shutil.rmtree(self.raiz)
@@ -406,6 +408,17 @@ class AnmPontaAPontaTests(unittest.TestCase):
         self.assertEqual([r["situacao"] for r in saida["problemas"]], ["bloqueada"])
         self.assertEqual((self.raiz / CFEM.relative_to(ROOT)).read_bytes(), CFEM.read_bytes())
         self.assertEqual(saida["gravados"], [])
+
+    def test_rodadas_novas_entram_em_squad1_dados(self):
+        # as rodadas ficam fora de Dados brutos (Squad 1/dados) e não têm data em datas_de_acesso.json
+        atual = (ROOT / self.rodadas["arquivo_raiz"]).read_bytes()
+        nova = "9;1;860001/2026;Livre;Oferta Pública;Pesquisa;ANÁPOLIS;Goiás;10,50;0,00;;\r\n".encode("utf-8")
+        self.servir(self.rodadas["url"], atual + nova)
+        p, saida = self.rodar()
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertEqual((self.raiz / self.rodadas["arquivo_raiz"]).read_bytes(), atual + nova)
+        self.assertEqual([r["nome"] for r in saida["resultados"] if r["situacao"] == "atualizada"], [self.rodadas["nome"]])
+        self.assertEqual(checagem.checar_anm(self.raiz), [])
 
     def test_cfem_no_formato_novo_entra_no_formato_antigo(self):
         self.servir(self.cfem_url, cfem_formato_novo())
@@ -566,6 +579,124 @@ class ChaveDoMapaTests(unittest.TestCase):
         r = self.pendente(m50, achar(REC, m50))
         self.assertEqual(self.p3m.conferir_chaves(), [])
         self.assertEqual(r.situacao, "atualizada")
+
+
+class DiretosTests(unittest.TestCase):
+    """IBGE (SIDRA e malhas) e SGB (RECMIN) contra um portal falso."""
+    SIDRA = BRUTOS / "IBGE - População e PIB (SIDRA)"
+    RECMIN = BRUTOS / "SGB - RECMIN" / "ocorrencias_recursos_minerais_GO.geojson"
+
+    def setUp(self):
+        self.raiz = Path(tempfile.mkdtemp())
+        self.portal = Path(tempfile.mkdtemp())
+        copiar(self.raiz, (self.SIDRA).relative_to(ROOT), self.RECMIN.parent.relative_to(ROOT),
+               "Squad 1/Dados brutos/datas_de_acesso.json", "Squad 1/Dados brutos/LEIA-ME.md")
+        self.cfg = {f["id"]: f for f in json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))["diretos"]["fontes"]}
+        self.espelho = {}
+        for i in ("IBGE_POP", "IBGE_POP_UF", "IBGE_PIB"):
+            self.servir(self.cfg[i]["url"], (BRUTOS / self.cfg[i]["arquivo"]).read_bytes())
+        # o GeoServer põe a hora do pedido no arquivo: mesmo conteúdo, outro timeStamp
+        self.servir(self.cfg["RECMIN"]["url"], self.RECMIN.read_bytes().replace(b'"timeStamp":"2026-09-12T19:19:20.130Z"',
+                                                                                 b'"timeStamp":"2030-01-02T10:00:00.000Z"'))
+
+    def tearDown(self):
+        shutil.rmtree(self.raiz)
+        shutil.rmtree(self.portal)
+
+    def servir(self, url, dados):
+        arq = self.portal / f"{len(self.espelho)}.dat"
+        arq.write_bytes(dados)
+        self.espelho[url] = arq.as_uri()
+
+    def rodar(self, so="IBGE_POP,IBGE_POP_UF,IBGE_PIB,RECMIN"):
+        (self.raiz / "espelho.json").write_text(json.dumps(self.espelho), encoding="utf-8")
+        return robo(self.raiz, "--fontes", "ibge,sgb", "--so", so, "--espelho", str(self.raiz / "espelho.json"))
+
+    def sidra(self, ident, troca):
+        d = json.loads((BRUTOS / self.cfg[ident]["arquivo"]).read_bytes())
+        d = [d[0]] + [troca(dict(r)) for r in d[1:]]
+        d = [r for r in d if r is not None]
+        return json.dumps(d, ensure_ascii=False, indent=2).replace("\n", "\r\n").encode("utf-8")
+
+    def problemas(self):
+        return [x for x in checagem.checar_diretos(self.raiz) if "não existe" not in x]  # as malhas não foram copiadas
+
+    def test_sem_novidade_nao_grava_nada(self):
+        self.assertEqual(self.problemas(), [])
+        p, saida = self.rodar()
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertEqual({r["situacao"] for r in saida["resultados"]}, {"sem_mudanca"}, saida["resultados"])
+        self.assertEqual(saida["gravados"], [])
+        self.assertFalse(saida["base_mudou"])
+
+    def test_populacao_de_ano_novo_entra_com_periodo_e_consulta_no_leiame(self):
+        def ano_novo(r):
+            r.update(D3C="2026", D3N="2026", V=str(int(r["V"]) + 1))
+            return r
+        novo = self.sidra("IBGE_POP", ano_novo)
+        self.servir(self.cfg["IBGE_POP"]["url"], novo)
+        p, saida = self.rodar("IBGE_POP")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertTrue(saida["base_mudou"])
+        self.assertEqual((self.raiz / BRUTOS.relative_to(ROOT) / self.cfg["IBGE_POP"]["arquivo"]).read_bytes(), novo)
+        leiame = (self.raiz / "Squad 1/Dados brutos/LEIA-ME.md").read_text(encoding="utf-8")
+        self.assertIn("| 2026 (5571 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2030-01-02 |", leiame)
+        self.assertIn("/n6/all/n3/52/v/9324/p/2026 (consulta equivalente ao arquivo local) (metadados:", leiame)
+        datas = json.loads((self.raiz / "Squad 1/Dados brutos/datas_de_acesso.json").read_text(encoding="utf-8"))
+        self.assertEqual(datas[self.cfg["IBGE_POP"]["logico"]], "2030-01-02")
+        self.assertEqual(self.problemas(), [])
+
+    def test_sidra_fora_da_forma_e_barrado(self):
+        casos = {
+            "unidade": ("IBGE_PIB", lambda r: {**r, "MN": "Reais"}, "unidade de medida mudou"),
+            "município de Goiás": ("IBGE_POP", lambda r: None if r["D1C"] == "5201108" else r, "municípios de Goiás diferentes"),
+            "ano que volta": ("IBGE_POP", lambda r: {**r, "D3C": "2024", "D3N": "2024"}, "o ano voltou"),
+        }
+        for caso, (ident, troca, motivo) in casos.items():
+            with self.subTest(caso):
+                antes = (self.raiz / BRUTOS.relative_to(ROOT) / self.cfg[ident]["arquivo"]).read_bytes()
+                self.servir(self.cfg[ident]["url"], self.sidra(ident, troca))
+                p, saida = self.rodar(ident)
+                self.assertEqual(p.returncode, 1)
+                self.assertIn(motivo, saida["problemas"][0]["motivo"])
+                self.assertEqual((self.raiz / BRUTOS.relative_to(ROOT) / self.cfg[ident]["arquivo"]).read_bytes(), antes)
+
+    def test_recmin_novo_atualiza_metadados_e_periodo(self):
+        j = json.loads(self.RECMIN.read_bytes())
+        j["features"] = j["features"][1:]
+        j.update(totalFeatures=len(j["features"]), numberMatched=len(j["features"]), numberReturned=len(j["features"]))
+        self.servir(self.cfg["RECMIN"]["url"], json.dumps(j, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
+        p, saida = self.rodar("RECMIN")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        meta = json.loads((self.raiz / self.RECMIN.relative_to(ROOT)).with_name("ocorrencias_recursos_minerais_GO.metadados.json")
+                          .read_text(encoding="utf-8"))
+        self.assertEqual((meta["feicoes"], meta["numberMatched"]), (len(j["features"]),) * 2)
+        self.assertTrue(meta["autorizado_por"].startswith("Eliel"))  # o que não é do download fica
+        self.assertEqual(self.problemas(), [])
+
+    def test_recmin_incompleto_e_barrado(self):
+        j = json.loads(self.RECMIN.read_bytes())
+        j["numberMatched"] = len(j["features"]) + 5
+        self.servir(self.cfg["RECMIN"]["url"], json.dumps(j).encode("utf-8"))
+        p, saida = self.rodar("RECMIN")
+        self.assertEqual(p.returncode, 1)
+        self.assertIn("download incompleto", saida["problemas"][0]["motivo"])
+
+    def test_malha_avisa_ano_novo_e_barra_republicacao(self):
+        limite = self.cfg["IBGE_LIMITE_UF"]
+        copiar(self.raiz, limite["arquivo_raiz"])
+        self.servir(limite["url"].format(ano=2024), (ROOT / limite["arquivo_raiz"]).read_bytes())
+        self.servir(limite["url"].format(ano=2025), b"existe")
+        p, saida = self.rodar("IBGE_LIMITE_UF")
+        r = saida["resultados"][0]
+        self.assertEqual(r["situacao"], "sem_mudanca", p.stdout + p.stderr)
+        self.assertIn("já publicou a malha de 2025", r["avisos"][0])
+        rezipar(ROOT / limite["arquivo_raiz"], self.portal / "republicada.zip",
+                lambda n, d: d[:-20] + b"X" * 19 + d[-1:] if n.endswith(".dbf") else d)
+        self.espelho[limite["url"].format(ano=2024)] = (self.portal / "republicada.zip").as_uri()
+        p, saida = self.rodar("IBGE_LIMITE_UF")
+        self.assertEqual(saida["problemas"][0]["situacao"], "bloqueada")
+        self.assertIn("republicou", saida["problemas"][0]["motivo"])
 
 
 @unittest.skipUnless(importlib.util.find_spec("openpyxl"), "precisa de openpyxl")

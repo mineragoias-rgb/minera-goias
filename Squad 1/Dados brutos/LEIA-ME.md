@@ -35,14 +35,14 @@ Links oficiais:
 - **SRC_ANM_PROD_BENEF**: https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv (metadados: https://dadosabertos.anm.gov.br/AMB/metadados-amb.ods (cópia local))
 - **SRC_ANM_CFEM**: https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv (metadados: https://dadosabertos.anm.gov.br/CFEM/metadados-cfem.ods (cópia em dados/ANM/cfem/))
 - **SRC_ANM_CADASTRO**: https://dadosabertos.anm.gov.br/SCM/<arquivo>.csv — 13 arquivos (Alvara_de_Pesquisa, Cessoes_de_Direitos, Guia_de_Utilizacao_Autorizada, Licenciamento, PLG, Portaria_de_Lavra, …) (metadados: https://dadosabertos.anm.gov.br/SCM/metadados-scm.ods (cópia em dados/ANM/cadastro_mineiro/))
-- **SRC_ANM_INVEST_PESQUISA**: não verificada
+- **SRC_ANM_INVEST_PESQUISA**: https://dadosabertos.anm.gov.br/DIPEM/InvestimentoPesquisaMineralUf.csv
 - **SRC_ANM_PANORAMA_DERIVADO**: —
 - **SRC_ANM_MINERADORAS_DERIVADO**: —
 - **SRC_ANM_SIGMINE**: https://dadosabertos.anm.gov.br/SIGMINE/PROCESSOS_MINERARIOS/GO.zip (metadados: https://dadosabertos.anm.gov.br/SIGMINE/metadados-sigmine.ods (NÃO baixado))
 - **SRC_IBGE_MALHA_2025**: https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/UFs/GO/GO_Municipios_2025.zip (metadados: Nota metodológica da Malha Municipal (leitura exigida pelo leia-me do arquivo))
-- **SRC_IBGE_POP**: https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2025 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
-- **SRC_IBGE_PIB**: https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2023 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=5938)
-- **SRC_IBGE_POP_UF**: https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/2025 (consulta conferida em 12/09/2026: mesmo valor do arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
+- **SRC_IBGE_POP**: https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/2025 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
+- **SRC_IBGE_PIB**: https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/2023 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=5938)
+- **SRC_IBGE_POP_UF**: https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/2025 (consulta equivalente ao arquivo local) (metadados: https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579)
 - **SRC_IMB_GOIAS_EM_DADOS**: exportação manual do Goiás em Dados (parâmetros da consulta não registrados)
 - **SRC_SGB_GEOSGB**: não verificável automaticamente (o portal é uma aplicação JavaScript) — registrar o link de download à mão
 - **SRC_SGB_RECMIN**: https://geoservicos.sgb.gov.br/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=geosgb:ocorrencias_recursos_minerais&outputFormat=application/json&bbox=-19.7,-53.4,-12.2,-45.8,urn:ogc:def:crs:EPSG::4326 (metadados: DescribeFeatureType do WFS (geosgb:ocorrencias_recursos_minerais); ArcGIS REST: https://geoportal.sgb.gov.br/server/rest/services/geologia/ocorrencias/MapServer/0)
