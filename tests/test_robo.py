@@ -2,6 +2,7 @@
 import csv
 import importlib.util
 import json
+import re
 import shutil
 import struct
 import subprocess
@@ -15,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "robo"))
 import anm_recorte  # noqa: E402
 import checagem  # noqa: E402
+import diretos  # noqa: E402
 import forma  # noqa: E402
 import formato_csv  # noqa: E402
 from comum import digital_zip  # noqa: E402
@@ -308,7 +310,6 @@ class RepositorioTests(unittest.TestCase):
     def test_robo_roda_todos_os_testes_do_site_antes_de_publicar(self):
         # o commit do robô usa o GITHUB_TOKEN e não dispara o validate-web.yml: um teste de lá que falte no robô só quebra depois
         # de publicado (em 24/10/2026, o test_web esperava o número de processos do SIGMINE antigo)
-        import re
         validar = (ROOT / ".github" / "workflows" / "validate-web.yml").read_text(encoding="utf-8")
         robo_wf = (ROOT / ".github" / "workflows" / "robo-bases.yml").read_text(encoding="utf-8")
         passo = robo_wf.split("- name: Testes do site", 1)[1].split("- name:", 1)[0]
@@ -596,8 +597,9 @@ class DiretosTests(unittest.TestCase):
         for i in ("IBGE_POP", "IBGE_POP_UF", "IBGE_PIB"):
             self.servir(self.cfg[i]["url"], (BRUTOS / self.cfg[i]["arquivo"]).read_bytes())
         # o GeoServer põe a hora do pedido no arquivo: mesmo conteúdo, outro timeStamp
-        self.servir(self.cfg["RECMIN"]["url"], self.RECMIN.read_bytes().replace(b'"timeStamp":"2026-09-12T19:19:20.130Z"',
-                                                                                 b'"timeStamp":"2030-01-02T10:00:00.000Z"'))
+        recmin, n = re.subn(rb'"timeStamp":"[^"]*"', b'"timeStamp":"2030-01-02T10:00:00.000Z"', self.RECMIN.read_bytes())
+        self.assertEqual(n, 1)
+        self.servir(self.cfg["RECMIN"]["url"], recmin)
 
     def tearDown(self):
         shutil.rmtree(self.raiz)
@@ -622,6 +624,10 @@ class DiretosTests(unittest.TestCase):
     def problemas(self):
         return [x for x in checagem.checar_diretos(self.raiz) if "não existe" not in x]  # as malhas não foram copiadas
 
+    def ano(self, ident):
+        """O ano do arquivo do repositório: os testes de ano novo usam o seguinte, e continuam valendo depois que o robô atualiza."""
+        return int(json.loads((BRUTOS / self.cfg[ident]["arquivo"]).read_bytes())[1]["D3N"])
+
     def test_sem_novidade_nao_grava_nada(self):
         self.assertEqual(self.problemas(), [])
         p, saida = self.rodar()
@@ -631,8 +637,10 @@ class DiretosTests(unittest.TestCase):
         self.assertFalse(saida["base_mudou"])
 
     def test_populacao_de_ano_novo_entra_com_periodo_e_consulta_no_leiame(self):
+        novo_ano = str(self.ano("IBGE_POP") + 1)
+
         def ano_novo(r):
-            r.update(D3C="2026", D3N="2026", V=str(int(r["V"]) + 1))
+            r.update(D3C=novo_ano, D3N=novo_ano, V=str(int(r["V"]) + 1))
             return r
         novo = self.sidra("IBGE_POP", ano_novo)
         self.servir(self.cfg["IBGE_POP"]["url"], novo)
@@ -641,22 +649,25 @@ class DiretosTests(unittest.TestCase):
         self.assertTrue(saida["base_mudou"])
         self.assertEqual((self.raiz / BRUTOS.relative_to(ROOT) / self.cfg["IBGE_POP"]["arquivo"]).read_bytes(), novo)
         leiame = (self.raiz / "Squad 1/Dados brutos/LEIA-ME.md").read_text(encoding="utf-8")
-        self.assertIn("| 2026 (5571 municípios do Brasil no arquivo; mais 1 linha(s) de nível Unidade da Federação) | 2030-01-02 |", leiame)
-        self.assertIn("/n6/all/n3/52/v/9324/p/2026 (consulta equivalente ao arquivo local) (metadados:", leiame)
+        self.assertIn(f"| {diretos.periodo_sidra(json.loads(novo))} | 2030-01-02 |", leiame)
+        self.assertIn(f"/n6/all/n3/52/v/9324/p/{novo_ano} (consulta equivalente ao arquivo local) (metadados:", leiame)
         datas = json.loads((self.raiz / "Squad 1/Dados brutos/datas_de_acesso.json").read_text(encoding="utf-8"))
         self.assertEqual(datas[self.cfg["IBGE_POP"]["logico"]], "2030-01-02")
         self.assertEqual(self.problemas(), [])
 
     def test_populacao_de_goias_espera_a_municipal_do_mesmo_ano(self):
+        self.assertEqual(self.ano("IBGE_POP_UF"), self.ano("IBGE_POP"))
+        novo_ano = str(self.ano("IBGE_POP") + 1)
+
         def ano_novo(r):
-            r.update(D3C="2026", D3N="2026")
+            r.update(D3C=novo_ano, D3N=novo_ano)
             return r
         uf = self.sidra("IBGE_POP_UF", ano_novo)
         self.servir(self.cfg["IBGE_POP_UF"]["url"], uf)
-        p, saida = self.rodar("IBGE_POP_UF")  # a municipal continua em 2025
+        p, saida = self.rodar("IBGE_POP_UF")  # a municipal continua no ano de hoje
         r = saida["resultados"][0]
         self.assertEqual(r["situacao"], "pulada", p.stdout + p.stderr)
-        self.assertIn("espera a população municipal de 2026", r["motivo"])
+        self.assertIn(f"espera a população municipal de {novo_ano}", r["motivo"])
         self.assertEqual(p.returncode, 0)
         self.servir(self.cfg["IBGE_POP"]["url"], self.sidra("IBGE_POP", ano_novo))
         p, saida = self.rodar("IBGE_POP,IBGE_POP_UF")  # as duas no mesmo ano: entram juntas
@@ -664,10 +675,11 @@ class DiretosTests(unittest.TestCase):
         self.assertEqual(self.problemas(), [])
 
     def test_sidra_fora_da_forma_e_barrado(self):
+        ano_antes = str(self.ano("IBGE_POP") - 1)
         casos = {
             "unidade": ("IBGE_PIB", lambda r: {**r, "MN": "Reais"}, "unidade de medida mudou"),
             "município de Goiás": ("IBGE_POP", lambda r: None if r["D1C"] == "5201108" else r, "municípios de Goiás diferentes"),
-            "ano que volta": ("IBGE_POP", lambda r: {**r, "D3C": "2024", "D3N": "2024"}, "o ano voltou"),
+            "ano que volta": ("IBGE_POP", lambda r: {**r, "D3C": ano_antes, "D3N": ano_antes}, "o ano voltou"),
         }
         for caso, (ident, troca, motivo) in casos.items():
             with self.subTest(caso):
@@ -702,15 +714,15 @@ class DiretosTests(unittest.TestCase):
     def test_malha_avisa_ano_novo_e_barra_republicacao(self):
         limite = self.cfg["IBGE_LIMITE_UF"]
         copiar(self.raiz, limite["arquivo_raiz"])
-        self.servir(limite["url"].format(ano=2024), (ROOT / limite["arquivo_raiz"]).read_bytes())
-        self.servir(limite["url"].format(ano=2025), b"existe")
+        self.servir(limite["url"].format(ano=limite["ano"]), (ROOT / limite["arquivo_raiz"]).read_bytes())
+        self.servir(limite["url"].format(ano=limite["ano"] + 1), b"existe")
         p, saida = self.rodar("IBGE_LIMITE_UF")
         r = saida["resultados"][0]
         self.assertEqual(r["situacao"], "sem_mudanca", p.stdout + p.stderr)
-        self.assertIn("já publicou a malha de 2025", r["avisos"][0])
+        self.assertIn(f"já publicou a malha de {limite['ano'] + 1}", r["avisos"][0])
         rezipar(ROOT / limite["arquivo_raiz"], self.portal / "republicada.zip",
                 lambda n, d: d[:-20] + b"X" * 19 + d[-1:] if n.endswith(".dbf") else d)
-        self.espelho[limite["url"].format(ano=2024)] = (self.portal / "republicada.zip").as_uri()
+        self.espelho[limite["url"].format(ano=limite["ano"])] = (self.portal / "republicada.zip").as_uri()
         p, saida = self.rodar("IBGE_LIMITE_UF")
         self.assertEqual(saida["problemas"][0]["situacao"], "bloqueada")
         self.assertIn("republicou", saida["problemas"][0]["motivo"])

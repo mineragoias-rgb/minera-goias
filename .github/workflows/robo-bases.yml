@@ -145,14 +145,17 @@ jobs:
       - name: Testes do site
         if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim'
         run: |
+          # roda tudo antes de parar: uma execução mostra todas as falhas, não só a primeira
+          falhas=()
           for t in test_robo test_web test_load_anm test_i18n test_radar_api test_radar_noticias test_inventario_p3m test_mapa \
                    test_atlas test_panorama test_simulador test_mercado test_radar_projetos test_derivados; do
-            python -m unittest discover -s tests -p "$t.py"
+            python -m unittest discover -s tests -p "$t.py" || falhas+=("$t")
           done
-          node tests/simulador.test.js
-          node tests/mapa-dados.test.js
-          node tests/mapa-shp.test.js
-          python robo/robo_bases.py --checar
+          for js in tests/simulador.test.js tests/mapa-dados.test.js tests/mapa-shp.test.js; do
+            node "$js" || falhas+=("$js")
+          done
+          python robo/robo_bases.py --checar || falhas+=("robo_bases.py --checar")
+          if [ ${#falhas[@]} -gt 0 ]; then echo "::error::falharam: ${falhas[*]}"; exit 1; fi
 
       - name: Publicar na main
         if: env.PUBLICAR == 'true' && (steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim')
