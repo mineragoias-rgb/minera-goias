@@ -11,6 +11,7 @@ Cadeia (cada etapa só roda depois das que ela usa):
     curadoria de produção ──────────► Produção ─┴► Empresas
     levantamento do Lucas Maia ─────► carteira de projetos (Mercado)
     camadas do P3M (Squad 1/P3M) ───► inventário (classificação, metadados do site, registros, datas) ─► Mapa mineral (data/mapa)
+    pacote de vegetação e rios e série do MapBiomas (Squad 1/Mapa vegetação e rios 2025, Squad 1/MapBiomas) ──► Mapa mineral
 
 Fica de fora, porque depende de arquivo que não está no repositório: o atlas (`build_atlas_base.py`, precisa do GeoPackage do
 projeto) e o download da CCEE (`build_ccee_go.py`, o portal bloqueia acesso automatizado — os CSVs nacionais são baixados à mão).

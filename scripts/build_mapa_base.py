@@ -673,18 +673,16 @@ def cor_rgb(hexa):
     return [int(hexa[k:k + 2], 16) for k in (1, 3, 5)]
 
 
-def camada_imagem(spec, cfg):
-    """Camada de polígonos que já foram pixels de mapa web (a camada da plataforma do MapBiomas): volta a ser imagem na mesma grade,
-    os pixels de Web Mercator do zoom da fonte, em ladrilhos PNG de paleta com uma cor por classe. Nada é simplificado nem omitido
-    e a imagem fica muito menor que os polígonos. Cada classe vira uma feição da camada (para a tabela, o detalhe e a legenda).
+def lat_mercator(y, n_mundo):
+    return float(np.degrees(np.arctan(np.sinh(np.pi * (1 - 2 * y / n_mundo)))))
 
-    Pixel dentro de um polígono = centro do pixel dentro (regra par-ímpar, que também resolve os buracos e as ilhas dentro deles)."""
-    o, r = spec['origem'], spec['origem']['raster']
-    leitor, prj = abrir_membro(RAIZ / o['arquivo'], o['membro'])
-    val = {'arquivos': [{'arquivo': nome_membro(o), 'registros': len(leitor)}], 'erros': conferir_crs(nome_membro(o), prj, leitor.bbox),
-           'alertas': []}
-    classes = list(spec['legenda']['cores'])  # a ordem da legenda é o índice na paleta (1, 2, ...); 0 é transparente
-    n_mundo = 256 * 2 ** r['zoom']
+
+def rasterizar_pacote(o, classes, zoom):
+    """Polígonos de um shapefile do pacote do Squad 1 que já foram pixels de mapa web (a camada da plataforma do MapBiomas) de volta
+    à grade de onde vieram, os pixels de Web Mercator do zoom: (pixels, X0, Y0, contagens). Pixel dentro de um polígono = centro do
+    pixel dentro (regra par-ímpar, que também resolve os buracos e as ilhas dentro deles); pixel de duas classes fica com a primeira."""
+    leitor, _ = abrir_membro(RAIZ / o['arquivo'], o['membro'])
+    n_mundo = 256 * 2 ** zoom
 
     def px(lon):
         return (np.asarray(lon, float) + 180) / 360 * n_mundo
@@ -692,34 +690,19 @@ def camada_imagem(spec, cfg):
     def py(lat):
         la = np.radians(np.asarray(lat, float))
         return (1 - np.log(np.tan(la) + 1 / np.cos(la)) / np.pi) / 2 * n_mundo
-
-    def lat_de(y):
-        return float(np.degrees(np.arctan(np.sinh(np.pi * (1 - 2 * y / n_mundo)))))
     x0, y0, x1, y1 = leitor.bbox
     X0, X1 = int(np.floor(px(x0))), int(np.ceil(px(x1)))
     Y0, Y1 = int(np.floor(py(y1))), int(np.ceil(py(y0)))
     W, H = X1 - X0, Y1 - Y0
     arestas = {c: [] for c in range(1, len(classes) + 1)}
-    area_attr, n_pol, fora_da_grade, n_vert = collections.Counter(), collections.Counter(), 0, 0
     for sr in leitor.iterShapeRecords():
-        v = sr.record[r['campo']]
-        if v not in classes:
-            val['erros'].append(f"{r['campo']} = {v!r} não está na legenda")
-            continue
-        c = classes.index(v) + 1
-        area_attr[c] += sr.record[r['area']]
-        n_pol[c] += 1
+        c = classes.index(sr.record[o['campo']]) + 1
         pts = np.asarray(sr.shape.points, float)
         X, Y = px(pts[:, 0]) - X0, py(pts[:, 1]) - Y0
-        fora_da_grade += int(np.count_nonzero(np.abs(X - np.round(X)) > 1e-3))  # a longitude cai na borda de um pixel da fonte
-        n_vert += len(pts)
         partes_ = list(sr.shape.parts) + [len(pts)]
         for a, b in zip(partes_, partes_[1:]):
             arestas[c].append(np.stack([X[a:b - 1], Y[a:b - 1], X[a + 1:b], Y[a + 1:b]], 1))
-    if fora_da_grade > n_vert // 100:  # os do corte no limite de Goiás saem da grade; numa fonte de outra grade, quase todos sairiam
-        val['erros'].append(f'{fora_da_grade} de {n_vert} vértices fora da grade do zoom {r["zoom"]}: a fonte não é dessa grade')
     img = np.zeros((H, W), np.uint8)
-    sobrepostos = 0
     for c, lista in arestas.items():
         E = np.concatenate(lista)
         E = E[E[:, 1] != E[:, 3]]  # aresta horizontal não cruza a linha dos centros
@@ -732,54 +715,105 @@ def camada_imagem(spec, cfg):
         x = ex0 + (j + 0.5 - ey0) * (ex1 - ex0) / (ey1 - ey0)
         ordem = np.lexsort((x, j))
         j, x = j[ordem], x[ordem]
-        if len(j) % 2 or np.any(j[0::2] != j[1::2]):
-            val['erros'].append(f'classe {classes[c - 1]}: anel aberto (cruzamentos ímpares numa linha)')
-            continue
         diff = np.zeros((H, W + 1), np.int32)
         np.add.at(diff, (j[0::2], np.clip(np.ceil(x[0::2] - 0.5).astype(np.int64), 0, W)), 1)
         np.add.at(diff, (j[1::2], np.clip(np.ceil(x[1::2] - 0.5).astype(np.int64), 0, W)), -1)
         dentro = np.cumsum(diff, 1)[:, :W] > 0
-        sobrepostos += int(np.count_nonzero(dentro & (img > 0)))
-        img[dentro & (img == 0)] = c  # pixel de duas classes fica com a primeira da legenda
-    # área de cada linha de pixels na esfera de raio médio (conferência com a área que a fonte informa)
-    lat_linhas = np.array([lat_de(Y0 + y) for y in range(H + 1)])
-    ha_linha = np.abs(np.diff(np.sin(np.radians(lat_linhas)))) * 6371008.8 ** 2 * np.radians(360 / n_mundo) / 1e4
+        img[dentro & (img == 0)] = c
+    return img, X0, Y0
+
+
+def ler_png_paleta(png):
+    """Índices de um PNG de paleta sem entrelaçamento e com filtro 0 em toda linha (como robo/mapbiomas.py grava)."""
+    o, idat = 8, b''
+    while o < len(png):
+        n, tipo = struct.unpack('>I', png[o:o + 4])[0], png[o + 4:o + 8]
+        if tipo == b'IHDR':
+            w, h, bits = struct.unpack('>IIB', png[o + 8:o + 17])
+        elif tipo == b'IDAT':
+            idat += png[o + 8:o + 8 + n]
+        o += 12 + n
+    bruto = np.frombuffer(zlib.decompress(idat), np.uint8).reshape(h, -1)
+    if np.any(bruto[:, 0]):
+        raise ValueError('PNG com filtro diferente de 0')
+    por_byte = 8 // bits
+    return np.stack([(bruto[:, 1:] >> (8 - bits * (k + 1))) & (2 ** bits - 1) for k in range(por_byte)], 2).reshape(h, -1)[:, :w]
+
+
+def camada_serie(spec, cfg):
+    """Série anual de uma camada de imagem (a vegetação nativa do MapBiomas, gravada pelo robô em Squad 1/MapBiomas): um pacote
+    imagem-v1 por ano, em ladrilhos PNG de paleta com uma cor por classe, na grade de Web Mercator de metadados.json. Cada classe é
+    uma feição do ano (para a tabela, o detalhe e a legenda), com a área dentro de Goiás que o robô contou nos pixels de 30 m."""
+    import hashlib
+    o = spec['origem']
+    pasta = RAIZ / o['pasta']
+    meta = json.loads((pasta / 'metadados.json').read_text(encoding='utf-8'))
+    g = meta['grade']
+    X0, Y0, W, H, zoom = g['origem_px'][0], g['origem_px'][1], g['largura'], g['altura'], g['zoom']
+    n_mundo = 256 * 2 ** zoom
+    classes = list(spec['legenda']['cores'])  # a ordem da legenda é o índice na paleta (1, 2, ...): os grupos de metadados.json
+    val = {'arquivos': [], 'erros': [], 'alertas': [], 'anos': {}}
+    if [meta['grupos'][str(k)]['nome'] for k in range(1, len(classes) + 1)] != classes:
+        val['erros'].append(f"grupos de metadados.json {[v['nome'] for v in meta['grupos'].values()]} ≠ legenda {classes}")
     paleta = [[255, 255, 255]] + [cor_rgb(spec['legenda']['cores'][v]) for v in classes]
-    T = r['ladrilho']
-    ladrilhos = []
-    for ty in range(0, H, T):
-        for tx in range(0, W, T):
-            sub = img[ty:ty + T, tx:tx + T]
-            if not sub.any():
-                continue
-            h, w = sub.shape
-            ladrilhos.append({'x': tx // T, 'y': ty // T, 'bounds': [round(lat_de(Y0 + ty + h), 7), round((X0 + tx) / n_mundo * 360 - 180, 7),
-                                         round(lat_de(Y0 + ty), 7), round((X0 + tx + w) / n_mundo * 360 - 180, 7)],
-                              'largura': w, 'altura': h, 'png': base64.b64encode(png_paleta(sub, paleta)).decode('ascii')})
-    feicoes, caixas, conferencia = [], [], {}
-    for c, v in enumerate(classes, 1):
-        linhas_c, colunas_c = np.nonzero((img == c).any(1))[0].tolist(), np.nonzero((img == c).any(0))[0].tolist()
-        caixas.append([round(lat_de(Y0 + linhas_c[-1] + 1), 6), round((X0 + colunas_c[0]) / n_mundo * 360 - 180, 6),
-                       round(lat_de(Y0 + linhas_c[0]), 6), round((X0 + colunas_c[-1] + 1) / n_mundo * 360 - 180, 6)])
-        ha_px = float(((img == c).sum(1) * ha_linha).sum())
-        conferencia[v] = {'pixels': int((img == c).sum()), 'area_pixels_ha': round(ha_px), 'area_fonte_ha': round(area_attr[c]),
-                          'diferenca_pct': round(100 * (ha_px - area_attr[c]) / area_attr[c], 2)}
-        if abs(conferencia[v]['diferenca_pct']) > 1:
-            val['erros'].append(f'{v}: área dos pixels difere {conferencia[v]["diferenca_pct"]}% da área da fonte')
-        feicoes.append({'geom': None, 'valores': {'classe': v, 'area_ha': round(area_attr[c], 1), 'n_poligonos': n_pol[c]}})
-    val['registros_fonte'] = len(leitor)
-    val['imagem'] = {'zoom': r['zoom'], 'largura': W, 'altura': H, 'ladrilhos': len(ladrilhos), 'vertices': n_vert,
-                     'vertices_fora_da_grade': fora_da_grade, 'pixels_de_duas_classes': sobrepostos, 'classes': conferencia}
-    if sobrepostos:
-        val['alertas'].append(f'{sobrepostos} pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda')
-    campos = list(spec['campos'])
-    valores, dic = colunas_de_saida(feicoes, campos)
-    pacote = {'id': spec['id'], 'formato': 'imagem-v1', 'geometria': 'raster', 'n': len(feicoes),
-              'bounds': {'lat0': round(lat_de(Y1), 7), 'lon0': round(X0 / n_mundo * 360 - 180, 7), 'lat1': round(lat_de(Y0), 7),
-                         'lon1': round(X1 / n_mundo * 360 - 180, 7)},
-              'zoom': r['zoom'], 'origem_px': [X0, Y0], 'largura': W, 'altura': H, 'ladrilho': T, 'paleta': paleta,
-              'caixas': caixas, 'ladrilhos': ladrilhos, 'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
-    return pacote, {'campos': campos}, val
+    T = o['ladrilho']
+    pacotes, campos = {}, list(spec['campos'])
+    for ano, linha in meta['anos'].items():
+        png = (pasta / linha['arquivo']).read_bytes()
+        val['arquivos'].append({'arquivo': linha['arquivo'], 'bytes': len(png)})
+        if hashlib.sha256(png).hexdigest() != linha['sha256']:
+            val['erros'].append(f"{linha['arquivo']}: sha256 diferente do de metadados.json")
+        img = ler_png_paleta(png)
+        if img.shape != (H, W):
+            val['erros'].append(f"{linha['arquivo']}: {img.shape[1]} × {img.shape[0]} pixels, a grade tem {W} × {H}")
+            continue
+        pixels = {str(c): int(np.count_nonzero(img == c)) for c in range(1, len(classes) + 1)}
+        if pixels != linha['pixels']:
+            val['erros'].append(f"{linha['arquivo']}: pixels por classe {pixels} ≠ metadados.json {linha['pixels']}")
+        ladrilhos = []
+        for ty in range(0, H, T):
+            for tx in range(0, W, T):
+                sub = img[ty:ty + T, tx:tx + T]
+                if not sub.any():
+                    continue
+                h, w = sub.shape
+                ladrilhos.append({'x': tx // T, 'y': ty // T,
+                                  'bounds': [round(lat_mercator(Y0 + ty + h, n_mundo), 7), round((X0 + tx) / n_mundo * 360 - 180, 7),
+                                             round(lat_mercator(Y0 + ty, n_mundo), 7), round((X0 + tx + w) / n_mundo * 360 - 180, 7)],
+                                  'largura': w, 'altura': h, 'png': base64.b64encode(png_paleta(sub, paleta)).decode('ascii')})
+        feicoes, caixas = [], []
+        for c, nome in enumerate(classes, 1):
+            linhas_c, colunas_c = np.nonzero((img == c).any(1))[0].tolist(), np.nonzero((img == c).any(0))[0].tolist()
+            caixas.append([round(lat_mercator(Y0 + linhas_c[-1] + 1, n_mundo), 6), round((X0 + colunas_c[0]) / n_mundo * 360 - 180, 6),
+                           round(lat_mercator(Y0 + linhas_c[0], n_mundo), 6), round((X0 + colunas_c[-1] + 1) / n_mundo * 360 - 180, 6)]
+                          if linhas_c else None)
+            feicoes.append({'geom': None, 'valores': {'ano': int(ano), 'classe': nome, 'area_ha': linha['area_ha_grupos'][str(c)],
+                                                      'pixels': pixels[str(c)]}})
+        valores, dic = colunas_de_saida(feicoes, campos)
+        pacotes[int(ano)] = {'id': f"{spec['id']}_{ano}", 'formato': 'imagem-v1', 'geometria': 'raster', 'ano': int(ano), 'n': len(feicoes),
+                             'bounds': {'lat0': round(lat_mercator(Y0 + H, n_mundo), 7), 'lon0': round(X0 / n_mundo * 360 - 180, 7),
+                                        'lat1': round(lat_mercator(Y0, n_mundo), 7), 'lon1': round((X0 + W) / n_mundo * 360 - 180, 7)},
+                             'zoom': zoom, 'origem_px': [X0, Y0], 'largura': W, 'altura': H, 'ladrilho': T, 'paleta': paleta,
+                             'caixas': caixas, 'ladrilhos': ladrilhos, 'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
+        val['anos'][ano] = {'pixels': pixels, 'ladrilhos': len(ladrilhos), 'area_ha': linha['area_ha_grupos'], 'baixado_em': linha['baixado_em']}
+    # o mesmo ano na camada do pacote do Squad 1 (a mesma coleção, tirada da plataforma do MapBiomas): quantos pixels de Goiás batem
+    comp = o.get('comparar_com')
+    if comp and comp['ano'] in pacotes:
+        pac, PX0, PY0 = rasterizar_pacote(comp, classes, zoom)
+        serie = ler_png_paleta((pasta / meta['anos'][str(comp['ano'])]['arquivo']).read_bytes())
+        go = limite_goias(cfg)
+        shapely.prepare(go)
+        lon_c = (X0 + np.arange(W) + 0.5) / n_mundo * 360 - 180
+        dentro = np.zeros((H, W), bool)
+        for y in range(H):
+            dentro[y] = shapely.contains_xy(go, lon_c, np.full(W, lat_mercator(Y0 + y + 0.5, n_mundo)))
+        alinhado = np.zeros((H, W), np.uint8)  # o pacote na grade da série (as duas são pixels do mesmo zoom; só a origem muda)
+        ys, xs = slice(max(0, PY0 - Y0), min(H, PY0 - Y0 + pac.shape[0])), slice(max(0, PX0 - X0), min(W, PX0 - X0 + pac.shape[1]))
+        alinhado[ys, xs] = pac[ys.start - (PY0 - Y0):ys.stop - (PY0 - Y0), xs.start - (PX0 - X0):xs.stop - (PX0 - X0)]
+        iguais = float((serie[dentro] == alinhado[dentro]).mean())
+        val['comparacao_pacote'] = {'ano': comp['ano'], 'pixels_em_goias': int(dentro.sum()), 'iguais_pct': round(100 * iguais, 1)}
+    meta_serie = {'campos': campos, 'anos': sorted(pacotes), 'grade': g, 'meta': meta}
+    return pacotes, meta_serie, val
 
 
 # ---------------------------------------------------------------- camadas que já estão no Atlas
@@ -954,17 +988,34 @@ def entrada_catalogo(spec, cfg, meta, n, n_fonte, nbytes, val=None):
         e['dados'] = {'endpoint': o['endpoint'], 'arquivo': o['arquivo'], 'formato': o['formato'], **({'chave_json': o['chave_json']} if 'chave_json' in o else {})}
         e['data_retrato'] = spec.get('data_retrato')
         e['campos'] = spec['campos']
+    elif o['tipo'] == 'serie':
+        anos, padrao = meta['anos'], meta['anos'][-1]
+        modelo = f"data/mapa/camadas/{spec['id']}_{{ano}}.json"
+        e['dados'] = {'endpoint': f"/api/mapa/camadas/{spec['id']}_{padrao}", 'arquivo': modelo.format(ano=padrao), 'formato': 'imagem-v1',
+                      'serie': {'anos': anos, 'ano_padrao': padrao, 'endpoint': f"/api/mapa/camadas/{spec['id']}_{{ano}}", 'arquivo': modelo}}
+        datas = sorted({v['baixado_em'] for v in meta['meta']['anos'].values()})
+        e['data_retrato'] = datas[0] if len(datas) == 1 else datas
+        e['campos'] = meta['campos']
+        pasta = o['pasta']
+        e['serie'] = {'pasta': pasta, 'leiame': f"{Path(pasta).parent.as_posix()}/LEIA-ME.md", 'url': f"{cfg['repositorio']}/tree/main/{quote(pasta)}",
+                      'colecao': meta['meta']['colecao'], 'metodo': meta['meta']['metodo'],
+                      'anos': len(anos), 'bytes_total': sum(a['bytes'] for a in val['arquivos'])}
+        e['recorte'] = spec['recorte']
+        g = meta['grade']
+        e['imagem'] = {'zoom': g['zoom'], 'largura': g['largura'], 'altura': g['altura'], 'ladrilhos': val['anos'][str(padrao)]['ladrilhos']}
+        e['notas'] = list(spec.get('notas', []))
+        if 'comparacao_pacote' in val:
+            c = val['comparacao_pacote']
+            e['notas'].append(f"Em {c['ano']}, {str(c['iguais_pct']).replace('.', ',')}% dos pixels de Goiás têm a mesma classe na camada de vegetação do "
+                              f"pacote do Squad 1 (a mesma coleção, tirada da plataforma do MapBiomas). A diferença vem do jeito de levar os 30 m a ~150 m.")
     elif o['tipo'] == 'pacote':
-        e['dados'] = {'endpoint': f"/api/mapa/camadas/{spec['id']}", 'arquivo': f"data/mapa/camadas/{spec['id']}.json",
-                      'formato': 'imagem-v1' if 'raster' in o else 'mapa-v1'}
+        e['dados'] = {'endpoint': f"/api/mapa/camadas/{spec['id']}", 'arquivo': f"data/mapa/camadas/{spec['id']}.json", 'formato': 'mapa-v1'}
         e['data_retrato'] = spec['data_retrato']
         e['campos'] = meta['campos']
         pasta = Path(o['arquivo']).parent.as_posix()
         e['pacote'] = {'arquivo': o['arquivo'], 'camada': Path(o['membro']).name, 'leiame': f'{pasta}/LEIA-ME.md',
                        'url': f"{cfg['repositorio']}/tree/main/{quote(pasta)}"}
         e['recorte'] = spec['recorte']
-        if 'raster' in o:
-            e['imagem'] = {k: val['imagem'][k] for k in ('zoom', 'largura', 'altura', 'ladrilhos')}
         if spec.get('tolerancia'):
             e['simplificacao'] = {'tolerancia_graus': spec['tolerancia'], 'nota': spec.get('nota_tolerancia', 'Douglas-Peucker preservando topologia; o detalhe fica no zip de origem.')}
     else:
@@ -979,8 +1030,12 @@ def entrada_catalogo(spec, cfg, meta, n, n_fonte, nbytes, val=None):
         if spec.get('tolerancia'):
             e['simplificacao'] = {'tolerancia_graus': spec['tolerancia'], 'nota': spec.get('nota_tolerancia', 'Douglas-Peucker preservando topologia; o detalhe e os identificadores ficam no zip de origem.')}
     e['fonte'] = spec['fonte']
-    e['temporalidade'] = 'retrato'
-    e['periodo_referencia'] = spec.get('periodo_referencia')
+    if o['tipo'] == 'serie':  # um mapa por ano: aqui o ano escolhido no mapa é mesmo o ano do dado
+        e['temporalidade'] = 'serie_anual'
+        e['periodo_referencia'] = f"{meta['anos'][0]}–{meta['anos'][-1]} (um mapa por ano)"
+    else:
+        e['temporalidade'] = 'retrato'
+        e['periodo_referencia'] = spec.get('periodo_referencia')
     if val and 'posicao_aproximada' in val:
         e['n_posicao_aproximada'] = val['posicao_aproximada']
     e['crs'] = UNIDADE_CRS
@@ -1017,7 +1072,7 @@ def montar(cfg):
     minas_por_mun = []
     for spec in cfg['camadas']:
         # O grupo do painel é a pasta temática do Squad 1: nas camadas do P3M ele vem do inventário, nas do Atlas, do catálogo.
-        if spec['origem']['tipo'] in ('atlas', 'pacote'):
+        if spec['origem']['tipo'] in ('atlas', 'pacote', 'serie'):
             assert spec['grupo'] in grupos, f"{spec['id']}: grupo {spec['grupo']} não existe"
         else:
             assert 'grupo' not in spec, f"{spec['id']}: o grupo de uma camada do P3M vem da pasta temática no inventário"
@@ -1031,8 +1086,19 @@ def montar(cfg):
             if val['distintos'] != val['feicoes']:
                 validacao['alertas'].append(f"{spec['id']}: {val['feicoes'] - val['distintos']} chaves repetidas no Atlas")
             continue
+        if spec['origem']['tipo'] == 'serie':
+            pacotes, meta, val = camada_serie(spec, cfg)
+            for ano, pacote in pacotes.items():
+                camadas_saida[pacote['id']] = pacote
+                val['anos'][str(ano)]['bytes'] = len(json.dumps(pacote, ensure_ascii=False, separators=(',', ':')).encode('utf-8'))
+            padrao = pacotes[max(pacotes)]
+            entradas.append(entrada_catalogo(spec, cfg, meta, padrao['n'], None, val['anos'][str(max(pacotes))]['bytes'], val))
+            validacao['camadas'][spec['id']] = {'origem': 'serie', **val}
+            validacao['erros'] += [f"{spec['id']}: {e}" for e in val.pop('erros')]
+            validacao['alertas'] += [f"{spec['id']}: {a}" for a in val.pop('alertas')]
+            continue
         if spec['origem']['tipo'] == 'pacote':
-            pacote, meta, val = (camada_imagem if 'raster' in spec['origem'] else camada_pacote)(spec, cfg)
+            pacote, meta, val = camada_pacote(spec, cfg)
             nbytes = len(json.dumps(pacote, ensure_ascii=False, separators=(',', ':')).encode('utf-8'))
             camadas_saida[spec['id']] = pacote
             entradas.append(entrada_catalogo(spec, cfg, meta, pacote['n'], val['registros_fonte'], nbytes, val))
@@ -1105,7 +1171,8 @@ def montar(cfg):
                         'inventario': {'arquivo': cfg['p3m']['inventario'], 'url': cfg['p3m']['inventario_url'], 'camadas': n_inventario,
                                        'no_mapa': len({f['camada'] for e in entradas for f in e.get('p3m', [])})}},
                 'temporalidade': ('Toda camada é um retrato na data_retrato (situação naquele dia); escolher um ano anterior não a transforma '
-                                  'em histórico. Séries anuais só existem nas medidas da tabela municipios, cada uma com seus períodos.'),
+                                  'em histórico. Séries anuais só existem nas medidas da tabela municipios, cada uma com seus períodos, e nas '
+                                  'camadas com temporalidade serie_anual (um mapa por ano, dados.serie).'),
                 'formato_camadas': {
                     'mapa-v1': ('xy: pares Uint16 (x = longitude, y = latitude invertida) em base64; partStart: Uint32 (início de cada parte, '
                                 'mais o total); partFeat: Uint32 (feição de cada parte). Parte = ponto, linha ou anel; anéis da mesma feição '
@@ -1115,7 +1182,8 @@ def montar(cfg):
                     'imagem-v1': ('ladrilhos PNG de paleta (o índice 0 é transparente; o índice k é a classe k da legenda, que é a feição k − 1) na '
                                   'grade de pixels de Web Mercator do zoom indicado, a partir do pixel origem_px; o ladrilho (x, y) começa no '
                                   'pixel (x, y)·ladrilho; ladrilho sem pixel de classe não é gravado; bounds de cada ladrilho = [sul, oeste, norte, leste]; '
-                                  'caixas[i] = extensão da classe i; os atributos de cada classe em valores, como no mapa-v1.'),
+                                  'caixas[i] = extensão da classe i (null se a classe não aparece); os atributos de cada classe em valores, como no '
+                                  'mapa-v1. Uma série (dados.serie) tem um arquivo por ano: troque {ano} no endpoint.'),
                     'processos-atlas': 'formato de /api/atlas/processes (public/processes.js)',
                     'colunas-lat-lon': "atlas.json[chave_json] = {cols, rows}, com colunas lat e lon",
                     'lista-lat-lon': 'atlas.json[chave_json] = lista de objetos com lat e lon',

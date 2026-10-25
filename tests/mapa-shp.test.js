@@ -159,7 +159,7 @@ ok('prj: SIRGAS 2000 para EPSG:4674; nada para CRS desconhecido', /SIRGAS_2000/.
  let erro = null; try { S.paletaPng(png.slice(0, 8 + 25), {1: [0, 0, 0]}) } catch (e) { erro = e }
  ok('paleta: PNG sem PLTE dá erro', erro !== null);
  // ladrilho real da camada de vegetação: a troca mantém o PNG válido
- const veg = lerJson('data/mapa/camadas/vegetacao_nativa.json'), bytes = M.binario(veg.ladrilhos[0].png, Uint8Array);
+ const veg = lerJson(lerJson('data/mapa/catalogo.json').camadas.find(e => e.id === 'vegetacao_nativa').dados.arquivo), bytes = M.binario(veg.ladrilhos[0].png, Uint8Array);
  const v = chunks(S.paletaPng(bytes, {1: [0, 0, 0], 2: [9, 9, 9]}));
  ok('paleta: ladrilho da vegetação continua com CRC certo em todos os blocos', Object.values(v).every(x => x.crc === x.crcCerto));
 }

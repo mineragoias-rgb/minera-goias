@@ -96,7 +96,7 @@ jobs:
         run: |
           git add -A -- "Squad 1/P3M" "Squad 1/Dados brutos" "Squad 1/MapBiomas" "Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv"
           git diff --cached --quiet && exit 0
-          { echo "dados(robo): bases do P3M e da ANM baixadas em $(date +%F)"; echo; cat "$RUNNER_TEMP/robo.md"; echo;
+          { echo "dados(robo): bases baixadas em $(date +%F)"; echo; cat "$RUNNER_TEMP/robo.md"; echo;
             echo 'Gerado por .github/workflows/robo-bases.yml (robo/robo_bases.py).'; } > "$RUNNER_TEMP/msg.txt"
           git commit -q -F "$RUNNER_TEMP/msg.txt"
 

@@ -1,12 +1,12 @@
 # Mapa Mineral de Goiás — dados
 
 Dados da aba "Mapa Mineral de Goiás" (inspirada no P3M do SGB). Tudo aqui sai de `scripts/build_mapa_base.py`, que lê o catálogo
-editável `scripts/mapa_camadas.json`. Nenhum número é digitado à mão. A pasta vai para a VPS (o `git archive` inclui `data/`); os zips do P3M
-e o pacote de vegetação e rios não vão (`Squad 1/P3M/.gitattributes` e `Squad 1/Mapa vegetação e rios 2025/.gitattributes` têm
-`export-ignore`). Por isso as camadas já saem prontas daqui.
+editável `scripts/mapa_camadas.json`. Nenhum número é digitado à mão. A pasta vai para a VPS (o `git archive` inclui `data/`); os zips do P3M,
+o pacote de vegetação e rios e os PNGs do MapBiomas não vão (`Squad 1/P3M/.gitattributes`, `Squad 1/Mapa vegetação e rios 2025/.gitattributes`
+e `Squad 1/MapBiomas/.gitattributes` têm `export-ignore`). Por isso as camadas já saem prontas daqui.
 
-Gerar de novo (precisa de `pyshp`, `shapely` >= 2 e `openpyxl`; leva uns 40 s). Na main, a etapa `mapa` de `scripts/atualizar_derivados.py`
-(workflow `atualizar-derivados.yml`) refaz tudo sozinha quando o P3M, o pacote de vegetação e rios, o inventário ou o gerador mudam, logo depois da etapa
+Gerar de novo (precisa de `pyshp`, `shapely` >= 2, `numpy` e `openpyxl`; leva uns 3 min, quase tudo na série da vegetação). Na main, a etapa `mapa` de `scripts/atualizar_derivados.py`
+(workflow `atualizar-derivados.yml`) refaz tudo sozinha quando o P3M, o pacote de vegetação e rios, a série do MapBiomas, o inventário ou o gerador mudam, logo depois da etapa
 `inventario_p3m`, com pyshp 3.1.6 e shapely 2.2.0 (outra versão do GEOS simplifica diferente):
 
     python scripts/build_mapa_base.py            # grava data/mapa/
@@ -22,13 +22,14 @@ A saída não tem data de geração: as mesmas entradas gravam os mesmos bytes. 
 | Arquivo | Endpoint (sessão de leitor) | O que é |
 |---|---|---|
 | `catalogo.json` | `GET /api/mapa/catalogo` | Grupos, camadas e tabelas: origem, campos com rótulo PT/EN, tipo e unidade, datas, legenda, carga, filtros, tamanho e contagens |
-| `camadas/<id>.json` | `GET /api/mapa/camadas/<id>` | Geometria quantizada e atributos em colunas (formato `mapa-v1`) ou, na vegetação, ladrilhos PNG (formato `imagem-v1`) |
+| `camadas/<id>.json` | `GET /api/mapa/camadas/<id>` | Geometria quantizada e atributos em colunas (formato `mapa-v1`) ou, na vegetação, ladrilhos PNG (formato `imagem-v1`), um arquivo por ano: `camadas/vegetacao_nativa_<ano>.json` |
 | `tabelas/municipios.json` | `GET /api/mapa/tabelas/municipios` | Indicadores por município, cada medida com unidade, período e se pode ser somada entre municípios |
 | `tabelas/radar_projetos.json` | `GET /api/mapa/tabelas/radar_projetos` | Os 1.040 projetos do Radar, com os processos da ANM que os ligam ao mapa |
 | `tabelas/processos_complemento.json` | `GET /api/mapa/tabelas/processos_complemento` | Titular (só pessoa jurídica), municípios IBGE e mineral de cada processo do Atlas |
 | `validacao.json` | — (não é servido) | Contagens, chaves, junções, divisa, simplificação e tamanhos de cada camada |
 
 A API (`Squad 3/backend/mapa.py`) só entrega os ids que o catálogo publica. Sem sessão, responde 401; com id desconhecido, 404.
+Na série da vegetação, os ids são `vegetacao_nativa_<ano>`, um por ano de `dados.serie.anos`; `vegetacao_nativa` sozinho dá 404.
 Camadas que já existem no Atlas **não são copiadas**: o catálogo aponta `processos` para `/api/atlas/processes`, e `municipios`,
 `projetos_anm`, `ocorrencias` e `barragens` para `/api/atlas`.
 
@@ -52,24 +53,30 @@ O mesmo de `data/atlas/processes.json`, generalizado para pontos e linhas:
 
 ### Formato `imagem-v1`
 
-Para a vegetação nativa do MapBiomas, que no pacote do Squad 1 são 139.030 polígonos tirados de uma imagem de ~150 m. Simplificar
-esses polígonos para a web daria de 3 a 8 MB e ainda apagaria os fragmentos pequenos (até 10% da área). Então a camada volta a ser imagem,
-na mesma grade de onde veio: os pixels de Web Mercator do zoom 10 (0,0013733° de longitude). Os polígonos têm os vértices nessa grade; só os
-do corte no limite de Goiás saem dela (0,1%). Nada é simplificado nem omitido, e o arquivo tem 1,7 MB.
+Para a vegetação nativa do MapBiomas. No pacote do Squad 1, a de 2025 são 139.030 polígonos tirados de uma imagem de ~150 m; simplificar
+esses polígonos para a web daria de 3 a 8 MB e ainda apagaria os fragmentos pequenos (até 10% da área). Então a camada é imagem, na grade
+da camada do MapBiomas na web: os pixels de Web Mercator do zoom 10 (0,0013733° de longitude, uns 150 m). Nada é simplificado nem omitido.
 
 - `ladrilhos`: PNG de paleta (2 bits por pixel) de até `ladrilho` × `ladrilho` pixels, em base64. O índice 0 é transparente e o índice
   `k`, a classe `k` da legenda (a feição `k − 1`). Ladrilho sem pixel de classe não é gravado. `x` e `y` dizem que o ladrilho começa no
   pixel `(x, y) · ladrilho` a partir de `origem_px`; `bounds` = `[sul, oeste, norte, leste]`, para o `L.imageOverlay`.
-- Cada classe é uma feição, com os atributos em `valores` (como no `mapa-v1`) e a extensão em `caixas[i]`. Não tem anéis.
-- Pixel de uma classe = centro do pixel dentro de um polígono dela (regra par-ímpar, que também resolve buracos e ilhas). A área
-  dos pixels bate com a área que o pacote informa: diferença de 0,02% e 0,03% (`validacao.json`). Em 448 pixels, polígonos das
-  duas classes se sobrepõem na fonte; eles ficam com a primeira classe da legenda.
+- Cada classe é uma feição, com os atributos em `valores` (como no `mapa-v1`) e a extensão em `caixas[i]` (`null` se a classe não
+  aparece naquele ano). Não tem anéis. `ano` é o ano do arquivo.
+- **Série anual.** Um arquivo por ano, de 1985 a 2025 (41 anos, 1,8 a 2,0 MB cada, 79,0 MB ao todo). O catálogo diz os anos em
+  `dados.serie` (`anos`, `ano_padrao` e `endpoint` e `arquivo` com `{ano}`) e marca a camada com `temporalidade: "serie_anual"`. O
+  navegador baixa só o ano escolhido no seletor de ano, que aparece quando a camada está ligada.
+- Os PNGs vêm prontos do robô de atualização, em `Squad 1/MapBiomas/cobertura_colecao11` (método no LEIA-ME de lá): cada pixel da grade
+  fica com o grupo (florestal ou não florestal) que cobre a maior parte da sua área nos pixels de 30 m do GeoTIFF do MapBiomas, e pixel
+  com o centro fora de Goiás fica vazio. O gerador confere o sha256, as dimensões e os pixels de cada classe com o `metadados.json` do
+  robô. A área de cada classe (`area_ha`) é a que o robô contou nos pixels de 30 m dentro de Goiás.
+- Em 2025, 93,5% dos pixels de Goiás têm a mesma classe na camada de vegetação do pacote do Squad 1 (`comparacao_pacote` em
+  `validacao.json`).
 - No navegador, trocar a cor de uma classe reescreve só a paleta do PNG (`MapaShp.paletaPng`), sem decodificar a imagem. O clique lê a
-  classe do pixel no PNG original. A camada não tem shapefile para baixar: as camadas originais estão no pacote, no GitHub.
+  classe do pixel no PNG original. A camada não tem shapefile para baixar: os GeoTIFFs de origem estão no bucket público do MapBiomas.
 
 ## Camadas (versão de 22/10/2026)
 
-47 camadas: 39 do P3M, 3 do pacote de vegetação e rios do Squad 1 e 5 reaproveitadas do Atlas. Os grupos do painel são as 8 pastas temáticas do Squad 1
+47 camadas: 39 do P3M, a vegetação nativa do MapBiomas (série anual), 2 do pacote de vegetação e rios do Squad 1 e 5 reaproveitadas do Atlas. Os grupos do painel são as 8 pastas temáticas do Squad 1
 (`Squad 1/P3M/<pasta>`, encaixadas na classificação do site P3M), na ordem das pastas e com o nome sem o número. O grupo de cada
 camada do P3M sai do inventário, pela pasta do seu zip; as do Atlas ficam na pasta da camada equivalente do P3M. No topo do painel,
 fora dos grupos, ficam o limite de Goiás e os municípios, e logo abaixo o "Fundo liso" (tira o mapa-base: sem vegetação, ruas e
@@ -77,7 +84,8 @@ cidades). Depois vêm as camadas do P3M pasta por pasta, o Radar de Projetos ("L
 reaproveitadas ("Também na aba Atlas e panorama"). Cada camada pode ser
 baixada inteira como shapefile (.zip montado no navegador por `public/mapa-shp.js`).
 
-As 39 camadas do P3M somam 4,0 MB (1,9 MB na rede) e as 3 do pacote, 2,3 MB; as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
+As 39 camadas do P3M somam 4,0 MB (1,9 MB na rede) e as 2 do pacote, 621 KB; a vegetação tem um arquivo de 1,8 a 2,0 MB por ano
+(79,0 MB nos 41 anos), e o navegador baixa só o do ano escolhido; as 5 do Atlas reaproveitam `atlas.json` (2,1 MB) e
 `processes.json` (2,6 MB). A API manda esses arquivos em gzip quando o navegador aceita (`Squad 3/backend/compressed.py`): na rede,
 `atlas.json` tem 520 KB e `processes.json`, 1,7 MB. A API também manda `no-store`, então cada abertura do painel baixa de novo. Por isso só
 três camadas são de carga inicial: `limite_goias` (54 KB, 40 KB na rede), `minas_ativas` (172 KB, 94 KB na rede) e `municipios` (do
@@ -142,23 +150,25 @@ publicada não muda.
 | Atividade mineira | `projetos_anm` | 3.377 | `atlas.json` | 10/09/2026 |
 | Recursos minerais | `ocorrencias` | 1.796 | `atlas.json` | 12/09/2026 |
 
-Do pacote "Mapa vegetação e rios 2025" do Squad 1 (`Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip`, montado em 22/10/2026,
-já recortado pelo limite de Goiás). As três ficam no grupo "Cartografia: território e áreas especiais":
+Da série do MapBiomas, que o robô de atualização grava em `Squad 1/MapBiomas`, e do pacote "Mapa vegetação e rios 2025" do Squad 1
+(`Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip`, montado em 22/10/2026, já recortado pelo limite de Goiás). As três ficam
+no grupo "Cartografia: território e áreas especiais":
 
 | Camada | Fonte | Feições | Tamanho | Período |
 |---|---|---:|---|---|
-| `vegetacao_nativa` (imagem) | MapBiomas, Coleção 11, camada da plataforma (~150 m) | 2 classes (139.030 polígonos) | 1,7 MB | 2025 |
+| `vegetacao_nativa` (imagem, um arquivo por ano) | MapBiomas, Coleção 11, GeoTIFF de 30 m levado à grade de ~150 m | 2 classes | 1,8 a 2,0 MB por ano | 1985–2025 |
 | `agua_superficial` | MapBiomas, Coleção 11, classe 33 | 1.820 | 283 KB | 2025 |
 | `rios` | OpenStreetMap (rios com nome; ODbL) | 346 | 338 KB | não informado |
 
-O pacote traz um ano só (2025). Com a série do MapBiomas, cada ano seria um conjunto de ladrilhos da mesma camada.
+O pacote também traz a vegetação nativa, mas de um ano só (2025): ela foi trocada pela série e serve só de comparação.
 
 "Baixada em" é o retrato da camada (`data_retrato` no catálogo): o dia em que o zip foi baixado, tirado da coluna `data_download`
 do inventário. A tabela acima é a de 22/10/2026; desde então o robô de atualização (`robo/`) baixa as camadas de novo uma vez por mês (dia 1º)
 e troca a data das que mudaram, e a data em vigor de cada camada está no inventário e no botão "i" da aba. "Atualização no SGB" é a última atualização que o próprio SGB publica para a camada (portal de dados do SGB ou metadado
 do catálogo do P3M); para a maioria, ele não publica. O período a que o dado se refere (`periodo_referencia`) é
-outra coisa e, na maioria das camadas do P3M, a fonte não informa: fica `null`. Toda camada é um retrato (`temporalidade: "retrato"`).
-Escolher um ano anterior no mapa não a transforma em histórico. Séries anuais só existem na tabela `municipios`.
+outra coisa e, na maioria das camadas do P3M, a fonte não informa: fica `null`. Toda camada é um retrato (`temporalidade: "retrato"`),
+menos a vegetação nativa, que tem um mapa por ano (`"serie_anual"`). Escolher um ano anterior no mapa não transforma as outras em
+histórico. Fora da vegetação, séries anuais só existem na tabela `municipios`.
 
 ## Inventário do P3M e o que ficou de fora
 

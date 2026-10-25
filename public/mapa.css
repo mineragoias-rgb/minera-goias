@@ -61,6 +61,17 @@
 /* raster layers (imagem-v1): from the zoom of the source grid on, its pixels stay square instead of blurred; below it the browser
    averages them when shrinking (square pixels would keep one in ten and thin the vegetation out) */
 #mapa-map .mp-nitido .mp-raster{image-rendering:pixelated}
+/* year selector of a yearly series (bottom left, above the scale), shown only while the series layer is on */
+#mapa-map .mp-ano{background:white;padding:6px 10px 4px;width:250px;max-width:calc(100vw - 40px);font-size:11px;color:var(--ink);box-sizing:border-box}
+#mapa-map .mp-ano[hidden]{display:none}
+#mapa-map .mp-ano-cab{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+#mapa-map .mp-ano-cab span{overflow:hidden;text-overflow:ellipsis;font-weight:600}
+#mapa-map .mp-ano-valor{font-size:15px;font-weight:700;color:#07345c;font-variant-numeric:tabular-nums}
+#mapa-map .mp-ano-estado{color:#57768b}
+#mapa-map .mp-ano-linha{display:flex;align-items:center;gap:4px;margin-top:2px}
+#mapa-map .mp-ano-linha input{flex:1 1 auto;min-width:0;margin:0}
+#mapa-map .mp-ano-linha .mp-ico{width:22px;height:22px}
+#mapa-map .mp-ano-limites{display:flex;justify-content:space-between;color:#57768b;font-size:10px;padding:0 52px 0 26px}
 /* Goiás, municipalities and the plain background: above the groups, without a heading */
 #mapa-view .mp-base{border-bottom:1px solid var(--line);margin-bottom:-1px}
 #mapa-view .mp-flat{padding:6px 10px 6px 14px;border-top:1px solid #eef3f6}

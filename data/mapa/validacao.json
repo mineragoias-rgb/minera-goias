@@ -1608,42 +1608,715 @@
    "bytes": 27534
   },
   "vegetacao_nativa": {
-   "origem": "pacote",
+   "origem": "serie",
    "arquivos": [
     {
-     "arquivo": "mapa_goias_2025.zip: vegetacao_nativa_goias_2025",
-     "registros": 139030
+     "arquivo": "vegetacao_nativa_goias_1985.png",
+     "bytes": 1613797
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1986.png",
+     "bytes": 1608351
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1987.png",
+     "bytes": 1600215
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1988.png",
+     "bytes": 1597005
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1989.png",
+     "bytes": 1594786
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1990.png",
+     "bytes": 1593722
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1991.png",
+     "bytes": 1593073
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1992.png",
+     "bytes": 1593454
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1993.png",
+     "bytes": 1591585
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1994.png",
+     "bytes": 1591027
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1995.png",
+     "bytes": 1585717
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1996.png",
+     "bytes": 1578858
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1997.png",
+     "bytes": 1578184
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1998.png",
+     "bytes": 1574324
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_1999.png",
+     "bytes": 1575354
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2000.png",
+     "bytes": 1579150
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2001.png",
+     "bytes": 1578786
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2002.png",
+     "bytes": 1578825
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2003.png",
+     "bytes": 1576692
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2004.png",
+     "bytes": 1571857
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2005.png",
+     "bytes": 1568616
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2006.png",
+     "bytes": 1565088
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2007.png",
+     "bytes": 1561315
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2008.png",
+     "bytes": 1557962
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2009.png",
+     "bytes": 1555816
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2010.png",
+     "bytes": 1549789
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2011.png",
+     "bytes": 1547168
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2012.png",
+     "bytes": 1543499
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2013.png",
+     "bytes": 1542690
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2014.png",
+     "bytes": 1540575
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2015.png",
+     "bytes": 1538251
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2016.png",
+     "bytes": 1534879
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2017.png",
+     "bytes": 1531393
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2018.png",
+     "bytes": 1527886
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2019.png",
+     "bytes": 1524414
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2020.png",
+     "bytes": 1521478
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2021.png",
+     "bytes": 1517261
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2022.png",
+     "bytes": 1512215
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2023.png",
+     "bytes": 1509764
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2024.png",
+     "bytes": 1506166
+    },
+    {
+     "arquivo": "vegetacao_nativa_goias_2025.png",
+     "bytes": 1494286
     }
    ],
    "erros": [],
-   "alertas": [
-    "448 pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda"
-   ],
-   "registros_fonte": 139030,
-   "imagem": {
-    "zoom": 10,
-    "largura": 5345,
-    "altura": 5338,
-    "ladrilhos": 26,
-    "vertices": 2233113,
-    "vertices_fora_da_grade": 2335,
-    "pixels_de_duas_classes": 448,
-    "classes": {
-     "Vegetação nativa florestal": {
-      "pixels": 4615545,
-      "area_pixels_ha": 9990081,
-      "area_fonte_ha": 9992114,
-      "diferenca_pct": -0.02
+   "alertas": [],
+   "anos": {
+    "1985": {
+     "pixels": {
+      "1": 8320959,
+      "2": 752076
      },
-     "Vegetação nativa não florestal": {
-      "pixels": 418639,
-      "area_pixels_ha": 900790,
-      "area_fonte_ha": 901089,
-      "diferenca_pct": -0.03
-     }
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 18065085.7,
+      "2": 1753090.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2085840
+    },
+    "1986": {
+     "pixels": {
+      "1": 7953628,
+      "2": 691618
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 17296129.9,
+      "2": 1614669.1
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2078116
+    },
+    "1987": {
+     "pixels": {
+      "1": 7762238,
+      "2": 655874
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 16900983.1,
+      "2": 1532200.4
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2067841
+    },
+    "1988": {
+     "pixels": {
+      "1": 7578872,
+      "2": 637508
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 16518791.4,
+      "2": 1491588.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2063745
+    },
+    "1989": {
+     "pixels": {
+      "1": 7392427,
+      "2": 626707
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 16127356.4,
+      "2": 1466443.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2061109
+    },
+    "1990": {
+     "pixels": {
+      "1": 7219520,
+      "2": 615544
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 15764281.4,
+      "2": 1440443.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2060513
+    },
+    "1991": {
+     "pixels": {
+      "1": 7079929,
+      "2": 606916
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 15472672.0,
+      "2": 1421199.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2060593
+    },
+    "1992": {
+     "pixels": {
+      "1": 6930909,
+      "2": 600575
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 15160004.9,
+      "2": 1406359.6
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2061109
+    },
+    "1993": {
+     "pixels": {
+      "1": 6788217,
+      "2": 594375
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 14863663.9,
+      "2": 1391858.9
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2058245
+    },
+    "1994": {
+     "pixels": {
+      "1": 6608438,
+      "2": 588640
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 14486779.3,
+      "2": 1377700.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2057969
+    },
+    "1995": {
+     "pixels": {
+      "1": 6444777,
+      "2": 583878
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 14143026.2,
+      "2": 1366135.9
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2050493
+    },
+    "1996": {
+     "pixels": {
+      "1": 6335058,
+      "2": 575931
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 13911897.9,
+      "2": 1347453.1
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2042096
+    },
+    "1997": {
+     "pixels": {
+      "1": 6196161,
+      "2": 571447
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 13619159.9,
+      "2": 1336914.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2040872
+    },
+    "1998": {
+     "pixels": {
+      "1": 6087050,
+      "2": 567269
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 13390116.6,
+      "2": 1326663.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2035706
+    },
+    "1999": {
+     "pixels": {
+      "1": 5994553,
+      "2": 566579
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 13196749.8,
+      "2": 1324850.9
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2037622
+    },
+    "2000": {
+     "pixels": {
+      "1": 5894793,
+      "2": 577957
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 12987931.0,
+      "2": 1351447.6
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2043151
+    },
+    "2001": {
+     "pixels": {
+      "1": 5790768,
+      "2": 579112
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 12767701.8,
+      "2": 1354885.2
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2043102
+    },
+    "2002": {
+     "pixels": {
+      "1": 5689384,
+      "2": 578526
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 12553577.5,
+      "2": 1354186.4
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2043222
+    },
+    "2003": {
+     "pixels": {
+      "1": 5570895,
+      "2": 575856
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 12303640.7,
+      "2": 1348575.8
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2040526
+    },
+    "2004": {
+     "pixels": {
+      "1": 5462173,
+      "2": 571081
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 12073623.4,
+      "2": 1338538.6
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2034270
+    },
+    "2005": {
+     "pixels": {
+      "1": 5386639,
+      "2": 571037
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11913900.2,
+      "2": 1338156.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2030310
+    },
+    "2006": {
+     "pixels": {
+      "1": 5338072,
+      "2": 568920
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11813280.2,
+      "2": 1333244.2
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2025862
+    },
+    "2007": {
+     "pixels": {
+      "1": 5299549,
+      "2": 565603
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11731621.4,
+      "2": 1325081.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2020990
+    },
+    "2008": {
+     "pixels": {
+      "1": 5259712,
+      "2": 561599
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11647054.5,
+      "2": 1316251.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2017526
+    },
+    "2009": {
+     "pixels": {
+      "1": 5222241,
+      "2": 556947
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11569635.2,
+      "2": 1305751.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2014214
+    },
+    "2010": {
+     "pixels": {
+      "1": 5168281,
+      "2": 550413
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11454932.3,
+      "2": 1290544.8
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2006318
+    },
+    "2011": {
+     "pixels": {
+      "1": 5136890,
+      "2": 545100
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11389266.3,
+      "2": 1278769.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 2003402
+    },
+    "2012": {
+     "pixels": {
+      "1": 5100871,
+      "2": 538544
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11314637.6,
+      "2": 1263949.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1998814
+    },
+    "2013": {
+     "pixels": {
+      "1": 5065221,
+      "2": 538706
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11240217.8,
+      "2": 1265526.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1997586
+    },
+    "2014": {
+     "pixels": {
+      "1": 5030581,
+      "2": 536444
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11168084.6,
+      "2": 1260306.5
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1994930
+    },
+    "2015": {
+     "pixels": {
+      "1": 4998979,
+      "2": 532499
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11102069.2,
+      "2": 1251404.7
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1990999
+    },
+    "2016": {
+     "pixels": {
+      "1": 4976304,
+      "2": 528031
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 11055228.3,
+      "2": 1240982.6
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1986455
+    },
+    "2017": {
+     "pixels": {
+      "1": 4944087,
+      "2": 522128
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10987520.7,
+      "2": 1227723.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1981779
+    },
+    "2018": {
+     "pixels": {
+      "1": 4921299,
+      "2": 516769
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10939195.4,
+      "2": 1215040.9
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1977523
+    },
+    "2019": {
+     "pixels": {
+      "1": 4892251,
+      "2": 511560
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10878330.1,
+      "2": 1203142.4
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1973319
+    },
+    "2020": {
+     "pixels": {
+      "1": 4862163,
+      "2": 503978
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10814938.9,
+      "2": 1185886.2
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1969715
+    },
+    "2021": {
+     "pixels": {
+      "1": 4836837,
+      "2": 495953
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10763390.5,
+      "2": 1168091.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1963939
+    },
+    "2022": {
+     "pixels": {
+      "1": 4799630,
+      "2": 488418
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10684935.4,
+      "2": 1149351.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1957539
+    },
+    "2023": {
+     "pixels": {
+      "1": 4755472,
+      "2": 481145
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10592007.7,
+      "2": 1133237.3
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1954591
+    },
+    "2024": {
+     "pixels": {
+      "1": 4747466,
+      "2": 472363
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10576116.9,
+      "2": 1112886.0
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1950563
+    },
+    "2025": {
+     "pixels": {
+      "1": 4646449,
+      "2": 459194
+     },
+     "ladrilhos": 26,
+     "area_ha": {
+      "1": 10359649.6,
+      "2": 1080796.9
+     },
+     "baixado_em": "2026-10-25",
+     "bytes": 1935139
     }
    },
-   "bytes": 1775822
+   "comparacao_pacote": {
+    "ano": 2025,
+    "pixels_em_goias": 15866712,
+    "iguais_pct": 93.5
+   }
   },
   "agua_superficial": {
    "origem": "pacote",
@@ -2100,8 +2773,7 @@
  },
  "erros": [],
  "alertas": [
-  "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')",
-  "vegetacao_nativa: 448 pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda"
+  "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')"
  ],
  "radar_projetos": {
   "projetos": 1059,

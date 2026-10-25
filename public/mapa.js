@@ -39,6 +39,7 @@ function paneDe(e){
 }
 function estadoInicial(entrada,tipo){
  return {id:entrada.id,entrada,tipo,visivel:!!entrada.visivel_padrao,opacidade:1,cores:new Map(),status:'ocioso',erro:'',modelo:null,prom:null,
+  ano:entrada.dados&&entrada.dados.serie?entrada.dados.serie.ano_padrao:null,
   grupo:L.layerGroup(),ix:null,exibidos:[],modoPonto:false,aberto:false};
 }
 function caixa(partes){
@@ -263,7 +264,7 @@ async function tocarImagens(latlng){
   if(x<0||y<0||x>=im.largura||y>=im.altura)continue;
   const tx=Math.floor(x/im.ladrilho),ty=Math.floor(y/im.ladrilho),l=im.ladrilhos.find(q=>q.x===tx&&q.y===ty);if(!l)continue;
   try{
-   const img=await ladrilhoLido(st.id+':'+tx+':'+ty,l.png),cv=document.createElement('canvas');cv.width=cv.height=1;
+   const img=await ladrilhoLido(st.id+':'+st.modelo.ano+':'+tx+':'+ty,l.png),cv=document.createElement('canvas');cv.width=cv.height=1;
    const ctx=cv.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,-(x-tx*im.ladrilho),-(y-ty*im.ladrilho));
    const i=MapaDados.classeDaCor(ctx.getImageData(0,0,1,1).data,im.paleta);
    if(i!=null&&st.exibidos.includes(i))res.push({st,i});
@@ -394,6 +395,15 @@ function pacoteHtml(e){
   `<p><a href="${escape(e.pacote.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.pkgLink'))} ↗</a></p></div>`;
 }
 
+// A yearly series written by the update robot (Squad 1/MapBiomas): the folder, the collection, how 30 m became ~150 m, the link.
+function serieHtml(e){
+ if(!e.serie)return '';
+ return `<div class="mp-source mp-p3m"><p class="mp-p3m-head">${escape(t('mp.serieTitle'))}</p>`+
+  `<p><b>${escape(t('mp.serieFolder'))}:</b> ${escape(e.serie.pasta)} · <b>${escape(t('mp.serieCollection'))}:</b> ${escape(String(e.serie.colecao))}</p>`+
+  `<p class="mp-note">${escape(e.serie.metodo)}</p>`+
+  `<p><a href="${escape(e.serie.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.serieLink'))} ↗</a></p></div>`;
+}
+
 // What the P3M inventory (Squad 1/P3M/inventario_p3m.csv) says of each source layer: Squad 1 folder, classification on the P3M site,
 // agency, summary, the day Squad 1 downloaded it and the last update at SGB when SGB publishes one.
 function p3mHtml(e){
@@ -515,7 +525,7 @@ function exportarCsv(){
  const cols=colunas(st),idx=ordenar(st,linhasAnalise());
  const safe=v=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
  const e=st.entrada,f=e.fonte||{};
- const meta=[[t('mp.csvLayer'),rot(e)],[t('mp.source'),typeof f==='string'?f:f.nome||''],[t('mp.snapshot'),String(e.data_retrato??t('mp.notRecorded'))],[t('mp.refPeriod'),e.periodo_referencia||t('mp.refNotInformed')],
+ const meta=[[t('mp.csvLayer'),rot(e)+(st.modelo.ano?' — '+st.modelo.ano:'')],[t('mp.source'),typeof f==='string'?f:f.nome||''],[t('mp.snapshot'),String(e.data_retrato??t('mp.notRecorded'))],[t('mp.refPeriod'),e.periodo_referencia||t('mp.refNotInformed')],
   ...(e.p3m?[[t('mp.inventoryLink'),cat.p3m.inventario.url]]:[]),...(e.pacote?[[t('mp.pkgLink'),e.pacote.url]]:[]),[t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
  const linhas=[...meta,[],cols.map(c=>rotulo(c)+(c.unidade?' ('+c.unidade+')':'')),...idx.map(i=>cols.map(c=>textoExport(c,c.get(i))))];
  baixar(`mapa-mineral-goias-${st.id}.csv`,'text/csv;charset=utf-8','﻿'+linhas.map(r=>r.map(safe).join(';')).join('\r\n'));
@@ -547,7 +557,7 @@ function exportarGeojson(){
   feats.push({type:'Feature',geometry:g,properties:Object.fromEntries(cols.map(c=>{const v=c.get(i)??null;return [c.id.replace('@',''),c.tipo==='numero'&&v!=null?+Number(v).toFixed(c.casas??2):v]}))})}
  const e=st.entrada,f=e.fonte||{};
  const fc={type:'FeatureCollection',name:`mapa-mineral-goias-${st.id}`,
-  metadados:{camada:rot(e),fonte:typeof f==='string'?f:f.nome||'',data_retrato:e.data_retrato??null,periodo_referencia:e.periodo_referencia??null,
+  metadados:{camada:rot(e),...(st.modelo.ano?{ano:st.modelo.ano}:{}),fonte:typeof f==='string'?f:f.nome||'',data_retrato:e.data_retrato??null,periodo_referencia:e.periodo_referencia??null,
    ...(e.p3m?{inventario_p3m:cat.p3m.inventario.url}:{}),...(e.pacote?{pacote:e.pacote.url}:{}),filtros:descricaoFiltros(),
    registros_no_recorte:idx.length,registros_sem_geometria:sem,crs:'WGS 84 / SIRGAS 2000 (graus, longitude e latitude)',aviso:t('mp.geoWarning')},features:feats};
  baixar(`mapa-mineral-goias-${st.id}.geojson`,'application/geo+json',JSON.stringify(fc));
@@ -609,7 +619,7 @@ function linhaCamada(st){
  const s=row.querySelector('.mp-layer-status');let txt='',cls='';
  if(st.status==='carregando'){txt=t('mp.loadingShort');cls='load'}
  else if(st.status==='erro'){txt=t('mp.failedShort');cls='err'}
- else if(st.modelo&&st.entrada.geometria==='raster')txt=t('mp.nClasses',{n:num(st.modelo.n,0)});
+ else if(st.modelo&&st.entrada.geometria==='raster')txt=st.modelo.ano?t('mp.nClassesYear',{n:num(st.modelo.n,0),ano:st.modelo.ano}):t('mp.nClasses',{n:num(st.modelo.n,0)});
  else if(st.modelo){const n=st.modelo.n-st.modelo.semGeo.filter(Boolean).length;txt=st.visivel&&filtrada(st)&&!BASE.has(st.id)?t('mp.nOfM',{n:num(st.exibidos.length,0),m:num(n,0)}):num(n,0)}
  else if(st.entrada.bytes>600000&&(st.entrada.dados||{}).arquivo!=='data/atlas/atlas.json')txt=t('mp.sizeHint',{mb:num(st.entrada.bytes/1048576,1)});  // atlas.json is already in memory
  s.textContent=txt;s.className='mp-layer-status '+cls;
@@ -646,11 +656,12 @@ function linhaHtml(st){
 function infoCamada(st){
  const e=st.entrada,box=document.querySelector(`#mapa-view .mp-layer[data-id="${st.id}"] .mp-layer-info`);
  const omit=e.omitidos?Object.entries(e.omitidos):[];
- const feicoes=st.tipo==='radar'?t('mp.radarRows',{n:num(e.linhas,0)}):e.imagem?t('mp.rasterInfo',{n:num(e.n_feicoes,0),w:num(e.imagem.largura,0),h:num(e.imagem.altura,0),l:num(e.imagem.ladrilhos,0),p:num(e.n_registros_fonte,0)}):
+ const feicoes=st.tipo==='radar'?t('mp.radarRows',{n:num(e.linhas,0)}):e.serie?t('mp.serieInfo',{n:num(e.serie.anos,0),de:e.dados.serie.anos[0],
+   ate:e.dados.serie.anos[e.dados.serie.anos.length-1],w:num(e.imagem.largura,0),h:num(e.imagem.altura,0)}):e.imagem?t('mp.rasterInfo',{n:num(e.n_feicoes,0),w:num(e.imagem.largura,0),h:num(e.imagem.altura,0),l:num(e.imagem.ladrilhos,0),p:num(e.n_registros_fonte,0)}):
   t('mp.features',{n:num(e.n_feicoes,0)})+(e.n_registros_fonte?' '+t('mp.fromRecords',{n:num(e.n_registros_fonte,0)}):'');
  box.innerHTML=`<div class="mp-leg">${legendaEditavel(st)}</div><p class="mp-note">${escape(t('mp.styleHint'))}</p>`+
   (e.ponto_ate_zoom?`<p class="mp-note">${escape(t('mp.pointMode',{z:e.ponto_ate_zoom}))}</p>`:'')+
-  fonteHtml(e,st.tipo==='radar')+p3mHtml(e)+pacoteHtml(e)+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
+  fonteHtml(e,st.tipo==='radar')+p3mHtml(e)+pacoteHtml(e)+serieHtml(e)+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
   (e.geometria==='raster'?'':`<p><button type="button" class="link-button" data-acao="baixar">${escape(t('mp.shpDownload'))} ↓</button></p>`)+
   (e.notas&&e.notas.length?`<ul class="mp-notes-list">${e.notas.map(n=>`<li>${escape(n)}</li>`).join('')}</ul>`:'')+
   (e.recorte?`<p class="mp-note">${escape(e.recorte)}</p>`:'')+
@@ -666,7 +677,68 @@ function escopoCamada(st){
 async function alternar(st,ligar){
  st.visivel=ligar;linhaCamada(st);
  if(ligar){try{await carregar(st)}catch{linhaCamada(st);return}}
- desenhar(st);legenda();fontes();escopos();
+ desenhar(st);legenda();fontes();escopos();seletorAno();
+}
+
+/* ---------- year selector: only for a yearly series (the MapBiomas native vegetation), only while it is on ---------- */
+let anoCtrl=null,anoTimer=null,anoTocando=false;
+const serieVisivel=()=>[...estados.values()].find(s=>s.visivel&&s.entrada.dados&&s.entrada.dados.serie);
+function anoMaisProximo(anos,v){return anos.reduce((a,b)=>Math.abs(b-v)<Math.abs(a-v)?b:a)}
+function seletorAno(){
+ if(!anoCtrl)return;
+ const d=anoCtrl.getContainer(),st=serieVisivel();
+ if(!st){d.hidden=true;d.dataset.id='';pararAnos();return}
+ const anos=st.entrada.dados.serie.anos;
+ if(d.dataset.id!==st.id){
+  d.dataset.id=st.id;
+  d.innerHTML=`<div class="mp-ano-cab"><span>${escape(rot(st.entrada))}</span> <output class="mp-ano-valor"></output> <small class="mp-ano-estado" aria-live="polite"></small></div>`+
+   `<div class="mp-ano-linha"><button type="button" class="mp-ico" data-passo="-1" title="${escape(t('mp.yearPrev'))}" aria-label="${escape(t('mp.yearPrev'))}">‹</button>`+
+   `<input type="range" min="${anos[0]}" max="${anos[anos.length-1]}" step="1" aria-label="${escape(t('mp.yearOf',{camada:rot(st.entrada)}))}">`+
+   `<button type="button" class="mp-ico" data-passo="1" title="${escape(t('mp.yearNext'))}" aria-label="${escape(t('mp.yearNext'))}">›</button>`+
+   `<button type="button" class="mp-ico mp-ano-tocar" aria-pressed="false" title="${escape(t('mp.yearPlay'))}" aria-label="${escape(t('mp.yearPlay'))}">▶</button></div>`+
+   `<div class="mp-ano-limites"><span>${anos[0]}</span><span>${anos[anos.length-1]}</span></div>`;
+ }
+ d.querySelector('input').value=st.ano;d.querySelector('.mp-ano-valor').textContent=st.ano;
+ d.hidden=false;
+}
+async function mudarAno(st,ano){
+ const d=anoCtrl.getContainer(),estado=d.querySelector('.mp-ano-estado');
+ st.ano=ano;d.querySelector('input').value=ano;d.querySelector('.mp-ano-valor').textContent=ano;
+ if(st.modelo&&st.modelo.ano===ano){estado.textContent='';return}
+ estado.textContent=t('mp.yearLoading');ocupado(1);
+ try{
+  const m=await MapaDados.camadaAno(st.id,ano);
+  if(st.ano!==ano)return;  // another year was asked meanwhile
+  st.modelo=prepararModelo(m);st.ix=indexar(st);st.imgChave=null;
+  desenhar(st);
+  if(selecao&&selecao.st===st)detalhe();
+  if(analise===st.id){pagina=0;tabela()}
+  estado.textContent='';
+ }catch(e){if(st.ano===ano){estado.textContent=t('mp.yearFailed');estado.title=e.message}}
+ finally{ocupado(-1)}
+}
+function passoAno(st,passo){
+ const anos=st.entrada.dados.serie.anos,i=anos.indexOf(st.ano)+passo;
+ return anos[Math.max(0,Math.min(anos.length-1,i))];
+}
+// "play" walks the years one by one, waiting for each year to load before showing the next; it stops at the last year
+async function tocarAnos(){
+ const st=serieVisivel();if(!st)return;
+ const b=anoCtrl.getContainer().querySelector('.mp-ano-tocar');
+ anoTocando=true;b.textContent='❚❚';b.setAttribute('aria-pressed','true');b.title=t('mp.yearPause');b.setAttribute('aria-label',b.title);
+ const anos=st.entrada.dados.serie.anos;
+ if(st.ano===anos[anos.length-1])await mudarAno(st,anos[0]);
+ while(anoTocando&&st.visivel&&st.ano!==anos[anos.length-1]){
+  await new Promise(r=>setTimeout(r,900));
+  if(!anoTocando||!st.visivel)break;
+  await mudarAno(st,passoAno(st,1));
+ }
+ pararAnos();
+}
+function pararAnos(){
+ anoTocando=false;
+ const b=anoCtrl&&anoCtrl.getContainer().querySelector('.mp-ano-tocar');
+ if(b){b.textContent='▶';b.setAttribute('aria-pressed','false');b.title=t('mp.yearPlay');b.setAttribute('aria-label',b.title)}
 }
 async function extensao(st){
  try{await carregar(st)}catch{return}
@@ -785,6 +857,16 @@ function controles(){
   L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);
   d.querySelector('.mp-legend-toggle').onclick=ev=>{const on=d.classList.toggle('fechada');ev.currentTarget.setAttribute('aria-expanded',String(!on))};return d}});
  legendaCtrl=new Leg({position:'topright'}).addTo(map);
+ const Ano=L.Control.extend({onAdd(){const d=L.DomUtil.create('div','mp-ano leaflet-bar');d.hidden=true;
+  L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);
+  d.addEventListener('input',ev=>{const st=serieVisivel();if(!st||ev.target.type!=='range')return;
+   const ano=anoMaisProximo(st.entrada.dados.serie.anos,+ev.target.value);d.querySelector('.mp-ano-valor').textContent=ano;
+   pararAnos();clearTimeout(anoTimer);anoTimer=setTimeout(()=>mudarAno(st,ano),150)});
+  d.addEventListener('click',ev=>{const st=serieVisivel(),b=ev.target.closest('button');if(!st||!b)return;
+   if(b.classList.contains('mp-ano-tocar')){if(anoTocando)pararAnos();else tocarAnos();return}
+   pararAnos();mudarAno(st,passoAno(st,+b.dataset.passo))});
+  return d}});
+ anoCtrl=new Ano({position:'bottomleft'}).addTo(map);
  if(window.matchMedia('(max-width:1400px)').matches){const c=legendaCtrl.getContainer();c.classList.add('fechada');c.querySelector('.mp-legend-toggle').setAttribute('aria-expanded','false')}
 }
 // Plain background: no basemap (no vegetation, roads or towns), Goiás in white and the surroundings dimmed by the mask.
@@ -909,7 +991,7 @@ async function init(){
  multiSelect(el('mp-f-min'),cat.minerais.map(v=>({v,r:v})),filtros.minerais,mudouFiltro,t('mp.searchMineral'));
  painelCamadas();eventos();chips();escopos();
  await Promise.all([...estados.values()].filter(s=>s.visivel).map(s=>carregar(s).catch(()=>null)));
- redesenharTudo();atualizarFiltrosLocais();tabela();fontes();referencia();
+ redesenharTudo();atualizarFiltrosLocais();tabela();fontes();referencia();seletorAno();
  if(window.matchMedia('(max-width:900px)').matches)el('mp-side-toggle').setAttribute('aria-expanded','false');
 }
 window.showMapa=async()=>{

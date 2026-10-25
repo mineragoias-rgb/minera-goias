@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Robô de atualização das bases do P3M e da ANM.
+"""Robô de atualização das bases (P3M, ANM, IBGE, SGB e MapBiomas).
 
     python robo/robo_bases.py                          # P3M (camadas do mapa), ANM, IBGE, SGB e MapBiomas: baixa, confere, trata e grava
     python robo/robo_bases.py --fontes mapbiomas --mapbiomas-anos 2024,2025   # só estes anos da série do MapBiomas

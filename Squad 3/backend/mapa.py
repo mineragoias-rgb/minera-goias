@@ -3,7 +3,7 @@
 Like the atlas, it stays behind the reader dependency (titular names, company links) and never under public/. Only ids that the
 catalogue publishes are served, so a request cannot reach any other file. Layers that already exist in the atlas are not copied:
 the catalogue points them to /api/atlas and /api/atlas/processes. Layers are vector (mapa-v1) or PNG tiles (imagem-v1), both JSON
-files. Files go out gzipped when the browser accepts it (compressed.py).
+files; a yearly series is one file per year. Files go out gzipped when the browser accepts it (compressed.py).
 """
 import json
 import re
@@ -20,7 +20,13 @@ ID=re.compile(r'[a-z0-9_]{1,40}')
 def published():
     """Ids served from data/mapa. Read once: every deploy is a new release directory and a restart (deploy/deploy.sh)."""
     cat=json.loads((DATA/'catalogo.json').read_text(encoding='utf-8'))
-    return {'camadas':{c['id'] for c in cat['camadas'] if c['dados']['formato'] in ('mapa-v1','imagem-v1')},'tabelas':{t['id'] for t in cat['tabelas']}}
+    camadas=set()
+    for c in cat['camadas']:
+        d=c['dados']
+        if d['formato'] not in ('mapa-v1','imagem-v1'):continue
+        # a yearly series (dados.serie) is one file per year, <id>_<year>
+        camadas|={f"{c['id']}_{a}" for a in d['serie']['anos']} if 'serie' in d else {c['id']}
+    return {'camadas':camadas,'tabelas':{t['id'] for t in cat['tabelas']}}
 
 def serve(request,kind,ident):
     if not ID.fullmatch(ident) or ident not in published()[kind]:

@@ -36,23 +36,33 @@ def vertices(pacote):
     return struct.unpack(f'<{len(xy) // 2}H', xy)
 
 
-def ler_png_paleta(png):
-    """Índices de paleta de um PNG sem entrelaçamento e com filtro 0 em toda linha (como scripts/build_mapa_base.py grava)."""
+def arquivos_de_camada(cat):
+    """Ids dos arquivos de data/mapa/camadas: um por camada vetorial ou de imagem, e um por ano numa série."""
+    for c in cat['camadas']:
+        d = c['dados']
+        if d['formato'] in ('mapa-v1', 'imagem-v1'):
+            yield from ([f"{c['id']}_{a}" for a in d['serie']['anos']] if 'serie' in d else [c['id']])
+
+
+def contar_png_paleta(png, n_cores):
+    """Pixels de cada índice de um PNG de paleta de 2 bits com filtro 0, contados nos bytes (sem decodificar pixel a pixel).
+    O índice 0 sai com os bytes de filtro e o enchimento do fim das linhas: só os outros índices valem."""
+    import collections
     import zlib
     o, idat = 8, b''
     while o < len(png):
         n, tipo = struct.unpack('>I', png[o:o + 4])[0], png[o + 4:o + 8]
         if tipo == b'IHDR':
-            w, h, bits = struct.unpack('>IIB', png[o + 8:o + 17])
+            assert png[o + 16] == 2, 'esperado 2 bits por pixel'
         elif tipo == b'IDAT':
             idat += png[o + 8:o + 8 + n]
         o += 12 + n
-    bruto, por_linha, saida = zlib.decompress(idat), -(-w * bits // 8), []
-    for y in range(h):
-        linha = bruto[y * (por_linha + 1):(y + 1) * (por_linha + 1)]
-        assert linha[0] == 0, 'filtro diferente de 0'
-        saida.append([(linha[1 + x * bits // 8] >> (8 - bits - (x * bits) % 8)) & (2 ** bits - 1) for x in range(w)])
-    return saida
+    por_byte = collections.Counter(zlib.decompress(idat))
+    contagem = [0] * n_cores
+    for b, n in por_byte.items():
+        for k in range(4):
+            contagem[(b >> (6 - 2 * k)) & 3] += n
+    return contagem
 
 
 def partes(pacote):
@@ -95,11 +105,17 @@ class CatalogoTests(unittest.TestCase):
 
     def test_arquivos_batem_com_o_catalogo(self):
         no_disco = {p.stem for p in (MAPA / 'camadas').glob('*.json')}
-        self.assertEqual(no_disco, {c['id'] for c in self.proprias + self.imagens}, 'arquivo de camada órfão ou faltando')
+        self.assertEqual(no_disco, set(arquivos_de_camada(self.cat)), 'arquivo de camada órfão ou faltando')
         for c in self.proprias + self.imagens:
             caminho = ROOT / c['dados']['arquivo']
-            self.assertEqual(c['dados']['endpoint'], f"/api/mapa/camadas/{c['id']}")
+            serie = c['dados'].get('serie')
+            esperado = f"/api/mapa/camadas/{c['id']}" + (f"_{serie['ano_padrao']}" if serie else '')
+            self.assertEqual(c['dados']['endpoint'], esperado, c['id'])
             self.assertEqual(caminho.stat().st_size, c['bytes'], c['id'])
+            if serie:
+                self.assertEqual(serie['anos'], sorted(serie['anos']), c['id'])
+                self.assertEqual(serie['ano_padrao'], serie['anos'][-1], c['id'])
+                self.assertEqual(serie['endpoint'].replace('{ano}', str(serie['ano_padrao'])), esperado, c['id'])
         for c in self.cat['camadas']:
             if c['dados']['formato'] not in ('mapa-v1', 'imagem-v1'):
                 self.assertTrue((ROOT / c['dados']['arquivo']).exists(), c['id'])
@@ -134,26 +150,30 @@ class CatalogoTests(unittest.TestCase):
         """Camada de imagem (imagem-v1): ladrilhos PNG de paleta na grade de Web Mercator; o índice k da paleta é a classe k da legenda."""
         self.assertTrue(self.imagens)
         for c in self.imagens:
-            p = ler(ROOT / c['dados']['arquivo'])
             classes = list(c['legenda']['cores'])
-            self.assertEqual((p['n'], c['n_feicoes'], p['campos']), (len(classes), len(classes), [f['id'] for f in c['campos']]), c['id'])
-            self.assertEqual([p['dic'][c['legenda']['campo']][i] for i in p['valores'][c['legenda']['campo']]], classes, c['id'])
-            self.assertEqual(p['paleta'][1:], [[int(h[k:k + 2], 16) for k in (1, 3, 5)] for h in c['legenda']['cores'].values()], c['id'])
-            self.assertEqual(len(p['caixas']), p['n'], c['id'])
-            v = self.val['camadas'][c['id']]['imagem']
-            self.assertEqual((p['largura'], p['altura'], len(p['ladrilhos'])), (v['largura'], v['altura'], v['ladrilhos']), c['id'])
-            contagem = [0] * len(p['paleta'])
-            for l in p['ladrilhos']:
-                png = base64.b64decode(l['png'])
-                self.assertEqual(png[:8], b'\x89PNG\r\n\x1a\n', c['id'])
-                w, h, bits, cor = struct.unpack('>IIBB', png[16:26])
-                self.assertEqual((w, h, cor), (l['largura'], l['altura'], 3), c['id'])  # tipo de cor 3 = paleta
-                pixels = ler_png_paleta(png)
-                for k in range(len(contagem)):
-                    contagem[k] += sum(linha.count(k) for linha in pixels)
-            self.assertEqual(contagem[1:], [v['classes'][k]['pixels'] for k in classes], c['id'])
-            for k in classes:
-                self.assertLess(abs(v['classes'][k]['diferenca_pct']), 1, (c['id'], k))  # área dos pixels × área que a fonte informa
+            v = self.val['camadas'][c['id']]
+            serie = c['dados'].get('serie')
+            for ano in (serie['anos'] if serie else [None]):
+                arquivo = c['dados']['arquivo'] if ano is None else serie['arquivo'].replace('{ano}', str(ano))
+                p = ler(ROOT / arquivo)
+                self.assertEqual((p['n'], c['n_feicoes'], p['campos']), (len(classes), len(classes), [f['id'] for f in c['campos']]), arquivo)
+                self.assertEqual([p['dic'][c['legenda']['campo']][i] for i in p['valores'][c['legenda']['campo']]], classes, arquivo)
+                self.assertEqual(p['paleta'][1:], [[int(h[k:k + 2], 16) for k in (1, 3, 5)] for h in c['legenda']['cores'].values()], arquivo)
+                self.assertEqual(len(p['caixas']), p['n'], arquivo)
+                contagem = [0] * len(p['paleta'])
+                for l in p['ladrilhos']:
+                    png = base64.b64decode(l['png'])
+                    self.assertEqual(png[:8], b'\x89PNG\r\n\x1a\n', arquivo)
+                    w, h, bits, cor = struct.unpack('>IIBB', png[16:26])
+                    self.assertEqual((w, h, cor), (l['largura'], l['altura'], 3), arquivo)  # tipo de cor 3 = paleta
+                    for k, n in enumerate(contar_png_paleta(png, len(contagem))):
+                        contagem[k] += n
+                if serie:
+                    self.assertEqual(p['ano'], ano)
+                    self.assertEqual(set(p['valores']['ano']), {ano}, arquivo)
+                    self.assertEqual(contagem[1:], [v['anos'][str(ano)]['pixels'][str(k)] for k in range(1, len(classes) + 1)], arquivo)
+                    self.assertEqual(p['valores']['pixels'], contagem[1:], arquivo)
+                    self.assertEqual(p['valores']['area_ha'], [v['anos'][str(ano)]['area_ha'][str(k)] for k in range(1, len(classes) + 1)], arquivo)
 
     def test_camadas_de_pacote_do_squad1(self):
         for c in self.cat['camadas']:
@@ -413,9 +433,13 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(cat.headers['cache-control'], 'no-store')
         for c in cat.json()['camadas']:
             if c['dados']['formato'] in ('mapa-v1', 'imagem-v1'):
-                r = self.client.get(c['dados']['endpoint'])
-                self.assertEqual(r.status_code, 200, c['id'])
-                self.assertEqual(r.json()['n'], c['n_feicoes'])
+                serie = c['dados'].get('serie')
+                for url in [serie['endpoint'].replace('{ano}', str(a)) for a in serie['anos']] if serie else [c['dados']['endpoint']]:
+                    r = self.client.get(url)
+                    self.assertEqual(r.status_code, 200, url)
+                    self.assertEqual(r.json()['n'], c['n_feicoes'])
+                if serie:  # o id da camada sozinho não é um arquivo
+                    self.assertEqual(self.client.get(f"/api/mapa/camadas/{c['id']}").status_code, 404)
         self.assertEqual(self.client.get('/api/mapa/tabelas/radar_projetos').status_code, 200)
         for proibido in ('processos', 'catalogo', 'validacao', 'NADA', '..%2Fcatalogo', 'minas_ativas.json'):
             self.assertEqual(self.client.get(f'/api/mapa/camadas/{proibido}').status_code, 404, proibido)

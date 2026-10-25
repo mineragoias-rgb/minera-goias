@@ -44,7 +44,7 @@
    return v == null || !d ? v : d[v];
   };
   const m = montar(entrada, 'raster', pacote.n, Array.from({length: pacote.n}, () => []), pacote.campos, valor);
-  return Object.assign(m, {caixas: pacote.caixas, imagem: {zoom: pacote.zoom, origem: pacote.origem_px, ladrilho: pacote.ladrilho,
+  return Object.assign(m, {ano: pacote.ano ?? null, caixas: pacote.caixas, imagem: {zoom: pacote.zoom, origem: pacote.origem_px, ladrilho: pacote.ladrilho,
    largura: pacote.largura, altura: pacote.altura, paleta: pacote.paleta, ladrilhos: pacote.ladrilhos}});
  }
  // Pixel of a point on that grid (256·2^zoom pixels around the world), as scripts/build_mapa_base.py computes it.
@@ -131,14 +131,29 @@
    const entrada = (await catalogo()).camadas.find(c => c.id === id);
    if (!entrada) throw Error('camada desconhecida: ' + id);
    const formato = entrada.dados.formato;
+   if (entrada.dados.serie) return camadaAno(id, entrada.dados.serie.ano_padrao);
    if (formato === 'mapa-v1') return decodificar(await api('/mapa/camadas/' + id), entrada);
    if (formato === 'imagem-v1') return decodificarImagem(await api('/mapa/camadas/' + id), entrada);
    if (formato === 'processos-atlas') return doAtlas(entrada, null, (await raiz.loadProcesses()).records);
    return doAtlas(entrada, await atlas());
   });
  }
+ // A yearly series (dados.serie, imagem-v1): the same layer for another year, one file per year (~2 MB). The last years asked
+ // stay decoded, so going back and forth does not fetch again, but playing the whole series does not keep every year in memory.
+ const ANOS_GUARDADOS = 6, anosGuardados = [];
+ function camadaAno(id, ano) {
+  const chave = 'camada:' + id + ':' + ano;
+  if (!cache[chave]) {
+   anosGuardados.push(chave);
+   if (anosGuardados.length > ANOS_GUARDADOS) delete cache[anosGuardados.shift()];
+  }
+  return uma(chave, async () => {
+   const entrada = (await catalogo()).camadas.find(c => c.id === id);
+   return decodificarImagem(await api(entrada.dados.serie.endpoint.replace('{ano}', ano).replace(/^\/api/, '')), entrada);
+  });
+ }
  const tabela = id => uma('tabela:' + id, () => api('/mapa/tabelas/' + id));
- raiz.MapaDados = Object.assign({catalogo, camada, tabela, atlas}, puro);
+ raiz.MapaDados = Object.assign({catalogo, camada, camadaAno, tabela, atlas}, puro);
  // The 2 MB atlas packet is fetched once per page and shared with the Atlas and Panorama tabs, which only read it.
  raiz.loadAtlas = atlas;
 })(typeof window !== 'undefined' ? window : null);
