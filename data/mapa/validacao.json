@@ -1607,6 +1607,118 @@
    "mineral_sem_categoria": {},
    "bytes": 27534
   },
+  "vegetacao_nativa": {
+   "origem": "pacote",
+   "arquivos": [
+    {
+     "arquivo": "mapa_goias_2025.zip: vegetacao_nativa_goias_2025",
+     "registros": 139030
+    }
+   ],
+   "erros": [],
+   "alertas": [
+    "448 pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda"
+   ],
+   "registros_fonte": 139030,
+   "imagem": {
+    "zoom": 10,
+    "largura": 5345,
+    "altura": 5338,
+    "ladrilhos": 26,
+    "vertices": 2233113,
+    "vertices_fora_da_grade": 2335,
+    "pixels_de_duas_classes": 448,
+    "classes": {
+     "Vegetação nativa florestal": {
+      "pixels": 4615545,
+      "area_pixels_ha": 9990081,
+      "area_fonte_ha": 9992114,
+      "diferenca_pct": -0.02
+     },
+     "Vegetação nativa não florestal": {
+      "pixels": 418639,
+      "area_pixels_ha": 900790,
+      "area_fonte_ha": 901089,
+      "diferenca_pct": -0.03
+     }
+    }
+   },
+   "bytes": 1775822
+  },
+  "agua_superficial": {
+   "origem": "pacote",
+   "arquivos": [
+    {
+     "arquivo": "mapa_goias_2025.zip: agua_superficial_goias_2025",
+     "registros": 1820
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 1820,
+   "chave": {
+    "campo": "id",
+    "feicoes": 1820,
+    "distintos": 1820,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0007,
+    "vertices_fonte": 60037,
+    "vertices_simplificados": 47514,
+    "vertices_publicados": 45505,
+    "partes": 1997,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -52.90741,
+    "lat0": -19.497665,
+    "lon1": -46.104125,
+    "lat1": -12.462055
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "bytes": 289797
+  },
+  "rios": {
+   "origem": "pacote",
+   "arquivos": [
+    {
+     "arquivo": "mapa_goias_2025.zip: rios_goias",
+     "registros": 346
+    }
+   ],
+   "erros": [],
+   "alertas": [],
+   "registros_fonte": 346,
+   "chave": {
+    "campo": "nome",
+    "feicoes": 346,
+    "distintos": 346,
+    "sem_chave": 0,
+    "duplicados": []
+   },
+   "sem_geometria": 0,
+   "simplificacao": {
+    "tolerancia_graus": 0.0005,
+    "vertices_fonte": 82316,
+    "vertices_simplificados": 56158,
+    "vertices_publicados": 56158,
+    "partes": 3510,
+    "mantidas_sem_simplificar": 0
+   },
+   "extensao": {
+    "lon0": -53.248037,
+    "lat0": -19.477,
+    "lon1": -46.076,
+    "lat1": -12.689999
+   },
+   "nulos": {},
+   "nao_convertidos": {},
+   "bytes": 345665
+  },
   "pocos_siagas": {
    "origem": "p3m",
    "arquivos": [
@@ -1988,7 +2100,8 @@
  },
  "erros": [],
  "alertas": [
-  "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')"
+  "empreendimentos_sig: processo: 10 valores não convertidos (ex.: '8 6839/1972')",
+  "vegetacao_nativa: 448 pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda"
  ],
  "radar_projetos": {
   "projetos": 1059,

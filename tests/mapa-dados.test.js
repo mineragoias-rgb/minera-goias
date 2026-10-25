@@ -56,9 +56,36 @@ for (const entrada of catalogo.camadas) {
    ok('processos: campo que a camada não tem vale undefined, sem erro', camada.valor(0, 'na_divisa') === undefined);
    fim();
   });
+ } else if (f === 'imagem-v1') {
+  // uma feição por classe, sem anéis: a extensão vem das caixas do pacote e o desenho, dos ladrilhos PNG
+  const pacote = lerJson(entrada.dados.arquivo), camada = M.decodificarImagem(pacote, entrada);
+  ok(entrada.id + ': uma feição por classe da legenda', camada.n === entrada.n_feicoes && camada.n === Object.keys(entrada.legenda.cores).length);
+  ok(entrada.id + ': classes na ordem da legenda', Object.keys(entrada.legenda.cores).every((k, i) => camada.valor(i, entrada.legenda.campo) === k));
+  ok(entrada.id + ': sem anéis', camada.partes.every(p => p.length === 0));
+  ok(entrada.id + ': caixa de cada classe dentro de Goiás', camada.caixas.every(b => dentro([b[0], b[1]]) && dentro([b[2], b[3]]) && b[0] < b[2] && b[1] < b[3]));
+  ok(entrada.id + ': campo que a camada não tem vale undefined, sem erro', camada.valor(0, 'na_divisa') === undefined);
+  ok(entrada.id + ': paleta com o transparente e uma cor por classe', camada.imagem.paleta.length === camada.n + 1);
  } else {
   conferir(entrada.id, M.doAtlas(entrada, atlas), entrada.n_feicoes);
  }
+}
+
+// Grade da imagem (Web Mercator): o canto do mundo e o equador caem onde o gerador põe; a cor decodificada volta à classe.
+{
+ const [x0, y0] = M.pixelMercator(0, -180, 10), n = 256 * 1024;
+ ok('mercator: longitude −180 é o pixel 0 e o equador é a metade', x0 === 0 && Math.abs(y0 - n / 2) < 1e-6);
+ const [, ySul] = M.pixelMercator(-16, -49, 10), [, yNorte] = M.pixelMercator(-15, -49, 10);
+ ok('mercator: y cresce para o sul', ySul > yNorte);
+ const paleta = [[255, 255, 255], [31, 141, 73], [214, 188, 116]];
+ ok('classe da cor: cor exata', M.classeDaCor([31, 141, 73, 255], paleta) === 0 && M.classeDaCor([214, 188, 116, 255], paleta) === 1);
+ ok('classe da cor: cor deslocada pelo navegador ainda acha a classe', M.classeDaCor([33, 139, 74, 255], paleta) === 0);
+ ok('classe da cor: pixel transparente não tem classe', M.classeDaCor([255, 255, 255, 0], paleta) === null);
+ const veg = catalogo.camadas.find(e => e.id === 'vegetacao_nativa');
+ const pacote = lerJson(veg.dados.arquivo);
+ ok('vegetação: paleta do pacote = cores da legenda', Object.values(veg.legenda.cores).every((c, k) =>
+  pacote.paleta[k + 1].join() === [1, 3, 5].map(j => parseInt(c.slice(j, j + 2), 16)).join()));
+ ok('vegetação: ladrilhos no grão declarado', pacote.ladrilhos.every(l => l.largura <= pacote.ladrilho && l.altura <= pacote.ladrilho &&
+  l.x * pacote.ladrilho < pacote.largura && l.y * pacote.ladrilho < pacote.altura));
 }
 
 // Atributos com dicionário, unidade convertida e lista alinhada.

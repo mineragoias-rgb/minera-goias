@@ -1,7 +1,8 @@
 /* Mapa Mineral de Goiás — one layer as an ESRI shapefile in a .zip, built in the browser from the data the map already holds.
    Follows the ESRI Shapefile Technical Description (1998) and dBase III: .shp and .shx carry the geometry, .dbf one attribute row
    per shape (UTF-8, declared in .cpg) and .prj the CRS the catalogue states. The zip stores the files as they are (method 0), so it
-   needs only CRC-32. Pure functions, exported for node (tests/mapa-shp.test.js). */
+   needs only CRC-32. Also the palette swap of the map's PNG tiles, which needs the same CRC-32. Pure functions, exported for node
+   (tests/mapa-shp.test.js). */
 (function (raiz) {
  'use strict';
  const utf8 = new TextEncoder();
@@ -158,7 +159,23 @@
   return buf;
  }
 
- const puro = {prj, tipoShape, partes, shp, nomesCampos, dbf, camada, crc32, zip};
+ // Palette PNG (the raster tiles of the map, imagem-v1): the colours live in the PLTE chunk, so recolouring a class rewrites only those
+ // bytes and the chunk CRC, without decoding the image. cores = {palette index: [r, g, b]}.
+ function paletaPng(png, cores) {
+  const out = png.slice(), v = new DataView(out.buffer, out.byteOffset, out.byteLength);
+  for (let o = 8; o + 12 <= out.length;) {
+   const n = v.getUint32(o), tipo = String.fromCharCode(out[o + 4], out[o + 5], out[o + 6], out[o + 7]);
+   if (tipo === 'PLTE') {
+    for (const [k, c] of Object.entries(cores)) if (3 * k + 2 < n) out.set(c, o + 8 + 3 * k);
+    v.setUint32(o + 8 + n, crc32(out.subarray(o + 4, o + 8 + n)));
+    return out;
+   }
+   o += 12 + n;
+  }
+  throw Error('PNG sem paleta');
+ }
+
+ const puro = {prj, tipoShape, partes, shp, nomesCampos, dbf, camada, crc32, zip, paletaPng};
  if (typeof module === 'object' && module.exports) module.exports = puro;
  if (raiz) raiz.MapaShp = puro;
 })(typeof window !== 'undefined' ? window : null);

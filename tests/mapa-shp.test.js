@@ -139,6 +139,31 @@ ok('zip: conteúdo e CRC', z.itens.every((i, k) => Buffer.compare(Buffer.from(i.
 ok('zip: diretório termina no registro final', z.dir + z.tam === z.fim);
 ok('prj: SIRGAS 2000 para EPSG:4674; nada para CRS desconhecido', /SIRGAS_2000/.test(S.prj('EPSG:4674 — SIRGAS 2000, longitude e latitude em graus')) && S.prj('EPSG:9999') === null && S.prj(undefined) === null);
 
+// Paleta de PNG (ladrilhos da camada de imagem): só o PLTE e o CRC dele mudam; os pixels (IDAT) ficam intactos.
+{
+ const zlib = require('zlib');
+ const bloco = (tipo, dados) => { const t = Buffer.from(tipo), b = Buffer.alloc(12 + dados.length); b.writeUInt32BE(dados.length, 0); t.copy(b, 4);
+  Buffer.from(dados).copy(b, 8); b.writeUInt32BE(S.crc32(Buffer.concat([t, Buffer.from(dados)])), 8 + dados.length); return b };
+ const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(2, 0); ihdr.writeUInt32BE(1, 4); ihdr[8] = 2; ihdr[9] = 3;
+ const png = new Uint8Array(Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), bloco('IHDR', ihdr),
+  bloco('PLTE', [255, 255, 255, 31, 141, 73, 214, 188, 116]), bloco('tRNS', [0, 255, 255]), bloco('IDAT', zlib.deflateSync(Buffer.from([0, 0x60]))), bloco('IEND', [])]));
+ const novo = S.paletaPng(png, {1: [255, 0, 255]});
+ const chunks = b => { const out = {}; for (let o = 8; o < b.length;) { const n = dv(b).getUint32(o), t = String.fromCharCode(...b.subarray(o + 4, o + 8));
+  out[t] = {dados: [...b.subarray(o + 8, o + 8 + n)], crc: dv(b).getUint32(o + 8 + n), crcCerto: S.crc32(b.subarray(o + 4, o + 8 + n))}; o += 12 + n } return out };
+ const a = chunks(png), c = chunks(novo);
+ ok('paleta: a cor do índice 1 muda e as outras não', c.PLTE.dados.join() === [255, 255, 255, 255, 0, 255, 214, 188, 116].join(), c.PLTE.dados.join());
+ ok('paleta: CRC do PLTE refeito', c.PLTE.crc === c.PLTE.crcCerto);
+ ok('paleta: pixels e transparência intactos', c.IDAT.dados.join() === a.IDAT.dados.join() && c.tRNS.dados.join() === a.tRNS.dados.join());
+ ok('paleta: o original não é alterado', a.PLTE.dados[3] === 31 && novo.length === png.length);
+ ok('paleta: índice fora da paleta é ignorado', S.paletaPng(png, {7: [1, 2, 3]}).join() === png.join());
+ let erro = null; try { S.paletaPng(png.slice(0, 8 + 25), {1: [0, 0, 0]}) } catch (e) { erro = e }
+ ok('paleta: PNG sem PLTE dá erro', erro !== null);
+ // ladrilho real da camada de vegetação: a troca mantém o PNG válido
+ const veg = lerJson('data/mapa/camadas/vegetacao_nativa.json'), bytes = M.binario(veg.ladrilhos[0].png, Uint8Array);
+ const v = chunks(S.paletaPng(bytes, {1: [0, 0, 0], 2: [9, 9, 9]}));
+ ok('paleta: ladrilho da vegetação continua com CRC certo em todos os blocos', Object.values(v).every(x => x.crc === x.crcCerto));
+}
+
 // Camadas reais, decodificadas como no navegador: um registro por feição desenhável, valores conferidos.
 const catalogo = lerJson('data/mapa/catalogo.json');
 const comoGeo = (geometria, partes) => {

@@ -3,6 +3,8 @@
    come from /api/atlas and /api/atlas/processes (shared with the Atlas tab through loadProcesses), never from a copy.
    Every layer decodes to the same shape: {entrada, n, geometria, partes[i] = list of points, lines or rings in [lat, lon],
    valor(i, campo), atributos(i)}. Rings of one feature are drawn together with fillRule 'evenodd', as processes.js does.
+   Raster layers (imagem-v1) decode to the same shape with one feature per class, no rings (partes[i] = []), the extent of each
+   class in caixas[i] and the PNG tiles in imagem.
    The pure functions are exported for node (tests/mapa-dados.test.js). */
 (function (raiz) {
  'use strict';
@@ -26,11 +28,40 @@
    partes[dono[k]].push(seq);
   }
   const valor = (i, campo) => {
+   if (!pacote.valores[campo]) return undefined;  // a field the layer does not have (na_divisa exists only in the P3M layers)
    const v = pacote.valores[campo][i], d = pacote.dic[campo];
    if (v == null || !d) return v;
    return Array.isArray(v) ? v.map(x => x == null ? null : d[x]) : d[v];
   };
   return montar(entrada, pacote.geometria, pacote.n, partes, pacote.campos, valor);
+ }
+
+ // Format imagem-v1: palette PNG tiles on the Web Mercator pixel grid of one zoom; palette index k is feature k − 1.
+ function decodificarImagem(pacote, entrada) {
+  const valor = (i, campo) => {
+   if (!pacote.valores[campo]) return undefined;
+   const v = pacote.valores[campo][i], d = pacote.dic[campo];
+   return v == null || !d ? v : d[v];
+  };
+  const m = montar(entrada, 'raster', pacote.n, Array.from({length: pacote.n}, () => []), pacote.campos, valor);
+  return Object.assign(m, {caixas: pacote.caixas, imagem: {zoom: pacote.zoom, origem: pacote.origem_px, ladrilho: pacote.ladrilho,
+   largura: pacote.largura, altura: pacote.altura, paleta: pacote.paleta, ladrilhos: pacote.ladrilhos}});
+ }
+ // Pixel of a point on that grid (256·2^zoom pixels around the world), as scripts/build_mapa_base.py computes it.
+ function pixelMercator(lat, lon, zoom) {
+  const n = 256 * 2 ** zoom, la = lat * Math.PI / 180;
+  return [(lon + 180) / 360 * n, (1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n];
+ }
+ // Feature (class) of a decoded pixel: the nearest colour of the palette the tile was written with, since a browser may shift a
+ // colour by a unit or two; a transparent pixel has no class.
+ function classeDaCor(rgba, paleta) {
+  if (rgba[3] < 128) return null;
+  let melhor = null, menor = Infinity;
+  for (let k = 1; k < paleta.length; k++) {
+   const d = (paleta[k][0] - rgba[0]) ** 2 + (paleta[k][1] - rgba[1]) ** 2 + (paleta[k][2] - rgba[2]) ** 2;
+   if (d < menor) { menor = d; melhor = k - 1 }
+  }
+  return melhor;
  }
 
  function montar(entrada, geometria, n, partes, campos, valor) {
@@ -86,7 +117,8 @@
    (/[A-Z]/.test(q) && q.length >= 3 && k.includes(q)));
  }
 
- const puro = {GRUPOS_ATLAS, binario, decodificar, doAtlas, radarPorProcesso, complementoPorProcesso, chaveId, casaId};
+ const puro = {GRUPOS_ATLAS, binario, decodificar, decodificarImagem, pixelMercator, classeDaCor, doAtlas, radarPorProcesso,
+  complementoPorProcesso, chaveId, casaId};
  if (typeof module === 'object' && module.exports) module.exports = puro;
  if (!raiz) return;
 
@@ -100,6 +132,7 @@
    if (!entrada) throw Error('camada desconhecida: ' + id);
    const formato = entrada.dados.formato;
    if (formato === 'mapa-v1') return decodificar(await api('/mapa/camadas/' + id), entrada);
+   if (formato === 'imagem-v1') return decodificarImagem(await api('/mapa/camadas/' + id), entrada);
    if (formato === 'processos-atlas') return doAtlas(entrada, null, (await raiz.loadProcesses()).records);
    return doAtlas(entrada, await atlas());
   });

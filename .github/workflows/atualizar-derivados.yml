@@ -19,6 +19,7 @@ on:
       - 'Squad 1/Dados brutos/**'
       - 'producao/**'
       - 'Squad 1/P3M/**'
+      - 'Squad 1/Mapa vegetação e rios 2025/**'
       - 'scripts/atualizar_derivados.py'
       - 'tests/test_derivados.py'
       - 'scripts/build_inventario_p3m.py'

@@ -58,6 +58,9 @@
 #mapa-view .mp-sw-ponto{border-radius:50%;border-color:white;box-shadow:0 0 0 1px rgba(7,52,92,.35)}
 #mapa-view .mp-sw-linha{height:4px;border:0;border-radius:2px;opacity:1}
 #mapa-view .mp-sw-liso{background:white;opacity:1}
+/* raster layers (imagem-v1): from the zoom of the source grid on, its pixels stay square instead of blurred; below it the browser
+   averages them when shrinking (square pixels would keep one in ten and thin the vegetation out) */
+#mapa-map .mp-nitido .mp-raster{image-rendering:pixelated}
 /* Goiás, municipalities and the plain background: above the groups, without a heading */
 #mapa-view .mp-base{border-bottom:1px solid var(--line);margin-bottom:-1px}
 #mapa-view .mp-flat{padding:6px 10px 6px 14px;border-top:1px solid #eef3f6}

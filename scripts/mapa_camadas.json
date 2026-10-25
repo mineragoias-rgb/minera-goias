@@ -1,5 +1,6 @@
 {
   "versao": 1,
+  "repositorio": "https://github.com/mineragoias-rgb/minera-goias",
   "descricao": "Catálogo de camadas do Mapa Mineral de Goiás. Lido por scripts/build_mapa_base.py, que gera data/mapa/. Cada camada diz de onde vem, que campos publica (com rótulo, tipo e unidade), o que fica de fora e por quê, como simplificar e como desenhar. Camadas com origem 'atlas' reaproveitam os dados já publicados em /api/atlas: não são copiadas.",
   "p3m": {
     "pasta": "Squad 1/P3M/Recortado pelo polígono de Goiás",
@@ -1916,6 +1917,115 @@
         "titulo": "bioma",
         "id": ["bioma"]
       }
+    },
+    {
+      "id": "vegetacao_nativa",
+      "nome": "Vegetação nativa (MapBiomas, 2025)",
+      "nome_en": "Native vegetation (MapBiomas, 2025)",
+      "grupo": "cartografia",
+      "geometria": "raster",
+      "origem": {
+        "tipo": "pacote",
+        "arquivo": "Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip",
+        "membro": "mapa_goias_2025/shapefile/vegetacao_nativa_goias_2025",
+        "raster": {"zoom": 10, "ladrilho": 1024, "campo": "tipo", "area": "area_ha"}
+      },
+      "fonte": {
+        "nome": "MapBiomas — Coleção 11, cobertura e uso da terra de 2025 (camada da plataforma, ~150 m), no pacote do Squad 1",
+        "url": "https://brasil.mapbiomas.org",
+        "licenca": "CC BY 4.0"
+      },
+      "data_retrato": "2026-10-22",
+      "periodo_referencia": "2025",
+      "recorte": "Recortada pelo limite de Goiás (IBGE) por quem montou o pacote do Squad 1. Desenhada como imagem, na mesma grade de pixels da camada do MapBiomas (~150 m): nada simplificado nem omitido.",
+      "chave": "classe",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "campos": [
+        {"id": "classe", "rotulo": "Classe", "rotulo_en": "Class", "tipo": "categoria"},
+        {"id": "area_ha", "rotulo": "Área (soma da área dos polígonos no pacote)", "rotulo_en": "Area (sum of the package polygons)", "tipo": "numero", "unidade": "ha", "casas": 0},
+        {"id": "n_poligonos", "rotulo": "Polígonos no pacote", "rotulo_en": "Polygons in the package", "tipo": "inteiro"}
+      ],
+      "filtros": [],
+      "legenda": {
+        "tipo": "categorias",
+        "campo": "classe",
+        "cores": {"Vegetação nativa florestal": "#1f8d49", "Vegetação nativa não florestal": "#d6bc74"}
+      },
+      "papeis": {"titulo": "classe"},
+      "notas": [
+        "Um ano só (2025): o pacote não traz a série do MapBiomas.",
+        "Florestal = formação florestal e savânica; não florestal = formação campestre, campo alagado e afloramento rochoso (classes do MapBiomas).",
+        "Camada reamostrada da plataforma (~150 m; o dado original é de 30 m): serve para a visão do estado. Área por município ou análise fina pede o dado de 30 m do MapBiomas.",
+        "Clique no mapa para ver a classe do pixel."
+      ]
+    },
+    {
+      "id": "agua_superficial",
+      "nome": "Água superficial (MapBiomas, 2025)",
+      "nome_en": "Surface water (MapBiomas, 2025)",
+      "grupo": "cartografia",
+      "geometria": "poligono",
+      "origem": {
+        "tipo": "pacote",
+        "arquivo": "Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip",
+        "membro": "mapa_goias_2025/shapefile/agua_superficial_goias_2025",
+        "numerar": {"campo": "id", "prefixo": "AGUA-", "digitos": 4}
+      },
+      "fonte": {
+        "nome": "MapBiomas — Coleção 11, cobertura e uso da terra de 2025, classe 33 (camada da plataforma, ~150 m), no pacote do Squad 1",
+        "url": "https://brasil.mapbiomas.org",
+        "licenca": "CC BY 4.0"
+      },
+      "data_retrato": "2026-10-22",
+      "periodo_referencia": "2025",
+      "recorte": "Recortada pelo limite de Goiás (IBGE) por quem montou o pacote do Squad 1.",
+      "chave": "id",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "tolerancia": 0.0007,
+      "nota_tolerancia": "0,0007° ≈ 75 m, metade do pixel de ~150 m de onde os polígonos vieram: tira os vértices em linha reta da escada de pixels",
+      "campos": [
+        {"id": "id", "rotulo": "Número no pacote", "rotulo_en": "Number in the package", "tipo": "texto"},
+        {"id": "classe", "fonte": "classe", "rotulo": "Classe", "rotulo_en": "Class", "tipo": "categoria"}
+      ],
+      "filtros": [],
+      "legenda": {"tipo": "simples", "cor": "#2532e4"},
+      "papeis": {"titulo": "classe", "id": ["id"]},
+      "notas": ["Rios, lagos e reservatórios mapeados pelo MapBiomas em 2025, em pixels de ~150 m: rio estreito não aparece (os rios nomeados estão na camada de rios)."]
+    },
+    {
+      "id": "rios",
+      "nome": "Rios nomeados (OpenStreetMap)",
+      "nome_en": "Named rivers (OpenStreetMap)",
+      "grupo": "cartografia",
+      "geometria": "linha",
+      "origem": {
+        "tipo": "pacote",
+        "arquivo": "Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip",
+        "membro": "mapa_goias_2025/shapefile/rios_goias"
+      },
+      "fonte": {
+        "nome": "© colaboradores do OpenStreetMap (ODbL), no pacote do Squad 1",
+        "url": "https://www.openstreetmap.org/copyright",
+        "licenca": "ODbL"
+      },
+      "data_retrato": "2026-10-22",
+      "periodo_referencia": null,
+      "recorte": "Recortada pelo limite de Goiás (IBGE) por quem montou o pacote do Squad 1.",
+      "chave": "nome",
+      "carga": "sob_demanda",
+      "visivel_padrao": false,
+      "tolerancia": 0.0005,
+      "nota_tolerancia": "0,0005° ≈ 55 m",
+      "campos": [
+        {"id": "nome", "fonte": "nome", "rotulo": "Rio", "rotulo_en": "River", "tipo": "texto"},
+        {"id": "comp_km", "fonte": "comp_km", "rotulo": "Comprimento no pacote", "rotulo_en": "Length in the package", "tipo": "numero", "unidade": "km", "casas": 1}
+      ],
+      "filtros": [],
+      "legenda": {"tipo": "simples", "cor": "#1c6fc4"},
+      "papeis": {"titulo": "nome", "id": ["nome"]},
+      "notas": ["Só os rios com nome no OpenStreetMap. A data da extração do OpenStreetMap não está no pacote."]
     },
     {
       "id": "pocos_siagas",

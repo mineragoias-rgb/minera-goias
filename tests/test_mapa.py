@@ -36,6 +36,25 @@ def vertices(pacote):
     return struct.unpack(f'<{len(xy) // 2}H', xy)
 
 
+def ler_png_paleta(png):
+    """Índices de paleta de um PNG sem entrelaçamento e com filtro 0 em toda linha (como scripts/build_mapa_base.py grava)."""
+    import zlib
+    o, idat = 8, b''
+    while o < len(png):
+        n, tipo = struct.unpack('>I', png[o:o + 4])[0], png[o + 4:o + 8]
+        if tipo == b'IHDR':
+            w, h, bits = struct.unpack('>IIB', png[o + 8:o + 17])
+        elif tipo == b'IDAT':
+            idat += png[o + 8:o + 8 + n]
+        o += 12 + n
+    bruto, por_linha, saida = zlib.decompress(idat), -(-w * bits // 8), []
+    for y in range(h):
+        linha = bruto[y * (por_linha + 1):(y + 1) * (por_linha + 1)]
+        assert linha[0] == 0, 'filtro diferente de 0'
+        saida.append([(linha[1 + x * bits // 8] >> (8 - bits - (x * bits) % 8)) & (2 ** bits - 1) for x in range(w)])
+    return saida
+
+
 def partes(pacote):
     inicio = base64.b64decode(pacote['partStart'])
     dono = base64.b64decode(pacote['partFeat'])
@@ -49,6 +68,7 @@ class CatalogoTests(unittest.TestCase):
         cls.val = ler(MAPA / 'validacao.json')
         cls.camadas = {c['id']: c for c in cls.cat['camadas']}
         cls.proprias = [c for c in cls.cat['camadas'] if c['dados']['formato'] == 'mapa-v1']
+        cls.imagens = [c for c in cls.cat['camadas'] if c['dados']['formato'] == 'imagem-v1']
 
     def test_cada_camada_declara_o_contrato(self):
         grupos = {g['id'] for g in self.cat['grupos']}
@@ -58,7 +78,8 @@ class CatalogoTests(unittest.TestCase):
                       'campos', 'filtros', 'legenda', 'visivel_padrao', 'carga', 'n_feicoes', 'bytes'):
                 self.assertIn(k, c, f"{c['id']} sem {k}")
             self.assertIn(c['grupo'], grupos)
-            self.assertIn(c['geometria'], ('ponto', 'linha', 'poligono'))
+            self.assertIn(c['geometria'], ('ponto', 'linha', 'poligono', 'raster'))
+            self.assertEqual(c['geometria'] == 'raster', c['dados']['formato'] == 'imagem-v1', c['id'])
             self.assertIn(c['carga'], ('inicial', 'sob_demanda'))
             ids = [f['id'] for f in c['campos']]
             self.assertIn(c['chave'], ids, c['id'])
@@ -74,13 +95,13 @@ class CatalogoTests(unittest.TestCase):
 
     def test_arquivos_batem_com_o_catalogo(self):
         no_disco = {p.stem for p in (MAPA / 'camadas').glob('*.json')}
-        self.assertEqual(no_disco, {c['id'] for c in self.proprias}, 'arquivo de camada órfão ou faltando')
-        for c in self.proprias:
+        self.assertEqual(no_disco, {c['id'] for c in self.proprias + self.imagens}, 'arquivo de camada órfão ou faltando')
+        for c in self.proprias + self.imagens:
             caminho = ROOT / c['dados']['arquivo']
             self.assertEqual(c['dados']['endpoint'], f"/api/mapa/camadas/{c['id']}")
             self.assertEqual(caminho.stat().st_size, c['bytes'], c['id'])
         for c in self.cat['camadas']:
-            if c['dados']['formato'] != 'mapa-v1':
+            if c['dados']['formato'] not in ('mapa-v1', 'imagem-v1'):
                 self.assertTrue((ROOT / c['dados']['arquivo']).exists(), c['id'])
                 self.assertTrue(c['dados']['endpoint'].startswith('/api/atlas'), c['id'])
         tabelas = {t['id'] for t in self.cat['tabelas']}
@@ -108,6 +129,46 @@ class CatalogoTests(unittest.TestCase):
             self.assertTrue(-53.5 <= b['lon0'] < b['lon1'] <= -45.6 and -19.8 <= b['lat0'] < b['lat1'] <= -12.2, (c['id'], b))
             minimo = {'ponto': 1, 'linha': 2, 'poligono': 3}[c['geometria']]
             self.assertTrue(all(inicio[k + 1] - inicio[k] >= minimo for k in range(len(dono))), c['id'])
+
+    def test_imagem_uma_classe_por_feicao_e_png_de_paleta(self):
+        """Camada de imagem (imagem-v1): ladrilhos PNG de paleta na grade de Web Mercator; o índice k da paleta é a classe k da legenda."""
+        self.assertTrue(self.imagens)
+        for c in self.imagens:
+            p = ler(ROOT / c['dados']['arquivo'])
+            classes = list(c['legenda']['cores'])
+            self.assertEqual((p['n'], c['n_feicoes'], p['campos']), (len(classes), len(classes), [f['id'] for f in c['campos']]), c['id'])
+            self.assertEqual([p['dic'][c['legenda']['campo']][i] for i in p['valores'][c['legenda']['campo']]], classes, c['id'])
+            self.assertEqual(p['paleta'][1:], [[int(h[k:k + 2], 16) for k in (1, 3, 5)] for h in c['legenda']['cores'].values()], c['id'])
+            self.assertEqual(len(p['caixas']), p['n'], c['id'])
+            v = self.val['camadas'][c['id']]['imagem']
+            self.assertEqual((p['largura'], p['altura'], len(p['ladrilhos'])), (v['largura'], v['altura'], v['ladrilhos']), c['id'])
+            contagem = [0] * len(p['paleta'])
+            for l in p['ladrilhos']:
+                png = base64.b64decode(l['png'])
+                self.assertEqual(png[:8], b'\x89PNG\r\n\x1a\n', c['id'])
+                w, h, bits, cor = struct.unpack('>IIBB', png[16:26])
+                self.assertEqual((w, h, cor), (l['largura'], l['altura'], 3), c['id'])  # tipo de cor 3 = paleta
+                pixels = ler_png_paleta(png)
+                for k in range(len(contagem)):
+                    contagem[k] += sum(linha.count(k) for linha in pixels)
+            self.assertEqual(contagem[1:], [v['classes'][k]['pixels'] for k in classes], c['id'])
+            for k in classes:
+                self.assertLess(abs(v['classes'][k]['diferenca_pct']), 1, (c['id'], k))  # área dos pixels × área que a fonte informa
+
+    def test_camadas_de_pacote_do_squad1(self):
+        for c in self.cat['camadas']:
+            if 'pacote' not in c:
+                continue
+            self.assertTrue((ROOT / c['pacote']['arquivo']).exists(), c['id'])
+            self.assertTrue((ROOT / c['pacote']['leiame']).exists(), c['id'])
+            self.assertTrue(c['pacote']['url'].startswith('https://github.com/mineragoias-rgb/minera-goias/tree/main/'), c['id'])
+            self.assertTrue(c['recorte'] and c['data_retrato'], c['id'])
+            self.assertNotIn('p3m', c, c['id'])
+            v = self.val['camadas'][c['id']]
+            self.assertEqual(v['origem'], 'pacote', c['id'])
+            if c['dados']['formato'] == 'mapa-v1':
+                self.assertEqual(v['registros_fonte'], c['n_feicoes'], c['id'])  # cada feição do shapefile vira uma feição do mapa
+                self.assertEqual(v['sem_geometria'], 0, c['id'])
 
     def test_chaves_unicas_no_grao_de_cada_camada(self):
         for c in self.proprias:
@@ -184,7 +245,7 @@ class InventarioTests(unittest.TestCase):
     def test_retrato_pasta_e_ficha_vem_do_inventario(self):
         pasta_do_grupo = {g['id']: g['pasta'] for g in self.cat['grupos']}
         for c in self.cat['camadas']:
-            if c['dados']['formato'] != 'mapa-v1':
+            if c['dados']['formato'] != 'mapa-v1' or 'pacote' in c:
                 self.assertNotIn('p3m', c, c['id'])
                 continue
             linhas = [self.por_zip[z] for z in c['fonte_arquivos']]
@@ -351,7 +412,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(cat.status_code, 200)
         self.assertEqual(cat.headers['cache-control'], 'no-store')
         for c in cat.json()['camadas']:
-            if c['dados']['formato'] == 'mapa-v1':
+            if c['dados']['formato'] in ('mapa-v1', 'imagem-v1'):
                 r = self.client.get(c['dados']['endpoint'])
                 self.assertEqual(r.status_code, 200, c['id'])
                 self.assertEqual(r.json()['n'], c['n_feicoes'])

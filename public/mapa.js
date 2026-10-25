@@ -18,7 +18,7 @@ const num=(v,d=2)=>I18N.num(v,{maximumFractionDigits:d});
 const dataBR=s=>{if(s==null||s==='')return '';const p=String(s).split('-');return EN()?String(s):p.reverse().join('/')};
 const anoDe=v=>{if(v==null||v==='')return null;const y=typeof v==='number'?v:parseInt(String(v).slice(0,4),10);return Number.isFinite(y)?y:null};
 const MATURIDADE={'OPERAÇÃO':'#0d9488','EXPANSÃO':'#2e7d32','CONSTRUÇÃO':'#07345c','DEFINIDO':'#0f6fb0','PROVÁVEL':'#8250c4','POSSÍVEL':'#c2681b','SINAL':'#b03a55'};
-const PANES=[['mp-mascara',350],['mp-fundo',380],['mp-areas',410],['mp-limites',430],['mp-linhas',450],['mp-pontos',500],['mp-destaque',620]];
+const PANES=[['mp-mascara',350],['mp-imagens',365],['mp-fundo',380],['mp-areas',410],['mp-limites',430],['mp-linhas',450],['mp-pontos',500],['mp-destaque',620]];
 const ORDEM_TOQUE=['mp-pontos','mp-linhas','mp-areas','mp-fundo','mp-limites'];
 const BASE=new Set(['limite_goias','municipios']);   // context layers: drawn whole, never thinned by filters
 const POR_PAGINA=50,RAIO=5;
@@ -32,6 +32,7 @@ let analise='minas_ativas',selecao=null,outros=[],pagina=0,ordem={col:null,dir:1
 /* ---------- layer state and models ---------- */
 function paneDe(e){
  if(BASE.has(e.id))return 'mp-limites';
+ if(e.geometria==='raster')return 'mp-imagens';  // images under every vector layer
  if(e.geometria==='ponto')return 'mp-pontos';
  if(e.geometria==='linha')return 'mp-linhas';
  return e.grupo==='atividade_mineira'?'mp-areas':'mp-fundo';  // mineral rights and projects above the background areas
@@ -47,7 +48,7 @@ function caixa(partes){
 }
 function prepararModelo(c){
  const bb=new Array(c.n),centro=new Array(c.n),semGeo=new Array(c.n);
- for(let i=0;i<c.n;i++){const b=caixa(c.partes[i]);bb[i]=b;semGeo[i]=!b;centro[i]=b?[(b[0]+b[2])/2,(b[1]+b[3])/2]:null}
+ for(let i=0;i<c.n;i++){const b=c.caixas?c.caixas[i]:caixa(c.partes[i]);bb[i]=b;semGeo[i]=!b;centro[i]=b?[(b[0]+b[2])/2,(b[1]+b[3])/2]:null}
  return Object.assign(c,{bb,centro,semGeo});
 }
 // Radar projects have no coordinates: each project is drawn through the polygons of its ANM claims, never at a centroid.
@@ -180,6 +181,7 @@ async function desenhar(st){
  const local=st.id===analise||st.tipo==='radar'&&analise==='radar_projetos';
  const idx=[];for(let i=0;i<m.n;i++)if(!m.semGeo[i]&&(BASE.has(st.id)||passa(st,i,local)))idx.push(i);
  st.exibidos=idx;linhaCamada(st);
+ if(e.geometria==='raster'){desenharImagem(st);return}
  const sel=st.id==='municipios'?filtros.municipios:null;
  for(let k=0;k<idx.length;k++){
   const i=idx[k],cor=corDe(st,i);
@@ -191,6 +193,23 @@ async function desenhar(st){
   if(k%1500===1499){await new Promise(res=>requestAnimationFrame(res));if(v!==st.versao)return}  // a newer drawing of this layer took over
  }
 }
+// Raster layers (imagem-v1): one image overlay per PNG tile, on the pixel grid of the source. A colour picked in the legend rewrites
+// only the tile palette (MapaShp.paletaPng); the opacity is the overlay's. No filter applies: a class has no municipality or mineral.
+function desenharImagem(st){
+ const im=st.modelo.imagem,cores=itensLegenda(st).map(([,c])=>c),chave=cores.join();
+ if(st.imgChave!==chave){
+  (st.imgUrls||[]).forEach(u=>URL.revokeObjectURL(u));st.imgUrls=[];
+  const pal={};cores.forEach((c,k)=>{const rgb=[1,3,5].map(j=>parseInt(c.slice(j,j+2),16));if(rgb.join()!==im.paleta[k+1].join())pal[k+1]=rgb});
+  st.imgCamadas=im.ladrilhos.map(l=>{let url='data:image/png;base64,'+l.png;
+   if(Object.keys(pal).length){url=URL.createObjectURL(new Blob([MapaShp.paletaPng(MapaDados.binario(l.png,Uint8Array),pal)],{type:'image/png'}));st.imgUrls.push(url)}
+   return L.imageOverlay(url,[[l.bounds[0],l.bounds[1]],[l.bounds[2],l.bounds[3]]],{pane:'mp-imagens',className:'mp-raster',interactive:false})});
+  st.imgChave=chave;
+ }
+ for(const o of st.imgCamadas){o.setOpacity(.85*st.opacidade);o.addTo(st.grupo)}
+ nitidez();
+}
+function nitidez(){const zs=[...estados.values()].filter(s=>s.modelo&&s.modelo.imagem).map(s=>s.modelo.imagem.zoom);
+ map.getPane('mp-imagens').classList.toggle('mp-nitido',zs.length>0&&map.getZoom()>=Math.min(...zs))}
 function desenharMascara(st){
  if(mascara){mascara.remove();mascara=null}
  if(!st.visivel||!st.modelo)return;
@@ -211,7 +230,7 @@ function distSeg(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,l=dx*dx+dy*dy;let t=l?((p.x-
 function tocar(latlng){
  const pt=map.latLngToContainerPoint(latlng),c2=map.containerPointToLatLng([pt.x+8,pt.y+8]),dLa=Math.abs(c2.lat-latlng.lat),dLo=Math.abs(c2.lng-latlng.lng);
  const res=[];
- const ests=[...estados.values()].filter(s=>s.visivel&&s.modelo&&s.id!=='limite_goias').sort((a,b)=>ORDEM_TOQUE.indexOf(paneDe(a.entrada))-ORDEM_TOQUE.indexOf(paneDe(b.entrada)));
+ const ests=[...estados.values()].filter(s=>s.visivel&&s.modelo&&s.id!=='limite_goias'&&s.entrada.geometria!=='raster').sort((a,b)=>ORDEM_TOQUE.indexOf(paneDe(a.entrada))-ORDEM_TOQUE.indexOf(paneDe(b.entrada)));
  for(const st of ests){
   const m=st.modelo,g=st.entrada.geometria;
   for(const i of st.exibidos){
@@ -226,11 +245,38 @@ function tocar(latlng){
  return res;
 }
 
+// Raster layers answer a click after the vector layers: the class of the pixel, read from the tile as the generator wrote it
+// (its own palette, never the recoloured copy), one pixel drawn into a 1×1 canvas. The last tiles read stay decoded.
+const LADRILHOS_LIDOS=new Map();
+function ladrilhoLido(chave,png){
+ if(!LADRILHOS_LIDOS.has(chave)){
+  LADRILHOS_LIDOS.set(chave,new Promise((ok,falha)=>{const img=new Image();img.onload=()=>ok(img);img.onerror=()=>falha(Error('PNG'));img.src='data:image/png;base64,'+png}));
+  if(LADRILHOS_LIDOS.size>8)LADRILHOS_LIDOS.delete(LADRILHOS_LIDOS.keys().next().value);
+ }
+ return LADRILHOS_LIDOS.get(chave);
+}
+async function tocarImagens(latlng){
+ const res=[];
+ for(const st of estados.values()){
+  if(!st.visivel||!st.modelo||st.entrada.geometria!=='raster')continue;
+  const im=st.modelo.imagem,[gx,gy]=MapaDados.pixelMercator(latlng.lat,latlng.lng,im.zoom),x=Math.floor(gx)-im.origem[0],y=Math.floor(gy)-im.origem[1];
+  if(x<0||y<0||x>=im.largura||y>=im.altura)continue;
+  const tx=Math.floor(x/im.ladrilho),ty=Math.floor(y/im.ladrilho),l=im.ladrilhos.find(q=>q.x===tx&&q.y===ty);if(!l)continue;
+  try{
+   const img=await ladrilhoLido(st.id+':'+tx+':'+ty,l.png),cv=document.createElement('canvas');cv.width=cv.height=1;
+   const ctx=cv.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,-(x-tx*im.ladrilho),-(y-ty*im.ladrilho));
+   const i=MapaDados.classeDaCor(ctx.getImageData(0,0,1,1).data,im.paleta);
+   if(i!=null&&st.exibidos.includes(i))res.push({st,i});
+  }catch{/* a tile that does not decode answers nothing; the vector layers still do */}
+ }
+ return res;
+}
+
 /* ---------- selection: highlight + details; never a filter ---------- */
 function desenharDestaque(){
  destaque.clearLayers();
  if(!selecao)return;
- const {st,i}=selecao,m=st.modelo;if(!m||m.semGeo[i])return;
+ const {st,i}=selecao,m=st.modelo;if(!m||m.semGeo[i]||st.entrada.geometria==='raster')return;
  const r=RENDER['mp-destaque'],g=st.entrada.geometria;
  if(g==='ponto')m.partes[i].forEach(p=>L.circleMarker(p[0],{renderer:r,radius:RAIO+5,color:'#ffb000',weight:3,fill:false,interactive:false}).addTo(destaque));
  else if(g==='linha')L.polyline(m.partes[i],{renderer:r,color:'#ffb000',weight:6,opacity:.85,interactive:false}).addTo(destaque);
@@ -337,6 +383,15 @@ function fonteHtml(e,radar){
  const dataR=Array.isArray(e.data_retrato)?e.data_retrato.map(dataBR).join(', '):e.data_retrato?dataBR(e.data_retrato):t('mp.notRecorded');
  return `<div class="mp-source"><p><b>${escape(t('mp.source'))}:</b> ${escape(radar?(e.fonte||''):f.nome||'')}${f.url?` · <a href="${escape(f.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.openLink'))} ↗</a>`:''}</p>`+
   (radar?'':`<p><b>${escape(t('mp.snapshot'))}:</b> ${escape(dataR)} · <b>${escape(t('mp.refPeriod'))}:</b> ${ref}</p>`)+`</div>`;
+}
+
+// Layers of a Squad 1 package outside the P3M: the zip in the repository, the layer inside it and the folder on GitHub with the original
+// layers, the PDF map and its LEIA-ME. The day the package was put together is the snapshot date in fonteHtml.
+function pacoteHtml(e){
+ if(!e.pacote)return '';
+ return `<div class="mp-source mp-p3m"><p class="mp-p3m-head">${escape(t('mp.pkgTitle'))}</p>`+
+  `<p><b>${escape(t('mp.pkgFile'))}:</b> ${escape(e.pacote.arquivo)} · <b>${escape(t('mp.pkgLayer'))}:</b> ${escape(e.pacote.camada)}</p>`+
+  `<p><a href="${escape(e.pacote.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.pkgLink'))} ↗</a></p></div>`;
 }
 
 // What the P3M inventory (Squad 1/P3M/inventario_p3m.csv) says of each source layer: Squad 1 folder, classification on the P3M site,
@@ -461,7 +516,7 @@ function exportarCsv(){
  const safe=v=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
  const e=st.entrada,f=e.fonte||{};
  const meta=[[t('mp.csvLayer'),rot(e)],[t('mp.source'),typeof f==='string'?f:f.nome||''],[t('mp.snapshot'),String(e.data_retrato??t('mp.notRecorded'))],[t('mp.refPeriod'),e.periodo_referencia||t('mp.refNotInformed')],
-  ...(e.p3m?[[t('mp.inventoryLink'),cat.p3m.inventario.url]]:[]),[t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
+  ...(e.p3m?[[t('mp.inventoryLink'),cat.p3m.inventario.url]]:[]),...(e.pacote?[[t('mp.pkgLink'),e.pacote.url]]:[]),[t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
  const linhas=[...meta,[],cols.map(c=>rotulo(c)+(c.unidade?' ('+c.unidade+')':'')),...idx.map(i=>cols.map(c=>textoExport(c,c.get(i))))];
  baixar(`mapa-mineral-goias-${st.id}.csv`,'text/csv;charset=utf-8','﻿'+linhas.map(r=>r.map(safe).join(';')).join('\r\n'));
  el('mp-export-msg').textContent=t('mp.csvDone',{n:num(idx.length,0)});
@@ -479,7 +534,7 @@ function aneisGeo(aneis){
  return polis;
 }
 function geometriaGeo(st,i){
- const m=st.modelo,g=st.entrada.geometria;if(m.semGeo[i])return null;
+ const m=st.modelo,g=st.entrada.geometria;if(m.semGeo[i]||g==='raster')return null;
  if(g==='ponto'){const pts=m.partes[i].map(p=>[+p[0][1].toFixed(6),+p[0][0].toFixed(6)]);return pts.length===1?{type:'Point',coordinates:pts[0]}:{type:'MultiPoint',coordinates:pts}}
  if(g==='linha'){const ls=m.partes[i].map(l=>l.map(([la,lo])=>[+lo.toFixed(6),+la.toFixed(6)]));return ls.length===1?{type:'LineString',coordinates:ls[0]}:{type:'MultiLineString',coordinates:ls}}
  const polis=(st.tipo==='radar'?m.grupos[i]:[m.partes[i]]).flatMap(aneisGeo);
@@ -493,7 +548,7 @@ function exportarGeojson(){
  const e=st.entrada,f=e.fonte||{};
  const fc={type:'FeatureCollection',name:`mapa-mineral-goias-${st.id}`,
   metadados:{camada:rot(e),fonte:typeof f==='string'?f:f.nome||'',data_retrato:e.data_retrato??null,periodo_referencia:e.periodo_referencia??null,
-   ...(e.p3m?{inventario_p3m:cat.p3m.inventario.url}:{}),filtros:descricaoFiltros(),
+   ...(e.p3m?{inventario_p3m:cat.p3m.inventario.url}:{}),...(e.pacote?{pacote:e.pacote.url}:{}),filtros:descricaoFiltros(),
    registros_no_recorte:idx.length,registros_sem_geometria:sem,crs:'WGS 84 / SIRGAS 2000 (graus, longitude e latitude)',aviso:t('mp.geoWarning')},features:feats};
  baixar(`mapa-mineral-goias-${st.id}.geojson`,'application/geo+json',JSON.stringify(fc));
  el('mp-export-msg').textContent=t('mp.geoDone',{n:num(feats.length,0),sem:num(sem,0)});
@@ -529,7 +584,7 @@ async function baixarShapefile(st){
    t('mp.snapshot')+': '+dataR+' · '+t('mp.refPeriod')+': '+(e.periodo_referencia||t('mp.refNotInformed')),
    ...(e.p3m||[]).map(f=>`P3M: ${f.titulo} (${f.camada}) · ${f.classificacao.join(' › ')} · ${t('mp.p3mFolder')}: ${f.pasta} · ${t('mp.p3mAgency')}: ${f.orgao} · `+
     `${t('mp.p3mDownloaded')}: ${dataBR(f.baixado_em)} · ${t('mp.p3mUpdated')}: ${f.atualizacao_sgb?dataBR(f.atualizacao_sgb)+', '+f.fonte_atualizacao_sgb:t('mp.p3mNotPublished')}`),
-   ...(e.p3m?[t('mp.inventoryLink')+': '+cat.p3m.inventario.url]:[]),
+   ...(e.p3m?[t('mp.inventoryLink')+': '+cat.p3m.inventario.url]:[]),...(e.pacote?[t('mp.pkgLink')+': '+e.pacote.url]:[]),
    t('mp.shpGenerated',{data:dataBR(iso)}),'',
    t('mp.shpWhole'),t('mp.shpCount',{n:num(registros.length,0),sem:num(sem,0)}),prj?t('mp.shpCrs',{crs}):t('mp.shpNoCrs'),
    t('mp.geoWarning'),...(e.geometria==='poligono'?[t('mp.shpInvalid')]:[]),t('mp.csvUseText'),t('mp.shpText'),'',
@@ -554,6 +609,7 @@ function linhaCamada(st){
  const s=row.querySelector('.mp-layer-status');let txt='',cls='';
  if(st.status==='carregando'){txt=t('mp.loadingShort');cls='load'}
  else if(st.status==='erro'){txt=t('mp.failedShort');cls='err'}
+ else if(st.modelo&&st.entrada.geometria==='raster')txt=t('mp.nClasses',{n:num(st.modelo.n,0)});
  else if(st.modelo){const n=st.modelo.n-st.modelo.semGeo.filter(Boolean).length;txt=st.visivel&&filtrada(st)&&!BASE.has(st.id)?t('mp.nOfM',{n:num(st.exibidos.length,0),m:num(n,0)}):num(n,0)}
  else if(st.entrada.bytes>600000&&(st.entrada.dados||{}).arquivo!=='data/atlas/atlas.json')txt=t('mp.sizeHint',{mb:num(st.entrada.bytes/1048576,1)});  // atlas.json is already in memory
  s.textContent=txt;s.className='mp-layer-status '+cls;
@@ -565,7 +621,7 @@ function linhaCamada(st){
 // the team's own survey (Radar de Projetos), and last the layers this tab reuses from the atlas packet, already shown in the Atlas
 // and panorama tab. The thematic group still sets the drawing pane.
 function gruposPainel(){
- const secao=st=>BASE.has(st.id)?null:st.tipo==='radar'?'equipe':st.entrada.dados.formato==='mapa-v1'?st.entrada.grupo:'site';
+ const secao=st=>BASE.has(st.id)?null:st.tipo==='radar'?'equipe':['mapa-v1','imagem-v1'].includes(st.entrada.dados.formato)?st.entrada.grupo:'site';
  return [...cat.grupos,{id:'equipe',nome:t('mp.groupTeam')},{id:'site',nome:t('mp.groupSite')}]
   .map(g=>({g,camadas:[...estados.values()].filter(st=>secao(st)===g.id)})).filter(x=>x.camadas.length);
 }
@@ -584,17 +640,18 @@ function linhaHtml(st){
  return `<div class="mp-layer" data-id="${escape(st.id)}"><div class="mp-layer-line"><label><input type="checkbox" ${st.visivel?'checked':''}><span class="mp-sw mp-sw-${e.geometria}" style="--c:${escape(cor)}"></span><span class="mp-layer-name">${escape(rot(e))}</span></label>`+
     `<span class="mp-layer-status"></span><button type="button" class="mp-ico mp-retry" hidden data-acao="retry" aria-label="${escape(t('mp.retry'))}">↻</button>`+
     `<button type="button" class="mp-ico" data-acao="extensao" title="${escape(t('mp.zoomLayer'))}" aria-label="${escape(t('mp.zoomLayer'))}: ${escape(rot(e))}">⤢</button>`+
-    `<button type="button" class="mp-ico" data-acao="baixar" title="${escape(t('mp.shpDownload'))}" aria-label="${escape(t('mp.shpDownload'))}: ${escape(rot(e))}">↓</button>`+
+    (e.geometria==='raster'?'':`<button type="button" class="mp-ico" data-acao="baixar" title="${escape(t('mp.shpDownload'))}" aria-label="${escape(t('mp.shpDownload'))}: ${escape(rot(e))}">↓</button>`)+
     `<button type="button" class="mp-ico" data-acao="info" aria-expanded="false" title="${escape(t('mp.layerInfo'))}" aria-label="${escape(t('mp.layerInfo'))}: ${escape(rot(e))}">i</button></div><div class="mp-layer-info" hidden></div></div>`;
 }
 function infoCamada(st){
  const e=st.entrada,box=document.querySelector(`#mapa-view .mp-layer[data-id="${st.id}"] .mp-layer-info`);
  const omit=e.omitidos?Object.entries(e.omitidos):[];
- const feicoes=st.tipo==='radar'?t('mp.radarRows',{n:num(e.linhas,0)}):t('mp.features',{n:num(e.n_feicoes,0)})+(e.n_registros_fonte?' '+t('mp.fromRecords',{n:num(e.n_registros_fonte,0)}):'');
+ const feicoes=st.tipo==='radar'?t('mp.radarRows',{n:num(e.linhas,0)}):e.imagem?t('mp.rasterInfo',{n:num(e.n_feicoes,0),w:num(e.imagem.largura,0),h:num(e.imagem.altura,0),l:num(e.imagem.ladrilhos,0),p:num(e.n_registros_fonte,0)}):
+  t('mp.features',{n:num(e.n_feicoes,0)})+(e.n_registros_fonte?' '+t('mp.fromRecords',{n:num(e.n_registros_fonte,0)}):'');
  box.innerHTML=`<div class="mp-leg">${legendaEditavel(st)}</div><p class="mp-note">${escape(t('mp.styleHint'))}</p>`+
   (e.ponto_ate_zoom?`<p class="mp-note">${escape(t('mp.pointMode',{z:e.ponto_ate_zoom}))}</p>`:'')+
-  fonteHtml(e,st.tipo==='radar')+p3mHtml(e)+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
-  `<p><button type="button" class="link-button" data-acao="baixar">${escape(t('mp.shpDownload'))} ↓</button></p>`+
+  fonteHtml(e,st.tipo==='radar')+p3mHtml(e)+pacoteHtml(e)+`<p class="mp-note">${escape(feicoes)}${e.bytes?' · '+escape(num(e.bytes/1024,0))+' KB':''}${e.carga==='sob_demanda'?' · '+escape(t('mp.onDemand')):''}</p>`+
+  (e.geometria==='raster'?'':`<p><button type="button" class="link-button" data-acao="baixar">${escape(t('mp.shpDownload'))} ↓</button></p>`)+
   (e.notas&&e.notas.length?`<ul class="mp-notes-list">${e.notas.map(n=>`<li>${escape(n)}</li>`).join('')}</ul>`:'')+
   (e.recorte?`<p class="mp-note">${escape(e.recorte)}</p>`:'')+
   (omit.length?`<details class="mp-omit"><summary>${escape(t('mp.omitted'))}</summary><ul>${omit.map(([k,v])=>`<li><code>${escape(k)}</code>: ${escape(v)}</li>`).join('')}</ul></details>`:'')+
@@ -792,7 +849,11 @@ function eventos(){
  el('mp-goto').onchange=ev=>{const code=ev.target.value;if(!code)return;const m=estados.get('municipios').modelo;if(!m)return;
   for(let i=0;i<m.n;i++)if(m.valor(i,'code')===code){aproximar({modelo:m},i);if(munDestaque)munDestaque.remove();
    munDestaque=L.polygon(m.partes[i],{renderer:RENDER['mp-destaque'],color:'#07345c',weight:2.4,dashArray:'6 4',fill:false,interactive:false}).addTo(map);break}};
- map.on('click',ev=>{const hits=tocar(ev.latlng);if(!hits.length){limparSelecao();return}selecionar(hits[0].st,hits[0].i,{outros:hits})});
+ map.on('click',async ev=>{  // raster classes come after the vector layers and before Goiás and its municipalities, which are always on
+  const v=tocar(ev.latlng),r=await tocarImagens(ev.latlng),k=v.findIndex(h=>paneDe(h.st.entrada)==='mp-limites');
+  const hits=k<0?[...v,...r]:[...v.slice(0,k),...r,...v.slice(k)];
+  if(!hits.length){limparSelecao();return}selecionar(hits[0].st,hits[0].i,{outros:hits})});
+ map.on('zoomend',nitidez);
  map.on('zoomend',()=>{for(const st of estados.values())if(st.visivel&&st.modelo&&st.entrada.ponto_ate_zoom&&(map.getZoom()<st.entrada.ponto_ate_zoom)!==st.modoPonto)desenhar(st);desenharDestaque();legenda()});
  map.on('moveend',()=>{if(filtros.area){pagina=0;tabela()}});
  new ResizeObserver(()=>map.invalidateSize({pan:false})).observe(el('mapa-map'));

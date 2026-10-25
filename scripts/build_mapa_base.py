@@ -31,11 +31,15 @@ import csv
 import io
 import json
 import re
+import struct
 import sys
 import zipfile
+import zlib
 from array import array
 from pathlib import Path
+from urllib.parse import quote
 
+import numpy as np
 import shapefile  # pyshp
 import shapely
 from shapely.geometry import shape as geometria_de
@@ -508,14 +512,7 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambigu
     feicoes.sort(key=lambda f: (str(f['valores'].get(spec['chave'])), json.dumps(f['valores'], ensure_ascii=False, sort_keys=True, default=str)))
 
     # chave, geometria ausente, posição e divisa
-    chaves = [f['valores'].get(spec['chave']) for f in feicoes]
-    contagem = collections.Counter(chaves)
-    val['chave'] = {'campo': spec['chave'], 'feicoes': len(chaves), 'distintos': len(contagem),
-                    'sem_chave': contagem.get(None, 0), 'duplicados': sorted((str(k) for k, n in contagem.items() if n > 1 and k is not None))[:20]}
-    if val['chave']['duplicados']:
-        val['alertas'].append(f"chave {spec['chave']} repetida em {sum(1 for k, n in contagem.items() if n > 1 and k is not None)} valores")
-    sem_geom = [i for i, f in enumerate(feicoes) if f['geom'] is None or f['geom'].is_empty]
-    val['sem_geometria'] = len(sem_geom)
+    conferir_chave(spec, feicoes, val)
     geoms = [f['geom'] for f in feicoes]
     validas = [g for g in geoms if g is not None and not g.is_empty]
     if tipo == 'ponto':
@@ -531,27 +528,7 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambigu
         for f, d in zip(feicoes, na_divisa):
             f['valores']['na_divisa'] = d
 
-    # simplificação: o detalhe fica no zip de origem; aqui só o desenho para a web
-    tol = spec.get('tolerancia', 0)
-    pares = []
-    vert_antes = vert_depois = mantidas = 0
-    for g in geoms:
-        if g is None or g.is_empty:
-            pares.append((None, None))
-            continue
-        s = g
-        if tol and tipo != 'ponto':
-            s = shapely.simplify(g, tol, preserve_topology=True)
-            if s.is_empty or not s.is_valid:
-                s, mantidas = g, mantidas + 1
-        vert_antes += int(shapely.get_num_coordinates(g))
-        vert_depois += int(shapely.get_num_coordinates(s))
-        pares.append((s, g))
-    caixa = caixa_da_camada(validas) if validas else {'lon0': 0, 'lat0': 0, 'lon1': 1, 'lat1': 1}
-    geo, n_partes, n_vertices = quantizar(pares, tipo, caixa)
-    val['simplificacao'] = {'tolerancia_graus': tol, 'vertices_fonte': vert_antes, 'vertices_simplificados': vert_depois,
-                            'vertices_publicados': n_vertices, 'partes': n_partes, 'mantidas_sem_simplificar': mantidas}
-    val['extensao'] = caixa
+    geo, caixa = desenho_web(geoms, tipo, spec.get('tolerancia', 0), val)
 
     if spec.get('posicao'):
         aprox = {spec['posicao']['rotulos'][v] for v in spec['posicao']['aproximada']}
@@ -580,6 +557,229 @@ def camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambigu
               'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
     meta = {'retratos': sorted(retratos), 'campos': campos, 'p3m': list(fichas.values())}
     return pacote, meta, val
+
+
+def conferir_chave(spec, feicoes, val):
+    """A chave da camada identifica uma feição só; anota as repetidas e as feições sem geometria."""
+    chaves = [f['valores'].get(spec['chave']) for f in feicoes]
+    contagem = collections.Counter(chaves)
+    val['chave'] = {'campo': spec['chave'], 'feicoes': len(chaves), 'distintos': len(contagem),
+                    'sem_chave': contagem.get(None, 0), 'duplicados': sorted((str(k) for k, n in contagem.items() if n > 1 and k is not None))[:20]}
+    if val['chave']['duplicados']:
+        val['alertas'].append(f"chave {spec['chave']} repetida em {sum(1 for k, n in contagem.items() if n > 1 and k is not None)} valores")
+    val['sem_geometria'] = sum(1 for f in feicoes if f['geom'] is None or f['geom'].is_empty)
+
+
+def desenho_web(geoms, tipo, tol, val):
+    """Simplificação e quantização: o detalhe fica no arquivo de origem; aqui só o desenho para a web."""
+    pares = []
+    vert_antes = vert_depois = mantidas = 0
+    for g in geoms:
+        if g is None or g.is_empty:
+            pares.append((None, None))
+            continue
+        s = g
+        if tol and tipo != 'ponto':
+            s = shapely.simplify(g, tol, preserve_topology=True)
+            if s.is_empty or not s.is_valid:
+                s, mantidas = g, mantidas + 1
+        vert_antes += int(shapely.get_num_coordinates(g))
+        vert_depois += int(shapely.get_num_coordinates(s))
+        pares.append((s, g))
+    validas = [g for g in geoms if g is not None and not g.is_empty]
+    caixa = caixa_da_camada(validas) if validas else {'lon0': 0, 'lat0': 0, 'lon1': 1, 'lat1': 1}
+    geo, n_partes, n_vertices = quantizar(pares, tipo, caixa)
+    val['simplificacao'] = {'tolerancia_graus': tol, 'vertices_fonte': vert_antes, 'vertices_simplificados': vert_depois,
+                            'vertices_publicados': n_vertices, 'partes': n_partes, 'mantidas_sem_simplificar': mantidas}
+    val['extensao'] = caixa
+    return geo, caixa
+
+
+# ---------------------------------------------------------------- camadas de pacotes do Squad 1 fora do P3M
+def abrir_membro(caminho, membro):
+    """Lê do zip de um pacote o shapefile `membro` (caminho dentro do zip, sem extensão). Devolve (reader, texto do .prj)."""
+    z = zipfile.ZipFile(caminho)
+    nomes = set(z.namelist())
+    cpg = z.read(membro + '.cpg').decode('ascii').strip() if membro + '.cpg' in nomes else 'utf-8'
+    leitor = shapefile.Reader(shp=io.BytesIO(z.read(membro + '.shp')), shx=io.BytesIO(z.read(membro + '.shx')),
+                              dbf=io.BytesIO(z.read(membro + '.dbf')), encoding=cpg or 'utf-8')
+    prj = z.read(membro + '.prj').decode('utf-8', 'replace') if membro + '.prj' in nomes else ''
+    return leitor, prj
+
+
+def nome_membro(o):
+    return f"{Path(o['arquivo']).name}: {Path(o['membro']).name}"
+
+
+def camada_pacote(spec, cfg):
+    """Camada vetorial de um pacote do Squad 1 (um shapefile dentro de um zip do repositório), recortada por quem montou o pacote.
+    origem.numerar dá a chave quando a fonte não tem uma: o número de ordem da feição no shapefile, com prefixo."""
+    o, tipo = spec['origem'], spec['geometria']
+    leitor, prj = abrir_membro(RAIZ / o['arquivo'], o['membro'])
+    val = {'arquivos': [{'arquivo': nome_membro(o), 'registros': len(leitor)}], 'erros': conferir_crs(nome_membro(o), prj, leitor.bbox),
+           'alertas': []}
+    nulos = set(cfg['nulos_padrao']) | {s.casefold() for s in cfg['nulos_padrao']}
+    numerar = o.get('numerar')
+    colunas = [Coluna(c, nulos | set(c.get('nulos', [])), {}, set(), None, {}) for c in spec['campos'] if not numerar or c['id'] != numerar['campo']]
+    campos_fonte = [f[0] for f in leitor.fields[1:]]
+    val['erros'] += [f"campo {c.spec['fonte']} não existe na fonte" for c in colunas if c.spec.get('fonte') not in campos_fonte]
+    feicoes = []
+    for k, sr in enumerate(leitor.iterShapeRecords(), 1):
+        rec = sr.record.as_dict()
+        geom = None if sr.shape.shapeType == shapefile.NULL else geometria_de(sr.shape.__geo_interface__)
+        if geom is not None and not geom.is_valid:
+            geom = shapely.make_valid(geom)
+            val['geometrias_reparadas'] = val.get('geometrias_reparadas', 0) + 1
+        valores = {c.spec['id']: c.ler(rec, {}) for c in colunas}
+        if numerar:
+            valores[numerar['campo']] = f"{numerar['prefixo']}{k:0{numerar['digitos']}d}"
+        feicoes.append({'geom': geom, 'valores': valores})
+    val['registros_fonte'] = len(feicoes)
+    feicoes.sort(key=lambda f: (str(f['valores'].get(spec['chave'])), json.dumps(f['valores'], ensure_ascii=False, sort_keys=True, default=str)))
+    conferir_chave(spec, feicoes, val)
+    geo, caixa = desenho_web([f['geom'] for f in feicoes], tipo, spec.get('tolerancia', 0), val)
+    val['nulos'] = {c.spec['id']: c.n_nulos for c in colunas if c.n_nulos}
+    val['nao_convertidos'] = {c.spec['id']: dict(c.nao_convertidos.most_common(10)) for c in colunas if c.nao_convertidos}
+    for cid, conv in val['nao_convertidos'].items():
+        val['alertas'].append(f'{cid}: {sum(conv.values())} valores não convertidos (ex.: {next(iter(conv))!r})')
+    campos = list(spec['campos'])
+    valores, dic = colunas_de_saida(feicoes, campos)
+    pacote = {'id': spec['id'], 'formato': 'mapa-v1', 'geometria': tipo, 'n': len(feicoes), 'bounds': caixa, **geo,
+              'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
+    return pacote, {'campos': campos}, val
+
+
+def png_paleta(pixels, paleta):
+    """PNG de paleta com o índice 0 transparente (pixels: matriz de índices). Só zlib e struct: o gerador não depende de
+    biblioteca de imagem, e os mesmos pixels dão sempre os mesmos bytes."""
+    h, w = pixels.shape
+    bits = 2 if len(paleta) <= 4 else 4 if len(paleta) <= 16 else 8
+    por_byte = 8 // bits
+    larg = -(-w // por_byte) * por_byte
+    p = np.zeros((h, larg), np.uint8)
+    p[:, :w] = pixels
+    q = p.reshape(h, larg // por_byte, por_byte).astype(np.uint16)
+    linhas = sum(q[:, :, k] << (8 - bits * (k + 1)) for k in range(por_byte)).astype(np.uint8)
+    bruto = np.concatenate([np.zeros((h, 1), np.uint8), linhas], 1).tobytes()  # filtro 0 em toda linha
+
+    def bloco(tipo, dados):
+        return struct.pack('>I', len(dados)) + tipo + dados + struct.pack('>I', zlib.crc32(tipo + dados))
+    return (b'\x89PNG\r\n\x1a\n' + bloco(b'IHDR', struct.pack('>IIBBBBB', w, h, bits, 3, 0, 0, 0))
+            + bloco(b'PLTE', bytes(c for cor in paleta for c in cor)) + bloco(b'tRNS', b'\x00' + b'\xff' * (len(paleta) - 1))
+            + bloco(b'IDAT', zlib.compress(bruto, 9)) + bloco(b'IEND', b''))
+
+
+def cor_rgb(hexa):
+    return [int(hexa[k:k + 2], 16) for k in (1, 3, 5)]
+
+
+def camada_imagem(spec, cfg):
+    """Camada de polígonos que já foram pixels de mapa web (a camada da plataforma do MapBiomas): volta a ser imagem na mesma grade,
+    os pixels de Web Mercator do zoom da fonte, em ladrilhos PNG de paleta com uma cor por classe. Nada é simplificado nem omitido
+    e a imagem fica muito menor que os polígonos. Cada classe vira uma feição da camada (para a tabela, o detalhe e a legenda).
+
+    Pixel dentro de um polígono = centro do pixel dentro (regra par-ímpar, que também resolve os buracos e as ilhas dentro deles)."""
+    o, r = spec['origem'], spec['origem']['raster']
+    leitor, prj = abrir_membro(RAIZ / o['arquivo'], o['membro'])
+    val = {'arquivos': [{'arquivo': nome_membro(o), 'registros': len(leitor)}], 'erros': conferir_crs(nome_membro(o), prj, leitor.bbox),
+           'alertas': []}
+    classes = list(spec['legenda']['cores'])  # a ordem da legenda é o índice na paleta (1, 2, ...); 0 é transparente
+    n_mundo = 256 * 2 ** r['zoom']
+
+    def px(lon):
+        return (np.asarray(lon, float) + 180) / 360 * n_mundo
+
+    def py(lat):
+        la = np.radians(np.asarray(lat, float))
+        return (1 - np.log(np.tan(la) + 1 / np.cos(la)) / np.pi) / 2 * n_mundo
+
+    def lat_de(y):
+        return float(np.degrees(np.arctan(np.sinh(np.pi * (1 - 2 * y / n_mundo)))))
+    x0, y0, x1, y1 = leitor.bbox
+    X0, X1 = int(np.floor(px(x0))), int(np.ceil(px(x1)))
+    Y0, Y1 = int(np.floor(py(y1))), int(np.ceil(py(y0)))
+    W, H = X1 - X0, Y1 - Y0
+    arestas = {c: [] for c in range(1, len(classes) + 1)}
+    area_attr, n_pol, fora_da_grade, n_vert = collections.Counter(), collections.Counter(), 0, 0
+    for sr in leitor.iterShapeRecords():
+        v = sr.record[r['campo']]
+        if v not in classes:
+            val['erros'].append(f"{r['campo']} = {v!r} não está na legenda")
+            continue
+        c = classes.index(v) + 1
+        area_attr[c] += sr.record[r['area']]
+        n_pol[c] += 1
+        pts = np.asarray(sr.shape.points, float)
+        X, Y = px(pts[:, 0]) - X0, py(pts[:, 1]) - Y0
+        fora_da_grade += int(np.count_nonzero(np.abs(X - np.round(X)) > 1e-3))  # a longitude cai na borda de um pixel da fonte
+        n_vert += len(pts)
+        partes_ = list(sr.shape.parts) + [len(pts)]
+        for a, b in zip(partes_, partes_[1:]):
+            arestas[c].append(np.stack([X[a:b - 1], Y[a:b - 1], X[a + 1:b], Y[a + 1:b]], 1))
+    if fora_da_grade > n_vert // 100:  # os do corte no limite de Goiás saem da grade; numa fonte de outra grade, quase todos sairiam
+        val['erros'].append(f'{fora_da_grade} de {n_vert} vértices fora da grade do zoom {r["zoom"]}: a fonte não é dessa grade')
+    img = np.zeros((H, W), np.uint8)
+    sobrepostos = 0
+    for c, lista in arestas.items():
+        E = np.concatenate(lista)
+        E = E[E[:, 1] != E[:, 3]]  # aresta horizontal não cruza a linha dos centros
+        j0 = np.ceil(np.minimum(E[:, 1], E[:, 3]) - 0.5).astype(np.int64)  # linhas j com o centro (j + 0,5) dentro da aresta
+        n = np.maximum(np.ceil(np.maximum(E[:, 1], E[:, 3]) - 0.5).astype(np.int64) - j0, 0)
+        E, j0, n = E[n > 0], j0[n > 0], n[n > 0]
+        k = np.repeat(np.arange(len(E)), n)
+        j = j0[k] + np.arange(int(n.sum())) - np.repeat(np.cumsum(n) - n, n)
+        ex0, ey0, ex1, ey1 = E[k].T
+        x = ex0 + (j + 0.5 - ey0) * (ex1 - ex0) / (ey1 - ey0)
+        ordem = np.lexsort((x, j))
+        j, x = j[ordem], x[ordem]
+        if len(j) % 2 or np.any(j[0::2] != j[1::2]):
+            val['erros'].append(f'classe {classes[c - 1]}: anel aberto (cruzamentos ímpares numa linha)')
+            continue
+        diff = np.zeros((H, W + 1), np.int32)
+        np.add.at(diff, (j[0::2], np.clip(np.ceil(x[0::2] - 0.5).astype(np.int64), 0, W)), 1)
+        np.add.at(diff, (j[1::2], np.clip(np.ceil(x[1::2] - 0.5).astype(np.int64), 0, W)), -1)
+        dentro = np.cumsum(diff, 1)[:, :W] > 0
+        sobrepostos += int(np.count_nonzero(dentro & (img > 0)))
+        img[dentro & (img == 0)] = c  # pixel de duas classes fica com a primeira da legenda
+    # área de cada linha de pixels na esfera de raio médio (conferência com a área que a fonte informa)
+    lat_linhas = np.array([lat_de(Y0 + y) for y in range(H + 1)])
+    ha_linha = np.abs(np.diff(np.sin(np.radians(lat_linhas)))) * 6371008.8 ** 2 * np.radians(360 / n_mundo) / 1e4
+    paleta = [[255, 255, 255]] + [cor_rgb(spec['legenda']['cores'][v]) for v in classes]
+    T = r['ladrilho']
+    ladrilhos = []
+    for ty in range(0, H, T):
+        for tx in range(0, W, T):
+            sub = img[ty:ty + T, tx:tx + T]
+            if not sub.any():
+                continue
+            h, w = sub.shape
+            ladrilhos.append({'x': tx // T, 'y': ty // T, 'bounds': [round(lat_de(Y0 + ty + h), 7), round((X0 + tx) / n_mundo * 360 - 180, 7),
+                                         round(lat_de(Y0 + ty), 7), round((X0 + tx + w) / n_mundo * 360 - 180, 7)],
+                              'largura': w, 'altura': h, 'png': base64.b64encode(png_paleta(sub, paleta)).decode('ascii')})
+    feicoes, caixas, conferencia = [], [], {}
+    for c, v in enumerate(classes, 1):
+        linhas_c, colunas_c = np.nonzero((img == c).any(1))[0].tolist(), np.nonzero((img == c).any(0))[0].tolist()
+        caixas.append([round(lat_de(Y0 + linhas_c[-1] + 1), 6), round((X0 + colunas_c[0]) / n_mundo * 360 - 180, 6),
+                       round(lat_de(Y0 + linhas_c[0]), 6), round((X0 + colunas_c[-1] + 1) / n_mundo * 360 - 180, 6)])
+        ha_px = float(((img == c).sum(1) * ha_linha).sum())
+        conferencia[v] = {'pixels': int((img == c).sum()), 'area_pixels_ha': round(ha_px), 'area_fonte_ha': round(area_attr[c]),
+                          'diferenca_pct': round(100 * (ha_px - area_attr[c]) / area_attr[c], 2)}
+        if abs(conferencia[v]['diferenca_pct']) > 1:
+            val['erros'].append(f'{v}: área dos pixels difere {conferencia[v]["diferenca_pct"]}% da área da fonte')
+        feicoes.append({'geom': None, 'valores': {'classe': v, 'area_ha': round(area_attr[c], 1), 'n_poligonos': n_pol[c]}})
+    val['registros_fonte'] = len(leitor)
+    val['imagem'] = {'zoom': r['zoom'], 'largura': W, 'altura': H, 'ladrilhos': len(ladrilhos), 'vertices': n_vert,
+                     'vertices_fora_da_grade': fora_da_grade, 'pixels_de_duas_classes': sobrepostos, 'classes': conferencia}
+    if sobrepostos:
+        val['alertas'].append(f'{sobrepostos} pixels cobertos por polígonos de duas classes na fonte: ficam com a primeira da legenda')
+    campos = list(spec['campos'])
+    valores, dic = colunas_de_saida(feicoes, campos)
+    pacote = {'id': spec['id'], 'formato': 'imagem-v1', 'geometria': 'raster', 'n': len(feicoes),
+              'bounds': {'lat0': round(lat_de(Y1), 7), 'lon0': round(X0 / n_mundo * 360 - 180, 7), 'lat1': round(lat_de(Y0), 7),
+                         'lon1': round(X1 / n_mundo * 360 - 180, 7)},
+              'zoom': r['zoom'], 'origem_px': [X0, Y0], 'largura': W, 'altura': H, 'ladrilho': T, 'paleta': paleta,
+              'caixas': caixas, 'ladrilhos': ladrilhos, 'campos': [c['id'] for c in campos], 'valores': valores, 'dic': dic}
+    return pacote, {'campos': campos}, val
 
 
 # ---------------------------------------------------------------- camadas que já estão no Atlas
@@ -754,6 +954,19 @@ def entrada_catalogo(spec, cfg, meta, n, n_fonte, nbytes, val=None):
         e['dados'] = {'endpoint': o['endpoint'], 'arquivo': o['arquivo'], 'formato': o['formato'], **({'chave_json': o['chave_json']} if 'chave_json' in o else {})}
         e['data_retrato'] = spec.get('data_retrato')
         e['campos'] = spec['campos']
+    elif o['tipo'] == 'pacote':
+        e['dados'] = {'endpoint': f"/api/mapa/camadas/{spec['id']}", 'arquivo': f"data/mapa/camadas/{spec['id']}.json",
+                      'formato': 'imagem-v1' if 'raster' in o else 'mapa-v1'}
+        e['data_retrato'] = spec['data_retrato']
+        e['campos'] = meta['campos']
+        pasta = Path(o['arquivo']).parent.as_posix()
+        e['pacote'] = {'arquivo': o['arquivo'], 'camada': Path(o['membro']).name, 'leiame': f'{pasta}/LEIA-ME.md',
+                       'url': f"{cfg['repositorio']}/tree/main/{quote(pasta)}"}
+        e['recorte'] = spec['recorte']
+        if 'raster' in o:
+            e['imagem'] = {k: val['imagem'][k] for k in ('zoom', 'largura', 'altura', 'ladrilhos')}
+        if spec.get('tolerancia'):
+            e['simplificacao'] = {'tolerancia_graus': spec['tolerancia'], 'nota': spec.get('nota_tolerancia', 'Douglas-Peucker preservando topologia; o detalhe fica no zip de origem.')}
     else:
         e['dados'] = {'endpoint': f"/api/mapa/camadas/{spec['id']}", 'arquivo': f"data/mapa/camadas/{spec['id']}.json", 'formato': 'mapa-v1'}
         retratos = meta['retratos']
@@ -804,7 +1017,7 @@ def montar(cfg):
     minas_por_mun = []
     for spec in cfg['camadas']:
         # O grupo do painel é a pasta temática do Squad 1: nas camadas do P3M ele vem do inventário, nas do Atlas, do catálogo.
-        if spec['origem']['tipo'] == 'atlas':
+        if spec['origem']['tipo'] in ('atlas', 'pacote'):
             assert spec['grupo'] in grupos, f"{spec['id']}: grupo {spec['grupo']} não existe"
         else:
             assert 'grupo' not in spec, f"{spec['id']}: o grupo de uma camada do P3M vem da pasta temática no inventário"
@@ -817,6 +1030,16 @@ def montar(cfg):
             validacao['camadas'][spec['id']] = {'origem': 'atlas', **val}
             if val['distintos'] != val['feicoes']:
                 validacao['alertas'].append(f"{spec['id']}: {val['feicoes'] - val['distintos']} chaves repetidas no Atlas")
+            continue
+        if spec['origem']['tipo'] == 'pacote':
+            pacote, meta, val = (camada_imagem if 'raster' in spec['origem'] else camada_pacote)(spec, cfg)
+            nbytes = len(json.dumps(pacote, ensure_ascii=False, separators=(',', ':')).encode('utf-8'))
+            camadas_saida[spec['id']] = pacote
+            entradas.append(entrada_catalogo(spec, cfg, meta, pacote['n'], val['registros_fonte'], nbytes, val))
+            val['bytes'] = nbytes
+            validacao['camadas'][spec['id']] = {'origem': 'pacote', **val}
+            validacao['erros'] += [f"{spec['id']}: {e}" for e in val.pop('erros')]
+            validacao['alertas'] += [f"{spec['id']}: {a}" for a in val.pop('alertas')]
             continue
         pacote, meta, val = camada_p3m(spec, cfg, go, faixa_divisa, indice, inventario, minerais, ambiguos, titular_proc, mun_por_nome)
         pastas = {f['pasta'] for f in meta['p3m']}
@@ -889,6 +1112,10 @@ def montar(cfg):
                                 'desenham-se juntos com preenchimento evenodd. lat = bounds.lat1 − y/65535·(lat1 − lat0); '
                                 'lon = bounds.lon0 + x/65535·(lon1 − lon0). valores[campo][i] é o valor da feição i; para campos em dic, '
                                 'o valor (ou cada item da lista) é o índice em dic[campo].'),
+                    'imagem-v1': ('ladrilhos PNG de paleta (o índice 0 é transparente; o índice k é a classe k da legenda, que é a feição k − 1) na '
+                                  'grade de pixels de Web Mercator do zoom indicado, a partir do pixel origem_px; o ladrilho (x, y) começa no '
+                                  'pixel (x, y)·ladrilho; ladrilho sem pixel de classe não é gravado; bounds de cada ladrilho = [sul, oeste, norte, leste]; '
+                                  'caixas[i] = extensão da classe i; os atributos de cada classe em valores, como no mapa-v1.'),
                     'processos-atlas': 'formato de /api/atlas/processes (public/processes.js)',
                     'colunas-lat-lon': "atlas.json[chave_json] = {cols, rows}, com colunas lat e lon",
                     'lista-lat-lon': 'atlas.json[chave_json] = lista de objetos com lat e lon',
