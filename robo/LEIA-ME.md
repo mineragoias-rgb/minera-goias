@@ -97,8 +97,10 @@ escrito. Um **bloqueio** impede o arquivo de entrar; um **aviso** só vai para o
 | Planilha consolidada | ALERTA novo na aba 14b. São exceção os listados em `fontes.json` (`planilha.alertas_esperados`), cada um com o motivo | |
 
 `python robo/robo_bases.py --checar` faz a checagem inversa, sem rede: confere se os arquivos que **estão** no repositório seguem o
-padrão. Olha o recorte de Goiás refeito sobre cada arquivo, o sha256 e o tamanho no LEIA-ME de `Dados brutos`, as datas em
-`datas_de_acesso.json`, o `.cpg`, o `.prj` e as contagens dos recortados do P3M, e os campos que o mapa lê. O
+padrão. Olha o recorte de Goiás refeito sobre cada arquivo, o sha256 e o tamanho no LEIA-ME de `Dados brutos`, o "Período
+coberto" desse LEIA-ME contra o próprio arquivo (CFEM, Anuário Mineral, DIPEM, SIDRA e RECMIN, no formato da aba 07 da planilha;
+o robô reescreve a célula quando troca o arquivo), as datas em `datas_de_acesso.json`, o `.cpg`, o `.prj` e as contagens dos
+recortados do P3M, e os campos que o mapa lê. O
 `tests/test_robo.py` roda essa checagem e também execuções completas contra um portal falso.
 
 ## Como a base nova chega ao site

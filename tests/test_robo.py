@@ -402,6 +402,19 @@ class AnmPontaAPontaTests(unittest.TestCase):
         # depois de gravar, o repositório continua no formato que o site usa (LEIA-ME, datas, recortes)
         self.assertEqual(checagem.checar_anm(self.raiz), [])
 
+    def test_periodo_coberto_da_cfem_e_do_dipem_vai_para_o_leiame(self):
+        # uma competência e uma data de criação depois de tudo o que há no arquivo; no DIPEM, um ano depois do último
+        cfem = CFEM.read_bytes() + b"2029;12;860582;1995;PJ;9,69944E+11;AREIA;GO;5201108;AN\xc1POLIS;10;t  ;99,90;31/12/2029 10:00\r\n"
+        self.servir(self.cfem_url, cfem)
+        dipem = next(f for f in json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))["anm"]["fontes"] if f["id"] == "DIPEM")
+        self.servir(dipem["url"], (BRUTOS / dipem["arquivo"]).read_bytes() + b"GO;Ouro;2029" + b";,00" * 12 + b"\r\n")
+        p, saida = self.rodar()
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        leiame = (self.raiz / "Squad 1/Dados brutos/LEIA-ME.md").read_text(encoding="utf-8")
+        self.assertTrue(checagem.periodo_no_leiame(leiame, "SRC_ANM_CFEM").endswith(" a 2029-12 (registros criados até 2029-12-31)"))
+        self.assertTrue(checagem.periodo_no_leiame(leiame, "SRC_ANM_INVEST_PESQUISA").endswith("–2029"))
+        self.assertEqual(checagem.checar_anm(self.raiz), [])
+
     def test_arquivo_estragado_e_barrado_e_nada_muda(self):
         self.servir(self.cfem_url, b"<html><body>Erro 500</body></html>")
         p, saida = self.rodar()

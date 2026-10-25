@@ -125,7 +125,7 @@ publicada não muda.
 | Recursos minerais | `ocorrencias` | 1.796 | `atlas.json` | 12/09/2026 |
 
 "Baixada em" é o retrato da camada (`data_retrato` no catálogo): o dia em que o zip foi baixado, tirado da coluna `data_download`
-do inventário. A tabela acima é a de 22/10/2026; desde então o robô de atualização (`robo/`) baixa as camadas de novo toda semana
+do inventário. A tabela acima é a de 22/10/2026; desde então o robô de atualização (`robo/`) baixa as camadas de novo uma vez por mês (dia 1º)
 e troca a data das que mudaram, e a data em vigor de cada camada está no inventário e no botão "i" da aba. "Atualização no SGB" é a última atualização que o próprio SGB publica para a camada (portal de dados do SGB ou metadado
 do catálogo do P3M); para a maioria, ele não publica. O período a que o dado se refere (`periodo_referencia`) é
 outra coisa e, na maioria das camadas do P3M, a fonte não informa: fica `null`. Toda camada é um retrato (`temporalidade: "retrato"`).

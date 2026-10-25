@@ -15,6 +15,7 @@ import json
 import re
 from pathlib import Path
 
+import anm
 import anm_recorte
 import forma
 import p3m as p3m_robo
@@ -140,6 +141,9 @@ def checar_anm(raiz):
                 if novo != dados:
                     problemas.append(f"ANM: {f['arquivo']} tem linhas fora de {f['recorte']['coluna']} = {f['recorte']['valor']}")
             problemas += [f"ANM: {caminho.name}: {b}" for b in forma.checar_csv(dados, dados, f["codificacao"], f["separador"])[0]]
+            if f.get("periodo") and periodo_no_leiame(leiame, f["src"]) != anm.periodo_csv(dados, f):
+                problemas.append(f"ANM: período de {f['src']} no LEIA-ME de Dados brutos ({periodo_no_leiame(leiame, f['src'])}) "
+                                 f"difere do arquivo ({anm.periodo_csv(dados, f)})")
             if f.get("logico"):  # as rodadas (Squad 1/dados) não têm data nem linha no LEIA-ME de Dados brutos
                 arquivos.append((caminho, f["logico"]))
     return problemas + registro_em_dia(arquivos, datas, leiame, "ANM")

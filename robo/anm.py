@@ -7,14 +7,18 @@ CFEM e Anuário Mineral. Para cada arquivo:
   2. recorta Goiás pela regra registrada (robo/anm_recorte.py) — as linhas que ficam saem byte a byte como a ANM publica;
   3. confere a forma do recorte contra o arquivo atual: mesmas colunas na mesma ordem, mesma codificação e separador,
      tipos das colunas mantidos, nenhuma coluna esvaziada, número de linhas sem queda grande;
-  4. igual ao atual → nada a fazer; diferente → grava, e registra a data em `datas_de_acesso.json`, o sha256 e o tamanho no
-     LEIA-ME de `Dados brutos` e, no Cadastro, as contagens em `recorte_goias.json`.
+  4. igual ao atual → nada a fazer; diferente → grava, e registra a data em `datas_de_acesso.json`, o sha256, o tamanho e,
+     na CFEM, no Anuário e no DIPEM, o período coberto no LEIA-ME de `Dados brutos` e, no Cadastro, as contagens em
+     `recorte_goias.json`.
 Depois disso o pipeline da base consolidada (Squad 1/Bases consolidadas) precisa rodar para os números chegarem ao site: o
 workflow do robô faz isso (ver robo/LEIA-ME.md).
 """
+import csv
+import io
 import json
 import re
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 import anm_recorte
@@ -22,6 +26,25 @@ import forma
 import formato_csv
 from brutos import Registro
 from comum import FalhaDownload, Resultado, baixar, digital_zip, sha256
+
+
+def periodo_csv(dados, f):
+    """O texto de 'Período coberto' do LEIA-ME, no formato da aba 07 da planilha (write_governanca_into_workbook.py):
+    anos → "2010–2025"; competência da CFEM → "2022-01 a 2026-10 (registros criados até 2026-09-14)"."""
+    p = f["periodo"]
+    linhas = list(csv.DictReader(io.StringIO(dados.decode(f["codificacao"], "replace").lstrip("\ufeff")), delimiter=f["separador"]))
+    if p["tipo"] == "anos":
+        anos = sorted(int(r[p["coluna"]]) for r in linhas if (r[p["coluna"]] or "").strip().isdigit())
+        return f"{anos[0]}–{anos[-1]}"
+    comp = sorted(int(r[p["ano"]]) * 100 + int(r[p["mes"]]) for r in linhas)
+    criados = []
+    for r in linhas:
+        try:
+            criados.append(datetime.strptime(r[p["criacao"]].strip(), "%d/%m/%Y %H:%M"))
+        except ValueError:
+            pass  # a planilha também ignora a data que não lê
+    return (f"{comp[0] // 100}-{comp[0] % 100:02d} a {comp[-1] // 100}-{comp[-1] % 100:02d} "
+            f"(registros criados até {max(criados):%Y-%m-%d})")
 
 
 class ANM:
@@ -176,6 +199,8 @@ class ANM:
         shutil.copyfile(novo, atual)
         r.arquivos.append(atual.relative_to(self.raiz).as_posix())
         self.reg.arquivo(atual, f.get("logico"), f.get("src"))
+        if f.get("periodo"):
+            self.reg.celula_da_fonte(f["src"], 3, periodo_csv(atual.read_bytes(), f))
         self.fontes_alteradas.add(f.get("src") or f["nome"])
         self.mudou = True
 

@@ -58,6 +58,12 @@
     "diagnostico_soma": {
      "por": "Ano",
      "coluna": "ValorRecolhido"
+    },
+    "periodo": {
+     "tipo": "competencia",
+     "ano": "Ano",
+     "mes": "Mês",
+     "criacao": "DataCriacao"
     }
    },
    {
@@ -69,7 +75,11 @@
     "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv",
     "logico": "dados/ANM/producao_amb_ral/Producao_Bruta.csv",
     "codificacao": "cp1252",
-    "separador": ","
+    "separador": ",",
+    "periodo": {
+     "tipo": "anos",
+     "coluna": "Ano base"
+    }
    },
    {
     "id": "AMB_BENEFICIADA",
@@ -80,7 +90,11 @@
     "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Beneficiada.csv",
     "logico": "dados/ANM/producao_amb_ral/Producao_Beneficiada.csv",
     "codificacao": "cp1252",
-    "separador": ","
+    "separador": ",",
+    "periodo": {
+     "tipo": "anos",
+     "coluna": "Ano base"
+    }
    },
    {
     "id": "DIPEM",
@@ -91,7 +105,11 @@
     "arquivo": "ANM - Investimento em pesquisa mineral/InvestimentoPesquisaMineralUf.csv",
     "logico": "dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv",
     "codificacao": "cp1252",
-    "separador": ";"
+    "separador": ";",
+    "periodo": {
+     "tipo": "anos",
+     "coluna": "Ano"
+    }
    },
    {
     "id": "RODADAS",
