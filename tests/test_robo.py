@@ -1,6 +1,7 @@
 """Robô de atualização das bases (robo/): checagem de forma, recortes e execuções completas contra um portal falso, sem rede."""
 import csv
 import importlib.util
+import io
 import json
 import re
 import shutil
@@ -10,6 +11,7 @@ import sys
 import tempfile
 import unittest
 import zipfile
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +21,9 @@ import checagem  # noqa: E402
 import diretos  # noqa: E402
 import forma  # noqa: E402
 import formato_csv  # noqa: E402
+if importlib.util.find_spec("numpy"):
+    import numpy as np  # noqa: E402
+    import mapbiomas  # noqa: E402
 from comum import digital_zip  # noqa: E402
 
 BRUTOS = ROOT / "Squad 1" / "Dados brutos"
@@ -739,6 +744,195 @@ class DiretosTests(unittest.TestCase):
         p, saida = self.rodar("IBGE_LIMITE_UF")
         self.assertEqual(saida["problemas"][0]["situacao"], "bloqueada")
         self.assertIn("republicou", saida["problemas"][0]["motivo"])
+
+
+
+def tiff_ladrilhado(caminho, pixels, lon0, lat0, dx, compressao=8, epsg=4326, vazio=()):
+    """GeoTIFF clássico em ladrilhos de 256 px, uma banda de 8 bits, preditor 2, como os do MapBiomas (que são BigTIFF em LZW).
+    vazio: ladrilhos (linha, coluna) gravados sem dado (offset 0), como o GeoTIFF faz com o mar."""
+    T = 256
+    h, w = pixels.shape
+    ny, nx = -(-h // T), -(-w // T)
+    cheio = np.zeros((ny * T, nx * T), np.uint8)
+    cheio[:h, :w] = pixels
+    if compressao == 5:
+        import imagecodecs
+        comprimir = imagecodecs.lzw_encode
+    else:
+        comprimir = zlib.compress
+    blocos = []
+    for ty in range(ny):
+        for tx in range(nx):
+            if (ty, tx) in vazio:
+                blocos.append(b"")
+                continue
+            b = cheio[ty * T:(ty + 1) * T, tx * T:(tx + 1) * T].astype(np.int16)
+            dif = np.concatenate([b[:, :1], np.diff(b, axis=1)], 1).astype(np.uint8)  # preditor 2
+            blocos.append(comprimir(dif.tobytes()))
+    dados, offs, o = b"", [], 8
+    for b in blocos:
+        offs.append(o if b else 0)
+        dados += b
+        o += len(b)
+    tags = [(256, 4, [w]), (257, 4, [h]), (258, 3, [8]), (259, 3, [compressao]), (262, 3, [1]), (277, 3, [1]), (284, 3, [1]),
+            (317, 3, [2]), (322, 3, [T]), (323, 3, [T]), (324, 4, offs), (325, 4, [len(b) for b in blocos]), (339, 3, [1]),
+            (33550, 12, [dx, dx, 0.0]), (33922, 12, [0.0, 0.0, 0.0, lon0, lat0, 0.0]),
+            (34735, 3, [1, 1, 0, 3, 1024, 0, 1, 2, 1025, 0, 1, 1, 2048, 0, 1, epsg])]
+    fmt = {3: "H", 4: "I", 12: "d"}
+    extra, entradas = b"", b""
+    base = 8 + len(dados)
+    corpo = []
+    for tag, tipo, vals in tags:
+        raw = struct.pack("<" + fmt[tipo] * len(vals), *vals)
+        corpo.append((tag, tipo, len(vals), raw))
+    pos_extra = base
+    for tag, tipo, n, raw in corpo:
+        if len(raw) <= 4:
+            entradas += struct.pack("<HHI", tag, tipo, n) + raw.ljust(4, b"\0")
+        else:
+            entradas += struct.pack("<HHII", tag, tipo, n, pos_extra + len(extra))
+            extra += raw
+    ifd = base + len(extra)
+    Path(caminho).write_bytes(b"II*\0" + struct.pack("<I", ifd) + dados + extra + struct.pack("<H", len(tags)) + entradas + b"\0\0\0\0")
+
+
+@unittest.skipUnless(all(importlib.util.find_spec(m) for m in ("numpy", "shapely", "shapefile")), "precisa de numpy, shapely e pyshp")
+class MapBiomasTests(unittest.TestCase):
+    """A série do MapBiomas contra um bucket falso: GeoTIFF de 30 m num quadrado de Goiás e a lista de arquivos da API."""
+    LON, LAT, LADO = -49.30, -16.80, 0.2  # quadrado do limite de teste (canto sudoeste e lado, em graus)
+
+    def setUp(self):
+        import shapefile
+        self.raiz = Path(tempfile.mkdtemp())
+        self.portal = Path(tempfile.mkdtemp())
+        self.cfg = json.loads((ROOT / "robo" / "fontes.json").read_text(encoding="utf-8"))["mapbiomas"]
+        self.cfg["limite"] = "limite_teste.zip"
+        # limite de teste: o quadrado, em shapefile dentro de um zip, como o GO_UF_2024.zip
+        buf = {k: io.BytesIO() for k in ("shp", "shx", "dbf")}
+        w = shapefile.Writer(shp=buf["shp"], shx=buf["shx"], dbf=buf["dbf"], shapeType=shapefile.POLYGON)
+        w.field("CD_UF", "C")
+        x0, y0, x1, y1 = self.LON, self.LAT, self.LON + self.LADO, self.LAT + self.LADO
+        w.poly([[(x0, y0), (x0, y1), (x1, y1), (x1, y0), (x0, y0)]])
+        w.record("52")
+        w.close()
+        with zipfile.ZipFile(self.raiz / "limite_teste.zip", "w") as z:
+            for k, b in buf.items():
+                z.writestr("limite." + k, b.getvalue())
+        self.espelho = {}
+
+    def tearDown(self):
+        shutil.rmtree(self.raiz)
+        shutil.rmtree(self.portal)
+
+    def raster(self, oeste=3, nordeste=12, sudeste=15):
+        """30 m sobre o quadrado com folga: oeste de −49,20 numa classe; a leste, norte e sul de −16,70 em outras duas."""
+        dx = self.cfg["pixel_graus"]
+        lon0, lat0 = self.LON - 0.08, self.LAT + self.LADO + 0.08  # folga maior que um ladrilho: o ladrilho vazio fica fora do limite
+        n = int(round((self.LADO + 0.16) / dx))
+        lon = lon0 + (np.arange(n) + 0.5) * dx
+        lat = lat0 - (np.arange(n) + 0.5) * dx
+        px = np.where(lon[None, :] < -49.20, oeste, np.where(lat[:, None] >= -16.70, nordeste, sudeste)).astype(np.uint8)
+        return px, lon0, lat0, dx
+
+    def publicar(self, anos, geracao="1", troca=None, compressao=8, epsg=4326, colecoes=("collection11/", "collection_71/")):
+        itens = []
+        for ano in anos:
+            px, lon0, lat0, dx = self.raster(**(troca or {}))
+            nome = self.cfg["prefixo"] + self.cfg["arquivo_fonte"].format(ano=ano)
+            arq = self.portal / f"{ano}_{geracao}.tif"
+            tiff_ladrilhado(arq, px, lon0, lat0, dx, compressao=compressao, epsg=epsg, vazio={(0, 0)})
+            self.espelho[self.cfg["bucket"] + nome] = arq.as_uri()
+            itens.append({"name": nome, "size": str(arq.stat().st_size), "md5Hash": f"md5-{ano}-{geracao}", "generation": f"{ano}{geracao}",
+                          "updated": "2026-08-18T00:00:00Z"})
+        lista, cols = self.portal / f"lista_{geracao}.json", self.portal / "colecoes.json"
+        lista.write_text(json.dumps({"items": itens}), encoding="utf-8")
+        cols.write_text(json.dumps({"prefixes": [self.cfg["prefixo_colecoes"] + c for c in colecoes]}), encoding="utf-8")
+        self.espelho[mapbiomas.url_lista(self.cfg)] = lista.as_uri()
+        self.espelho[mapbiomas.url_colecoes(self.cfg)] = cols.as_uri()
+
+    def rodar(self, aceitar=()):
+        m = mapbiomas.MapBiomas(self.raiz, "2030-01-02", self.cfg, espelho=self.espelho, aceitar=aceitar)
+        resultados = m.rodar()
+        m.salvar()
+        return resultados, m
+
+    def area_esfera(self, lon0, lon1, lat0, lat1):
+        return 6371008.8 ** 2 * np.radians(lon1 - lon0) * abs(np.sin(np.radians(lat1)) - np.sin(np.radians(lat0))) / 1e4
+
+    def test_ano_novo_grava_png_areas_e_metadados(self):
+        self.publicar([2024, 2025])
+        resultados, m = self.rodar()
+        self.assertEqual([r.situacao for r in resultados], ["atualizada", "atualizada"], [r.motivo for r in resultados])
+        meta = json.loads((self.raiz / self.cfg["pasta"] / "metadados.json").read_text(encoding="utf-8"))
+        self.assertEqual(sorted(meta["anos"]), ["2024", "2025"])
+        linha = meta["anos"]["2025"]
+        # áreas dos pixels de 30 m dentro do limite contra a área do pedaço do quadrado (centro do pixel dentro: erro de borda)
+        oeste = self.area_esfera(self.LON, -49.20, self.LAT, self.LAT + self.LADO)
+        ne = self.area_esfera(-49.20, self.LON + self.LADO, -16.70, self.LAT + self.LADO)
+        self.assertAlmostEqual(linha["area_ha_classes"]["3"] / oeste, 1, delta=0.01)
+        self.assertAlmostEqual(linha["area_ha_classes"]["12"] / ne, 1, delta=0.01)
+        self.assertEqual(linha["area_ha_grupos"], {"1": linha["area_ha_classes"]["3"], "2": linha["area_ha_classes"]["12"]})
+        # grade do mapa: oeste = 1, nordeste = 2, sudeste (pastagem) e fora do quadrado = 0
+        g = meta["grade"]
+        px = mapbiomas.ler_png_paleta((self.raiz / self.cfg["pasta"] / linha["arquivo"]).read_bytes())
+        self.assertEqual(px.shape, (g["altura"], g["largura"]))
+        n = 256 * 2 ** g["zoom"]
+        def classe(lat, lon):
+            x = int((lon + 180) / 360 * n) - g["origem_px"][0]
+            y = int(mapbiomas.mercator_y(lat, n)) - g["origem_px"][1]
+            return int(px[y, x])
+        self.assertEqual([classe(-16.65, -49.25), classe(-16.65, -49.15), classe(-16.75, -49.15), classe(-16.75, -49.25)], [1, 2, 0, 1])
+        self.assertEqual({int(v) for v in np.unique(px)}, {0, 1, 2})
+        self.assertEqual(linha["pixels"], {"1": int((px == 1).sum()), "2": int((px == 2).sum())})
+        self.assertEqual(linha["geracao"], "20251")
+        self.assertEqual(checagem.checar_mapbiomas(self.raiz, self.cfg), [])
+
+    def test_sem_mudanca_no_bucket_nao_grava(self):
+        self.publicar([2025])
+        self.rodar()
+        png = self.raiz / self.cfg["pasta"] / self.cfg["arquivo"].format(ano=2025)
+        antes = png.stat().st_mtime_ns
+        resultados, m = self.rodar()
+        self.assertEqual([r.situacao for r in resultados], ["sem_mudanca"])
+        self.assertFalse(m.mudou)
+        self.assertEqual(png.stat().st_mtime_ns, antes)
+
+    def test_republicado_com_queda_barra_e_pode_ser_aceito(self):
+        self.publicar([2025])
+        self.rodar()
+        self.publicar([2025], geracao="2", troca={"oeste": 15})  # a floresta do oeste vira pastagem
+        resultados, _ = self.rodar()
+        self.assertEqual(resultados[0].situacao, "bloqueada")
+        self.assertIn("vegetação nativa caiu", resultados[0].motivo)
+        meta = json.loads((self.raiz / self.cfg["pasta"] / "metadados.json").read_text(encoding="utf-8"))
+        self.assertEqual(meta["anos"]["2025"]["geracao"], "20251")  # ficou o que já estava
+        resultados, _ = self.rodar(aceitar={"2025"})
+        self.assertEqual(resultados[0].situacao, "atualizada")
+
+    def test_forma_errada_barra_sem_gravar(self):
+        self.publicar([2025], epsg=4674)
+        resultados, m = self.rodar()
+        self.assertEqual(resultados[0].situacao, "bloqueada")
+        self.assertIn("EPSG:4326", resultados[0].motivo)
+        self.assertFalse((self.raiz / self.cfg["pasta"]).exists())
+
+    def test_colecao_nova_avisa_e_a_71_e_a_sete_ponto_um(self):
+        self.publicar([2025], colecoes=("collection11/", "collection_71/", "collection12/"))
+        resultados, _ = self.rodar()
+        self.assertTrue(any("coleção 12" in a for a in resultados[-1].avisos), resultados[-1].avisos)
+        self.publicar([2025], geracao="2", colecoes=("collection11/", "collection_71/"))
+        resultados, _ = self.rodar()
+        self.assertFalse(any("coleção" in a for r in resultados for a in r.avisos))
+
+    @unittest.skipUnless(importlib.util.find_spec("imagecodecs"), "precisa de imagecodecs (o LZW do MapBiomas)")
+    def test_lzw_da_o_mesmo_que_deflate(self):
+        self.publicar([2025])
+        self.rodar()
+        png = (self.raiz / self.cfg["pasta"] / self.cfg["arquivo"].format(ano=2025)).read_bytes()
+        self.publicar([2025], geracao="2", compressao=5)
+        resultados, _ = self.rodar()
+        self.assertEqual(resultados[0].situacao, "atualizada")
+        self.assertEqual((self.raiz / self.cfg["pasta"] / self.cfg["arquivo"].format(ano=2025)).read_bytes(), png)
 
 
 @unittest.skipUnless(importlib.util.find_spec("openpyxl"), "precisa de openpyxl")

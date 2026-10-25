@@ -1,7 +1,8 @@
-name: Robô das bases (P3M, ANM, IBGE e SGB)
+name: Robô das bases (P3M, ANM, IBGE, SGB e MapBiomas)
 
-# No dia 1º de cada mês, de manhã, o robô baixa as bases do P3M (camadas que o mapa usa), da ANM, do IBGE (SIDRA) e do SGB
-# (RECMIN), confere a forma, trata como o repositório guarda e refaz o que vai ao site. Detalhes em robo/LEIA-ME.md.
+# No dia 1º de cada mês, de manhã, o robô baixa as bases do P3M (camadas que o mapa usa), da ANM, do IBGE (SIDRA), do SGB
+# (RECMIN) e a série de vegetação do MapBiomas (só os anos que mudaram no bucket), confere a forma, trata como o repositório
+# guarda e refaz o que vai ao site. Detalhes em robo/LEIA-ME.md.
 #   1. robo/robo_bases.py baixa e confere; grava só os dados brutos que mudaram e passaram na checagem de forma;
 #   2. se mudou uma base da planilha (ANM, IBGE ou SGB): o pipeline do Squad 1 refaz a planilha consolidada (v17), que não
 #      pode ganhar ALERTA novo na aba 14b;
@@ -18,8 +19,8 @@ on:
   workflow_dispatch:
     inputs:
       fontes:
-        description: 'anm, p3m, ibge, sgb (separadas por vírgula)'
-        default: 'anm,p3m,ibge,sgb'
+        description: 'anm, p3m, ibge, sgb, mapbiomas (separadas por vírgula)'
+        default: 'anm,p3m,ibge,sgb,mapbiomas'
         required: true
       escopo_p3m:
         description: 'camadas do P3M'
@@ -48,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     env:
-      FONTES: ${{ inputs.fontes || 'anm,p3m,ibge,sgb' }}
+      FONTES: ${{ inputs.fontes || 'anm,p3m,ibge,sgb,mapbiomas' }}
       ESCOPO: ${{ inputs.escopo_p3m || 'mapa' }}
       PUBLICAR: ${{ github.event_name == 'schedule' || inputs.publicar }}
       ACEITAR: ${{ inputs.aceitar_queda || '' }}
@@ -63,7 +64,9 @@ jobs:
       - name: Instalar dependências
         run: |
           # robô, mapa e derivados: pyshp e shapely nas versões em que data/mapa foi gerado; a API, para os testes do site
+          # imagecodecs: o LZW dos GeoTIFF do MapBiomas
           python -m pip install -r "Squad 2/modello_reale/requirements.txt" pyshp==3.1.6 shapely==2.2.0 geopandas==1.1.3 pyogrio==0.12.1 pyproj==3.7.2 \
+            imagecodecs==2026.3.6 \
             -r deploy/requirements-vps.txt httpx==0.28.1
           # pipeline da base consolidada e atlas: num ambiente à parte, com as versões da planilha
           python -m venv "$RUNNER_TEMP/pipeline"
@@ -83,15 +86,15 @@ jobs:
           codigo=$?
           set -e
           { echo '### Robô das bases'; echo; cat "$RUNNER_TEMP/robo.md"; } >> "$GITHUB_STEP_SUMMARY"
-          python -c "import json,sys; d=json.load(open(sys.argv[1])); print('base=' + ('sim' if d['base_mudou'] else 'nao')); print('p3m=' + ('sim' if d['p3m_mudou'] else 'nao'))" \
+          python -c "import json,sys; d=json.load(open(sys.argv[1])); print('base=' + ('sim' if d['base_mudou'] else 'nao')); print('mapa=' + ('sim' if d['mapa_mudou'] else 'nao'))" \
             "$RUNNER_TEMP/robo.json" >> "$GITHUB_OUTPUT"
           echo "codigo=$codigo" >> "$GITHUB_OUTPUT"
           if [ "$codigo" -gt 1 ]; then exit "$codigo"; fi
 
       - name: Guardar os dados brutos novos (commit local)
-        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim'
+        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.mapa == 'sim'
         run: |
-          git add -A -- "Squad 1/P3M" "Squad 1/Dados brutos" "Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv"
+          git add -A -- "Squad 1/P3M" "Squad 1/Dados brutos" "Squad 1/MapBiomas" "Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv"
           git diff --cached --quiet && exit 0
           { echo "dados(robo): bases do P3M e da ANM baixadas em $(date +%F)"; echo; cat "$RUNNER_TEMP/robo.md"; echo;
             echo 'Gerado por .github/workflows/robo-bases.yml (robo/robo_bases.py).'; } > "$RUNNER_TEMP/msg.txt"
@@ -122,7 +125,7 @@ jobs:
           git diff --cached --quiet || git commit -q -m "dados(robo): base consolidada, atlas e Radar refeitos com as bases de $(date +%F)"
 
       - name: Refazer os derivados
-        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim'
+        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.mapa == 'sim'
         run: |
           set +e
           python scripts/atualizar_derivados.py --resumo "$RUNNER_TEMP/derivados.md"
@@ -143,7 +146,7 @@ jobs:
       # Os mesmos testes do "Validar plataforma web" (validate-web.yml), que não roda depois deste commit, mais os dos derivados.
       # tests/test_robo.py confere que nenhum teste de lá falta aqui.
       - name: Testes do site
-        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim'
+        if: steps.robo.outputs.base == 'sim' || steps.robo.outputs.mapa == 'sim'
         run: |
           # roda tudo antes de parar: uma execução mostra todas as falhas, não só a primeira
           falhas=()
@@ -158,7 +161,7 @@ jobs:
           if [ ${#falhas[@]} -gt 0 ]; then echo "::error::falharam: ${falhas[*]}"; exit 1; fi
 
       - name: Publicar na main
-        if: env.PUBLICAR == 'true' && (steps.robo.outputs.base == 'sim' || steps.robo.outputs.p3m == 'sim')
+        if: env.PUBLICAR == 'true' && (steps.robo.outputs.base == 'sim' || steps.robo.outputs.mapa == 'sim')
         run: |
           [ "$(git rev-parse HEAD)" = "$GITHUB_SHA" ] && { echo 'Nada a publicar.'; exit 0; }
           git pull --rebase origin main

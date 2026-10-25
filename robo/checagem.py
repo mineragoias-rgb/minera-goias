@@ -207,8 +207,37 @@ def checar_diretos(raiz):
     return problemas + registro_em_dia(arquivos, datas, leiame, "IBGE/SGB")
 
 
+def checar_mapbiomas(raiz, cfg=None):
+    """Série do MapBiomas: cada ano de metadados.json tem o PNG no lugar, com o sha256 e as dimensões da grade registrados.
+    Sem numpy (a checagem roda também no CI do site): os pixels por classe ficam para o teste do mapa e para o gerador."""
+    import struct
+    cfg = cfg or json.loads(CONFIG.read_text(encoding="utf-8"))["mapbiomas"]
+    pasta = Path(raiz) / cfg["pasta"]
+    meta_path = pasta / "metadados.json"
+    if not meta_path.exists():
+        return []  # a série ainda não foi baixada
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    problemas = []
+    g = meta["grade"]
+    for ano, linha in meta["anos"].items():
+        png = pasta / linha["arquivo"]
+        if not png.exists():
+            problemas.append(f"MapBiomas: {png.name} não existe")
+            continue
+        if sha256(png) != linha["sha256"]:
+            problemas.append(f"MapBiomas: {png.name}: sha256 diferente do registrado em metadados.json")
+        dados = png.read_bytes()[:33]
+        if dados[:8] != b"\x89PNG\r\n\x1a\n" or struct.unpack(">II", dados[16:24]) != (g["largura"], g["altura"]):
+            problemas.append(f"MapBiomas: {png.name} fora da grade de metadados.json ({g['largura']} × {g['altura']})")
+        if linha["arquivo"] != cfg["arquivo"].format(ano=ano):
+            problemas.append(f"MapBiomas: {ano} aponta para {linha['arquivo']}")
+    soltos = {p.name for p in pasta.glob("*.png")} - {linha["arquivo"] for linha in meta["anos"].values()}
+    problemas += [f"MapBiomas: {n} não está em metadados.json" for n in sorted(soltos)]
+    return problemas
+
+
 def checar_repositorio(raiz):
-    return checar_p3m(raiz) + checar_anm(raiz) + checar_diretos(raiz)
+    return checar_p3m(raiz) + checar_anm(raiz) + checar_diretos(raiz) + checar_mapbiomas(raiz)
 
 
 # ---------------------------------------------------------------------------------------------------------- planilha

@@ -1,4 +1,4 @@
-# Robô de atualização das bases (P3M, ANM, IBGE e SGB)
+# Robô de atualização das bases (P3M, ANM, IBGE, SGB e MapBiomas)
 
 Primeira versão, de 23/10/2026. Uma vez por mês, no dia 1º às 06:17 de Brasília, o workflow
 [`robo-bases.yml`](../.github/workflows/robo-bases.yml) baixa de novo as bases do P3M, da ANM, do IBGE e do SGB. Em seguida ele:
@@ -31,6 +31,7 @@ O robô **não inventa nem corrige dado**:
 | IBGE — SIDRA | população municipal e de Goiás (tabela 6579) e PIB municipal (5938), último ano (`p/last`). A população de Goiás só entra no mesmo ano da municipal, que ela confere | nenhum (resposta da API) | `IBGE - População e PIB (SIDRA)` |
 | SGB — RECMIN | ocorrências de recursos minerais pelo WFS, caixa de Goiás | nenhum (resposta do WFS); o `.metadados.json` ganha data, tamanho, sha256 e contagens | `SGB - RECMIN` |
 | IBGE — malhas | malha municipal 2025 e limite de Goiás 2024 | **só confere**: avisa quando sai o ano seguinte e barra quando o IBGE republica o mesmo ano | — |
+| MapBiomas — vegetação nativa | GeoTIFF anual de 30 m da Coleção 11 (1985 em diante), no bucket público do MapBiomas: só os ladrilhos da caixa de Goiás, por faixa de bytes, e só os anos cujo arquivo mudou no bucket (geração ou md5) | área de cada classe em Goiás (pixels de 30 m) e um PNG de 2 bits por ano na grade do mapa (zoom 10, ~150 m): florestal, não florestal ou outro uso, pelo grupo que cobre a maior parte do pixel (`mapbiomas.py`; detalhes em `Squad 1/MapBiomas/LEIA-ME.md`) | `Squad 1/MapBiomas/cobertura_colecao11` |
 
 As URLs e a forma esperada de cada fonte ficam em [`fontes.json`](fontes.json) (`anm` e `diretos`). As do P3M ficam na coluna
 `url_download` de [`inventario_p3m.csv`](../Squad%201/P3M/inventario_p3m.csv). As URLs da ANM que faltavam (DIPEM, SOPLE) e a
@@ -94,6 +95,7 @@ escrito. Um **bloqueio** impede o arquivo de entrar; um **aviso** só vai para o
 | Chave das camadas do mapa | a chave da camada (`chave` em `scripts/mapa_camadas.json`) ficaria repetida ou vazia no conjunto dos zips dela, contando os novos e os atuais. Barra só os zips novos daquela camada | |
 | SIDRA (IBGE) | não é a tabela do SIDRA; cabeçalho, níveis territoriais, variável ou unidade de medida diferentes; o ano voltou; faltam municípios (menos de 99%) ou algum município de Goiás; município de Goiás sem valor numérico | ano novo |
 | GeoJSON (RECMIN) | página de erro; não é FeatureCollection; download incompleto (menos feições que `numberMatched`); menos de 90% das feições; sistema de coordenadas ou geometria mudou; sumiu algum campo; pontos fora da caixa de Goiás | feições a mais ou a menos; campos novos |
+| MapBiomas (GeoTIFF) | não é TIFF; forma diferente (não é uma banda de 8 bits em ladrilhos, sistema de coordenadas não é EPSG:4326, pixel diferente do de `fontes.json`, compressão que o robô não lê); mais de 0,5% de Goiás sem classe ou em classe fora da legenda; vegetação nativa do ano caiu mais de 10% em relação ao mesmo ano já gravado (aceitar com `--aceitar-queda <ano>`) | classe fora da legenda (contada como outro uso); coleção nova no bucket |
 | Planilha consolidada | ALERTA novo na aba 14b. São exceção os listados em `fontes.json` (`planilha.alertas_esperados`), cada um com o motivo | |
 
 `python robo/robo_bases.py --checar` faz a checagem inversa, sem rede: confere se os arquivos que **estão** no repositório seguem o
@@ -126,14 +128,16 @@ algumas fontes do catálogo. A primeira vez que o robô refizer a planilha, essa
 
 ```bash
 pip install geopandas==1.1.3 pyogrio==0.12.1 shapely==2.2.0 pyshp==3.1.6    # o P3M precisa; ANM, IBGE e SGB rodam só com a biblioteca padrão
+pip install imagecodecs==2026.3.6                         # o MapBiomas (com numpy, shapely e pyshp): o LZW dos GeoTIFF
 python robo/robo_bases.py --sem-gravar                    # baixa e confere tudo, sem gravar
 python robo/robo_bases.py --fontes anm --so CFEM          # só a CFEM
 python robo/robo_bases.py --fontes p3m --so mvw_minas_ativas_grp
 python robo/robo_bases.py --fontes ibge,sgb               # SIDRA, malhas e RECMIN
+python robo/robo_bases.py --fontes mapbiomas --mapbiomas-anos 2024,2025   # só estes anos da série (uns 45 s e 90 MB por ano)
 python robo/robo_bases.py --checar                        # o repositório está no padrão?
 ```
 
-No GitHub: **Actions → Robô das bases (P3M, ANM, IBGE e SGB) → Run workflow**. Dá para escolher as fontes, o escopo do P3M e se publica.
+No GitHub: **Actions → Robô das bases (P3M, ANM, IBGE, SGB e MapBiomas) → Run workflow**. Dá para escolher as fontes, o escopo do P3M e se publica.
 O resumo de cada execução fica na página dela: o que mudou, o que foi barrado e por quê, a aba 14b e os derivados.
 
 ### Arquivo barrado

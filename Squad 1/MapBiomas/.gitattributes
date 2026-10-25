@@ -1,0 +1,2 @@
+# PNG da série do MapBiomas: bytes exatos, e fora do pacote do deploy da VPS (git archive). O site lê data/mapa.
+* -text export-ignore

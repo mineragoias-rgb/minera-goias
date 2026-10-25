@@ -193,5 +193,200 @@
     "logico_metadados": "dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.metadados.json"
    }
   ]
+ },
+ "mapbiomas": {
+  "comentario": "Série anual de cobertura e uso da terra do MapBiomas (Coleção 11) para a camada de vegetação nativa do Mapa Mineral. GeoTIFF de 30 m por ano para o Brasil, no bucket público do MapBiomas; o robô lê só os ladrilhos de Goiás. A legenda é a da Coleção 10 (aba LEGEND_CODE das estatísticas oficiais, no mesmo bucket): a Coleção 11 não publica tabela de legenda. Coleção nova no bucket: trocar colecao, prefixo e arquivo.",
+  "nome": "MapBiomas — cobertura e uso da terra (Coleção 11)",
+  "colecao": 11,
+  "pasta": "Squad 1/MapBiomas/cobertura_colecao11",
+  "api": "https://storage.googleapis.com/storage/v1/b/mapbiomas-public/o",
+  "bucket": "https://storage.googleapis.com/mapbiomas-public/",
+  "prefixo": "initiatives/brasil/collection11/lulc/coverage/brazil_coverage/",
+  "arquivo_fonte": "brazil_coverage-col11_{ano}.tif",
+  "prefixo_colecoes": "initiatives/brasil/",
+  "legenda_fonte": "https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_10/lulc/statistics/MAPBIOMAS_BRAZIL-COL.10-BIOME_STATE_MUNICIPALITY.xlsx",
+  "limite": "Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip",
+  "pixel_graus": 0.00026949458523585647,
+  "zoom": 10,
+  "arquivo": "vegetacao_nativa_goias_{ano}.png",
+  "grupos": {
+   "1": {
+    "nome": "Vegetação nativa florestal",
+    "legenda": "1. Floresta",
+    "classes": [
+     3,
+     4,
+     5,
+     6,
+     49
+    ],
+    "cor": "#1f8d49"
+   },
+   "2": {
+    "nome": "Vegetação nativa não florestal",
+    "legenda": "2. Vegetação Herbácea e Arbustiva",
+    "classes": [
+     11,
+     12,
+     32,
+     29,
+     50
+    ],
+    "cor": "#d6bc74"
+   }
+  },
+  "fracao_minima": 0.9,
+  "sem_classe_max": 0.005,
+  "fora_da_legenda_max": 0.005,
+  "legenda": {
+   "1": {
+    "nome": "Floresta",
+    "cor": "#1f8d49"
+   },
+   "3": {
+    "nome": "Formação Florestal",
+    "cor": "#1f8d49"
+   },
+   "4": {
+    "nome": "Formação Savânica",
+    "cor": "#7dc975"
+   },
+   "5": {
+    "nome": "Mangue",
+    "cor": "#04381d"
+   },
+   "6": {
+    "nome": "Floresta Alagável",
+    "cor": "#026975"
+   },
+   "49": {
+    "nome": "Restinga Arbórea",
+    "cor": "#02d659"
+   },
+   "10": {
+    "nome": "Vegetação Herbácea e Arbustiva",
+    "cor": "#ad975a"
+   },
+   "11": {
+    "nome": "Campo Alagado e Área Pantanosa",
+    "cor": "#519799"
+   },
+   "12": {
+    "nome": "Formação Campestre",
+    "cor": "#d6bc74"
+   },
+   "32": {
+    "nome": "Apicum",
+    "cor": "#fc8114"
+   },
+   "29": {
+    "nome": "Afloramento Rochoso",
+    "cor": "#ffaa5f"
+   },
+   "50": {
+    "nome": "Restinga Herbácea",
+    "cor": "#ad5100"
+   },
+   "14": {
+    "nome": "Agropecuária",
+    "cor": "#ffffb2"
+   },
+   "15": {
+    "nome": "Pastagem",
+    "cor": "#edde8e"
+   },
+   "18": {
+    "nome": "Agricultura",
+    "cor": "#e974ed"
+   },
+   "19": {
+    "nome": "Lavoura Temporária",
+    "cor": "#c27ba0"
+   },
+   "39": {
+    "nome": "Soja",
+    "cor": "#f5b3c8"
+   },
+   "20": {
+    "nome": "Cana",
+    "cor": "#db7093"
+   },
+   "40": {
+    "nome": "Arroz",
+    "cor": "#c71585"
+   },
+   "62": {
+    "nome": "Algodão (beta)",
+    "cor": "#ff69b4"
+   },
+   "41": {
+    "nome": "Outras Lavouras Temporárias",
+    "cor": "#f54ca9"
+   },
+   "36": {
+    "nome": "Lavoura Perene",
+    "cor": "#d082de"
+   },
+   "46": {
+    "nome": "Café",
+    "cor": "#d68fe2"
+   },
+   "47": {
+    "nome": "Citrus",
+    "cor": "#9932cc"
+   },
+   "35": {
+    "nome": "Dendê",
+    "cor": "#9065d0"
+   },
+   "48": {
+    "nome": "Outras Lavouras Perenes",
+    "cor": "#e6ccff"
+   },
+   "9": {
+    "nome": "Silvicultura",
+    "cor": "#7a5900"
+   },
+   "21": {
+    "nome": "Mosaico de Usos",
+    "cor": "#ffefc3"
+   },
+   "22": {
+    "nome": "Área não Vegetada",
+    "cor": "#d4271e"
+   },
+   "23": {
+    "nome": "Praia, Duna e Areal",
+    "cor": "#ffa07a"
+   },
+   "24": {
+    "nome": "Área Urbanizada",
+    "cor": "#d4271e"
+   },
+   "30": {
+    "nome": "Mineração",
+    "cor": "#9c0027"
+   },
+   "25": {
+    "nome": "Outras Áreas não Vegetadas",
+    "cor": "#db4d4f"
+   },
+   "26": {
+    "nome": "Corpo D'água",
+    "cor": "#0000ff"
+   },
+   "33": {
+    "nome": "Rio, Lago e Oceano",
+    "cor": "#2532e4"
+   },
+   "31": {
+    "nome": "Aquicultura",
+    "cor": "#091077"
+   },
+   "27": {
+    "nome": "Não observado",
+    "cor": "#ffffff"
+   }
+  }
  }
 }

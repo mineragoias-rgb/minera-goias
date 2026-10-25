@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Robô de atualização das bases do P3M e da ANM.
 
-    python robo/robo_bases.py                          # P3M (camadas do mapa), ANM, IBGE e SGB: baixa, confere, trata e grava
+    python robo/robo_bases.py                          # P3M (camadas do mapa), ANM, IBGE, SGB e MapBiomas: baixa, confere, trata e grava
+    python robo/robo_bases.py --fontes mapbiomas --mapbiomas-anos 2024,2025   # só estes anos da série do MapBiomas
     python robo/robo_bases.py --fontes p3m --p3m-escopo todas
     python robo/robo_bases.py --so SIGMINE,CFEM        # só estas fontes (ids de fontes.json) ou camadas do P3M (código vw_…)
     python robo/robo_bases.py --sem-gravar             # baixa e confere, mas não grava nada
@@ -11,7 +12,7 @@
     python robo/robo_bases.py --conferir-planilha ANTES.xlsx DEPOIS.xlsx   # a base consolidada refeita ganhou alerta novo?
     python robo/robo_bases.py --comparar-xlsx A.xlsx B.xlsx                # mesmos valores? (o .xlsx muda de bytes a cada gravação)
 
-O robô só mexe nos dados brutos (Squad 1/P3M, Squad 1/Dados brutos e as rodadas em Squad 1/dados). O que sai deles — base consolidada, atlas, mapa,
+O robô só mexe nos dados brutos (Squad 1/P3M, Squad 1/Dados brutos, Squad 1/MapBiomas e as rodadas em Squad 1/dados). O que sai deles — base consolidada, atlas, mapa,
 panorama… — é refeito depois pelo workflow `.github/workflows/robo-bases.yml`, que também roda os testes antes de publicar.
 Detalhes em robo/LEIA-ME.md.
 
@@ -74,7 +75,13 @@ def rodar(args):
             resultados += diretos.rodar(grupos, so_diretos or None)
         if registro:
             gravados += registro.salvar()
-        so_p3m = so - ids_anm - ids_diretos
+        if "mapbiomas" in fontes and (not so or "MAPBIOMAS" in so):
+            from mapbiomas import MapBiomas
+            mb = MapBiomas(raiz, hoje, cfg["mapbiomas"], gravar=not args.sem_gravar, espelho=espelho, aceitar=aceitar,
+                           anos={int(a) for a in args.mapbiomas_anos.split(",")} if args.mapbiomas_anos else None)
+            resultados += mb.rodar()
+            gravados += mb.salvar()
+        so_p3m = so - ids_anm - ids_diretos - {"MAPBIOMAS"}
         if "p3m" in fontes and (not so or so_p3m):
             from p3m import P3M
             p3m = P3M(raiz, hoje, cfg["p3m"], gravar=not args.sem_gravar, espelho=espelho, pasta_tmp=tmp, aceitar=aceitar)
@@ -106,6 +113,8 @@ def rodar(args):
         # a base consolidada lê ANM, IBGE (SIDRA) e SGB (RECMIN): qualquer uma que mudou refaz a planilha
         "base_mudou": any(r.fonte in ("ANM", "IBGE", "SGB") and r.situacao == "atualizada" for r in resultados),
         "p3m_mudou": any(r.fonte == "P3M" and r.situacao == "atualizada" for r in resultados),
+        # o mapa lê o P3M e a série do MapBiomas: qualquer um que mudou refaz os derivados (data/mapa)
+        "mapa_mudou": any(r.fonte in ("P3M", "MapBiomas") and r.situacao == "atualizada" for r in resultados),
         "problemas": [r.como_dict() for r in resultados if r.situacao in ("bloqueada", "falhou")],
         "gravados": sorted(set(gravados + [a for r in resultados for a in r.arquivos])),
         "resultados": [r.como_dict() for r in resultados],
@@ -165,7 +174,9 @@ def refazer_inventario(raiz, catalogo):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--fontes", default="anm,p3m,ibge,sgb", help="quais fontes, separadas por vírgula: anm, p3m, ibge, sgb (padrão: todas)")
+    ap.add_argument("--fontes", default="anm,p3m,ibge,sgb,mapbiomas",
+                    help="quais fontes, separadas por vírgula: anm, p3m, ibge, sgb, mapbiomas (padrão: todas)")
+    ap.add_argument("--mapbiomas-anos", help="só estes anos da série do MapBiomas, separados por vírgula (padrão: todos os da coleção)")
     ap.add_argument("--p3m-escopo", choices=["mapa", "todas"], help="camadas do P3M: as que o mapa usa (padrão) ou todas")
     ap.add_argument("--so", help="só estas fontes (ids de robo/fontes.json) ou camadas do P3M (código vw_… ou nome do zip)")
     ap.add_argument("--sem-gravar", action="store_true", help="baixa e confere, sem gravar nada")
@@ -188,7 +199,7 @@ def main():
     if args.checar:
         from checagem import checar_repositorio
         problemas = checar_repositorio(Path(args.raiz).resolve())
-        print("\n".join(problemas) or "ok: os arquivos do P3M, da ANM, do IBGE e do SGB estão no formato que o site usa")
+        print("\n".join(problemas) or "ok: os arquivos do P3M, da ANM, do IBGE, do SGB e do MapBiomas estão no formato que o site usa")
         sys.exit(3 if problemas else 0)
     if args.conferir_planilha:
         from checagem import conferir_planilha
