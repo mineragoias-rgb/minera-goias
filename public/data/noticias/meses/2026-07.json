@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 111,
+ "materias": 112,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -244,6 +244,22 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Justiça multa Sigma Lithium por descumprir decisão relacionada às operações da empresa no Brasil - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOOXBXZU9STXJqTFVmZE5FeVY2MEM3M2VITHdIR2RiR2ZqVHFhOEVkSjBQVVRjOGlrRTBGWDNyc1ZPa2Z4UW5Db0wzS3AyT296bkgyLVphRk1fRWkwZEtaRnVEbW9HYWRRVmFQTllTSHhlaTlWbHlGTTlPODVTbHkxT1NUWFZRMzFPQmQ4V180d0JURmQyc1N5WnVsZHpOZnAwdkFfVUVRQUxSdUp4V2xXVFgwdkFMblVqMzd5M3hJTUQyTFhjR1pLUlU5ZGROWUow?oc=5",
+   "published_at": "2026-07-29T07:00:00+00:00",
+   "first_seen": "2026-10-26T09:27:28.696140+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
    "brasil": 1
   },
   {
