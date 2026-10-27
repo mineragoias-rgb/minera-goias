@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 53,
+ "materias": 54,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -772,6 +772,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras-raras: ‘Somos o maior produtor em escala fora da Ásia’, diz presidente da brasileira Serra Verde, que pode ter EUA como sócio - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNdVpscEZ4Vl9XU3BjTnZIWjhyNWJXdVlHTXV6U1otOF9JQkhxZzFtVHBuN1VLU1h3cVREdUV5X3VFai1TTklrdzVoLUdXSDJjeW12U3AyUmtLWk5pU0hueXREYTYtNlMyTHl3eU9pQVRobVVRTnNPY3dyRmh0b3Vpdm1TbHN2YW5WZGQ3cEF1VnE1S2pBZGQwYXlWeDEyVmNPM1ZkdENFWVN6V3NVbWtoZ1Zvc0dkd2wtUWl1ZEIxb0NHc3JONVVFazh5bGVCWWJrLTllNEF0TW1aMFNwSDNWclFxTU1kVUJKcmFZb2QtenpyakdkaGVPRkx3UW41Q0NZNDdSVk9vOWcyUFV6UG0xY2I5ZDgxQTc5REhacC0yMUHSAa8CQVVfeXFMTTlkRXlaOFhpRG4yaURsMl9NYnNvaWZhSnlCT0tZTnF1VnhVYU9WNGtBTUFqTkdZLW9ER2pmVkJhUmpnUUxDV0FvVmJHUFBtOXhxMWZJTXVXTk8tamRMNWhKZTdRbGp6dlVkS18ycWwtTWdCWnNfaXlRM1N4U1FFMmdHREpPdFVneVlaeVl4OUIzY0hPblJ1eUNRT3luZEJnbFhHRjNLTzh2VzNzWDlBS3pId2JGSl9FQ2x5aVRJeDlRMmIyUGxSaWtKUWZEd1JfTVlWTFZ5WFRuSVV6ckFJc3ZYMHV6d1E5X21SdkM1WXNxc2RKV0RoZzlmQjRrR1hVX09HeUg1NG5QczJJYjdqSUd1WVU5bnhEV0ZZNEZqQkt4eDJJQmY0WUVJYVNvS0Mw?oc=5",
+   "published_at": "2026-03-01T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.678854+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   }
  ]

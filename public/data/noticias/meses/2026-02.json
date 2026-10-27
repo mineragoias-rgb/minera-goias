@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 37,
+ "materias": 42,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -75,6 +75,22 @@
    "tema": "mineracao",
    "substancias": [
     "ouro",
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde prevê dobrar produção de terras raras no Brasil até 2030 - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORFdBdTZNREtqM0QtU2xBcndWcnZVMHhoZVk0VHpyanA2aUVSWHZpTTc4MDhBdWxSVmhYTU1mVC1UR24tdGhINk83TDdfUU93N2h3dmNzU1ZvTUNHZUlfbkdvYy03UWtnYzVqYXNha1NXb0JhbzlPOGJRUXFleWJHeThzWTVhajVOU2FDd0Fqalg0NmQ2VDJSUmIxZWVMR0FpbnZQY0w1dlhodjZYTmpv?oc=5",
+   "published_at": "2026-02-23T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.684466+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
     "terras_raras"
    ],
    "brasil": 1
@@ -430,6 +446,70 @@
    "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · mineradoras em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa de terras raras goiana que terá ajuda dos EUA aposta em 4 minérios - UOL Economia",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzeU9DTUxjaTJiMXJub0J6RWpZdXF1bzZlNG1QZTdBXzBJN20ydk1SVGplMGcxdVpMaUo3c05UbFZkUUFONHU5NnVQSmlnazlGWVktaF9sbnQ3UGFILWFPQ0VqWVdQWkIzMXBiRFNPU0VicXllZEM4OWE4QQ?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.688385+00:00",
+   "regional": 1,
+   "regiao_termo": "goiana",
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Conheça a mineradora brasileira de terras raras que fechou acordo de quase R$ 3 bi com os EUA - ISTOÉ DINHEIRO",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaDhGc3FNenU4VTZLWEtrcGxtUXBDUWwweVBqbzNhT0d0Q25odWtreGJyQ0hCeWhMdmdxaDRKd2FBVGJJalNMWUc3NnhKRnYwMlVKbzJiRDR6N2dXRUoxemZudHN4azRwN0VrR3o2bWl0OTNDcE5sZ3N3dDRCeDV0SE5R?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.686398+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde, única que produz terras-raras no Brasil, poderá ter EUA como sócio após empréstimo de R$ 3 bi - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQcHJWUmpubE1vYVd1aWtMVDI1ZTl4Uk5hQjRieW5RMmZwTUV6UFlZY3ZYYTNTdDhTQXBXa1pBUm1NTnotZFoxMzE5UGZjR2M4cXhqSGJsOC05SVIyeU4xeVBCNkJ6aTdCdWg5WFVPLTRkWXgxLXlTZ284ZmNSaXJjMzhwNWVHTHgxeVBTdnhCY2ZPZzVnVFhOb0otUFZfYnNxbG80NExfMVB4eW0za3p0WFJ0ZEp6RmZSbHRua1VsNHBNb2R1VWh5RjRuMVBDdFh6eTgzc0swNlFteUtJVjczdXU3aVBORklKSkl2S01ydExyX3B00gGDAkFVX3lxTE02N25mM1cwZmpLd3FZV3QyNVZ3dmJUQ09xOUVmQzJSeVBva1RyMXBwWkRfZmFJdnJLWHk0cWk1RFJKbTF0QWg4RnhieFYtbFREMEhqT09QZ0VNdzRrLUVTWGFxQjdPa0JvdDh3Yk1PdnBHZFhSUUJfRE1YMlR1SEdnRXhNZDlQQVNiNEkwclBmX040NVlQVVBPVUs3WmhSS25aeEVNZGxqdTdZamxidmJpWnlzNTFBN3dsSTZBNHlvMWFaaDZtR1BUVnhlR0tGd25Wb1VPeXRTdGx0QXVhVzhiNV9rRHd1X05OaEp3RTFkQmlLbDU2RmNUNTRPaHVOa2k5SHM?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.680154+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "TERRAS RARAS | Serra Verde garante US$ 565 milhões dos EUA para expandir capacidade - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYXV5b0RVR1JhRTdDVGtzWWF5V2EwTk01OEhRY1Noa0tKVjNmbmFOX18wNlRRdnhfeXh4T2QyRS10aWtUVVlLd0RsNXJrc1RXZE96a0hIWWxLZWRHWW5FeTlYRXRLSkZLTElpWmk0dmFXS3pHZm12dE9uSGd2MjN1MVBoM2JJNzQxekhNZll2Sy1JUmFiVEREX1dKZmY2QVhSa29zN083Znk?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.683411+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [

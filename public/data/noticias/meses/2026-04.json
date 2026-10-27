@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 125,
+ "materias": 132,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -462,6 +462,22 @@
    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONVhrRi1zeUIxMjlXX1h6OTRWdzhaTWMwbjU0WkFKTE9CbURmSHJPeEExNWN6MnFMVk5UU2pXa2IwUjltMGRSZkpJZmlJTjdsOVgtd2Q1OTJIU1FFRnVWTUduVlBxWlV3bHNlNmlZZXZmX3R2TTB1dnB3SnpoS3NCQUZ4SGZzcmNhbXp2RllDdUFiLUxaMXlvZkhBcjVpb2NVWHJxTXNlbU1jU0tkRkNtTGc0V296ZTRYOWE3YkZrSEljbzYxUDFYaDBNYnlyRlpNeHNmSnZ6ampkSUxl0gHrAUFVX3lxTE1VeWlhSjlFZlBudFM1aF9zNW1WYVV3VVMzelZjVkdSNE03cW5naVo5VlBzTTd4dVg5LVVGYURxODZYYnh1Vm9Wb19LeFh4c3E5REVqR2Mwby1qZ3FSU3VON2oxeW40dFk0cDVWTDd2eTJDazdPQ1hEWENfSVE0Yng4NDZndEFxN1NIcUw1TWE1bTVBMzZ1bGtCT0pVRE1CcnNKbHlKNGlCSjU0c1U0bEVkOXRyN0g0SjhndnNNQnd1SGROMjNqYldxSEtSMmhkQUc4T2pfRmQ5MXNZU3lvWHdZemR6a3JXdWk4Z2s?oc=5",
    "published_at": "2026-04-25T07:00:00+00:00",
    "first_seen": "2026-09-30T10:03:42.644041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Venda de mineradora brasileira de terras-raras aos EUA leva Rede ao STF - InfoMoney",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPLWgwcUJKY2NjSFVXN05rZW5tYUpiM3FuUUVFZWMxWlItbHZKX2I0M01qcVZHSHYwam1HWkZSQlA1WVdFRmNHVHNZYzVPYVViUlFjTjlrQUxwaS1uWjJHZ2VNZG1rQXMtTzhYMXU2cEJQTy1iS3l1NmVfc09ENVRrTlU4UU1DbjZzQ3FaQjFfQUxnR2xUaVFOaVdfYV8wcS1WYnVnZEd0T2UteEY2aDB0UzhlVEN4RXFJVVdoa0xfWVFod9IBxwFBVV95cUxPdzc3dHlNM2RwVEtZTmtkUkxYNWVRYnF3MUY3YjRPTWtqMEVNQ25oejQ4VzdhTjI0QlNrYzVMXzhSNFJjZE1SdjFVWG9tbWVjejVJUWxIbTdrS1pMSVZLNXh0YnpTYlRyRWIzdkMzYXBPeWJLaEdwcU5fUzFMVzdXV0ExRmVra1dPYllXTEdUeUVXTFJwb1FxNVJTRmZWY3ppMTJwd2ZWdlhYaWkxY1ViQTFoanRnN25MRGlpU1hzRzdKZmZVUHdR?oc=5",
+   "published_at": "2026-04-25T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.685473+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1302,6 +1318,22 @@
    "brasil": 1
   },
   {
+   "title": "Venda de Serra Verde expõe o vazio brasileiro em política industrial para terras raras - Capital Digital",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObEpNMWFDN3laWGZ6RUlXQi1DdDY5TFJwV1o4TDlmQWlEUWZCaUpBenNhMVVyYzc4QUVqb3V5QjJ6RGczZ0xfMDlqUlY5ZU9RWGp3bXBEQWk0QnJMX1doMmNBMURTR2s0RGhnRDBkOVh0Ql9JQUNaaWs1c2k4cC1HNk9zNnZZZnFZaDJQTG1kTGt1TU0zNDN1U2FzdjF2RWU1azFjd0l6VEZweHNldWNxeXNvWFFjV2dw?oc=5",
+   "published_at": "2026-04-21T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.682338+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Terras raras: Empresa americana compra mina em Goiás por US$ 2,8 bilhões - G1",
    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQakx4TXlNbm5KZDhoSkV0UkJ6MzRZNFh1RG9BV0pRdU1zT3V0NWhVMkdnU3ZTejVfQi1xb3JieURZbHN6Q014bF9ST01WbG1ibU1CU2VxMjhROTUwbjNyZkNjV2c4alFlbkJaUlZ2YU40d3YxQmlqV19JeUxidUdNWGViVE1WWXZyZEhGRjl4bTNxTGpqWHJEOXhPbjhlR3BxQjhlNk5qUUxGSUVUV3BIckkzeUJOZG9hcnFLRHFOcnlBZ9IB0AFBVV95cUxPMG9BcUZ5OWd4dGN0OFVBRk5SQzdoV0dZdzFUZmNfYmYwM3JqQU5YNF9TaTlDOEtMS1RvSkQzeDg3cmZwbHZPUVpDdUpyWmppbG5yY2Zldldzd0ZtSlpXLUFQdkFUTWZ5NUhfN0ZtOEpUYkNBTTFQX0pNNmVJOHh3UWx4YjZla0hOR3YyY3JyN0NXRXhnaERWZ2FvRGJPZkxEdlQxZ3FUNkpUYTd1UlF2N3RoUTc1NjNRT04zbVNhd0c2VHNXY2dvVS1NcDA0NFJB?oc=5",
    "published_at": "2026-04-20T07:00:00+00:00",
@@ -1519,6 +1551,70 @@
    "setorial": 1,
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mercado de terras raras vê preço pago na Serra Verde como surpreendente - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONDRmaTRDS3ZxeU9IZkdrWHZEMHItb0xxbVBaRTBOUmdhdXVSUFNpYlo3eUFmN0F4Qy1sRE52MExZejJfUFlsY0xyRHBkUHFYaHZ2WG44MjFFdmpjeXpiUlg5RXB1endkR0E3UVJhbnpwdDZPSnEzMXdzSko4Q3VoaExscDRESFpGcVFPOFZmdW5MZzlNZklXUUtGblRGZ1hyd0lhcUhBOGM1TU0?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.675671+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora americana compra Serra Verde, de terras-raras, e avalia negócio em US$ 2,8 bilhões - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT3FRQ2hkTm9EVFdiWkxHZ1QtWkxWTmhGd24xekszQVpkZTY3cWhQdExLN3pQUlVqemcxQUlSLVlYVFQ2RjBTczNQODR6d202M2VCNWxwbFk0b255VFR0WWtwQXh4YU15cS1tUnlSSE16cGg4N3VhQ0VGd3dHWHlWRW5QOWZGZnc1MFYxVk0yZ1RUTDFkTFl4Z2RqaWl1Mm0zYXUwWklfTFY5S0lWb0R6V2JCaHdHc0Mzc0N6bW04cnJIbnFlTERmNXFCRkIyaloyWUZWU0JyWEpseUtDWG1mRlNTMXdHaC1p0gH3AUFVX3lxTE50cXFGOU1TMlJ1Zno4aXZPUlc1bWVTM21fWFZ4aGxkeFhvV3BlM1Nkb1ZwT01xcnlXZE81OFJkemNWcFp0dmlxdGJRTnhEOUVKNU1UcDNHaF9XVXJFODdZM1lXS0lMYXJRNGhQNTdKSkxRcnFmREIwRUNkanVDOVVLdllPSnlGc29OMmNneHJQZFozVnNRQnZFVnZfRFpNeTBGY2xPN01hY3hta3BqQVN4SzRMWkxCQWZ4V1F6QS1ScHk5cEhCWmItTG01Rndoblo2cnYzSTI2V2xacndYOS1Ub2lCTm1maUhrdlcyQWRCRmlLdmppaTg?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.676682+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "‘Art of the Deal’: americanos fecham negócio bilionário por terras raras do Brasil - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQYnM4NVVPR2h6Zzh0MlNxc3I1aUJJUEZ0TGhEWV9rendoOXRIV0ZLbGR6OC00UzJuLWVoeDRkR0RfWXExdFM0Rm15VGpwQ21BNGJQd1pwdXBqSV9fMDAxc1hFX3VEVTJVSmZvUDFEUzRXZVVSNmc4WXIwby1PLWpBNWdRUHg1b1NiNVNMbjhsV0hRYmJMTEhZSzk0UnV2MUMxNTZXaEJzSHA?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.677757+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra única mina de terras raras do Brasil por US$ 2,8 bi - Capital Reset",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNHlodW93NmZ5N0hZSEVtdmZnVkZxalRwRkdLX1ZyT3RqVE1aSlAtYWJCQklpT2JHam5WS1N1SjhNcTZ6QjBob2FyY0k3MkFvTmVpZVJYMGNZODEyQ2FDSjFoN0VLcUhCNlFOMVZRU09uRXhSSUViRXNVQ25zNmJuLVZobGtaeUhjcklseFhVR2t3c0R3SUY0Z3dZek85Z0VjQl9wR04tNTJadVN0ZExBNFJRYU9HWDl6TDlabGI2eURaMW42?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.681345+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -1847,6 +1943,22 @@
    "setorial": 1,
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Banco dos EUA confirma que empréstimo a mineradora brasileira prevê fornecimento de terras raras - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSFV4NG9SZWU2Q3prX2JWQXpnelU1ejBjRWo2MmpKOE94RnpaRVc3TmNyYndRZFE1TWltc0xpNVc1dlAzdGRwX05UWV9mVlhyZGFSUkxqYXlIMkQ0X3JuRWFhN0gySXo0YUVMU3BtT1BkaVV6WC1NanljMEpRUF92RUxyWXE1MXNJZl9NR2VaekY4dEFYSVExV25xTEYyR0lWREZtUTZuRjdfVm5HRmR0M2NLQnowc1BNTWJyZFBSandmelUtMzN4NVp5NEVESU5SbmtGUjFLblEwSHJtbEF2cHV30gHnAUFVX3lxTFBUSUo3eS03cHNlN19pSXBEMU9nN01NR0JoUWpKZzdkWndleGZEb241ZEJUNVlGYVk2bWlpejdUTHN5MzE1SVhYQlBWenZoQ1lhRXJNVktPalBnNGRCWV9TQ2lZbHVUaXdjdmhBbUk3eHFIRHZWUS1xSU9lMTBwdUdkQ3lnTU84bVRVbVJtMnpYclo4MjZNYlRVcU5zNTJtSHRPbjg4RjR3WE1YR25iVVU2UVZ4dWdGZTI3X3VIVzdXY2xXM3R5UHlwT1EwazlrN1FNdEFRWkhod19YNFNJLWMzYmp1dG5OMA?oc=5",
+   "published_at": "2026-04-03T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.674493+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

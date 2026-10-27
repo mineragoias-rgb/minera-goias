@@ -1,6 +1,6 @@
 {
  "mes": "anteriores",
- "materias": 15,
+ "materias": 16,
  "itens": [
   {
    "title": "Agência Nacional de Mineração reorganiza estrutura com nova coordenação em Minas - Diário do Comércio",
@@ -28,6 +28,22 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "‘Febre do lítio’ avança para Amazônia e afeta 21 áreas protegidas - Repórter Brasil",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOXJWbjAzbGZQRFRDNlZfWXVFRWlBUzI2bTdnSXNpN1hMQ3hib1oxYjFXbW5wMkM1aUZWY2RFUzhSR1BhdnZNN045TlZTazd0ZlJnb3dXVTNvdnhudnJPV3lmRUpVUVFPUXdLaU5NTDBUazZSSW0tY3B0c0ZoRHhZU1IzRQ?oc=5",
+   "published_at": "2025-10-28T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:56.770840+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
    "brasil": 1
   },
   {
