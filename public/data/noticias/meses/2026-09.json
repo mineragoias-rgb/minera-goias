@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1207,
+ "materias": 1209,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -3692,6 +3692,20 @@
    "substancias": [
     "litio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "ANM divulga lista provisória de municípios afetados pela mineração; 15 são de Alagoas - AMA - Associação dos Municípios Alagoanos",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcnZyYWZSUjUyd1NVVFBkRk5sQWJsbjFHSXh6TUV4aFI2R3dKOGppS0xTdUJkTzF4ZWc1LWFIN19LVlpIUEZuZEJHU1pqcGgxRDRQR2RIYUhlQVg0Z3lWdThRazlBcmhkRXM0cVF4NzBSQmU4T3FoRkVpZGc4ZThGZk5aY3Byd2JvZmdNSE9aaF9VUDQwY2JWdWdjUnY5UVd5LW5WTjE4MHBVV00?oc=5",
+   "published_at": "2026-09-28T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:01.032033+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -16482,6 +16496,22 @@
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZDJrSGIzMzhFT2ZaOTlfZ2M4dzVGLUxhOHhjNDI3YURxamRtRi01eGdObHhhWHJaYlZweTlrOC04TTUxODRNbU1DTjV1b3FQcHZWYzNpVjhzM1pUMk02amRodlBzT0pGcF9TZV90c1dWbTZ5UmFjclhHOXFYZEsyOURra0swZFByemhzS2oyWDJFSVFfdlJIRHcxYlhDaFdHNWI2YWFxYkFYSk40WFoxcWRiSFJrNHg2UmFj?oc=5",
    "published_at": "2026-09-08T07:00:00+00:00",
    "first_seen": "2026-10-24T08:28:16.435230+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Sigma Lithium diz não ter sido notificada sobre decisão judicial e mantém operações em andamento - O Fator",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOeUlKaXBhY3BaZ0VlY3dxSnI2OGZMWGU5UVczM3ZkZ1VZT3NCU0tzUWR6Z0dVRy1WbDRRV2NGUjNXSnBOejJEejZZRkd1QW44dXJUbld1MFRreEpjalllYlVweGJ6b1ZnZ0RibVEySExIV2VCazhZMFJtUVpaRmJvWHZTZ29YN2k2cXhBYmlpMkpiSEVNb2RZZ2FwSDJYbGRLZ1dteHBZNDUzUFhua18wRnF6Y2hkVWpBeENHWDRhTTVMOTRlYUl5Zm93?oc=5",
+   "published_at": "2026-09-08T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.615286+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

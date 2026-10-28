@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 309,
+ "materias": 310,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -4542,6 +4542,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae06de77236431ca81f5bd616905eff&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-10-27T09:24:55.429384+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae1c943dd404749b40afaa0608fd695&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-10-28T10:06:59.571263+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

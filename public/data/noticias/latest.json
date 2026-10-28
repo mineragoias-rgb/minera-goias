@@ -23,9 +23,549 @@
   "itumbiara": "Itumbiara",
   "quirinopolis": "Quirinópolis"
  },
- "atualizado_em": "2026-10-27T09:24:59.875864+00:00",
+ "atualizado_em": "2026-10-28T10:07:04.406761+00:00",
  "ultima_execucao": "partial",
  "itens": [
+  {
+   "title": "Quem vive em Congonhas, a cidade do minério, vê a prefeitura proteger a Serra do Pires com um monumento natural criado pelo decreto 8.426, que guarda campos ferruginosos, cavernas e plantas que só existem ali",
+   "link": "https://mineracaobrasil.com/congonhas-serra-do-pires-monumento-natural-decreto/?utm_source=rss&utm_medium=rss&utm_campaign=congonhas-serra-do-pires-monumento-natural-decreto",
+   "published_at": "2026-10-28T09:55:07+00:00",
+   "first_seen": "2026-10-28T10:06:19.440844+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Vitória de Lula fortalece relação com China e coloca Brasil no centro da disputa por terras raras - Brasil 247",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQZ1EwelFwbUJRUXhaaVRZdXVobHZfLWF2UEpJVkFxaHp1OHNtNDVQbzhVeTdCVHlHZHNlS0xBUGI1dnJlODNZOXJCdGI1XzBNNmRzLTZkNFZUVjVaTG04RFVaX2VvV0VlZ21kak5ubzI3b29TQ2pBaDlKQmozaXNRLUEzWWJfY3I4Q3VzS2JBZXZJdWFyTFVHdHpDUU9XR2trWlZ2RVhPUFBCRVp5UUQ1b2RwenhvQWZvdGJ5NnIxYXp2UDNvMjVadnpR?oc=5",
+   "published_at": "2026-10-28T09:33:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.065324+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Preço de terras raras fora da China chega a 18 vezes o chinês, e diferença veio para ficar - Brasil 61",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWWdRaTRieWc3LXNOVHRvVE9qRHFEVm9KQWVlNWV5VUNjYmZtd2RwU2Z3bFNzQW1BM1lFSExuSnZaeVllX3ROOTF1VF9HRUhhYnRmVThmNl83bmkyQm9wT0gyUGJFT2R1dFlsaUhNMkF6Zk16WnV4a1psWjUyQnR2X0JOMV9NQngwdDRWekU0SUNjUnRfVnE2MENUQTA1WjVzVHR2MGRwdEplVjVZVFhmWjVnNmMxbWF6dGpGZUkydVjSAcYBQVVfeXFMTld1M1hic0Zxc0NSak5qSlB0Ujlkc3FNSnNpcE5CT0g4dmNpb0g3Z1N3ajZwYzRYMTJCZEVYM3B4RGh2S3ViQV81TTV2MUlTVVVMWHZTV0J0bWY1ZzVqRWIwelY1azlIeS1XMGFNVmctTEVxMkxwMVdPaEk3S240MmdzSzdYdGs3a2xKNjBMVnpIeEhuc1NsTWlBVmdzQ1ZNS3F1QWlUX3piUTYwS2J5ZFJlaEs5LVIyWF9GSGlkaVd0cG0wc3dB?oc=5",
+   "published_at": "2026-10-28T07:40:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.063535+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil tem a 2ª maior reserva de terras raras, mas produz 0,5% do total - TV Sim Brasil",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNbkpqRWdxakdhTTlhbVJ0TnhSbWxRTWFDa0JsUC1IN0NxRFJpS3JlaFB2V0h0Mzl3Zm52QzVZclk4LTZUbVNqQ1pDSGNGYTVHS2xLLTB5ZFFMLVZ1LWlUaWtWUXMzazdVNmRhNFdOZmRxU0lockg5ZHQ4SUhleGlnLThnQzNaaWsySmNhelhnSlNwYnR2bHBjdGpzYTlKZUk3NGQzY3lDaXlKTmN4WWRSSkdpMWx6bWNuSFVQMF9B?oc=5",
+   "published_at": "2026-10-28T07:18:21+00:00",
+   "first_seen": "2026-10-28T10:07:00.068071+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "EUA investem US$ 565 milhões em terras raras extraídas em Goiás - TV Sim Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPX0prbXNoVTNfT0FOcTVXQjVST1dYUlNTSEktWVFEZFNDSWVZWHYtdE5aTS0zd2wzRVVuMkswZThhRzNuVFRxQ0tCcVBBMlh6UXZXYkE5QVNmZzhseFdHeVhmX3FtWHRyTks1bHF1ZjB3Q0lraGxlUkdQQWJEUlU3SWoxVF84VlYzb0Y0Q0tySGNZTjJSaWs0d2l1cUt4angxRzdJMkhuM1IweXZrMHJnMjhtYkoydnNVLWc?oc=5",
+   "published_at": "2026-10-28T05:59:05+00:00",
+   "first_seen": "2026-10-28T10:07:00.072167+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que o Brasil tem a ganhar ou perder na disputa bilionária entre China e EUA? - Expressão Rondônia",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOelBCOU5nNmktdUJzUmgwWXV5eVZiT3VEaXRpUGc0RGhsWXFLR1hUdm0tYV9rX0lwc3JTR09TTEdBNnZoUURLRWozLVFxa1I1WFBHZXRSZ3dQMXJHZ3ZPLWV1bmVjOV9qUVpiVFlfU252QlNpYy1rZjVZQ3JlXzhVdmtvT3FUdTlGVk5HLUVQU3VzR0pKU21TQm5PQWVFdjFNRjY5U3M2UVlqaGtuUFMxQ0ZRSDRRUnBXNExtS0lpLXZwUQ?oc=5",
+   "published_at": "2026-10-28T05:38:12+00:00",
+   "first_seen": "2026-10-28T10:07:00.069694+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que o Brasil tem a ganhar ou perder na disputa bilionária entre China e EUA?",
+   "link": "https://g1.globo.com/g1-explica/noticia/2026/10/28/terras-raras-o-que-o-brasil-tem-a-ganhar-ou-perder-na-disputa-bilionaria-entre-china-e-eua.ghtml",
+   "published_at": "2026-10-28T05:00:00+00:00",
+   "first_seen": "2026-10-28T10:06:37.653579+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "G1 Economia",
+   "escopo": "nacional",
+   "tema": "geral",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que o Brasil tem a ganhar ou perder na disputa bilionária entre China e EUA? - G1",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPSHZMd0drRWhvSTdpVzdUZjJFRHRfREp3SVhZUG9idHRYaDIwakhZcVZJX0o5RExUZFpONGlzdjd3OTljOHAtUkVSMm1EcXFTSjFSQkNDT0NySkh5WXpLcmRNQTRnX3N3b2lDUEZXQUdnVGFMbkZoWFNjdjRBUVFiWmpTeWc2MFF1REt6UEJwa1U3RDNLWVhFOHpXUVE3LW4xdFp6UnFxNF9XbmxNdEhoTTRnYTFOamhhSnV1MEhpOWp3S21vUXVLWm5TMGp3V0l2X1QtRmx0VEpiaGJ5OGhPOdIB7wFBVV95cUxOc2xHZHcwZDQwNWpYQnlNLTluVFB6Z3UyQjF2aDNNTzJrZWxCUU8yWmN0aTlZaHc1VlY2VHk5VlAwbnpqcjVNM3RoR01CU3ZlaWY0Rk53UHNUUE1IZnZWaENUc1dQSFBMOHB3YWdlc2VNN3NfVnlnS2lnY2t6bXQzVWtZSFRyZ1UxX2JJLXBsaElxUE9kSmRSaERUcGpQdUtzWF9PTGYyS1ZZTGxDZmRZbnMyMHFQRWExNllKYXNwU2c2X1JBMnExRnZ4YzZvbTNvUFZoZkJoUzI4WU1ZU0ZEYXRpLVRHbDA2RDVBY0pCWQ?oc=5",
+   "published_at": "2026-10-28T05:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.061396+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Can Brazilian Rare Earths (ASX:BRE) Back Its Bigger Monte Alto? - Kalkine Media",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZkplVUhUUzJxNEdnTHZXZ1dSTFI4amdSV2x5SjI5R1ZFb3BsYXVoN2VDRV9ESWVNZV82RXdBdlRVNFN3Ym1QZ1VsUTlXS2J6LVhxWHRQd08wTzIxV19rb3NETWpGcVBlaHN5Z0xPdkRHYWFQeVFQLWJEVFplc3haclNFSFBnckdmeUVmcnYtNnIwMU5kYnJaRXQxSjFPdmI1MXNaSVFxbWdTWWN0aUZQR3gxUW0?oc=5",
+   "published_at": "2026-10-28T00:50:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.425416+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Teste da Axel REE produz carbonato misto de terras raras com argila de Caladão - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQVDlYMVh3R190YmZOd1J5MFozX0RhYnlZSXhsMklzQktJSm82U1NpMWs3S0hlUmVzV1R4dWhFNF9XcVhHQmlLVWNMWi1jbG1VR09ydUx6d0ZqMVRjU2NKQ1FDLW5ndnZhMl9SWTN0dGFuNkhGdVhSYWFpX3ZsVEhEdnQ1dDdHT3kwMlN5TFliUVY0YlFoY28tdFM3U0dHNnlmTXJ5eV84UU1wQzBGSmpoY3AtVGpSenc?oc=5",
+   "published_at": "2026-10-27T23:04:07+00:00",
+   "first_seen": "2026-10-28T10:07:00.067283+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "TERRAS RARAS | BCM capta A$ 10 milhões e contrata Altris para a engenharia do projeto Ema - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcU9ybEFrSlc2WUdPcDRHYm9sUkNrblFkTnhrQ1YwSUVmVHhrYkxRWUdHdjhxSmFhSjd1RFNZb1FDNzV4TUdScmxSUXdBSWdDNUdiLXJhY1N1eFEya3Z4TGJKMk5QSGtsS0szWE5tTEVLMU1HV1RINGNBX2VyaGVHS1VEYWJtcU5oTktFcFpwYWx2bEhJYkJnSVFsNllKaWY1X3FVaUduQXB0MFJHX0JoRA?oc=5",
+   "published_at": "2026-10-27T23:03:49+00:00",
+   "first_seen": "2026-10-28T10:07:00.072715+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Quem vive em Jucurutu, no Seridó potiguar, vê a ANM liberar 300 toneladas de minério de tungstênio para a Alliance Mining no ano em que o quilo do concentrado do RN passou de US$ 19 para US$ 77",
+   "link": "https://mineracaobrasil.com/jucurutu-tungstenio-guia-anm-alliance-mining/?utm_source=rss&utm_medium=rss&utm_campaign=jucurutu-tungstenio-guia-anm-alliance-mining",
+   "published_at": "2026-10-27T22:45:12+00:00",
+   "first_seen": "2026-10-28T10:06:19.442728+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Pecuaristas familiares de Lavras do Sul, que o TRF-4 reconheceu como comunidade tradicional, veem a ANM dar mais 3 anos para a Águia começar a lavrar fosfato numa 2ª área de 990 hectares",
+   "link": "https://mineracaobrasil.com/aguia-fertilizantes-prazo-lavra-fosfato-tres-estradas-trf4/?utm_source=rss&utm_medium=rss&utm_campaign=aguia-fertilizantes-prazo-lavra-fosfato-tres-estradas-trf4",
+   "published_at": "2026-10-27T21:55:19+00:00",
+   "first_seen": "2026-10-28T10:06:19.444478+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "fosfato"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Vitória de Lula dá à China vantagem estratégica na disputa por terras-raras do Brasil - A Referência",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNbTdHTnVsdDRjNm8tZklQLVlvdGlWQkRId1ZUQWVoMmZsNkVXRDAxc0pHcVgxVWVTOUJwSFYxbTd3SW8ySUZMUFM3MTdDdE1tWDJpd0tEdFUzc01pNWlvVHlENFk3NlVtaWtvci13Mm9aRjl0bVlxRUFOREhwbk5Qc2dlS21NMnVHR2k4eVQyLWhNbks4RkFzTngtWEY4WGFoampCR3Bsa1RFVUh5YTdzY0E4NHFocFdQRDJUY2l3TXVCVHFDTG96bnI2ZEhsem5u?oc=5",
+   "published_at": "2026-10-27T21:50:33+00:00",
+   "first_seen": "2026-10-28T10:07:00.070582+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Vale vai ampliar reaproveitamento de rejeitos de minério de ferro em MG",
+   "link": "https://revistamineracao.com.br/2026/10/27/vale-vai-ampliar-reaproveitamento-de-rejeitos-de-minerio-de-ferro-em-mg/",
+   "published_at": "2026-10-27T21:48:56+00:00",
+   "first_seen": "2026-10-28T10:06:14.081683+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Mineração",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "ÁUDIO: Entrevista do governador Antonio Anastasia sobre o novo marco regulatório da mineração - Agência Minas",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQdXBXTGxQWVFsaUtDMVRXamRsVHNnck9DSlFDbWRJcTdRQTc0SE1Ld3dUY2hjNkY0YnJOSnJDZ2pRWkhTWkduQ3dsbjFrSkJ2dTZobXR1RWxtQkt1RXhEMnZGMnVvVG15VUkxczloVUFTUXI4d1RsTHpId0RNOFBrNDBFYW1IQngxSlV2REtGeFpoTHhwWk55WFZjVzlzMWZ0cWYzcXZBWFlXeU5jYmg2SzA3RVNWeHl2VDdqS09SV3dlaU0zRl9CSHBJbDcyNENHX1h3LXhJNDNTa3pibG8tWU1lTlo?oc=5",
+   "published_at": "2026-10-27T20:54:10+00:00",
+   "first_seen": "2026-10-28T10:07:01.029649+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Dino manda PF abrir inquérito sobre suposta interferência estrangeira nas eleições e possível troca por terras raras - Eu Ideal",
+   "link": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNa0FURHhvd3d0Q0hXUEp1dG1zODFEcGZaMGc3bTJSQU1uc1E3enF6M0x2N1hFbXVmdi1TTHp4UWxZRU1lVFU5bFdVS2lqQ01uNUFkTm5fU3o2Y0daR1BMNTVPTXluejRLeUEwdDdPbG9neXBpSFB6Tk9uM0J2STJTUjFfaTR4cHcxSEFXZmFVa29kV3NXeGNZZlZnUDFsWnIxcXEzWG1RdjVsU2djaDFSdXNZSE5FT0ZQRjhwdk1CcUp6VkxFWTcybzAzU3JDUzlZRDNKeG5LYzBjM2U0emo2alRBOWV1N3RleTdDMFMyTUhVS01PS1lvbXlKZEdNTWVmQm1WeTR5Zw?oc=5",
+   "published_at": "2026-10-27T20:26:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.081110+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Fornecedores de máquinas de mina subterrânea ganham contrato na volta do complexo de ouro de Pilar de Goiás, que ficou mais de 900 dias parado e tem US$ 500 milhões em estrutura instalada",
+   "link": "https://mineracaobrasil.com/pilar-gold-retoma-mina-de-ouro-pilar-de-goias-900-dias/?utm_source=rss&utm_medium=rss&utm_campaign=pilar-gold-retoma-mina-de-ouro-pilar-de-goias-900-dias",
+   "published_at": "2026-10-27T20:25:14+00:00",
+   "first_seen": "2026-10-28T10:06:19.446120+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Confira os projetos premiados no 2.º Prêmio Mina Sustentável",
+   "link": "https://revistaminerios.com.br/2-premio-de-mineracao-sustentavel-2026/",
+   "published_at": "2026-10-27T19:37:20+00:00",
+   "first_seen": "2026-10-28T10:06:13.697115+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Australiana amplia em 29% depósito de terras raras de alto teor na Bahia - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZE9Yek94T0ljaTBsZnBDSVMtVnluSVF6TGlLMjJiaTU2bTZHZWlpbnhnRGpsSk5RZGZSZm0tWW1jOTBtR2dqQmxYY0FoWS1seHdmUXQ4akVFa2VQajFfRnVNZXptU3J1UV9YU2FyU09PUlJxaTRjM2Nzdi1WTENnOEtMclVoenVhTjQzRVVmQjM5NFBYdF9vVEFZa3pNWF9tZnROcUVnT05DS3M?oc=5",
+   "published_at": "2026-10-27T19:21:49+00:00",
+   "first_seen": "2026-10-28T10:07:00.071414+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil deve ‘negociar com todos’ em minerais críticos, diz Anglo - InvestNews",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNMzR2bVFMSjV6TlV3N2VpeXR0STFzSEMwRklvTHdFaG9KZjhzZDg3Y0VNdDBDSHRpZ0otRmJkcmpUaG1RQUdUUDFoSjNRTW5UYWt6UGlkMWE1YjZIaEtXcmVzeUVWMU9qS3lpQmJveWwtN2tTMlc1aW9qUzlObWZmQmhGOUU2RlpQNVNFVXlEbjBnX1l2RF9NbXI0MDdfQdIBowFBVV95cUxNX2pzeE84d3lEQnZWeTJ1TExKTGZWWkxoLU1oV0Nrd3lfN0U4TFJDbEVWNVRUNlNfNzdhWG1lZHVoNHdtWmVoOWNPYmZCaEpwTnBsNTh5MVptQUV1bHdqSzF6UG1DNHlrX0E1cnp5cEZDSklaYXY3aGpjNGM1bVhxRjNhcVJEdGNVWkR3U24zODdVWXVLQVdGb0h3Y0VxVnNudDdj?oc=5",
+   "published_at": "2026-10-27T18:39:48+00:00",
+   "first_seen": "2026-10-28T10:07:00.066170+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Riuma Mineração amplia produtividade com novo britador cônico",
+   "link": "https://revistaminerios.com.br/riuma-mineracao-amplia-produtividade-britador-conico/",
+   "published_at": "2026-10-27T17:59:54+00:00",
+   "first_seen": "2026-10-28T10:06:13.698246+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Coxipó do Ouro, em Cuiabá, veem o MPF denunciar o senador eleito Mauro Mendes como sócio oculto de 2 mineradoras que tiraram 1 tonelada de ouro com 580 kg de mercúrio contrabandeado",
+   "link": "https://mineracaobrasil.com/mauro-mendes-denunciado-mercurio-garimpo-coxipo-do-ouro/?utm_source=rss&utm_medium=rss&utm_campaign=mauro-mendes-denunciado-mercurio-garimpo-coxipo-do-ouro",
+   "published_at": "2026-10-27T17:45:14+00:00",
+   "first_seen": "2026-10-28T10:06:19.450156+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Investidores em mineração esperam o decreto que vai detalhar a nova política de minerais críticos, com R$ 5 bilhões em créditos fiscais até 2034, e até o diretor da ANM chama o cenário de incógnita",
+   "link": "https://mineracaobrasil.com/decreto-minerais-criticos-investidores-creditos-fiscais-anm-incognita/?utm_source=rss&utm_medium=rss&utm_campaign=decreto-minerais-criticos-investidores-creditos-fiscais-anm-incognita",
+   "published_at": "2026-10-27T16:10:07+00:00",
+   "first_seen": "2026-10-28T10:06:19.452196+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que são e qual o desafio de Lula para o próximo mandato? - viva.com.br",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcjZGN0lZcEFGdXV0M3FkSWI5dHkxS1JtcU9qY3BadEVZaVl1WnZaSHlpY0RfYW1MdEU5Y2hPcW9tcGluWU1Gdk1zZ000MjdTSERIeEJVQlZyT3dfNzhaMjJWbzVINFRIZlhzYjQ1empGRE1sR1FKNEt0RlRBdmhDcmNvUmlmWVEwemJkZlN4aVgyanJCdWMzcUJKX0RKbW1qT3hSSlJTYw?oc=5",
+   "published_at": "2026-10-27T15:15:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.068910+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Cotado à Fazenda, Fonteles apostou em terras raras e hidrogênio verde no PI - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNUm9zLW5oWGdqckZKaHdURExhdjMtV0kzaF9QbFFtOXk1LWdnSk9iaFh6WDk2bDBHVzRYdFlUZ3BqRnZ4Q19paEpsbEo5UzR0bmhjeFE2SVVORDZ6UzUzLUF4WnFLLXNyNkpwWEp5bXFZcTBFdFdGdnJhZkd0aDdfTkZBVGRBQWVpSXI3cmlaNTZSTnl4TkROUDdKb2NqcHQ4Z3hnSTVSZWdvdHpWTGVv?oc=5",
+   "published_at": "2026-10-27T14:35:24+00:00",
+   "first_seen": "2026-10-28T10:07:00.073572+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Dino determina apuração sobre possível interferência nas eleições e interesses na exploração de terras raras no Brasil - abc+",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNUFpFdU9uajJpb3Y0b3pGZnZzMFl2dm9BeVBPSHpCd0h1YUhWUnRmampBZHpSVks1dHNCV0NjU2RmWVdhWkMwZWZWMzBRZ2ViMmc2R2Y2SDlPVjhFX0YzTFkxTW9HcDZvUllydzNFWVlPX1FIWHhmeWI5cTZIc0ZsWkQ2c3pGVmdjVWg3UjlwTXFmNG0zZGNhNXE1RU0yU2lzMThKSHJwOUpJbW1OMXpRWlVmWWxLMVMwdWVvV20yQVN4YUpyN0VZSkt0d0MzZ3lTSFlwa1Z0RUFxcDN0WnhQOEVES3A?oc=5",
+   "published_at": "2026-10-27T14:21:11+00:00",
+   "first_seen": "2026-10-28T10:07:00.064398+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Dino determina apuração sobre possível interferência nas eleições e interesses na exploração de terras raras no Brasil - abc+",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQZWR4NVhsRDFCSEJPNzJFbFpuVllWLWxJa3lyc3owUHVxdDJ6S0hyMlJIM0c1dnJwX1RUTWUxZXZFSXpvS0JRTjN5YzZJWjUyaVJFb1U5bllCVG14Y3ZnUlYtUG9TemRCSTNhNENlclFFSGpHbWZHNWNoLW9nQURmbENlV0RESWVBT3lsbGpMTkwzdXFkWEhNNnRyQ0wxVm14ZFFCZFJET0lXVnNBSU8weVo1aVZvU2ZrWmV4MGdCTmpFdENNQUNDd3pjYXJyY1hKcHFGZWtrUDRmN2RUckE4cWpVN2hFYnM?oc=5",
+   "published_at": "2026-10-27T14:21:11+00:00",
+   "first_seen": "2026-10-28T10:07:00.078226+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Agricultores assentados em Centro Novo do Maranhão veem o prefeito Júnior Garimpeiro, um empresário e o próprio Estado condenados por tirar ouro com cianeto numa área do Incra licenciada em 2016",
+   "link": "https://mineracaobrasil.com/junior-garimpeiro-condenado-ouro-cianeto-assentamento-centro-novo/?utm_source=rss&utm_medium=rss&utm_campaign=junior-garimpeiro-condenado-ouro-cianeto-assentamento-centro-novo",
+   "published_at": "2026-10-27T14:10:10+00:00",
+   "first_seen": "2026-10-28T10:06:19.453876+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores perto de barragens de Minas entram no período chuvoso com previsão de Super El Niño e a promessa da ANM de pôr equipe em campo em até 3 horas depois de uma ocorrência",
+   "link": "https://mineracaobrasil.com/super-el-nino-barragens-minas-anm-equipe-3-horas-periodo-chuvoso/?utm_source=rss&utm_medium=rss&utm_campaign=super-el-nino-barragens-minas-anm-equipe-3-horas-periodo-chuvoso",
+   "published_at": "2026-10-27T13:10:22+00:00",
+   "first_seen": "2026-10-28T10:06:19.455956+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Engenheiros da BRE na Bahia mediram 3,5 milhões de toneladas de minério de terras raras com 10,7% de óxidos em Monte Alto, 41% a mais, e o depósito segue aberto em todas as direções",
+   "link": "https://mineracaobrasil.com/monte-alto-bre-recurso-terras-raras-cresce-41-bahia/?utm_source=rss&utm_medium=rss&utm_campaign=monte-alto-bre-recurso-terras-raras-cresce-41-bahia",
+   "published_at": "2026-10-27T12:00:21+00:00",
+   "first_seen": "2026-10-28T10:06:19.457601+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras e a Lei 15.506: do 'susto' da Serra Verde à defesa da nossa autonomia estratégica - Consultor Jurídico",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU0tFTjBrU1NBZWxfOXNBaEZobWZod2hCYngtSkFUMkl2cXlPRUt6eFBIOXI5bi1JWUVFR2tuNXFwZ1NTcVNUVnNtM0h2bEFfNkVaYmEwWWlLWVFFSnY0em1McUo3R2Y2RTdoZEh5ckNrb0t3d1lTLTVqekRSN0x5Mk8yVXBGNnh1RkcyZjhUU3UtdUFnY2JjcnFXeldGZ2xjdTV3RmxIaEI5dGxBdzQ4aDhxaXZVYVVvSzdFUUdmcTItekE2?oc=5",
+   "published_at": "2026-10-27T11:00:24+00:00",
+   "first_seen": "2026-10-28T10:06:58.653701+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Aclara advances US$1.7 billion rare earth projects in Brazil, Chile and US - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNemx1TDBhZ1M3Vm9QWDhXcjNVU1JuaVMxdHg5ODFnakxzaUZEVG1heFFBT0x3MUt6MUprQ3JZZVU0cndJdC1GcjYyOXdDZEc5SGgxdGQ0MWZ3cGxtVlJLYzZwSnd4OVhYeEdSMjFsNFVfd25PSVhCQVpCTVJEZU0wdS1IMkVZX1JMZGNtWkI4WGR6YkZWZ01RTnpEOUhyOVg2UDhLeHJpdUJuT1RtT1p1RXdR?oc=5",
+   "published_at": "2026-10-27T11:00:01+00:00",
+   "first_seen": "2026-10-28T10:07:02.422068+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Aclara avança com projetos de terras raras de US$1,7 bilhões no Brasil, Chile e Estados Unidos - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPQ3RTVjBOZThEZ0VQRkYxQUN2bFBlbmcwaENPWF90cktRX3hSb3lHVHNDbm5heWZ0SDZmZHA5Zzk1WVEyZUsyWlZXc05UdmVsNk5meWpONlhHTTdzT0tLdHl2bngzbVZKbTQyNHdjdnRyeWd3OEhiX3hoeXlsR0xndnNvUzFqZVg5UTNnS3JMcHc3T1p0TjRNZUtkVl95VnZVRnljaDhPS1h2NHViZTFWZVhyTl9VeFBkNWhHSFFR?oc=5",
+   "published_at": "2026-10-27T10:33:15+00:00",
+   "first_seen": "2026-10-28T10:07:00.074355+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores da aldeia Lago do Soares, em Autazes, dizem que a estrada de 13,7 km da mina de potássio secou 2 nascentes onde os peixes desovam; a empresa diz que não viu sinal disso",
+   "link": "https://mineracaobrasil.com/autazes-mina-potassio-estrada-nascentes-mura/?utm_source=rss&utm_medium=rss&utm_campaign=autazes-mina-potassio-estrada-nascentes-mura",
+   "published_at": "2026-10-27T09:50:08+00:00",
+   "first_seen": "2026-10-28T10:06:19.458938+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
   {
    "title": "Brazil Tightens Control Over Rare Earth Resources, Raising the Bar for Foreign Mining Investment - NAI500",
    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNT3Z0M0dibURpdTZIVUhGM3BUOTZVX3JNM2Z4U0RtM3pJNnVBLUxrRmV5QUZwT3YxZFVNQlhBR1hvVE9vdUFfR3ZiZElXMjRrSWMxdTlCcXZLODhNOS12UlhROHFvdURSaDE2M05VVC1yUy1ERkR0WlU5TEs2Mk5nRE9GSE0wNDVkTVhHcUZLTUgzUzVhWjNBU1pLQUN0aU96czVVWWVNRVdrVHRZLU1RNWZHbG9TS0VQZU0yUGRHVDZGLVJTa2xR?oc=5",
@@ -135,6 +675,23 @@
    "brasil": 1
   },
   {
+   "title": "Brasil reúne uma combinação difícil de ignorar: 90% da produção mundial de nióbio, segunda maior reserva conhecida de terras raras e uma agenda com os Estados Unidos que envolve tarifas, investimento e abastecimento industrial - CPG Click Petróleo e Gás",
+   "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPVVJWazVuY1NTc3BtT1E4V3p0c01XSE9vbzg5cHZsOVR5VEpJS1V2VUIxUXVkd2FHMnIteEFMZFp3V1pDVjNMSnJodzlsVlFUdnRjUE4zd29YZHpMSFJDV2FmR0RVbmxTcHhieXVnbDR5RlJqMEx1YXlCZlhrQjNHTkpBcGNpU2ZEZnNxZVM5eG5nTG5sREUzSWlxYTVPZ2V3cE82OXd6NWtMWk9BVmdwNXptc1UyMHJNZ0dxeElGTUR1OHdmMTZSZnBpSnJYNERXWlNvYzQ0VGNWUERxUHpHdUd4NFFXRkRSN2tFUWdZYno5Qi1OYmM3NlFRdVNFMGFjbTl3TVprV01SbmRsbm04Qnk0bzZBbUFxUU55a1F5MW9lem9lR0k5bDNWcS1zaWFxQVd1ZW5uUVFHakRwRm1uNGdrWDNvZkE?oc=5",
+   "published_at": "2026-10-26T23:36:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.084773+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "niobio",
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "TERRAS RARAS | REA Brasil aposta em portfólio triplo e mira cadeia completa no país - Brasil Mineral",
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNU1lEbkpqMUltdzFMRVFtdGlZeUtXaW1FVnZ6OEhVdEkzR2RCM1Y3Z3FjWjBBRUlZN3ZIb21paUo4ZjVRTTg2ZDJGcmhxXzE4NEpJUDM2ZjhKbldtRmJVWEo3NWxUMF9yS25TMmwyemtzc0wySjhvUkxJcDk4QWZUenBVNm1PUGxsMVpaM3BtaDZhYjM1VVYtSHp3aWtqTHU1bUg2TWoyenVTUQ?oc=5",
    "published_at": "2026-10-26T23:15:29+00:00",
@@ -211,6 +768,22 @@
    "substancias": [
     "cobre",
     "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora canadense amplia descoberta de terras raras em Minas Gerais, mas considera vender o projeto - CPG Click Petróleo e Gás",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNbWNnY2pCZnV2S0dhZTJCT2RSTDRvcUY1c25Dc2ZwLVNYeE9nLWhfMWZMT2I3emQtNV92dkFCbWtTY0pKX3d4WkR5MHF2aDhsVzA0QWpnemJEZ1RTNnZZVVltb21rRGgwWVRneURlVWtHOTd1T1o5aEVlcG9VTnIyeE9GRThGSTI1ZkFIVHBQd0xpTEppX1hkVXFEbS1RazQ4VEdmX3BRcTJHM1llbmx1QnM5Mi1aVGZub0o3LUdyRFJfbEFiQk1mZHhYRVpCOVNRNWtEaFJFb0c2Zw?oc=5",
+   "published_at": "2026-10-26T21:18:00+00:00",
+   "first_seen": "2026-10-28T10:07:00.082833+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -2233,632 +2806,53 @@
     "terras_raras"
    ],
    "brasil": 1
-  },
-  {
-   "title": "Perfurações em sedimentos de 66 milhões de anos revelam enorme depósito de \"ouro negro\" em um país que possui 5,7 milhões de toneladas de elementos de terras raras. - Vietnam.vn",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdThtcWljNThXR3Y2d1E2MjNDZnhud2huUFJ2SVhMck5INnRVdEVNT0VCVXBrQk5SRERRd3Nrd1M3aHhfeEFDbFRnRmJ0Z3FhTEI0R2tEck1sbGpwcWhuOGJzQTVHajBIRS1oaWl5WVQyc1dGTWNSNFJjc2owRWZPbnFzejd4M0kzWmFESndoakxtbFNldU4tdXMySzd1WTZPVGpiUklsMHBZMGtJbEVpZ21lblZFZnoycGozM1NKbzNYaVNOeVZqUlhyUlJkQQ?oc=5",
-   "published_at": "2026-10-22T01:36:03+00:00",
-   "first_seen": "2026-10-22T09:00:26.730837+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "ouro",
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Lula cria secretaria com mais de 50 cargos para explorar terras raras - Gazeta do Povo",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOWFVVWJpeW1JeUp1OXQtdk00aVV4a0xLUW9uRDItQW4zdy05WDFNWUd4Z1gyZGlJRXpEd2JmWm90TF9XYkhTMG8xS1FDUXBEWTE3S0hoUE5LNEtnaGNpakFyR3FnZHdXUU83X3dZcEE3NGVUbUtsNWVhMzVGb1NwSko1R2NueGR0UmFCVmx0MGhEZFdfRzlhSVFHa1RsWGJvdFBQcUxkd3ZZTkNjZ1RUdGh3?oc=5",
-   "published_at": "2026-10-22T00:48:00+00:00",
-   "first_seen": "2026-10-22T09:00:26.713341+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Demanda global por lítio deve triplicar até 2050 e abre oportunidades para Minas - Diário do Comércio",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBwVU9MeFVOS3RlSktGaHJNc1N1TjhiWG80Rjh1NjlvNUs3OWJlS2VrNGJLSC1QNEU1RmxJQkk2ZllzWE9PRlItR3B2SXp2Y1NtUW5BX2hBdUxrWEZ3THFUSUZ2MFhjU1ZfZ3h5cGZRQQ?oc=5",
-   "published_at": "2026-10-21T23:27:00+00:00",
-   "first_seen": "2026-10-22T09:00:27.188385+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · lítio no Brasil",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Emissão de guias e serviços do SINARC apresentam instabilidade técnica — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOR3FmYTV6OWZuWjdoZ3hTdWRWb2NOUzBkUl80QkRxVDBtNjhqaGNHWEVIZkI1amV4UHpoVkRjOUV0VXZuMDI0U1FiNjQ2UjUydWVZSTB2VHNhLWlnVDNwUDZZRlB5NXhNOUtMVjhqckFTb2tjMWFPWEptOXhlUFpMbkhPNXF2Nmdxajh2SkVGSHlhLU5GOWNybXhKcUd0Q21XVE5PWU1GdzN0VXFjODk1QzN1cldpLXh0?oc=5",
-   "published_at": "2026-10-21T23:04:14+00:00",
-   "first_seen": "2026-10-26T09:27:29.966490+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "STF suspende licença da Belo Sun para projeto de mineração de ouro no Pará",
-   "link": "https://revistamineracao.com.br/2026/10/21/stf-suspende-licenca-da-belo-sun-para-projeto-de-mineracao-de-ouro-no-para/",
-   "published_at": "2026-10-21T22:57:58+00:00",
-   "first_seen": "2026-10-22T08:59:09.990619+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Revista Mineração",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Os 470 trabalhadores da Italbronze, fundição de bronze de 67 anos em Guarulhos, vão passar para a finlandesa Metso, que comprou a fábrica para garantir as buchas dos seus britadores de mineração",
-   "link": "https://mineracaobrasil.com/metso-compra-italbronze-guarulhos-470-funcionarios/?utm_source=rss&utm_medium=rss&utm_campaign=metso-compra-italbronze-guarulhos-470-funcionarios",
-   "published_at": "2026-10-21T22:55:08+00:00",
-   "first_seen": "2026-10-22T08:59:18.834159+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Lula cria secretaria com mais de 50 cargos para explorar terras raras na reta final das eleições - Blog do Gustavo Negreiros",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNb0d1YWRoSmNzMnJxcHNxYlRDYTBtR1RKWjNoMU16dkJiNWwtZ2NMZ2dyNWJ3aEJoRXd2RDRIWUZ0eVNyd21Sb2MxQzR5Y0NaTEFTS1YzNmNybzdMcEZKUVVpYk5pYjI4MGtSVWpPWURKYkxiZHQxeHBKTnNGbC1xWmhrbnk2Ty1od2Y5NTNweU1NZWowcFRvZFRNWTk5X3VwSlZvQi1FcnhPVmFSY09CZlUySHgzRlBUWU1RYkg0ZVl2UW8wUThIMW9rd3ZLSURoUnRlVFBhTkNJQl9GMnJN?oc=5",
-   "published_at": "2026-10-21T21:02:20+00:00",
-   "first_seen": "2026-10-22T09:00:26.722972+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Lula cria secretaria com mais de 50 cargos para explorar terras raras na reta final das eleições - Blog do Gustavo Negreiros",
-   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOcmJrSUczT2l1LWlid1dieFo4N09IRWs5eThVbkdlVUM3V3IxeS1NemwxbzJrakRrOHkxaDdTbUlfUTlJNGVidHNEMUQxTER4aUNOalptODVVeHY2YnVhbDA0bUJNdFowZEtxV2VWc3BwSDhaVnBfNGlXakVKNE9hRzBEandRSVFwSTd4N0dZVTVtYXlmQ0xfcWZSYm01NC00SUYzQXZycHc2X2dBWHJ1cm9idk1VV3IwT2dQeUJYejdTQjFOYXBMX0lOYXEzZl93OFdaRkpTYWZLSVpBVXZlRFFrX2UwM0lQSEt2eg?oc=5",
-   "published_at": "2026-10-21T21:02:20+00:00",
-   "first_seen": "2026-10-23T08:54:40.934657+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Moradores de Poços de Caldas têm a 13 km da cidade o furo mais rico da Power Minerals: 111 metros com 8,25% de terras raras desde a superfície e um pedaço com 40,5%",
-   "link": "https://mineracaobrasil.com/power-minerals-morro-do-ferro-pocos-de-caldas-terras-raras-40-por-cento/?utm_source=rss&utm_medium=rss&utm_campaign=power-minerals-morro-do-ferro-pocos-de-caldas-terras-raras-40-por-cento",
-   "published_at": "2026-10-21T20:20:07+00:00",
-   "first_seen": "2026-10-22T08:59:18.836250+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Terras raras em Poços de Caldas têm alto teor em MG - Acia Araçatuba",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9rMXdzNHMyOWdyVFBvMDNpMzFndV9HYlZLMEFPTjFXd09EaUNrREltb0VwMW9meGp1NldYZzlLZU15Rm5nNVdjdXVhMXJrZzdfakJrR2lKTHFweGUzTmdBd1VkSzdzU0NtNHpwUXpfXzhBd3N2cFpKXzhucGZDNjA?oc=5",
-   "published_at": "2026-10-21T20:04:36+00:00",
-   "first_seen": "2026-10-22T09:00:26.719257+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "O que falta para o capital chegar à mineração brasileira?",
-   "link": "https://minerabrasil.com.br/o-que-falta-para-o-capital-chegar-a-mineracao-brasileira/2026/10/21/",
-   "published_at": "2026-10-21T19:26:55+00:00",
-   "first_seen": "2026-10-22T08:59:10.953695+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Minera Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Lula cria secretaria para explorar terras raras e minerais críticos na reta final das eleições - O Antagonista",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNYzVhZVdXNTlYODlkMEJkZmZPQldJTVN1a05kV0JDZWMtY3BoWHQxREFEWTVQd2dudllsM1ZSMzV1V1lHXy0xU2FWN3BOdWhpVF9FQVBoNWxkeENzTkJTTXVaa0I0YnlDcmFOUU5XVjhOUU9UX2RZSDlZUnh6Q0hUcWQtTXFEVnJfQ2lUOVVReUx1a2dLODV2Mk5OZ0FDYk5JOXlfVlN1Mm0xNkJYV0F1RUg0bzQ1ZERmYVRiQkJPal91Ry11a1I4dUZR?oc=5",
-   "published_at": "2026-10-21T19:07:00+00:00",
-   "first_seen": "2026-10-22T09:00:26.717970+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Regulação forte dá previsibilidade ao investimento em minerais críticos - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxObVJJM3VhZ3pzLWdNYmdXcDA0TE9CRTlULTc5dnVxSmdoSWZvalN6XzlGY29LbmVzOWRvOEpZUnN5SnZRVEhQTEgzNXhkcGZpbEl1Q0hVQ0tsTm9US09qX1p3UW1lZUd6QkRiRDFjeXBOX3owZFYzNVBFY19kcTF2Z0Fvc0RUbnkzZkNUa1A4Y191U2RyWEJ6Y2VmOFFvT1RSbkMzdjZiTkI3OGFfcm9ZaE5UMzR4bzl1Q1E?oc=5",
-   "published_at": "2026-10-21T18:46:31+00:00",
-   "first_seen": "2026-10-26T09:27:29.970188+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Colossus Rare Earth Project, Brazil - Mining Technology",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOTUh3NXVlY09WbmZkTGdqUDZsalNtSmJkcVZrUE81YnE5eXFUQUpWX1QxalotMVlodFh2QWxPclA2R2pPOTdQSDJJY0haQ2JnWHdXX2txZURqMW80VjgxZEdraEF1YUQ0UmNiV1p6Z1hSTmtnZG1aMXU0U1JaYWEwdzZJMEo?oc=5",
-   "published_at": "2026-10-21T18:15:42+00:00",
-   "first_seen": "2026-10-22T09:00:28.727775+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · rare earth Brazil",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Goiás busca investimentos chineses em centro automotivo, mineração e hotel-cápsula para o Moto GP - A Redação",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSXVaZkp6UTBLYVppNDhCVzRBcDJiWEZPY3kxR1NOcktCcUFMUkw3Snotb3l4SGNWNTFuUmdCaE4teG9QWi1FeVQ1T1gwU1Q2aERSbV9uUDB2UEtQMFBtOGRkeUNIaTg5OG1hZ3JFWTVXU2xTUFk5ZHh0b2kwVlZRbVBPTU5fbjZhaFI0LVBmanpPUkQzQkVPc0dqR0h1SXVwQUZVWFZrWXFCanBRb2Eyb2R5RWdHN0RkbUc2TF93?oc=5",
-   "published_at": "2026-10-21T18:03:08+00:00",
-   "first_seen": "2026-10-22T09:00:23.972632+00:00",
-   "regional": 1,
-   "regiao_termo": "goias",
-   "setorial": 1,
-   "fonte": "Busca · mineração em Goiás",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Brazil court halts Belo Sun’s $300M gold project",
-   "link": "https://www.mining.com/brazil-court-halts-belo-suns-300m-gold-project/",
-   "published_at": "2026-10-21T17:47:14+00:00",
-   "first_seen": "2026-10-22T08:59:37.881785+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mining.com",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "“Brasil está muito em risco”, diz Frei Betto ante interesse de Trump por terras raras - Público",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOFRsTlNqcWpYdGd2MU41c3ZLOEpSNGlubXE1Z3o0ZmZhTUxmbGMwcUgyMWQzY2NtSXJ2S1c2LUpWRmUxeGxWckNpcy1BSEZlY0RKRWEwdVdqMjdjWVRialYzRlNraDZvT0dkajJfZnBDdmZ1UVc0bG9SV3R0ZFJ3bk5iN05nZWQwMkJ5Yy1FZm01MTR2b2R3WktQWV9lU3hYYU9uUERmMUVPbGhCVTV4TE5sRHFkUmlOWF82LQ?oc=5",
-   "published_at": "2026-10-21T17:32:55+00:00",
-   "first_seen": "2026-10-22T09:00:26.728722+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana encontra alto teor de terras raras em Minas Gerais - Investidor10",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNcnVreHQ0WTdGSmJBbk5OWm9LeGpfamhZOGFrVWg1bk9OSkYwUWtPcXpKRjk3ckRPdHlub3ZLd0daRkd1eFRkemQ5TjQ3WjNjbGJMMnNIM3dULUsyY1hIMnZ3enB1Y210STBiNmlnU3JPWC1hZUczTGthclJTOHBVMlFpT2FtVWlOUlgtd1Q4MHdJWFVxbXhYSlpIQ3o1SXJnYy15U0xmTXk5Uy0yZmtuZlVjZWl0djJoLVHSAb8BQVVfeXFMTUhPQkt2NnlLNFN4QW12dFFTcTNIY2tudjBMOV9EWHNXU01SWm4zLVpYWGFId3RUa3hnNTR1Wm1Db1VJTWFPcnVwWS1uVzhjZXM3NmhrOUxvd2FQTDZSaEdYM1JnZXROLTlqQ1dma0dvVGgwUnFVUERBV08xc0NBYkFFRGdGWUZwbGRHRVl0ZFhsaTN5R0VhTVdZYWcwdGlnbVFEaWowcWRyX3hFQzJyWGFqbXlfekNkajUyNF9zaDA?oc=5",
-   "published_at": "2026-10-21T17:25:31+00:00",
-   "first_seen": "2026-10-22T09:00:26.720211+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana encontra alto teor de terras raras em Minas Gerais - Investidor10",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSE9CS3Y2eUs0U3hBbXZ0UVNxM0hja252MEw5X0RYc1dTTVJabjMtWlhYYUh3dFRreGc1NHVabUNvVUlNYU9ydXBZLW5XOGNlczc2aGs5TG93YVBMNlJoR1gzUmdldE4tOWpDV2ZrR29UaDBScVVQREFXTzFzQ0FiQUVEZ0ZZRnBsZEdFWXRkWGxpM3lHRWFNV1lhZzB0aWdtUURpajBxZHJfeEVDMnJYYWpteV96Q2RqNTI0X3NoMNIBvwFBVV95cUxNSE9CS3Y2eUs0U3hBbXZ0UVNxM0hja252MEw5X0RYc1dTTVJabjMtWlhYYUh3dFRreGc1NHVabUNvVUlNYU9ydXBZLW5XOGNlczc2aGs5TG93YVBMNlJoR1gzUmdldE4tOWpDV2ZrR29UaDBScVVQREFXTzFzQ0FiQUVEZ0ZZRnBsZEdFWXRkWGxpM3lHRWFNV1lhZzB0aWdtUURpajBxZHJfeEVDMnJYYWpteV96Q2RqNTI0X3NoMA?oc=5",
-   "published_at": "2026-10-21T17:25:31+00:00",
-   "first_seen": "2026-10-24T08:28:15.965012+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Moradores de Canaã dos Carajás ganham uma vizinha nova: a canadense Bravo comprou 6.185 hectares onde furos antigos acharam 28 metros de rocha com 2,43% de cobre e vai perfurar mais 8.400 metros",
-   "link": "https://mineracaobrasil.com/bravo-compra-projeto-cobre-canaa-dos-carajas/?utm_source=rss&utm_medium=rss&utm_campaign=bravo-compra-projeto-cobre-canaa-dos-carajas",
-   "published_at": "2026-10-21T17:25:07+00:00",
-   "first_seen": "2026-10-22T08:59:18.837918+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mercado de capitais espera pelo decreto que regulamenta política de minerais críticos",
-   "link": "https://minerabrasil.com.br/mercado-de-capitais-espera-pelo-decreto-que-regulamenta-politica-de-minerais-criticos/2026/10/21/",
-   "published_at": "2026-10-21T16:17:52+00:00",
-   "first_seen": "2026-10-22T08:59:10.959531+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Minera Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Lynas anuncia compra de R$ 3,5 bilhões e amplia disputa por terras raras no Brasil - BPMoney",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOWlAySHdzYlQ0aHkyNVRLX0xETnh6NTdsbDY3aEVLcnVmWUNtcl9uYl82MGhxMV9aMk1JRHhkN005Y2xFSFlRT2hUdllxdUVraWhaNEhCMnBhRERYeTBLRjZPZnprS1N4dTR6bU1odkdyRGlkTWJYYnZZWXozSjdYUlAxOUxySF95dWIxU0VBcS1xUEdOZm90ekxMd2VsUFNLamgyVzRjWVNqZExZODVsSHFkTQ?oc=5",
-   "published_at": "2026-10-21T15:28:23+00:00",
-   "first_seen": "2026-10-22T09:00:26.724086+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Brasil precisa de regras claras para atrair investimentos em minerais críticos",
-   "link": "https://minerabrasil.com.br/brasil-precisa-de-regras-claras-para-atrair-investimentos-em-minerais-criticos/2026/10/21/",
-   "published_at": "2026-10-21T14:10:46+00:00",
-   "first_seen": "2026-10-22T08:59:10.964883+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Minera Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana indica alto teor de terras raras em exploração no Sul de MG - BHAZ",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbFV4SDZHTmxlLXNiRS1DbEJnd0ZuenR5Q2pfUlpNN2ptcjNSalhDRUYyYmswWmNTNDhHSk5VRzNuZ05XZUFYcm5CMjdaOWpHek5xbHczQmdqZjNPbnlEUjBROHNNYnYwX1BJMlpRTklUbGtMWWg4ZENQX3YzQ1VZRDhCbE5jS2xLRl9NTDB3?oc=5",
-   "published_at": "2026-10-21T14:02:00+00:00",
-   "first_seen": "2026-10-22T09:00:26.722029+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Projeto de mineração de terras raras no Vale do Jiquiriçá levanta preocupações ambientais e sociais - Criativa On Line",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQN21yZnVMeUpEZXpNelh2aUJQeW1JZ1J4el82UFFrZW5LdDNkWm93aFBDbWxxaldWLUtvM3VCdFBHZDhiYmRNV3Jjcm00V3d2S2loMXgwU0dMVHM2RVFaM1BrWFNsTGdFOTlvRmhOTlpCLU9vWUlOUFhKNDJCQ1RuN09lT1gtalN6d3ppNTRfaGJBMFB3OXg5RHhfVzhJM0FRZVJTVi00Zk9Yak9OTHNBcFR4aXJDWUhKMUxpdW1JZUZMY1IwYmNJcmpB?oc=5",
-   "published_at": "2026-10-21T13:56:39+00:00",
-   "first_seen": "2026-10-24T08:28:15.970939+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana amplia aposta em terras raras de Minas após sondagem revelar concentrações elevadas; projeto comprado por R$ 80 milhões ainda precisa comprovar viabilidade econômica antes de entrar em operação - CPG Click Petróleo e Gás",
-   "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPVFVJTmpUalN5bHN3SmJQYk1LbTBjTTI1MXVTbkRXbEZ4WFdlOVRXM0czOTdidDF0elZzdEczUXYxdGdIbzN1bWExNHRkNkhPWGNPcEZYNXMwcG1LT1preHA1UGNVUGhYRHotNFVNLVV5UC1yc3VrTEluM0Z5NmJrVWU5LXFOdklZc3VCUUFXNDJMNXRpYVJpbGRudWh1NUthSzdMdkctV3E0QzQzamlXOTdmZ21waVQyV2VnZnlWN1Q2dGZMaDFBckhWN2dWR1luUHJZZjBUM3RGQklvM2toWXFubk5ZM0VTQ3dFaDdfdWNlbG9hX1BPaHg1aDNRX3Y1VmxxSElwTXFDcmpfYW81M28tNV84OWFOUmNLcXp2andFdnhWOEpWT3JBUnp2ZnRhdld2cEJMS2VGVnNVbEF0TXJDd0lBZVU?oc=5",
-   "published_at": "2026-10-21T13:37:00+00:00",
-   "first_seen": "2026-10-22T09:00:26.716397+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "TERRAS RARAS | Oceana Metals conclui compra da Songeo e assume projeto três vezes maior que o de Araxá - Brasil Mineral",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbEdOR3Rrd0dvXzZsQnVkQk82VGFBR2NmX0JoVDljT2JJWmhqeGdINW5hUE5xQnBFX1dJY1BVa0xSZFhrZXBfWEtnOGoyOVVZNm9uZ2tNNW1pOVJpSjBFUE9WREZtZUlfTURPTlFpUWliYnNTdDg4WXFNWEZ6ZnVqSjhlZDZyN0k0YnZid3E4ZFY4RkhwdVV5WjF5VFpTQ1ZKZktHRndNV1hISi0yRnFEVTdLTnl6N3FrU0JYT00xb2dhekhSaHkyeXN0YlJxdF9sdzJn?oc=5",
-   "published_at": "2026-10-21T12:58:47+00:00",
-   "first_seen": "2026-10-22T09:00:26.714404+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Quem mora em Pernambuco vê a canadense Prospectiva achar 3,6 metros de rocha com 9,17% de cobre no projeto São Francisco, que já passou pela Yamana e pela Pan American sem virar mina",
-   "link": "https://mineracaobrasil.com/prospectiva-cobre-pernambuco-sao-francisco-9-por-cento/?utm_source=rss&utm_medium=rss&utm_campaign=prospectiva-cobre-pernambuco-sao-francisco-9-por-cento",
-   "published_at": "2026-10-21T11:15:06+00:00",
-   "first_seen": "2026-10-22T08:59:18.842580+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "EUA veem em Flávio via de acesso a terras raras - SpaceMoney",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0yb0lBckNKUV9CQ253ZzJXeDM4bmlMekNLTTdjX3NzS2o2V1NsNm1CaVFUNV9KNTVrREdLYVhLWE9paDFyZDlXNUdKLWpDb1B3bDdiUjVEbTVLajBuUGpOLUZPRlZZMDBXNDlRbDJUb0VFV0NTV3VFTDlYdEE5UQ?oc=5",
-   "published_at": "2026-10-21T10:13:23+00:00",
-   "first_seen": "2026-10-22T09:00:26.715542+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "A corrida pelas terras raras põe a Bahia entre a riqueza do subsolo e os direitos de quem vive sobre ele - O Eco Jornal Online",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNczJCMGVFQ2JRczV5eU9GVGxDeFRJLUVBa0xELXZ4VW1xLXJqTTBiQldKMWZfeVg5bGRIektBaWJqc2tBZnc4YUNwc2xNZ1lXQ2hiU1RuVnlta0dYSDhDaTMtNExOVm1PdFl5NXBWLWVQMEZCWUw0eU5ieE9jUFlwRXNXeTZrY0liSUpJNWRVdk5ieWd6d3hCaDR6R2dRTTZLa0x0alpMbEV5RU8yYVk1M1RRQS1tUjhNWWNzVkN4QXcwOVhRc0FtZF9QRQ?oc=5",
-   "published_at": "2026-10-21T10:09:15+00:00",
-   "first_seen": "2026-10-22T09:00:26.726540+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana identifica alto teor de terras raras no Sul de Minas Gerais - Rádio Independente",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPd09ERThtR2VrUHdpcG5yTEpReGRFUnJDclM4SWdfdEhlZ19RLXFQTTU3cEU0cXZJWGM4LThPS2c2aGZscDZFTW9ELWVtRDJzeENqc3NUd25tekVtbWtvWXRUMGszS0FvZXJ1NGRoOS1tQ1BxOE10WWZhVm5Qd1IxYmN4N0dpUlJZXzVrSTZwSXRPVWx1S1dUc2tBMGl0cWQ1Qkx1N1M1R1VPbHZSam50UzhBWTVWUGFIaFc1U19B?oc=5",
-   "published_at": "2026-10-21T10:07:00+00:00",
-   "first_seen": "2026-10-23T08:54:40.933594+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Cobre, lítio e terras raras: Especialista revela que a guerra da energia está a criar novas oportunidades de investimento - Executive Digest",
-   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQR2RnQzQzVllsWFkwenUxRk9YZTlCX3J0UW1RODBUOGhMdFNxMFY3NWFfV0t0dk0yakZuejZHSlpEaEplNGtPYjBCakNjUlBZMGNJbTRZNy12WlgxcUVIYXFHT3ZrQ2VhU2VEZGVjWVFQZ204aDhYX3F4bW13RDJUZGwxcVdUMEc5RC0xTTJ5ZlhMYm0zR3VTTk43Z29wMnRmSU9EMnQxaTE0VzVoRkNQbXkzNHk0MWc3Vmc5MGkxbHBKVllNUHN6MmxOczB5VS1GY3J4ZEY1enhlVXY2aS1SaEozTGlPdjQ?oc=5",
-   "published_at": "2026-10-21T08:24:18+00:00",
-   "first_seen": "2026-10-21T08:57:11.016100+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "litio",
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Cariri paraibano atrai mineradoras australianas em busca de titânio e terras raras - Movimento Econômico",
-   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOcjQtRm9xUDFoSmVnay02QTktc2lkenVvQ2dZSlp2UDV0aDFacXRhVlExSjNmSFdIcTdBV0tYRTdVYWliNzVZWkxpRFAzUndXOTNXQWFSNXBPaG5vZmFYNTV5QXoyMkY4VGtrbE9Fb082Tm4yUlNxb2Y2MDg4OWREbzh6MmQydGhlSHBrMEI0dks3UVBOaHZGbjVYVk0wTlFRS1pFeHEwTTdmN1hYUGc0SEQ2NnNJamZiNjJiRE1ienU1YjExQWZPZW5TeUN0bVhvMDFWX1hLRXd3QQ?oc=5",
-   "published_at": "2026-10-21T08:17:00+00:00",
-   "first_seen": "2026-10-21T08:57:11.008869+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Mineradora australiana identifica alto teor de terras raras em novo projeto de exploração no Sul de MG - G1",
-   "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNM0RjU1pHelFNY0lkMnk1SFh2eWRlaE83VVlqQjd2aS1zVXQweXFVbVRQT1Nlby12VmdFRWRxdlQyMGtDejkwamZOSU4welctSEZIbHRqQ1dSTk5iSWNReGRDMWZrVnVaTEJFNFZFWko4djhsNGRJSTd3dnMxbXhfdmVFNWFEQXpFSVRZd3NfWExjSEZYZzVyYUlKd3RDcXZkbFdvb2pMSS1adEZnYW8zNzNBUU1JVXA1V1pRSVVEUmtQNjE1UEFiUnVxWUF2MXdIRHFISkxKZ1REaUhtTFdCZ09GY01UbnN2UHFrOGJPVjlMUUJaN1A40gGGAkFVX3lxTFBFYk9kZnlEVTJ2VXdNN2xkMUNkcUlvNkRELWt4ajJwM2g4aDZ2VTVTcWM2ZmpwdTRzY0VaZ0I4YVJYNjR4WFhxdFJxNE1yZ3dYQmVJNGtSbEdZaXE0ekxJZURFUGtZdGZTckJoa2FnaHpnQjFtY2d1dkppd0NXZ2I4ZHNDOE43dWtDd1hqeG9fTEY3ZXZMSjdzYmtXWDh3LXk0S2txSk1wOXpJdUZSSjl0NWpIMnVsX18xQ0VYTG5nV2lkZVFyd1FFQWphelA4dmFTWW1lcHFzSFl5eHlmVXpXWTlwYjFKbGFpRDNkWlZ4eWdJbW5oVm1YXzdyb3dYNUZXbllfTXc?oc=5",
-   "published_at": "2026-10-21T07:00:00+00:00",
-   "first_seen": "2026-10-21T08:57:11.004893+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Às vésperas do segundo turno, povos indígenas firmam posição contra mineração em territórios tradicionais",
-   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad9d0a91bc842c9b1b061e4dcd07032&url=https%3a%2f%2fcimi.org.br%2f2026%2f10%2fpovos-indigenas-contra-mineracao%2f&c=9919735473794364470&mkt=en-us",
-   "published_at": "2026-10-21T05:26:00+00:00",
-   "first_seen": "2026-10-22T09:00:26.227320+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · Bing · mineração em Goiás",
-   "escopo": "regional",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Is Lynas Rare Earths (ASX:LYC) Eyeing a Brazil Plant? - Kalkine Media",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPY2ZBczNPSWRaaE04Z2lsSWpqd1pMNEEtdFRDeW1XclhwbmNLX3JnTnpCNzYwdWJFSUtRSUxxYnlWblV0VmJfbkljc2hYeF9jeUpQeVFjODM5VW1VZmp3NzVxanpua0tzX044WlFDQXdwczdxalpYSXRWZWpfdHRKTC14OWZib3Z6RmdsNHZXSlRPcFZ1UEdrSWxlN2VaM2ppQXJHWnpEbw?oc=5",
-   "published_at": "2026-10-21T04:15:00+00:00",
-   "first_seen": "2026-10-21T08:57:13.587357+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · rare earth Brazil",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Geólogos acharam 50 metros de rocha com 4% de terras raras em Serra Negra, no Alto Paranaíba mineiro, e a australiana Oceana agora fura 20 mil metros depois de pagar US$ 2,95 milhões em dinheiro pelo projeto",
-   "link": "https://mineracaobrasil.com/terras-raras-serra-negra-patrocinio-oceana-sondagem/?utm_source=rss&utm_medium=rss&utm_campaign=terras-raras-serra-negra-patrocinio-oceana-sondagem",
-   "published_at": "2026-10-21T02:00:09+00:00",
-   "first_seen": "2026-10-21T08:56:35.192993+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
   }
  ],
  "tendencias": [],
- "total": 3770,
- "regionais": 431,
- "setoriais": 3770,
- "regionais_setoriais": 431,
+ "total": 3893,
+ "regionais": 440,
+ "setoriais": 3893,
+ "regionais_setoriais": 440,
  "fontes_vivas": 60,
  "fontes": 63,
  "substancias": {
-  "terras_raras": 1294,
-  "ouro": 720,
-  "cobre": 355,
-  "litio": 331,
+  "terras_raras": 1346,
+  "ouro": 746,
+  "cobre": 373,
+  "litio": 339,
   "niquel": 74,
-  "uranio": 65,
-  "niobio": 23,
-  "fosfato": 12,
+  "uranio": 67,
+  "niobio": 24,
+  "fosfato": 13,
   "energia_eletrica": 6
  },
  "meses": [
   {
    "mes": "2026-10",
-   "materias": 1498,
-   "novas": 71,
-   "brasileiras": 693,
-   "regionais": 24,
-   "setoriais": 1498,
-   "regionais_setoriais": 24
+   "materias": 1594,
+   "novas": 96,
+   "brasileiras": 738,
+   "regionais": 27,
+   "setoriais": 1594,
+   "regionais_setoriais": 27
   },
   {
    "mes": "2026-09",
-   "materias": 1207,
-   "novas": 1,
-   "brasileiras": 707,
+   "materias": 1209,
+   "novas": 2,
+   "brasileiras": 709,
    "regionais": 41,
-   "setoriais": 1207,
+   "setoriais": 1209,
    "regionais_setoriais": 41
   },
   {
    "mes": "2026-08",
-   "materias": 309,
+   "materias": 310,
    "novas": 1,
-   "brasileiras": 278,
-   "regionais": 60,
-   "setoriais": 309,
-   "regionais_setoriais": 60
+   "brasileiras": 279,
+   "regionais": 61,
+   "setoriais": 310,
+   "regionais_setoriais": 61
   },
   {
    "mes": "2026-07",
@@ -2871,89 +2865,89 @@
   },
   {
    "mes": "2026-06",
-   "materias": 77,
-   "novas": 0,
-   "brasileiras": 77,
+   "materias": 78,
+   "novas": 1,
+   "brasileiras": 78,
    "regionais": 15,
-   "setoriais": 77,
+   "setoriais": 78,
    "regionais_setoriais": 15
   },
   {
    "mes": "2026-05",
-   "materias": 154,
+   "materias": 157,
    "novas": 3,
-   "brasileiras": 154,
-   "regionais": 77,
-   "setoriais": 154,
-   "regionais_setoriais": 77
+   "brasileiras": 157,
+   "regionais": 79,
+   "setoriais": 157,
+   "regionais_setoriais": 79
   },
   {
    "mes": "2026-04",
-   "materias": 132,
-   "novas": 7,
-   "brasileiras": 132,
+   "materias": 138,
+   "novas": 6,
+   "brasileiras": 138,
    "regionais": 51,
-   "setoriais": 132,
+   "setoriais": 138,
    "regionais_setoriais": 51
   },
   {
    "mes": "2026-03",
-   "materias": 54,
-   "novas": 1,
-   "brasileiras": 54,
+   "materias": 56,
+   "novas": 2,
+   "brasileiras": 56,
    "regionais": 17,
-   "setoriais": 54,
+   "setoriais": 56,
    "regionais_setoriais": 17
   },
   {
    "mes": "2026-02",
-   "materias": 42,
-   "novas": 5,
-   "brasileiras": 42,
+   "materias": 44,
+   "novas": 2,
+   "brasileiras": 44,
    "regionais": 6,
-   "setoriais": 42,
+   "setoriais": 44,
    "regionais_setoriais": 6
   },
   {
    "mes": "2026-01",
-   "materias": 22,
-   "novas": 0,
-   "brasileiras": 22,
+   "materias": 27,
+   "novas": 5,
+   "brasileiras": 27,
    "regionais": 1,
-   "setoriais": 22,
+   "setoriais": 27,
    "regionais_setoriais": 1
   },
   {
    "mes": "2025-12",
-   "materias": 111,
-   "novas": 4,
-   "brasileiras": 111,
-   "regionais": 95,
-   "setoriais": 111,
-   "regionais_setoriais": 95
+   "materias": 114,
+   "novas": 3,
+   "brasileiras": 114,
+   "regionais": 97,
+   "setoriais": 114,
+   "regionais_setoriais": 97
   },
   {
    "mes": "2025-11",
-   "materias": 36,
-   "novas": 3,
-   "brasileiras": 36,
-   "regionais": 26,
-   "setoriais": 36,
-   "regionais_setoriais": 26
+   "materias": 38,
+   "novas": 2,
+   "brasileiras": 38,
+   "regionais": 27,
+   "setoriais": 38,
+   "regionais_setoriais": 27
   },
   {
    "mes": "anteriores",
    "materias": 16,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 16,
    "regionais": 3,
    "setoriais": 16,
    "regionais_setoriais": 3
   }
  ],
- "descartadas": 14117,
- "descartadas_antigas": 403,
- "brasileiras": 2432,
+ "descartadas": 14496,
+ "descartadas_antigas": 419,
+ "brasileiras": 2504,
  "veiculos": 53,
  "coleta_desde": "2026-09",
  "janela": "2025-11"

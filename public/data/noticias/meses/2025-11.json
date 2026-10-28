@@ -1,6 +1,6 @@
 {
  "mes": "2025-11",
- "materias": 36,
+ "materias": 38,
  "itens": [
   {
    "title": "Repasses da mineração ultrapassam R$ 1 bilhão em novembro — Agência Nacional de Mineração - www.gov.br",
@@ -505,6 +505,22 @@
    "brasil": 1
   },
   {
+   "title": "Terras raras: Estados Unidos financiam projeto em Goiás com até U$ 465 milhões",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae1c943dd404749b40afaa0608fd695&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2025%2f11%2f11%2fterras-raras-estados-unidos-financiam-projeto-em-goias-com-ate-u-465-milhoes.ghtml&c=9751971250887887700&mkt=en-us",
+   "published_at": "2025-11-11T04:43:00+00:00",
+   "first_seen": "2026-10-28T10:06:59.570588+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "EUA investem R$ 2,5 bilhões na produção de terras raras da Serra Verde, em Goiás - InvestNews - InvestNews",
    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVGM1VlJkSUlDU3V5Qmp4SC10S3hqaEwzTmFHT3ZzY3l0d213T1ZqYlNZQkdKcTg2aUhKeGcxM3ZnWFhud0tXdU4tcFdGZ1ZONm1DMFcxMmhnc0FvMl9IVzh2NWQwSVZyUExTZ2ItZmdpWXlheHFhV0RidUo4aGZhU2FPTWRCZjBkZDkwWWVCcmg4cUtYb3pPcTFvV0hUUUJKMEdNMDBlQ2RONlg2SDl1em1Gb9IBuAFBVV95cUxNSkFTU2h6cHo5WkpoNjVpUFZrdFhTYXVJZVJGXzI0OFVoUHoxek42V2trWlVtVHZseDhxSVRUOUwzdXdBTVlkMjhkaFcxU00zaEZHQ2t3TlZoRmdkT3VmN3JqVHpCUTE2QzlKOF8zX19RRVpSTHJ3MGRwS0Jpc0Z5bXd0RXdmQnZoV0NOdnpkN1B2UlpCWTM0VTV0MzNTYVVOWVFUVldIRGdDQU1xMUkxaVQ2LWpqdWtZ?oc=5",
    "published_at": "2025-11-08T08:00:00+00:00",
@@ -532,6 +548,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "US backs Serra Verde’s Brazilian rare earth project with $465M funding - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPWGdsSjg2WWtaQ3B5QUZkRGp0bmJOV2g2V2hWTnMyTVpuM3lUZTdCNF9kVFNMOUN3ZmpZNkYxc1FoSmZNTGJQeUVLT1ZoRVhWU3Z3Y3J0bFdncXUtWkUyVUJObEJmMEZIRnMzNExwemJySUsyTi15Z2c3c1lSOUY1d25mSXB2OUdQVmlfSUlvMmFHUWNzcDQ5VjBUaG5XS0VVNFNjd3VR?oc=5",
+   "published_at": "2025-11-07T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.439756+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
