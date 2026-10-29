@@ -12,15 +12,16 @@ A demonstração inicial da plataforma permanece preservada no repositório. Est
 
 ## O que o modelo faz
 
-O modelo realiza cinco funções separadas:
+O modelo realiza seis funções separadas:
 
 1. Lê e valida a produção mineral histórica consolidada pela Squad 1.
 2. Executa um backtest histórico da projeção de produção.
 3. Gera cenários futuros de produção e demanda estimada de energia para 2027–2040.
-4. Executa uma análise de sensibilidade das intensidades energéticas.
-5. Gera faixas de incerteza baixa, base e alta para os cenários.
+4. Executa uma análise de sensibilidade das intensidades energéticas, preparada para integração na plataforma.
+5. Gera faixas de cenário baixa, base e alta a partir do backtest e da sensibilidade de intensidade.
+6. Produz tabelas sintéticas e gráficos prontos para apresentação a partir dos outputs validados.
 
-Backtest, cenários futuros, análise de sensibilidade e faixas de incerteza possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
+Backtest, cenários futuros, sensibilidade, faixas de incerteza e materiais de apresentação possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
 
 ## Cobertura atual
 
@@ -57,12 +58,16 @@ Squad 2/
     │   ├── run_backtest.py
     │   ├── run_future_scenarios.py
     │   ├── run_intensity_sensitivity.py
-    │   └── run_uncertainty_bands.py
+    │   ├── run_uncertainty_bands.py
+    │   ├── build_presentation_summary.py
+    │   └── build_presentation_charts.py
     ├── outputs/
     │   ├── backtest/
     │   ├── future/
     │   ├── sensitivity/
-    │   └── uncertainty/
+    │   ├── uncertainty/
+    │   └── presentation/
+    │       └── charts/
     ├── requirements.txt
     └── README.md
 ```
@@ -255,14 +260,26 @@ A energia total ajustada é a soma da energia ajustada de todos os minerais.
 | `outputs/sensitivity/intensity_sensitivity_contract.json` | Contrato de dados para integração interativa |
 | `outputs/sensitivity/custom_intensity_result.json` | Resultado de uma combinação específica de ajustes |
 
+O contrato JSON inclui a energia base por mineral, ano e cenário. A plataforma pode receber um ajuste independente para cada mineral sem pré-calcular todas as combinações possíveis.
+
+Exemplo:
+
+```text
+Cobre: +3%
+Bauxita: 0%
+Níquel: -5%
+Fosfato: +1%
+Amianto: 0%
+```
+
 ## Faixas de incerteza
 
-Além dos cenários e da análise de sensibilidade, o modelo gera faixas **baixa / base / alta** para cada mineral, ano e cenário.
+Além dos cenários e da análise de sensibilidade, o modelo gera faixas **baixa / base / alta** para cada mineral, ano e cenário. Elas atendem ao objetivo de comunicar a incerteza de forma diretamente utilizável na apresentação e na plataforma.
 
-As faixas combinam duas fontes já documentadas:
+As faixas combinam duas fontes que já estão documentadas no modelo:
 
-1. o MAPE de produção observado no backtest histórico de cada mineral;
-2. a variação de **−10% a +10%** das intensidades energéticas usada na análise de sensibilidade.
+1. o MAPE de produção observado no backtest histórico de cada mineral; e
+2. a variação de **-10% a +10%** das intensidades energéticas usada na análise de sensibilidade.
 
 Para cada mineral:
 
@@ -271,12 +288,37 @@ faixa baixa = energia base × (1 - MAPE do backtest) × 0,90
 faixa alta  = energia base × (1 + MAPE do backtest) × 1,10
 ```
 
-As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Como o MAPE da bauxita é elevado, sua faixa é mais ampla: isso evidencia uma limitação relevante da projeção.
+As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Elas mostram como as projeções variam quando se combinam o erro observado da tendência de produção e a incerteza documentada dos coeficientes energéticos. Como o MAPE da bauxita é elevado, sua faixa é mais ampla; isso é uma informação relevante sobre o limite da projeção, e não um erro que deva ser ocultado.
 
 | Arquivo | Conteúdo |
 |---|---|
 | `outputs/uncertainty/uncertainty_by_mineral.csv` | Faixa baixa, base e alta por mineral, ano e cenário |
 | `outputs/uncertainty/uncertainty_total_goias.csv` | Faixa baixa, base e alta para o total dos cinco minerais |
+
+## Materiais para apresentação
+
+O modelo também transforma os resultados validados em tabelas curtas e gráficos reproduzíveis. Esses materiais não introduzem hipóteses ou cálculos adicionais: apenas organizam os outputs já gerados pelo backtest, pelos cenários e pelas faixas de incerteza.
+
+### Tabelas sintéticas
+
+| Arquivo | Conteúdo e uso sugerido |
+|---|---|
+| `outputs/presentation/scenario_summary_2035_2040.csv` | Faixas baixa, base e alta para os três cenários em 2035 e 2040 |
+| `outputs/presentation/reference_breakdown_2040.csv` | Demanda por mineral em 2040 no cenário de referência, participação e contribuição para a incerteza |
+| `outputs/presentation/bauxite_scope_diagnostic.csv` | Diagnóstico transparente do efeito da bauxita no total; não substitui a projeção dos cinco minerais |
+| `outputs/presentation/backtest_quality_summary.csv` | MAPE do backtest por mineral |
+
+### Gráficos
+
+| Arquivo | Mensagem principal |
+|---|---|
+| `outputs/presentation/charts/scenario_paths_with_uncertainty.png` | Trajetórias de 2027–2040 para os três cenários e suas faixas |
+| `outputs/presentation/charts/reference_2040_mineral_breakdown.png` | Composição da demanda em 2040; a bauxita é o principal componente e fonte de incerteza |
+| `outputs/presentation/charts/backtest_quality_by_mineral.png` | Qualidade da validação retrospectiva; a bauxita requer cautela adicional |
+
+No cenário de referência, a demanda dos cinco minerais cobertos chega a **11,57 TWh em 2040**, com faixa de cenário de **6,84 a 17,09 TWh**. A bauxita representa aproximadamente 73% da projeção central de 2040 e cerca de 90% da largura total da faixa. Isso decorre tanto de seu peso energético quanto de seu maior erro observado no backtest; é uma limitação explicitada pelo modelo, não um resultado ocultado.
+
+As faixas mostradas nos gráficos são **faixas de cenário**, não intervalos de confiança estatísticos.
 
 ## Integração entre squads
 
@@ -285,7 +327,7 @@ Squad 1: produção histórica consolidada
     ↓
 Squad 2 / intensidade_energetica: coeficientes estaduais e rastreabilidade
     ↓
-Squad 2 / modello_reale: backtest, cenários, sensitivity e incerteza
+Squad 2 / modello_reale: backtest, cenários e sensitivity analysis
     ↓
 Squad 3: visualização e interação do utilizador
 ```
@@ -293,7 +335,7 @@ Squad 3: visualização e interação do utilizador
 A Squad 3 pode utilizar:
 
 - `outputs/future/` para gráficos e tabelas;
-- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos;
+- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos de sensibilidade;
 - `outputs/uncertainty/uncertainty_total_goias.csv` para faixas baixa, base e alta.
 
 Uma evolução futura poderá incorporar dados estruturados de oferta, como capacidade, novos projetos, expansões, início de operação e grau de certeza.
@@ -304,11 +346,48 @@ A partir da raiz do repositório:
 
 ```bash
 python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+```
+
+Validar a leitura dos dados e dos coeficientes:
+
+```bash
 python "Squad 2/modello_reale/src/common.py"
+```
+
+Executar o backtest:
+
+```bash
 python "Squad 2/modello_reale/src/run_backtest.py"
+```
+
+Executar cenários futuros:
+
+```bash
 python "Squad 2/modello_reale/src/run_future_scenarios.py"
+```
+
+Executar análise de sensibilidade:
+
+```bash
 python "Squad 2/modello_reale/src/run_intensity_sensitivity.py"
+```
+
+Gerar as faixas de incerteza:
+
+```bash
 python "Squad 2/modello_reale/src/run_uncertainty_bands.py"
+```
+
+Gerar as tabelas sintéticas:
+
+```bash
+python "Squad 2/modello_reale/src/build_presentation_summary.py"
+```
+
+Gerar os gráficos para apresentação:
+
+```bash
+python "Squad 2/modello_reale/src/build_presentation_charts.py"
 ```
 
 ## Automação e verificação
@@ -319,6 +398,8 @@ O workflow abaixo executa o modelo automaticamente:
 .github/workflows/validate-modelo-real.yml
 ```
 
+Ele é acionado quando há alterações relevantes no modelo, nos coeficientes de intensidade da Squad 2, nos dados de produção da Squad 1 ou no próprio workflow.
+
 O workflow:
 
 1. instala as dependências;
@@ -327,14 +408,17 @@ O workflow:
 4. executa os cenários futuros;
 5. executa a análise de sensibilidade;
 6. gera as faixas de incerteza;
-7. publica quatro grupos de outputs como artefatos da GitHub Actions.
+7. gera as tabelas sintéticas para apresentação;
+8. gera os gráficos para apresentação;
+9. publica seis grupos de outputs como artefatos da GitHub Actions.
 
 ## Limitações atuais
 
 - A bauxita continua dependente de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
-- Os coeficientes referem-se a 2025; mudanças futuras de tecnologia ou operação podem modificá-los.
-- O modelo ainda não incorpora capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
+- Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou de operação podem modificá-los.
+- O modelo não incorpora ainda capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
 - Não há camada macroeconômica ou elasticidade entre demanda global e produção de Goiás.
-- Não foi realizado backtest de consumo elétrico agregado.
+- Não foi realizado backtest de consumo elétrico agregado, porque ainda não existe uma série histórica com o mesmo perímetro de operações e produção.
 - Mudanças estruturais, como a queda de bauxita em 2024, não podem ser antecipadas somente por uma tendência histórica.
 - A cobertura está limitada a cinco minerais.
+- As faixas baixa, base e alta são cenários de sensibilidade informados pelo MAPE e pela variação de intensidade; não devem ser interpretadas como intervalos estatísticos de confiança.
