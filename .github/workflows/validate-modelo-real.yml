@@ -63,6 +63,10 @@ jobs:
         run: |
           python "Squad 2/modello_reale/src/build_presentation_summary.py"
 
+      - name: Build presentation charts
+        run: |
+          python "Squad 2/modello_reale/src/build_presentation_charts.py"
+
       - name: Publish backtest results
         uses: actions/upload-artifact@v6
         with:
@@ -100,5 +104,13 @@ jobs:
         with:
           name: real-model-presentation-summary
           path: Squad 2/modello_reale/outputs/presentation/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish presentation-chart results
+        uses: actions/upload-artifact@v6
+        with:
+          name: real-model-presentation-charts
+          path: Squad 2/modello_reale/outputs/presentation/charts/
           if-no-files-found: error
           retention-days: 30
