@@ -12,14 +12,15 @@ A demonstração inicial da plataforma permanece preservada no repositório. Est
 
 ## O que o modelo faz
 
-O modelo realiza quatro funções separadas:
+O modelo realiza cinco funções separadas:
 
 1. Lê e valida a produção mineral histórica consolidada pela Squad 1.
 2. Executa um backtest histórico da projeção de produção.
 3. Gera cenários futuros de produção e demanda estimada de energia para 2027–2040.
-4. Executa uma análise de sensibilidade das intensidades energéticas, preparada para integração na plataforma.
+4. Executa uma análise de sensibilidade das intensidades energéticas.
+5. Gera faixas de incerteza baixa, base e alta para os cenários.
 
-Backtest, cenários futuros e análise de sensibilidade possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
+Backtest, cenários futuros, análise de sensibilidade e faixas de incerteza possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
 
 ## Cobertura atual
 
@@ -55,11 +56,13 @@ Squad 2/
     │   ├── common.py
     │   ├── run_backtest.py
     │   ├── run_future_scenarios.py
-    │   └── run_intensity_sensitivity.py
+    │   ├── run_intensity_sensitivity.py
+    │   └── run_uncertainty_bands.py
     ├── outputs/
     │   ├── backtest/
     │   ├── future/
-    │   └── sensitivity/
+    │   ├── sensitivity/
+    │   └── uncertainty/
     ├── requirements.txt
     └── README.md
 ```
@@ -252,17 +255,28 @@ A energia total ajustada é a soma da energia ajustada de todos os minerais.
 | `outputs/sensitivity/intensity_sensitivity_contract.json` | Contrato de dados para integração interativa |
 | `outputs/sensitivity/custom_intensity_result.json` | Resultado de uma combinação específica de ajustes |
 
-O contrato JSON inclui a energia base por mineral, ano e cenário. A plataforma pode receber um ajuste independente para cada mineral sem pré-calcular todas as combinações possíveis.
+## Faixas de incerteza
 
-Exemplo:
+Além dos cenários e da análise de sensibilidade, o modelo gera faixas **baixa / base / alta** para cada mineral, ano e cenário.
+
+As faixas combinam duas fontes já documentadas:
+
+1. o MAPE de produção observado no backtest histórico de cada mineral;
+2. a variação de **−10% a +10%** das intensidades energéticas usada na análise de sensibilidade.
+
+Para cada mineral:
 
 ```text
-Cobre: +3%
-Bauxita: 0%
-Níquel: -5%
-Fosfato: +1%
-Amianto: 0%
+faixa baixa = energia base × (1 - MAPE do backtest) × 0,90
+faixa alta  = energia base × (1 + MAPE do backtest) × 1,10
 ```
+
+As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Como o MAPE da bauxita é elevado, sua faixa é mais ampla: isso evidencia uma limitação relevante da projeção.
+
+| Arquivo | Conteúdo |
+|---|---|
+| `outputs/uncertainty/uncertainty_by_mineral.csv` | Faixa baixa, base e alta por mineral, ano e cenário |
+| `outputs/uncertainty/uncertainty_total_goias.csv` | Faixa baixa, base e alta para o total dos cinco minerais |
 
 ## Integração entre squads
 
@@ -271,7 +285,7 @@ Squad 1: produção histórica consolidada
     ↓
 Squad 2 / intensidade_energetica: coeficientes estaduais e rastreabilidade
     ↓
-Squad 2 / modello_reale: backtest, cenários e sensitivity analysis
+Squad 2 / modello_reale: backtest, cenários, sensitivity e incerteza
     ↓
 Squad 3: visualização e interação do utilizador
 ```
@@ -279,7 +293,8 @@ Squad 3: visualização e interação do utilizador
 A Squad 3 pode utilizar:
 
 - `outputs/future/` para gráficos e tabelas;
-- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos de sensibilidade.
+- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos;
+- `outputs/uncertainty/uncertainty_total_goias.csv` para faixas baixa, base e alta.
 
 Uma evolução futura poderá incorporar dados estruturados de oferta, como capacidade, novos projetos, expansões, início de operação e grau de certeza.
 
@@ -289,30 +304,11 @@ A partir da raiz do repositório:
 
 ```bash
 python -m pip install -r "Squad 2/modello_reale/requirements.txt"
-```
-
-Validar a leitura dos dados e dos coeficientes:
-
-```bash
 python "Squad 2/modello_reale/src/common.py"
-```
-
-Executar o backtest:
-
-```bash
 python "Squad 2/modello_reale/src/run_backtest.py"
-```
-
-Executar cenários futuros:
-
-```bash
 python "Squad 2/modello_reale/src/run_future_scenarios.py"
-```
-
-Executar análise de sensibilidade:
-
-```bash
 python "Squad 2/modello_reale/src/run_intensity_sensitivity.py"
+python "Squad 2/modello_reale/src/run_uncertainty_bands.py"
 ```
 
 ## Automação e verificação
@@ -323,8 +319,6 @@ O workflow abaixo executa o modelo automaticamente:
 .github/workflows/validate-modelo-real.yml
 ```
 
-Ele é acionado quando há alterações relevantes no modelo, nos coeficientes de intensidade da Squad 2, nos dados de produção da Squad 1 ou no próprio workflow.
-
 O workflow:
 
 1. instala as dependências;
@@ -332,14 +326,15 @@ O workflow:
 3. executa o backtest;
 4. executa os cenários futuros;
 5. executa a análise de sensibilidade;
-6. publica os três grupos de outputs como artefatos da GitHub Actions.
+6. gera as faixas de incerteza;
+7. publica quatro grupos de outputs como artefatos da GitHub Actions.
 
 ## Limitações atuais
 
 - A bauxita continua dependente de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
-- Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou de operação podem modificá-los.
-- O modelo não incorpora ainda capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
+- Os coeficientes referem-se a 2025; mudanças futuras de tecnologia ou operação podem modificá-los.
+- O modelo ainda não incorpora capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
 - Não há camada macroeconômica ou elasticidade entre demanda global e produção de Goiás.
-- Não foi realizado backtest de consumo elétrico agregado, porque ainda não existe uma série histórica com o mesmo perímetro de operações e produção.
+- Não foi realizado backtest de consumo elétrico agregado.
 - Mudanças estruturais, como a queda de bauxita em 2024, não podem ser antecipadas somente por uma tendência histórica.
 - A cobertura está limitada a cinco minerais.
