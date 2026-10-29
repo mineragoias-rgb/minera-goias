@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1209,
+ "materias": 1210,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -1121,6 +1121,22 @@
    "setorial": 1,
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "ANM interdita lavra em parte da mina Grota do Cirilo da Sigma Lithium em Minas Gerais - Portal do Holanda",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONEtxdHo1dms5eWxFOEVPRGZaaHNOMG53R01SRnhONFM0MU80WE1WNU9zU2RrNkZlN0xRNlFkV0tCTThKUWtvWGZZMXZDczRtSHpCV0hSVXRXYWZsRlNNTzFpZ0wzU29Sd1VPVFZqZ3hJS2FXUk5PQVF1ZnFGa2owR1p6Z3VkOXdJSUZDMUJ6dG96eHZmWktKWlVnVDJqb1ZRbVJXOTBYS3lzWWpManB1U1NIZFBJMzBFY1p1dVNmcnFyX3hp?oc=5",
+   "published_at": "2026-09-30T07:00:00+00:00",
+   "first_seen": "2026-10-29T10:32:08.997058+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM, lavra e outorga",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "litio"
