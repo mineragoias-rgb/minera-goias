@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 138,
+ "materias": 139,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -26,6 +26,22 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil pode ser potência em terras raras – “se não criar uma TerraBras” - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcjQyVDNEeTBFeFJ5NVZvbTNncEhKei1VUUxWZXZ0bFdwSjdrU1FRNnR5WWNteUlTdDI1c1E1X2ZQZ1ZzSEFqS3k0WVRMaEFNMTh0LTNGRmJlamt1dFhVTnRaOVlFTXFvRy04cmhnbmloVEVRNXFIajd4MGFlNVpsZ01rWVpONkVJUGdJbEV4WU9hSjFSX3ZJeg?oc=5",
+   "published_at": "2026-04-30T07:00:00+00:00",
+   "first_seen": "2026-10-30T10:32:15.949342+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

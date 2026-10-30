@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 159,
+ "materias": 162,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -1594,6 +1594,20 @@
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae4722fba044b2eb209c0dc895bee93&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-10-30T10:32:15.546556+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-19T19:49:02.787499+00:00",
@@ -2035,6 +2049,22 @@
    "brasil": 1
   },
   {
+   "title": "Ação judicial em Goiás quer barrar venda da Serra Verde à USA Rare Earth",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae4722fba044b2eb209c0dc895bee93&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
+   "published_at": "2026-05-08T08:17:00+00:00",
+   "first_seen": "2026-10-30T10:32:15.549243+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Terras raras colocam Goiás no centro da disputa global por minerais estratégicos - badiinho.com.br",
    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02eW9FMnRCVGdrTkpaUmJBdXo5R19hT1hKeW9GMjRYR25nRTRpTUVielRMQkhoVU10UW9oOUwtN01mQUJwT2w5V3lHVmMtbHZDTFRfY1duMWE1RmF5TlMxMXpONGN2eG5VdnBsNkRKa2wwVmJGMnlQMdIBfkFVX3lxTE9SaWVCSTM3bloyenFuZ0tmOUc3Q2ppOXNjc2Ita2ZvOGJqbmU3SjJWSFMwMmtJQ1RSZmEtYUh3dFBNV19XbVFxZnd3SkNjZTVqa1pCS2NpX3lhV2JsSlE2X1lQNHlCa005Z1pyaW5obDN1SnJoQWxMWGV1aDBKdw?oc=5",
    "published_at": "2026-05-08T07:00:00+00:00",
@@ -2190,6 +2220,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: veja detalhes do texto aprovado pela Câmara na véspera do encontro entre Lula e Trump; tema é considerado estratégico - G1",
+   "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQY1R3VU1fR0JNTWV3OU55UGFlWWlydmVTNTcyT1FNUm4yYjI2QVZNQlpIdDZ2OGdSTzhqUkRiS0J1bEM3dTBidHFxUUNhdzhkY2dMaE9DWUk3UmcxNU1mcktrWnNUUHFCS2FRZmgxRzZqSENrNHFWc0ZCZE50S1liZmwwckU4MEhudDlRTVdnaTJZdF9LYUJxY0RITE92SzllcERJdlVQNHFhMXVfQkgzNlJJa1dVdFkwelRqOE1ObHg5U3hvUnRDaV9ORnhGeEJrSGNvdHItWkUtRjQwTDZ4YjJHeXZpcDU0YUJudWdMN01INjF4T3YwZ1dBU1RKOW1WTWlrQmdDMFF0dEE0YmZNNEZn0gGgAkFVX3lxTE1CMU5wN0tIV1Q3NDllMjJucW5mLXVKejZlUExvcXBIYUNWaTRtNnJSd0w5NzhVZFdheTVMYVFaTndJTFdJd1ZfT0szTkxGLUFzbXkzMWRuU0FsbmNYZmJHNjFTZ3NyY2lOTFVmbGg5alA2bi1QWXl5dU9FSFFQUlVqa0Jlc2k0Zk1wSVZkeW5sNV9NUkdJMXRacm1IQzZsZmFfRm1xbXRpX2VETG1zZHlGaHFDbFZqWHdWTUFGbHQwLXBRLWp4Vm1JMUViWndELUxKUnNYYW93cXhWRGhhaVpmUjJvVmtHQTJidW1WWEYwQUhyNDBLczY1ejlHZ2RXT1c4Q040R0dVYnFZd3FfQ19LMEpOVnllMkNCM0pZSmE5YQ?oc=5",
+   "published_at": "2026-05-07T07:00:00+00:00",
+   "first_seen": "2026-10-30T10:32:15.948125+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

@@ -1,6 +1,6 @@
 {
  "mes": "2026-01",
- "materias": 27,
+ "materias": 28,
  "itens": [
   {
    "title": "China’s rare-earth chokehold terrifies the West, but Brazil benefits - The Economist",
@@ -201,6 +201,20 @@
    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBIbWIzdF9jaGxNZFhzaWJLbl9aNG5CWllNZ2tQLUJuSlotWnhkVi1PdXp6ZThHZmpVX1FIbldTNjA5ODJ5NTJTZDVYRmt0bXBnckdfdXNTaUZWVE5iMEJHSDQ1d0Z0SWNWQmtMWUFpOGhOcmlPVTUzOEFB?oc=5",
    "published_at": "2026-01-19T16:39:14+00:00",
    "first_seen": "2026-09-19T19:49:06.253142+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Gerência Regional no Estado do Tocantins - GER-TO/ANM — Agência Nacional de Mineração - GOV.BR",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB2NHllWk5KaWVTUGhHNXVXV2NEOFNFRW1uelRWSTVOWUFIQ21lRk9iTnpqTDlhOHEzcGlsS19Ed2lHYWlhcF95SW90TllzcDdBZFhWUTNWWHc3SjJLMi1WMmxtOHNDalhyZzA4LTBKdm1fY3ZKa1k3TVNR?oc=5",
+   "published_at": "2026-01-19T16:39:07+00:00",
+   "first_seen": "2026-10-30T10:32:17.230505+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
