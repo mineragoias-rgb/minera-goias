@@ -166,7 +166,7 @@ def plot_reference_breakdown_2040(uncertainty_by_mineral):
     axis.text(
         0.01,
         -0.16,
-        "Barras: projeção central. Linhas: faixa de cenário por mineral. A bauxita é destacada porque concentra a maior parcela da demanda e da incerteza.",
+        "Barras: projeção central. Linhas: faixa de cenário por mineral. A bauxita é destacada porque concentra parcela relevante da demanda e da incerteza.",
         transform=axis.transAxes,
         fontsize=8.5,
         color="#4a4a4a",
@@ -178,33 +178,80 @@ def plot_reference_breakdown_2040(uncertainty_by_mineral):
 
 def plot_backtest_quality(backtest_summary):
     data = backtest_summary.copy()
-    data["mape_pct"] = data["mean_absolute_percentage_error"] * 100
-    data = data.sort_values("mape_pct", ascending=True)
+    required_columns = {
+        "mineral_id",
+        "mineral_name",
+        "trend_mean_absolute_percentage_error",
+        "naive_mean_absolute_percentage_error",
+    }
+    missing_columns = required_columns.difference(data.columns)
 
-    colors = [
+    if missing_columns:
+        raise ValueError(
+            "O backtest precisa conter as métricas de tendência e referência simples: "
+            + ", ".join(sorted(missing_columns))
+        )
+
+    data["trend_mape_pct"] = (
+        data["trend_mean_absolute_percentage_error"] * 100
+    )
+    data["naive_mape_pct"] = (
+        data["naive_mean_absolute_percentage_error"] * 100
+    )
+    data = data.sort_values("trend_mape_pct", ascending=True)
+
+    positions = list(range(len(data)))
+    offset = 0.19
+    height = 0.34
+
+    trend_colors = [
         "#E45756" if mineral_id == "MIN_005" else "#72B7B2"
         for mineral_id in data["mineral_id"]
     ]
 
-    figure, axis = plt.subplots(figsize=(8.8, 5.3))
-    bars = axis.barh(data["mineral_name"], data["mape_pct"], color=colors)
+    figure, axis = plt.subplots(figsize=(9.6, 5.8))
+    trend_bars = axis.barh(
+        [position - offset for position in positions],
+        data["trend_mape_pct"],
+        height=height,
+        color=trend_colors,
+        label="Candidato de tendência",
+    )
+    naive_bars = axis.barh(
+        [position + offset for position in positions],
+        data["naive_mape_pct"],
+        height=height,
+        color="#9D9D9D",
+        label="Referência simples (última observação)",
+    )
 
-    for bar, value in zip(bars, data["mape_pct"]):
+    for bar, value in zip(trend_bars, data["trend_mape_pct"]):
         axis.text(
-            value + 0.7,
+            value + 0.65,
             bar.get_y() + bar.get_height() / 2,
             f"{value:.1f}%",
             va="center",
-            fontsize=9,
+            fontsize=8.5,
         )
 
-    axis.set_title("Validação retrospectiva: erro médio absoluto percentual")
+    for bar, value in zip(naive_bars, data["naive_mape_pct"]):
+        axis.text(
+            value + 0.65,
+            bar.get_y() + bar.get_height() / 2,
+            f"{value:.1f}%",
+            va="center",
+            fontsize=8.5,
+        )
+
+    axis.set_yticks(positions, data["mineral_name"])
+    axis.set_title("Validação retrospectiva: tendência vs. referência simples")
     axis.set_xlabel("MAPE")
     axis.xaxis.set_major_formatter(PercentFormatter(xmax=100))
+    axis.legend(frameon=False, loc="lower right")
     axis.text(
         0.01,
-        -0.16,
-        "A bauxita concentra o maior erro histórico; por isso seu resultado é tratado com uma faixa de cenário mais ampla, e não como uma previsão pontual precisa.",
+        -0.20,
+        "Valores menores indicam melhor desempenho. Para a bauxita, a referência simples foi selecionada para o cenário de referência, pois superou a tendência recente no backtest. Nos demais minerais, a comparação é reportada como limitação, pois há apenas dois anos de teste.",
         transform=axis.transAxes,
         fontsize=8.5,
         color="#4a4a4a",
@@ -227,3 +274,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
