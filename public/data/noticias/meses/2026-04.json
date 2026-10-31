@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 139,
+ "materias": 141,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -1122,6 +1122,22 @@
    "brasil": 1
   },
   {
+   "title": "Em entrevista exclusiva, Presidente da Serra Verde detalha venda e futuro da produção de terras raras fora da China - Jornal Opção",
+   "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOa044WHY5YUdZWFNJX0YyZkFJV3ctVjJrcTNtNS1UYzhJdzMySHVhMnp0NnRRM050bThLV3pYWTl1X3NuTzdaVHRnR2RHQy1FbFdaalRyTC1uNFRXUWJNVkV4eE9XODAzWXA4YldDZXdHVGxBNDVyVGZEMmd5S1Q4TW01elJIdHVCWFpGWnFiaWl6Y0Roa0kzNXM5WDRxVkUzeXNMdEpqMlk1ZEtSS1lNTXRsV2ZBZlRhMmotU3RQY0MzYkJZOTZDUEF0UkhxNGtacUVKRkpNUDJCaWp3aEJKUTczY0VTYXVBOGFnRHFYcjJsVjVGMlRFVTMxRUVwOVE?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-10-31T10:01:59.376934+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Exclusivo: Serra Verde, primeira mineradora de terras raras no Brasil, foi multada por desmatar vegetação nativa em nascentes do Cerrado - Observatório da Mineração",
    "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxONDhkX3ZUSnJ3RlMxZFpwZWdLVDhOcFZoYXlYTDR1emJTNnZFZFpUVmQ3RDAySUVrZWdhVGRNTzE1aHpxMFcxMGlJNTdaNUhBWmFKc2RwUmNVdEJ1dzRzS3VScDA3THpLSWZHcWMtTkZxRHZUaUFLS2k1S3oxdHBrNDRtMEZjMVprSW9EWkpIeF9DdnNsYjIwUXFDZnRnS1NHM1Y2UVRGc1M3eE5acmZ4RlltRXhXa3lfMUw3QmFab1lydkw5VHdnOFlYc3RWUWtLcFA1by0ydEs5cF8wdkZjTllmbS1lazVhZkRVM0syNkhLOHdxTUVTMDNGUkhKZkR1M2dB?oc=5",
    "published_at": "2026-04-23T06:05:30+00:00",
@@ -1711,6 +1727,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra mineradora brasileira de terras raras - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQXFxc1VOQjk2N1ZxUlRJdVlSRUp6c3RRLUgyYkd3UUJoS1NhR3BJSWZ1YWRWNEs1QmlPTFRkU1VMd0Y0cGtrbkYwbTMtYU94S0pQLXBIOER1Wm5DR0lPeTA2MGNaS2VjZFpWQjl2Y1NfWmQ4cHpnNzE0ZnJrQlNMSlhSdzJyOXJ0cnpfeFFHTEFlNGJpTGFSTXJLVDNIcEVtUWJ2Zk15SW1VQlktc3dRM05YOGJISTU1ZFE?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-31T10:01:57.423888+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
