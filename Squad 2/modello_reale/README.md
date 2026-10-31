@@ -4,22 +4,18 @@
 
 Este diretório contém o modelo econômico-energético da Squad 2 para o projeto MINERA Goiás.
 
-O modelo estima a demanda de energia elétrica associada à produção mineral de Goiás entre 2027 e 2040. Ele utiliza as séries históricas consolidadas pela Squad 1, aplica cenários explícitos de crescimento e eficiência energética e produz resultados por mineral, ano e cenário.
+O modelo estima a demanda de energia elétrica associada à produção mineral de Goiás entre 2027 e 2040. Ele utiliza as séries históricas consolidadas pela Squad 1, aplica cenários explícitos de produção e eficiência energética e produz resultados por mineral, ano e cenário.
 
 Esta é uma versão técnica, reproduzível e integrada aos dados atualmente disponíveis. Os resultados são cenários condicionais às hipóteses e às fontes documentadas; não constituem uma previsão oficial da mineração ou do consumo elétrico de Goiás.
 
-A demonstração inicial da plataforma permanece preservada no repositório. Este diretório é um modelo separado, criado para trabalhar com dados reais consolidados no projeto.
-
 ## O que o modelo faz
-
-O modelo realiza seis funções separadas:
 
 1. Lê e valida a produção mineral histórica consolidada pela Squad 1.
 2. Executa um backtest histórico da projeção de produção.
-3. Gera cenários futuros de produção e demanda estimada de energia para 2027–2040.
-4. Executa uma análise de sensibilidade das intensidades energéticas, preparada para integração na plataforma.
-5. Gera faixas de cenário baixa, base e alta a partir do backtest e da sensibilidade de intensidade.
-6. Produz tabelas sintéticas e gráficos prontos para apresentação a partir dos outputs validados.
+3. Compara a tendência histórica com uma referência simples de persistência.
+4. Gera cenários futuros de produção e demanda estimada de energia para 2027–2040.
+5. Executa análise de sensibilidade das intensidades energéticas.
+6. Gera faixas baixa, base e alta e gráficos prontos para apresentação.
 
 Backtest, cenários futuros, sensibilidade, faixas de incerteza e materiais de apresentação possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
 
@@ -117,13 +113,13 @@ source_id
 data_nature
 ```
 
-As colunas adicionais do arquivo final preservam rastreabilidade metodológica: ano, operações utilizadas, consumo CCEE, produção, cobertura da produção estadual, intervalo observado, nível de confiança, coeficiente anterior e observações.
+As colunas adicionais preservam rastreabilidade metodológica: ano, operações utilizadas, consumo CCEE, produção, cobertura da produção estadual, intervalo observado, nível de confiança, coeficiente anterior e observações.
 
 O arquivo `parameters/energy_intensity.csv` permanece no diretório do modelo apenas como referência do benchmark anterior. Ele não é mais a entrada ativa do motor e não deve ser sobrescrito.
 
-#### Método de agregação
+### Método de agregação
 
-Para cobre, níquel, fosfato e amianto, os coeficientes foram calculados ou estimados a partir de consumo elétrico observado na CCEE em 2025 dividido pela produção de 2025 das operações cobertas. Quando há mais de uma operação, a agregação é:
+Para cobre, níquel, fosfato e amianto, os coeficientes foram calculados ou estimados a partir de consumo elétrico observado na CCEE em 2025 dividido pela produção de 2025 das operações cobertas.
 
 ```text
 coeficiente estadual =
@@ -142,7 +138,7 @@ Isso equivale a uma média ponderada pela produção e evita dupla contagem entr
 | Fosfato | 100,0% | Agregação de Mosaic e CMOC/Copebrás |
 | Amianto | 100,0% | SAMA é a única operação produtora |
 
-#### Correção de compatibilidade do níquel
+### Correção de compatibilidade do níquel
 
 O coeficiente anterior de níquel, `45,551351 MWh/t`, referia-se a toneladas de níquel contido. Porém, o modelo projeta produção beneficiada de ferroníquel, que possui uma escala de toneladas aproximadamente quatro vezes maior.
 
@@ -156,9 +152,9 @@ Detalhes completos da construção, fontes e testes da base estão em:
 Squad 2/intensidade_energetica/README.md
 ```
 
-### Cenários
+## Cenários
 
-As hipóteses estão em:
+As hipóteses gerais estão em:
 
 ```text
 parameters/scenarios.csv
@@ -172,9 +168,19 @@ parameters/scenarios.csv
 
 Essas hipóteses são `illustrative`: permitem comparar trajetórias de forma transparente, mas não são previsões oficiais.
 
+Para cobre, níquel, fosfato e amianto, o cenário parte da taxa de crescimento calculada sobre toda a série histórica e aplica o ajuste acima.
+
+A bauxita recebe tratamento separado, pois o backtest mostrou que persistir o último valor observado é mais adequado para o cenário de referência do que extrapolar uma tendência histórica.
+
+| Cenário | Crescimento anual da produção de bauxita | Justificativa |
+|---|---:|---|
+| Conservador | -2,0% | Contração operacional explícita |
+| Referência | 0,0% | Persistência da produção de 2025, selecionada pelo backtest |
+| Expansão | +5,07% | CAGR recente de 2018–2025, após o período de ramp-up |
+
 ## Método de projeção
 
-Para cada mineral, o modelo calcula a taxa média anual de crescimento a partir da série histórica disponível.
+Para cobre, níquel, fosfato e amianto:
 
 ```text
 produção projetada =
@@ -182,7 +188,7 @@ produção no último ano observado
 × (1 + crescimento histórico + ajuste do cenário)^n
 ```
 
-A intensidade energética evolui de acordo com a melhoria anual de eficiência definida para cada cenário:
+A intensidade energética evolui de acordo com a melhoria anual de eficiência:
 
 ```text
 intensidade projetada =
@@ -200,48 +206,61 @@ produção projetada em toneladas
 
 Os cenários futuros cobrem 2027–2040.
 
+A bauxita não usa a regra de tendência histórica no cenário de referência: sua produção permanece no último valor observado de 2025. Essa escolha evita transformar um período de crescimento excepcional em expansão automática de longo prazo. O cenário de expansão mantém separadamente a hipótese de crescimento recente.
+
 ## Backtest histórico
 
-O backtest avalia a projeção de **produção**, não a intensidade energética. Por isso, a atualização dos coeficientes energéticos não altera seus resultados.
+O backtest avalia a projeção de **produção**, não a intensidade energética.
 
-Para cada mineral, os dois últimos anos disponíveis são reservados como teste. O modelo estima a tendência apenas com os anos anteriores e compara a projeção com a produção observada. O indicador é o erro percentual absoluto médio, ou MAPE.
+Para cada mineral, os dois últimos anos disponíveis são reservados como teste. O modelo compara:
 
-| Mineral | Anos testados | MAPE |
-|---|---:|---:|
-| Fosfato | 2 | 2,3% |
-| Cobre | 2 | 3,0% |
-| Níquel | 2 | 7,8% |
-| Amianto | 2 | 8,6% |
-| Alumínio (Bauxita) | 2 | 44,3% |
+1. tendência composta estimada com os anos anteriores;
+2. referência simples, que mantém a última observação disponível.
 
-A bauxita exige cautela: a série apresentava crescimento até 2023, mas houve queda relevante em 2024 e recuperação apenas parcial em 2025. O erro elevado evidencia o limite de uma projeção baseada apenas em tendência histórica. O modelo não consegue antecipar interrupções operacionais, decisões empresariais, licenciamento ou mudanças estruturais sem dados adicionais.
+O indicador é o erro percentual absoluto médio, ou MAPE.
+
+| Mineral | Anos testados | MAPE da tendência | MAPE da referência simples | Regra usada no cenário de referência |
+|---|---:|---:|---:|---|
+| Fosfato | 2 | 2,3% | 1,4% | Tendência histórica |
+| Cobre | 2 | 3,0% | 5,4% | Tendência histórica |
+| Níquel | 2 | 7,8% | 1,7% | Tendência histórica |
+| Amianto | 2 | 8,6% | 2,7% | Tendência histórica |
+| Alumínio (Bauxita) | 2 | 34,1% | 18,2% | Referência simples |
+
+A bauxita exige cautela: a série apresentava crescimento até 2023, mas houve queda relevante em 2024 e recuperação parcial em 2025. A referência simples teve menor erro no backtest e, por isso, é a regra selecionada para o cenário de referência.
+
+Para níquel, amianto e fosfato, a referência simples também apresenta menor MAPE nos dois anos de teste. O modelo mantém a tendência histórica como mecanismo de cenário, mas comunica essa comparação como limitação. Com somente dois anos reservados, a evidência não é suficiente para afirmar superioridade geral de uma regra em todos os contextos.
 
 | Arquivo | Conteúdo |
 |---|---|
 | `outputs/backtest/backtest_detail.csv` | Previsões e valores observados por mineral e ano |
-| `outputs/backtest/backtest_summary.csv` | MAPE por mineral |
+| `outputs/backtest/backtest_summary.csv` | MAPE da tendência, da referência simples e método selecionado por mineral |
 
 ## Cenários futuros
-
-Os outputs futuros são:
 
 | Arquivo | Conteúdo |
 |---|---|
 | `outputs/future/future_projection_by_mineral.csv` | Produção, intensidade e demanda de energia por mineral, ano e cenário |
 | `outputs/future/future_energy_summary.csv` | Demanda total estimada dos cinco minerais por ano e cenário |
 
-Com os coeficientes finais integrados, no cenário de referência a demanda estimada dos cinco minerais cobertos evolui de aproximadamente:
+Com os coeficientes finais integrados e a regra de referência da bauxita ajustada pelo backtest, a demanda estimada dos cinco minerais cobertos evolui de aproximadamente:
 
-- **5,10 TWh em 2027**
-- **11,57 TWh em 2040**
+- **4,63 TWh em 2027**
+- **4,90 TWh em 2040**
 
-O valor de 2040 é composto principalmente por bauxita, com cerca de 8,47 TWh, e níquel, com cerca de 2,62 TWh.
+Em 2040, os principais componentes são níquel, com cerca de 2,62 TWh, e bauxita, com cerca de 1,81 TWh.
+
+| Cenário | Demanda elétrica em 2040 |
+|---|---:|
+| Conservador | 3,92 TWh |
+| Referência | 4,90 TWh |
+| Expansão | 7,35 TWh |
 
 Esses valores não representam consumo observado nem previsão oficial. São o resultado do modelo sob hipóteses explícitas de produção, eficiência e intensidade energética.
 
 ## Análise de sensibilidade
 
-A análise de sensibilidade é separada do backtest e dos cenários futuros. Ela não altera a produção projetada: mede somente o impacto de incertezas ou hipóteses alternativas nas intensidades energéticas.
+A análise de sensibilidade é separada do backtest e dos cenários futuros. Ela não altera a produção projetada: mede o impacto de hipóteses alternativas nas intensidades energéticas.
 
 O intervalo permitido é de **−10% a +10%**, com passos de **1%**.
 
@@ -251,8 +270,6 @@ energia base do mineral
 × (1 + ajuste percentual / 100)
 ```
 
-A energia total ajustada é a soma da energia ajustada de todos os minerais.
-
 | Arquivo | Conteúdo |
 |---|---|
 | `outputs/sensitivity/intensity_global_range.csv` | Variação igual da intensidade de todos os minerais |
@@ -260,35 +277,23 @@ A energia total ajustada é a soma da energia ajustada de todos os minerais.
 | `outputs/sensitivity/intensity_sensitivity_contract.json` | Contrato de dados para integração interativa |
 | `outputs/sensitivity/custom_intensity_result.json` | Resultado de uma combinação específica de ajustes |
 
-O contrato JSON inclui a energia base por mineral, ano e cenário. A plataforma pode receber um ajuste independente para cada mineral sem pré-calcular todas as combinações possíveis.
-
-Exemplo:
-
-```text
-Cobre: +3%
-Bauxita: 0%
-Níquel: -5%
-Fosfato: +1%
-Amianto: 0%
-```
+O contrato JSON permite que a plataforma receba um ajuste independente para cada mineral, sem pré-calcular todas as combinações possíveis.
 
 ## Faixas de incerteza
 
-Além dos cenários e da análise de sensibilidade, o modelo gera faixas **baixa / base / alta** para cada mineral, ano e cenário. Elas atendem ao objetivo de comunicar a incerteza de forma diretamente utilizável na apresentação e na plataforma.
+Além dos cenários e da análise de sensibilidade, o modelo gera faixas **baixa / base / alta** para cada mineral, ano e cenário.
 
-As faixas combinam duas fontes que já estão documentadas no modelo:
+As faixas combinam:
 
-1. o MAPE de produção observado no backtest histórico de cada mineral; e
-2. a variação de **-10% a +10%** das intensidades energéticas usada na análise de sensibilidade.
-
-Para cada mineral:
+1. o MAPE de produção observado no backtest para cada mineral;
+2. a variação de **−10% a +10%** das intensidades energéticas.
 
 ```text
 faixa baixa = energia base × (1 - MAPE do backtest) × 0,90
 faixa alta  = energia base × (1 + MAPE do backtest) × 1,10
 ```
 
-As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Elas mostram como as projeções variam quando se combinam o erro observado da tendência de produção e a incerteza documentada dos coeficientes energéticos. Como o MAPE da bauxita é elevado, sua faixa é mais ampla; isso é uma informação relevante sobre o limite da projeção, e não um erro que deva ser ocultado.
+As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Elas mostram como a projeção varia quando se combinam o erro da regra selecionada no backtest e a incerteza dos coeficientes energéticos.
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -297,28 +302,24 @@ As faixas são **intervalos de cenário**, não intervalos estatísticos de conf
 
 ## Materiais para apresentação
 
-O modelo também transforma os resultados validados em tabelas curtas e gráficos reproduzíveis. Esses materiais não introduzem hipóteses ou cálculos adicionais: apenas organizam os outputs já gerados pelo backtest, pelos cenários e pelas faixas de incerteza.
-
-### Tabelas sintéticas
-
 | Arquivo | Conteúdo e uso sugerido |
 |---|---|
 | `outputs/presentation/scenario_summary_2035_2040.csv` | Faixas baixa, base e alta para os três cenários em 2035 e 2040 |
-| `outputs/presentation/reference_breakdown_2040.csv` | Demanda por mineral em 2040 no cenário de referência, participação e contribuição para a incerteza |
-| `outputs/presentation/bauxite_scope_diagnostic.csv` | Diagnóstico transparente do efeito da bauxita no total; não substitui a projeção dos cinco minerais |
-| `outputs/presentation/backtest_quality_summary.csv` | MAPE do backtest por mineral |
+| `outputs/presentation/reference_breakdown_2040.csv` | Demanda por mineral em 2040 no cenário de referência |
+| `outputs/presentation/bauxite_scope_diagnostic.csv` | Diagnóstico transparente do efeito da bauxita no total |
+| `outputs/presentation/backtest_quality_summary.csv` | MAPE da regra selecionada e comparação com a referência simples |
 
 ### Gráficos
 
 | Arquivo | Mensagem principal |
 |---|---|
 | `outputs/presentation/charts/scenario_paths_with_uncertainty.png` | Trajetórias de 2027–2040 para os três cenários e suas faixas |
-| `outputs/presentation/charts/reference_2040_mineral_breakdown.png` | Composição da demanda em 2040; a bauxita é o principal componente e fonte de incerteza |
-| `outputs/presentation/charts/backtest_quality_by_mineral.png` | Qualidade da validação retrospectiva; a bauxita requer cautela adicional |
+| `outputs/presentation/charts/reference_2040_mineral_breakdown.png` | Composição da demanda em 2040; níquel e bauxita são os principais componentes |
+| `outputs/presentation/charts/backtest_quality_by_mineral.png` | Comparação entre tendência e referência simples na validação retrospectiva |
 
-No cenário de referência, a demanda dos cinco minerais cobertos chega a **11,57 TWh em 2040**, com faixa de cenário de **6,84 a 17,09 TWh**. A bauxita representa aproximadamente 73% da projeção central de 2040 e cerca de 90% da largura total da faixa. Isso decorre tanto de seu peso energético quanto de seu maior erro observado no backtest; é uma limitação explicitada pelo modelo, não um resultado ocultado.
+No cenário de referência, a demanda dos cinco minerais cobertos chega a **4,90 TWh em 2040**, com faixa de cenário de **3,92 a 6,00 TWh**.
 
-As faixas mostradas nos gráficos são **faixas de cenário**, não intervalos de confiança estatísticos.
+A bauxita representa aproximadamente 37% da projeção central de 2040. A redução em relação à versão anterior decorre de uma escolha metodológica mais conservadora e validada: a bauxita deixa de extrapolar automaticamente uma tendência de crescimento e passa a manter a produção de 2025 no cenário de referência.
 
 ## Integração entre squads
 
@@ -335,10 +336,8 @@ Squad 3: visualização e interação do utilizador
 A Squad 3 pode utilizar:
 
 - `outputs/future/` para gráficos e tabelas;
-- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos de sensibilidade;
+- `outputs/sensitivity/intensity_sensitivity_contract.json` para controles interativos;
 - `outputs/uncertainty/uncertainty_total_goias.csv` para faixas baixa, base e alta.
-
-Uma evolução futura poderá incorporar dados estruturados de oferta, como capacidade, novos projetos, expansões, início de operação e grau de certeza.
 
 ## Execução local
 
@@ -346,47 +345,12 @@ A partir da raiz do repositório:
 
 ```bash
 python -m pip install -r "Squad 2/modello_reale/requirements.txt"
-```
-
-Validar a leitura dos dados e dos coeficientes:
-
-```bash
 python "Squad 2/modello_reale/src/common.py"
-```
-
-Executar o backtest:
-
-```bash
 python "Squad 2/modello_reale/src/run_backtest.py"
-```
-
-Executar cenários futuros:
-
-```bash
 python "Squad 2/modello_reale/src/run_future_scenarios.py"
-```
-
-Executar análise de sensibilidade:
-
-```bash
 python "Squad 2/modello_reale/src/run_intensity_sensitivity.py"
-```
-
-Gerar as faixas de incerteza:
-
-```bash
 python "Squad 2/modello_reale/src/run_uncertainty_bands.py"
-```
-
-Gerar as tabelas sintéticas:
-
-```bash
 python "Squad 2/modello_reale/src/build_presentation_summary.py"
-```
-
-Gerar os gráficos para apresentação:
-
-```bash
 python "Squad 2/modello_reale/src/build_presentation_charts.py"
 ```
 
@@ -398,27 +362,25 @@ O workflow abaixo executa o modelo automaticamente:
 .github/workflows/validate-modelo-real.yml
 ```
 
-Ele é acionado quando há alterações relevantes no modelo, nos coeficientes de intensidade da Squad 2, nos dados de produção da Squad 1 ou no próprio workflow.
-
-O workflow:
+Ele:
 
 1. instala as dependências;
-2. valida a leitura dos dados e coeficientes;
+2. valida os dados e coeficientes;
 3. executa o backtest;
-4. executa os cenários futuros;
+4. executa os cenários;
 5. executa a análise de sensibilidade;
 6. gera as faixas de incerteza;
-7. gera as tabelas sintéticas para apresentação;
-8. gera os gráficos para apresentação;
-9. publica seis grupos de outputs como artefatos da GitHub Actions.
+7. gera as tabelas e gráficos de apresentação;
+8. publica os outputs como artefatos da GitHub Actions.
 
 ## Limitações atuais
 
-- A bauxita continua dependente de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
-- Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou de operação podem modificá-los.
-- O modelo não incorpora ainda capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
+- A bauxita depende de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
+- Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou operação podem modificá-los.
+- O modelo não incorpora capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
 - Não há camada macroeconômica ou elasticidade entre demanda global e produção de Goiás.
 - Não foi realizado backtest de consumo elétrico agregado, porque ainda não existe uma série histórica com o mesmo perímetro de operações e produção.
+- O backtest possui apenas dois anos de teste por mineral; a comparação com a referência simples é evidência útil, mas ainda não demonstra superioridade estatística generalizável entre métodos.
 - Mudanças estruturais, como a queda de bauxita em 2024, não podem ser antecipadas somente por uma tendência histórica.
 - A cobertura está limitada a cinco minerais.
-- As faixas baixa, base e alta são cenários de sensibilidade informados pelo MAPE e pela variação de intensidade; não devem ser interpretadas como intervalos estatísticos de confiança.
+- As faixas baixa, base e alta são cenários de sensibilidade; não devem ser interpretadas como intervalos estatísticos de confiança.
