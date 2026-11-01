@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 44,
+ "materias": 45,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -538,6 +538,22 @@
    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNOXpjR2ZncXpwNTR3dWNKNEdQa1VmN3ZGZkZNbWYzZVI5VVZxaHFIb1gxWENxaS1TYUhwakNvZG9raWRBRnROaE9NTERrczZ4aXl5SEF3b09GRkM4Y3ktVUEyTDF5bmMyU3kwRDBEQkdZSms5cGpvRjFTemExNzJQNExYR016TDFtNVdBYlRyZTdnYlJ2WVQ3TFp0dzVJZWkxTzVSQmJic2hScnFnQkJxdUxoaGJUalltYS1kOWpfYlpRMXRnYmI5ZA?oc=5",
    "published_at": "2026-02-05T08:00:00+00:00",
    "first_seen": "2026-10-28T10:07:02.432455+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s only rare earth producer offers US stake option for loan deal - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcGE4WmVpbVR6U2o0YXFTY2lnbkQ4cTNLU29Xa01iRnRhRG1qQXdMZTBqYzV2QVJGVHVCVE5LckdXRV9iRHQ1OXNRZTRJN2k3TFcxNFYwUTA3Y0hXcnFPLUNqZDVZdWtBZG9oMmZxZnBtYmZ1Zy1YU0d2U1FRbk4tNzNPUzN0NWh3Q3NUcFlnV2k1LTBURGFjMHlkMzJ0UQ?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.235631+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

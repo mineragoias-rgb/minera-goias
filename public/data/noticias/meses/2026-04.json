@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 141,
+ "materias": 143,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -1743,6 +1743,38 @@
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth compra mineradora brasileira Serra Verde por US$ 2,8 bi para garantir terras raras - Estadão",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNGk0Tl9RVU5wMXVVbl9UaHZuR05ZNmdUV3lBMXpPNFZQNl9KeHF2WDE2Rk54UzJweFY4M2dTSlA2Yms5cHhWc2d4a3RHS2xFcjhsUlhGTTJVVlFlSnlVZGhLSzZHV1plbXJSRXhNVlJoa0tSSEVLcFl1bzIwQlJOYjIta1p0XzlqR2xkNDVGZnlTLTZpZlV3STBsOXDSAaIBQVVfeXFMUE1OUkNBT3V3M3JRQkRiNFFwQkJoMTVSZTFEbFpzakZmck5sSzhKaEMwcnVCaHFIY0I2Z1pvY2tkcC1vaW5GMWhzZ2MzRVpQak5EUndhVW53cHZDcGY1U05kdVBqX2k3Qk83R1prTVBJV1V6YW5nNkFLZjIxdW1MOGZldnIzTTBDN3VFMzItX0twajNsejBPSmpuOUM0SG1tSjNn?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:55.210493+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth to buy Brazil’s Serra Verde in US$2.8 bil deal - Yahoo Finance Singapore",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBIb0luOS05RWtDdXpnX3JnVWpDV0pwYUtaYnZPV3ZiU1o0RWJQY1VDOC1UNnZjdlE1OUVtRnA0eWFhX19nc09RRXY5TTBQdG9MRFJtazVFd0w1NFl0VHFaSG5VVjdWZk9JNF9kZjhlMWdXUDFYLVVjUTZ4dWVmem8?oc=5",
+   "published_at": "2026-04-19T07:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.234592+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

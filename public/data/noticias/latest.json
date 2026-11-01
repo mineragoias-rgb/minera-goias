@@ -23,9 +23,257 @@
   "itumbiara": "Itumbiara",
   "quirinopolis": "Quirinópolis"
  },
- "atualizado_em": "2026-10-31T10:02:05.293384+00:00",
+ "atualizado_em": "2026-11-01T10:52:59.636992+00:00",
  "ultima_execucao": "partial",
  "itens": [
+  {
+   "title": "Espírito Santo tem 62 municípios em lista provisória da CFEM - Vitória News",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbm5qNzFsV3paLWVScExwbHVVODhndlJsbEdoVHAwSTJCaHZKMmMzZkJFREs3dUM1WWlaWFVUUTFjWUo4MS1vZ1hiNmFmNlV3THBRQnY3Sl90OFdUcnJCcTVzWW4xVkRsMGxFbFFheWh6Y095RDB5QmJwajh5dFR5QTY5WlMxOE5tRkxNdjB5emU?oc=5",
+   "published_at": "2026-11-01T10:33:12+00:00",
+   "first_seen": "2026-11-01T10:52:57.096523+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Acionistas da Vale veem a ANM julgar na quarta (4) 21 recursos da mineradora contra multas da fiscalização de barragens, numa pauta de 92 processos",
+   "link": "https://mineracaobrasil.com/anm-julga-recursos-vale-multas-barragens-90-reuniao/?utm_source=rss&utm_medium=rss&utm_campaign=anm-julga-recursos-vale-multas-barragens-90-reuniao",
+   "published_at": "2026-11-01T09:55:05+00:00",
+   "first_seen": "2026-11-01T10:52:21.270833+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Não é Campos do Jordão: cidade brasileira no Sudeste, no pé de uma serra, tem fazendas do tempo do café e esconde uma antiga rota do ouro no meio da Mata Atlântica",
+   "link": "https://portal6.com.br/2026/11/01/nao-e-campos-do-jordao-cidade-brasileira-no-sudeste-no-pe-de-uma-serra-tem-fazendas-do-tempo-do-cafe-e-esconde-uma-antiga-rota-do-ouro-no-meio-da-mata-atlantica/",
+   "published_at": "2026-11-01T08:00:26+00:00",
+   "first_seen": "2026-11-01T10:52:26.458154+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Portal 6 · Anápolis",
+   "escopo": "regional",
+   "tema": "geral",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "CFEM 2026/2027: ANM divulga lista provisória com 2.474 municípios afetados pela mineração - Brasil 61",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWGNLOVB0X1RIYVNjZWNJU3J2d1d4MGFuU0IyWm9pS2ZySlBPYkZwa0pJdXkwS3JaOFVEV1lsYzQ0ZHNPdnBJbHl0RTRrUV9scjhHd1pLU1pSazY5ZGsxWFBrZGYwNzFWS0hJd1VCb2pYMzB0aHJuU05rNEFfQ0UtMVFwTTFtZVZSeG4xU0N6X0dIcTYwY3hZUktrM0FJN1B0WExmNlNtWjRPRmZ1eXhaWWhoWENPa21UZ3ZHY3liMEN2MWFYdFHSAcYBQVVfeXFMT1hjSzlQdF9USGFTY2VjSVNydndXeDBhblNCMlpvaUtmckpQT2JGcGtKSXV5MEtyWjhVRFdZbGM0NGRzT3ZwSWx5dEU0a1FfbHI4R3daS1NaUms2OWRrMVhQa2RmMDcxVktISXdVQm9qWDMwdGhyblNOazRBX0NFLTFRcE0xbWVWUnhuMVNDel9HSHE2MGN4WVJLazNBSTdQdFhMZjZTbVo0T0ZmdXl4WlloaFhDT2ttVGd2R2N5YjBDdjFhWHRR?oc=5",
+   "published_at": "2026-11-01T07:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:57.095296+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Região exporta terras raras para Estados Unidos, China e Canadá - J3News",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQN0xheDFYN1Z2OW01MFppNTNLbUhlTjNuRVd6ZW1uQm1LUU1kTUVsTXBNd1R0M0lpa0VyQ2lmcEg2TUNybEpRNF9WQWtJS1lSN3RCQnp0MnBBVVhwMzVpUnBsRmZMNTJSM0gwc1U3dHZjZHhMR1ljOGFkdnZTOE1HWFptckV1SzFEOG9lUGNOb1ozeXpWQnlCdw?oc=5",
+   "published_at": "2026-11-01T06:14:54+00:00",
+   "first_seen": "2026-11-01T10:52:56.351054+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Cidade brasileira no Nordeste nasceu do garimpo de diamantes, preserva casarões históricos e tem piscinas naturais em antiga área de mineração",
+   "link": "https://portal6.com.br/2026/10/31/cidade-brasileira-no-nordeste-nasceu-do-garimpo-de-diamantes-preserva-casaroes-historicos-e-tem-piscinas-naturais-em-antiga-area-de-mineracao/",
+   "published_at": "2026-11-01T02:59:34+00:00",
+   "first_seen": "2026-11-01T10:52:26.466599+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Portal 6 · Anápolis",
+   "escopo": "regional",
+   "tema": "geral",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de 3 comunidades vizinhas da mina de lítio da Sigma, em Araçuaí, veem o MPMG anular 61 votos do IBGP por suspeita de compra de votos com Pix de R$ 100 e dar à Aedas a assessoria técnica de 119 famílias",
+   "link": "https://mineracaobrasil.com/mpmg-aedas-assessoria-tecnica-sigma-aracuai/?utm_source=rss&utm_medium=rss&utm_campaign=mpmg-aedas-assessoria-tecnica-sigma-aracuai",
+   "published_at": "2026-11-01T01:35:14+00:00",
+   "first_seen": "2026-11-01T10:52:21.273279+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Trabalhadores da mina Serra Norte, em Parauapebas, viram a produção cair 31% no 3º trimestre por causa das cavernas, e a Vale admite que, mesmo que Lula assine hoje o decreto que espera desde julho, o efeito em 2027 será zero",
+   "link": "https://mineracaobrasil.com/vale-serra-norte-cavernas-decreto-lula-carajas/?utm_source=rss&utm_medium=rss&utm_campaign=vale-serra-norte-cavernas-decreto-lula-carajas",
+   "published_at": "2026-11-01T00:55:42+00:00",
+   "first_seen": "2026-11-01T10:52:21.275298+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
+   "link": "https://mineracaobrasil.com/bamin-mota-engil-fiol-porto-sul-tcu-vale/?utm_source=rss&utm_medium=rss&utm_campaign=bamin-mota-engil-fiol-porto-sul-tcu-vale",
+   "published_at": "2026-10-31T20:35:29+00:00",
+   "first_seen": "2026-11-01T10:52:21.281741+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "MUNICÍPIOS MINERADORES | AMIG vê com bons olhos cruzamento de dados feito pela ANM - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc2NncDhzY3RQeHBWeGhmOFdXcEdLNE1RMVlXRWJ4UEJhaGlDbE1CQVlMN3pkOWxuVUNZU3VfRWtlMnpic3FOcWJNVGJycGFHa1U2Q25VYjBCQ3JfQ0dNUGMxUmUxVnR1SEdjZWdTMEdBOGszWlplSnllZkVuT3AyV3FqWG03dExiQ0RWRW5CbTJ0ZGpSVlMtRHFRYw?oc=5",
+   "published_at": "2026-10-31T20:19:41+00:00",
+   "first_seen": "2026-11-01T10:52:57.097523+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora canadense aprova investimento de US$ 110 milhões em Goiás para ampliar extração de cobre e prevê aumentar produção em 30% até 2029 - Portal 6",
+   "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOb1FielU0dFIyTWoxVFEzRnQ0dVR0Y2pZMzUybThNU2xNRUxPLU85TVJTWktBdjlTR0NIdjJJMml5UG5ZcW0wcnRVZGdTRHZ5aGthbDdGeEZFdjNwUmxFVU5nYnlQRDVrRkViOXktQUhTdmNMYU4xQ2VjOWRkUllvdjltYWZoeUFwRUkyQjY3N0ppMkJiUlJiaFBGdVdueVpiS1hrU3lxU2hYT05oYTV4dUM1TnY4V2paVU5aVnFIWGhZNVVzcmFSSVZ3cDhxcjFUbEswNk9mZ1R3X2p3MmJnLWd4MGdWQXJvMS1tbm4wLVl0MWV6SjJZdzZjUFYzaWVUTmxtZg?oc=5",
+   "published_at": "2026-10-31T19:20:24+00:00",
+   "first_seen": "2026-11-01T10:52:53.852486+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores perto da Mina Fazendão, entre Mariana e Catas Altas, terão uma usina da Vale 3,6 vezes maior que a atual, ligada 24 horas por dia, com 711 trabalhadores por dia e 3.603 contratações nas obras",
+   "link": "https://mineracaobrasil.com/vale-mina-fazendao-mariana-nova-planta/?utm_source=rss&utm_medium=rss&utm_campaign=vale-mina-fazendao-mariana-nova-planta",
+   "published_at": "2026-10-31T19:05:06+00:00",
+   "first_seen": "2026-11-01T10:52:21.283784+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Geólogo que assinou relatório dizendo que uma mina em Itapoá, no litoral de Santa Catarina, seguia a licença é condenado a 4 anos depois que o IMA achou 11,38 hectares de restinga derrubados",
+   "link": "https://mineracaobrasil.com/geologo-condenado-laudo-falso-mineracao-itapoa/?utm_source=rss&utm_medium=rss&utm_campaign=geologo-condenado-laudo-falso-mineracao-itapoa",
+   "published_at": "2026-10-31T15:40:13+00:00",
+   "first_seen": "2026-11-01T10:52:21.285852+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "ANM vai cruzar notas fiscais de mineradoras com declarações da Cfem - A Província do Pará",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPamtMZUVtNGk5ZS1CclRtaGRIcVNfdUpxcVpTR2JPMnVfSkhOZVRHOHZQaWw4MzZtbnZrTVhtMkVnVXU4dl9wVDNBVUhCSXFHT0dWeU1SQmdGUTBsaGtZWG95OHRXQ1F4RG5YN1hIRmxlX09VZXZYWHQtQ25xaUM4S3NhRjFMZFo2Q2lYVDVGRHR1ZnByQ3VrMDVOZm1JQzdZdkE?oc=5",
+   "published_at": "2026-10-31T15:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:57.098665+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Amargosa sediará IX Workshop de Química com debate sobre terras raras e oportunidades na Bahia - Criativa On Line",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTWttQm9ZUHJLcVR6cXFyb21tQmJOZlhVaEJRYjV5cF94UllEWE85N0NzQmdxMU5TVG1IRHJNZzQ0YmZCV3Rpc2xSTEVzaDZJR1ZzOEhlRUZlNVZETUY5SWJZSk42REhESml5RnJMLXlGbi1CblpjdXRjOTNhMVljSGFlcmNlMXpOR3pGdG00ZWItZEFZb2gtcnRUVWFVQ2lEVVhNcG4zb0tJMWFZbVZwQUhIT0JhcS1tUlZ4TkdEay1hYmc?oc=5",
+   "published_at": "2026-10-31T13:00:39+00:00",
+   "first_seen": "2026-11-01T10:52:56.354650+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Donos de mineradoras têm até este sábado (31) para corrigir a declaração dos royalties antes de a ANM começar, em 1º de novembro, a cruzar notas fiscais emitidas desde janeiro de 2025 com o que cada empresa disse ter vendido",
+   "link": "https://mineracaobrasil.com/anm-cruzamento-notas-fiscais-cfem-prazo-31-outubro/?utm_source=rss&utm_medium=rss&utm_campaign=anm-cruzamento-notas-fiscais-cfem-prazo-31-outubro",
+   "published_at": "2026-10-31T12:50:07+00:00",
+   "first_seen": "2026-11-01T10:52:21.289776+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Itatiaiuçu veem a Usiminas usar a parada da planta de Samambaia, que custou R$ 13,9 milhões em menos de 1 mês, para reformas e esperar o frete do minério à China cair de US$ 35 por tonelada antes de religar",
+   "link": "https://mineracaobrasil.com/usiminas-planta-samambaia-itatiaiucu-parada/?utm_source=rss&utm_medium=rss&utm_campaign=usiminas-planta-samambaia-itatiaiucu-parada",
+   "published_at": "2026-10-31T12:05:10+00:00",
+   "first_seen": "2026-11-01T10:52:21.291900+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
   {
    "title": "Lodo de tratamento de água vira fertilizante de liberação lenta",
    "link": "https://www.poder360.com.br/poder-sustentavel/lodo-de-tratamento-de-agua-vira-fertilizante-de-liberacao-lenta/",
@@ -39,6 +287,22 @@
    "tema": "geral",
    "substancias": [
     "fosfato"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Bolsonaro Defeat Challenges US Plans for Brazil Rare Earths - NewzTodays",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNclBHak1vSDBWQkkzc0J5V0x3WTRfblY4UU1sWmpmZ2RfMWxELWtlcjVoNDdDa0NLdDQ4VnNWWmhucHBLNnhILWktdFZ5VkU5VlpEN0ZVZUFjbk9lVVgwSTJEVnJidUNMbUhMUG1fQVE1Q1V1OUFlMFpsUWZ3SEdnSGNBOGVRdnNCYkJJ?oc=5",
+   "published_at": "2026-10-31T08:01:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.237509+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -402,6 +666,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Soja, Florestas, Combustíveis e Terras Raras: Como a Eleição no Brasil Afeta o Fluxo Global de Recursos - Forbes Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOVG5sT0V2WUl3OGNLWTdGODVEMTlxYU9uVEQxcW1PLXdvVlpxbmc0SVFBSXo0ZVo2M1E3MWltQUtTbEZkb0Y0QThHQnpWRllJVE9kTEVZdUliX2lES1hCdDZLZG4zN0tvZm1ONzVSLVA2bTJNRmJBZG9pOUlBOWRnSVhSRW11WkJVMmxqZ0hkOXAxSHZiQXEtVTBqQzBNeUhLWEVBTFUxNElvOUtqdEpHTWdnSXkwU0M3aUotVWdqLUROd3Z4WFhOLTZEUmpUZTV3eDNBLUdlZTJ5dGs?oc=5",
+   "published_at": "2026-10-29T20:34:29+00:00",
+   "first_seen": "2026-11-01T10:52:56.352096+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -2508,307 +2788,20 @@
     "terras_raras"
    ],
    "brasil": 1
-  },
-  {
-   "title": "3 ASX Brazil-Focused Stocks in the Spotlight: Brazilian Critical Minerals (ASX:BCM), Brazilian Rare Earths (ASX:BRE) and Alurion Resources (ASX:ALU) - Kalkine",
-   "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQNjRMT0RRc0FkUWVqdnZIY2xrY095cWRsM2J5V0JJNm8wODhZbW1UR1VEMUs3M1UyYXVzNGZlUU9Tak9sNHNfWVMzdUNZVldRdGo1SEVXRjU2OU9fUlN2ZmhuV0h3SE5mM2RjMXVvcnlkRjRBRFdzaWZ6WWQwc2tPcmgya2NzUEtqYmVJVUpCaXp3YnZIQ2dKeFAtZXFkNFc5UlA0NkhuRnZXVHRacDN2YV8zT0FfSk5EVWxpYS16cUJnNGJwVlpWckpfTlJ2Umtmc3dWSnlmblN5NTVCeDBNdkVyX2xmcmNFamNFb3Jvdm5HRmpVRDlwd3JyalRXd1VLRFE?oc=5",
-   "published_at": "2026-10-26T02:24:00+00:00",
-   "first_seen": "2026-10-26T09:27:30.443296+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · rare earth Brazil",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Engenheira química da LHG Mining na Mina Urucum, em Corumbá, ajudou a cortar em 81% a variação das amostras de manganês e levou o 2º lugar do Ibram entre 216 trabalhos inscritos",
-   "link": "https://mineracaobrasil.com/mina-urucum-lhg-premio-ibram-amostragem-manganes/?utm_source=rss&utm_medium=rss&utm_campaign=mina-urucum-lhg-premio-ibram-amostragem-manganes",
-   "published_at": "2026-10-26T01:55:19+00:00",
-   "first_seen": "2026-10-26T09:26:53.953744+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Quem trabalha na mina de zinco da Nexa em Aripuanã, a 1.002 km de Cuiabá, está na operação que mais pagou royalties em Mato Grosso em 2026: R$ 29,1 milhões de R$ 107,3 milhões",
-   "link": "https://mineracaobrasil.com/nexa-aripuana-lidera-royalties-mineracao-mato-grosso-2026/?utm_source=rss&utm_medium=rss&utm_campaign=nexa-aripuana-lidera-royalties-mineracao-mato-grosso-2026",
-   "published_at": "2026-10-25T22:05:15+00:00",
-   "first_seen": "2026-10-26T09:26:53.959409+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Sigma Lithium produz 7 mil toneladas de concentrado de óxido de lítio após retomada da produção industrial em Minas Gerais",
-   "link": "https://minerabrasil.com.br/sigma-lithium-produz-7-mil-toneladas-de-concentrado-de-oxido-de-litio-apos-retomada-da-producao-industrial-em-minas-gerais/2026/10/25/",
-   "published_at": "2026-10-25T20:00:33+00:00",
-   "first_seen": "2026-10-26T09:26:44.235139+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Minera Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Quem vende ouro de garimpo em Tucumã e Ourilândia do Norte, no Pará, viu a PF levar um helicóptero e vasculhar 2 postos de combustíveis e 2 imóveis do mesmo investigado, em 5 mandados",
-   "link": "https://mineracaobrasil.com/ouro-ilegal-pf-helicoptero-tucuma-ourilandia-do-norte/?utm_source=rss&utm_medium=rss&utm_campaign=ouro-ilegal-pf-helicoptero-tucuma-ourilandia-do-norte",
-   "published_at": "2026-10-25T19:50:13+00:00",
-   "first_seen": "2026-10-26T09:26:53.961501+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Moradores de Nova Lima, na Grande BH, deixam de ter barragem da Vale em nível de emergência depois que a ANM encerrou o alerta da B7A, mas a obra na B6 só termina no 2º semestre de 2027",
-   "link": "https://mineracaobrasil.com/nova-lima-sem-barragem-vale-emergencia-b7a/?utm_source=rss&utm_medium=rss&utm_campaign=nova-lima-sem-barragem-vale-emergencia-b7a",
-   "published_at": "2026-10-25T18:35:17+00:00",
-   "first_seen": "2026-10-26T09:26:53.964908+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Quem mora em Nossa Senhora do Livramento, a 42 km de Cuiabá, vive no município com 75 das 186 barragens de mineração de Mato Grosso, e 11 delas estão em alerta, aponta o TCE",
-   "link": "https://mineracaobrasil.com/livramento-mt-75-barragens-mineracao-11-em-alerta/?utm_source=rss&utm_medium=rss&utm_campaign=livramento-mt-75-barragens-mineracao-11-em-alerta",
-   "published_at": "2026-10-25T17:20:09+00:00",
-   "first_seen": "2026-10-26T09:26:53.967081+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Quem vive em Oriximiná, no oeste do Pará, vê a MRN receber 4 reatores da China para a linha de 98 km e 232 torres que vai ligar a mina de bauxita de Porto Trombetas à rede nacional",
-   "link": "https://mineracaobrasil.com/mrn-reatores-china-linha-transmissao-porto-trombetas-oriximina/?utm_source=rss&utm_medium=rss&utm_campaign=mrn-reatores-china-linha-transmissao-porto-trombetas-oriximina",
-   "published_at": "2026-10-25T16:10:09+00:00",
-   "first_seen": "2026-10-26T09:26:53.969152+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Trabalhadores da Samarco em Mariana e no Espírito Santo produziram 4,3 milhões de toneladas de pelotas e finos no 3º trimestre, o maior volume desde a volta da mineradora em dezembro de 2020",
-   "link": "https://mineracaobrasil.com/samarco-producao-recorde-3-trimestre-2026/?utm_source=rss&utm_medium=rss&utm_campaign=samarco-producao-recorde-3-trimestre-2026",
-   "published_at": "2026-10-25T13:05:13+00:00",
-   "first_seen": "2026-10-26T09:26:53.973704+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "A TSMC está a tentar escapar ao aperto chinês nas terras raras - ZAP Notícias",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQb2RJRldLZ0s0U0RYX0JQeHlPWU9OZlo2TWczdHlvemFuN0s3eXNnS1pxVFliV2d4cGRhLVRpTk9GWWxULTZSSTAtTmZJdWdNT2ZmLXJzWngzV2FxZGFpMGF4dU9uZmxhOWx5dG9KM0Nmd0xSamVjMVdSaUw3SzFlcTBCdUdUSnBWMmEzbUhDYnZfTTdi?oc=5",
-   "published_at": "2026-10-25T12:15:00+00:00",
-   "first_seen": "2026-10-30T10:32:15.947176+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Trabalhadores da Cedro em Mariana e Nova Lima podem ver a mineradora chegar a 20 milhões de toneladas por ano com R$ 5 bilhões, plano do executivo que mandou 40 milhões de toneladas da Vale à China sem pedido em 2008",
-   "link": "https://mineracaobrasil.com/cedro-mineracao-20-milhoes-toneladas-r-5-bilhoes-jose-carlos-martins/?utm_source=rss&utm_medium=rss&utm_campaign=cedro-mineracao-20-milhoes-toneladas-r-5-bilhoes-jose-carlos-martins",
-   "published_at": "2026-10-25T11:40:11+00:00",
-   "first_seen": "2026-10-26T09:26:53.975820+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Quem trabalha na prefeitura de Desterro de Entre Rios, em Minas, viu o prefeito propor corte de 10% no próprio salário e nos cargos de confiança para salvar 20 empregos depois que a JMN parou a mina",
-   "link": "https://mineracaobrasil.com/desterro-de-entre-rios-corta-salarios-jmn-mina-parada/?utm_source=rss&utm_medium=rss&utm_campaign=desterro-de-entre-rios-corta-salarios-jmn-mina-parada",
-   "published_at": "2026-10-25T10:15:08+00:00",
-   "first_seen": "2026-10-26T09:26:53.978173+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Eleições 2026: os planos de Lula e Flávio Bolsonaro para IA, data center, soberania, terras raras, clima e energia - Olhar Digital",
-   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQRWVkaHZVUmRoSHh1Y0R0Nk5ZdGZjc2hwYjhFN2p0ZjdMcl9LQVhpOGsxcG5VVUUwcjQ0WHBXeXltako4aU5NWmNKd1NtdnJsd2hzYjhRVXJoc2lNMGxtOFJZdUVvWTdjNTJkaGdqQmNCdkNxaXY0Y1J2N2J0RHRwT1U0WDBBVWVXVG8xOW5tS05MdlNpczlXUTVLdk5kUEtRT0FwQy10aVczamNuSFhvYjlYZnZ4U3hMQzZSYzViWm43Z1FoV2ZSdjgwUV92cWhPTmhydnBCam1YcVhKMzdQbnl3WUFKaE1a?oc=5",
-   "published_at": "2026-10-25T07:00:00+00:00",
-   "first_seen": "2026-10-25T08:48:09.432664+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Cidadão pode consultar calendário de participação social da ANM em ferramenta com informações centralizadas - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOQTVkYzY4Mlk4eFJlSktUMnh5SXpKbjRzbEI4OXVZaW1EOFZET0NaMXlXOUJ3TDAwX2VNNWlIUUJ4ZUgtMGhHUVk3MlJFWVpiTVhZSUhPS2Q5clpCejQwNUdUVGU2d3pQT0ZUR0ZlbW43c09RRGQ4SlF3V0VsX1pxbDNSR1ZYZlg5YWFKeFNWbXFLdFNqYTZNVjNXbENmS2haSmdGTEJRWVFCMDNuM1MyOFI0WFh5Vi1PeC1YbUtOb0pQTEFVYU1VWWRrRU9Qb3psTEJlZGJvT3FwamJVcUNfQTlkX0FqNXFadGc?oc=5",
-   "published_at": "2026-10-24T22:52:33+00:00",
-   "first_seen": "2026-10-26T09:27:29.967426+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [],
-   "brasil": 1
-  },
-  {
-   "title": "Geólogos da australiana Centaurus coletaram mais de 4.500 amostras de solo perto de Parauapebas e saíram com 21 alvos de cobre e ouro, num deles até 45 gramas de ouro por tonelada",
-   "link": "https://mineracaobrasil.com/centaurus-21-alvos-cobre-ouro-carajas-parauapebas/?utm_source=rss&utm_medium=rss&utm_campaign=centaurus-21-alvos-cobre-ouro-carajas-parauapebas",
-   "published_at": "2026-10-24T20:40:10+00:00",
-   "first_seen": "2026-10-25T08:47:30.151425+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "ouro"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Quem quer fabricar ímã de terras raras no Brasil tem até 30 de novembro para pedir uma fatia de R$ 215 milhões que a Finep dá sem cobrar de volta, desde que leve junto uma universidade",
-   "link": "https://mineracaobrasil.com/finep-215-milhoes-imas-terras-raras-transformacao-mineral-prazo-30-novembro/?utm_source=rss&utm_medium=rss&utm_campaign=finep-215-milhoes-imas-terras-raras-transformacao-mineral-prazo-30-novembro",
-   "published_at": "2026-10-24T18:45:25+00:00",
-   "first_seen": "2026-10-25T08:47:30.154867+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Terras raras colocam o Brasil no centro da disputa entre EUA e China, diz economista - Canal MyNews",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQRm8yOXpLYlBQMVFQcElsUTNHZ0tYQjNPdURHV2VncHZ0eHVpYVhtWVlZckdlblZkVUVFMHBwdm0ycWxhUllVRG8zd1Y5Rm1VZFdhSzBFTGZuUHBCWWQ0LTl3WGlaUjgtd0MyOU5fLVJxYzlQQnQtZlRKVjRXSk9sUHF1X3VOQllNWHpkWjUxT0JHN0RZenVncE1wZ2hVMVY5cU8yVkRGRUphSDdZY1A0MDM3Um9oczgydllyZg?oc=5",
-   "published_at": "2026-10-24T18:00:00+00:00",
-   "first_seen": "2026-10-25T08:48:09.434920+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Trabalhadores da mina de lítio da Sigma em Itinga e Araçuaí, no Vale do Jequitinhonha, ganham 6 meses de fôlego: a dívida de US$ 100 milhões que vencia em dezembro agora vence em junho de 2027",
-   "link": "https://mineracaobrasil.com/sigma-lithium-adia-divida-us-100-milhoes-junho-2027/?utm_source=rss&utm_medium=rss&utm_campaign=sigma-lithium-adia-divida-us-100-milhoes-junho-2027",
-   "published_at": "2026-10-24T17:40:11+00:00",
-   "first_seen": "2026-10-25T08:47:30.156560+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Mineração Brasil",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
-   "brasil": 1
-  },
-  {
-   "title": "Sob Lula, EUA já exploram terras raras no Brasil e Governo não vetou compra de mina; O que muda se Flávio for eleito? - Guia do Investidor",
-   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQT3VxOWNRcy1JTy11VXdiV3BEMmNJMC1pSWJSUmxGeG8yRmJib1BKX3YyWVpBZUU3c3lQMXhtb1IzbHpWUHZBZ20yMGlUR2tFMzdaV3JoOFpVUVE5NTkwc1owRGZ3ZzdabWpMS3JpTTN6YjhqTi1OcHJQV3VKZ1BBV1o4czJkcTdDRy1mcmdrS3hZV1FhMnRlZzR6eFNIbXMtUExKX2JjbHg2b3FXSjFqUUFWVmo4blJGakJjSXdYdEk4UW9SaVpVeXRLVjk2ZGljX2hiaHF4R20tLWdJXzl5Sk1BVWh6QVhMOHBOQg?oc=5",
-   "published_at": "2026-10-24T16:49:01+00:00",
-   "first_seen": "2026-10-25T08:48:09.436013+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · terras raras",
-   "escopo": "nacional",
-   "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
-   "brasil": 1
   }
  ],
  "tendencias": [],
- "total": 4124,
- "regionais": 462,
- "setoriais": 4124,
- "regionais_setoriais": 462,
+ "total": 4151,
+ "regionais": 468,
+ "setoriais": 4151,
+ "regionais_setoriais": 468,
  "fontes_vivas": 62,
  "fontes": 63,
  "substancias": {
-  "terras_raras": 1410,
-  "ouro": 807,
-  "cobre": 401,
-  "litio": 353,
+  "terras_raras": 1419,
+  "ouro": 810,
+  "cobre": 402,
+  "litio": 354,
   "niquel": 85,
   "uranio": 71,
   "niobio": 25,
@@ -2817,18 +2810,27 @@
  },
  "meses": [
   {
+   "mes": "2026-11",
+   "materias": 8,
+   "novas": 8,
+   "brasileiras": 8,
+   "regionais": 0,
+   "setoriais": 8,
+   "regionais_setoriais": 0
+  },
+  {
    "mes": "2026-10",
-   "materias": 1796,
-   "novas": 46,
-   "brasileiras": 836,
-   "regionais": 30,
-   "setoriais": 1796,
-   "regionais_setoriais": 30
+   "materias": 1807,
+   "novas": 11,
+   "brasileiras": 847,
+   "regionais": 31,
+   "setoriais": 1807,
+   "regionais_setoriais": 31
   },
   {
    "mes": "2026-09",
    "materias": 1213,
-   "novas": 3,
+   "novas": 0,
    "brasileiras": 713,
    "regionais": 42,
    "setoriais": 1213,
@@ -2837,7 +2839,7 @@
   {
    "mes": "2026-08",
    "materias": 314,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 283,
    "regionais": 64,
    "setoriais": 314,
@@ -2855,7 +2857,7 @@
   {
    "mes": "2026-06",
    "materias": 79,
-   "novas": 1,
+   "novas": 0,
    "brasileiras": 79,
    "regionais": 15,
    "setoriais": 79,
@@ -2863,20 +2865,20 @@
   },
   {
    "mes": "2026-05",
-   "materias": 164,
+   "materias": 166,
    "novas": 2,
-   "brasileiras": 164,
-   "regionais": 85,
-   "setoriais": 164,
-   "regionais_setoriais": 85
+   "brasileiras": 166,
+   "regionais": 87,
+   "setoriais": 166,
+   "regionais_setoriais": 87
   },
   {
    "mes": "2026-04",
-   "materias": 141,
+   "materias": 143,
    "novas": 2,
-   "brasileiras": 141,
+   "brasileiras": 143,
    "regionais": 51,
-   "setoriais": 141,
+   "setoriais": 143,
    "regionais_setoriais": 51
   },
   {
@@ -2890,11 +2892,11 @@
   },
   {
    "mes": "2026-02",
-   "materias": 44,
-   "novas": 0,
-   "brasileiras": 44,
+   "materias": 45,
+   "novas": 1,
+   "brasileiras": 45,
    "regionais": 6,
-   "setoriais": 44,
+   "setoriais": 45,
    "regionais_setoriais": 6
   },
   {
@@ -2908,36 +2910,27 @@
   },
   {
    "mes": "2025-12",
-   "materias": 120,
+   "materias": 122,
    "novas": 2,
-   "brasileiras": 120,
-   "regionais": 103,
-   "setoriais": 120,
-   "regionais_setoriais": 103
-  },
-  {
-   "mes": "2025-11",
-   "materias": 41,
-   "novas": 1,
-   "brasileiras": 41,
-   "regionais": 30,
-   "setoriais": 41,
-   "regionais_setoriais": 30
+   "brasileiras": 122,
+   "regionais": 105,
+   "setoriais": 122,
+   "regionais_setoriais": 105
   },
   {
    "mes": "anteriores",
-   "materias": 16,
-   "novas": 0,
-   "brasileiras": 16,
-   "regionais": 3,
-   "setoriais": 16,
-   "regionais_setoriais": 3
+   "materias": 58,
+   "novas": 1,
+   "brasileiras": 58,
+   "regionais": 34,
+   "setoriais": 58,
+   "regionais_setoriais": 34
   }
  ],
- "descartadas": 15628,
- "descartadas_antigas": 433,
- "brasileiras": 2631,
+ "descartadas": 15857,
+ "descartadas_antigas": 439,
+ "brasileiras": 2658,
  "veiculos": 53,
  "coleta_desde": "2026-09",
- "janela": "2025-11"
+ "janela": "2025-12"
 }

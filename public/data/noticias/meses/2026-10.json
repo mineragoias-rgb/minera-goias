@@ -1,7 +1,137 @@
 {
  "mes": "2026-10",
- "materias": 1796,
+ "materias": 1807,
  "itens": [
+  {
+   "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
+   "link": "https://mineracaobrasil.com/bamin-mota-engil-fiol-porto-sul-tcu-vale/?utm_source=rss&utm_medium=rss&utm_campaign=bamin-mota-engil-fiol-porto-sul-tcu-vale",
+   "published_at": "2026-10-31T20:35:29+00:00",
+   "first_seen": "2026-11-01T10:52:21.281741+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "MUNICÍPIOS MINERADORES | AMIG vê com bons olhos cruzamento de dados feito pela ANM - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc2NncDhzY3RQeHBWeGhmOFdXcEdLNE1RMVlXRWJ4UEJhaGlDbE1CQVlMN3pkOWxuVUNZU3VfRWtlMnpic3FOcWJNVGJycGFHa1U2Q25VYjBCQ3JfQ0dNUGMxUmUxVnR1SEdjZWdTMEdBOGszWlplSnllZkVuT3AyV3FqWG03dExiQ0RWRW5CbTJ0ZGpSVlMtRHFRYw?oc=5",
+   "published_at": "2026-10-31T20:19:41+00:00",
+   "first_seen": "2026-11-01T10:52:57.097523+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora canadense aprova investimento de US$ 110 milhões em Goiás para ampliar extração de cobre e prevê aumentar produção em 30% até 2029 - Portal 6",
+   "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOb1FielU0dFIyTWoxVFEzRnQ0dVR0Y2pZMzUybThNU2xNRUxPLU85TVJTWktBdjlTR0NIdjJJMml5UG5ZcW0wcnRVZGdTRHZ5aGthbDdGeEZFdjNwUmxFVU5nYnlQRDVrRkViOXktQUhTdmNMYU4xQ2VjOWRkUllvdjltYWZoeUFwRUkyQjY3N0ppMkJiUlJiaFBGdVdueVpiS1hrU3lxU2hYT05oYTV4dUM1TnY4V2paVU5aVnFIWGhZNVVzcmFSSVZ3cDhxcjFUbEswNk9mZ1R3X2p3MmJnLWd4MGdWQXJvMS1tbm4wLVl0MWV6SjJZdzZjUFYzaWVUTmxtZg?oc=5",
+   "published_at": "2026-10-31T19:20:24+00:00",
+   "first_seen": "2026-11-01T10:52:53.852486+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "cobre"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores perto da Mina Fazendão, entre Mariana e Catas Altas, terão uma usina da Vale 3,6 vezes maior que a atual, ligada 24 horas por dia, com 711 trabalhadores por dia e 3.603 contratações nas obras",
+   "link": "https://mineracaobrasil.com/vale-mina-fazendao-mariana-nova-planta/?utm_source=rss&utm_medium=rss&utm_campaign=vale-mina-fazendao-mariana-nova-planta",
+   "published_at": "2026-10-31T19:05:06+00:00",
+   "first_seen": "2026-11-01T10:52:21.283784+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Geólogo que assinou relatório dizendo que uma mina em Itapoá, no litoral de Santa Catarina, seguia a licença é condenado a 4 anos depois que o IMA achou 11,38 hectares de restinga derrubados",
+   "link": "https://mineracaobrasil.com/geologo-condenado-laudo-falso-mineracao-itapoa/?utm_source=rss&utm_medium=rss&utm_campaign=geologo-condenado-laudo-falso-mineracao-itapoa",
+   "published_at": "2026-10-31T15:40:13+00:00",
+   "first_seen": "2026-11-01T10:52:21.285852+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "ANM vai cruzar notas fiscais de mineradoras com declarações da Cfem - A Província do Pará",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPamtMZUVtNGk5ZS1CclRtaGRIcVNfdUpxcVpTR2JPMnVfSkhOZVRHOHZQaWw4MzZtbnZrTVhtMkVnVXU4dl9wVDNBVUhCSXFHT0dWeU1SQmdGUTBsaGtZWG95OHRXQ1F4RG5YN1hIRmxlX09VZXZYWHQtQ25xaUM4S3NhRjFMZFo2Q2lYVDVGRHR1ZnByQ3VrMDVOZm1JQzdZdkE?oc=5",
+   "published_at": "2026-10-31T15:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:57.098665+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Amargosa sediará IX Workshop de Química com debate sobre terras raras e oportunidades na Bahia - Criativa On Line",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTWttQm9ZUHJLcVR6cXFyb21tQmJOZlhVaEJRYjV5cF94UllEWE85N0NzQmdxMU5TVG1IRHJNZzQ0YmZCV3Rpc2xSTEVzaDZJR1ZzOEhlRUZlNVZETUY5SWJZSk42REhESml5RnJMLXlGbi1CblpjdXRjOTNhMVljSGFlcmNlMXpOR3pGdG00ZWItZEFZb2gtcnRUVWFVQ2lEVVhNcG4zb0tJMWFZbVZwQUhIT0JhcS1tUlZ4TkdEay1hYmc?oc=5",
+   "published_at": "2026-10-31T13:00:39+00:00",
+   "first_seen": "2026-11-01T10:52:56.354650+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Donos de mineradoras têm até este sábado (31) para corrigir a declaração dos royalties antes de a ANM começar, em 1º de novembro, a cruzar notas fiscais emitidas desde janeiro de 2025 com o que cada empresa disse ter vendido",
+   "link": "https://mineracaobrasil.com/anm-cruzamento-notas-fiscais-cfem-prazo-31-outubro/?utm_source=rss&utm_medium=rss&utm_campaign=anm-cruzamento-notas-fiscais-cfem-prazo-31-outubro",
+   "published_at": "2026-10-31T12:50:07+00:00",
+   "first_seen": "2026-11-01T10:52:21.289776+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Moradores de Itatiaiuçu veem a Usiminas usar a parada da planta de Samambaia, que custou R$ 13,9 milhões em menos de 1 mês, para reformas e esperar o frete do minério à China cair de US$ 35 por tonelada antes de religar",
+   "link": "https://mineracaobrasil.com/usiminas-planta-samambaia-itatiaiucu-parada/?utm_source=rss&utm_medium=rss&utm_campaign=usiminas-planta-samambaia-itatiaiucu-parada",
+   "published_at": "2026-10-31T12:05:10+00:00",
+   "first_seen": "2026-11-01T10:52:21.291900+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Mineração Brasil",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
   {
    "title": "Lodo de tratamento de água vira fertilizante de liberação lenta",
    "link": "https://www.poder360.com.br/poder-sustentavel/lodo-de-tratamento-de-agua-vira-fertilizante-de-liberacao-lenta/",
@@ -15,6 +145,22 @@
    "tema": "geral",
    "substancias": [
     "fosfato"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Bolsonaro Defeat Challenges US Plans for Brazil Rare Earths - NewzTodays",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNclBHak1vSDBWQkkzc0J5V0x3WTRfblY4UU1sWmpmZ2RfMWxELWtlcjVoNDdDa0NLdDQ4VnNWWmhucHBLNnhILWktdFZ5VkU5VlpEN0ZVZUFjbk9lVVgwSTJEVnJidUNMbUhMUG1fQVE1Q1V1OUFlMFpsUWZ3SEdnSGNBOGVRdnNCYkJJ?oc=5",
+   "published_at": "2026-10-31T08:01:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.237509+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -831,6 +977,22 @@
     "ouro"
    ],
    "brasil": 0
+  },
+  {
+   "title": "Soja, Florestas, Combustíveis e Terras Raras: Como a Eleição no Brasil Afeta o Fluxo Global de Recursos - Forbes Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOVG5sT0V2WUl3OGNLWTdGODVEMTlxYU9uVEQxcW1PLXdvVlpxbmc0SVFBSXo0ZVo2M1E3MWltQUtTbEZkb0Y0QThHQnpWRllJVE9kTEVZdUliX2lES1hCdDZLZG4zN0tvZm1ONzVSLVA2bTJNRmJBZG9pOUlBOWRnSVhSRW11WkJVMmxqZ0hkOXAxSHZiQXEtVTBqQzBNeUhLWEVBTFUxNElvOUtqdEpHTWdnSXkwU0M3aUotVWdqLUROd3Z4WFhOLTZEUmpUZTV3eDNBLUdlZTJ5dGs?oc=5",
+   "published_at": "2026-10-29T20:34:29+00:00",
+   "first_seen": "2026-11-01T10:52:56.352096+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Donos de 107 áreas de pesquisa mineral em 19 estados e no DF recebem da ANM cobrança de R$ 1,5 milhão por taxa por hectare que venceu em 2024, e 5 áreas de minério de ferro no Tocantins somam R$ 311 mil",
