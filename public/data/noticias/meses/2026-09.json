@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1213,
+ "materias": 1214,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -16940,6 +16940,22 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Por que a única mineradora de terras raras do país virou americana - TV Sim Brasil",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUWdtenlkbXVNZWdGQXI5UjBNSVpHTHloRHJGaGc3cGM4US1zYUVES0dydmtWa2N3SWo1Ri1LVWJsWnZkeS1fWWlKbGkxMWlpdzNVc1NGUHdxTHRXYlgwQUp5cW4zckg5V1NQYmpGZ195NlByQzRQUGRETlJNbUdXV2ZGUGx2c0R0ZnE0ZEU1Zlh1cWlhRWl0eWV2M053VkRHdlg2RU5qWDNHbnMyVHc?oc=5",
+   "published_at": "2026-09-07T07:00:00+00:00",
+   "first_seen": "2026-11-02T11:46:25.963804+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },

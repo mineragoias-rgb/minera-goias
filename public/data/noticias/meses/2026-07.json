@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 112,
+ "materias": 113,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -742,6 +742,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Concluído o ciclo 2025/2026 de repasses da CFEM a municípios afetados - Agência Gov",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbUo2MDdzU21wclJtNFZrQlJQd3F2ZnNCUUxwclhDc3VUUWNsWFBMcjJneTZSY1B2a0dHYWFYYm9BZXJBaTE3cnBqUEd5YS16cDhxeTVsODFMTk9GbmtycE1NazZlY29ENnNNOU1iRWJpRjF2VzZHZVpqQWFXbXVCV0k2b0hpOW5SdHZjSmo3N3lYUlZhR0toWHNRMnd2R2VVZHNueWwzeDY2UDNIbmFKck5WQ1htUQ?oc=5",
+   "published_at": "2026-07-21T07:00:00+00:00",
+   "first_seen": "2026-11-02T11:46:27.675718+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {

@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1807,
+ "materias": 1810,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -289,6 +289,20 @@
     "cobre"
    ],
    "brasil": 0
+  },
+  {
+   "title": "AMIG Brasil vê avanço no controle eletrônico da CFEM pela Agência Nacional de Mineração - Sala da Notícia",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQdC1tUFV6dmNSMXVKTWpxY01IVDJWazU5Y1FNOU11ck9XcjZqU2xoY05WaWJQVFlVSUNZcEVKd3pJdmlVQnJ3YWJBZnkzcTN3WFBNMnhrWXhUR3AxYjd2SWVVcFphRnVzU3dkSVZ1WEZIMy1jVWJ2VC1NLTd2SktIb3I1UW1XT1NRMkVDV1pMaWpyREhQUHMxTFprWXJPNnc4MlRSWnJvalNjaHl1dGpZUTNJMFNnSmFRN1VCVDA5M3FTcnZuTVJRWWptMjlNTFpkdWpF?oc=5",
+   "published_at": "2026-10-30T19:21:33+00:00",
+   "first_seen": "2026-11-02T11:46:27.674106+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium celebra mais de 1.174 dias sem acidentes de trabalho em Ato de Ação de Graças",
@@ -2803,6 +2817,22 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "ABI troca o petróleo pelas terras raras - Justiça em Foco",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNTkZteHZRZFg1UU1EcGtUSEpTcGpCT3hreDJVdEZvdmI4eEhrM2NpTkNYSnhKM3hBTS1RMEthckdYSUtwYnRGQzdaSWh3OVZucWUzRjZDZ1ZBVkppNDdQbEplVEdnQy1ZUlFFdUF4YWRHeXotTjkwczVhdUhkdVdqNDFjV3FZSEVWN2t0Sw?oc=5",
+   "published_at": "2026-10-28T14:40:29+00:00",
+   "first_seen": "2026-11-02T11:46:26.897595+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -24939,6 +24969,20 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Veja quais são as cidades que mais recebem royalties da mineração - Agência Cidades",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOUpGNjZQdkxWVjllNS1TQkFxdk1LUF9CUU9Oc0tWV3lBNDBKbzZ1MTR5cWNoOVZab1lWcllZRjd6dXdLWEFVX0lhRHZrcFphcWwxX0xvMWoyY0hvU05IdEpVTlVTUThyaXJHNkJSRUJIc3Q4NVVjSUpwLW5jeUtHWnJMa085MTYzTUZCbExybUJ6ajhnR1h3Q3c3THpFaDlSUFdhc2FmNTJZbGRudkpSelpzZmQ1dlFyQV80bXREbTItMjFIVkE?oc=5",
+   "published_at": "2026-10-05T07:00:00+00:00",
+   "first_seen": "2026-11-02T11:46:27.674967+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1

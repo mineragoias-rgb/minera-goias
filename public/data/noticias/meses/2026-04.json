@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 143,
+ "materias": 144,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -961,6 +961,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "PSOL entra na Justiça para evitar venda de mineradora brasileira para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae87812fb2946b1b22b228d0eb248a3&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fpsol-entra-na-justi%25C3%25A7a-para-evitar-venda-de-mineradora-brasileira-para-os-eua%2far-AA21zL5T&c=6157310145815943615&mkt=en-us",
+   "published_at": "2026-04-23T11:17:00+00:00",
+   "first_seen": "2026-11-02T11:46:26.461318+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
