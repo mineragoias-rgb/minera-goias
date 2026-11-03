@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 315,
+ "materias": 316,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -1835,6 +1835,20 @@
    "substancias": [
     "litio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Minerais críticos: O neocolonialismo ronda o Brasil - Outras Palavras",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOaWdyLUxsNWRuVW1UaGZLbGhTQTd5WGV0RUttSHFsLXh0MDBPOEpKMU9zTFE0OG5rOENMMHpIcVQ0NFNSVzJPZFdkazlUVFFycUxFekhISUEzek9EbVNraFhwUlZvYlVfSmlVX1VBLWVaMlRYUlE2Nm83elhzVkRyX191NXpMSjlzalZEUmhJY3hDNmdEdTdCQVc1SQ?oc=5",
+   "published_at": "2026-08-25T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:05.655409+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {

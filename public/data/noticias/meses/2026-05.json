@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 168,
+ "materias": 170,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -1650,6 +1650,20 @@
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae9c544abab47149b61d36da93af6cf&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-11-03T11:28:04.470739+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-19T19:49:02.787499+00:00",
@@ -2384,6 +2398,22 @@
    "setorial": 1,
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: legislativo aciona Cade e governo sobre venda da Serra Verde à empresa dos EUA - Times Brasil | CNBC",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQzNTS2pfM0phSDJ4X0VOR3BOcHlVZGN4MjdHd2QybzNnRzR5aEVJcG8zVFA1VTl0SkthN1hzaG5ocUNJMHZEZ1NMbVlXWEw0aVRGN0hiWG9vZHdHNzdPNktiUlc2eHYyYXA3dV9SQ0s2T0NXU0VldVAzQktfeFR4a0JibjlrLThldDJfTi0yV3hsajV4S3FxU2M4TQ?oc=5",
+   "published_at": "2026-05-06T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:03.694363+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

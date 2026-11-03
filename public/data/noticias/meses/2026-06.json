@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 79,
+ "materias": 80,
  "itens": [
   {
    "title": "Atlas Lithium vai ampliar produção de lítio em Minas Gerais | Café com ESG, 30/06 - XP Investimentos",
@@ -615,6 +615,22 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "LÍTIO | Lithium Ionic inicia encomendas de equipamentos para o projeto Bandeira - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaFFFdUtDOWk0bklreWJkREl3MEZPZzdBRTNyV2FiLUJlVWNRREppYV9jM3hGcW9MLTRnSExpM0puMjZqazRwa2FYQzhOaXN0cUE3TnFDeVl0Z0Y5QkZRNlB1MkdvcUI2ZHZ6Smt1ZlJoNndPNTc1Q05WbU1NY05nVHM4emtDdHhrR0tfb0xFT25xQlFRbUp0VTE4dkRVb2NQaW1ldUpYaWdIU2JFMmc?oc=5",
+   "published_at": "2026-06-15T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:05.654194+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
    ],
    "brasil": 1
   },

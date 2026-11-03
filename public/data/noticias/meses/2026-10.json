@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1810,
+ "materias": 1818,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -295,6 +295,20 @@
    "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQdC1tUFV6dmNSMXVKTWpxY01IVDJWazU5Y1FNOU11ck9XcjZqU2xoY05WaWJQVFlVSUNZcEVKd3pJdmlVQnJ3YWJBZnkzcTN3WFBNMnhrWXhUR3AxYjd2SWVVcFphRnVzU3dkSVZ1WEZIMy1jVWJ2VC1NLTd2SktIb3I1UW1XT1NRMkVDV1pMaWpyREhQUHMxTFprWXJPNnc4MlRSWnJvalNjaHl1dGpZUTNJMFNnSmFRN1VCVDA5M3FTcnZuTVJRWWptMjlNTFpkdWpF?oc=5",
    "published_at": "2026-10-30T19:21:33+00:00",
    "first_seen": "2026-11-02T11:46:27.674106+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "AMIG Brasil vê avanço no controle eletrônico da CFEM pela Agência Nacional de Mineração - Sala da Notícia",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPMjNQLUtwRVB4U0RUc1g1UDN5a3l0SHVoNFUyZ2lXNEE1aUR4dGFFQ09obFp3U1c4enNwbHhGYllQcG1tTFYybmExWExIVHZBYTAxVU1YMDdONV9MQkRhRkZyLTBqbU5mSGVYdTFBRWZ5dzRnb2RlSThkWDBZd2JTa2FVUnRmaC00bEFUd1czbFpqbmw4V21jN3Z6UjNHOFlLdTMyeHhNWFJmaU05UDVGcTc2cExCQWNqWlJqMXM4Z2lIci1BaTRkQ2pJRGstTUhqY1FlUjZXV2I?oc=5",
+   "published_at": "2026-10-30T19:21:33+00:00",
+   "first_seen": "2026-11-03T11:28:06.087761+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -647,6 +661,22 @@
    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORS1qRDM1a01YU003RFNSWnZlbVhSanNoTnVSWVROOFNDRlE1STNxaUhLZFdTbFhKTlZfdHRxNkRtMFlXZTJIcGQ5OE1LOTE5a3R3Y0FmMktkZEhHdU1oeHlsZmxCbHY3dTlwSWNTcVp3VWp6VzZzanowMlNKVzhRczl3SQ?oc=5",
    "published_at": "2026-10-30T07:39:29+00:00",
    "first_seen": "2026-10-30T10:32:17.866647+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "IMC Rare Earths reports yttrium discoveries at Brazil project - Mining Technology",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQXzJDUFptUzg0WWhqQU0zdXBQcjR6NDNuVXh2VjQxYVh4NjVHdXRKNUdtS0JSZjlqSmpZeTVsNlV3cVFQeVBNdHhvaDFOR29ranhKWXpyUXlYOTZHVlk1bUllbnM3cFBQTmI5WndIeVVaWWNzWVhUREViWU5hNlU2MkxIWk8?oc=5",
+   "published_at": "2026-10-30T06:40:00+00:00",
+   "first_seen": "2026-11-03T11:28:07.593770+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1660,6 +1690,22 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s elections clarify state of play for rare earths companies - The Cairns Post",
+   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPaVltdnp4Z1lhU3RNRS1DZ2FMT2NBVGpabGYzYjU0T2ZFbFlfc0RmTk5MS25SUlVYd1JjaDh4Ym9qd3NKUzlPZ3RWczNEZEhydWxwZ0hjYmY2SWFKRWZIUlNJTkIxM0RqWVRUOEFCdnV5OFVxY0lfck5fbnRqb3NUOGNHcDR1WHBjWjZzU2diSURPM093OE1GZ1JManZlRGIzSm5kbHBROVpNa0M5YlduT0lxUzZXZGM0dEZDTkNwM2xoR0xEQlR0aDR4Tk9CTENQTlFKQl9iazlWVUN5Q1hseHhzamdiNHd4WmtXbmNva1kweUMybVAtdVctNlp2Sk02QWRTQ0diR1RSSF9C?oc=5",
+   "published_at": "2026-10-29T13:20:00+00:00",
+   "first_seen": "2026-11-03T11:28:07.595886+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -18003,6 +18049,23 @@
    "brasil": 1
   },
   {
+   "title": "Terras raras e lítio ampliam o mapa da mineração em Minas, do Jequitinhonha ao Sul do estado - Diário Tribuna",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5RY3k4OFRsZW1UYXdrN0pRY0psY1h3d09DTTFkNWZBSWlqeENkdmhrX05mZlByVTFiNjdyZ3JncUhTWVlDcDJ0bDgzdzQ2UdIBU0FVX3lxTE96Yi04WUV1ZWFrdS13bEM2N1VLRFhVOTMxbEJEZWtEbFVfZGdfa0lHVVpvWi1vVkJibUZXYjdaSHB1Wmd1ODdiMFhvclZ1SUdHOUU0?oc=5",
+   "published_at": "2026-10-13T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:05.651797+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio",
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "iTech expands second Sabre gold shoot ahead of deeper drilling",
    "link": "https://stockhead.com.au/resources/itech-expands-second-sabre-gold-shoot-ahead-of-deeper-drilling/",
    "published_at": "2026-10-13T05:26:09+00:00",
@@ -19380,6 +19443,20 @@
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZnNxMTJGdzJ1ZTRaU3oyNVNDaFBLVmQ3NHp1N0lvVVZGTWtkRldRaTdiQTU5NmVWWG42STlTUDJSeHk4XzRGdDdxbEkxRHVQQjZvc21LZl9GWFYwNFlKM2dUME5KM3hMc21KMUxibVBlV3kyM2JfejBMYmlMX0lRQQ?oc=5",
    "published_at": "2026-10-10T08:01:00+00:00",
    "first_seen": "2026-10-11T10:23:31.068576+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Estados e municípios poderão apoiar fiscalização da mineração por cinco anos em nova parceria com a ANM - Revista Amazônia",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQcWM5czJjZlRBamYyUlRXNDQ1dFlQZ3dyOGdvbzlXaGxGQV9YNmdHS3JxVEF3TkF6SjRBbFNPWU5DdXFYZ3daamV3RnZXM2hqTGNmRGFleTFPUlBHSnMteHNqMGlxSWQzb21qX3BseFJjdTluWnF3bnhUQlN0T01wWlZBc24zTm55QTlQMnZ3?oc=5",
+   "published_at": "2026-10-10T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:06.092453+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -25321,6 +25398,22 @@
    "brasil": 1
   },
   {
+   "title": "Mineradora americana estuda exploração e refino de lítio no Sertão Central do Ceará - O POVO+",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOFhRazRweXBrT0xFN1Bvam9ZT3lhT0REazhaY1BWa0hGaFNyYnZBNkpqczV3RUFpX1M5aVRYMTByTjNaREdnRUdfU0VudEZzY0FwcTlnTElEY2lEQzFRYkpDdlFhU3I2OFJuOWFHa3ZWaWhSVl91d2VzRE1jZEE4VGNCYWU0VU11NXZaQjZCVFJnOTNGVEtNMG5IbjRiZjFIQUFRZEotaTJMZXB6bC1fcWtxc3ZSR0RxTUxkMUtaeDZITzNjdDFtZ2xQdHpIQ3lMOWs0T2dKMjQ?oc=5",
+   "published_at": "2026-10-03T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:05.650415+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Brazil Rare Earths Processing China US Investment 2026 - rareearthexchanges.com",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNVEtIMkY2d29aV25WUTJjQkRQM21yYVlrZkJfQWE3TzF2MVMwek1hanNtcmJKNGMwdGt4eFJhMkZkQ19OWHl4MVgwU2k2RW03NDV5X2t2T2tSUWJZcEFBbFFkQnBVRW03VVpqZ2swZ0ZuSk10R3dIc04xYXFpa2pMSQ?oc=5",
    "published_at": "2026-10-03T03:15:47+00:00",
@@ -27822,6 +27915,36 @@
    "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQb2ZRVWJ0MmdZMGttM3JodTRGNkdBbDdrcndiS0F0Q05NSjBtWHV6VE1obHQzY0NsdE9ycktaQ255RFNLaWlnejRuMEVHVEdCQzFsWkhiTDdxN0loLWFyZXJwZ3J6dGNlTC1kUWU0MkZyWG9jWUdxaERKbFdYeGNSVkQ4N012Q1dnYzBmcTZETW56S1dWaEFLYVNHcUJoaVVZTVZ6Q0txTmtvcUdRWFBRWUgyVlQwWE5aZnRBTjlvWHhXWGhmaWpRNmVRYmh5TFJvdmFzanowVEp0WmxlMzZUaWUwcVBWSmNnU09WZ9IB-wFBVV95cUxNa0hncWR6V1NqNUtjSTJXaHVIVVRxSWhKV21zamRpdHFQLUotaERwamtmVmNOc1FkZUFvLVJLTS1pTWF1T2tpdFdMczFpQXZGeHl1dFZIMFVpZ2lnZXBSZWdKMmRJQ0NqclM4VmVCVnFjeURqVjBSbFdKZnpGbTZnWmV4eEhvSXQtQWdRLXNCVEg5aFN3Ym5lUHNZVk80dUlyOENSNHVQNURvUTlPZjVZWENrNnR0WnZ6anRxWEIyT01NcU1QeWN3ZWV1U1EyZjBLTXgyVnRfeEVXRk9nZVVGQlRVYzNtX0RoNUprMHh4a0otTFVGR0F0bEUzUQ?oc=5",
    "published_at": "2026-10-01T07:00:00+00:00",
    "first_seen": "2026-10-28T10:07:01.030870+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Rivaz, dos EUA, mira 200 mil toneladas de lítio e refinaria inédita no Ceará - Movimento Econômico",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOR1VFRW1TZGdFRXFjaVJFNk1FYkp2Nnk1dE9WNkc0d1BjSTRjNllwV2lCSmFDekpuMVNDc3BDd2c5anlVTFlwSWpQYlR4bGc0Z0JUYmJsV3lpX3I0U2d3ZS1TUlA1TG43NlF1VXB5ZkY0VVludHB4T3FTYmtSQl9PRGVaSGtPck1BT1FvNUd5aThoWGs2TGo0UTRDTk9veHFxSUh4TXZxUVhGSzAzcVFLWlZic0FmSzJvWnR2VHFCMms1VmZKZmNPczBzYzRKUEE?oc=5",
+   "published_at": "2026-10-01T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:05.652813+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "ANM cobra mais de R$ 38 milhões da AMG Brasil por compensação da exploração mineral em Nazareno - G1",
+   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQb2ZRVWJ0MmdZMGttM3JodTRGNkdBbDdrcndiS0F0Q05NSjBtWHV6VE1obHQzY0NsdE9ycktaQ255RFNLaWlnejRuMEVHVEdCQzFsWkhiTDdxN0loLWFyZXJwZ3J6dGNlTC1kUWU0MkZyWG9jWUdxaERKbFdYeGNSVkQ4N012Q1dnYzBmcTZETW56S1dWaEFLYVNHcUJoaVVZTVZ6Q0txTmtvcUdRWFBRWUgyVlQwWE5aZnRBTjlvWHhXWGhmaWpRNmVRYmh5TFJvdmFzanowVEp0WmxlMzZUaWUwcVBWSmNnU09WZw?oc=5",
+   "published_at": "2026-10-01T07:00:00+00:00",
+   "first_seen": "2026-11-03T11:28:06.090792+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

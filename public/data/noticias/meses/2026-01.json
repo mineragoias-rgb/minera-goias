@@ -1,6 +1,6 @@
 {
  "mes": "2026-01",
- "materias": 28,
+ "materias": 29,
  "itens": [
   {
    "title": "China’s rare-earth chokehold terrifies the West, but Brazil benefits - The Economist",
@@ -192,6 +192,20 @@
    "setorial": 1,
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Unidade Avançada da ANM em Criciúma — Agência Nacional de Mineração - GOV.BR",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAza0VuRzBYd3BISWh5a3JWVVNYUmwyeDlZWGZkM1Z2cmJXZW93Y1Y4VkFIV0RhdTF3ZG9MQldNTmMtNl91Q1hBN05qWUJCODhnVEUxZi02ZEJoZUF5V0wwb3BBcmJGTnh4N2FaMGdvYWZzd3M2SU1KNjY4R2gxYk0?oc=5",
+   "published_at": "2026-01-19T21:13:45+00:00",
+   "first_seen": "2026-11-03T11:28:06.886202+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
