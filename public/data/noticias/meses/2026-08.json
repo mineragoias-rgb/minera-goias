@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 316,
+ "materias": 317,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -637,6 +637,22 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "EUA avançam sobre mineradora de terras raras em Goiás e acendem alerta sobre soberania brasileira - 082noticias.com",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNU19zZTRGMFJfb0F4MXlTeEhPNjVnbzMwVnc3WWJ3WWtSWnVfSTRoWktid3lEU2dxZzcxYjFRTDdVTFZ2eFgzX2hPNm1yZ2htMWtXU25faXE4NVlVc2FoWkd2QmtVYjBBcS0teFdvQVBfV0Y0MzhqcUdOVVFaSE1LYld4czRoa2sxQmlUenNSSWRaRGlROGZMN0ZNOGJSNUNwVTIzRlZaaVhfYnU2eTgyb1ZCZnRyU3hDMUItYVB1aFA0a0ZFU1czb01Icw?oc=5",
+   "published_at": "2026-08-28T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.770983+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [

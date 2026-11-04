@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 56,
+ "materias": 58,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -177,6 +177,20 @@
    "brasil": 1
   },
   {
+   "title": "Acordo entre Goiás e EUA prevê exclusividade e sigilo no fornecimento de dados de minerais críticos - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOeVRVblYwWnhHdW5tMDRlaGtkM2ZDdU1CZ0ZzaW9Dc1Q2Wi12NDFSWFA3dkQzWVdvVkFtdjBhM1F4S002MWdaR01kczRwOGRiZVRKZE1pUUJnbUZuSS1CMVRwUzh2QnpGdEx3cTRRdHl2N010OHRlYUJ6WmJXYTQ4RTF6M2VoRmZ6aFJza1BjMV8teGliQ0pxWUE4VXlSblBlb2tyWnoxTmt4Vnc3ekFKWW16bkk2cGtuQ0xjWTJ0SUZxeUxKT3FhYzF1VjMxUXZQQ0Fzcm1RSFZrV0JRWkVWWGttWTZvQdIB6wFBVV95cUxORUo3bkdHbGEtNl9LNndsQjhwZU5rUG9ROWJlUGhYT196MlB5SGw4R0xEbUl1LU1pT0ZaN3RKazZWWWx5cDAzT2xEeDdTSGVRTHZCS1pwRTFlN0gxbzdhZ2dPXzd3ajhkQUY1MnhKQVItZ1hfYnhLZFBUWWxIR01oRHhPdUNjNU5YT0xNSXRWMjh5MEZPeFk5NVBqa2lKSlZGbXNKVTU3dHdETGl5bm8yaTByN2Vlam5yUWlQeU5tSmdNeHNJMGZTSU41dHdwcXBvV1E3WmVrT041TGJvalIyRnY3RGYxT1hjNUxN?oc=5",
+   "published_at": "2026-03-24T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.773857+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Comissão aprova repasse de parte dos royalties da mineração a projetos ambientais locais - Portal da Câmara dos Deputados",
    "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPQnpvczNSbHYyWWh2UUZ2SjFScXd2RWNfLWsyaXFwMW9fRVcxNW9PY3ZhUUFaRWVwTUVQUTZHb0MyQ09OYzlDaHZqQWlaeFFJY1ZnWXZhbUJSTFJjcV9wTzBsUVRoMVBwWlhHMVltS1lsYnJYVGxvWUZtakRpTW1hYkZvVmdncEFwOVEtNURybnU2OWVadlVfX1JDeE5ZN2owcDFCdHhxaG5NQ1p1cUZuZEkxVnB3QzN2OXNpRl9ldk5XOGs4ZHRPWUg2WQ?oc=5",
    "published_at": "2026-03-23T07:00:00+00:00",
@@ -304,6 +318,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Acordo assinado entre Goiás e governo dos EUA prevê compartilhar mapeamento de minerais críticos - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOeHhfQUt2UlA0RGhjc2ZMVGxmSDBleG8xS3J4UkFpaGRBbjRLYVZJRF93dDdoQ2sxckRBbXZDUUFBYXd1Z2NPazVLOWphV1VKTF9EaHByZC1KTlNCaXEyZGhOdnhXY1FoeDVGcnI1blpCbk5qSElXajF1MERIenpGZG1jX2VRSzhyNThYeGxraVlIbFg0ZVQwMlJKajlKakNBRlBzcDJwZzlaV0h5UV9aaTJnby1oUUdHczdqWktvbk5naHRacFRzcG1CNV9hSTBZQmNvTGZWdXlNWW95MGc4eWhB0gHnAUFVX3lxTE92TFpfblRDVmRhUjAxM2VBS1RSSHlfTzV1c2RnWkpqajhvdzZRNk9hLVp0UTFEcEpsNU1Wcng2TlNYUElSY2RkRlZkcmt0Q2NkaFpPWVJHSFB4Nnpic2hfTEQ0MWNpR3VrOFV3Z1N5XzVvcG5pRzZmbUZhNWNtODRIRDlkZWlJLUpKd0dzVXFPR1NfbUsxZWhCVllWLVMzOENvb09VQmNUX1E4bVNPclRaRExtRFF2UDNTZ0M1Rk5pN3N6a01OeFVxSng0OEp2MG9WNzhBb1B6dlVyS0p3SGNubGxQSWdwWQ?oc=5",
+   "published_at": "2026-03-19T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.773183+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {

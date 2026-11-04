@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1818,
+ "materias": 1819,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -3242,6 +3242,22 @@
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOQ2hKT2J2VHJkOEdNYVlEOTVERXBRRkxIUUE0VkRnekpJRDUybWdpUXJXZEFZM2VCU2JrTW9Wc2FCRVYtVG1XWGprcnRXa0NCTjNFb1JkbnhOLTUzSTl6eVlrTjhNbjN5ZlJZNnlMU3BSbGN5YklicEN1VVFiNnpmcFlQZVc2UFpmdTktMU02aHg5QW1wYjhWamdVZGs2QmNqdVlSOA?oc=5",
    "published_at": "2026-10-28T07:00:00+00:00",
    "first_seen": "2026-10-30T10:32:15.946160+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "TSMC Hunts for Rare-Earth-Free Tools After a Record $46.7 Billion Quarter - TIKR.com",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPT2ZjdjBiWmxkWDRicjhyWG5odTZIM09MV09HSlFVcG9sb1I0MkFzaWRjZjVVSGY3b3hwWDdCZ05fYUxhOFk3LVJTRmU5ZnE3ai02LVY1NVlpVlc0SC1vUXVyLUNSR1hKNjZ2TGpnVWo1dXYtN0RfaFpnS3B4UGZvNEtuMHh6eHBWZ0toYVp5aVB0NEhVUXVJdTJVZG9iT0JwcGxn?oc=5",
+   "published_at": "2026-10-28T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.604978+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

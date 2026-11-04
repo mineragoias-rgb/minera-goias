@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 170,
+ "materias": 176,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -557,6 +557,20 @@
    "brasil": 1
   },
   {
+   "title": "Estado rebate informações falsas sobre mineração na Chapada dos Veadeiros - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWkZWcEN6enBCX2tjTXFENmplNVhqMDFZSzFLZW9Ta1p2NWpHZFA3YUhrcWhtOTBCa2JIVFRnOC13Tmh1MnliRFEwZnA0VTVzcnJNV1ZXWUFYRnJzRWRkOTQtMnB5bmxvX2pZYS1RaExLSHVTeGtWUm5kOHlabWJIM3hqNHAxR3NPTW5wNktUTEhrczdTWWhNRXBZM0tBRmNweU8xeU43eWdkMkpkNk0wN0RQV3Q0RndH?oc=5",
+   "published_at": "2026-05-20T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.772631+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Lula quer atrair os Estados Unidos para explorar terras raras no Brasil e manda recado direto: minerais estratégicos são nossos e a produção precisa acontecer dentro do país",
    "link": "https://mineracaobrasil.com/lula-quer-atrair-os-estados-unidos-para-explorar-terras-raras-no-brasil-e-manda-recado-direto-minerais-estrategicos-sao-nossos-e-a-producao-precisa-acontecer-dentro-do-pais/?utm_source=rss&utm_medium=rss&utm_campaign=lula-quer-atrair-os-estados-unidos-para-explorar-terras-raras-no-brasil-e-manda-recado-direto-minerais-estrategicos-sao-nossos-e-a-producao-precisa-acontecer-dentro-do-pais",
    "published_at": "2026-05-19T15:54:20+00:00",
@@ -1103,6 +1117,22 @@
    "brasil": 1
   },
   {
+   "title": "Cade abre investigação sobre acordo bilionário de mineradora de terras raras de Uruaçu - Diário de Goiás",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPX2J2OFMwYncxMHNSdXo0T2dUV0lMSlJSNW9FWC1lcWZZYTBIdTllVk5XWFMzZXlwUUEtZURaaTNXeGpGTC1DcnpaMC1FMTZzT0VpR2xWRkg3SEFmU3R5NG10a2FfQloyRE16N2ozcUdSc0RlcFpLT09ERFNoOHAxRGx2QnRSWndCb3VTMDB0ekRwN3VrdnpVOW1RNkxOMWxXaklEQXdoV2M4d1VyamtWZnEyTnpCZ0dPOUJXVmRfZFA?oc=5",
+   "published_at": "2026-05-12T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.772185+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - infomoney.com.br",
    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPOVNEZFhva1hKc08xVk03YVQzTWtBczk5QnJWUnIxRlkxR3FyTnNjUlhjMWtEYlE4UEpRbFE1RWJ4MEhyNUt4WmFKRnpWSXNzRERxTXh5WEdZV3ZYSl8xMFcyWmQ2UmNyM0VZMGZvbUw3Y3VIM1hfWjlYSW1lMTFWakZHajl0eTZiQUt6bEMzR0d6a1RGMzRja2dwX3A0TVRId2JmT2Zrb9IBrAFBVV95cUxPMFltalJhOFJnZ1RidzdVR0plblM4eDVpcDZLRjRQR2NMNGM2Q19mRWlFN3FwY3dpR2k3SGFOek9FNTB6SjR2YnNsNlBtQXpYRWMxSzJabWlaTWdRSXZPRjM3UFg1UE12YUZUR3ZuMmtHekJVSlgwZ2t3dnhlbk03UmNOaXlfMExBaWotNDU2RGc4cWNoU3Q0dGN6ZDZGYzAxZ19LNTZGME1lZ25Q?oc=5",
    "published_at": "2026-05-11T07:00:00+00:00",
@@ -1282,6 +1312,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - InfoMoney",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPOVNEZFhva1hKc08xVk03YVQzTWtBczk5QnJWUnIxRlkxR3FyTnNjUlhjMWtEYlE4UEpRbFE1RWJ4MEhyNUt4WmFKRnpWSXNzRERxTXh5WEdZV3ZYSl8xMFcyWmQ2UmNyM0VZMGZvbUw3Y3VIM1hfWjlYSW1lMTFWakZHajl0eTZiQUt6bEMzR0d6a1RGMzRja2dwX3A0TVRId2JmT2Zrbw?oc=5",
+   "published_at": "2026-05-11T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:48.771610+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -1653,6 +1697,20 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae9c544abab47149b61d36da93af6cf&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T18:38:00+00:00",
    "first_seen": "2026-11-03T11:28:04.470739+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aeb19fe672c4916a392aeae0d0296d5&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.067315+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -2169,6 +2227,22 @@
    "brasil": 1
   },
   {
+   "title": "Ação judicial em Goiás quer barrar venda da Serra Verde à USA Rare Earth",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aeb19fe672c4916a392aeae0d0296d5&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
+   "published_at": "2026-05-08T08:17:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.069691+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Terras raras colocam Goiás no centro da disputa global por minerais estratégicos - badiinho.com.br",
    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02eW9FMnRCVGdrTkpaUmJBdXo5R19hT1hKeW9GMjRYR25nRTRpTUVielRMQkhoVU10UW9oOUwtN01mQUJwT2w5V3lHVmMtbHZDTFRfY1duMWE1RmF5TlMxMXpONGN2eG5VdnBsNkRKa2wwVmJGMnlQMdIBfkFVX3lxTE9SaWVCSTM3bloyenFuZ0tmOUc3Q2ppOXNjc2Ita2ZvOGJqbmU3SjJWSFMwMmtJQ1RSZmEtYUh3dFBNV19XbVFxZnd3SkNjZTVqa1pCS2NpX3lhV2JsSlE2X1lQNHlCa005Z1pyaW5obDN1SnJoQWxMWGV1aDBKdw?oc=5",
    "published_at": "2026-05-08T07:00:00+00:00",
@@ -2331,6 +2405,22 @@
    "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQY1R3VU1fR0JNTWV3OU55UGFlWWlydmVTNTcyT1FNUm4yYjI2QVZNQlpIdDZ2OGdSTzhqUkRiS0J1bEM3dTBidHFxUUNhdzhkY2dMaE9DWUk3UmcxNU1mcktrWnNUUHFCS2FRZmgxRzZqSENrNHFWc0ZCZE50S1liZmwwckU4MEhudDlRTVdnaTJZdF9LYUJxY0RITE92SzllcERJdlVQNHFhMXVfQkgzNlJJa1dVdFkwelRqOE1ObHg5U3hvUnRDaV9ORnhGeEJrSGNvdHItWkUtRjQwTDZ4YjJHeXZpcDU0YUJudWdMN01INjF4T3YwZ1dBU1RKOW1WTWlrQmdDMFF0dEE0YmZNNEZn0gGgAkFVX3lxTE1CMU5wN0tIV1Q3NDllMjJucW5mLXVKejZlUExvcXBIYUNWaTRtNnJSd0w5NzhVZFdheTVMYVFaTndJTFdJd1ZfT0szTkxGLUFzbXkzMWRuU0FsbmNYZmJHNjFTZ3NyY2lOTFVmbGg5alA2bi1QWXl5dU9FSFFQUlVqa0Jlc2k0Zk1wSVZkeW5sNV9NUkdJMXRacm1IQzZsZmFfRm1xbXRpX2VETG1zZHlGaHFDbFZqWHdWTUFGbHQwLXBRLWp4Vm1JMUViWndELUxKUnNYYW93cXhWRGhhaVpmUjJvVmtHQTJidW1WWEYwQUhyNDBLczY1ejlHZ2RXT1c4Q040R0dVYnFZd3FfQ19LMEpOVnllMkNCM0pZSmE5YQ?oc=5",
    "published_at": "2026-05-07T07:00:00+00:00",
    "first_seen": "2026-10-30T10:32:15.948125+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras (que não são terras nem raras) colocam Brasil no meio de 'guerra fria' entre EUA e China; veja 10 perguntas e respostas - G1",
+   "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxOLURBVnlSUDVudHhGWWlpTUgxYzZVZHJkSDBCZXpBd3RGamRNOWV6amFQMURUUE1nRUhYTFQ3aEowWGJpSU1Fc0JPbW9OOUFKRUtZaUVtVW00THVOWG5hZDd6b0RUMG4yMXVndl9PT3BiSHdiLW13Tm1ZdVJSc1lNdUt6Z0IwdkE3U25rNHkwUDlDV1ZLSm02SHk3VlNBOGdDMzhvcTd2aTdDMzBqY29ybWVwTE5UNGRYRzZ6Qm9vYkhDT1prZV9rckdiLXZzdFF0MkdSaTNwUlVSM1VaWFlxRGExQlFjTnRIX0tHODlMRXdwUXVoMjZXc25qMzhsYk1rdm5Mb2lUbXAxSFFlVXc40gGeAkFVX3lxTE14MG1HWk1feFQ5THpyN3QzU0UyUjA2R1ZBR000aWdWaW5xUklDdUNsb2lJeDVaT2licTZOZlNwSXdqSG83cFhjV3hQZUdURmdsamQzVVRNN01PM2VvZERBa0xEM1h3UG1WcUV5MmlpdXBxNXlRYlk1dTFXSDRia0JJbDNBbC04TXFycC1veVJWMTVKeExvd2R2N05CQkVhbmUtcVVzRzdBNEw4c05TTlRHUmd4VjF4VDA5SVNEeWtIWHkwYXpUUmttSmVKYlRXcjZ4ems3VzJjUVkwSXlNN253LWQtb0FXaHdlQWhPMTNYLTdLOUNMMGRGdEVqRGpCVXptNDJrWkx4cnJmVDh6R21yejVxYkRVbnlYSEdjcFE?oc=5",
+   "published_at": "2026-05-07T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.605581+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,

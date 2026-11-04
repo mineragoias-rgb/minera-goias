@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 46,
+ "materias": 48,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -167,6 +167,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Entenda o que são terras raras e minerais críticos - G1",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMWVtMFVyQjVRTHViSjZxa1hobmdnbkEyUkNQMGVuY2dzcjNURXQtbEFINmgzdmRCQnJ6dG1WdE9YXzJtS2lnNnYxOVhfLXZrbURjUGRNcVdkYnNXU0piVURVTE16bEdyZVZROXBJcWw2VXVsNUJIX2hEOTdyU3ZXeGczQ25kcFdvUldnNnhpUUVaQ0lqYS1EbUUzeVgwRmNRRmRSc9IBswFBVV95cUxPM1BkODU0QUxDdXZEZWJpT2dZdFFxYnE4bDI4VkUyRjhvYU5vWXplVktwb2d2cHdLQ0t4SFdiaWcyazh6R3pJdFRwRlhUZnhxMlk3YWN5Zy14STVHb1FIVk9iVFNMT05jWUdSVUd2TE1WUDNfM1ZQdDd2Rmd3ZFVtYzJ5ampBRC1UYUJUalJjVjZKTFZteFZ0bExHZXdGbmE1UndnUVdoWlU0OWtmYmd2eGRlVQ?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.606316+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -575,6 +591,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "EUA concedem empréstimo de US$ 565 milhões a mineradora brasileira de terras raras - G1",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYkN5Z0JhdjVKbklEc0Ywb2d3YXZiR21WOGducW1uSHIxOU9xczhpTmJGNERVZDU3b1p2R0FOeWJYX3VRWVNJV1JRVm9naHY4RlVmOHBFdG5pNkc4Tl9Jdi1VTUFFRXQ0QjFWdHFoZFhvNXFsQ0xKOXFQZHFwa2NBNm5oUzFUallJelQtelB6N1A1cWRHVUHSAaQBQVVfeXFMUFFZQ3BaaEI5dXNtcVVDZjY2NE9DNVgzSlRpU2RWSU5UWTlhM3JkTFoxZDNTMG53YjB6MlVyU2k4Y3dOUExudEs5dng2RkF6ZEoxd21fQW5keUxDbEJmTFVsN09KRUpXajB2TzhUX2czcjN3VEptS1FlUUNVMFdLVDFIQVctMzY1ZTE5SU5tVlV3UVFTVnRwQmhUTC1DWUFWRlAtU3k?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.606864+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

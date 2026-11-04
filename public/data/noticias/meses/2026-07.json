@@ -1,6 +1,6 @@
 {
  "mes": "2026-07",
- "materias": 113,
+ "materias": 114,
  "itens": [
   {
    "title": "ANM aprova novas alterações ao regime de Permissão de Lavra Garimpeira - Demarest",
@@ -306,6 +306,22 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras Raras: uma oportunidade para o Brasil - Academia Brasileira de Ciências (ABC)",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNDk0cHFHNk5wWHJMS0FGVUVSX2NwRzlwRW91VTMyS2MtY3dpVk1YMkNROUdpcXU0VGtYc1ROd1h6X3daY2s1RlJLMFNRSUVDei1ZaFdTSFVybGs4cktpdjB0M3Z5ZTE2cV9CbDNlYS1PMHBBSEpIUGlZbnRHQk5rWTYwU3JSdw?oc=5",
+   "published_at": "2026-07-28T07:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:50.388906+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
