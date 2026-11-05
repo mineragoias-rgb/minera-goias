@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1819,
+ "materias": 1821,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -257,6 +257,22 @@
     "cobre"
    ],
    "brasil": 0
+  },
+  {
+   "title": "Brazilian Nickel leva cursos a gestores públicos e apicultores do Piauí",
+   "link": "https://revistaminerios.com.br/cursos-de-apicultura-e-gestao-no-piaui/",
+   "published_at": "2026-10-30T19:46:00+00:00",
+   "first_seen": "2026-11-05T11:41:47.283348+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Revista Minérios",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ],
+   "brasil": 1
   },
   {
    "title": "Sergipe pode ampliar potencial mineral com pesquisas de terras raras - A8SE",
@@ -13552,6 +13568,22 @@
     "cobre"
    ],
    "brasil": 0
+  },
+  {
+   "title": "Terras raras em disputa - FecomercioSP",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9jRGxwSWMwX3B0VzB1MlhjQTBmRl9rVVpOT2Rsdmlrd3NBSVg1ekdndVkydTVWV082OWV6aUxaZUREcHJodmJnR1Z0dmtsaXl3czNWRmQ3OHlsQ2JJOVF2QnVmSFA3ZTgyWWdpbkhDSWcwUQ?oc=5",
+   "published_at": "2026-10-16T21:00:19+00:00",
+   "first_seen": "2026-11-05T11:42:42.921266+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Wagner Moura denuncia plano de Flávio e Trump para saquear terras raras do Brasil - Hora do Povo",

@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 144,
+ "materias": 147,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -978,6 +978,20 @@
    "brasil": 1
   },
   {
+   "title": "PSOL entra na Justiça para evitar venda de mineradora brasileira para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aec6bb270034ee88693b616360f9a9e&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fpsol-entra-na-justi%25C3%25A7a-para-evitar-venda-de-mineradora-brasileira-para-os-eua%2far-AA21zL5T&c=6157310145815943615&mkt=en-us",
+   "published_at": "2026-04-23T11:17:00+00:00",
+   "first_seen": "2026-11-05T11:42:42.337438+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Terras raras: a mina em Goiás comprada por uma firma dos EUA - Nexo Jornal",
    "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSzlqalI5RUVOQzBaUnZqbHRXalhOcFg1SGFpWExqZmQxUldmZDBYbGdrWWVkYlp3WXhRVzAwbzROVTdrRU5DUUpteGlUTDFZTHpiTjNqX040R0ZwTkFoa2tjc3RIUmswbHRnWVBrQjJOSm92S1plTGRkMEVwQUlOU1ZuVy13Rkc1eTZmQjh6SG9IR2k4N203T0FINWozODYxM1VRd0FBZWVuNS1oOF92cDRfbEZGWTFNRl9GaTJ1M2Q?oc=5",
    "published_at": "2026-04-23T07:00:00+00:00",
@@ -1768,6 +1782,38 @@
    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNGk0Tl9RVU5wMXVVbl9UaHZuR05ZNmdUV3lBMXpPNFZQNl9KeHF2WDE2Rk54UzJweFY4M2dTSlA2Yms5cHhWc2d4a3RHS2xFcjhsUlhGTTJVVlFlSnlVZGhLSzZHV1plbXJSRXhNVlJoa0tSSEVLcFl1bzIwQlJOYjIta1p0XzlqR2xkNDVGZnlTLTZpZlV3STBsOXDSAaIBQVVfeXFMUE1OUkNBT3V3M3JRQkRiNFFwQkJoMTVSZTFEbFpzakZmck5sSzhKaEMwcnVCaHFIY0I2Z1pvY2tkcC1vaW5GMWhzZ2MzRVpQak5EUndhVW53cHZDcGY1U05kdVBqX2k3Qk83R1prTVBJV1V6YW5nNkFLZjIxdW1MOGZldnIzTTBDN3VFMzItX0twajNsejBPSmpuOUM0SG1tSjNn?oc=5",
    "published_at": "2026-04-20T07:00:00+00:00",
    "first_seen": "2026-11-01T10:52:55.210493+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra mineradora brasileira de terras raras por US$ 2,8 bilhões - ISTOÉ DINHEIRO",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qb2FIVU9Za0NrRk1RR1VyX0V3QWJiQ0d1NWNnV1hCRVVOMXo5OUNrQjRrcEZyd3djN2FnV3pXNVFMUmJrdGdQdlFZWWkzbXVrWVBObmFab0hjdW5Yc0t6cEQwZlY?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-05T11:42:41.618002+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Donos da Serra Verde serão sócios de empresa americana e exportarão 100% das terras raras para agências dos Estados Unidos - Brasil 247",
+   "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQX1R4S1NReVNUb1NXYk4tcGpQVjUtQklWYU1KRUVScDlKLXdYMDYxNlo0d3lkUFhPaEFmUVRqTHBTTDA0b010LUhlcl9iUk94ZWxBTVVVMFNpWTVkb1lSeE9QdHprQnpBcGJTY2ozNmtyNzhLVEMzeG5UMFM0V25FY0VKaElRNHNaY3VNZGRvR2tGSDZpMWY2TGlBUmlESndnUXp6ck1VaGZxdGxGLVhia2xNeFhaMGtUZ1dZTUZWeXFJa3N0dHdxZ2U3ZXVkTmhIaE0wNXlJaFJDdExndktQdkJjZUFsaVZHVWlnbmxB?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-05T11:42:41.619005+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
