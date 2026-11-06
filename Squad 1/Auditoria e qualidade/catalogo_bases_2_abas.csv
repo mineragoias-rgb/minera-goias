@@ -1,0 +1,416 @@
+﻿base_id;arquivo;aba_camada_tabela;linhas;colunas;detalhe
+ANM_AMB_PROD_BRUTA;Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv;(arquivo único);6307;14;CSV, cp1252, separador ','
+ANM_AMB_PROD_BENEF;Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Beneficiada.csv;(arquivo único);3982;18;CSV, cp1252, separador ','
+ANM_CFEM;Squad 1/Dados brutos/ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv;(arquivo único);41079;14;"CSV, cp1252, separador ';'"
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Alvara_de_Pesquisa.csv;(arquivo único);8130;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Cessoes_de_Direitos.csv;(arquivo único);4049;11;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Guia_de_Utilizacao_Autorizada.csv;(arquivo único);654;9;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Licenciamento.csv;(arquivo único);1658;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/PLG.csv;(arquivo único);100;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Portaria_de_Lavra.csv;(arquivo único);1136;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Registro_de_Extracao_Publicado.csv;(arquivo único);43;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Relatorio_de_Pesquisa_Aprovado.csv;(arquivo único);1179;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Requerimento_de_Lavra.csv;(arquivo único);1237;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Requerimento_de_Licenciamento.csv;(arquivo único);924;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Requerimento_de_Pesquisa.csv;(arquivo único);1041;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Requerimento_de_PLG.csv;(arquivo único);1001;10;CSV, cp1252, separador ','
+ANM_SCM;Squad 1/Dados brutos/ANM - Cadastro Mineiro/Requerimento_de_Registro_de_Extracao_Protocolizado.csv;(arquivo único);27;10;CSV, cp1252, separador ','
+ANM_SIGMINE;Squad 1/Dados brutos/ANM - SIGMINE/GO.zip;GO;17644;12;shapefile de polígonos, codificação UTF-8
+ANM_INVEST_PESQUISA;Squad 1/Dados brutos/ANM - Investimento em pesquisa mineral/InvestimentoPesquisaMineralUf.csv;(arquivo único);14191;15;"CSV, cp1252, separador ';'"
+ANM_RODADAS;Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv;(arquivo único);31841;12;"CSV, utf-8-sig, separador ';'"
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Mineradoras_Goias_operacao_e_potencial.xlsx;Operacao_atual;0;0;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Mineradoras_Goias_operacao_e_potencial.xlsx;Potencial_futuro;0;0;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;00_Sumário;63;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;01_cfem_arrec_ano;5;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;02_cfem_arrec_ano_mes;5;13;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;03_cfem_arrec_municipio;184;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;04_cfem_arrec_substancia;54;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;05_cfem_municipio_x_ano;184;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;06_cfem_distrib_ano_ente;20;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;07_cfem_distrib_municipio;223;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;08_cfem_distrib_tipo;20;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;09_cfem_go_vs_brasil;5;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;10_cfem_ranking_ufs_2025;15;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;11_prod_bruta_ano;16;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;12_prod_bruta_sub_x_ano;32;18;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;13_prod_benef_ano;16;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;14_prod_benef_sub_x_ano;30;18;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;15_prod_benef_go_vs_br;16;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;16_barragens_go;23;15;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;17_barragens_matriz_risco;3;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;18_estoque_por_fase;13;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;19_estoque_por_substancia;385;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;20_estoque_por_municipio;242;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;21_estoque_fase_x_situacao;13;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;22_invest_pesquisa_ano_rubrica;23;14;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;23_invest_pesquisa_substancia;55;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;24_invest_pesquisa_municipio;97;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;25_invest_go_vs_brasil;23;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;26_tah_ano;37;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;27_tah_por_fase;10;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;28_agua_mineral_ano;16;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;29_agua_mineral_embalagem;16;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;30_repem_plano_atividade;11;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;31_repem_plano_ano;7;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;32_rodadas_disponibilidade;26;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;33_rodadas_por_municipio;229;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;34_shp_area_por_fase;5;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;35_shp_area_por_fase_detalhe;16;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;36_shp_area_por_substancia;111;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;37_agua_ano;16;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;38_agua_embalagem;6;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;39_agua_ranking_uf;27;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;40_agua_processos_municipio;72;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;41_agua_cfem_municipio;18;2;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;42_uso_substancia;22;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;43_uso_x_substancia;60;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;44_prod_bruta_classe;4;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;45_metal_contido;14;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;46_benef_2025;22;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;47_terras_raras_producao;3;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;48_rodadas_situacao;7;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;49_rodadas_modalidade;3;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;50_rodadas_maiores_lances;20;7;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;51_titulos_por_decada;7;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;52_titulos_ativos_inativos;2;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;53_repem_subatividade;13;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;54_repem_substancia;15;3;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;55_empresas_produtoras;654;11;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;56_produtoras_por_ano;20;6;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;57_lider_por_substancia;20;5;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;58_direito_de_lavra;1796;12;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;59_lavra_por_fase;4;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;60_lavra_ativa_ou_parada;2;4;planilha Excel
+ANM_PLANILHAS_DERIVADAS;Squad 1/Dados brutos/ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx;61_pesquisa_titulares;2298;6;planilha Excel
+IBGE_MALHA_MUN;Squad 1/Dados brutos/IBGE - Malha municipal 2025/GO_Municipios_2025.zip;GO_Municipios_2025;246;15;shapefile de polígonos, codificação UTF-8
+IBGE_LIMITE_UF;Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip;GO_UF_2024;1;7;shapefile de polígonos, codificação cp1252
+IBGE_POP;Squad 1/Dados brutos/IBGE - População e PIB (SIDRA)/populacao_goias_ultimo_ano.json;valores (API SIDRA);1;11;"JSON do SIDRA; unidade publicada: Pessoas"
+IBGE_POP;Squad 1/Dados brutos/IBGE - População e PIB (SIDRA)/populacao_municipal_goias_ultimo_ano.json;valores (API SIDRA);5572;11;"JSON do SIDRA; unidade publicada: Pessoas"
+IBGE_PIB;Squad 1/Dados brutos/IBGE - População e PIB (SIDRA)/pib_municipal_goias_ultimo_ano.json;valores (API SIDRA);5571;11;"JSON do SIDRA; unidade publicada: Mil Reais"
+SGB_RECMIN;Squad 1/Dados brutos/SGB - RECMIN/ocorrencias_recursos_minerais_GO.geojson;features;2586;35;GeoJSON (Point)
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip;Folha_Goias_PLGB;647;52;shapefile de pontos, codificação UTF-8
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip;Geoquímica - Projeto Folha Goiás (PLGB)/Folha Goias (PLGB) - Geoquimica de Rocha.xlsx;;;documento/imagem dentro do zip
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip;Geoquímica - Projeto Folha Goiás (PLGB)/Folha Goias (PLGB) - Geoquimica de Sedimento de Corrente.xlsx;;;documento/imagem dentro do zip
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip;Geoquímica - Projeto Folha Goiás (PLGB)/Folha Goias (PLGB) - Mineralometria de Concentrado de Bateia.xlsx;;;documento/imagem dentro do zip
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip;Geoquímica - Projeto Folha Goiás (PLGB)/LEIA_ME Folha Goiás (PLGB).pdf;;;documento/imagem dentro do zip
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_metalogenia_oeste_de_goias_2017.zip;Geologia_e_Metalogenia_do_Oeste_de_Goias;1932;53;shapefile de pontos, codificação UTF-8
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_metalogenia_oeste_de_goias_2017.zip;Geologia e Metalogenia da Porç╞o Oeste de Goias - Resultados Analíticos.xlsx;;;documento/imagem dentro do zip
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_noroeste_de_goias.zip;Noroeste_de_Goias;710;53;shapefile de pontos, codificação UTF-8
+SGB_GEOSGB_GEOQUIMICA;Squad 1/Dados brutos/SGB - GeoSGB geoquímica/geoquimica_noroeste_de_goias.zip;Noroeste de Goiás - Resultados Analíticos.xlsx;;;documento/imagem dentro do zip
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Afloramentos Geológicos (vw_cprm_aflor_geo).zip;vw_cprm_aflor_geo;41677;17;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Afloramentos SIG.zip;vw_cprm_go_aflor;32562;33;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Cenozoic Inset SIG (vw_cprm_tmsa_cenoz_inset).zip;vw_cprm_tmsa_cenoz_inset;3;3;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Contato Atlas Hidrogeológico (vw_cprm_cont_a_hidrog).zip;vw_cprm_cont_a_hidrog;1661;5;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Continent Structure Inset SIG (vw_cprm_tmsa_cont_str_inset).zip;vw_cprm_tmsa_cont_str_inset;25;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Continent Structure SIG (vw_cprm_tmsa_cont_str).zip;vw_cprm_tmsa_cont_str;148;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Craton Terranes Limits Inset SIG (vw_cprm_tmsa_crat_terr_lim_inset).zip;vw_cprm_tmsa_crat_terr_lim_inset;6;2;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Craton Terranes Limits SIG (vw_cprm_tmsa_crat_terr_lim).zip;vw_cprm_tmsa_crat_terr_lim;6;2;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Estruturas SIG.zip;vw_cprm_go_estr;7112;6;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Fauts SIG (vw_cprm_gmsa_fauts).zip;vw_cprm_gmsa_fauts;135;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Folhas 1_100.000.zip;vw_cprm_cartas_anomalia;860;10;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Geocronologia.zip;vw_cprm_geocron;3158;9;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Geology SIG (vw_cprm_gmsa_geology).zip;vw_cprm_gmsa_geology;200;11;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Isopachs SIG (vw_cprm_tmsa_isopacjs).zip;vw_cprm_tmsa_isopacjs;4;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Kimberlite Clusters SIG (vw_cprm_gmsa_kimb_cluster).zip;vw_cprm_gmsa_kimb_cluster;5;2;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Kimberlites SIG (vw_cprm_tmsa_kimberlits).zip;vw_cprm_tmsa_kimberlits;197;5;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Litologia SIG.zip;vw_cprm_go_lito;6695;47;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Ocorrências Fossilíferas (vw_cprm_ocorr_fossi).zip;vw_cprm_ocorr_fossi;142;37;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Petrografia (vw_cprm_petrogf).zip;vw_cprm_petrogf;1888;31;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Petrografia SIG.zip;vw_cprm_go_petrografia;1790;21;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Plate SIG (vw_cprm_gmsa_plate).zip;vw_cprm_gmsa_plate;1;2;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Polígono Atlas Hidrogeológico (vw_cprm_pol_a_hidrog).zip;vw_cprm_pol_a_hidrog;656;35;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Províncias Estruturais (vw_cprm_provincias_estruturais).zip;vw_cprm_provincias_estruturais;6;6;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Rimas (vw_cprm_pocos_rima).zip;vw_cprm_pocos_rima;45;61;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Siagas (vw_cprm_pocos_siagas).zip;vw_cprm_pocos_siagas;10118;31;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Suture Zones Inset (vw_cprm_tmsa_sutures_zones_inset).zip;vw_cprm_tmsa_sutures_zones_inset;5;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Suture Zones SIG (vw_cprm_tmsa_suture_zones).zip;vw_cprm_tmsa_suture_zones;7;3;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Tec Units SIG (vw_cprm_tmsa_tec_units).zip;vw_cprm_tmsa_tec_units;194;3;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/1- Geologia/Tectonic Units Inset SIG (vw_cprm_tmsa_tec_units_inset).zip;vw_cprm_tmsa_tec_units_inset;4;3;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/2- Geofísica/Levantamento Aerogeofísico 1000.zip;vw_cprm_lev_aerogf_1;141;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/2- Geofísica/Levantamento Aerogeofísico 2000.zip;vw_cprm_lev_aerogf_2;33;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/2- Geofísica/Levantamento Aerogeofísico 3000.zip;vw_cprm_lev_aerogf_3;93;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/2- Geofísica/Levantamento Aerogeofísico 4000.zip;vw_cprm_lev_aerogf_4;128;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Concentrado de bateia (vw_cprm_geoq_concentrado_de_bateia).zip;vw_cprm_geoq_concentrado_de_bateia;1838;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Contagem de Pintas Au (vw_cprm_geoq_contagem_de_pintas_au).zip;vw_cprm_geoq_contagem_de_pintas_au;431;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Geoquímica (vw_cprm_geoquimica).zip;vw_cprm_geoquimica;10770;153;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Geoquímica de Baixa Densidade (vw_cprm_geoq_b_d).zip;vw_cprm_geoq_b_d;1740;78;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Geoquímica SIG (1).zip;vw_cprm_go_geoquim;27347;38;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Mineralometria (vw_cprm_geoq_mineralometria).zip;vw_cprm_geoq_mineralometria;4310;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Outros (vw_cprm_geoq_outros).zip;vw_cprm_geoq_outros;204;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Rocha (vw_cprm_geoq_rocha).zip;vw_cprm_geoq_rocha;7057;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Sedimento de Corrente (vw_cprm_geoq_sedimento_de_corrente).zip;vw_cprm_geoq_sedimento_de_corrente;18365;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/3- Geoquímica/Solo (vw_cprm_geoq_solo).zip;vw_cprm_geoq_solo;2012;15;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Afloramentos de Kimberlito (vw_cprm_aflor_kimb).zip;vw_cprm_aflor_kimb;744;20;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Distritos Auríferos.zip;vw_cprm_au_dist_br;94;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Minerais Indicadores (vw_cprm_min_indic_d).zip;vw_cprm_min_indic_d;2483;17;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Ocorrências de Diamantes (vw_cprm_ocorr_diamante).zip;vw_cprm_ocorr_diamante;375;14;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Ocorrências Minerais.zip;vw_cprm_ocorr_min;36484;34;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Potencial Mineral SIG.zip;vw_cprm_go_pot_min;146;9;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Províncias Auríferas (vw_cprm_au_prov_br).zip;vw_cprm_au_prov_br;6;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Química Mineral (vw_cprm_quim_min_d).zip;vw_cprm_quim_min_d;5388;25;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Recursos Minerais PDAC - 2024.zip;vw_cprm_pdac_rec_min_2024;431;25;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Recursos Minerais SIG Lítio.zip;vw_cprm_litio_recmin;46;10;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Recursos Minerais SIG Urânio.zip;vw_cprm_u_rec_min;236;37;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/4- Recursos minerais/Recursos Minerais SIG.zip;vw_cprm_go_rec_min;1692;28;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Ativos SGB (projetos CINFO) (mvw_ativos_sgb_cinfo).zip;mvw_ativos_sgb_cinfo;14;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Barragens de Mineração (vw_anm_barg_min).zip;vw_anm_barg_min;52;99;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Empreendimento Mineiro SIG.zip;vw_cprm_go_emprend_mineiro;1454;24;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Guia de Utilização (mvw_guia_utilizacao).zip;mvw_guia_utilizacao;1116;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Minas Ativas (mvw_minas_ativas_grp).zip;mvw_minas_ativas_grp;1159;16;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Processos Minerários ativos (mvw_processos_minerarios_ativos).zip;mvw_processos_minerarios_ativos;25631;12;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Reservas Garimpeiras (vw_anm_reserv_garip).zip;vw_anm_reserv_garip;2;3;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/5- Atividade mineira/Servidões Minerárias (vw_anm_svd_min).zip;vw_anm_svd_min;355;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Aldeias Indígenas (vw_funai_aldeias).zip;vw_funai_aldeias;200;13;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Amazônia Legal (vw_ibge_amaz_legal).zip;vw_ibge_amaz_legal;394;13;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 1 (vw_ana_bho_ach_lv3).zip;vw_ana_bho_ach_lv3Polygon;38;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 2 (vw_ibge_bacia_hidro_2).zip;vw_ibge_bacia_hidro_2;3;32;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 3 (vw_ibge_bacia_hidro_3).zip;vw_ibge_bacia_hidro_3;5;32;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 4 (vw_ibge_bacia_hidro_4).zip;vw_ibge_bacia_hidro_4;16;32;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 5 (vw_ibge_bacia_hidro_5).zip;vw_ibge_bacia_hidro_5;92;32;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Bacias Hidrográficas - Nível 6 (vw_ibge_bacia_hidro_6).zip;vw_ibge_bacia_hidro_6;421;32;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Base Contínua de Vegetação do Brasil (vw_ibge_veg_br).zip;vw_ibge_veg_br;16949;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Biomas (vw_ibge_biomas).zip;vw_ibge_biomas;3;4;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Cavidades Naturais Subterrâneas (vw_icmbio_cav_nat).zip;vw_icmbio_cav_nat;2048;18;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Cobertura e Uso do Solo (vw_ibge_cob_uso_ter).zip;vw_ibge_cob_uso_ter;649839;11;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Com 100 mil a 300 mil Habitantes (vw_ibge_aurb_100a300hab).zip;vw_ibge_aurb_100a300hab;75;8;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Com Mais de 300 mil Habitantes (vw_ibge_aurb_mais300hab).zip;vw_ibge_aurb_mais300hab;537;8;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Densidade Populacional (vw_ibge_dens_pop).zip;vw_ibge_dens_pop;393;8;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Desenvolvimento Humano (IDH) (vw_ibge_idh).zip;vw_ibge_idh;7;9;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Faixa de Fronteira (vw_ibge_faixa_front).zip;vw_ibge_faixa_front;394;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Gini (vw_ibge_ind_gini).zip;vw_ibge_ind_gini;7;10;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/GO_UF_2024.zip;GO_UF_2024;1;7;shapefile de polígonos, codificação cp1252
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Ilhas (vw_ibge_ilhas).zip;vw_ibge_ilhas;291;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Macrorregiões Hidrográficas (vw_ibge_macro_hidro).zip;vw_ibge_macro_hidro;6;6;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Malha Estadual (vw_ibge_lim_uf).zip;vw_ibge_lim_uf;7;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Malha Municipal (vw_ibge_lim_mun).zip;vw_ibge_lim_mun;394;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/MATOPIBA (vw_ibge_matopiba).zip;vw_ibge_matopiba;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mensal (vw_ibge_valor_rend_nom_med_mensal).zip;vw_ibge_valor_rend_nom_med_mensal;393;35;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mensal das Pessoas Maiores de 10 Anos (vw_ibge_valor_rend_nom_med_mensal_10_mais).zip;vw_ibge_valor_rend_nom_med_mensal_10_mais;393;18;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mensal das Pessoas Maiores de 10 Anos Com Rendimento no Trabalho Principal (vw_ibge_valor_rend_nom_med_mensal_10_mais_rend_trab_princ).zip;vw_ibge_valor_rend_nom_med_mensal_10_mais_rend_trab_princ;392;11;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mensal dos Domicílios Particulares Permanentes (vw_ibge_valor_rend_nom_med_mens_mun_par_perm).zip;vw_ibge_valor_rend_nom_med_mens_mun_par_perm;393;11;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mesorregião Geográfica (vw_ibge_lim_mesor).zip;vw_ibge_lim_mesor;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Mesorregiões Hidrográficas (vw_ibge_meso_hidro).zip;vw_ibge_meso_hidro;9;8;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Microrregião Geográfica (vw_ibge_lim_micror).zip;vw_ibge_lim_micror;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Microrregiões Hidrográficas (vw_ibge_micro_hidro).zip;vw_ibge_micro_hidro;29;10;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Produto Interno Bruto (vw_ibge_pib).zip;vw_ibge_pib;394;25;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Projetos de Assentamento Federal (vw_incra_ast_fed).zip;vw_incra_ast_fed;619;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Projetos de Assentamento Reconhecimento (vw_incra_ast_rec).zip;vw_incra_ast_rec;1;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Projetos de Assentamento Total (vw_incra_ast).zip;vw_incra_ast;621;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Proteção Integral (vw_mma_uc_pi).zip;vw_mma_uc_pi;55;31;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Região Geográfica Imediata (vw_ibge_lim_imed).zip;vw_ibge_lim_imed;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Região Geográfica Intermediária (vw_ibge_lim_intermed).zip;vw_ibge_lim_intermed;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Regiões (vw_ibge_lim_macror).zip;vw_ibge_lim_macror;4;5;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Rios - Massa D'água (vw_ibge_m_dagua).zip;vw_ibge_m_dagua;3205;9;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Rios - Trechos (vw_ibge_rios).zip;vw_ibge_rios;95894;8;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Semiárido (vw_ibge_semiarido).zip;vw_ibge_semiarido;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/SIGEF Privado (vw_incra_sigef_prv).zip;vw_incra_sigef_prv;25241;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/SIGEF Público (vw_incra_sigef_pbl) - parte 1 de 2.zip;vw_incra_sigef_pbl;78874;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/SIGEF Público (vw_incra_sigef_pbl) - parte 2 de 2.zip;vw_incra_sigef_pbl;78873;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Solos (vw_embrapa_solos).zip;vw_embrapa_solos;259;18;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Sítios Arqueológicos (vw_iphan_sitio_arq).zip;vw_iphan_sitio_arq;1449;16;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Terras Indígenas (vw_funai_ter_indg).zip;vw_funai_ter_indg;17;18;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Uso Sustentável (vw_mma_uc_us).zip;vw_mma_uc_us;205;31;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Zonas Climáticas (vw_ibge_zon_clim).zip;vw_ibge_zon_clim;27;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Área de Atuação da SUDENE (vw_ibge_sudene).zip;vw_ibge_sudene;394;7;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/6- Cartografia/Áreas de Quilombolas (vw_incra_area_qlb).zip;vw_incra_area_qlb;13;24;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Furos de sondagem (vw_cprm_furos_sondagem).zip;vw_cprm_furos_sondagem;227;23;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Levantamento Litoestratigráfico Escala 1-1.000.000 (vw_cprm_lev_litostrat_1000000).zip;vw_cprm_lev_litostrat_1000000;5702;30;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Levantamento Litoestratigráfico Escala 1-100.000 (vw_cprm_lev_litostrat_100000).zip;vw_cprm_lev_litostrat_100000;5312;25;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Levantamento Litoestratigráfico Escala 1-2.500.000 (vw_cprm_lev_litostrat_2500000).zip;vw_cprm_lev_litostrat_2500000;232;26;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Levantamento Litoestratigráfico Escala 1-250.000 (vw_cprm_lev_litostrat_250000).zip;vw_cprm_lev_litostrat_250000;1673;30;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapa Índice dos Mapas Geológicos Estaduais (vw_crpm_mapa_indc_geologico_est).zip;vw_crpm_mapa_indc_geologico_est;7;15;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapeamentos 1-1.000.000 (vw_cprm_map_geo_1m).zip;vw_cprm_map_geo_1m;4;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapeamentos 1-100.000 (vw_cprm_map_geo_100k).zip;vw_cprm_map_geo_100k;112;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapeamentos 1-25.000 (vw_cprm_map_geo_25k).zip;vw_cprm_map_geo_25k;13;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapeamentos 1-250.000 (vw_cprm_map_geo_250k).zip;vw_cprm_map_geo_250k;25;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Mapeamentos 1-50.000 (vw_cprm_map_geo_50k).zip;vw_cprm_map_geo_50k;31;14;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/7- Pesquisa/Modelamento 3d (vw_cprm_modelamento_3d).zip;vw_cprm_modelamento_3d;2;16;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Aeroportos (vw_ibge_complex_aero).zip;vw_ibge_complex_aero;8;16;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Aeródromos (vw_ibge_aerodromo).zip;vw_ibge_aerodromo;95;12;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Barragens (vw_ibge_hid_barg).zip;vw_ibge_hid_barg;17;8;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Base de Combustíveis Líquidos (vw_epe_base_combust).zip;vw_epe_base_combust;21;8;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Base de Gás Liquefeito de Petróleo (vw_epe_bases_glp).zip;vw_epe_bases_glp;11;8;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Biodiesel (vw_epe_plt_biod).zip;vw_epe_plt_biod;9;13;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Biogás (vw_epe_plt_met).zip;vw_epe_plt_met;2;13;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Blocos Exploratórios (vw_anp_bloco_expl).zip;vw_anp_bloco_expl;2;16;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Central Geradora Hidrelétrica (vw_epe_cgh_exist).zip;vw_epe_cgh_exist;15;11;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Estadual e Distrital (vw_ibge_rdv_est_dist).zip;vw_ibge_rdv_est_dist;3021;19;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Etanol (vw_epe_plt_et).zip;vw_epe_plt_et;73;13;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Existentes (vw_epe_lin_trans_exist).zip;vw_epe_lin_trans_exist;156;11;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Federal (vw_ibge_rdv_fed).zip;vw_ibge_rdv_fed;1418;19;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Ferrovias (vw_infra_ferrov).zip;vw_infra_ferrov;92;11;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Helipontos (vw_ibge_helipt).zip;vw_ibge_helipt;25;12;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Hidrovias Vias Economicamente Navegáveis - VEN (vw_antaq_ven).zip;vw_antaq_ven;3;26;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Limite das Bacias Sedimentares (vw_anp_bac_sed).zip;vw_anp_bac_sed;4;9;shapefile de polígonos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Municipal (vw_ibge_rdv_mun).zip;vw_ibge_rdv_mun;1767;19;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Oleodutos (vw_infra_dutovia_oldt).zip;vw_infra_dutovia_oldt;5;28;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Outras (vw_ibge_rdv_out).zip;vw_ibge_rdv_out;4764;19;shapefile de linhas, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Pequena Central Hidrelétrica (vw_epe_pch_exist).zip;vw_epe_pch_exist;44;11;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Pista de Pouso (vw_ibge_pista_pouso).zip;vw_ibge_pista_pouso;39;12;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Portos (vw_antaq_inst_portu).zip;vw_antaq_inst_portu;16;33;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Poços (vw_anp_pocos).zip;vw_anp_pocos;72;65;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Subestação (vw_epe_sub_exist).zip;vw_epe_sub_exist;53;8;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Termelétrica a Biomassa (vw_epe_ute_bio_exist).zip;vw_epe_ute_bio_exist;44;11;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Termelétrica a Combustível Fóssil (vw_epe_ute_fos_exist).zip;vw_epe_ute_fos_exist;5;11;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Terminais Ferroviários (vw_infra_term_ferrov).zip;vw_infra_term_ferrov;33;4;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Terminais Portuários (vw_infra_term_portu).zip;vw_infra_term_portu;3;10;shapefile de pontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Terminal de Armazenamento e Distribuição de Petróleo e Derivados (vw_epe_term_petro_deri).zip;vw_epe_term_petro_deri;5;10;shapefile de multipontos, codificação UTF-8
+SGB_P3M;Squad 1/P3M/Original/8- Infraestrutura/Usina Hidrelétrica (vw_epe_uhe_exist).zip;vw_epe_uhe_exist;26;11;shapefile de multipontos, codificação UTF-8
+CCEE_CARGA;Squad 1/dados/CCEE/parcela_carga_consumo_2024_GO.csv;(arquivo único);8820;18;"CSV, utf-8-sig, separador ';'"
+CCEE_CARGA;Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv;(arquivo único);13680;18;"CSV, utf-8-sig, separador ';'"
+CCEE_CARGA;Squad 1/dados/CCEE/parcela_carga_consumo_2026_GO.csv;(arquivo único);8245;18;"CSV, utf-8-sig, separador ';'"
+ANEEL_SIGA;Squad 1/Dados brutos/ANEEL - SIGA/aneel_siga_empreendimentos_geracao.csv;(arquivo único);25133;23;"CSV, utf-8-sig, separador ';'"
+ONS_LT_SE;Squad 1/Dados brutos/ONS - Dados abertos/ons_linhas_transmissao.csv;(arquivo único);2330;37;"CSV, utf-8-sig, separador ';'"
+ONS_LT_SE;Squad 1/Dados brutos/ONS - Dados abertos/ons_subestacoes.csv;(arquivo único);1687;12;"CSV, utf-8-sig, separador ';'"
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 2 (Oferta e Demanda de Energia por Fonte) - 1970 a 2025.xlsx;Capítulo 2;824;63;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Capítulo 8;909;29;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Tabela 8.6;415;21;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Tabela 8.7.a;34;20;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Tabela 8.7.b;34;19;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Tabela 8.8;411;306;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Dados_8.6;8910;8;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Dados_8.7.a;8910;6;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Dados_8.7.b;8910;6;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx;Dados_8.8;8910;16;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx;Matriz 2025 - Comercial;123;81;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx;Matriz 2025 - ktep;123;81;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx;Matriz 2025 - PJ;123;81;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx;Balanço Consolidado;48;58;planilha Excel
+EPE_BEN;Squad 1/Dados brutos/EPE - Balanço Energético Nacional (BEN)/matriz_autoproducao_eletrecidade_setor_fonte.xlsx;Sheet1;17;15;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_caderno_demanda_energia_eficiencia.pdf;(arquivo);;;formato .pdf não lido pelo catálogo
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 01_Economia e Demografia.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 12_Consolidação dos Resultados.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 11_Transição Energética.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 10_Análise Socioambiental.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 09_Eficiência Energética e Recursos Energéticos Distribuídos.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 08_Oferta de Biocombustíveis.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 07_Gás Natural.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 06_Abastecimento de Derivados de Petróleo.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 05_Produção de Petróleo e Gás Natural.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 04_Transmissão de Energia Elétrica.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 03_Geração Centralizada de Energia Elétrica.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip;PDE 2035_Dados_Capítulo 02_Demanda de Energia.xlsx;;;documento/imagem dentro do zip
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Matrizes;8525;5;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Geração eletrica;165;4;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Capacidade instalada total;165;4;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Investimento por setor;11;3;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Macroeconomia;33;3;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Emissões;99;3;planilha Excel
+EPE_PDE;Squad 1/Dados brutos/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx;Expansão incremental;195;4;planilha Excel
+IMB_GOIAS_EM_DADOS;Squad 1/Dados brutos/IMB - Goiás em Dados/consulta (1).csv;(arquivo único);2470;23;"CSV, cp1252, separador ';'"
+IMB_GOIAS_EM_DADOS;Squad 1/Dados brutos/IMB - Goiás em Dados/consulta (2).csv;(arquivo único);1976;23;"CSV, cp1252, separador ';'"
+IMB_GOIAS_EM_DADOS;Squad 1/Dados brutos/IMB - Goiás em Dados/consulta (3).csv;(arquivo único);3458;23;"CSV, cp1252, separador ';'"
+IMB_GOIAS_EM_DADOS;Squad 1/Dados brutos/IMB - Goiás em Dados/consulta.csv;(arquivo único);2964;23;"CSV, cp1252, separador ';'"
+MAPBIOMAS_COBERTURA;Squad 1/MapBiomas/cobertura_colecao11/metadados.json;grupos;2;;dicionário de blocos: 1, 2
+MAPBIOMAS_COBERTURA;Squad 1/MapBiomas/cobertura_colecao11/metadados.json;anos;41;;dicionário de blocos: 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/area_por_classe_goias_2025.csv;(arquivo único);6;6;CSV, utf-8-sig, separador ','
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;agua_superficial_goias_2025;1820;1;shapefile de polígonos, codificação UTF-8
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;limite_goias;1;1;shapefile de polígonos, codificação UTF-8
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;rios_goias;346;2;shapefile de linhas, codificação UTF-8
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;vegetacao_nativa_goias_2025;139030;2;shapefile de polígonos, codificação UTF-8
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;mapa_goias_2025/area_por_classe_goias_2025.csv;6;6;CSV, utf-8-sig, separador ','
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;mapa_goias_2025/mapa_goias_vegetacao_rios_2025.pdf;;;documento/imagem dentro do zip
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;mapa_goias_2025/mapa_goias_vegetacao_rios_2025.png;;;documento/imagem dentro do zip
+MAPA_VEGETACAO_RIOS_2025;Squad 1/Mapa vegetação e rios 2025/mapa_goias_2025.zip;mapa_goias_2025/pontos_cobertura_nativa_agua_goias_2025.csv;111349;4;CSV, utf-8-sig, separador ','
+RADAR_CURADORIA;Squad 1/Radar de Projetos/curadoria_web.json;projetos;37;33;lista de registros
+RADAR_CURADORIA;Squad 1/Radar de Projetos/curadoria_web.json;fontes;100;9;lista de registros
+RADAR_CURADORIA;Squad 1/Radar de Projetos/projetos_minerais_goias.xlsx;PROJETOS;1059;31;planilha Excel
+RADAR_CURADORIA;Squad 1/Radar de Projetos/projetos_minerais_goias.xlsx;NOTÍCIAS;1350;16;planilha Excel
+RADAR_CURADORIA;Squad 1/Radar de Projetos/projetos_minerais_goias.xlsx;METODOLOGIA;18;2;planilha Excel
+PROJETOS_LUCAS;Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx;PROJETOS;15;31;planilha Excel
+PROJETOS_LUCAS;Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx;NOTÍCIAS;5;16;planilha Excel
+PROJETOS_LUCAS;Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx;METODOLOGIA;14;2;planilha Excel
+LUCAS_CORRIGIDAS;Squad 1/dados/ARRECADAÇÃO CORRIGIDA LUCAS V1.xlsx;Planilha1;38854;16;planilha Excel
+LUCAS_CORRIGIDAS;Squad 1/dados/PRODUCAO BRUTA CORRIGIDA LUCAS V1.xlsx;Planilha1;6313;22;planilha Excel
+LUCAS_CORRIGIDAS;Squad 1/dados/PRODUCAO CORRIGIDA LUCAS V1.xlsx;BD;3982;27;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Resumo;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Base_consolidada;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Producao_empresas;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;CFEM_detalhe;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;CCEE_consumo;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Projetos_existentes;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Fontes;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;QA;0;0;planilha Excel
+BASE_PROD_ENERGIA_2023_2026;Squad 1/dados/Base_Mineracao_Goias_Producao_Energia_2023_2026.xlsx;Dicionario;0;0;planilha Excel
+PANORAMA_HTML;Squad 1/dados/Panorama Mineracao Goias.html;(arquivo);;;formato .html não lido pelo catálogo
+PRODUCAO_EMPRESAS;producao/base_curada.json;empresas;10;13;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;indicadores;4;4;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;operacoes;6;4;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;transacoes;3;5;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;referencias;4;7;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;regulacao;3;3;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;noticias;6;5;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;oportunidades;5;2;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;riscos;5;2;lista de registros
+MERCADO_LEITURA;public/data/mercado/mercado_v1.json;fontes;9;2;lista de registros
+MERCADO_LEITURA;public/data/mercado/projetos_go_v1.json;metodologia;14;2;lista de registros
+MERCADO_LEITURA;public/data/mercado/projetos_go_v1.json;projetos;15;25;lista de registros
+MERCADO_LEITURA;public/data/mercado/projetos_go_v1.json;noticias;5;11;lista de registros
+NOTICIAS_RSS;public/data/noticias/latest.json;itens;180;12;lista de registros
+NOTICIAS_RSS;public/data/noticias/latest.json;meses;13;7;lista de registros
+SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/energy_intensity.csv;(arquivo único);5;6;CSV, utf-8-sig, separador ','
+SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/scenarios.csv;(arquivo único);3;5;CSV, utf-8-sig, separador ','
+SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/base_intensidade_energetica_v1.csv;(arquivo único);24;50;CSV, utf-8-sig, separador ','
+SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv;(arquivo único);5;19;CSV, utf-8-sig, separador ','
+SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/dicionario_intensidade_v1.csv;(arquivo único);50;3;CSV, utf-8-sig, separador ','
+SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/energy_intensity_para_motor_v1.csv;(arquivo único);12;8;CSV, utf-8-sig, separador ','
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;00_LEIA-ME;103;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01_dim_minerais;68;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02_dim_empresas;5067;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02b_crosswalk_empresas;77;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;03_dim_operacoes;16876;35;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;04_dim_projetos;3404;37;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;04b_eventos_anm_classificados;292;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;05_dim_municipios;247;17;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;06_dim_ocorrencias_geologicas;1796;46;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;06b_crosswalk_recmin;79;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;07_dim_fontes;20;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;08_fato_producao_energia;158265;32;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;09_cons_mineral_ano;1357;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;10_cons_municipio_ano;965;28;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;11_cons_empresa_ano_mineral;10219;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;12_interface_squad1_squad2;5576;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;13_mapas_camadas;12;23;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;14_dicionario_dados;439;12;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;14b_validacoes_governanca;36;4;auditoria/apoio
+PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/dicionario_interface_squad1_squad2.csv;(arquivo único);30;12;CSV, utf-8-sig, separador ','
+PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv;(arquivo único);5576;30;CSV, utf-8-sig, separador ','
+SITE_ATLAS;data/atlas/atlas.json;municipalities;246;5;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;energy;146;11;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;coef;8;16;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;dams;23;9;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;cfem_years;5;5;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;cfem_comparable;5;2;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;energy_months;27;4;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;beneficiated;16;3;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;investment;23;2;lista de registros
+SITE_ATLAS;data/atlas/atlas.json;projects;3403;13;tabela (cols/rows)
+SITE_ATLAS;data/atlas/atlas.json;occurrences;1796;12;tabela (cols/rows)
+SITE_ATLAS;data/atlas/atlas.json;charts;7;;dicionário de blocos: cfem_substances, cfem_substance_years, cfem_concentration, rom_minerals, operation_coverage, projects_minerals, occurrences_substances
+SITE_PANORAMA;data/panorama/panorama.json;cfem;13486;7;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;amb_go;429;8;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;amb_br;852;4;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;amb_uf;432;4;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;proc;16875;10;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;inv_go;3982;4;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;inv_br;299;3;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;rod;3632;10;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;ccee;21912;8;tabela (cols/rows)
+SITE_EMPRESAS;data/empresas/empresas.json;linhas;38;15;lista de registros
+SITE_PRODUCAO;data/producao/producao.json;registros;78;30;lista de registros
+SITE_MAPA;data/mapa/catalogo.json;grupos;8;4;lista de registros
+SITE_MAPA;data/mapa/catalogo.json;camadas;47;37;lista de registros
+SITE_MAPA;data/mapa/catalogo.json;tabelas;3;16;lista de registros
+SITE_MAPA;data/mapa/tabelas/municipios.json;medidas;6;;dicionário de blocos: cfem_recolhida, processos_que_tocam, minas_ativas_que_tocam, radar_projetos, projetos_anm, ocorrencias
+SITE_MAPA;data/mapa/tabelas/municipios.json;linhas;246;8;lista de registros
+SITE_MAPA;data/mapa/tabelas/processos_complemento.json;(documento);;6;JSON: id, processos, titular, municipios, mineral, dic
+SITE_MAPA;data/mapa/tabelas/radar_projetos.json;linhas;1059;23;lista de registros
+SITE_SIMULADOR;public/data/simulador/parametros_v1.json;cenarios;3;7;lista de registros
+SITE_SIMULADOR;public/data/simulador/parametros_v1.json;minerais;5;12;lista de registros
+SITE_SIMULADOR;public/data/simulador/parametros_v1.json;fontes;8;11;lista de registros
