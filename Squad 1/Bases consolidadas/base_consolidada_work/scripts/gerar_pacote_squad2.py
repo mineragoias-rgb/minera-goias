@@ -260,3 +260,8 @@ Eliel — Squad 1 / Estudante 1
 """
 open(os.path.join(PASTA, "rascunho_mensagem_squad2.md"), "w", encoding="utf-8", newline="\n").write(mensagem)
 print(f"SALVO: {PASTA} (interface_squad1_squad2.csv, dicionario_interface_squad1_squad2.csv, LEIA-ME.md, rascunho_mensagem_squad2.md)")
+
+# Rateio da energia entre coprodutos (Frente 1): refeito junto com o pacote, porque lê a aba 12 que acabou de ser gravada.
+import runpy  # noqa: E402
+
+runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), "gerar_coprodutos.py"), run_name="__main__")
