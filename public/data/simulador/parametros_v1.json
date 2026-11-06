@@ -1,20 +1,20 @@
 {
   "versao": "1.0.0",
-  "data_versao": "2026-10-31",
+  "data_versao": "2026-11-05",
   "responsavel": "Squad 3 — Henrique Falci (simulador e rastreabilidade)",
   "modelo": "produção projetada × intensidade energética",
   "origem_modelo": {
     "squad": "Squad 2 — Federico Castro",
     "diretorio": "Squad 2/modello_reale",
     "gerado_por": "scripts/build_simulador_base.py",
-    "metodo_projecao": "historical_compound_growth_rate_with_scenario_adjustment"
+    "metodo_projecao": "bauxite_decline_from_last_observation; bauxite_naive_last_observation; bauxite_recent_post_ramp_up_growth; historical_compound_growth_with_scenario_adjustment"
   },
   "horizonte": {
     "inicio": 2027,
     "fim": 2040
   },
   "equacoes": {
-    "producao": "producao_base_t × (1 + crescimento_historico + growth_adjustment)^(t − ano_base)",
+    "producao": "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base); crescimento_por_cenario = crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 (conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)",
     "intensidade": "energy_intensity_mwh_t × (1 + ajuste_pct/100) × (1 − g)^(t − ano_base)",
     "energia": "producao × intensidade"
   },
@@ -34,11 +34,11 @@
   },
   "aviso": "As intensidades energéticas vêm da base do Squad 2: energia das cargas na CCEE em 2025 dividida pela produção do mesmo ano, nas operações que a CCEE cobre; a bauxita, sem carga identificada, segue com benchmark. São coeficientes por mineral, não medição de cada planta. As hipóteses de crescimento e eficiência dos cenários são ilustrativas. Os resultados são cenários condicionais, não previsão oficial.",
   "conferencia_modelo": {
-    "referencia_2027_twh": 5.096572,
-    "referencia_2040_twh": 11.56867,
-    "conservador_2040_twh": 9.438041,
-    "expansao_2040_twh": 14.104142,
-    "maior_diferenca_mwh": 1e-09,
+    "referencia_2027_twh": 4.586437,
+    "referencia_2040_twh": 4.841861,
+    "conservador_2040_twh": 3.874744,
+    "expansao_2040_twh": 7.275932,
+    "maior_diferenca_mwh": 0.0,
     "nota": "Diferença máxima entre a fórmula que o navegador executa e a energia publicada pelo modelo do Squad 2, em todos os minerais, anos e cenários."
   },
   "cenarios": [
@@ -77,7 +77,18 @@
       "production_basis": "beneficiada",
       "ano_base": 2025,
       "producao_base_t": 1478868.18,
-      "crescimento_historico": 0.1084746391603306,
+      "crescimento_historico": 0.0506869871010307,
+      "crescimento_por_cenario": {
+        "conservador": -0.02,
+        "referencia": 0.0,
+        "expansao": 0.0506869871010307
+      },
+      "metodo_projecao_por_cenario": {
+        "conservador": "bauxite_decline_from_last_observation",
+        "referencia": "bauxite_naive_last_observation",
+        "expansao": "bauxite_recent_post_ramp_up_growth"
+      },
+      "janela_tendencia": "2018–2025",
       "energy_intensity_mwh_t": 1.4,
       "mape_backtest": 0.1824307172081685,
       "anos_testados_backtest": 2,
@@ -92,6 +103,17 @@
       "ano_base": 2025,
       "producao_base_t": 43983.54999999999,
       "crescimento_historico": -0.0301911572045376,
+      "crescimento_por_cenario": {
+        "conservador": -0.0501911572045376,
+        "referencia": -0.0301911572045376,
+        "expansao": -0.0101911572045376
+      },
+      "metodo_projecao_por_cenario": {
+        "conservador": "historical_compound_growth_with_scenario_adjustment",
+        "referencia": "historical_compound_growth_with_scenario_adjustment",
+        "expansao": "historical_compound_growth_with_scenario_adjustment"
+      },
+      "janela_tendencia": "2010–2025",
       "energy_intensity_mwh_t": 8.107848,
       "mape_backtest": 0.0298797493248945,
       "anos_testados_backtest": 2,
@@ -106,7 +128,18 @@
       "ano_base": 2025,
       "producao_base_t": 156885.63,
       "crescimento_historico": 0.0333902442547546,
-      "energy_intensity_mwh_t": 11.674042,
+      "crescimento_por_cenario": {
+        "conservador": 0.0133902442547546,
+        "referencia": 0.0333902442547546,
+        "expansao": 0.0533902442547546
+      },
+      "metodo_projecao_por_cenario": {
+        "conservador": "historical_compound_growth_with_scenario_adjustment",
+        "referencia": "historical_compound_growth_with_scenario_adjustment",
+        "expansao": "historical_compound_growth_with_scenario_adjustment"
+      },
+      "janela_tendencia": "2010–2025",
+      "energy_intensity_mwh_t": 11.400041,
       "mape_backtest": 0.0779186694745528,
       "anos_testados_backtest": 2,
       "valor_observado_estimado": "estimado",
@@ -120,6 +153,17 @@
       "ano_base": 2025,
       "producao_base_t": 179184.29999999993,
       "crescimento_historico": -0.0342569921483285,
+      "crescimento_por_cenario": {
+        "conservador": -0.0542569921483285,
+        "referencia": -0.0342569921483285,
+        "expansao": -0.0142569921483285
+      },
+      "metodo_projecao_por_cenario": {
+        "conservador": "historical_compound_growth_with_scenario_adjustment",
+        "referencia": "historical_compound_growth_with_scenario_adjustment",
+        "expansao": "historical_compound_growth_with_scenario_adjustment"
+      },
+      "janela_tendencia": "2010–2025",
       "energy_intensity_mwh_t": 0.310942,
       "mape_backtest": 0.0862924685044787,
       "anos_testados_backtest": 2,
@@ -134,6 +178,17 @@
       "ano_base": 2025,
       "producao_base_t": 2511254.38,
       "crescimento_historico": -0.0034137435303356,
+      "crescimento_por_cenario": {
+        "conservador": -0.0234137435303356,
+        "referencia": -0.0034137435303356,
+        "expansao": 0.0165862564696643
+      },
+      "metodo_projecao_por_cenario": {
+        "conservador": "historical_compound_growth_with_scenario_adjustment",
+        "referencia": "historical_compound_growth_with_scenario_adjustment",
+        "expansao": "historical_compound_growth_with_scenario_adjustment"
+      },
+      "janela_tendencia": "2010–2025",
       "energy_intensity_mwh_t": 0.121246,
       "mape_backtest": 0.0231439532305456,
       "anos_testados_backtest": 2,
@@ -147,7 +202,7 @@
       "source_id": "SRC_S2_INTENSIDADE_V1",
       "source_name": "Squad 2 — base de intensidade energética v1 (coeficiente estadual por mineral)",
       "source_url": "Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2025",
       "tipo_fonte": "interna_projeto",
       "valor_observado_estimado": "estimado",
@@ -160,7 +215,7 @@
       "source_id": "SRC_CCEE_PARCELA_CARGA",
       "source_name": "CCEE — consumo das parcelas de carga em Goiás",
       "source_url": "https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2025 (doze meses)",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -173,7 +228,7 @@
       "source_id": "SRC_EMPRESA_RELATORIO",
       "source_name": "Relatórios das empresas — produção declarada da operação",
       "source_url": null,
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2025",
       "tipo_fonte": "empresa",
       "valor_observado_estimado": "observado",
@@ -186,7 +241,7 @@
       "source_id": "SRC_ANM_PROD_BENEF",
       "source_name": "ANM — Anuário Mineral Brasileiro, produção beneficiada",
       "source_url": "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2025",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -199,7 +254,7 @@
       "source_id": "SRC_ANM_CFEM",
       "source_name": "ANM — arrecadação da CFEM por processo",
       "source_url": "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2025",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "estimado",
@@ -212,7 +267,7 @@
       "source_id": "SRC_FGV_EPGE_001",
       "source_name": "Apresentação FGV Energia-EPGE — intensidades energéticas de referência",
       "source_url": null,
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "não informado no material-base",
       "tipo_fonte": "institucional",
       "valor_observado_estimado": "estimado",
@@ -225,7 +280,7 @@
       "source_id": "SRC_SQUAD1_PRODUCAO_001",
       "source_name": "Squad 1 — produção mineral histórica consolidada de Goiás",
       "source_url": "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2010–2025 (2014–2025 para a bauxita)",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -238,7 +293,7 @@
       "source_id": "SRC_S2_ASSUMPTION_001",
       "source_name": "Squad 2 — hipóteses de cenário do modelo real",
       "source_url": "Squad 2/modello_reale/parameters/scenarios.csv",
-      "data_acesso": "2026-10-31",
+      "data_acesso": "2026-11-05",
       "periodo_referencia": "2027–2040",
       "tipo_fonte": "interna_projeto",
       "valor_observado_estimado": "ilustrativo",

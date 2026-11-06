@@ -87,13 +87,14 @@ class ParametrosV1Tests(unittest.TestCase):
         self.assertEqual(len(self.d['minerais']), self.d['cobertura']['minerais'])
         for m in self.d['minerais']:
             for campo in ('mineral_id', 'mineral_name', 'production_basis', 'ano_base',
-                          'producao_base_t', 'crescimento_historico', 'energy_intensity_mwh_t',
+                          'producao_base_t', 'crescimento_historico', 'crescimento_por_cenario', 'energy_intensity_mwh_t',
                           'valor_observado_estimado', 'source_id'):
                 self.assertIn(campo, m, m.get('mineral_id'))
             self.assertGreater(m['producao_base_t'], 0)
             self.assertGreater(m['energy_intensity_mwh_t'], 0)
             self.assertLess(m['ano_base'], self.d['horizonte']['inicio'])
             self.assertGreater(m['crescimento_historico'], -1)
+            self.assertEqual(set(m['crescimento_por_cenario']), {c['scenario'] for c in self.d['cenarios']}, m['mineral_id'])
             self.assertIn(m['valor_observado_estimado'], NATUREZAS)
             self.assertIn(m['production_basis'], {'beneficiada', 'conteudo_mineral'})
 
@@ -111,7 +112,7 @@ class ParametrosV1Tests(unittest.TestCase):
             total = 0.0
             for m in self.d['minerais']:
                 n = ano - m['ano_base']
-                producao = m['producao_base_t'] * (1 + m['crescimento_historico'] + c['growth_adjustment']) ** n
+                producao = m['producao_base_t'] * (1 + m['crescimento_por_cenario'][scenario]) ** n
                 ie = m['energy_intensity_mwh_t'] * (1 - c['ganho_eficiencia_anual_padrao']) ** n
                 total += producao * ie
             self.assertAlmostEqual(self.d['conferencia_modelo'][chave], total / 1e6, places=5, msg=chave)

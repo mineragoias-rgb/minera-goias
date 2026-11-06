@@ -6,15 +6,15 @@
 
 // Energia total em MWh, por cenário, nos extremos do horizonte.
 var MODELO_SQUAD2 = {
-  conservador: { 2027: 4955895.571979, 2040: 9438041.460239 },
-  referencia: { 2027: 5096572.178565, 2040: 11568669.759542 },
-  expansao: { 2027: 5237259.737403, 2040: 14104142.171063 }
+  conservador: { 2027: 4451257.602298, 2040: 3874744.017574 },
+  referencia: { 2027: 4586437.450550, 2040: 4841860.940832 },
+  expansao: { 2027: 4849684.570787, 2040: 7275932.460680 }
 };
 
 // Referência em 2040, por mineral.
 var POR_MINERAL_2040 = {
-  MIN_005: { producao: 6931318.960980, intensidade: 1.2224549, energia: 8473224.969393 },
-  MIN_022: { producao: 256772.509133, intensidade: 10.1935643, energia: 2617427.094239 },
+  MIN_022: { producao: 256772.509133, intensidade: 9.9543116, energia: 2555993.561513 },
+  MIN_005: { producao: 1478868.180000, intensidade: 1.2224549, energia: 1807849.683409 },
   MIN_049: { producao: 2385690.562801, intensidade: 0.1058698, energia: 252572.666740 },
   MIN_011: { producao: 27770.415338, intensidade: 7.0796276, energia: 196604.199726 },
   MIN_033: { producao: 106224.217691, intensidade: 0.2715090, energia: 28840.829443 }
@@ -52,13 +52,13 @@ function executarTestes(engine, parametros) {
   var referencia = engine.simular(parametros, { scenario: 'referencia' });
   ok('horizonte cobre 2027 a 2040',
     referencia.anos.length === 14 && referencia.anos[0] === 2027 && referencia.anos[13] === 2040);
-  perto('referência começa em 5,097 TWh', referencia.serie[0].energia_twh, 5.096572, 1e-6);
-  perto('referência termina em 11,569 TWh', referencia.serie[13].energia_twh, 11.568670, 1e-6);
+  perto('referência começa em 4,586 TWh', referencia.serie[0].energia_twh, 4.586437, 1e-6);
+  perto('referência termina em 4,842 TWh', referencia.serie[13].energia_twh, 4.841861, 1e-6);
 
   var minerais2040 = engine.energiaPorMineral(referencia, 2040);
   ok('cobre os cinco minerais do modelo', minerais2040.length === 5, 'obtido ' + minerais2040.length);
-  ok('a bauxita é a maior consumidora em 2040', minerais2040[0].mineral_id === 'MIN_005');
-  ok('o níquel vem logo depois', minerais2040[1].mineral_id === 'MIN_022');
+  ok('o níquel é o maior consumidor em 2040', minerais2040[0].mineral_id === 'MIN_022');
+  ok('a bauxita vem logo depois', minerais2040[1].mineral_id === 'MIN_005');
   minerais2040.forEach(function (m) {
     var esperado = POR_MINERAL_2040[m.mineral_id];
     perto('produção do Squad 2 · ' + m.mineral_id, m.producao_t, esperado.producao, 1e-5);
@@ -75,8 +75,8 @@ function executarTestes(engine, parametros) {
     return m.mineral_id === 'MIN_022';
   })[0];
   perto('níquel · expansão · 2033 · produção', niquel2033.producao_t, 237846.903280691, 1e-6);
-  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 10.428853602, 1e-7);
-  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 2480470.534064465, 1e-5);
+  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 10.184078372, 1e-7);
+  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 2422251.503603191, 1e-5);
 
   // Controle 1: cenário. O ajuste de crescimento é em pontos percentuais.
   var conservador = engine.simular(parametros, { scenario: 'conservador' });

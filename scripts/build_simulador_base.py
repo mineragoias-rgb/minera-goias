@@ -46,10 +46,16 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
         primeira = linhas.iloc[0]
         crescimento = float(primeira["historical_growth_rate"])
         ano_base = int(primeira["base_year"])
+        # Taxa que o modelo aplica em cada cenário: tendência + ajuste do cenário na regra geral; a bauxita tem regra
+        # própria desde 31/10/2026 (declínio, último valor observado e tendência pós-ramp-up — run_future_scenarios.py).
+        do_mineral = projecao[projecao["mineral_id"] == mineral_id].sort_values("year")
+        por_cenario = OrderedDict(
+            (sc, float(g.iloc[0]["applied_production_growth_rate"])) for sc, g in do_mineral.groupby("scenario", sort=False))
+        metodos = OrderedDict((sc, str(g.iloc[0]["projection_method"])) for sc, g in do_mineral.groupby("scenario", sort=False))
         # O modelo do Squad 2 publica a produção projetada, não a do ano-base; ela volta
-        # dividindo a projeção pelo crescimento composto acumulado até aquele ano.
+        # dividindo a projeção pelo crescimento composto aplicado até aquele ano.
         expoente = int(primeira["year"]) - ano_base
-        producao_base = float(primeira["projected_production_t"]) / (1 + crescimento) ** expoente
+        producao_base = float(primeira["projected_production_t"]) / (1 + por_cenario["referencia"]) ** expoente
 
         par = intensidade[intensidade["mineral_id"] == mineral_id].iloc[0]
         erro = backtest[backtest["mineral_id"] == mineral_id]
@@ -60,6 +66,9 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
             ("ano_base", ano_base),
             ("producao_base_t", producao_base),
             ("crescimento_historico", crescimento),
+            ("crescimento_por_cenario", por_cenario),
+            ("metodo_projecao_por_cenario", metodos),
+            ("janela_tendencia", f"{int(primeira['trend_start_year'])}–{int(primeira['trend_end_year'])}"),
             ("energy_intensity_mwh_t", float(par["energy_intensity_mwh_t"])),
             ("mape_backtest", float(erro.iloc[0]["mean_absolute_percentage_error"]) if len(erro) else None),
             ("anos_testados_backtest", int(erro.iloc[0]["tested_years"]) if len(erro) else None),
@@ -78,7 +87,7 @@ def conferir(minerais, cenarios, projecao):
         m = indice[linha["mineral_id"]]
         c = cenarios[linha["scenario"]]
         n = int(linha["year"]) - m["ano_base"]
-        producao = m["producao_base_t"] * (1 + m["crescimento_historico"] + c["growth_adjustment"]) ** n
+        producao = m["producao_base_t"] * (1 + m["crescimento_por_cenario"][linha["scenario"]]) ** n
         ie = m["energy_intensity_mwh_t"] * (1 - c["ganho_eficiencia_anual_padrao"]) ** n
         maior = max(maior, abs(producao * ie - float(linha["energy_demand_mwh"])))
     if maior > TOLERANCIA_MWH:
@@ -140,11 +149,13 @@ def main():
             ("squad", "Squad 2 — Federico Castro"),
             ("diretorio", "Squad 2/modello_reale"),
             ("gerado_por", "scripts/build_simulador_base.py"),
-            ("metodo_projecao", str(projecao.iloc[0]["projection_method"])),
+            ("metodo_projecao", "; ".join(sorted(projecao["projection_method"].astype(str).unique()))),
         ])),
         ("horizonte", OrderedDict([("inicio", int(projecao["year"].min())), ("fim", int(projecao["year"].max()))])),
         ("equacoes", OrderedDict([
-            ("producao", "producao_base_t × (1 + crescimento_historico + growth_adjustment)^(t − ano_base)"),
+            ("producao", "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base); crescimento_por_cenario = "
+                         "crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 "
+                         "(conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)"),
             ("intensidade", "energy_intensity_mwh_t × (1 + ajuste_pct/100) × (1 − g)^(t − ano_base)"),
             ("energia", "producao × intensidade"),
         ])),

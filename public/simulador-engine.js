@@ -71,7 +71,11 @@
     var detalhe = [];
 
     parametros.minerais.forEach(function (mineral) {
-      var crescimento = mineral.crescimento_historico + cenario.growth_adjustment;
+      // Taxa aplicada pelo modelo do Squad 2 no cenário (a bauxita tem regra própria); sem ela, tendência + ajuste.
+      var porCenario = mineral.crescimento_por_cenario;
+      var crescimento = (porCenario && typeof porCenario[cenario.scenario] === 'number')
+        ? porCenario[cenario.scenario]
+        : mineral.crescimento_historico + cenario.growth_adjustment;
       var ajuste = ajustes[mineral.mineral_id] || 0;
       anos.forEach(function (ano) {
         var q = producao(mineral, crescimento, ano);
