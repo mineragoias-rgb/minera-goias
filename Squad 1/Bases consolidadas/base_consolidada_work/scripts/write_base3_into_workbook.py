@@ -17,6 +17,7 @@ NAVY, TEAL, LBLUE, WHITE, AMBER = "17365D", "1F6D7A", "DCE6F1", "FFFFFF", "C6591
 emp_dim = json.load(open(f"{TMP}/_emp_dim.json", encoding="utf-8"))
 crosswalk = json.load(open(f"{TMP}/_crosswalk_emp.json", encoding="utf-8"))
 _q = json.load(open(f"{TMP}/_cfem_qualidade.json", encoding="utf-8"))  # contagens do CPF_CNPJ e da ponte (build_base3)
+_cfem_total = _q["ponte_valor"] + _q.get("ponte_cnpj_valor", 0.0) + _q["ponte_valor_sem_par"]
 base3 = json.load(open(f"{TMP}/_base3_rows.json", encoding="utf-8"))
 
 wb = openpyxl.load_workbook(SRC)
@@ -155,9 +156,12 @@ for _r in base3:
     _r["mineral_id"] = KEY2ID.get(_r["mineral_id"], _r["mineral_id"])
 rows3 = sorted(base3, key=lambda r: (-(r["cfem_recolhido_brl"] or 0), r["razao_social"], r["mineral_nome"], (r["ano"] is None, r["ano"])))
 style_header(ws3, "Consolidada — Empresa × Mineral × Ano (Goiás) — v4, dados reais",
-             f"{len(rows3)} linhas, 5.045 titulares. A soma de cfem_recolhido_brl BATE EXATAMENTE com o arquivo bruto da CFEM (R$ 867.578.398,91, diferença R$ 0,00): "
-             "os 9,9% de CFEM cujo processo não existe no Cadastro Mineiro nem no SIGMINE (série 96xxxx, regimes não cobertos pelos 13 arquivos de título — "
-             "inclui R$ 62,4 mi da Mineração Serra Grande) ficam num titular explícito 'COM_NAO_IDENTIFICADO' em vez de sumirem da base. "
+             f"{len(rows3)} linhas, {len(emp_dim):,} titulares. A soma de cfem_recolhido_brl bate com o arquivo bruto da CFEM ".replace(",", ".")
+             + f"(R$ {qualidade_cfem.n(round(_cfem_total))}): o processo do CFEM leva à empresa pelo titular no Cadastro Mineiro; quando o processo não existe "
+             "no Cadastro nem no SIGMINE (série 96xxxx, regimes fora dos 13 arquivos de título), pela raiz do CNPJ pagador no próprio CFEM "
+             f"({qualidade_cfem.pct(_q.get('ponte_cnpj_valor', 0.0), _cfem_total, 1)} do valor, {_q.get('ponte_cnpj_processos', 0)} processos — "
+             "ex.: a Mineração Serra Grande, processo 960658/1987); o que nem assim se identifica (CPF mascarado, CNPJ em notação científica: "
+             f"{qualidade_cfem.pct(_q['ponte_valor_sem_par'], _cfem_total, 1)} do valor) fica num titular explícito 'COM_NAO_IDENTIFICADO' em vez de sumir da base. "
              "producao_t / consumo_energia_mwh / intensidade_mwh_t estão VAZIAS de propósito: a produção da ANM (AMB/RAL) só existe agregada por UF×mineral×ano, "
              "nunca por empresa — é o gap conhecido (QC07) que trava a entrega ao Squad 2; a energia depende do pareamento CCEE, que é do Squad 2.",
              len(cols3), 90)

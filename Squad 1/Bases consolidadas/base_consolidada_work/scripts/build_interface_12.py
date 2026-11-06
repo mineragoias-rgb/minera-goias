@@ -80,6 +80,7 @@ print(f"08: {len(fato['linhas'])} linhas; 03: {len(OPS)} processos; subitens com
 tot, fids, flags = defaultdict(float), defaultdict(list), defaultdict(set)
 cf_rs, cf_t, tot_rs, tot_t = defaultdict(float), defaultdict(float), defaultdict(float), defaultdict(float)
 cf_emp, cf_mun, cf_sub, cf_alerta = defaultdict(Counter), defaultdict(Counter), defaultdict(set), set()
+pelo_cnpj = set()  # processos sem titular no Cadastro cuja empresa veio da raiz do CNPJ pagador no CFEM (notas da 08)
 for r in fato["linhas"]:
     if r[C["uf"]] != "GO":
         continue
@@ -100,6 +101,8 @@ for r in fato["linhas"]:
             cf_rs[kp] += vt
             tot_rs[kp[:2]] += vt
             cf_emp[kp][r[C["company_id"]]] += vt
+            if "raiz do CNPJ pagador" in (r[C["notas"]] or ""):
+                pelo_cnpj.add(r[C["processo_anm"]])
             if r[C["municipality_id"]]:
                 cf_mun[kp][r[C["municipality_id"]]] += vt
             if mid != cat:
@@ -168,7 +171,7 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
         o = OPS.get(proc)
         comp = cf_emp[kp].most_common(1)[0][0] if cf_emp[kp] else None
         mun = o["municipality_id"] if (o and o["municipality_id"]) else (cf_mun[kp].most_common(1)[0][0] if cf_mun[kp] else None)
-        ids = [src_amb, "SRC_ANM_CFEM"] + (["SRC_ANM_CADASTRO"] if comp and comp != "COM_NAO_IDENTIFICADO" else []) \
+        ids = [src_amb, "SRC_ANM_CFEM"] + (["SRC_ANM_CADASTRO"] if comp and comp != "COM_NAO_IDENTIFICADO" and proc not in pelo_cnpj else []) \
             + (["SRC_ANM_SIGMINE", "SRC_IBGE_MALHA_2025"] if o else [])
         faixa = (f"entre {br(min(est, alt), 3)} e {br(max(est, alt), 3)} t (rateio por R$ × rateio pela quantidade em t da CFEM)" if alt is not None
                  else "sem alternativa: a CFEM do mineral no ano não tem quantidade em t")
@@ -179,6 +182,8 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
             obs.append("processo sem poligonal no SIGMINE de GO: sem operation_id e coordenadas; município da CFEM")
         if comp == "COM_NAO_IDENTIFICADO":
             obs.append("titular não identificado nas bases de título")
+        elif proc in pelo_cnpj:
+            obs.append("processo sem titular nas bases de título: empresa pela raiz do CNPJ pagador no CFEM")
         if kp in cf_alerta:
             obs.append("processo na 09c (quantidade da CFEM implausível frente ao AMB): o rateio por R$ não usa a quantidade, mas a alternativa em t fica distorcida")
         if flags[k]:

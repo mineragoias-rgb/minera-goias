@@ -45,6 +45,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 read_csv, to_num, norm, MIN_DEF = B3["read_csv"], B3["to_num"], B3["norm"], B3["MIN_DEF"]
 ANM_CATEGORY_TO_KEY = B3["_ns"]["ANM_CATEGORY_TO_KEY"]
 proc2company, MUN_NOME, cfem, USO_PADRAO = B3["proc2company"], B3["MUN_NOME"], B3["cfem"], B3["USO_ROCHAS"]["padrao"]
+proc2company_cfem = B3["proc2company_cfem"]  # processo sem titular no Cadastro: empresa pela raiz do CNPJ pagador (Base 3, 4b)
 _ordem = sorted(MIN_DEF.items(), key=lambda kv: (kv[1][1], kv[1][0]))
 KEY2ID = {k: f"MIN_{i + 1:03d}" for i, (k, _) in enumerate(_ordem)}
 PARA_T = {"t": 1.0, "kg": 1e-3, "g": 1e-6, "ct": 2e-7}  # o mesmo da Base 1 (ct = quilate, 0,2 g)
@@ -220,7 +221,7 @@ for idx, r in cfem.iterrows():
     mes = str(r["Mês"]).strip()
     periodo = f"{ano}-{int(mes):02d}" if (ano and mes.isdigit()) else (str(ano) if ano else None)
     proc = r["_proc"]
-    cid = proc2company.get(proc) or "COM_NAO_IDENTIFICADO"
+    cid = proc2company.get(proc) or proc2company_cfem.get(proc) or "COM_NAO_IDENTIFICADO"
     ope = "OPE_" + proc.replace("/", "_") if proc in OPS else None
     cod = str(r["CodigoMunicipio"]).split(".")[0].strip()
     mun = cod if cod in MUN_NOME else None
@@ -234,6 +235,8 @@ for idx, r in cfem.iterrows():
         notas.append("rocha sem uso informativo: categoria pelo tipo de rocha — 01c")
     if cid == "COM_NAO_IDENTIFICADO":
         notas.append("processo sem titular nas bases de título (COM_NAO_IDENTIFICADO)")
+    elif proc not in proc2company:
+        notas.append("processo sem titular nas bases de título: empresa pela raiz do CNPJ pagador no CFEM")
     if ope is None:
         notas.append("processo sem poligonal no SIGMINE de GO (fora da 03)")
     if mun is None:

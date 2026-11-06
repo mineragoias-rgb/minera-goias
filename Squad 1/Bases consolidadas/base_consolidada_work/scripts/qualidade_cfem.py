@@ -34,8 +34,13 @@ def cobertura_ponte(p):
     """'93,1% das linhas e 90,1% do valor' a partir das contagens da ponte do processo (build_base3)."""
     if not p:
         return None
-    return (pct(p["ponte_linhas"], p["ponte_linhas"] + p["ponte_sem_par"], 1) + " das linhas e "
-            + pct(p["ponte_valor"], p["ponte_valor"] + p["ponte_valor_sem_par"], 1) + " do valor")
+    cl, cv = p.get("ponte_cnpj_linhas", 0), p.get("ponte_cnpj_valor", 0.0)  # processo sem titular, empresa pelo CNPJ do CFEM
+    tl, tv = p["ponte_linhas"] + cl + p["ponte_sem_par"], p["ponte_valor"] + cv + p["ponte_valor_sem_par"]
+    txt = pct(p["ponte_linhas"], tl, 1) + " das linhas e " + pct(p["ponte_valor"], tv, 1) + " do valor"
+    if cl:
+        txt += (f" pelo processo; mais {pct(cl, tl, 1)} das linhas e {pct(cv, tv, 1)} do valor pela raiz do CNPJ pagador no próprio CFEM "
+                f"(processos sem titular no Cadastro); sem empresa: {pct(p['ponte_valor_sem_par'], tv, 1)} do valor")
+    return txt
 
 
 def achado_02b(q):

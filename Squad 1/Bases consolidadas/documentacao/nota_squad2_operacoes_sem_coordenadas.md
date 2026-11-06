@@ -40,25 +40,25 @@ Minerais mais afetados (produção bruta, ROM):
 
 | Processo | Minerais | Anos | ROM estimada no período | Titular |
 |---|---|---|---:|---|
-| 960658/1987 | Ouro, Prata | 2022–2025 | 70,29 Mt | COM_NAO_IDENTIFICADO |
-| 960657/1987 | Ouro | 2022–2024 | 9,03 Mt | COM_NAO_IDENTIFICADO |
-| 960079/1988 | Calcário | 2022–2025 | 4,62 Mt | COM_NAO_IDENTIFICADO |
-| 960993/2007 | Calcário | 2022–2025 | 4,29 Mt | COM_NAO_IDENTIFICADO |
+| 960658/1987 | Ouro, Prata | 2022–2025 | 70,29 Mt | COM_CNPJ_42445403 |
+| 960657/1987 | Ouro | 2022–2024 | 9,03 Mt | COM_CNPJ_42445403 |
+| 960079/1988 | Calcário | 2022–2025 | 4,62 Mt | COM_CNPJ_01413855 |
+| 960993/2007 | Calcário | 2022–2025 | 4,29 Mt | COM_CNPJ_37883097 |
 | 961799/2009 | Calcário | 2022–2025 | 1,62 Mt | COM_CNPJ_62258884 |
-| 960442/2012 | Areia | 2023–2025 | 0,81 Mt | COM_NAO_IDENTIFICADO |
-| 960317/2017 | Rochas (Britadas) e Cascalho | 2025–2025 | 0,79 Mt | COM_NAO_IDENTIFICADO |
-| 960704/2008 | Areia, Rochas Ornamentais, Saibro | 2022–2025 | 0,58 Mt | COM_NAO_IDENTIFICADO |
-| 860906/2007 | Calcário | 2022–2025 | 0,37 Mt | COM_NAO_IDENTIFICADO |
+| 960442/2012 | Areia | 2023–2025 | 0,81 Mt | COM_CNPJ_00652008 |
+| 960317/2017 | Rochas (Britadas) e Cascalho | 2025–2025 | 0,79 Mt | COM_CNPJ_17833812 |
+| 960704/2008 | Areia, Rochas Ornamentais, Saibro | 2022–2025 | 0,58 Mt | COM_CNPJ_00097494 |
+| 860906/2007 | Calcário | 2022–2025 | 0,37 Mt | COM_CNPJ_86924701 |
 | 860713/2003 | Areia | 2022–2023 | 0,32 Mt | COM_NAO_IDENTIFICADO |
-| 860607/2015 | Argilas | 2022–2022 | 0,26 Mt | COM_NAO_IDENTIFICADO |
-| 962157/2010 | Areia | 2022–2024 | 0,26 Mt | COM_NAO_IDENTIFICADO |
-| 960444/2012 | Areia | 2023–2025 | 0,24 Mt | COM_NAO_IDENTIFICADO |
-| 960571/2019 | Ouro | 2022–2024 | 0,19 Mt | COM_NAO_IDENTIFICADO |
-| 860450/2008 | Rochas (Britadas) e Cascalho | 2023–2023 | 0,19 Mt | COM_NAO_IDENTIFICADO |
+| 860607/2015 | Argilas | 2022–2022 | 0,26 Mt | COM_CNPJ_26980045 |
+| 962157/2010 | Areia | 2022–2024 | 0,26 Mt | COM_CNPJ_05033734 |
+| 960444/2012 | Areia | 2023–2025 | 0,24 Mt | COM_CNPJ_00652008 |
+| 960571/2019 | Ouro | 2022–2024 | 0,19 Mt | COM_CNPJ_29541600 |
+| 860450/2008 | Rochas (Britadas) e Cascalho | 2023–2023 | 0,19 Mt | COM_CNPJ_08987247 |
 
 ## Por que acontece
 
-- Esses processos aparecem na CFEM, mas não no SIGMINE nem no Cadastro Mineiro de Goiás usados na base (arquivo do SIGMINE de 2026-10-24). Sem poligonal não há coordenada nem município pela geometria, e sem Cadastro não há titular: 108 dos 112 processos ficam em `COM_NAO_IDENTIFICADO`.
+- Esses processos aparecem na CFEM, mas não no SIGMINE nem no Cadastro Mineiro de Goiás usados na base (arquivo do SIGMINE de 2026-10-24). Sem poligonal não há coordenada nem município pela geometria, e sem Cadastro não há titular: 12 dos 112 processos ficam em `COM_NAO_IDENTIFICADO`.
 - A base não inventa coordenada nem titular (Contrato de Dados: nada é preenchido sem fonte).
 
 ## Sugestões de uso (a decidir com o Squad 2)

@@ -25,8 +25,8 @@ vazios ficam vazios (nada foi preenchido com zero).
 - **Sem `operation_id`:** 457 linhas do nível operação (112 processos, 18,3% da
   produção estimada) são de processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás. O `processo_anm` identifica essas
   linhas; a lista está em `../operacoes_sem_coordenadas.csv` e a explicação em `../nota_squad2_operacoes_sem_coordenadas.md`.
-- **Titular não identificado:** 439 linhas do nível operação têm `company_id = COM_NAO_IDENTIFICADO`
-  (17,8% da produção estimada).
+- **Titular não identificado:** 30 linhas do nível operação têm `company_id = COM_NAO_IDENTIFICADO`
+  (0,1% da produção estimada).
 - **Base de produção:** 2.875 linhas em `ROM` e 2.701 em `beneficiada`; 29 dos 33 minerais têm as duas bases no nível estado, e cada série deve usar uma só (só uma base: Caulim (ROM), Fluorita e Criolita (beneficiada), Quartzo (Cristal) e outros Piezelétricos (ROM) e Turfa (ROM)).
 - **Estimativa:** a ANM não publica produção por operação. As linhas de operação trazem `metodo_estimacao` e a faixa
   `erro_estimativa_intervalo` (rateio por R$ × rateio pela quantidade comercializada da CFEM, que também está em `production_t_rateio_por_t`).

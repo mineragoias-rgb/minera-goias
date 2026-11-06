@@ -311,18 +311,47 @@ cfem = read_csv(arquivo("dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv"), sep
 cfem["_proc"] = [canon_processo(p, a) for p, a in zip(cfem["Processo"], cfem["AnoDoProcesso"])]
 cfem["_ano"] = pd.to_numeric(cfem["Ano"], errors="coerce")
 
+# 4b) Processo do CFEM sem titular nas bases de título (série 96xxxx, regimes fora dos 13 arquivos): desde a publicação de
+#     out/2026 o CPF_CNPJ do CFEM vem completo, então o pagador identifica a empresa pela raiz do CNPJ (a mesma chave do
+#     company_id). Vale só para esses processos: quem tem titular no Cadastro continua pelo titular. Se o processo tem mais de
+#     uma raiz pagadora, fica a de maior valor recolhido. CPF (mascarado por LGPD) e CNPJ em notação científica não identificam.
+def raiz_cnpj_cfem(doc):
+    d = str(doc).strip()
+    return d[:8] if qualidade_cfem.COMPLETO.match(d) and len(d) == 14 else None
+
+
+_pagadores = defaultdict(Counter)
+for p, doc, val in zip(cfem["_proc"], cfem["CPF_CNPJ"], cfem["ValorRecolhido"]):
+    if p not in proc2company:
+        raiz = raiz_cnpj_cfem(doc)
+        if raiz:
+            _pagadores[p][raiz] += to_num(val) or 0.0
+proc2company_cfem = {p: f"COM_CNPJ_{c.most_common(1)[0][0]}" for p, c in _pagadores.items()}
+for p, cid in proc2company_cfem.items():
+    if cid not in EMP:  # pagador que não é titular de nenhum título em GO: entra com a raiz, sem nome (o CFEM não tem nome)
+        EMP[cid] = dict(company_id=cid, tipo_pessoa="PJ", identificacao="raiz do CNPJ do CFEM (processo fora das bases de título)",
+                        cnpj_raiz=cid.replace("COM_CNPJ_", ""), nomes=Counter({f"(nome não informado no CFEM — CNPJ raiz {cid[9:]})": 1}),
+                        docs=set(), processos=set(), municipios=set(), minerais=Counter(), fases=Counter())
+    EMP[cid]["processos"].add(p)
+
 cfem_agg = defaultdict(float)   # (company_id, mineral_key, ano) -> R$
 cfem_mun = defaultdict(set)
-casou = naocasou = 0
-valor_casou = valor_naocasou = 0.0
+casou = naocasou = casou_cnpj = 0
+valor_casou = valor_naocasou = valor_casou_cnpj = 0.0
 procs_sem_par = Counter()
+procs_pelo_cnpj = Counter()
 for _, r in cfem.iterrows():
     v = to_num(r["ValorRecolhido"]) or 0.0
     cid = proc2company.get(r["_proc"])
-    if cid is None:
-        # O processo nao existe nem no Cadastro Mineiro nem no SIGMINE (serie 96xxxx / regimes
-        # nao cobertos pelos 13 arquivos de titulo). NAO descartar: o valor vai para um titular
-        # explicito 'nao identificado', para que a soma da coluna continue batendo com o CFEM total.
+    if cid is None and r["_proc"] in proc2company_cfem:
+        cid = proc2company_cfem[r["_proc"]]
+        casou_cnpj += 1
+        valor_casou_cnpj += v
+        procs_pelo_cnpj[r["_proc"]] += 1
+    elif cid is None:
+        # O processo nao existe nem no Cadastro Mineiro nem no SIGMINE e o CFEM nao traz CNPJ completo (CPF mascarado ou
+        # notacao cientifica). NAO descartar: o valor vai para um titular explicito 'nao identificado', para que a soma da
+        # coluna continue batendo com o CFEM total.
         naocasou += 1
         valor_naocasou += v
         procs_sem_par[r["_proc"]] += 1
@@ -338,15 +367,22 @@ for _, r in cfem.iterrows():
         if cod in MUN_NOME:
             cfem_mun[(cid, mk, ano)].add(cod)
 
-print(f"\nPonte CFEM -> empresa (via processo): {casou} linhas casadas, {naocasou} sem par "
-      f"({100*casou/(casou+naocasou):.1f}% das linhas; {100*valor_casou/(valor_casou+valor_naocasou):.1f}% do valor em R$)")
-print(f"   processos do CFEM sem titular no Cadastro Mineiro: {len(procs_sem_par)}")
+_tl, _tv = casou + casou_cnpj + naocasou, valor_casou + valor_casou_cnpj + valor_naocasou
+print(f"\nPonte CFEM -> empresa: {casou} linhas pelo processo, {casou_cnpj} pelo CNPJ do CFEM, {naocasou} sem par "
+      f"(processo: {100*casou/_tl:.1f}% das linhas e {100*valor_casou/_tv:.1f}% do valor; CNPJ do CFEM: {100*casou_cnpj/_tl:.1f}% e "
+      f"{100*valor_casou_cnpj/_tv:.1f}%; sem par: {100*naocasou/_tl:.1f}% e {100*valor_naocasou/_tv:.1f}%)")
+print(f"   processos sem titular no Cadastro Mineiro: {len(procs_pelo_cnpj)} identificados pelo CNPJ do CFEM, {len(procs_sem_par)} sem par")
 # qualidade do CPF_CNPJ e cobertura da ponte: os textos da 02b e do catálogo (aba 07) saem daqui
 qualidade = dict(qualidade_cfem.contar(cfem["CPF_CNPJ"]), ponte_linhas=casou, ponte_sem_par=naocasou,
-                 ponte_valor=valor_casou, ponte_valor_sem_par=valor_naocasou)
+                 ponte_valor=valor_casou, ponte_valor_sem_par=valor_naocasou,
+                 ponte_cnpj_linhas=casou_cnpj, ponte_cnpj_valor=valor_casou_cnpj, ponte_cnpj_processos=len(procs_pelo_cnpj))
 with open(f"{TMP}/_cfem_qualidade.json", "w", encoding="utf-8") as f:
     json.dump(qualidade, f, ensure_ascii=False)
 print("   CPF_CNPJ do CFEM:", {k: qualidade[k] for k in ("linhas", "cientifica", "mascarado", "completo")})
+for p, c in procs_pelo_cnpj.most_common():
+    crosswalk.append(dict(fonte="CFEM(GO)", valor_original=f"processo {p}", chave_normalizada=p, contagem=c,
+                           atribuido=proc2company_cfem[p],
+                           tipo_correspondencia="processo do CFEM sem titular no Cadastro Mineiro: empresa pela raiz do CNPJ pagador no próprio CFEM"))
 for p, c in procs_sem_par.most_common(30):
     crosswalk.append(dict(fonte="CFEM(GO)", valor_original=f"processo {p}", chave_normalizada=p, contagem=c,
                            atribuido="SEM_PAR_NO_CADASTRO",

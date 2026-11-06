@@ -460,7 +460,7 @@ FONTES = [
          periodo=lambda: periodo_cfem, confiabilidade=_conf_cfem,
          limitacoes="Recorte UF=GO do arquivo nacional feito antes de chegar em dados/ (passo não documentado — registrar no GitHub). "
                     f"{_lim_cpf}; sem nome do titular. "
-                    "Empresa só pela ponte do número do processo" + (f" ({_cob.replace(' das linhas e ', ' das linhas; ')})" if _cob else "")
+                    "Empresa pela ponte do número do processo (titular no Cadastro Mineiro) e, para processo fora das bases de título, pela raiz do CNPJ pagador" + (f" ({_cob.replace(' das linhas e ', ' das linhas; ')})" if _cob else "")
                     + ". Quantidade comercializada ≠ produção. 2026 parcial."),
     dict(source_id="SRC_ANM_CADASTRO", nome_fonte="ANM — Cadastro Mineiro (SCM): títulos e requerimentos", orgao="ANM", tipo_fonte="oficial",
          url_catalogo="https://dadosabertos.anm.gov.br/SCM/",
@@ -776,7 +776,7 @@ print("CFEM qtd comercializada:", nota_cfem_qtd[:160])
 
 D = {  # campo -> (descrição, unidade/domínio, fonte ou derivação)
     "mineral_id": ("Identificador estável do mineral. Atribuído por ordenação (classe, nome) sobre as 57 categorias oficiais da ANM + subitens justificados; nunca por hash do nome. Para rochas, a categoria depende do tipo de uso declarado (ver 01c).", "MIN_### (3 dígitos)", "Derivado — 01_dim_minerais / crosswalk 01b"),
-    "company_id": ("Identificador estável do titular. PJ: raiz do CNPJ (agrupa matriz e filiais). PF: CPF íntegro ou sha1 do nome normalizado (CPF mascarado por LGPD). COM_NAO_IDENTIFICADO = CFEM de processo ausente do Cadastro Mineiro e do SIGMINE.", "COM_CNPJ_########, COM_CPF_###########, COM_NOME_<8 hex>, COM_NAO_IDENTIFICADO", "Derivado — Cadastro Mineiro (Titular, CPF/CNPJ)"),
+    "company_id": ("Identificador estável do titular. PJ: raiz do CNPJ (agrupa matriz e filiais). PF: CPF íntegro ou sha1 do nome normalizado (CPF mascarado por LGPD). Processo da CFEM ausente do Cadastro Mineiro e do SIGMINE: raiz do CNPJ pagador no CFEM; COM_NAO_IDENTIFICADO = nem isso (CPF mascarado ou CNPJ em notação científica).", "COM_CNPJ_########, COM_CPF_###########, COM_NOME_<8 hex>, COM_NAO_IDENTIFICADO", "Derivado — Cadastro Mineiro (Titular, CPF/CNPJ)"),
     "operation_id": ("Identificador estável do processo minerário, derivado do número canônico do processo ANM.", "OPE_<número>_<ano>", "Derivado — SIGMINE.PROCESSO"),
     "municipality_id": ("Código IBGE do município (7 dígitos). Padrão externo estável.", "52##### (7 dígitos)", "IBGE — malha 2025 (CD_MUN)"),
     "source_ids": ("Fontes de onde vieram os valores da linha. Cada fonte entra se, e somente se, alguma coluna da linha veio dela.", "SRC_* separados por ';' (IDs da aba 07)", "Governança"),
@@ -1982,7 +1982,7 @@ SECOES = [
         "mineral_id = MIN_### (ordem de classe e nome da 01; criar mineral renumeraria os IDs, por isso só com decisão do grupo) · municipality_id = código IBGE "
         "de 7 dígitos · source_id = SRC_<órgão>_<base> · fato_id = FATO_###### · camada_id = CAM_##.",
         "company_id = COM_CNPJ_<8 primeiros dígitos do CNPJ> (a raiz agrupa matriz e filiais); pessoa física ou titular sem documento = COM_NOME_<sha1 do nome "
-        "normalizado>; CFEM de processo que não está em nenhuma base de título = COM_NAO_IDENTIFICADO.",
+        "normalizado>; CFEM de processo que não está em nenhuma base de título = raiz do CNPJ pagador no CFEM ou, sem CNPJ completo, COM_NAO_IDENTIFICADO.",
         "operation_id = OPE_<número>_<ano> do processo na ANM · project_id = PRJ_<número>_<ano> do processo-âncora do projeto · occurrence_id = OCC_<id da "
         "ocorrência no RECMIN>."]),
     ("Cuidados de uso", [

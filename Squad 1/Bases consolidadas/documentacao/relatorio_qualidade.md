@@ -23,7 +23,7 @@ Campos das abas de dados com metade ou mais das linhas vazias (aba 14, coluna `p
 | `01_dim_minerais` | `mineral_grupo_pai` | 95,5 | mineral_id do mineral-pai quando o item é subtipo (ex.: Calcário Calcítico → Calcário). |
 | `02_dim_empresas` | `metodo_estimacao` | 100 | Método quando o valor não é observado; vazio nas linhas observadas. |
 | `02_dim_empresas` | `nomes_alternativos` | 99,7 | Outras grafias do titular vistas nas fontes (até 3). |
-| `02_dim_empresas` | `cnpj_raiz` | 55,1 | 8 primeiros dígitos do CNPJ: identificam a empresa (o restante é o estabelecimento). |
+| `02_dim_empresas` | `cnpj_raiz` | 55 | 8 primeiros dígitos do CNPJ: identificam a empresa (o restante é o estabelecimento). |
 | `03_dim_operacoes` | `metodo_estimacao` | 100 | Método quando o valor não é observado; vazio nas linhas observadas. |
 | `03_dim_operacoes` | `cfem_2024_2026_brl` | 94,9 | CFEM recolhida pelo processo em 2024–2026 (2026 parcial, até 08/2026). |
 | `03_dim_operacoes` | `cfem_2022_2026_brl` | 94,2 | CFEM recolhida pelo processo em 2022–2026 (2026 parcial). |
@@ -72,8 +72,8 @@ Campos das abas de dados com metade ou mais das linhas vazias (aba 14, coluna `p
 | `11_cons_empresa_ano_mineral` | `energy_intensity_mwh_t` | 100 | VAZIO de propósito: energy_mwh / production_t na mesma production_basis. Nome fixado no contrato. |
 | `11_cons_empresa_ano_mineral` | `observacao` | 100 | Nota metodológica ou de rastreabilidade da linha. |
 | `11_cons_empresa_ano_mineral` | `metodo_estimacao` | 100 | Método quando o valor não é observado; vazio nas linhas observadas. |
-| `11_cons_empresa_ano_mineral` | `year` | 79,9 | Ano da CFEM (contrato). Vazio = mineral citado nos títulos do titular, sem CFEM. |
-| `11_cons_empresa_ano_mineral` | `cfem_recolhido_brl` | 79,9 | CFEM do titular para o mineral no ano, ligada pela ponte do número do processo. A soma da coluna bate com o arquivo bruto (R$ 867.578.398,91). |
+| `11_cons_empresa_ano_mineral` | `year` | 79,4 | Ano da CFEM (contrato). Vazio = mineral citado nos títulos do titular, sem CFEM. |
+| `11_cons_empresa_ano_mineral` | `cfem_recolhido_brl` | 79,4 | CFEM do titular para o mineral no ano, ligada pela ponte do número do processo. A soma da coluna bate com o arquivo bruto (R$ 867.578.398,91). |
 | `12_interface_squad1_squad2` | `project_id` | 100 | Vazio: depende do Radar de Projetos (Squad 1 / Estudante 2). |
 | `12_interface_squad1_squad2` | `observacao` | 74,8 | Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado. |
 
@@ -86,7 +86,7 @@ Cada linha de dimensão tem um ID único:
 | Aba | ID | Linhas | Valores distintos |
 |---|---|---:|---:|
 | `01_dim_minerais` | `mineral_id` | 67 | 67 |
-| `02_dim_empresas` | `company_id` | 5.066 | 5.066 |
+| `02_dim_empresas` | `company_id` | 5.077 | 5.077 |
 | `03_dim_operacoes` | `operation_id` | 16.875 | 16.875 |
 | `04_dim_projetos` | `project_id` | 3.403 | 3.403 |
 | `05_dim_municipios` | `municipality_id` | 246 | 246 |
@@ -98,7 +98,7 @@ Cada linha de dimensão tem um ID único:
 - **Chaves das consultas → dimensões** (OK, n = 0): Integridade referencial (chaves das abas consolidadas → dimensões) — 0 órfãos
 - **Produção repetida no AMB** (ALERTA, n = 170): 08: mesma tonelagem de produção em linhas diferentes da mesma UF e ano no AMB (co-produto, mineral separado por teor ou mesma declaração em duas categorias) — … — 76 grupos, 170 linhas (com status alerta_producao_repetida: 170). Numa soma contam a mais 97,774 t dentro do mesmo mineral (infla a linha BR da 09) e 328,159,747 t entre minerais. Goiás: producao_rom 2023: 5526825,440000 t em Nióbio + Bário; producao_beneficiada 2011: 395 t em Rochas Ornamentais + Rochas Ornamentais - Outras. A fonte não tem linha 100% duplicada — as linhas diferem na substância, na categoria ou no …
 - **Células da fonte no fato longo** (OK, n = 0): 08: campos de governança por linha — source_url, data_acesso e tipo_fonte iguais à 07; não observado sem método; mesma célula da fonte em duas linhas — divergentes da 07: 0; não observado sem metodo_estimacao: 0; células repetidas: 0. valor_observado_estimado: {'observado': 158265}; status_validacao: {'valido': 157408, 'alerta_producao_repetida': 170, 'alerta_processo_09c': 598, 'quantidade_excluida_da_soma_09b': 89}
-- **Titulares (aba 02b):** nome do SIGMINE sem titular equivalente no Cadastro Mineiro: 40; processo do CFEM sem titular correspondente no Cadastro Mineiro: 30; AMBIGUO: mesmo nome, raizes de CNPJ diferentes (NAO fundidas): 6; mesma_raiz_cnpj_varias_grafias (fundidas): 1. Nomes iguais com raízes de CNPJ diferentes NÃO são fundidos.
+- **Titulares (aba 02b):** processo do CFEM sem titular no Cadastro Mineiro: empresa pela raiz do CNPJ pagador no pr…: 135; nome do SIGMINE sem titular equivalente no Cadastro Mineiro: 40; processo do CFEM sem titular correspondente no Cadastro Mineiro: 12; AMBIGUO: mesmo nome, raizes de CNPJ diferentes (NAO fundidas): 6; mesma_raiz_cnpj_varias_grafias (fundidas): 1. Nomes iguais com raízes de CNPJ diferentes NÃO são fundidos.
 
 ## 4. Divergências entre fontes
 
@@ -122,7 +122,7 @@ Cada linha de dimensão tem um ID único:
 | Ouro | 2025 | 861241/1980 | 9 | 3,400 | 2,6× | tonelagem acima do total estadual | alta |
 
 - **Municípios de outro estado em processos de fronteira (aba 05b):** 46 municípios citados no Cadastro Mineiro junto com municípios de Goiás; ficam fora da dimensão de municípios, e a linha do processo é mantida pelo município goiano.
-- **Titulares sem correspondência entre fontes (aba 02b):** nome do SIGMINE sem titular equivalente no Cadastro Mineiro: 40; processo do CFEM sem titular correspondente no Cadastro Mineiro: 30.
+- **Titulares sem correspondência entre fontes (aba 02b):** nome do SIGMINE sem titular equivalente no Cadastro Mineiro: 40; processo do CFEM sem titular no Cadastro Mineiro: empresa pela raiz do CNPJ pagador no pr…: 135; processo do CFEM sem titular correspondente no Cadastro Mineiro: 12.
 - **Mapas (aba 13b):** verificações com ocorrência:
 
   - `municipios_go` — Ponto 'centro da caixa envolvente' (usado nas versões anteriores da Base 2) cai fora do próprio município (n = 20): Substituído por representative_point (garantido dentro do polígono) na camada e na Base 2.
@@ -200,7 +200,7 @@ Quantidades da CFEM excluídas da soma de toneladas (aba 09b): 89 linhas — qua
 | OK | Rochas na CFEM: de onde veio a categoria (% do R$ de CFEM de rochas) | 41 | uso_declarado: 75.7%; uso_majoritario_da_rocha_em_GO: 23.1%; rocha_fixa: 1.2% |
 | OK | IMB (Goiás em Dados) × AMB: produção do estado por mineral nos anos em que as duas fontes têm valor (checagem cruzada, informativa) | 75 | 14 minerais comparados em 2010–2016; o IMB não traz produção mineral depois de 2016. Iguais à produção beneficiada do AMB em todos os anos (razão 0,99–1,01): Amianto, Saibro. Diferentes em algum ano (razão IMB ÷ AMB): Areia (IMB em m³, AMB em t): 2010 3.59×, … |
 | OK | 08: cada célula numérica das fontes (AMB bruta, AMB beneficiada, CFEM) vira exatamente uma linha — contado de novo nos arquivos | 158265 | SRC_ANM_CFEM: 82,151 linhas × 82,151 células; SRC_ANM_PROD_BENEF: 29,679 linhas × 29,679 células; SRC_ANM_PROD_BRUTA: 46,435 linhas × 46,435 células. Fora: 6,198 células de contido com unidade '-' (não se aplica). Divergências: nenhuma |
-| OK | 08 → 09/10/11: as abas consolidadas são somas de valor_tratado da 08 (produção bruta/beneficiada, venda e CFEM por mineral×UF×ano; CFEM por município… | 0 | 09: 0 divergências em 6,680 comparações; 10: 0 em 964; 11: 0 em 2,057 |
+| OK | 08 → 09/10/11: as abas consolidadas são somas de valor_tratado da 08 (produção bruta/beneficiada, venda e CFEM por mineral×UF×ano; CFEM por município… | 0 | 09: 0 divergências em 6,680 comparações; 10: 0 em 964; 11: 0 em 2,107 |
 | OK | 08: campos de governança por linha — source_url, data_acesso e tipo_fonte iguais à 07; não observado sem método; mesma célula da fonte em duas linhas | 0 | divergentes da 07: 0; não observado sem metodo_estimacao: 0; células repetidas: 0. valor_observado_estimado: {'observado': 158265}; status_validacao: {'valido': 157408, 'alerta_producao_repetida': 170, 'alerta_processo_09c': 598, 'quantidade_excluida_da_soma_… |
 | OK | §3 da Entrega: fonte, source_url, data_acesso, periodo_referencia, tipo_fonte, valor_observado_estimado, metodo_estimacao, status_validacao e respons… | 0 | 01: ok; 02: ok; 03: ok; 04: ok; 05: ok; 06: ok; 08: ok; 09: ok; 10: ok; 11: ok; 12: ok; 13: ok |
 | ALERTA | 08: mesma tonelagem de produção em linhas diferentes da mesma UF e ano no AMB (co-produto, mineral separado por teor ou mesma declaração em duas cate… | 170 | 76 grupos, 170 linhas (com status alerta_producao_repetida: 170). Numa soma contam a mais 97,774 t dentro do mesmo mineral (infla a linha BR da 09) e 328,159,747 t entre minerais. Goiás: producao_rom 2023: 5526825,440000 t em Nióbio + Bário; producao_benefici… |
