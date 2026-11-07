@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 148,
+ "materias": 149,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -1819,6 +1819,22 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "US company to buy Brazilian rare earth miner Serra Verde for $2.8 billion - Courthouse News",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZGFLaVdrWDNIeld4NjdhOFlEdF92U2JkeGdwaTBJNGI4VmRSVEJKV0RvclE5UHZyRGFWemNDdmNXeGNPNWUzRU5nN04wYzY0RFhIaW5WT21JMHd2M2NMOU5kZEZwblNjZ2g0MlhSdS02MU5ULURLejVVMHZBMnMwUlNBeEhtRDB4VkpHcmdzTk5ESU5DcDFqbUxQRVZ0Q0M5U2c?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-07T10:46:56.566222+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
