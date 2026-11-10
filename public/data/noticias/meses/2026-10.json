@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1821,
+ "materias": 1822,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -12689,6 +12689,22 @@
    "tema": "mineracao",
    "substancias": [],
    "brasil": 0
+  },
+  {
+   "title": "How the gold boom is fuelling tree loss from Ghana to the Amazon - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObUxGRUVjWUdwSVNNUGFIeXRUWVdadTNPQ2NFclNhZDluSzZ4dnFRUTdEUFVidUtlVDlVWXdCc2ZnaFNmTkQ2Yk9fc19WSEo2blI3aVRsN1dFbVBtVkxaSXlkZW02ZjJQaXNEX1Z6OGJPR3ZaRm04ekJPWV9wbFBDLUk4bmtDeWRkelF5NWRBV2xtWnlGSHNXZUpISGxSd3lTU3FVRGpxSERBcHZ3X0JxMkw4dTJyR1B1SVV4SUZBdS0yNHQ5UU9R?oc=5",
+   "published_at": "2026-10-19T07:00:00+00:00",
+   "first_seen": "2026-11-10T11:56:04.121565+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ouro"
+   ],
+   "brasil": 1
   },
   {
    "title": "Fortescue sells copper concentrate cleaned with arsenic removal process",

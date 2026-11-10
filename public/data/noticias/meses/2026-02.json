@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 48,
+ "materias": 49,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -435,6 +435,20 @@
    "setorial": 1,
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "A CFEM e o risco da maldição dos recursos naturais - Migalhas",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcmpyR19mT01kUDRjY2xKaXljbFMyUXVnYXA2Q1JiNXBBZG1GcVJVYWJwS25Jd3V1UmZ1SVFTeXpoSFZ5RnlZMjYtekQ5RWpFNDBYN2IyeDh3bVFRUHhWZDh3VUh5X2lpTUxMZlNWYXc5MTVzR0RNVVVPZHFfaXpqMEZsLVR6enRjcUFsZUl5RXQtWEl5QVc0?oc=5",
+   "published_at": "2026-02-09T08:00:00+00:00",
+   "first_seen": "2026-11-10T11:56:02.756972+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
