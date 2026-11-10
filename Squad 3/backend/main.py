@@ -124,6 +124,8 @@ from empresas import router as empresas_router
 app.include_router(empresas_router)
 from mapa import router as mapa_router
 app.include_router(mapa_router)
+from catalogo import router as catalogo_router
+app.include_router(catalogo_router)
 
 import radar_api
 radar_api.connection_factory=get_connection

@@ -35,6 +35,7 @@ on:
       - 'scripts/build_projetos_go.py'
       - 'scripts/build_simulador_base.py'
       - 'scripts/build_previsao_base.py'
+      - 'scripts/build_catalogo_painel.py'
       - 'Squad 2/intensidade_energetica/build_intensidade.py'
       - 'Squad 2/modello_reale/**'
       - '.github/workflows/atualizar-derivados.yml'
@@ -83,7 +84,7 @@ jobs:
 
       - name: Publicar na main
         run: |
-          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador public/data/previsao
+          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador public/data/previsao data/catalogo
                   "Squad 1/P3M/inventario_p3m.csv" data/mapa
                   "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
           git add -A -- "${saidas[@]}"

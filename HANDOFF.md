@@ -341,3 +341,19 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
 ## Previsão de demanda (aba do painel)
 
 Aba `Previsão de demanda` entre o Mapa mineral e o Mercado (`public/previsao.js`, `previsao.css`, seção `previsao-view` em `painel.html`), com três sub-abas: **Previsão** (demanda total e por mineral de 2027 a 2040 nos três cenários, faixas baixa/alta e CSV), **Dados utilizados** (produção histórica do Squad 1, intensidade energética com a rastreabilidade da CCEE e catálogo de fontes) e **Metodologia** (passos, equações, hipóteses, regra por mineral, backtest, faixas e limitações). Lê só o arquivo estático `public/data/previsao/previsao_v1.json`, gerado por `python scripts/build_previsao_base.py` a partir dos outputs de `Squad 2/modello_reale` e conferido por `tests/test_previsao.py` (inclusive contra os totais do Simulador). A etapa `previsao` de `scripts/atualizar_derivados.py` refaz o pacote quando a base consolidada ou os coeficientes mudam. Desde 10/11/2026 o modelo tem uma camada de projetos (`Squad 2/modello_reale/src/projects.py`): a curadoria do Radar de Projetos dá a maturidade, `parameters/project_pipeline.csv` quantifica o incremento de cada projeto e `parameters/project_maturity_weights.csv` dá o peso por cenário. Para incluir um projeto novo, acrescente a linha no pipeline com a fonte e rode o gerador.
+
+## Projetos minerais e aba Base de dados
+
+Integração de 06/11/2026, em duas partes.
+
+**Base de projetos.** `Squad 1/entregas/projetos_minerais_goias.xlsx` reúne 37 projetos minerais de Goiás e 57 evidências, em três abas — PROJETOS (31 colunas), NOTÍCIAS (16 colunas, ligadas pelo ID do projeto) e METODOLOGIA. Cada aba abre com nome da base, origem e última atualização. A curadoria fica em `projetos/base_curada.json`; o XLSX e `data/projetos/projetos.json` saem de `python scripts/build_projetos_base.py`, que recusa maturidade fora das sete categorias, projeto sem evidência, evidência órfã, ID repetido, campo vazio e CAPEX sem moeda. Regras e limites em `projetos/README.md` e `METODOLOGIA.md` §3.7.
+
+A base cobre operação, expansão, construção, projeto definido, provável, possível e sinal — de Chapada e CMOC à reativação de Pilar de Goiás, ao Saúva da Lundin, ao Carina da Aclara em Nova Roma, ao Sertão da P.A. Gold em Faina e aos alvos de terras raras da Alvo e da Appia em Iporá. **Nenhum documento foi lido na origem**: a coleta saiu de busca na web num ambiente cujo proxy bloqueia os sites, e a cobertura não é exaustiva — o README lista o que ficou de fora e o caminho para fechar.
+
+**Aba Base de dados.** Entre o Radar e a administração (`public/bases.js`, bloco `--- Base de dados ---` no fim de `public/style.css`), servida por `Squad 3/backend/catalogo.py` em `/api/catalogo`. Cataloga as 15 bases que o sistema usa, agrupadas em seis famílias, cada cartão abrindo com **nome, origem e última atualização** e trazendo período, volume, onde vive, o que mede e o que não mede. O pacote `data/catalogo/catalogo.json` é gerado por `python scripts/build_catalogo_painel.py`, que lê o `built_on` dos pacotes e a data do último commit dos arquivos brutos — nenhuma data é digitada. Como as demais bases que nomeiam empresas, fica atrás de sessão e não vai para `public/`.
+
+```sh
+python scripts/build_projetos_base.py && python scripts/build_catalogo_painel.py
+python -m unittest discover -s tests -p test_projetos.py -v
+node --check public/bases.js
+```
