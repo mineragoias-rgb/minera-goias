@@ -337,3 +337,7 @@ As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa 
   - Classe de mineral crítico ou estratégico: não há taxonomia documentada.
   - Geofísica: os dados só existem como imagem; o mapa mostra a área coberta pelos levantamentos aerogeofísicos.
   - SIGEF, cobertura do solo, hidrografia, afloramentos e litologia estadual: volume (lista completa em `data/mapa/README.md`).
+
+## Previsão de demanda (aba do painel)
+
+Aba `Previsão de demanda` entre o Mapa mineral e o Mercado (`public/previsao.js`, `previsao.css`, seção `previsao-view` em `painel.html`), com três sub-abas: **Previsão** (demanda total e por mineral de 2027 a 2040 nos três cenários, faixas baixa/alta e CSV), **Dados utilizados** (produção histórica do Squad 1, intensidade energética com a rastreabilidade da CCEE e catálogo de fontes) e **Metodologia** (passos, equações, hipóteses, regra por mineral, backtest, faixas e limitações). Lê só o arquivo estático `public/data/previsao/previsao_v1.json`, gerado por `python scripts/build_previsao_base.py` a partir dos outputs de `Squad 2/modello_reale` e conferido por `tests/test_previsao.py` (inclusive contra os totais do Simulador). A etapa `previsao` de `scripts/atualizar_derivados.py` refaz o pacote quando a base consolidada ou os coeficientes mudam.

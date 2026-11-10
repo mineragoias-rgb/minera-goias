@@ -6,7 +6,7 @@
 
 Cadeia (cada etapa só roda depois das que ela usa):
 
-    planilha consolidada (aba 12) ─► pacote_squad2 ─► intensidade do Squad 2 ─► parâmetros do Simulador
+    planilha consolidada (aba 12) ─► pacote_squad2 ─► intensidade do Squad 2 ─► parâmetros do Simulador e aba Previsão de demanda
     bases brutas do Squad 1 + CCEE ─► Panorama ─┐
     curadoria de produção ──────────► Produção ─┴► Empresas
     levantamento do Lucas Maia ─────► carteira de projetos (Mercado)
@@ -62,11 +62,14 @@ ETAPAS = [
      ["public/data/mercado/projetos_go_v1.json"], [], ["tests/test_mercado.py"]),
     ("simulador", [PY, "scripts/build_simulador_base.py"], ".",
      ["public/data/simulador/parametros_v1.json"], ["pacote_squad2", "intensidade_squad2"], ["tests/test_simulador.py"]),
+    ("previsao", [PY, "scripts/build_previsao_base.py"], ".",
+     ["public/data/previsao/previsao_v1.json"], ["pacote_squad2", "intensidade_squad2"], ["tests/test_previsao.py"]),
 ]
 # Campos que só registram quando o arquivo foi gerado; mudança só neles não é mudança de dado.
 DATAS_DE_GERACAO = {"built_on", "integrated_on", "data_versao"}
 # O Simulador grava a data do dia como data de acesso de cada fonte do repositório: também é data de geração.
-DATAS_POR_ARQUIVO = {"public/data/simulador/parametros_v1.json": {"data_acesso"}}
+DATAS_POR_ARQUIVO = {"public/data/simulador/parametros_v1.json": {"data_acesso"},
+                     "public/data/previsao/previsao_v1.json": {"data_acesso"}}
 
 
 def git(*args, check=True):

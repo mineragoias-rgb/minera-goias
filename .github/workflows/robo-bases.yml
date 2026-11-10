@@ -133,7 +133,7 @@ jobs:
           set -e
           { echo '### Derivados'; echo; cat "$RUNNER_TEMP/derivados.md"; } >> "$GITHUB_STEP_SUMMARY"
           if [ "$codigo" -ne 0 ]; then exit "$codigo"; fi
-          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador
+          saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador public/data/previsao
                   "Squad 1/P3M/inventario_p3m.csv" data/mapa
                   "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica")
           git add -A -- "${saidas[@]}"
@@ -151,7 +151,7 @@ jobs:
           # roda tudo antes de parar: uma execução mostra todas as falhas, não só a primeira
           falhas=()
           for t in test_robo test_web test_load_anm test_i18n test_radar_api test_radar_noticias test_inventario_p3m test_mapa \
-                   test_atlas test_panorama test_simulador test_mercado test_radar_projetos test_derivados; do
+                   test_atlas test_panorama test_simulador test_mercado test_previsao test_radar_projetos test_derivados; do
             python -m unittest discover -s tests -p "$t.py" || falhas+=("$t")
           done
           for js in tests/simulador.test.js tests/mapa-dados.test.js tests/mapa-shp.test.js; do
