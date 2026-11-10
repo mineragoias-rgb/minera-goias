@@ -90,11 +90,15 @@ Cinco minerais: cobre, bauxita, níquel, fosfato e amianto. O **nióbio ficou de
 o Squad 2 não conseguiu conciliar com segurança as unidades e o conceito de produção
 disponíveis com o coeficiente energético.
 
-O erro do backtest do Squad 2 aparece no painel de fontes, por mineral. A **bauxita** tem
-44,3%: a produção caiu em 2024 depois de anos de crescimento, e uma projeção de tendência não
-antecipa interrupções operacionais nem decisões de mercado. Com as intensidades da CCEE, a bauxita
-passou a ser o **maior** consumidor projetado (o níquel caiu de 45,55 para 11,67 MWh/t), então
-esse número pesa ainda mais ao interpretar o total.
+O erro do backtest do Squad 2 aparece no painel de fontes, por mineral. A **bauxita** tem o
+maior erro: 34,1% com a tendência histórica e 18,2% repetindo o último valor observado. A produção
+caiu em 2024 depois de anos de crescimento, e uma projeção de tendência não antecipa interrupções
+operacionais nem decisões de mercado; por isso, no cenário de referência, a bauxita mantém a
+produção de 2025. Com as intensidades da CCEE, o níquel caiu de 45,55 para 11,40 MWh/t, e a
+bauxita passou a disputar com ele o posto de maior consumidor projetado: no cenário de referência,
+a bauxita lidera até 2029, e o níquel a ultrapassa a partir de 2030. Em 2040, os dois somam cerca
+de 90% da demanda (níquel 2,56 TWh e bauxita 1,81 TWh), então o número da bauxita pesa bastante
+ao interpretar o total.
 
 O modelo ainda **não inclui carteira física de projetos**. As bases atuais não trazem
 capacidade, ano de entrada e grau de certeza de forma estruturada e validada.
