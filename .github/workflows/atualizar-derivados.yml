@@ -55,6 +55,9 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v5
+        with:
+          # o catálogo da aba Base de dados lê a data do último commit de cada base bruta
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:

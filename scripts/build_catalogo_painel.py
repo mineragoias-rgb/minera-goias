@@ -28,14 +28,38 @@ SAIDA = Path(args.saida) if args.saida else REPO / "data" / "catalogo" / "catalo
 VERSAO = "v1"
 
 
-def commit_date(caminho):
-    """Data do último commit que tocou o arquivo — a única 'última atualização' que não depende de alguém lembrar de digitar."""
+def _fronteira_rasa():
+    """Commits na borda de um clone raso (git clone --depth / actions/checkout sem fetch-depth: 0)."""
     try:
-        saida = subprocess.run(["git", "-C", str(REPO), "log", "-1", "--format=%cs", "--", str(caminho)],
+        caminho = subprocess.run(["git", "-C", str(REPO), "rev-parse", "--git-path", "shallow"],
+                                 capture_output=True, text=True, timeout=30).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return set()
+    arquivo = Path(caminho) if Path(caminho).is_absolute() else REPO / caminho
+    return set(arquivo.read_text().split()) if arquivo.is_file() else set()
+
+
+FRONTEIRA_RASA = _fronteira_rasa()
+
+
+def commit_date(caminho):
+    """Data do último commit que tocou o arquivo — a única 'última atualização' que não depende de alguém lembrar de digitar.
+
+    Num clone raso, o commit da borda parece ter tocado todos os arquivos que existiam antes dele, e a data sairia errada
+    (em 10/11/2026 todas as bases viraram 'atualizadas hoje' no GitHub Actions). Nesse caso o script para em vez de gravar.
+    """
+    try:
+        saida = subprocess.run(["git", "-C", str(REPO), "log", "-1", "--format=%H %cs", "--", str(caminho)],
                                capture_output=True, text=True, timeout=30)
-        return saida.stdout.strip() or "NA"
     except (OSError, subprocess.SubprocessError):
         return "NA"
+    partes = saida.stdout.split()
+    if not partes:
+        return "NA"
+    if partes[0] in FRONTEIRA_RASA:
+        raise SystemExit(f"histórico raso: a data de {caminho} não é confiável. Use um clone completo "
+                         "(git fetch --unshallow, ou fetch-depth: 0 no actions/checkout).")
+    return partes[1]
 
 
 def carrega(rel):
