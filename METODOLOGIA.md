@@ -2,7 +2,7 @@
 
 Este documento fixa **o que o Minera Goiás mede, a partir de qual fonte, em qual unidade e em qual período** — e, com o mesmo cuidado, o que ele ainda não mede. Vale para o painel CCEE, o atlas mineral, o perfil de município, a carga das tabelas de negócio e o radar de notícias.
 
-Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo na mesma alteração.
+Atualizado em 06/11/2026. Ao mudar uma regra de cálculo, atualize este arquivo na mesma alteração.
 
 ---
 
@@ -31,6 +31,7 @@ Atualizado em 18/09/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 | Dicionário de substâncias | Uma substância da ANM | 862 | Sem data declarada |
 | Produção por empresa (`data/producao`) | Um número de produção publicado por uma fonte, para uma empresa, mineral, período e medida | 78 registros de 10 empresas | 2022–2027 (realizado, guidance, capacidade e meta) |
 | Empresas: produção × energia (`data/empresas`) | Uma empresa, um mineral e um ano, com produção anualizada, carga da CCEE anualizada e o coeficiente entre as duas | 38 linhas de 10 empresas | 2022–2026 |
+| Projetos minerais (`data/projetos`) | Um projeto nomeado, com empresa, mineral, município, fase, maturidade, capacidade, CAPEX, cronograma e evidência | 37 projetos · 57 evidências | Retrato da pesquisa de 2026-11-06 |
 | Atlas (base consolidada do Squad 1, v17) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
@@ -131,7 +132,33 @@ Mede **a razão entre dois números publicados**, cada um com sua cobertura decl
 
 As ordens de grandeza conferem com o processo de cada operação: ~45.000 kWh/t de níquel contido (ferroníquel em forno elétrico), ~8.350 kWh/t de cobre em concentrado, ~320 kWh/t de crisotila. O nióbio da CMOC, depois de separado por ramo, fica em ~11.900 kWh/t, compatível com ferronióbio; antes do rateio, carregando a energia do fosfato junto, dava ~27.800.
 
-### 3.7 Radar de notícias (protótipo)
+### 3.7 Projetos minerais de Goiás (`data/projetos`)
+
+Mede **o grau de comprovação econômica de um projeto**, não a etapa administrativa em que ele está. Por isso `Fase` e `Maturidade` são colunas separadas: uma pesquisa mineral com sondagem financiada e cronograma de implantação é `PROVÁVEL`; a mesma fase sem nada disso é `POSSÍVEL`.
+
+**Sete maturidades, nesta hierarquia:** `OPERAÇÃO > EXPANSÃO > CONSTRUÇÃO > DEFINIDO > PROVÁVEL > POSSÍVEL > SINAL`. `OPERAÇÃO` exige produção comercial — Pilar de Goiás reiniciou a lavra subterrânea em outubro de 2026 mas ainda não fez o primeiro vazamento de ouro, e por isso está em `CONSTRUÇÃO`. `DEFINIDO` exige viabilidade concluída, decisão de investimento, financiamento ou licença de instalação — o Carina tem PFS e reservas em NI 43-101, mas nenhum comunicado de decisão final foi localizado, e por isso é `PROVÁVEL`.
+
+**NA é declaração, não lacuna.** Significa que a informação não foi encontrada em fonte pública; não é zero nem ausência do atributo. O gerador recusa campo vazio, CAPEX sem moeda ou ano, e capacidade sem unidade.
+
+**Linguagem especulativa não vira fato.** "A expansão poderia dobrar a produção" permanece como texto em observações, não como capacidade anunciada. "Um fundo chinês tem interesse em aportar R$ 1 bilhão" entrou como `SINAL` em linha própria, não como CAPEX do projeto.
+
+**Divergência entre fontes é registrada, não resolvida em silêncio.** O CAPEX do Carina aparece em quatro valores conforme a fonte e a data; ficou o atribuído à própria empresa, com os outros três nas observações. O prazo do fim do amianto em Minaçu tem duas leituras da mesma decisão do STF, e as duas estão na base.
+
+**Deduplicação é por empreendimento.** Saúva está separado de Chapada por ter cava e decisão de investimento próprias; Barro Alto está separado de Codemin por serem plantas em municípios diferentes, ainda que a produção seja publicada em conjunto.
+
+**Esta base não é o pipeline cadastral.** O universo de processos com título minerário está no atlas — 3.377 processos da aba 04 do Squad 1. Aqui está o que virou projeto com nome, empresa e cronograma. As duas não se somam.
+
+**Limitação da coleta:** nenhum documento foi aberto e lido na origem, porque o proxy de egresso do ambiente de coleta bloqueia o acesso direto a páginas. Não houve leitura de EIA/RIMA, de relatório NI 43-101, de formulário da CVM nem de processo de licenciamento. A cobertura, portanto, não é exaustiva, e `projetos/README.md` lista o que ficou de fora.
+
+### 3.8 Catálogo das bases de dados (`data/catalogo`)
+
+Responde a três perguntas por base — **nome, origem e última atualização** — e serve a aba `Base de dados` do painel, com 15 bases catalogadas.
+
+**Nenhuma data é digitada.** A de um pacote gerado vem do `built_on` que o próprio pacote grava; a de um arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo. Assim o catálogo não envelhece sozinho enquanto as bases mudam: se uma base sumir, a linha some com ela, e o teste acusa quando o catálogo deixa de bater com o pacote que descreve.
+
+Cada base declara também **o que não mede** — a CCEE não mede consumo da mineração, a CFEM não mede produção, o Anuário não mede produção por empresa, a base de produção não é auditada. É a mesma disciplina das seções acima, reunida num lugar só.
+
+### 3.9 Radar de notícias (protótipo)
 
 Mede **o que a imprensa está dizendo**, não preço.
 
