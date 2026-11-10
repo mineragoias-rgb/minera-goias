@@ -14,8 +14,9 @@ Esta é uma versão técnica, reproduzível e integrada aos dados atualmente dis
 2. Executa um backtest histórico da projeção de produção.
 3. Compara a tendência histórica com uma referência simples de persistência.
 4. Gera cenários futuros de produção e demanda estimada de energia para 2027–2040.
-5. Executa análise de sensibilidade das intensidades energéticas.
-6. Gera faixas baixa, base e alta e gráficos prontos para apresentação.
+5. Soma à tendência a carteira de projetos do Squad 1 que tem incremento de produção e ano de entrada, ponderada pela maturidade.
+6. Executa análise de sensibilidade das intensidades energéticas.
+7. Gera faixas baixa, base e alta e gráficos prontos para apresentação.
 
 Backtest, cenários futuros, sensibilidade, faixas de incerteza e materiais de apresentação possuem outputs separados para não confundir validação histórica, projeção e teste de hipóteses.
 
@@ -48,9 +49,12 @@ Squad 2/
 └── modello_reale/
     ├── parameters/
     │   ├── energy_intensity.csv
+    │   ├── project_maturity_weights.csv
+    │   ├── project_pipeline.csv
     │   └── scenarios.csv
     ├── src/
     │   ├── common.py
+    │   ├── projects.py
     │   ├── run_backtest.py
     │   ├── run_future_scenarios.py
     │   ├── run_intensity_sensitivity.py
@@ -208,6 +212,50 @@ Os cenários futuros cobrem 2027–2040.
 
 A bauxita não usa a regra de tendência histórica no cenário de referência: sua produção permanece no último valor observado de 2025. Essa escolha evita transformar um período de crescimento excepcional em expansão automática de longo prazo. O cenário de expansão mantém separadamente a hipótese de crescimento recente.
 
+## Camada de projetos
+
+A projeção de tendência representa as operações existentes. Os novos projetos entram por uma camada própria, em
+`src/projects.py`, que liga a base de projetos do Squad 1 ao modelo:
+
+```text
+produção projetada(m, t, s) = tendência(m, t, s) + Σ peso(maturidade do projeto, s) × incremento do projeto(t)
+```
+
+| Entrada | Arquivo | Conteúdo |
+|---|---|---|
+| Carteira e maturidade | `Squad 1/Radar de Projetos/curadoria_web.json` | Projetos curados pelo Squad 1, de OPERAÇÃO a SINAL, com fontes |
+| Quantificação | `parameters/project_pipeline.csv` | Incremento anual de produção, ano de entrada e de saída de cada projeto, na base de produção do mineral |
+| Pesos | `parameters/project_maturity_weights.csv` | Fração do incremento somada em cada cenário, por maturidade |
+
+A maturidade é lida da curadoria a cada execução: se um projeto avança ou recua no Radar, o peso muda sem editar o
+modelo. Um projeto só entra no pipeline quando a fonte traz incremento de produção e período; o modelo recusa a execução
+se o projeto não existir na curadoria, se o mineral for outro ou se a base de produção não for a que o modelo usa.
+
+| Maturidade | Conservador | Referência | Expansão |
+|---|---:|---:|---:|
+| Operação | 0 | 0 | 0 |
+| Expansão ou construção | 0,5 | 1 | 1 |
+| Definido | 0,25 | 0,75 | 1 |
+| Provável | 0 | 0,5 | 1 |
+| Possível | 0 | 0 | 0,5 |
+| Sinal | 0 | 0 | 0 |
+
+Os pesos são hipóteses ilustrativas (`SRC_S2_ASSUMPTION_002`), não probabilidades estimadas. Projetos em operação já
+estão na série histórica e têm peso zero, para não contar duas vezes.
+
+Na curadoria atual, 13 projetos são dos cinco minerais do modelo: 8 em operação, 2 possíveis (níquel de Santa Fé e
+Morro do Engenho, leilões do SGB), 2 sinais e 1 expansão. Só a **expansão de Chapada (depósito Saúva)** traz incremento
+e período nas fontes: cerca de 15 mil t de cobre contido por ano de 2029 a 2032 (estudo citado pela Lundin, não
+capacidade anunciada). No cenário de referência, isso soma cerca de 0,11–0,12 TWh por ano entre 2029 e 2032, cerca de
+2,5% da demanda desses anos; 2027 e 2040 não mudam.
+
+| Arquivo | Conteúdo |
+|---|---|
+| `outputs/future/project_inventory.csv` | Projetos da curadoria nos cinco minerais, se entram no modelo e por quê |
+| `outputs/future/project_layer_detail.csv` | Produção e energia ponderadas de cada projeto, por cenário e ano |
+
+Em `future_projection_by_mineral.csv`, `projected_production_t` = `trend_production_t` + `project_production_t`.
+
 ## Backtest histórico
 
 O backtest avalia a projeção de **produção**, não a intensidade energética.
@@ -248,7 +296,9 @@ Com os coeficientes finais integrados e a regra de referência da bauxita ajusta
 - **4,59 TWh em 2027**
 - **4,84 TWh em 2040**
 
-Em 2040, os principais componentes são níquel, com cerca de 2,56 TWh, e bauxita, com cerca de 1,81 TWh.
+Em 2040, os principais componentes são níquel, com cerca de 2,56 TWh, e bauxita, com cerca de 1,81 TWh. Entre 2029 e
+2032, a expansão de Chapada (Saúva) acrescenta cerca de 0,11–0,12 TWh por ano no cenário de referência (camada de
+projetos).
 
 | Cenário | Demanda elétrica em 2040 |
 |---|---:|
@@ -377,7 +427,7 @@ Ele:
 
 - A bauxita depende de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
 - Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou operação podem modificá-los.
-- O modelo não incorpora capacidade, novos projetos, expansões, encerramentos ou atrasos operacionais.
+- A camada de projetos só soma o que as fontes quantificam (incremento de produção e período); hoje, apenas a expansão de Chapada. Encerramentos e atrasos operacionais não são modelados, e a tendência histórica pode já embutir parte de expansões passadas.
 - Não há camada macroeconômica ou elasticidade entre demanda global e produção de Goiás.
 - Não foi realizado backtest de consumo elétrico agregado, porque ainda não existe uma série histórica com o mesmo perímetro de operações e produção.
 - O backtest possui apenas dois anos de teste por mineral; a comparação com a referência simples é evidência útil, mas ainda não demonstra superioridade estatística generalizável entre métodos.

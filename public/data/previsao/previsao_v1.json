@@ -47,6 +47,497 @@
    "fonte": "SRC_S2_ASSUMPTION_001"
   }
  ],
+ "carteira": {
+  "curadoria": "Squad 1/Radar de Projetos/curadoria_web.json",
+  "pipeline": "Squad 2/modello_reale/parameters/project_pipeline.csv",
+  "pesos_arquivo": "Squad 2/modello_reale/parameters/project_maturity_weights.csv",
+  "pesos": [
+   {
+    "maturidade": "OPERAÇÃO",
+    "conservador": 0.0,
+    "referencia": 0.0,
+    "expansao": 0.0
+   },
+   {
+    "maturidade": "EXPANSÃO",
+    "conservador": 0.5,
+    "referencia": 1.0,
+    "expansao": 1.0
+   },
+   {
+    "maturidade": "CONSTRUÇÃO",
+    "conservador": 0.5,
+    "referencia": 1.0,
+    "expansao": 1.0
+   },
+   {
+    "maturidade": "DEFINIDO",
+    "conservador": 0.25,
+    "referencia": 0.75,
+    "expansao": 1.0
+   },
+   {
+    "maturidade": "PROVÁVEL",
+    "conservador": 0.0,
+    "referencia": 0.5,
+    "expansao": 1.0
+   },
+   {
+    "maturidade": "POSSÍVEL",
+    "conservador": 0.0,
+    "referencia": 0.0,
+    "expansao": 0.5
+   },
+   {
+    "maturidade": "SINAL",
+    "conservador": 0.0,
+    "referencia": 0.0,
+    "expansao": 0.0
+   }
+  ],
+  "projetos": [
+   {
+    "chave": "chapada-sauva",
+    "projeto": "Expansão de Chapada — moinho de bolas e depósito Saúva",
+    "empresa": "Mineração Maracá Indústria e Comércio S.A.",
+    "municipio": "Alto Horizonte",
+    "mineral_id": "MIN_011",
+    "maturidade": "EXPANSÃO",
+    "status": "Moinho aprovado; Saúva sem licença plena nem relatório técnico independente",
+    "confianca": "ALTO",
+    "no_modelo": true,
+    "motivo": "quantificado",
+    "fonte": "Lundin Mining — release do Capital Markets Day",
+    "link": "https://news.cision.com/lundin-mining-corporation/r/lundin-mining-capital-markets-day-highlights-strategic-vision-for-leading-growth-and-shareholder-ret,c4364763",
+    "incremento_t_ano": 15000.0,
+    "inicio": 2029,
+    "fim": 2032,
+    "natureza_quantidade": "estimado_em_estudo",
+    "nota_quantidade": "Lundin Mining, Capital Markets Day de 17/06/2026: primeiro minério de Saúva no início de 2029 e ~15 mil t de cobre por ano por quatro anos (estudo, não capacidade anunciada)",
+    "pesos": {
+     "conservador": 0.5,
+     "referencia": 1.0,
+     "expansao": 1.0
+    },
+    "energia_ponderada": {
+     "conservador": [
+      {
+       "ano": 2029,
+       "producao_t": 7500.0,
+       "energia_mwh": 59841.74
+      },
+      {
+       "ano": 2030,
+       "producao_t": 7500.0,
+       "energia_mwh": 59602.373
+      },
+      {
+       "ano": 2031,
+       "producao_t": 7500.0,
+       "energia_mwh": 59363.964
+      },
+      {
+       "ano": 2032,
+       "producao_t": 7500.0,
+       "energia_mwh": 59126.508
+      }
+     ],
+     "referencia": [
+      {
+       "ano": 2029,
+       "producao_t": 15000.0,
+       "energia_mwh": 117298.234
+      },
+      {
+       "ano": 2030,
+       "producao_t": 15000.0,
+       "energia_mwh": 116242.55
+      },
+      {
+       "ano": 2031,
+       "producao_t": 15000.0,
+       "energia_mwh": 115196.367
+      },
+      {
+       "ano": 2032,
+       "producao_t": 15000.0,
+       "energia_mwh": 114159.6
+      }
+     ],
+     "expansao": [
+      {
+       "ano": 2029,
+       "producao_t": 15000.0,
+       "energia_mwh": 114948.82
+      },
+      {
+       "ano": 2030,
+       "producao_t": 15000.0,
+       "energia_mwh": 113339.536
+      },
+      {
+       "ano": 2031,
+       "producao_t": 15000.0,
+       "energia_mwh": 111752.783
+      },
+      {
+       "ano": 2032,
+       "producao_t": 15000.0,
+       "energia_mwh": 110188.244
+      }
+     ]
+    }
+   },
+   {
+    "chave": "sgb-santa-fe",
+    "projeto": "Níquel de Santa Fé — ativo mineral do SGB em leilão",
+    "empresa": "Serviço Geológico do Brasil (CPRM)",
+    "municipio": "Santa Fé de Goiás",
+    "mineral_id": "MIN_022",
+    "maturidade": "POSSÍVEL",
+    "status": "Leilão em andamento (P3M, out/2026)",
+    "confianca": "ALTO",
+    "no_modelo": false,
+    "motivo": "sem_quantificacao",
+    "fonte": "SGB — página do leilão Níquel de Santa Fé e camada Ativos SGB do P3M",
+    "link": "https://www.sgb.gov.br/leilao-santa-fe-go-niquel",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.5
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "sgb-morro-engenho",
+    "projeto": "Níquel do Morro do Engenho — ativo mineral do SGB em leilão",
+    "empresa": "Serviço Geológico do Brasil (CPRM)",
+    "municipio": "Montes Claros de Goiás",
+    "mineral_id": "MIN_022",
+    "maturidade": "POSSÍVEL",
+    "status": "Leilão em andamento (P3M, out/2026)",
+    "confianca": "ALTO",
+    "no_modelo": false,
+    "motivo": "sem_quantificacao",
+    "fonte": "SGB — página do leilão Morro do Engenho e camada Ativos SGB do P3M",
+    "link": "https://www.sgb.gov.br/leilao-morro-do-engenho-go-niquel",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.5
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "sgb-bom-jardim",
+    "projeto": "Cobre de Bom Jardim — ativo mineral do SGB",
+    "empresa": "Serviço Geológico do Brasil (CPRM)",
+    "municipio": "Bom Jardim de Goiás",
+    "mineral_id": "MIN_011",
+    "maturidade": "SINAL",
+    "status": "Leilão concluído segundo o P3M; vencedor não localizado",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "sinal",
+    "fonte": "SGB — camada Ativos SGB do P3M e relatório no RIGeo",
+    "link": "https://rigeo.sgb.gov.br/handle/doc/21518",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "cba-niquel",
+    "projeto": "Unidade de níquel de Niquelândia (ex-Companhia Níquel Tocantins) — paralisada",
+    "empresa": "Companhia Brasileira de Alumínio (CBA)",
+    "municipio": "Niquelândia",
+    "mineral_id": "MIN_022",
+    "maturidade": "SINAL",
+    "status": "Paralisada; venda à Wave Nickel (2023) desfeita; CBA busca alternativas",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "sinal",
+    "fonte": "Finance News — CBA vende unidade em Goiás (abr/2023) e Investidor10 (distrato)",
+    "link": "https://investidor10.com.br/noticias/cba-cbav3-desiste-de-vender-unidade-de-niquel-em-goias-105128/",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "bautek",
+    "projeto": "Bauxita não metalúrgica e argila refratária de Barro Alto (Terra Goyana / Bautek)",
+    "empresa": "Terra Goyana Mineradora Ltda. / Bautek Minerais Industriais Ltda.",
+    "municipio": "Barro Alto",
+    "mineral_id": "MIN_005",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "IMFORMED — Bautek; Governo de Goiás — Produzir",
+    "link": "https://imformed.com/new-dawn-for-brazilian-bauxite/",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "cba-bauxita",
+    "projeto": "Mina de bauxita de Barro Alto",
+    "empresa": "Companhia Brasileira de Alumínio (CBA)",
+    "municipio": "Barro Alto",
+    "mineral_id": "MIN_005",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "CBA — Products and Productive Processes (RI)",
+    "link": "https://ri.cba.com.br/en/cba/products-and-productive-processes/",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "chapada",
+    "projeto": "Mina de Chapada (cobre-ouro)",
+    "empresa": "Mineração Maracá Indústria e Comércio S.A.",
+    "municipio": "Alto Horizonte",
+    "mineral_id": "MIN_011",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação",
+    "confianca": "ALTO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "Lundin Mining — release de produção 2025 e guidance 2026",
+    "link": "https://lundinmining.com/news/lundin-mining-announces-2025-production-results-and-2026-guidance/",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "barro-alto",
+    "projeto": "Operação de ferroníquel Barro Alto",
+    "empresa": "Anglo American Níquel Brasil Ltda.",
+    "municipio": "Barro Alto",
+    "mineral_id": "MIN_022",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação; venda à MMG sob análise do Cade (ago/2025), fechamento não confirmado",
+    "confianca": "ALTO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "Anglo American — relatório de produção (05/02/2026)",
+    "link": "https://www.angloamerican.com/media/press-releases/2026/05-02-2026",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "codemin",
+    "projeto": "Operação de ferroníquel Codemin",
+    "empresa": "Anglo American Níquel Brasil Ltda.",
+    "municipio": "Niquelândia",
+    "mineral_id": "MIN_022",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação; venda à MMG sob análise do Cade, fechamento não confirmado",
+    "confianca": "ALTO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "Anglo American — relatório de produção (05/02/2026)",
+    "link": "https://www.angloamerican.com/media/press-releases/2026/05-02-2026",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "sama",
+    "projeto": "Mina de crisotila (amianto) de Cana Brava",
+    "empresa": "SAMA S.A. — Minerações Associadas (em recuperação judicial)",
+    "municipio": "Minaçu",
+    "mineral_id": "MIN_033",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação sob disputa judicial (proibição do STF de 2017 × lei estadual de 2019)",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "Seu Dinheiro — resultados da Eternit no 2º trimestre de 2026",
+    "link": "https://www.seudinheiro.com/2026/empresas/eternit-eter3-queridinha-de-barsi-quer-avancar-alem-das-telhas-mas-mineracao-de-amianto-ainda-e-relevante-kaes/",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "mosaic-cmc",
+    "projeto": "Complexo Mineroquímico de Catalão (CMC) — mina de rocha fosfática Chapadão",
+    "empresa": "Mosaic Fertilizantes P&K Ltda.",
+    "municipio": "Catalão",
+    "mineral_id": "MIN_049",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "ANM — CFEM 2025; documentos de licenciamento do CMC",
+    "link": "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   },
+   {
+    "chave": "cmoc-fosfato",
+    "projeto": "Complexo de fosfato da CMOC (Catalão/Ouvidor)",
+    "empresa": "CMOC Brasil Mineração, Indústria e Participações Ltda.",
+    "municipio": "Ouvidor",
+    "mineral_id": "MIN_049",
+    "maturidade": "OPERAÇÃO",
+    "status": "Em operação",
+    "confianca": "MÉDIO",
+    "no_modelo": false,
+    "motivo": "em_operacao",
+    "fonte": "CMOC — resultados anuais 2024",
+    "link": "https://en.cmoc.com/html/2025/News_0324/73.html",
+    "incremento_t_ano": null,
+    "inicio": null,
+    "fim": null,
+    "natureza_quantidade": null,
+    "nota_quantidade": null,
+    "pesos": {
+     "conservador": 0.0,
+     "referencia": 0.0,
+     "expansao": 0.0
+    },
+    "energia_ponderada": {
+     "conservador": [],
+     "referencia": [],
+     "expansao": []
+    }
+   }
+  ]
+ },
  "total": [
   {
    "ano": 2027,
@@ -65,30 +556,30 @@
   {
    "ano": 2029,
    "cenario": "conservador",
-   "energia_mwh": 4337573.783,
-   "baixa_mwh": 3448320.063,
-   "alta_mwh": 5328048.913
+   "energia_mwh": 4397415.524,
+   "baixa_mwh": 3500568.378,
+   "alta_mwh": 5395841.689
   },
   {
    "ano": 2030,
    "cenario": "conservador",
-   "energia_mwh": 4284539.544,
-   "baixa_mwh": 3407522.124,
-   "alta_mwh": 5261237.734
+   "energia_mwh": 4344141.917,
+   "baixa_mwh": 3459561.447,
+   "alta_mwh": 5328759.339
   },
   {
    "ano": 2031,
    "cenario": "conservador",
-   "energia_mwh": 4233926.137,
-   "baixa_mwh": 3368676.938,
-   "alta_mwh": 5197365.688
+   "energia_mwh": 4293290.101,
+   "baixa_mwh": 3420508.103,
+   "alta_mwh": 5264617.207
   },
   {
    "ano": 2032,
    "cenario": "conservador",
-   "energia_mwh": 4185650.27,
-   "baixa_mwh": 3331715.648,
-   "alta_mwh": 5136333.69
+   "energia_mwh": 4244776.778,
+   "baixa_mwh": 3383339.489,
+   "alta_mwh": 5203316.202
   },
   {
    "ano": 2033,
@@ -163,30 +654,30 @@
   {
    "ano": 2029,
    "cenario": "expansao",
-   "energia_mwh": 5146834.526,
-   "baixa_mwh": 4075665.077,
-   "alta_mwh": 6341667.53
+   "energia_mwh": 5261783.346,
+   "baixa_mwh": 4176027.837,
+   "alta_mwh": 6471889.338
   },
   {
    "ano": 2030,
    "cenario": "expansao",
-   "energia_mwh": 5304613.717,
-   "baixa_mwh": 4198241.165,
-   "alta_mwh": 6538966.53
+   "energia_mwh": 5417953.253,
+   "baixa_mwh": 4297198.847,
+   "alta_mwh": 6667365.233
   },
   {
    "ano": 2031,
    "cenario": "expansao",
-   "energia_mwh": 5468815.792,
-   "baixa_mwh": 4325864.959,
-   "alta_mwh": 6744226.459
+   "energia_mwh": 5580568.575,
+   "baixa_mwh": 4423437.233,
+   "alta_mwh": 6870827.58
   },
   {
    "ano": 2032,
    "cenario": "expansao",
-   "energia_mwh": 5639666.32,
-   "baixa_mwh": 4458713.019,
-   "alta_mwh": 6957727.77
+   "energia_mwh": 5749854.564,
+   "baixa_mwh": 4554919.281,
+   "alta_mwh": 7082556.475
   },
   {
    "ano": 2033,
@@ -261,30 +752,30 @@
   {
    "ano": 2029,
    "cenario": "referencia",
-   "energia_mwh": 4604721.882,
-   "baixa_mwh": 3660589.327,
-   "alta_mwh": 5656334.518
+   "energia_mwh": 4722020.116,
+   "baixa_mwh": 3763003.38,
+   "alta_mwh": 5789217.902
   },
   {
    "ano": 2030,
    "cenario": "referencia",
-   "energia_mwh": 4616702.535,
-   "baixa_mwh": 3671548.541,
-   "alta_mwh": 5669297.361
+   "energia_mwh": 4732945.085,
+   "baixa_mwh": 3773040.868,
+   "alta_mwh": 5800984.794
   },
   {
    "ano": 2031,
    "cenario": "referencia",
-   "energia_mwh": 4630578.014,
-   "baixa_mwh": 3684086.47,
-   "alta_mwh": 5684499.278
+   "energia_mwh": 4745774.381,
+   "baixa_mwh": 3784665.366,
+   "alta_mwh": 5815001.524
   },
   {
    "ano": 2032,
    "cenario": "referencia",
-   "energia_mwh": 4646352.173,
-   "baixa_mwh": 3698205.677,
-   "alta_mwh": 5701945.619
+   "energia_mwh": 4760511.773,
+   "baixa_mwh": 3797879.363,
+   "alta_mwh": 5831273.346
   },
   {
    "ano": 2033,
@@ -453,6 +944,8 @@
       {
        "ano": 2027,
        "producao_t": 1420305.0,
+       "producao_tendencia_t": 1420305.0,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3888224,
        "energia_mwh": 1972551.399,
        "baixa_mwh": 1451427.689,
@@ -461,6 +954,8 @@
       {
        "ano": 2028,
        "producao_t": 1391898.9,
+       "producao_tendencia_t": 1391898.9,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3832671104,
        "energia_mwh": 1925367.969,
        "baixa_mwh": 1416709.539,
@@ -469,6 +964,8 @@
       {
        "ano": 2029,
        "producao_t": 1364060.92,
+       "producao_tendencia_t": 1364060.92,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.377734042,
        "energia_mwh": 1879313.168,
        "baixa_mwh": 1382821.847,
@@ -477,6 +974,8 @@
       {
        "ano": 2030,
        "producao_t": 1336779.7,
+       "producao_tendencia_t": 1336779.7,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3722231058,
        "energia_mwh": 1834359.997,
        "baixa_mwh": 1349744.748,
@@ -485,6 +984,8 @@
       {
        "ano": 2031,
        "producao_t": 1310044.11,
+       "producao_tendencia_t": 1310044.11,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3667342134,
        "energia_mwh": 1790482.106,
        "baixa_mwh": 1317458.854,
@@ -493,6 +994,8 @@
       {
        "ano": 2032,
        "producao_t": 1283843.23,
+       "producao_tendencia_t": 1283843.23,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3612672765,
        "energia_mwh": 1747653.774,
        "baixa_mwh": 1285945.238,
@@ -501,6 +1004,8 @@
       {
        "ano": 2033,
        "producao_t": 1258166.36,
+       "producao_tendencia_t": 1258166.36,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3558222074,
        "energia_mwh": 1705849.895,
        "baixa_mwh": 1255185.428,
@@ -509,6 +1014,8 @@
       {
        "ano": 2034,
        "producao_t": 1233003.04,
+       "producao_tendencia_t": 1233003.04,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3503989186,
        "energia_mwh": 1665045.966,
        "baixa_mwh": 1225161.392,
@@ -517,6 +1024,8 @@
       {
        "ano": 2035,
        "producao_t": 1208342.97,
+       "producao_tendencia_t": 1208342.97,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3449973229,
        "energia_mwh": 1625218.066,
        "baixa_mwh": 1195855.532,
@@ -525,6 +1034,8 @@
       {
        "ano": 2036,
        "producao_t": 1184176.12,
+       "producao_tendencia_t": 1184176.12,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3396173336,
        "energia_mwh": 1586342.85,
        "baixa_mwh": 1167250.668,
@@ -533,6 +1044,8 @@
       {
        "ano": 2037,
        "producao_t": 1160492.59,
+       "producao_tendencia_t": 1160492.59,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3342588643,
        "energia_mwh": 1548397.529,
        "baixa_mwh": 1139330.032,
@@ -541,6 +1054,8 @@
       {
        "ano": 2038,
        "producao_t": 1137282.74,
+       "producao_tendencia_t": 1137282.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3289218288,
        "energia_mwh": 1511359.86,
        "baixa_mwh": 1112077.257,
@@ -549,6 +1064,8 @@
       {
        "ano": 2039,
        "producao_t": 1114537.09,
+       "producao_tendencia_t": 1114537.09,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3236061415,
        "energia_mwh": 1475208.132,
        "baixa_mwh": 1085476.369,
@@ -557,6 +1074,8 @@
       {
        "ano": 2040,
        "producao_t": 1092246.34,
+       "producao_tendencia_t": 1092246.34,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3183117169,
        "energia_mwh": 1439921.154,
        "baixa_mwh": 1059511.775,
@@ -571,6 +1090,8 @@
       {
        "ano": 2027,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3749134,
        "energia_mwh": 2033315.678,
        "baixa_mwh": 1496138.796,
@@ -579,6 +1100,8 @@
       {
        "ano": 2028,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3625391794,
        "energia_mwh": 2015015.836,
        "baixa_mwh": 1482673.547,
@@ -587,6 +1110,8 @@
       {
        "ano": 2029,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3502763268,
        "energia_mwh": 1996880.694,
        "baixa_mwh": 1469329.485,
@@ -595,6 +1120,8 @@
       {
        "ano": 2030,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3381238398,
        "energia_mwh": 1978908.768,
        "baixa_mwh": 1456105.52,
@@ -603,6 +1130,8 @@
       {
        "ano": 2031,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3260807253,
        "energia_mwh": 1961098.589,
        "baixa_mwh": 1443000.57,
@@ -611,6 +1140,8 @@
       {
        "ano": 2032,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3141459988,
        "energia_mwh": 1943448.701,
        "baixa_mwh": 1430013.565,
@@ -619,6 +1150,8 @@
       {
        "ano": 2033,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3023186848,
        "energia_mwh": 1925957.663,
        "baixa_mwh": 1417143.443,
@@ -627,6 +1160,8 @@
       {
        "ano": 2034,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2905978166,
        "energia_mwh": 1908624.044,
        "baixa_mwh": 1404389.152,
@@ -635,6 +1170,8 @@
       {
        "ano": 2035,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2789824363,
        "energia_mwh": 1891446.428,
        "baixa_mwh": 1391749.649,
@@ -643,6 +1180,8 @@
       {
        "ano": 2036,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2674715943,
        "energia_mwh": 1874423.41,
        "baixa_mwh": 1379223.903,
@@ -651,6 +1190,8 @@
       {
        "ano": 2037,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.25606435,
        "energia_mwh": 1857553.599,
        "baixa_mwh": 1366810.887,
@@ -659,6 +1200,8 @@
       {
        "ano": 2038,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2447597708,
        "energia_mwh": 1840835.617,
        "baixa_mwh": 1354509.589,
@@ -667,6 +1210,8 @@
       {
        "ano": 2039,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2335569329,
        "energia_mwh": 1824268.096,
        "baixa_mwh": 1342319.003,
@@ -675,6 +1220,8 @@
       {
        "ano": 2040,
        "producao_t": 1478868.18,
+       "producao_tendencia_t": 1478868.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2224549205,
        "energia_mwh": 1807849.683,
        "baixa_mwh": 1330238.132,
@@ -689,6 +1236,8 @@
       {
        "ano": 2027,
        "producao_t": 1632586.39,
+       "producao_tendencia_t": 1632586.39,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3610744,
        "energia_mwh": 2222071.54,
        "baixa_mwh": 1635027.692,
@@ -697,6 +1246,8 @@
       {
        "ano": 2028,
        "producao_t": 1715337.27,
+       "producao_tendencia_t": 1715337.27,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3420193584,
        "energia_mwh": 2302015.829,
        "baixa_mwh": 1693851.687,
@@ -705,6 +1256,8 @@
       {
        "ano": 2029,
        "producao_t": 1802282.55,
+       "producao_tendencia_t": 1802282.55,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3232310874,
        "energia_mwh": 2384836.302,
        "baixa_mwh": 1754792.015,
@@ -713,6 +1266,8 @@
       {
        "ano": 2030,
        "producao_t": 1893634.83,
+       "producao_tendencia_t": 1893634.83,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.3047058522,
        "energia_mwh": 2470636.439,
        "baixa_mwh": 1817924.815,
@@ -721,6 +1276,8 @@
       {
        "ano": 2031,
        "producao_t": 1989617.47,
+       "producao_tendencia_t": 1989617.47,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2864399702,
        "energia_mwh": 2559523.438,
        "baixa_mwh": 1883328.968,
@@ -729,6 +1286,8 @@
       {
        "ano": 2032,
        "producao_t": 2090465.18,
+       "producao_tendencia_t": 2090465.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2684298106,
        "energia_mwh": 2651608.358,
        "baixa_mwh": 1951086.189,
@@ -737,6 +1296,8 @@
       {
        "ano": 2033,
        "producao_t": 2196424.57,
+       "producao_tendencia_t": 2196424.57,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2506717933,
        "energia_mwh": 2747006.251,
        "baixa_mwh": 2021281.138,
@@ -745,6 +1306,8 @@
       {
        "ano": 2034,
        "producao_t": 2307754.71,
+       "producao_tendencia_t": 2307754.71,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2331623882,
        "energia_mwh": 2845836.31,
        "baixa_mwh": 2094001.516,
@@ -753,6 +1316,8 @@
       {
        "ano": 2035,
        "producao_t": 2424727.84,
+       "producao_tendencia_t": 2424727.84,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.2158981148,
        "energia_mwh": 2948222.013,
        "baixa_mwh": 2169338.181,
@@ -761,6 +1326,8 @@
       {
        "ano": 2036,
        "producao_t": 2547629.99,
+       "producao_tendencia_t": 2547629.99,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.1988755411,
        "energia_mwh": 3054291.286,
        "baixa_mwh": 2247385.262,
@@ -769,6 +1336,8 @@
       {
        "ano": 2037,
        "producao_t": 2676761.68,
+       "producao_tendencia_t": 2676761.68,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.1820912836,
        "energia_mwh": 3164176.651,
        "baixa_mwh": 2328240.272,
@@ -777,6 +1346,8 @@
       {
        "ano": 2038,
        "producao_t": 2812438.67,
+       "producao_tendencia_t": 2812438.67,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.1655420056,
        "energia_mwh": 3278015.403,
        "baixa_mwh": 2412004.232,
@@ -785,6 +1356,8 @@
       {
        "ano": 2039,
        "producao_t": 2954992.71,
+       "producao_tendencia_t": 2954992.71,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.1492244175,
        "energia_mwh": 3395949.774,
        "baixa_mwh": 2498781.799,
@@ -793,6 +1366,8 @@
       {
        "ano": 2040,
        "producao_t": 3104772.39,
+       "producao_tendencia_t": 3104772.39,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 1.1331352757,
        "energia_mwh": 3518127.113,
        "baixa_mwh": 2588681.394,
@@ -927,6 +1502,8 @@
       {
        "ano": 2027,
        "producao_t": 39679.18,
+       "producao_tendencia_t": 39679.18,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 8.0431149416,
        "energia_mwh": 319144.211,
        "baixa_mwh": 278647.436,
@@ -935,6 +1512,8 @@
       {
        "ano": 2028,
        "producao_t": 37687.64,
+       "producao_tendencia_t": 37687.64,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 8.0109424818,
        "energia_mwh": 301913.49,
        "baixa_mwh": 263603.152,
@@ -942,39 +1521,49 @@
       },
       {
        "ano": 2029,
-       "producao_t": 35796.05,
+       "producao_t": 43296.05,
+       "producao_tendencia_t": 35796.05,
+       "producao_projetos_t": 7500.0,
        "intensidade_mwh_t": 7.9788987119,
-       "energia_mwh": 285613.062,
-       "baixa_mwh": 249371.114,
-       "alta_mwh": 323561.82
+       "energia_mwh": 345454.803,
+       "baixa_mwh": 301619.43,
+       "alta_mwh": 391354.596
       },
       {
        "ano": 2030,
-       "producao_t": 33999.41,
+       "producao_t": 41499.41,
+       "producao_tendencia_t": 33999.41,
+       "producao_projetos_t": 7500.0,
        "intensidade_mwh_t": 7.946983117,
-       "energia_mwh": 270192.701,
-       "baixa_mwh": 235907.47,
-       "alta_mwh": 306092.59
+       "energia_mwh": 329795.074,
+       "baixa_mwh": 287946.792,
+       "alta_mwh": 373614.195
       },
       {
        "ano": 2031,
-       "producao_t": 32292.94,
+       "producao_t": 39792.94,
+       "producao_tendencia_t": 32292.94,
+       "producao_projetos_t": 7500.0,
        "intensidade_mwh_t": 7.9151951846,
-       "energia_mwh": 255604.891,
-       "baixa_mwh": 223170.733,
-       "alta_mwh": 289566.531
+       "energia_mwh": 314968.855,
+       "baixa_mwh": 275001.898,
+       "alta_mwh": 356818.05
       },
       {
        "ano": 2032,
-       "producao_t": 30672.12,
+       "producao_t": 38172.12,
+       "producao_tendencia_t": 30672.12,
+       "producao_projetos_t": 7500.0,
        "intensidade_mwh_t": 7.8835344038,
-       "energia_mwh": 241804.682,
-       "baixa_mwh": 211121.657,
-       "alta_mwh": 273932.72
+       "energia_mwh": 300931.19,
+       "baixa_mwh": 262745.498,
+       "alta_mwh": 340915.233
       },
       {
        "ano": 2033,
        "producao_t": 29132.65,
+       "producao_tendencia_t": 29132.65,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.8520002662,
        "energia_mwh": 228749.553,
        "baixa_mwh": 199723.116,
@@ -983,6 +1572,8 @@
       {
        "ano": 2034,
        "producao_t": 27670.45,
+       "producao_tendencia_t": 27670.45,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.8205922651,
        "energia_mwh": 216399.275,
        "baixa_mwh": 188939.987,
@@ -991,6 +1582,8 @@
       {
        "ano": 2035,
        "producao_t": 26281.63,
+       "producao_tendencia_t": 26281.63,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.7893098961,
        "energia_mwh": 204715.793,
        "baixa_mwh": 178739.043,
@@ -999,6 +1592,8 @@
       {
        "ano": 2036,
        "producao_t": 24962.53,
+       "producao_tendencia_t": 24962.53,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.7581526565,
        "energia_mwh": 193663.107,
        "baixa_mwh": 169088.851,
@@ -1007,6 +1602,8 @@
       {
        "ano": 2037,
        "producao_t": 23709.63,
+       "producao_tendencia_t": 23709.63,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.7271200459,
        "energia_mwh": 183207.16,
        "baixa_mwh": 159959.678,
@@ -1015,6 +1612,8 @@
       {
        "ano": 2038,
        "producao_t": 22519.62,
+       "producao_tendencia_t": 22519.62,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.6962115657,
        "energia_mwh": 173315.733,
        "baixa_mwh": 151323.392,
@@ -1023,6 +1622,8 @@
       {
        "ano": 2039,
        "producao_t": 21389.33,
+       "producao_tendencia_t": 21389.33,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.6654267194,
        "energia_mwh": 163958.349,
        "baixa_mwh": 143153.383,
@@ -1031,6 +1632,8 @@
       {
        "ano": 2040,
        "producao_t": 20315.78,
+       "producao_tendencia_t": 20315.78,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.6347650125,
        "energia_mwh": 155106.173,
        "baixa_mwh": 135424.476,
@@ -1045,6 +1648,8 @@
       {
        "ano": 2027,
        "producao_t": 41367.81,
+       "producao_tendencia_t": 41367.81,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.9625634717,
        "energia_mwh": 329393.834,
        "baixa_mwh": 287596.466,
@@ -1053,6 +1658,8 @@
       {
        "ano": 2028,
        "producao_t": 40118.87,
+       "producao_tendencia_t": 40118.87,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.8909004004,
        "energia_mwh": 316574.012,
        "baixa_mwh": 276403.374,
@@ -1060,39 +1667,49 @@
       },
       {
        "ano": 2029,
-       "producao_t": 38907.64,
+       "producao_t": 53907.64,
+       "producao_tendencia_t": 38907.64,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.8198822968,
-       "energia_mwh": 304253.13,
-       "baixa_mwh": 265645.91,
-       "alta_mwh": 344678.551
+       "energia_mwh": 421551.364,
+       "baixa_mwh": 368059.964,
+       "alta_mwh": 477561.935
       },
       {
        "ano": 2030,
-       "producao_t": 37732.97,
+       "producao_t": 52732.97,
+       "producao_tendencia_t": 37732.97,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.7495033562,
-       "energia_mwh": 292411.769,
-       "baixa_mwh": 255307.121,
-       "alta_mwh": 331263.856
+       "energia_mwh": 408654.32,
+       "baixa_mwh": 356799.448,
+       "alta_mwh": 462951.289
       },
       {
        "ano": 2031,
-       "producao_t": 36593.77,
+       "producao_t": 51593.77,
+       "producao_tendencia_t": 36593.77,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.679757826,
-       "energia_mwh": 281031.268,
-       "baixa_mwh": 245370.712,
-       "alta_mwh": 318371.253
+       "energia_mwh": 396227.635,
+       "baixa_mwh": 345949.608,
+       "alta_mwh": 448873.499
       },
       {
        "ano": 2032,
-       "producao_t": 35488.96,
+       "producao_t": 50488.96,
+       "producao_tendencia_t": 35488.96,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.6106400055,
-       "energia_mwh": 270093.689,
-       "baixa_mwh": 235821.022,
-       "alta_mwh": 305980.423
+       "energia_mwh": 384253.289,
+       "baixa_mwh": 335494.708,
+       "alta_mwh": 435308.149
       },
       {
        "ano": 2033,
        "producao_t": 34417.51,
+       "producao_tendencia_t": 34417.51,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.5421442455,
        "energia_mwh": 259581.795,
        "baixa_mwh": 226643.0,
@@ -1101,6 +1718,8 @@
       {
        "ano": 2034,
        "producao_t": 33378.4,
+       "producao_tendencia_t": 33378.4,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.4742649473,
        "energia_mwh": 249479.018,
        "baixa_mwh": 217822.182,
@@ -1109,6 +1728,8 @@
       {
        "ano": 2035,
        "producao_t": 32370.67,
+       "producao_tendencia_t": 32370.67,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.4069965627,
        "energia_mwh": 239769.435,
        "baixa_mwh": 209344.666,
@@ -1117,6 +1738,8 @@
       {
        "ano": 2036,
        "producao_t": 31393.36,
+       "producao_tendencia_t": 31393.36,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.3403335937,
        "energia_mwh": 230437.743,
        "baixa_mwh": 201197.089,
@@ -1125,6 +1748,8 @@
       {
        "ano": 2037,
        "producao_t": 30445.56,
+       "producao_tendencia_t": 30445.56,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.2742705913,
        "energia_mwh": 221469.236,
        "baixa_mwh": 193366.612,
@@ -1133,6 +1758,8 @@
       {
        "ano": 2038,
        "producao_t": 29526.37,
+       "producao_tendencia_t": 29526.37,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.208802156,
        "energia_mwh": 212849.778,
        "baixa_mwh": 185840.892,
@@ -1141,6 +1768,8 @@
       {
        "ano": 2039,
        "producao_t": 28634.94,
+       "producao_tendencia_t": 28634.94,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.1439229366,
        "energia_mwh": 204565.785,
        "baixa_mwh": 178608.069,
@@ -1149,6 +1778,8 @@
       {
        "ano": 2040,
        "producao_t": 27770.42,
+       "producao_tendencia_t": 27770.42,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.0796276302,
        "energia_mwh": 196604.2,
        "baixa_mwh": 171656.744,
@@ -1163,6 +1794,8 @@
       {
        "ano": 2027,
        "producao_t": 43091.63,
+       "producao_tendencia_t": 43091.63,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.8824173942,
        "energia_mwh": 339666.226,
        "baixa_mwh": 296565.376,
@@ -1171,6 +1804,8 @@
       {
        "ano": 2028,
        "producao_t": 42652.48,
+       "producao_tendencia_t": 42652.48,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.7720635507,
        "energia_mwh": 331497.769,
        "baixa_mwh": 289433.429,
@@ -1178,39 +1813,49 @@
       },
       {
        "ano": 2029,
-       "producao_t": 42217.8,
+       "producao_t": 57217.8,
+       "producao_tendencia_t": 42217.8,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.663254661,
-       "energia_mwh": 323525.752,
-       "baixa_mwh": 282472.995,
-       "alta_mwh": 366511.882
+       "energia_mwh": 438474.572,
+       "baixa_mwh": 382835.755,
+       "alta_mwh": 496733.69
       },
       {
        "ano": 2030,
-       "producao_t": 41787.55,
+       "producao_t": 56787.55,
+       "producao_tendencia_t": 41787.55,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.5559690957,
-       "energia_mwh": 315745.449,
-       "baixa_mwh": 275679.949,
-       "alta_mwh": 357697.828
+       "energia_mwh": 429084.985,
+       "baixa_mwh": 374637.63,
+       "alta_mwh": 486096.531
       },
       {
        "ano": 2031,
-       "producao_t": 41361.69,
+       "producao_t": 56361.69,
+       "producao_tendencia_t": 41361.69,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.4501855284,
-       "energia_mwh": 308152.25,
-       "baixa_mwh": 269050.265,
-       "alta_mwh": 349095.739
+       "energia_mwh": 419905.033,
+       "baixa_mwh": 366622.539,
+       "alta_mwh": 475696.859
       },
       {
        "ano": 2032,
-       "producao_t": 40940.16,
+       "producao_t": 55940.16,
+       "producao_tendencia_t": 40940.16,
+       "producao_projetos_t": 15000.0,
        "intensidade_mwh_t": 7.345882931,
-       "energia_mwh": 300741.657,
-       "baixa_mwh": 262580.014,
-       "alta_mwh": 340700.516
+       "energia_mwh": 410929.901,
+       "baixa_mwh": 358786.277,
+       "alta_mwh": 465529.222
       },
       {
        "ano": 2033,
        "producao_t": 40522.94,
+       "producao_tendencia_t": 40522.94,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.24304057,
        "energia_mwh": 293509.277,
        "baixa_mwh": 256265.364,
@@ -1219,6 +1864,8 @@
       {
        "ano": 2034,
        "producao_t": 40109.96,
+       "producao_tendencia_t": 40109.96,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.141638002,
        "energia_mwh": 286450.825,
        "baixa_mwh": 250102.571,
@@ -1227,6 +1874,8 @@
       {
        "ano": 2035,
        "producao_t": 39701.19,
+       "producao_tendencia_t": 39701.19,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 7.0416550699,
        "energia_mwh": 279562.117,
        "baixa_mwh": 244087.984,
@@ -1235,6 +1884,8 @@
       {
        "ano": 2036,
        "producao_t": 39296.59,
+       "producao_tendencia_t": 39296.59,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 6.943071899,
        "energia_mwh": 272839.073,
        "baixa_mwh": 238218.039,
@@ -1243,6 +1894,8 @@
       {
        "ano": 2037,
        "producao_t": 38896.12,
+       "producao_tendencia_t": 38896.12,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 6.8458688924,
        "energia_mwh": 266277.708,
        "baixa_mwh": 232489.257,
@@ -1251,6 +1904,8 @@
       {
        "ano": 2038,
        "producao_t": 38499.72,
+       "producao_tendencia_t": 38499.72,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 6.7500267279,
        "energia_mwh": 259874.133,
        "baixa_mwh": 226898.243,
@@ -1259,6 +1914,8 @@
       {
        "ano": 2039,
        "producao_t": 38107.36,
+       "producao_tendencia_t": 38107.36,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 6.6555263537,
        "energia_mwh": 253624.555,
        "baixa_mwh": 221441.685,
@@ -1267,6 +1924,8 @@
       {
        "ano": 2040,
        "producao_t": 37719.0,
+       "producao_tendencia_t": 37719.0,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 6.5623489847,
        "energia_mwh": 247525.27,
        "baixa_mwh": 216116.349,
@@ -1401,6 +2060,8 @@
       {
        "ano": 2027,
        "producao_t": 161115.23,
+       "producao_tendencia_t": 161115.23,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.3090230727,
        "energia_mwh": 1822055.89,
        "baixa_mwh": 1512075.347,
@@ -1409,6 +2070,8 @@
       {
        "ano": 2028,
        "producao_t": 163272.61,
+       "producao_tendencia_t": 163272.61,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.2637869804,
        "energia_mwh": 1839067.848,
        "baixa_mwh": 1526193.116,
@@ -1417,6 +2080,8 @@
       {
        "ano": 2029,
        "producao_t": 165458.87,
+       "producao_tendencia_t": 165458.87,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.2187318324,
        "energia_mwh": 1856238.642,
        "baixa_mwh": 1540442.697,
@@ -1425,6 +2090,8 @@
       {
        "ano": 2030,
        "producao_t": 167674.4,
+       "producao_tendencia_t": 167674.4,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.1738569051,
        "energia_mwh": 1873569.755,
        "baixa_mwh": 1554825.323,
@@ -1433,6 +2100,8 @@
       {
        "ano": 2031,
        "producao_t": 169919.6,
+       "producao_tendencia_t": 169919.6,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.1291614775,
        "energia_mwh": 1891062.682,
        "baixa_mwh": 1569342.235,
@@ -1441,6 +2110,8 @@
       {
        "ano": 2032,
        "producao_t": 172194.87,
+       "producao_tendencia_t": 172194.87,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.0846448316,
        "energia_mwh": 1908718.935,
        "baixa_mwh": 1583994.686,
@@ -1449,6 +2120,8 @@
       {
        "ano": 2033,
        "producao_t": 174500.6,
+       "producao_tendencia_t": 174500.6,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.0403062523,
        "energia_mwh": 1926540.039,
        "baixa_mwh": 1598783.943,
@@ -1457,6 +2130,8 @@
       {
        "ano": 2034,
        "producao_t": 176837.2,
+       "producao_tendencia_t": 176837.2,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.9961450272,
        "energia_mwh": 1944527.534,
        "baixa_mwh": 1613711.282,
@@ -1465,6 +2140,8 @@
       {
        "ano": 2035,
        "producao_t": 179205.1,
+       "producao_tendencia_t": 179205.1,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.9521604471,
        "energia_mwh": 1962682.971,
        "baixa_mwh": 1628777.993,
@@ -1473,6 +2150,8 @@
       {
        "ano": 2036,
        "producao_t": 181604.7,
+       "producao_tendencia_t": 181604.7,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.9083518054,
        "energia_mwh": 1981007.921,
        "baixa_mwh": 1643985.377,
@@ -1481,6 +2160,8 @@
       {
        "ano": 2037,
        "producao_t": 184036.43,
+       "producao_tendencia_t": 184036.43,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.8647183981,
        "energia_mwh": 1999503.964,
        "baixa_mwh": 1659334.748,
@@ -1489,6 +2170,8 @@
       {
        "ano": 2038,
        "producao_t": 186500.72,
+       "producao_tendencia_t": 186500.72,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.8212595245,
        "energia_mwh": 2018172.699,
        "baixa_mwh": 1674827.431,
@@ -1497,6 +2180,8 @@
       {
        "ano": 2039,
        "producao_t": 188998.01,
+       "producao_tendencia_t": 188998.01,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.7779744864,
        "energia_mwh": 2037015.739,
        "baixa_mwh": 1690464.764,
@@ -1505,6 +2190,8 @@
       {
        "ano": 2040,
        "producao_t": 191528.74,
+       "producao_tendencia_t": 191528.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.7348625885,
        "energia_mwh": 2056034.709,
        "baixa_mwh": 1706248.098,
@@ -1519,6 +2206,8 @@
       {
        "ano": 2027,
        "producao_t": 167537.44,
+       "producao_tendencia_t": 167537.44,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.1957636653,
        "energia_mwh": 1875709.607,
        "baixa_mwh": 1556601.129,
@@ -1527,6 +2216,8 @@
       {
        "ano": 2028,
        "producao_t": 173131.56,
+       "producao_tendencia_t": 173131.56,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.0950017923,
        "energia_mwh": 1920894.949,
        "baixa_mwh": 1594099.233,
@@ -1535,6 +2226,8 @@
       {
        "ano": 2029,
        "producao_t": 178912.46,
+       "producao_tendencia_t": 178912.46,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.9951467762,
        "energia_mwh": 1967168.794,
        "baixa_mwh": 1632500.657,
@@ -1543,6 +2236,8 @@
       {
        "ano": 2030,
        "producao_t": 184886.39,
+       "producao_tendencia_t": 184886.39,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.8961904552,
        "energia_mwh": 2014557.363,
        "baixa_mwh": 1671827.16,
@@ -1551,6 +2246,8 @@
       {
        "ano": 2031,
        "producao_t": 191059.8,
+       "producao_tendencia_t": 191059.8,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.7981247411,
        "energia_mwh": 2063087.51,
        "baixa_mwh": 1712101.028,
@@ -1559,6 +2256,8 @@
       {
        "ano": 2032,
        "producao_t": 197439.33,
+       "producao_tendencia_t": 197439.33,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.7009416184,
        "energia_mwh": 2112786.735,
        "baixa_mwh": 1753345.083,
@@ -1567,6 +2266,8 @@
       {
        "ano": 2033,
        "producao_t": 204031.88,
+       "producao_tendencia_t": 204031.88,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.6046331439,
        "energia_mwh": 2163683.201,
        "baixa_mwh": 1795582.697,
@@ -1575,6 +2276,8 @@
       {
        "ano": 2034,
        "producao_t": 210844.55,
+       "producao_tendencia_t": 210844.55,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.5091914456,
        "energia_mwh": 2215805.75,
        "baixa_mwh": 1838837.803,
@@ -1583,6 +2286,8 @@
       {
        "ano": 2035,
        "producao_t": 217884.7,
+       "producao_tendencia_t": 217884.7,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.4146087226,
        "energia_mwh": 2269183.917,
        "baixa_mwh": 1883134.913,
@@ -1591,6 +2296,8 @@
       {
        "ano": 2036,
        "producao_t": 225159.93,
+       "producao_tendencia_t": 225159.93,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.3208772441,
        "energia_mwh": 2323847.949,
        "baixa_mwh": 1928499.128,
@@ -1599,6 +2306,8 @@
       {
        "ano": 2037,
        "producao_t": 232678.07,
+       "producao_tendencia_t": 232678.07,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.2279893489,
        "energia_mwh": 2379828.824,
        "baixa_mwh": 1974956.155,
@@ -1607,6 +2316,8 @@
       {
        "ano": 2038,
        "producao_t": 240447.25,
+       "producao_tendencia_t": 240447.25,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.1359374447,
        "energia_mwh": 2437158.263,
        "baixa_mwh": 2022532.32,
@@ -1615,6 +2326,8 @@
       {
        "ano": 2039,
        "producao_t": 248475.84,
+       "producao_tendencia_t": 248475.84,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.0447140077,
        "energia_mwh": 2495868.752,
        "baixa_mwh": 2071254.582,
@@ -1623,6 +2336,8 @@
       {
        "ano": 2040,
        "producao_t": 256772.51,
+       "producao_tendencia_t": 256772.51,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.9543115817,
        "energia_mwh": 2555993.562,
        "baixa_mwh": 2121150.55,
@@ -1637,6 +2352,8 @@
       {
        "ano": 2027,
        "producao_t": 174085.16,
+       "producao_tendencia_t": 174085.16,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 11.08307426,
        "energia_mwh": 1929398.751,
        "baixa_mwh": 1601156.311,
@@ -1645,6 +2362,8 @@
       {
        "ano": 2028,
        "producao_t": 183379.61,
+       "producao_tendencia_t": 183379.61,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.9279112204,
        "energia_mwh": 2003956.084,
        "baixa_mwh": 1663029.443,
@@ -1653,6 +2372,8 @@
       {
        "ano": 2029,
        "producao_t": 193170.29,
+       "producao_tendencia_t": 193170.29,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.7749204633,
        "energia_mwh": 2081394.52,
        "baixa_mwh": 1727293.525,
@@ -1661,6 +2382,8 @@
       {
        "ano": 2030,
        "producao_t": 203483.7,
+       "producao_tendencia_t": 203483.7,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.6240715768,
        "energia_mwh": 2161825.392,
        "baixa_mwh": 1794040.95,
@@ -1669,6 +2392,8 @@
       {
        "ano": 2031,
        "producao_t": 214347.74,
+       "producao_tendencia_t": 214347.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.4753345747,
        "energia_mwh": 2245364.337,
        "baixa_mwh": 1863367.682,
@@ -1677,6 +2402,8 @@
       {
        "ano": 2032,
        "producao_t": 225791.82,
+       "producao_tendencia_t": 225791.82,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.3286798907,
        "energia_mwh": 2332131.459,
        "baixa_mwh": 1935373.391,
@@ -1685,6 +2412,8 @@
       {
        "ano": 2033,
        "producao_t": 237846.9,
+       "producao_tendencia_t": 237846.9,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.1840783722,
        "energia_mwh": 2422251.504,
        "baixa_mwh": 2010161.6,
@@ -1693,6 +2422,8 @@
       {
        "ano": 2034,
        "producao_t": 250545.61,
+       "producao_tendencia_t": 250545.61,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 10.041501275,
        "energia_mwh": 2515854.038,
        "baixa_mwh": 2087839.835,
@@ -1701,6 +2432,8 @@
       {
        "ano": 2035,
        "producao_t": 263922.3,
+       "producao_tendencia_t": 263922.3,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.9009202572,
        "energia_mwh": 2613073.634,
        "baixa_mwh": 2168519.772,
@@ -1709,6 +2442,8 @@
       {
        "ano": 2036,
        "producao_t": 278013.17,
+       "producao_tendencia_t": 278013.17,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.7623073736,
        "energia_mwh": 2714050.066,
        "baixa_mwh": 2252317.406,
@@ -1717,6 +2452,8 @@
       {
        "ano": 2037,
        "producao_t": 292856.37,
+       "producao_tendencia_t": 292856.37,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.6256350703,
        "energia_mwh": 2818928.507,
        "baixa_mwh": 2339353.214,
@@ -1725,6 +2462,8 @@
       {
        "ano": 2038,
        "producao_t": 308492.04,
+       "producao_tendencia_t": 308492.04,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.4908761794,
        "energia_mwh": 2927859.744,
        "baixa_mwh": 2429752.327,
@@ -1733,6 +2472,8 @@
       {
        "ano": 2039,
        "producao_t": 324962.5,
+       "producao_tendencia_t": 324962.5,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.3580039128,
        "energia_mwh": 3041000.386,
        "baixa_mwh": 2523644.714,
@@ -1741,6 +2482,8 @@
       {
        "ano": 2040,
        "producao_t": 342312.33,
+       "producao_tendencia_t": 342312.33,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 9.2269918581,
        "energia_mwh": 3158513.098,
        "baixa_mwh": 2621165.364,
@@ -1871,6 +2614,8 @@
       {
        "ano": 2027,
        "producao_t": 160267.78,
+       "producao_tendencia_t": 160267.78,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3084594391,
        "energia_mwh": 49436.111,
        "baixa_mwh": 40653.132,
@@ -1879,6 +2624,8 @@
       {
        "ano": 2028,
        "producao_t": 151572.14,
+       "producao_tendencia_t": 151572.14,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3072256013,
        "energia_mwh": 46566.841,
        "baixa_mwh": 38293.626,
@@ -1887,6 +2634,8 @@
       {
        "ano": 2029,
        "producao_t": 143348.29,
+       "producao_tendencia_t": 143348.29,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3059966989,
        "energia_mwh": 43864.103,
        "baixa_mwh": 36071.065,
@@ -1895,6 +2644,8 @@
       {
        "ano": 2030,
        "producao_t": 135570.64,
+       "producao_tendencia_t": 135570.64,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3047727121,
        "energia_mwh": 41318.232,
        "baixa_mwh": 33977.502,
@@ -1903,6 +2654,8 @@
       {
        "ano": 2031,
        "producao_t": 128214.99,
+       "producao_tendencia_t": 128214.99,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3035536213,
        "energia_mwh": 38920.123,
        "baixa_mwh": 32005.449,
@@ -1911,6 +2664,8 @@
       {
        "ano": 2032,
        "producao_t": 121258.43,
+       "producao_tendencia_t": 121258.43,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3023394068,
        "energia_mwh": 36661.201,
        "baixa_mwh": 30147.854,
@@ -1919,6 +2674,8 @@
       {
        "ano": 2033,
        "producao_t": 114679.31,
+       "producao_tendencia_t": 114679.31,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3011300492,
        "energia_mwh": 34533.386,
        "baixa_mwh": 28398.073,
@@ -1927,6 +2684,8 @@
       {
        "ano": 2034,
        "producao_t": 108457.15,
+       "producao_tendencia_t": 108457.15,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.299925529,
        "energia_mwh": 32529.069,
        "baixa_mwh": 26749.85,
@@ -1935,6 +2694,8 @@
       {
        "ano": 2035,
        "producao_t": 102572.6,
+       "producao_tendencia_t": 102572.6,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2987258268,
        "energia_mwh": 30641.083,
        "baixa_mwh": 25197.29,
@@ -1943,6 +2704,8 @@
       {
        "ano": 2036,
        "producao_t": 97007.32,
+       "producao_tendencia_t": 97007.32,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2975309235,
        "energia_mwh": 28862.676,
        "baixa_mwh": 23734.84,
@@ -1951,6 +2714,8 @@
       {
        "ano": 2037,
        "producao_t": 91743.99,
+       "producao_tendencia_t": 91743.99,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2963407998,
        "energia_mwh": 27187.487,
        "baixa_mwh": 22357.271,
@@ -1959,6 +2724,8 @@
       {
        "ano": 2038,
        "producao_t": 86766.24,
+       "producao_tendencia_t": 86766.24,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2951554366,
        "energia_mwh": 25609.527,
        "baixa_mwh": 21059.656,
@@ -1967,6 +2734,8 @@
       {
        "ano": 2039,
        "producao_t": 82058.56,
+       "producao_tendencia_t": 82058.56,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2939748149,
        "energia_mwh": 24123.151,
        "baixa_mwh": 19837.354,
@@ -1975,6 +2744,8 @@
       {
        "ano": 2040,
        "producao_t": 77606.31,
+       "producao_tendencia_t": 77606.31,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2927989156,
        "energia_mwh": 22723.044,
        "baixa_mwh": 18685.995,
@@ -1989,6 +2760,8 @@
       {
        "ano": 2027,
        "producao_t": 167117.95,
+       "producao_tendencia_t": 167117.95,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3053702303,
        "energia_mwh": 51032.847,
        "baixa_mwh": 41966.187,
@@ -1997,6 +2770,8 @@
       {
        "ano": 2028,
        "producao_t": 161392.99,
+       "producao_tendencia_t": 161392.99,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3026218982,
        "energia_mwh": 48841.053,
        "baixa_mwh": 40163.795,
@@ -2005,6 +2780,8 @@
       {
        "ano": 2029,
        "producao_t": 155864.15,
+       "producao_tendencia_t": 155864.15,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2998983011,
        "energia_mwh": 46743.395,
        "baixa_mwh": 38438.813,
@@ -2013,6 +2790,8 @@
       {
        "ano": 2030,
        "producao_t": 150524.72,
+       "producao_tendencia_t": 150524.72,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2971992164,
        "energia_mwh": 44735.828,
        "baixa_mwh": 36787.916,
@@ -2021,6 +2800,8 @@
       {
        "ano": 2031,
        "producao_t": 145368.19,
+       "producao_tendencia_t": 145368.19,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2945244235,
        "energia_mwh": 42814.483,
        "baixa_mwh": 35207.924,
@@ -2029,6 +2810,8 @@
       {
        "ano": 2032,
        "producao_t": 140388.32,
+       "producao_tendencia_t": 140388.32,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2918737037,
        "energia_mwh": 40975.657,
        "baixa_mwh": 33695.79,
@@ -2037,6 +2820,8 @@
       {
        "ano": 2033,
        "producao_t": 135579.03,
+       "producao_tendencia_t": 135579.03,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2892468403,
        "energia_mwh": 39215.807,
        "baixa_mwh": 32248.6,
@@ -2045,6 +2830,8 @@
       {
        "ano": 2034,
        "producao_t": 130934.5,
+       "producao_tendencia_t": 130934.5,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2866436188,
        "energia_mwh": 37531.54,
        "baixa_mwh": 30863.566,
@@ -2053,6 +2840,8 @@
       {
        "ano": 2035,
        "producao_t": 126449.08,
+       "producao_tendencia_t": 126449.08,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2840638262,
        "energia_mwh": 35919.61,
        "baixa_mwh": 29538.016,
@@ -2061,6 +2850,8 @@
       {
        "ano": 2036,
        "producao_t": 122117.32,
+       "producao_tendencia_t": 122117.32,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2815072518,
        "energia_mwh": 34376.91,
        "baixa_mwh": 28269.398,
@@ -2069,6 +2860,8 @@
       {
        "ano": 2037,
        "producao_t": 117933.94,
+       "producao_tendencia_t": 117933.94,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2789736865,
        "energia_mwh": 32900.467,
        "baixa_mwh": 27055.264,
@@ -2077,6 +2870,8 @@
       {
        "ano": 2038,
        "producao_t": 113893.88,
+       "producao_tendencia_t": 113893.88,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2764629233,
        "energia_mwh": 31487.436,
        "baixa_mwh": 25893.276,
@@ -2085,6 +2880,8 @@
       {
        "ano": 2039,
        "producao_t": 109992.22,
+       "producao_tendencia_t": 109992.22,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.273974757,
        "energia_mwh": 30135.092,
        "baixa_mwh": 24781.194,
@@ -2093,6 +2890,8 @@
       {
        "ano": 2040,
        "producao_t": 106224.22,
+       "producao_tendencia_t": 106224.22,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2715089842,
        "energia_mwh": 28840.829,
        "baixa_mwh": 23716.875,
@@ -2107,6 +2906,8 @@
       {
        "ano": 2027,
        "producao_t": 174111.46,
+       "producao_tendencia_t": 174111.46,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.3022965686,
        "energia_mwh": 52633.298,
        "baixa_mwh": 43282.297,
@@ -2115,6 +2916,8 @@
       {
        "ano": 2028,
        "producao_t": 171629.16,
+       "producao_tendencia_t": 171629.16,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2980644167,
        "energia_mwh": 51156.545,
        "baixa_mwh": 42067.908,
@@ -2123,6 +2926,8 @@
       {
        "ano": 2029,
        "producao_t": 169182.24,
+       "producao_tendencia_t": 169182.24,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2938915148,
        "energia_mwh": 49721.225,
        "baixa_mwh": 40887.592,
@@ -2131,6 +2936,8 @@
       {
        "ano": 2030,
        "producao_t": 166770.21,
+       "producao_tendencia_t": 166770.21,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2897770336,
        "energia_mwh": 48326.177,
        "baixa_mwh": 39740.393,
@@ -2139,6 +2946,8 @@
       {
        "ano": 2031,
        "producao_t": 164392.57,
+       "producao_tendencia_t": 164392.57,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2857201552,
        "energia_mwh": 46970.271,
        "baixa_mwh": 38625.381,
@@ -2147,6 +2956,8 @@
       {
        "ano": 2032,
        "producao_t": 162048.83,
+       "producao_tendencia_t": 162048.83,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.281720073,
        "energia_mwh": 45652.407,
        "baixa_mwh": 37541.654,
@@ -2155,6 +2966,8 @@
       {
        "ano": 2033,
        "producao_t": 159738.5,
+       "producao_tendencia_t": 159738.5,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.277775992,
        "energia_mwh": 44371.52,
        "baixa_mwh": 36488.333,
@@ -2163,6 +2976,8 @@
       {
        "ano": 2034,
        "producao_t": 157461.11,
+       "producao_tendencia_t": 157461.11,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2738871281,
        "energia_mwh": 43126.57,
        "baixa_mwh": 35464.565,
@@ -2171,6 +2986,8 @@
       {
        "ano": 2035,
        "producao_t": 155216.19,
+       "producao_tendencia_t": 155216.19,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2700527083,
        "energia_mwh": 41916.551,
        "baixa_mwh": 34469.522,
@@ -2179,6 +2996,8 @@
       {
        "ano": 2036,
        "producao_t": 153003.27,
+       "producao_tendencia_t": 153003.27,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2662719704,
        "energia_mwh": 40740.482,
        "baixa_mwh": 33502.397,
@@ -2187,6 +3006,8 @@
       {
        "ano": 2037,
        "producao_t": 150821.9,
+       "producao_tendencia_t": 150821.9,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2625441628,
        "energia_mwh": 39597.41,
        "baixa_mwh": 32562.407,
@@ -2195,6 +3016,8 @@
       {
        "ano": 2038,
        "producao_t": 148671.64,
+       "producao_tendencia_t": 148671.64,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2588685445,
        "energia_mwh": 38486.41,
        "baixa_mwh": 31648.791,
@@ -2203,6 +3026,8 @@
       {
        "ano": 2039,
        "producao_t": 146552.03,
+       "producao_tendencia_t": 146552.03,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2552443849,
        "energia_mwh": 37406.582,
        "baixa_mwh": 30760.808,
@@ -2211,6 +3036,8 @@
       {
        "ano": 2040,
        "producao_t": 144462.64,
+       "producao_tendencia_t": 144462.64,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.2516709635,
        "energia_mwh": 36357.051,
        "baixa_mwh": 29897.74,
@@ -2345,6 +3172,8 @@
       {
        "ano": 2027,
        "producao_t": 2395035.33,
+       "producao_tendencia_t": 2395035.33,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1202779719,
        "energia_mwh": 288069.992,
        "baixa_mwh": 253262.622,
@@ -2353,6 +3182,8 @@
       {
        "ano": 2028,
        "producao_t": 2338958.58,
+       "producao_tendencia_t": 2338958.58,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.11979686,
        "energia_mwh": 280199.894,
        "baixa_mwh": 246343.465,
@@ -2361,6 +3192,8 @@
       {
        "ano": 2029,
        "producao_t": 2284194.81,
+       "producao_tendencia_t": 2284194.81,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1193176726,
        "energia_mwh": 272544.808,
        "baixa_mwh": 239613.339,
@@ -2369,6 +3202,8 @@
       {
        "ano": 2030,
        "producao_t": 2230713.26,
+       "producao_tendencia_t": 2230713.26,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1188404019,
        "energia_mwh": 265098.86,
        "baixa_mwh": 233067.082,
@@ -2377,6 +3212,8 @@
       {
        "ano": 2031,
        "producao_t": 2178483.91,
+       "producao_tendencia_t": 2178483.91,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1183650403,
        "energia_mwh": 257856.336,
        "baixa_mwh": 226699.668,
@@ -2385,6 +3222,8 @@
       {
        "ano": 2032,
        "producao_t": 2127477.44,
+       "producao_tendencia_t": 2127477.44,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1178915801,
        "energia_mwh": 250811.678,
        "baixa_mwh": 220506.213,
@@ -2393,6 +3232,8 @@
       {
        "ano": 2033,
        "producao_t": 2077665.23,
+       "producao_tendencia_t": 2077665.23,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1174200138,
        "energia_mwh": 243959.48,
        "baixa_mwh": 214481.964,
@@ -2401,6 +3242,8 @@
       {
        "ano": 2034,
        "producao_t": 2029019.31,
+       "producao_tendencia_t": 2029019.31,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1169503338,
        "energia_mwh": 237294.486,
        "baixa_mwh": 208622.298,
@@ -2409,6 +3252,8 @@
       {
        "ano": 2035,
        "producao_t": 1981512.37,
+       "producao_tendencia_t": 1981512.37,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1164825324,
        "energia_mwh": 230811.579,
        "baixa_mwh": 202922.718,
@@ -2417,6 +3262,8 @@
       {
        "ano": 2036,
        "producao_t": 1935117.75,
+       "producao_tendencia_t": 1935117.75,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1160166023,
        "energia_mwh": 224505.787,
        "baixa_mwh": 197378.852,
@@ -2425,6 +3272,8 @@
       {
        "ano": 2037,
        "producao_t": 1889809.4,
+       "producao_tendencia_t": 1889809.4,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1155525359,
        "energia_mwh": 218372.269,
        "baixa_mwh": 191986.444,
@@ -2433,6 +3282,8 @@
       {
        "ano": 2038,
        "producao_t": 1845561.89,
+       "producao_tendencia_t": 1845561.89,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1150903258,
        "energia_mwh": 212406.319,
        "baixa_mwh": 186741.357,
@@ -2441,6 +3292,8 @@
       {
        "ano": 2039,
        "producao_t": 1802350.38,
+       "producao_tendencia_t": 1802350.38,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1146299645,
        "energia_mwh": 206603.359,
        "baixa_mwh": 181639.567,
@@ -2449,6 +3302,8 @@
       {
        "ano": 2040,
        "producao_t": 1760150.61,
+       "producao_tendencia_t": 1760150.61,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1141714446,
        "energia_mwh": 200958.937,
        "baixa_mwh": 176677.158,
@@ -2463,6 +3318,8 @@
       {
        "ano": 2027,
        "producao_t": 2494138.09,
+       "producao_tendencia_t": 2494138.09,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1190733929,
        "energia_mwh": 296985.485,
        "baixa_mwh": 261100.86,
@@ -2471,6 +3328,8 @@
       {
        "ano": 2028,
        "producao_t": 2485623.74,
+       "producao_tendencia_t": 2485623.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1180017324,
        "energia_mwh": 293307.907,
        "baixa_mwh": 257867.643,
@@ -2479,6 +3338,8 @@
       {
        "ano": 2029,
        "producao_t": 2477138.46,
+       "producao_tendencia_t": 2477138.46,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1169397168,
        "energia_mwh": 289675.87,
        "baixa_mwh": 254674.463,
@@ -2487,6 +3348,8 @@
       {
        "ano": 2030,
        "producao_t": 2468682.14,
+       "producao_tendencia_t": 2468682.14,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1158872593,
        "energia_mwh": 286088.808,
        "baixa_mwh": 251520.824,
@@ -2495,6 +3358,8 @@
       {
        "ano": 2031,
        "producao_t": 2460254.7,
+       "producao_tendencia_t": 2460254.7,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.114844274,
        "energia_mwh": 282546.164,
        "baixa_mwh": 248406.236,
@@ -2503,6 +3368,8 @@
       {
        "ano": 2032,
        "producao_t": 2451856.02,
+       "producao_tendencia_t": 2451856.02,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1138106755,
        "energia_mwh": 279047.39,
        "baixa_mwh": 245330.217,
@@ -2511,6 +3378,8 @@
       {
        "ano": 2033,
        "producao_t": 2443486.01,
+       "producao_tendencia_t": 2443486.01,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1127863795,
        "energia_mwh": 275591.94,
        "baixa_mwh": 242292.288,
@@ -2519,6 +3388,8 @@
       {
        "ano": 2034,
        "producao_t": 2435144.57,
+       "producao_tendencia_t": 2435144.57,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1117713021,
        "energia_mwh": 272179.28,
        "baixa_mwh": 239291.978,
@@ -2527,6 +3398,8 @@
       {
        "ano": 2035,
        "producao_t": 2426831.62,
+       "producao_tendencia_t": 2426831.62,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1107653603,
        "energia_mwh": 268808.878,
        "baixa_mwh": 236328.82,
@@ -2535,6 +3408,8 @@
       {
        "ano": 2036,
        "producao_t": 2418547.04,
+       "producao_tendencia_t": 2418547.04,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1097684721,
        "energia_mwh": 265480.213,
        "baixa_mwh": 233402.356,
@@ -2543,6 +3418,8 @@
       {
        "ano": 2037,
        "producao_t": 2410290.74,
+       "producao_tendencia_t": 2410290.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1087805558,
        "energia_mwh": 262192.766,
        "baixa_mwh": 230512.13,
@@ -2551,6 +3428,8 @@
       {
        "ano": 2038,
        "producao_t": 2402062.62,
+       "producao_tendencia_t": 2402062.62,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1078015308,
        "energia_mwh": 258946.028,
        "baixa_mwh": 227657.694,
@@ -2559,6 +3438,8 @@
       {
        "ano": 2039,
        "producao_t": 2393862.6,
+       "producao_tendencia_t": 2393862.6,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1068313171,
        "energia_mwh": 255739.494,
        "baixa_mwh": 224838.604,
@@ -2567,6 +3448,8 @@
       {
        "ano": 2040,
        "producao_t": 2385690.56,
+       "producao_tendencia_t": 2385690.56,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1058698352,
        "energia_mwh": 252572.667,
        "baixa_mwh": 222054.423,
@@ -2581,6 +3464,8 @@
       {
        "ano": 2027,
        "producao_t": 2595249.85,
+       "producao_tendencia_t": 2595249.85,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1178748762,
        "energia_mwh": 305914.755,
        "baixa_mwh": 268951.211,
@@ -2589,6 +3474,8 @@
       {
        "ano": 2028,
        "producao_t": 2638295.33,
+       "producao_tendencia_t": 2638295.33,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1162246279,
        "energia_mwh": 306634.894,
        "baixa_mwh": 269584.335,
@@ -2597,6 +3484,8 @@
       {
        "ano": 2029,
        "producao_t": 2682054.78,
+       "producao_tendencia_t": 2682054.78,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1145974832,
        "energia_mwh": 307356.727,
        "baixa_mwh": 270218.95,
@@ -2605,6 +3494,8 @@
       {
        "ano": 2030,
        "producao_t": 2726540.03,
+       "producao_tendencia_t": 2726540.03,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1129931184,
        "energia_mwh": 308080.26,
        "baixa_mwh": 270855.058,
@@ -2613,6 +3504,8 @@
       {
        "ano": 2031,
        "producao_t": 2771763.12,
+       "producao_tendencia_t": 2771763.12,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1114112147,
        "energia_mwh": 308805.496,
        "baixa_mwh": 271492.664,
@@ -2621,6 +3514,8 @@
       {
        "ano": 2032,
        "producao_t": 2817736.29,
+       "producao_tendencia_t": 2817736.29,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1098514577,
        "energia_mwh": 309532.439,
        "baixa_mwh": 272131.771,
@@ -2629,6 +3524,8 @@
       {
        "ano": 2033,
        "producao_t": 2864471.99,
+       "producao_tendencia_t": 2864471.99,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1083135373,
        "energia_mwh": 310261.094,
        "baixa_mwh": 272772.383,
@@ -2637,6 +3534,8 @@
       {
        "ano": 2034,
        "producao_t": 2911982.86,
+       "producao_tendencia_t": 2911982.86,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1067971478,
        "energia_mwh": 310991.463,
        "baixa_mwh": 273414.502,
@@ -2645,6 +3544,8 @@
       {
        "ano": 2035,
        "producao_t": 2960281.75,
+       "producao_tendencia_t": 2960281.75,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1053019877,
        "energia_mwh": 311723.552,
        "baixa_mwh": 274058.133,
@@ -2653,6 +3554,8 @@
       {
        "ano": 2036,
        "producao_t": 3009381.74,
+       "producao_tendencia_t": 3009381.74,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1038277599,
        "energia_mwh": 312457.365,
        "baixa_mwh": 274703.28,
@@ -2661,6 +3564,8 @@
       {
        "ano": 2037,
        "producao_t": 3059296.12,
+       "producao_tendencia_t": 3059296.12,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1023741713,
        "energia_mwh": 313192.905,
        "baixa_mwh": 275349.945,
@@ -2669,6 +3574,8 @@
       {
        "ano": 2038,
        "producao_t": 3110038.39,
+       "producao_tendencia_t": 3110038.39,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.1009409329,
        "energia_mwh": 313930.176,
        "baixa_mwh": 275998.132,
@@ -2677,6 +3584,8 @@
       {
        "ano": 2039,
        "producao_t": 3161622.28,
+       "producao_tendencia_t": 3161622.28,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.0995277598,
        "energia_mwh": 314669.183,
        "baixa_mwh": 276647.845,
@@ -2685,6 +3594,8 @@
       {
        "ano": 2040,
        "producao_t": 3214061.76,
+       "producao_tendencia_t": 3214061.76,
+       "producao_projetos_t": 0.0,
        "intensidade_mwh_t": 0.0981343712,
        "energia_mwh": 315409.93,
        "baixa_mwh": 277299.088,
@@ -2798,7 +3709,33 @@
    "metodo_estimacao": "Ajuste em pontos percentuais sobre o crescimento histórico de cada mineral (−2, 0 e +2) e melhoria anual de eficiência energética (0,4%, 0,9% e 1,4%). O próprio Squad 2 identifica essas hipóteses como ilustrativas.",
    "status_validacao": "nao_validado",
    "responsavel_validacao": "Squad 2 — modelo de projeção",
-   "notas": "A projeção é de tendência histórica. O modelo ainda não inclui carteira física de projetos: não há, nas bases atuais, capacidade, ano de entrada e grau de certeza estruturados."
+   "notas": "Vale para a tendência das operações existentes. A produção de novos projetos entra pela camada de projetos (SRC_S1_RADAR_PROJETOS e SRC_S2_ASSUMPTION_002)."
+  },
+  {
+   "source_id": "SRC_S1_RADAR_PROJETOS",
+   "source_name": "Squad 1 — Radar de Projetos, curadoria da pesquisa na web",
+   "source_url": "Squad 1/Radar de Projetos/curadoria_web.json",
+   "data_acesso": "2026-11-10",
+   "periodo_referencia": "situação dos projetos até a data de cada evidência",
+   "tipo_fonte": "interna_projeto",
+   "valor_observado_estimado": "estimado",
+   "metodo_estimacao": "A maturidade de cada projeto (OPERAÇÃO a SINAL) vem da curadoria. O incremento anual de produção e o período só entram quando a fonte os traz, e ficam em Squad 2/modello_reale/parameters/project_pipeline.csv, na base de produção do mineral.",
+   "status_validacao": "pendente_validacao",
+   "responsavel_validacao": "Squad 1 — Radar de Projetos",
+   "notas": "Nenhum documento de origem foi aberto um a um (ver LEIA-ME do Radar de Projetos). Projetos em operação já estão na série histórica e não somam de novo."
+  },
+  {
+   "source_id": "SRC_S2_ASSUMPTION_002",
+   "source_name": "Squad 2 — pesos da carteira de projetos por maturidade",
+   "source_url": "Squad 2/modello_reale/parameters/project_maturity_weights.csv",
+   "data_acesso": "2026-11-10",
+   "periodo_referencia": "2027–2040",
+   "tipo_fonte": "interna_projeto",
+   "valor_observado_estimado": "ilustrativo",
+   "metodo_estimacao": "Fração do incremento de cada projeto somada à produção em cada cenário, conforme a maturidade: expansão e construção 0,5/1/1; definido 0,25/0,75/1; provável 0/0,5/1; possível 0/0/0,5; sinal e operação 0 (conservador/referência/expansão).",
+   "status_validacao": "nao_validado",
+   "responsavel_validacao": "Squad 2 — modelo de projeção",
+   "notas": "Hipótese ilustrativa, não probabilidade estimada."
   }
  ]
 }

@@ -22,4 +22,5 @@
 .pv-lim li{font-size:13px;padding:6px 0 6px 16px;position:relative;line-height:1.55}
 .pv-lim li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#9fb3c2}
 #previsao-view .pn-table td b{font-weight:600}
+.pv-nowrap{white-space:nowrap}
 @media(max-width:700px){.pv-toolbar>div,.pv-head>div:last-child{min-width:100%}.pv-toolbar .btn{flex:1}}

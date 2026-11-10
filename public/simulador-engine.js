@@ -22,6 +22,13 @@
     return mineral.producao_base_t * Math.pow(1 + crescimentoAjustado, ano - mineral.ano_base);
   }
 
+  // Camada de projetos do Squad 2: produção adicional dos projetos da carteira, já ponderada pela maturidade.
+  function producaoProjetos(mineral, scenario, ano) {
+    var porCenario = mineral.producao_projetos_t && mineral.producao_projetos_t[scenario];
+    var v = porCenario ? porCenario[String(ano)] : 0;
+    return typeof v === 'number' ? v : 0;
+  }
+
   // IE(t) = IE_base x (1 + ajuste_pct/100) x (1 - g)^(t - ano_base)
   function intensidade(mineral, ganho, ajustePct, ano) {
     return mineral.energy_intensity_mwh_t
@@ -78,7 +85,9 @@
         : mineral.crescimento_historico + cenario.growth_adjustment;
       var ajuste = ajustes[mineral.mineral_id] || 0;
       anos.forEach(function (ano) {
-        var q = producao(mineral, crescimento, ano);
+        var qTendencia = producao(mineral, crescimento, ano);
+        var qProjetos = producaoProjetos(mineral, cenario.scenario, ano);
+        var q = qTendencia + qProjetos;
         var ie = intensidade(mineral, ganho, ajuste, ano);
         detalhe.push({
           mineral_id: mineral.mineral_id,
@@ -86,6 +95,8 @@
           production_basis: mineral.production_basis,
           ano: ano,
           producao_t: q,
+          producao_tendencia_t: qTendencia,
+          producao_projetos_t: qProjetos,
           intensidade_mwh_t: ie,
           ajuste_intensidade_pct: ajuste,
           crescimento_aplicado: crescimento,
@@ -168,6 +179,7 @@
     MWH_POR_TWH: MWH_POR_TWH,
     validar: validar,
     producao: producao,
+    producaoProjetos: producaoProjetos,
     intensidade: intensidade,
     simular: simular,
     simularCenarios: simularCenarios,

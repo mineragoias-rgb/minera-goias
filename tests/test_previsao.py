@@ -94,6 +94,67 @@ class PacoteTests(unittest.TestCase):
             self.assertIn(c['fonte'], catalogo)
 
 
+class CarteiraTests(unittest.TestCase):
+    """Camada de projetos: a base do Squad 1 ligada à projeção pelo pipeline e pelos pesos do Squad 2."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.d = json.loads(PACOTE.read_text(encoding='utf-8'))
+        cls.curadoria = {p['chave']: p for p in json.loads(
+            (ROOT / 'Squad 1' / 'Radar de Projetos' / 'curadoria_web.json').read_text(encoding='utf-8'))['projetos']}
+        params = ROOT / 'Squad 2' / 'modello_reale' / 'parameters'
+        with (params / 'project_pipeline.csv').open(encoding='utf-8') as fh:
+            cls.pipeline = list(csv.DictReader(fh))
+        with (params / 'project_maturity_weights.csv').open(encoding='utf-8') as fh:
+            cls.pesos = {l['maturidade']: l for l in csv.DictReader(fh)}
+
+    def test_pipeline_aponta_para_projetos_da_curadoria(self):
+        for linha in self.pipeline:
+            self.assertIn(linha['project_key'], self.curadoria)
+            self.assertLessEqual(int(linha['start_year']), int(linha['end_year']))
+            self.assertGreater(float(linha['incremental_production_t_per_year']), 0)
+
+    def test_operacao_e_sinal_nao_somam(self):
+        for maturidade in ('OPERAÇÃO', 'SINAL'):
+            for c in CENARIOS:
+                self.assertEqual(float(self.pesos[maturidade][c]), 0.0, maturidade)
+
+    def test_pesos_nao_diminuem_do_conservador_para_a_expansao(self):
+        for maturidade, linha in self.pesos.items():
+            valores = [float(linha[c]) for c in CENARIOS]
+            self.assertEqual(valores, sorted(valores), maturidade)
+
+    def test_producao_e_tendencia_mais_projetos(self):
+        for m in self.d['minerais']:
+            for c in CENARIOS:
+                for p in m['cenarios'][c]['serie']:
+                    self.assertAlmostEqual(p['producao_tendencia_t'] + p['producao_projetos_t'], p['producao_t'], delta=0.05)
+                    self.assertGreaterEqual(p['producao_projetos_t'], 0)
+
+    def test_projetos_quantificados_batem_com_a_camada_do_mineral(self):
+        minerais = {m['mineral_id']: m for m in self.d['minerais']}
+        for c in CENARIOS:
+            soma = {}
+            for p in self.d['carteira']['projetos']:
+                for linha in p['energia_ponderada'][c]:
+                    chave = (p['mineral_id'], linha['ano'])
+                    soma[chave] = soma.get(chave, 0) + linha['producao_t']
+            for m in minerais.values():
+                for linha in m['cenarios'][c]['serie']:
+                    self.assertAlmostEqual(soma.get((m['mineral_id'], linha['ano']), 0), linha['producao_projetos_t'],
+                                           delta=0.05, msg=(m['nome'], c, linha['ano']))
+
+    def test_carteira_cobre_os_projetos_da_curadoria_nos_cinco_minerais(self):
+        minerais = {'Cobre', 'Bauxita', 'Níquel', 'Fosfato', 'Amianto'}
+        esperadas = {k for k, p in self.curadoria.items() if p.get('mineral') in minerais}
+        self.assertEqual({p['chave'] for p in self.d['carteira']['projetos']}, esperadas)
+        for p in self.d['carteira']['projetos']:
+            self.assertEqual(p['maturidade'], self.curadoria[p['chave']]['maturidade'])
+            self.assertEqual(p['no_modelo'], p['motivo'] == 'quantificado')
+            if p['maturidade'] == 'OPERAÇÃO':
+                self.assertFalse(p['no_modelo'], p['chave'])
+
+
 class PaginaTests(unittest.TestCase):
     def test_painel_expoe_a_aba(self):
         markup = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
@@ -118,6 +179,10 @@ class PaginaTests(unittest.TestCase):
             chaves |= {f"pv.met.{m['cenarios'][c]['metodo']}" for c in CENARIOS}
         chaves |= {f"pv.nat.{c['natureza']}" for c in d['cenarios']}
         chaves |= {f"pv.nat.{f['valor_observado_estimado']}" for f in d['fontes']}
+        import unicodedata
+        sem_acento = lambda v: ''.join(ch for ch in unicodedata.normalize('NFD', v) if unicodedata.category(ch) != 'Mn')
+        chaves |= {f"pv.mat.{sem_acento(r['maturidade'])}" for r in d['carteira']['pesos']}
+        chaves |= {f"pv.mot.{p['motivo']}" for p in d['carteira']['projetos']}
         for chave in sorted(chaves):
             self.assertEqual(i18n.count(f"'{chave}':"), 2, chave)
 

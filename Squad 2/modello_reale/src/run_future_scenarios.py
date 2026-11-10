@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 from common import load_historical_production, load_parameters
+from projects import build_project_layer
 
 
 MODEL_DIR = Path(__file__).resolve().parents[1]
@@ -71,6 +72,14 @@ def select_growth_assumption(
 def run_future_scenarios():
     history = load_historical_production()
     energy, scenarios = load_parameters()
+    # Camada de projetos (projects.py): incremento ponderado pela maturidade, somado à tendência das operações existentes.
+    project_increment, project_detail, project_inventory = build_project_layer(
+        energy, FIRST_FORECAST_YEAR, LAST_FORECAST_YEAR
+    )
+    increment_lookup = {
+        (r.mineral_id, r.scenario, int(r.year)): float(r.project_production_t)
+        for r in project_increment.itertuples()
+    }
 
     results = []
 
@@ -99,10 +108,14 @@ def run_future_scenarios():
             for year in range(FIRST_FORECAST_YEAR, LAST_FORECAST_YEAR + 1):
                 years_after_base = int(year) - int(base["year"])
 
-                projected_production = (
+                trend_production = (
                     base["production_t"]
                     * (1 + growth_rate) ** years_after_base
                 )
+                project_production = increment_lookup.get(
+                    (mineral_id, scenario, year), 0.0
+                )
+                projected_production = trend_production + project_production
 
                 energy_intensity = (
                     mineral["energy_intensity_mwh_t"]
@@ -120,6 +133,8 @@ def run_future_scenarios():
                         "trend_end_year": trend_end_year,
                         "year": year,
                         "scenario": scenario,
+                        "trend_production_t": trend_production,
+                        "project_production_t": project_production,
                         "projected_production_t": projected_production,
                         "historical_growth_rate": historical_growth_rate,
                         "growth_adjustment": scenario_row["growth_adjustment"],
@@ -181,6 +196,26 @@ def run_future_scenarios():
 
     energy_summary.to_csv(
         OUTPUT_DIR / "future_energy_summary.csv",
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    # Energia de cada projeto: produção ponderada × intensidade do mineral no ano e cenário.
+    intensity = detail[["mineral_id", "scenario", "year", "energy_intensity_mwh_t"]]
+    project_detail = project_detail.merge(
+        intensity, on=["mineral_id", "scenario", "year"], how="left"
+    )
+    project_detail["weighted_energy_demand_mwh"] = (
+        project_detail["weighted_production_t"]
+        * project_detail["energy_intensity_mwh_t"]
+    )
+    project_detail.to_csv(
+        OUTPUT_DIR / "project_layer_detail.csv",
+        index=False,
+        encoding="utf-8-sig",
+    )
+    project_inventory.to_csv(
+        OUTPUT_DIR / "project_inventory.csv",
         index=False,
         encoding="utf-8-sig",
     )

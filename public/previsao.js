@@ -9,6 +9,7 @@ const CEN=['conservador','referencia','expansao'];
 // Validated categorical sets (light surface): scenarios and minerals; colour follows the entity, never its rank.
 const COR_CEN={conservador:'#d7a43a',referencia:'#0f6fb0',expansao:'#b03a55'};
 const COR_MIN=['#0f6fb0','#c2681b','#0d9488','#b03a55','#8250c4'];
+const COR_PROJ='#57768b'; // new projects: a neutral slate, apart from the five mineral hues
 const FONT=12,CHAR=FONT*.58;
 let d=null,loaded=false,aba='previsao',cenario='referencia',mineralSel=null;
 
@@ -17,7 +18,7 @@ const twh=v=>fmt(v/1e6,2);
 const pct=(v,c=1)=>v==null?'—':fmt(v*100,c)+'%';
 const ano=v=>I18N.num(v,{useGrouping:false});
 // Keys built from data values go through tk(), so the i18n test does not read the bare prefix as a key.
-const tk=(prefixo,valor)=>t(prefixo+valor);
+const tk=(prefixo,valor)=>t(prefixo+String(valor).normalize('NFD').replace(/[\u0300-\u036f]/g,''));
 const nomeCen=c=>tk('pv.cen.',c);
 const nomeMin=m=>tk('pv.min.',m.mineral_id);
 const corMin=m=>COR_MIN[d.minerais.indexOf(m)%COR_MIN.length];
@@ -111,11 +112,26 @@ function graficoTotal(){
    t('pv.tip.band',{c:nomeCen(cenario),lo:twh(totalDe(a,cenario).baixa_mwh),hi:twh(totalDe(a,cenario).alta_mwh)})]})
   +legenda([...CEN.map(c=>[nomeCen(c),COR_CEN[c]]),[t('pv.c.bandLeg',{c:nomeCen(cenario)}),COR_CEN[cenario]+'40']])}
 
+// Energy of each mineral's existing operations (trend) plus one segment for the weighted project portfolio.
+const energiaProjetos=(m,c,a)=>{const p=m.cenarios[c].serie.find(x=>x.ano===a);return p?p.producao_projetos_t*p.intensidade_mwh_t:0};
+const energiaProjetosTotal=(c,a)=>d.minerais.reduce((s,m)=>s+energiaProjetos(m,c,a),0);
 function graficoComposicao(){
  const A=anos(),w=largura('pv-comp');
- const segs=d.minerais.map(m=>({nome:nomeMin(m),cor:corMin(m),valores:Object.fromEntries(m.cenarios[cenario].serie.map(p=>[p.ano,p.energia_mwh/1e6]))}));
+ const segs=d.minerais.map(m=>({nome:nomeMin(m),cor:corMin(m),
+  valores:Object.fromEntries(m.cenarios[cenario].serie.map(p=>[p.ano,p.producao_tendencia_t*p.intensidade_mwh_t/1e6]))}));
+ const temProjetos=A.some(a=>energiaProjetosTotal(cenario,a)>0);
+ if(temProjetos)segs.push({nome:t('pv.c.projSeg'),cor:COR_PROJ,valores:Object.fromEntries(A.map(a=>[a,energiaProjetosTotal(cenario,a)/1e6]))});
  el('pv-comp').innerHTML=colunas(w,A,segs,{aria:t('pv.c.compAria'),fy:v=>fmt(v,1),fv:v=>fmt(v,2)+' TWh'})
-  +legenda(d.minerais.map(m=>[nomeMin(m),corMin(m)]))}
+  +legenda([...d.minerais.map(m=>[nomeMin(m),corMin(m)]),...(temProjetos?[[t('pv.c.projSeg'),COR_PROJ]]:[])])}
+
+function tabelaCarteiraEfeito(){
+ const c=d.carteira,quant=c.projetos.filter(p=>p.no_modelo),A=anos().filter(a=>CEN.some(x=>energiaProjetosTotal(x,a)>0));
+ el('pv-proj-sub').textContent=t('pv.p.efeitoSub',{q:quant.length,n:c.projetos.length});
+ if(!A.length){el('pv-proj-efeito').innerHTML=`<p class="muted small">${E(t('pv.p.nenhum'))}</p>`;return}
+ const linhasT=A.map(a=>[E(ano(a)),...CEN.map(x=>{const v=energiaProjetosTotal(x,a),tot=totalDe(a,x).energia_mwh;
+  return `${fmt(v/1e3,0)}<div class="mk-note">${E(t('pv.p.doTotal',{v:fmt(v/tot*100,1)}))}</div>`})]);
+ el('pv-proj-efeito').innerHTML=tabela([t('pv.t.ano'),...CEN.map(nomeCen)],linhasT,[1,2,3])
+  +`<p class="mk-note">${E(t('pv.p.quais',{l:quant.map(p=>p.projeto).join('; ')}))}</p>`}
 
 function tabelaMinerais(){
  const sel=[d.horizonte.inicio,2030,2035,d.horizonte.fim].filter((a,i,arr)=>a>=d.horizonte.inicio&&a<=d.horizonte.fim&&arr.indexOf(a)===i);
@@ -132,13 +148,13 @@ function tabelaAnos(){
  el('pv-tab-anos').innerHTML=tabela([t('pv.t.ano'),...CEN.flatMap(c=>[nomeCen(c),t('pv.t.faixaCurta')])],linhasT,[1,2,3,4,5,6])}
 
 function exportar(){
- const cab=['ano','cenario','mineral_id','mineral','base_producao','producao_projetada_t','intensidade_mwh_t','energia_mwh','faixa_baixa_mwh','faixa_alta_mwh'];
+ const cab=['ano','cenario','mineral_id','mineral','base_producao','producao_projetada_t','producao_tendencia_t','producao_projetos_t','intensidade_mwh_t','energia_mwh','faixa_baixa_mwh','faixa_alta_mwh'];
  const linhasC=[];for(const m of d.minerais)for(const c of CEN)for(const p of m.cenarios[c].serie)
-  linhasC.push([p.ano,c,m.mineral_id,m.nome,m.base_producao,p.producao_t,p.intensidade_mwh_t,p.energia_mwh,p.baixa_mwh,p.alta_mwh]);
+  linhasC.push([p.ano,c,m.mineral_id,m.nome,m.base_producao,p.producao_t,p.producao_tendencia_t,p.producao_projetos_t,p.intensidade_mwh_t,p.energia_mwh,p.baixa_mwh,p.alta_mwh]);
  linhasC.sort((a,b)=>a[0]-b[0]||CEN.indexOf(a[1])-CEN.indexOf(b[1])||String(a[2]).localeCompare(b[2]));
  csv('previsao_demanda_energia_goias.csv',cab,linhasC)}
 
-function desenharPrevisao(){metricas();graficoTotal();graficoComposicao();tabelaMinerais();tabelaAnos();
+function desenharPrevisao(){metricas();graficoTotal();graficoComposicao();tabelaCarteiraEfeito();tabelaMinerais();tabelaAnos();
  el('pv-total-sub').textContent=t('pv.c.totalSub',{c:nomeCen(cenario)});el('pv-comp-sub').textContent=t('pv.c.compSub',{c:nomeCen(cenario)})}
 
 /* ---------- sub-tab 2: data used ---------- */
@@ -177,7 +193,23 @@ function fontes(){
   +(f.source_url?`<div class="mk-note">${link(f.source_url)}</div>`:'')+'</li>').join('')}
 
 /* ---------- sub-tab 3: methodology ---------- */
+function tabelaCarteira(){
+ const mins=Object.fromEntries(d.minerais.map(m=>[m.mineral_id,m]));
+ const link=p=>p.link&&/^https?:/.test(p.link)?`<a href="${E(p.link)}" target="_blank" rel="noopener noreferrer">${E(p.fonte||p.link)}</a>`:E(p.fonte||'');
+ const linhasT=d.carteira.projetos.map(p=>[
+  `<b>${E(p.projeto)}</b><div class="mk-note">${E([p.empresa,p.municipio].filter(Boolean).join(' · '))}</div>`,
+  `<i class="pv-dot" style="background:${corMin(mins[p.mineral_id])}"></i>${E(nomeMin(mins[p.mineral_id]))}`,
+  `<span class="pill">${E(tk('pv.mat.',p.maturidade))}</span>`,
+  p.no_modelo?`<b>${E(t('pv.p.sim'))}</b>`:E(t('pv.p.nao')),
+  p.no_modelo?`${fmt(p.incremento_t_ano,0)} t/${E(t('pv.p.ano'))}<div class="mk-note">${E(ano(p.inicio)+'–'+ano(p.fim))}</div>`:'—',
+  `<span class="pv-nowrap">${E(CEN.map(c=>fmt(p.pesos[c],2)).join(' / '))}</span>`,
+  `<span class="mk-note">${E(tk('pv.mot.',p.motivo))}</span>`+(p.nota_quantidade?`<div class="mk-note">${E(p.nota_quantidade)}</div>`:''),
+  `<span class="mk-note">${link(p)}</span>`]);
+ el('pv-carteira').innerHTML=tabela([t('pv.p.cProj'),t('pv.t.mineral'),t('pv.p.cMat'),t('pv.p.cEntra'),t('pv.p.cInc'),t('pv.p.cPesos'),t('pv.p.cMotivo'),t('pv.p.cFonte')],linhasT,[4])}
+
 function metodologia(){
+ el('pv-pesos').innerHTML=tabela([t('pv.p.cMat'),...CEN.map(nomeCen)],
+  d.carteira.pesos.map(r=>[`<span class="pill">${E(tk('pv.mat.',r.maturidade))}</span>`,...CEN.map(c=>fmt(r[c],2))]),[1,2,3]);
  el('pv-cenarios').innerHTML=tabela([t('pv.m.cCen'),t('pv.m.cAjuste'),t('pv.m.cEf'),t('pv.m.cNat')],
   d.cenarios.map(c=>[`<i class="pv-dot" style="background:${COR_CEN[c.cenario]}"></i><b>${E(nomeCen(c.cenario))}</b>`,
    (c.ajuste_crescimento>0?'+':'')+fmt(c.ajuste_crescimento*100,1)+' p.p.',fmt(c.ganho_eficiencia_anual*100,1)+'% '+E(t('pv.k.aa')),E(tk('pv.nat.',c.natureza))]),[1,2]);
@@ -192,7 +224,7 @@ function metodologia(){
     E(metodo(b.regra_selecionada))]}),[2,3]);
  el('pv-backtest-det').innerHTML=tabela([t('pv.t.mineral'),t('pv.t.ano'),t('pv.m.dObs'),t('pv.m.dTend'),t('pv.m.dPers')],
   d.minerais.flatMap(m=>m.backtest.detalhe.map(p=>[E(nomeMin(m)),E(ano(p.ano)),fmt(p.observado_t,0),fmt(p.tendencia_t,0),fmt(p.persistencia_t,0)])),[2,3,4]);
- el('pv-arquivos').innerHTML=[d.modelo.diretorio,...d.modelo.scripts,d.modelo.coeficientes,d.modelo.hipoteses,...d.modelo.producao_historica,d.gerado_por,SOURCE.slice(1).replace(/^/,'public/')]
+ el('pv-arquivos').innerHTML=[d.modelo.diretorio,...d.modelo.scripts,'Squad 2/modello_reale/src/projects.py',d.modelo.coeficientes,d.modelo.hipoteses,d.carteira.pipeline,d.carteira.pesos_arquivo,d.carteira.curadoria,...d.modelo.producao_historica,d.gerado_por,SOURCE.slice(1).replace(/^/,'public/')]
   .map(f=>`<li><code>${E(f)}</code></li>`).join('');
  el('pv-versao').textContent=t('pv.versao',{v:d.versao,d:d.data_versao,g:d.gerado_por})}
 
@@ -204,7 +236,7 @@ function mostrarAba(nova){aba=nova;
 
 function desenhar(){if(!d)return;
  if(aba==='previsao')desenharPrevisao();
- if(aba==='dados'){graficoProducao();tabelaCoeficientes();tabelaHistorico();fontes()}
+ if(aba==='dados'){graficoProducao();tabelaCoeficientes();tabelaCarteira();tabelaHistorico();fontes()}
  if(aba==='metodo')metodologia()}
 
 async function load(){

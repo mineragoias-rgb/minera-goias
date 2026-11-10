@@ -10,6 +10,7 @@ Cadeia (cada etapa só roda depois das que ela usa):
     bases brutas do Squad 1 + CCEE ─► Panorama ─┐
     curadoria de produção ──────────► Produção ─┴► Empresas
     levantamento do Lucas Maia ─────► carteira de projetos (Mercado)
+    curadoria do Radar de Projetos ─► camada de projetos do Squad 2 ─► Simulador e aba Previsão de demanda
     camadas do P3M (Squad 1/P3M) ───► inventário (classificação, metadados do site, registros, datas) ─► Mapa mineral (data/mapa)
     pacote de vegetação e rios e série do MapBiomas (Squad 1/Mapa vegetação e rios 2025, Squad 1/MapBiomas) ──► Mapa mineral
 

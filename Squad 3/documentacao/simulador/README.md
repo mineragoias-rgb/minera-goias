@@ -21,7 +21,7 @@ Squad 2 (`Squad 2/modello_reale`), que projeta a produção histórica consolida
 | `public/data/simulador/parametros_v1.json` | Parâmetros em uso, com campo `versao` |
 | `public/data/simulador/parametros_v0.json` | Primeira versão, marcada como substituída |
 | `scripts/build_simulador_base.py` | Gera o pacote v1 a partir do modelo do Squad 2 |
-| `tests/simulador.test.js` | 55 verificações do cálculo |
+| `tests/simulador.test.js` | 62 verificações do cálculo |
 | `tests/test_simulador.py` | Contrato dos parâmetros, rastreabilidade e ausência de segredos |
 
 ## Como rodar
@@ -52,6 +52,7 @@ estatística intermediária. São as mesmas equações do modelo do Squad 2:
 
 ```
 Produção(m,t)    = producao_base_t(m) × (1 + crescimento_historico(m) + growth_adjustment(s))^(t − ano_base)
+                   + producao_projetos_t(m)[s][t]
 Intensidade(m,t) = energy_intensity_mwh_t(m) × (1 + ajuste_pct(m)/100) × (1 − g)^(t − ano_base)
 Energia(m,t)     = Produção(m,t) × Intensidade(m,t)
 ```
@@ -100,8 +101,10 @@ a bauxita lidera até 2029, e o níquel a ultrapassa a partir de 2030. Em 2040, 
 de 90% da demanda (níquel 2,56 TWh e bauxita 1,81 TWh), então o número da bauxita pesa bastante
 ao interpretar o total.
 
-O modelo ainda **não inclui carteira física de projetos**. As bases atuais não trazem
-capacidade, ano de entrada e grau de certeza de forma estruturada e validada.
+A produção inclui a **camada de projetos** do Squad 2: os projetos da carteira do Squad 1 que
+têm incremento de produção e ano de entrada nas fontes somam à tendência, ponderados pela
+maturidade (`producao_projetos_t` no pacote de parâmetros). Hoje só a expansão de Chapada (Saúva)
+é quantificada, de 2029 a 2032; os demais projetos não trazem esses dados.
 
 ## Como atualizar e versionar os parâmetros
 

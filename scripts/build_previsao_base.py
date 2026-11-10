@@ -109,6 +109,8 @@ def montar(projecao, faixas_min, faixas_tot, backtest_res, backtest_det, hipotes
                 ("serie", [OrderedDict([
                     ("ano", int(l.year)),
                     ("producao_t", num(l.projected_production_t, 2)),
+                    ("producao_tendencia_t", num(l.trend_production_t, 2)),
+                    ("producao_projetos_t", num(l.project_production_t, 2)),
                     ("intensidade_mwh_t", num(l.energy_intensity_mwh_t, 10)),
                     ("energia_mwh", num(l.energy_demand_mwh, 3)),
                     ("baixa_mwh", num(l.lower_energy_demand_mwh, 3)),
@@ -166,6 +168,44 @@ def montar(projecao, faixas_min, faixas_tot, backtest_res, backtest_det, hipotes
     return minerais, total, cenarios
 
 
+def carteira():
+    """Projetos da curadoria do Squad 1 nos minerais do modelo, com o motivo de entrar ou não e a energia ponderada."""
+    inventario = ler("future", "project_inventory.csv")
+    detalhe = ler("future", "project_layer_detail.csv")
+    pesos = pd.read_csv(MODELO / "parameters" / "project_maturity_weights.csv")
+    projetos = []
+    for l in inventario.itertuples():
+        d = detalhe[detalhe["project_key"] == l.project_key]
+        energia = OrderedDict()
+        for cenario in CENARIOS:
+            g = d[(d["scenario"] == cenario) & (d["weighted_production_t"] > 0)].sort_values("year")
+            energia[cenario] = [OrderedDict([("ano", int(r.year)), ("producao_t", num(r.weighted_production_t, 2)),
+                                             ("energia_mwh", num(r.weighted_energy_demand_mwh, 3))])
+                                for r in g.itertuples()]
+        projetos.append(OrderedDict([
+            ("chave", l.project_key), ("projeto", texto(l.project_name)), ("empresa", texto(l.company)),
+            ("municipio", texto(l.municipality)), ("mineral_id", l.mineral_id), ("maturidade", l.maturidade),
+            ("status", texto(l.status)), ("confianca", texto(l.confianca)), ("no_modelo", bool(l.in_model)),
+            ("motivo", texto(l.reason)), ("fonte", texto(l.source)), ("link", texto(l.link)),
+            ("incremento_t_ano", num(l.incremental_production_t_per_year, 2)),
+            ("inicio", None if pd.isna(l.start_year) else int(l.start_year)),
+            ("fim", None if pd.isna(l.end_year) else int(l.end_year)),
+            ("natureza_quantidade", texto(l.quantity_nature)), ("nota_quantidade", texto(l.source_note)),
+            ("pesos", OrderedDict((c, num(getattr(l, f"weight_{c}"), 3)) for c in CENARIOS)),
+            ("energia_ponderada", energia),
+        ]))
+    ordem = ["EXPANSÃO", "CONSTRUÇÃO", "DEFINIDO", "PROVÁVEL", "POSSÍVEL", "SINAL", "OPERAÇÃO"]
+    projetos.sort(key=lambda p: (not p["no_modelo"], ordem.index(p["maturidade"]), p["mineral_id"], p["projeto"]))
+    return OrderedDict([
+        ("curadoria", "Squad 1/Radar de Projetos/curadoria_web.json"),
+        ("pipeline", "Squad 2/modello_reale/parameters/project_pipeline.csv"),
+        ("pesos_arquivo", "Squad 2/modello_reale/parameters/project_maturity_weights.csv"),
+        ("pesos", [OrderedDict([("maturidade", r.maturidade), *[(c, num(getattr(r, c), 3)) for c in CENARIOS]])
+                   for r in pesos.itertuples()]),
+        ("projetos", projetos),
+    ])
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pular-execucao", action="store_true",
@@ -214,6 +254,7 @@ def main():
         ("ano_base", int(projecao.base_year.max())),
         ("faixa_intensidade_pct", 10),
         ("cenarios", cenarios),
+        ("carteira", carteira()),
         ("total", total),
         ("minerais", minerais),
         ("fontes", catalogo),

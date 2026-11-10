@@ -25,6 +25,7 @@ O modelo real está integrado e validado automaticamente. Ele:
 - utiliza um coeficiente estadual de energia por mineral e base de produção;
 - executa backtest de produção;
 - projeta três cenários para 2027–2040;
+- soma à tendência os projetos da carteira do Squad 1 com incremento de produção e ano de entrada, ponderados pela maturidade;
 - calcula demanda estimada de energia por mineral, ano e cenário;
 - executa análise de sensibilidade das intensidades energéticas;
 - publica os resultados como artefatos da GitHub Actions.
@@ -205,7 +206,7 @@ Ele executa backtest, cenários futuros e sensitivity analysis, depois publica o
 
 - A bauxita ainda utiliza benchmark proxy.
 - Os coeficientes observados ou estimados referem-se a 2025.
-- O modelo ainda não incorpora projetos, expansões, capacidade ou encerramentos reais.
+- A camada de projetos só soma o que as fontes quantificam: hoje, apenas a expansão de Chapada (Saúva, cerca de 15 mil t de cobre por ano de 2029 a 2032). Encerramentos não são modelados.
 - Não há ainda uma camada macroeconômica de elasticidade entre demanda global e produção de Goiás.
 - Não foi realizado backtest de consumo elétrico agregado, pois não existe uma série histórica com o mesmo perímetro de produção.
 - A cobertura atual está limitada a cinco minerais.

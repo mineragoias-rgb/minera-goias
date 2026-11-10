@@ -53,9 +53,14 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
             (sc, float(g.iloc[0]["applied_production_growth_rate"])) for sc, g in do_mineral.groupby("scenario", sort=False))
         metodos = OrderedDict((sc, str(g.iloc[0]["projection_method"])) for sc, g in do_mineral.groupby("scenario", sort=False))
         # O modelo do Squad 2 publica a produção projetada, não a do ano-base; ela volta
-        # dividindo a projeção pelo crescimento composto aplicado até aquele ano.
+        # dividindo a tendência (sem a camada de projetos) pelo crescimento composto aplicado até aquele ano.
         expoente = int(primeira["year"]) - ano_base
-        producao_base = float(primeira["projected_production_t"]) / (1 + por_cenario["referencia"]) ** expoente
+        producao_base = float(primeira["trend_production_t"]) / (1 + por_cenario["referencia"]) ** expoente
+        # Camada de projetos do Squad 2 (projects.py): produção adicional ponderada pela maturidade, por cenário e ano.
+        projetos = OrderedDict(
+            (sc, OrderedDict((str(int(l.year)), round(float(l.project_production_t), 6))
+                             for l in g.sort_values("year").itertuples() if l.project_production_t > 0))
+            for sc, g in do_mineral.groupby("scenario", sort=False))
 
         par = intensidade[intensidade["mineral_id"] == mineral_id].iloc[0]
         erro = backtest[backtest["mineral_id"] == mineral_id]
@@ -65,6 +70,7 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
             ("production_basis", str(primeira["production_basis"])),
             ("ano_base", ano_base),
             ("producao_base_t", producao_base),
+            ("producao_projetos_t", projetos),
             ("crescimento_historico", crescimento),
             ("crescimento_por_cenario", por_cenario),
             ("metodo_projecao_por_cenario", metodos),
@@ -87,7 +93,8 @@ def conferir(minerais, cenarios, projecao):
         m = indice[linha["mineral_id"]]
         c = cenarios[linha["scenario"]]
         n = int(linha["year"]) - m["ano_base"]
-        producao = m["producao_base_t"] * (1 + m["crescimento_por_cenario"][linha["scenario"]]) ** n
+        producao = (m["producao_base_t"] * (1 + m["crescimento_por_cenario"][linha["scenario"]]) ** n
+                    + m["producao_projetos_t"][linha["scenario"]].get(str(int(linha["year"])), 0.0))
         ie = m["energy_intensity_mwh_t"] * (1 - c["ganho_eficiencia_anual_padrao"]) ** n
         maior = max(maior, abs(producao * ie - float(linha["energy_demand_mwh"])))
     if maior > TOLERANCIA_MWH:
@@ -153,7 +160,8 @@ def main():
         ])),
         ("horizonte", OrderedDict([("inicio", int(projecao["year"].min())), ("fim", int(projecao["year"].max()))])),
         ("equacoes", OrderedDict([
-            ("producao", "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base); crescimento_por_cenario = "
+            ("producao", "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base) + producao_projetos_t[cenário][t]; "
+                         "crescimento_por_cenario = "
                          "crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 "
                          "(conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)"),
             ("intensidade", "energy_intensity_mwh_t × (1 + ajuste_pct/100) × (1 − g)^(t − ano_base)"),
@@ -326,11 +334,44 @@ def fontes(projecao, minerais, arquivo_intensidade):
                                  "O próprio Squad 2 identifica essas hipóteses como ilustrativas."),
             ("status_validacao", "nao_validado"),
             ("responsavel_validacao", "Squad 2 — modelo de projeção"),
-            ("notas", "A projeção é de tendência histórica. O modelo ainda não inclui carteira física de projetos: "
-                      "não há, nas bases atuais, capacidade, ano de entrada e grau de certeza estruturados."),
+            ("notas", "Vale para a tendência das operações existentes. A produção de novos projetos entra pela camada "
+                      "de projetos (SRC_S1_RADAR_PROJETOS e SRC_S2_ASSUMPTION_002)."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_S1_RADAR_PROJETOS"),
+            ("source_name", "Squad 1 — Radar de Projetos, curadoria da pesquisa na web"),
+            ("source_url", "Squad 1/Radar de Projetos/curadoria_web.json"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "situação dos projetos até a data de cada evidência"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "A maturidade de cada projeto (OPERAÇÃO a SINAL) vem da curadoria. O incremento anual de "
+                                 "produção e o período só entram quando a fonte os traz, e ficam em "
+                                 "Squad 2/modello_reale/parameters/project_pipeline.csv, na base de produção do mineral."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 1 — Radar de Projetos"),
+            ("notas", "Nenhum documento de origem foi aberto um a um (ver LEIA-ME do Radar de Projetos). Projetos em "
+                      "operação já estão na série histórica e não somam de novo."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_S2_ASSUMPTION_002"),
+            ("source_name", "Squad 2 — pesos da carteira de projetos por maturidade"),
+            ("source_url", "Squad 2/modello_reale/parameters/project_maturity_weights.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2027–2040"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "ilustrativo"),
+            ("metodo_estimacao", "Fração do incremento de cada projeto somada à produção em cada cenário, conforme a "
+                                 "maturidade: expansão e construção 0,5/1/1; definido 0,25/0,75/1; provável 0/0,5/1; "
+                                 "possível 0/0/0,5; sinal e operação 0 (conservador/referência/expansão)."),
+            ("status_validacao", "nao_validado"),
+            ("responsavel_validacao", "Squad 2 — modelo de projeção"),
+            ("notas", "Hipótese ilustrativa, não probabilidade estimada."),
         ]),
     ]
-    return [f for f in catalogo if f["source_id"] in usadas | {"SRC_S2_INTENSIDADE_V1", "SRC_SQUAD1_PRODUCAO_001", "SRC_S2_ASSUMPTION_001"}]
+    fixas = {"SRC_S2_INTENSIDADE_V1", "SRC_SQUAD1_PRODUCAO_001", "SRC_S2_ASSUMPTION_001", "SRC_S1_RADAR_PROJETOS",
+             "SRC_S2_ASSUMPTION_002"}
+    return [f for f in catalogo if f["source_id"] in usadas | fixas]
 
 
 if __name__ == "__main__":

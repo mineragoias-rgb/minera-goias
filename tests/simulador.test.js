@@ -78,6 +78,23 @@ function executarTestes(engine, parametros) {
   perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 10.184078372, 1e-7);
   perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 2422251.503603191, 1e-5);
 
+  // Camada de projetos: em 2030 a expansão de Chapada (Saúva) soma cobre à tendência, com peso pela maturidade.
+  var MODELO_SQUAD2_2030 = { conservador: 4344141.917298, referencia: 4732945.085425, expansao: 5417953.253118 };
+  Object.keys(MODELO_SQUAD2_2030).forEach(function (scenario) {
+    var r = engine.simular(parametros, { scenario: scenario });
+    perto('reproduz o Squad 2 com projetos · ' + scenario + ' · 2030',
+      r.serie.filter(function (s) { return s.ano === 2030; })[0].energia_mwh, MODELO_SQUAD2_2030[scenario], 1e-5);
+  });
+  var cobre2030 = engine.simular(parametros, { scenario: 'referencia' }).detalhe.filter(function (l) {
+    return l.mineral_id === 'MIN_011' && l.ano === 2030;
+  })[0];
+  perto('cobre · referência · 2030 · tendência', cobre2030.producao_tendencia_t, 37732.96891917368, 1e-6);
+  perto('cobre · referência · 2030 · projetos', cobre2030.producao_projetos_t, 15000, 1e-9);
+  perto('cobre · referência · 2030 · produção = tendência + projetos', cobre2030.producao_t,
+    cobre2030.producao_tendencia_t + cobre2030.producao_projetos_t, 1e-9);
+  ok('sem projeto no ano, a camada soma zero',
+    engine.producaoProjetos(parametros.minerais[0], 'referencia', 2027) === 0);
+
   // Controle 1: cenário. O ajuste de crescimento é em pontos percentuais.
   var conservador = engine.simular(parametros, { scenario: 'conservador' });
   ok('conservador fica abaixo de referência em 2040',

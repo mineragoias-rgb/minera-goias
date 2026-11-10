@@ -1,6 +1,6 @@
 {
   "versao": "1.0.0",
-  "data_versao": "2026-11-05",
+  "data_versao": "2026-11-10",
   "responsavel": "Squad 3 — Henrique Falci (simulador e rastreabilidade)",
   "modelo": "produção projetada × intensidade energética",
   "origem_modelo": {
@@ -14,7 +14,7 @@
     "fim": 2040
   },
   "equacoes": {
-    "producao": "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base); crescimento_por_cenario = crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 (conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)",
+    "producao": "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base) + producao_projetos_t[cenário][t]; crescimento_por_cenario = crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 (conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)",
     "intensidade": "energy_intensity_mwh_t × (1 + ajuste_pct/100) × (1 − g)^(t − ano_base)",
     "energia": "producao × intensidade"
   },
@@ -77,6 +77,11 @@
       "production_basis": "beneficiada",
       "ano_base": 2025,
       "producao_base_t": 1478868.18,
+      "producao_projetos_t": {
+        "conservador": {},
+        "referencia": {},
+        "expansao": {}
+      },
       "crescimento_historico": 0.0506869871010307,
       "crescimento_por_cenario": {
         "conservador": -0.02,
@@ -102,6 +107,26 @@
       "production_basis": "conteudo_mineral",
       "ano_base": 2025,
       "producao_base_t": 43983.54999999999,
+      "producao_projetos_t": {
+        "conservador": {
+          "2029": 7500.0,
+          "2030": 7500.0,
+          "2031": 7500.0,
+          "2032": 7500.0
+        },
+        "referencia": {
+          "2029": 15000.0,
+          "2030": 15000.0,
+          "2031": 15000.0,
+          "2032": 15000.0
+        },
+        "expansao": {
+          "2029": 15000.0,
+          "2030": 15000.0,
+          "2031": 15000.0,
+          "2032": 15000.0
+        }
+      },
       "crescimento_historico": -0.0301911572045376,
       "crescimento_por_cenario": {
         "conservador": -0.0501911572045376,
@@ -127,6 +152,11 @@
       "production_basis": "beneficiada",
       "ano_base": 2025,
       "producao_base_t": 156885.63,
+      "producao_projetos_t": {
+        "conservador": {},
+        "referencia": {},
+        "expansao": {}
+      },
       "crescimento_historico": 0.0333902442547546,
       "crescimento_por_cenario": {
         "conservador": 0.0133902442547546,
@@ -152,6 +182,11 @@
       "production_basis": "beneficiada",
       "ano_base": 2025,
       "producao_base_t": 179184.29999999993,
+      "producao_projetos_t": {
+        "conservador": {},
+        "referencia": {},
+        "expansao": {}
+      },
       "crescimento_historico": -0.0342569921483285,
       "crescimento_por_cenario": {
         "conservador": -0.0542569921483285,
@@ -177,6 +212,11 @@
       "production_basis": "beneficiada",
       "ano_base": 2025,
       "producao_base_t": 2511254.38,
+      "producao_projetos_t": {
+        "conservador": {},
+        "referencia": {},
+        "expansao": {}
+      },
       "crescimento_historico": -0.0034137435303356,
       "crescimento_por_cenario": {
         "conservador": -0.0234137435303356,
@@ -202,7 +242,7 @@
       "source_id": "SRC_S2_INTENSIDADE_V1",
       "source_name": "Squad 2 — base de intensidade energética v1 (coeficiente estadual por mineral)",
       "source_url": "Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2025",
       "tipo_fonte": "interna_projeto",
       "valor_observado_estimado": "estimado",
@@ -215,7 +255,7 @@
       "source_id": "SRC_CCEE_PARCELA_CARGA",
       "source_name": "CCEE — consumo das parcelas de carga em Goiás",
       "source_url": "https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2025 (doze meses)",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -228,7 +268,7 @@
       "source_id": "SRC_EMPRESA_RELATORIO",
       "source_name": "Relatórios das empresas — produção declarada da operação",
       "source_url": null,
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2025",
       "tipo_fonte": "empresa",
       "valor_observado_estimado": "observado",
@@ -241,7 +281,7 @@
       "source_id": "SRC_ANM_PROD_BENEF",
       "source_name": "ANM — Anuário Mineral Brasileiro, produção beneficiada",
       "source_url": "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2025",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -254,7 +294,7 @@
       "source_id": "SRC_ANM_CFEM",
       "source_name": "ANM — arrecadação da CFEM por processo",
       "source_url": "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2025",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "estimado",
@@ -267,7 +307,7 @@
       "source_id": "SRC_FGV_EPGE_001",
       "source_name": "Apresentação FGV Energia-EPGE — intensidades energéticas de referência",
       "source_url": null,
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "não informado no material-base",
       "tipo_fonte": "institucional",
       "valor_observado_estimado": "estimado",
@@ -280,7 +320,7 @@
       "source_id": "SRC_SQUAD1_PRODUCAO_001",
       "source_name": "Squad 1 — produção mineral histórica consolidada de Goiás",
       "source_url": "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2010–2025 (2014–2025 para a bauxita)",
       "tipo_fonte": "oficial",
       "valor_observado_estimado": "observado",
@@ -293,14 +333,40 @@
       "source_id": "SRC_S2_ASSUMPTION_001",
       "source_name": "Squad 2 — hipóteses de cenário do modelo real",
       "source_url": "Squad 2/modello_reale/parameters/scenarios.csv",
-      "data_acesso": "2026-11-05",
+      "data_acesso": "2026-11-10",
       "periodo_referencia": "2027–2040",
       "tipo_fonte": "interna_projeto",
       "valor_observado_estimado": "ilustrativo",
       "metodo_estimacao": "Ajuste em pontos percentuais sobre o crescimento histórico de cada mineral (−2, 0 e +2) e melhoria anual de eficiência energética (0,4%, 0,9% e 1,4%). O próprio Squad 2 identifica essas hipóteses como ilustrativas.",
       "status_validacao": "nao_validado",
       "responsavel_validacao": "Squad 2 — modelo de projeção",
-      "notas": "A projeção é de tendência histórica. O modelo ainda não inclui carteira física de projetos: não há, nas bases atuais, capacidade, ano de entrada e grau de certeza estruturados."
+      "notas": "Vale para a tendência das operações existentes. A produção de novos projetos entra pela camada de projetos (SRC_S1_RADAR_PROJETOS e SRC_S2_ASSUMPTION_002)."
+    },
+    {
+      "source_id": "SRC_S1_RADAR_PROJETOS",
+      "source_name": "Squad 1 — Radar de Projetos, curadoria da pesquisa na web",
+      "source_url": "Squad 1/Radar de Projetos/curadoria_web.json",
+      "data_acesso": "2026-11-10",
+      "periodo_referencia": "situação dos projetos até a data de cada evidência",
+      "tipo_fonte": "interna_projeto",
+      "valor_observado_estimado": "estimado",
+      "metodo_estimacao": "A maturidade de cada projeto (OPERAÇÃO a SINAL) vem da curadoria. O incremento anual de produção e o período só entram quando a fonte os traz, e ficam em Squad 2/modello_reale/parameters/project_pipeline.csv, na base de produção do mineral.",
+      "status_validacao": "pendente_validacao",
+      "responsavel_validacao": "Squad 1 — Radar de Projetos",
+      "notas": "Nenhum documento de origem foi aberto um a um (ver LEIA-ME do Radar de Projetos). Projetos em operação já estão na série histórica e não somam de novo."
+    },
+    {
+      "source_id": "SRC_S2_ASSUMPTION_002",
+      "source_name": "Squad 2 — pesos da carteira de projetos por maturidade",
+      "source_url": "Squad 2/modello_reale/parameters/project_maturity_weights.csv",
+      "data_acesso": "2026-11-10",
+      "periodo_referencia": "2027–2040",
+      "tipo_fonte": "interna_projeto",
+      "valor_observado_estimado": "ilustrativo",
+      "metodo_estimacao": "Fração do incremento de cada projeto somada à produção em cada cenário, conforme a maturidade: expansão e construção 0,5/1/1; definido 0,25/0,75/1; provável 0/0,5/1; possível 0/0/0,5; sinal e operação 0 (conservador/referência/expansão).",
+      "status_validacao": "nao_validado",
+      "responsavel_validacao": "Squad 2 — modelo de projeção",
+      "notas": "Hipótese ilustrativa, não probabilidade estimada."
     }
   ]
 }
