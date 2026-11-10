@@ -52,14 +52,14 @@ intensidades ponderada pela produção. Não se somam a planta e o agregado da m
 |---|---|---:|---:|---|---:|---|
 | Cobre | conteúdo mineral | 8,108 MWh/t Cu | 11,20 | calculado | 100% | INT_004 |
 | Bauxita | beneficiada | 1,40 MWh/t | 1,40 | benchmark_proxy | 0% | INT_021 (parâmetro atual) |
-| Níquel | beneficiada | 11,674 MWh/t | 45,55 | estimado | 97,7% | INT_012 |
+| Níquel | beneficiada | 11,400 MWh/t | 45,55 | estimado | 100% | INT_012 |
 | Fosfato | beneficiada | 0,1212 MWh/t | 0,15 | estimado | 100% | INT_015 + INT_016 |
 | Amianto | beneficiada | 0,3109 MWh/t | 0,32 | estimado | 100% | INT_018 |
 
 Observações:
 
 - **Níquel:** o valor atual do modelo (45,55) está em MWh por tonelada de **Ni contido**, mas é aplicado à produção
-  **beneficiada** (ferroníquel), que é cerca de 4 vezes maior. Na base beneficiada, o coeficiente é 11,67. Com o valor atual, a
+  **beneficiada** (ferroníquel), que é cerca de 4 vezes maior. Na base beneficiada, o coeficiente é 11,40. Com o valor atual, a
   energia do níquel sai cerca de 4 vezes maior.
 - **Cobre:** a produção declarada pela Lundin (43.974 t Cu) confere com a série da ANM que o modelo lê
   (43.983,55 t em 2025, v17 aba 08): diferença de 0,02%.
@@ -123,7 +123,7 @@ Energia da CCEE 2025 ÷ produção declarada pela empresa:
 | Amianto | SAMA — Minaçu | 0,334 MWh/t | calculado | média | produção de 2024 |
 | Terras raras | Serra Verde — Minaçu | 10,06 MWh/t TREO | estimado | baixa | denominador é exportação; fator de carga de 6,5% |
 
-Energia da CCEE 2025 ÷ produção beneficiada da ANM 2025 (estimada pelo Squad 1), que é a mesma base de produção usada pelo motor: Níquel 11,67; Cobre 1,76; Nióbio 0,033; Fosfato 0,089 (Mosaic) e 0,169 (Copebrás); Ouro 58,8 MWh/kg; Amianto 0,311; Terras raras 20,93 MWh/t.
+Energia da CCEE 2025 ÷ produção beneficiada da ANM 2025 (estimada pelo Squad 1), que é a mesma base de produção usada pelo motor: Níquel 11,40; Cobre 1,76; Nióbio 0,033; Fosfato 0,089 (Mosaic) e 0,169 (Copebrás); Ouro 58,8 MWh/kg; Amianto 0,311; Terras raras 20,93 MWh/t.
 
 ## Limitações
 
@@ -132,7 +132,7 @@ Energia da CCEE 2025 ÷ produção beneficiada da ANM 2025 (estimada pelo Squad 
 3. **Denominador da ANM é estimado:** as linhas `titular_mineral_ano` usam o rateio da CFEM do Squad 1, que o próprio Squad 1 indica não usar como denominador observado. Por isso estão marcadas como `estimado`, com faixa de erro.
 4. **Rotas tecnológicas:** levantadas para 2 das 8 empresas. As demais ficam como `nao_levantada_v1` até haver fonte documental.
 5. **Nióbio na ANM:** a produção "beneficiada" da ANM para a CMOC (cerca de 3,3 Mt) é massa processada, não Nb contido. A intensidade nessa base (0,033 MWh/t) só vale aplicada à mesma série da ANM.
-6. **Base de produção dos benchmarks:** a base de produção a que cada parâmetro do motor se refere (`conteudo_mineral` ou `beneficiada`) deve ser a mesma da série de produção a que ele é aplicado. Nesta base, a intensidade do níquel é 45,05 MWh/t de Ni contido e 11,67 MWh/t de produção beneficiada (ferroníquel). O alinhamento com o motor fica a cargo do Estudante 3.
+6. **Base de produção dos benchmarks:** a base de produção a que cada parâmetro do motor se refere (`conteudo_mineral` ou `beneficiada`) deve ser a mesma da série de produção a que ele é aplicado. Nesta base, a intensidade do níquel é 45,05 MWh/t de Ni contido e 11,40 MWh/t de produção beneficiada (ferroníquel). O alinhamento com o motor fica a cargo do Estudante 3.
 
 ## Próximos passos
 

@@ -27,7 +27,7 @@ A versão cobre cinco minerais cujas séries de produção e intensidades energ�
 |---|---|---:|---|
 | Cobre | Conteúdo mineral | 8,107848 MWh/t | Calculado |
 | Alumínio (Bauxita) | Produção beneficiada | 1,40 MWh/t | Benchmark proxy |
-| Níquel | Produção beneficiada | 11,674042 MWh/t | Estimado |
+| Níquel | Produção beneficiada | 11,400041 MWh/t | Estimado |
 | Fosfato | Produção beneficiada | 0,121246 MWh/t | Estimado |
 | Amianto | Produção beneficiada | 0,310942 MWh/t | Estimado |
 
@@ -134,7 +134,7 @@ Isso equivale a uma média ponderada pela produção e evita dupla contagem entr
 |---|---:|---|
 | Cobre | 100,0% | Chapada/Maracá é a única mina de cobre coberta |
 | Bauxita | 0,0% | Sem produtor identificado na CCEE; mantém benchmark proxy |
-| Níquel | 97,65% | A parcela não coberta recebe a mesma intensidade estimada |
+| Níquel | 100,0% | Barro Alto e Codemin (Anglo American) cobrem toda a produção estadual |
 | Fosfato | 100,0% | Agregação de Mosaic e CMOC/Copebrás |
 | Amianto | 100,0% | SAMA é a única operação produtora |
 
@@ -142,7 +142,7 @@ Isso equivale a uma média ponderada pela produção e evita dupla contagem entr
 
 O coeficiente anterior de níquel, `45,551351 MWh/t`, referia-se a toneladas de níquel contido. Porém, o modelo projeta produção beneficiada de ferroníquel, que possui uma escala de toneladas aproximadamente quatro vezes maior.
 
-Aplicar o coeficiente anterior diretamente à produção beneficiada superestimava a demanda energética de níquel. O coeficiente de `11,674042 MWh/t` utiliza a mesma base de produção do modelo e elimina essa incompatibilidade de unidade.
+Aplicar o coeficiente anterior diretamente à produção beneficiada superestimava a demanda energética de níquel. O coeficiente de `11,400041 MWh/t` utiliza a mesma base de produção do modelo e elimina essa incompatibilidade de unidade.
 
 A bauxita continua explicitamente identificada como `benchmark_proxy`, pois ainda não há consumo elétrico próprio observado na CCEE para os produtores cobertos.
 
@@ -245,16 +245,16 @@ Para níquel, amianto e fosfato, a referência simples também apresenta menor M
 
 Com os coeficientes finais integrados e a regra de referência da bauxita ajustada pelo backtest, a demanda estimada dos cinco minerais cobertos evolui de aproximadamente:
 
-- **4,63 TWh em 2027**
-- **4,90 TWh em 2040**
+- **4,59 TWh em 2027**
+- **4,84 TWh em 2040**
 
-Em 2040, os principais componentes são níquel, com cerca de 2,62 TWh, e bauxita, com cerca de 1,81 TWh.
+Em 2040, os principais componentes são níquel, com cerca de 2,56 TWh, e bauxita, com cerca de 1,81 TWh.
 
 | Cenário | Demanda elétrica em 2040 |
 |---|---:|
-| Conservador | 3,92 TWh |
-| Referência | 4,90 TWh |
-| Expansão | 7,35 TWh |
+| Conservador | 3,87 TWh |
+| Referência | 4,84 TWh |
+| Expansão | 7,28 TWh |
 
 Esses valores não representam consumo observado nem previsão oficial. São o resultado do modelo sob hipóteses explícitas de produção, eficiência e intensidade energética.
 
@@ -317,7 +317,7 @@ As faixas são **intervalos de cenário**, não intervalos estatísticos de conf
 | `outputs/presentation/charts/reference_2040_mineral_breakdown.png` | Composição da demanda em 2040; níquel e bauxita são os principais componentes |
 | `outputs/presentation/charts/backtest_quality_by_mineral.png` | Comparação entre tendência e referência simples na validação retrospectiva |
 
-No cenário de referência, a demanda dos cinco minerais cobertos chega a **4,90 TWh em 2040**, com faixa de cenário de **3,92 a 6,00 TWh**.
+No cenário de referência, a demanda dos cinco minerais cobertos chega a **4,84 TWh em 2040**, com faixa de cenário de **3,87 a 5,92 TWh**.
 
 A bauxita representa aproximadamente 37% da projeção central de 2040. A redução em relação à versão anterior decorre de uma escolha metodológica mais conservadora e validada: a bauxita deixa de extrapolar automaticamente uma tendência de crescimento e passa a manter a produção de 2025 no cenário de referência.
 
