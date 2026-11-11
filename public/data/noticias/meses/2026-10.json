@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1822,
+ "materias": 1827,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -813,6 +813,20 @@
    "substancias": [
     "terras_raras"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Associação de mineradoras banca viagem do diretor-geral da ANM à Austrália",
+   "link": "https://adimb.org.br/2026/10/29/associacao-de-mineradoras-banca-viagem-do-diretor-geral-da-anm-a-australia/",
+   "published_at": "2026-10-30T01:59:00+00:00",
+   "first_seen": "2026-11-11T11:30:59.215760+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -11506,6 +11520,48 @@
    "brasil": 0
   },
   {
+   "title": "Brasil tem janela de oportunidade para liderar cadeias globais de minerais críticos, aponta S&P Global",
+   "link": "https://adimb.org.br/2026/10/19/brasil-tem-janela-de-oportunidade-para-liderar-cadeias-globais-de-minerais-criticos-aponta-sp-global-2/",
+   "published_at": "2026-10-20T02:08:00+00:00",
+   "first_seen": "2026-11-11T11:30:59.217388+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "IBRAM modera debate sobre investimentos e competitividade da mineração brasileira",
+   "link": "https://adimb.org.br/2026/10/19/ibram-modera-debate-sobre-investimentos-e-competitividade-da-mineracao-brasileira/",
+   "published_at": "2026-10-20T02:00:00+00:00",
+   "first_seen": "2026-11-11T11:30:59.222915+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Integração entre empresas, governo e instituições é decisiva para o futuro da mineração, afirma presidente do Conselho Superior da ADIMB",
+   "link": "https://adimb.org.br/2026/10/19/integracao-entre-empresas-governo-e-instituicoes-e-decisiva-para-o-futuro-da-mineracao-afirma-presidente-do-conselho-superior-da-adimb/",
+   "published_at": "2026-10-20T01:58:00+00:00",
+   "first_seen": "2026-11-11T11:30:59.224505+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Industry calls for greater certainty in critical minerals development",
    "link": "https://www.australianmining.com.au/industry-calls-for-greater-certainty-in-critical-minerals-development/",
    "published_at": "2026-10-20T01:56:23+00:00",
@@ -11582,6 +11638,20 @@
     "ouro"
    ],
    "brasil": 0
+  },
+  {
+   "title": "Brasil tem janela de oportunidade para liderar cadeias globais de minerais críticos, aponta S&P Global",
+   "link": "https://adimb.org.br/2026/10/19/brasil-tem-janela-de-oportunidade-para-liderar-cadeias-globais-de-minerais-criticos-aponta-sp-global/",
+   "published_at": "2026-10-20T01:41:00+00:00",
+   "first_seen": "2026-11-11T11:30:59.228041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "GoldArc completes acquisition of Niagara gold package",

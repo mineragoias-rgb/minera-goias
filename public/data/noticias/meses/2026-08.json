@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 321,
+ "materias": 323,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -1607,6 +1607,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Governo é contra a exploração de terras raras em Goiás por empresa americana e avalia como rever negócio - G1",
+   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPR25Vb0RMUEh2SHJVMVNNblZBMDdWZjJsZUFMV1Z4RDh4azJPT0JuRFRxV3o5S20zaDU0ZDZla2FWSEpoNGc3R2xmNUxvSlJIRm1Ialg4Nm81enBadmNVU0F0NV95TUQtSGhZOHREMEZXUHVkdGF4U2pjYzl4VU9DdS1LV1k4SG4zTVEtandDY2c0V3Qwd3ZfeERCTE9HbVhNMEIwOVZLVjdzTzdZamthQzNjMTNJckU0WVhMZ0gwZ1hHZTV6TzFDdE1Gd08xMElaTDJ0cldHZlBBeWR2UlZaQldUNm9pSzZ5aGwtc2lqbTk?oc=5",
+   "published_at": "2026-08-26T07:00:00+00:00",
+   "first_seen": "2026-11-11T11:31:36.981399+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
@@ -4732,6 +4748,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af306514d814183a039edef5b1cc8bc&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-11-10T11:56:01.685492+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4521ae5b0434a90a055bed31108da&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-11-11T11:31:38.756091+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
