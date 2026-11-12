@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 323,
+ "materias": 325,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -1881,6 +1881,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "TERRAS RARAS | Vinte e um projetos, uma mina, nenhuma refinaria - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVFBuYmhuVHRMSE1sUURKMlVoc3c3di0yTTVwZlF5ektQLXhJZmFlVmhSSjBUbVFoak80Y2dTWTN0NG9qUTdUVnVuUXZJVTRhSm5XZ1FoeW1WQUhaYW5OamZxeFVCRnExVW9KeE1rV2F3YlpSdVROUU1fbFhUUWRkbjNhQ0tFQXVOMnNvOQ?oc=5",
+   "published_at": "2026-08-25T07:00:00+00:00",
+   "first_seen": "2026-11-12T11:58:15.503100+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -4764,6 +4780,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4521ae5b0434a90a055bed31108da&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
    "published_at": "2026-08-05T03:20:00+00:00",
    "first_seen": "2026-11-11T11:31:38.756091+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Lei de exploração de terras raras em Goiás é aprovada em definitivo pela Alego; veja regras",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af5a9d6df634ff0913809c27bb50338&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f08%2f05%2flei-de-exploracao-de-terras-raras-em-goias-e-aprovada-em-definitivo-pela-alego-veja-regras.ghtml&c=1076418398509838897&mkt=en-us",
+   "published_at": "2026-08-05T03:20:00+00:00",
+   "first_seen": "2026-11-12T11:58:14.890636+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

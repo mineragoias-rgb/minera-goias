@@ -1,6 +1,6 @@
 {
  "mes": "2026-02",
- "materias": 49,
+ "materias": 50,
  "itens": [
   {
    "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
@@ -621,6 +621,22 @@
    "setorial": 1,
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mina brasileira de terras raras recebe financiamento de US$ 570 milhões dos EUA - Capital Reset",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQTWxvTTQyUVNMTVdqVnJkMXlDLWhSQlotTTNNR2NUWE1EbFNQTFF0U041UTh4V0l1eC1DaGNhM3F5SGpQVVRvd0JsNG5BYXNyc1JDNUlrZDVpMUc4ajdmYnEzd1pybUt5SGdRMXRhQjJfTTJ5b3poM3BSUmNKMTNIeDA1RVVjMGxYb2VmM0ZDejBReE1Ec2NZek9IUmU1ellKMlkxNEI2SXhubGlud1EzYjBHTWlobEgxWFRFNzBOMXlWTE9lOUdrUFhWODc?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-12T11:58:14.155958+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"

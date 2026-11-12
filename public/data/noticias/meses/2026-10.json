@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1827,
+ "materias": 1828,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -19423,6 +19423,22 @@
    "fonte": "Folha · Mercado",
    "escopo": "nacional",
    "tema": "geral",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Governo aposta em fundo de R$ 2 bilhões para destravar dez projetos de minerais críticos no Brasil",
+   "link": "https://adimb.org.br/2026/10/10/governo-aposta-em-fundo-de-r-2-bilhoes-para-destravar-dez-projetos-de-minerais-criticos-no-brasil/",
+   "published_at": "2026-10-11T01:41:00+00:00",
+   "first_seen": "2026-11-12T11:57:46.253205+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "ADIMB",
+   "escopo": "setorial",
+   "tema": "mineracao",
    "substancias": [
     "terras_raras"
    ],
