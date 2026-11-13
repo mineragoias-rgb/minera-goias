@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 152,
+ "materias": 154,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -542,6 +542,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af5a9d6df634ff0913809c27bb50338&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T13:03:00+00:00",
    "first_seen": "2026-11-12T11:58:14.886650+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af6f75751084722944e844dac62b3f4&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-13T11:41:11.266938+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1883,6 +1899,22 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth to buy Brazil's Serra Verde for $2.8 billion to build supply outside Asia - CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORTR5OUkyT0g4VlpKU0Uza3hGSkFmbVNSUlNBOEJ6VGtDaVZfR1NvMldiZm9MTlE1WkdXSjRndGtydzJieFlaUU4yRktkQWNYMDZsaGVKSFkzNDZCeThTcm1WR2Y4Q3hQS2dpU2QtUzc4MXIxMGJKUU9zaThJV3k4YjRwcFE?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-13T11:41:13.712748+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
