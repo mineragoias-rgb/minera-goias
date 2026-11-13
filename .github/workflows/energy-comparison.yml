@@ -1,0 +1,33 @@
+name: Generate energy comparison
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-energy-comparison:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+
+      - name: Generate model outputs
+        run: |
+          python scripts/build_previsao_base.py
+
+      - name: Generate energy comparison
+        run: |
+          python "Squad 2/modello_reale/src/build_energy_comparison.py"
+
+      - name: Upload comparison outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: energy-comparison
+          path: Squad 2/modello_reale/outputs/energy_comparison/
