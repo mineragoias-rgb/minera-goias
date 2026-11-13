@@ -57,18 +57,27 @@ def load_comparison_data():
             + ", ".join(sorted(missing))
         )
 
-    comparison = reference_2040.merge(
-        energy[required],
-        on=["mineral_id", "mineral_name", "production_basis"],
-        how="left",
-        suffixes=("_projection", "_base"),
+    energy_for_merge = energy[required].rename(
+        columns={
+            "energy_intensity_mwh_t": "base_energy_intensity_mwh_t",
+            "data_nature": "intensity_data_nature",
+            "coverage_share": "production_coverage_share",
+            "confianca": "confidence",
+        }
     )
 
-    if comparison["energy_intensity_mwh_t_base"].isna().any():
+    comparison = reference_2040.merge(
+        energy_for_merge,
+        on=["mineral_id", "mineral_name", "production_basis"],
+        how="left",
+    )
+
+    if comparison["base_energy_intensity_mwh_t"].isna().any():
         missing_minerals = comparison.loc[
-            comparison["energy_intensity_mwh_t_base"].isna(),
+            comparison["base_energy_intensity_mwh_t"].isna(),
             "mineral_name",
         ].tolist()
+
         raise ValueError(
             "Minerais sem coeficiente energético na base final: "
             + ", ".join(missing_minerals)
@@ -84,21 +93,12 @@ def load_comparison_data():
         comparison["energy_demand_twh_2040"] / total_twh * 100
     )
 
-    comparison = comparison.rename(
-        columns={
-            "energy_intensity_mwh_t_base": "energy_intensity_mwh_t",
-            "data_nature": "intensity_data_nature",
-            "coverage_share": "production_coverage_share",
-            "confianca": "confidence",
-        }
-    )
-
     comparison = comparison[
         [
             "mineral_id",
             "mineral_name",
             "production_basis",
-            "energy_intensity_mwh_t",
+            "base_energy_intensity_mwh_t",
             "intensity_data_nature",
             "production_coverage_share",
             "confidence",
@@ -107,9 +107,16 @@ def load_comparison_data():
             "energy_demand_twh_2040",
             "share_of_total_pct",
         ]
-    ].sort_values("energy_demand_twh_2040", ascending=False)
+    ].rename(
+        columns={
+            "base_energy_intensity_mwh_t": "energy_intensity_mwh_t",
+        }
+    )
 
-    return comparison
+    return comparison.sort_values(
+        "energy_demand_twh_2040",
+        ascending=False,
+    )
 
 
 def build_candidate_review():
@@ -119,8 +126,8 @@ def build_candidate_review():
                 "mineral_name": "Nióbio",
                 "production_history": "Produção beneficiada disponível de 2010 a 2025.",
                 "energy_evidence": (
-                    "Há evidência de energia CCEE, mas em base de produção "
-                    "que ainda precisa ser conciliada com o modelo."
+                    "Há evidência de energia CCEE, mas a base de produção "
+                    "ainda precisa ser conciliada com o modelo."
                 ),
                 "current_status": (
                     "Candidato à expansão após validação da base produtiva "
@@ -144,9 +151,7 @@ def build_candidate_review():
                 "production_history": (
                     "Produção beneficiada disponível apenas de 2023 a 2025."
                 ),
-                "energy_evidence": (
-                    "Há evidência de energia CCEE em 2025."
-                ),
+                "energy_evidence": "Há evidência de energia CCEE em 2025.",
                 "current_status": (
                     "Série histórica curta demais para backtest e projeção "
                     "robusta nesta versão."
@@ -168,6 +173,7 @@ def plot_energy_intensity(comparison):
     ]
 
     fig, ax = plt.subplots(figsize=(10, 5.8))
+
     bars = ax.barh(
         chart["mineral_name"],
         chart["energy_intensity_mwh_t"],
@@ -188,6 +194,7 @@ def plot_energy_intensity(comparison):
         fontsize=16,
         fontweight="bold",
     )
+
     ax.set_xlabel("MWh por tonelada na base produtiva do modelo")
     ax.grid(axis="x", linestyle="--", alpha=0.35)
     ax.set_axisbelow(True)
@@ -204,11 +211,13 @@ def plot_energy_intensity(comparison):
     )
 
     fig.tight_layout(rect=[0, 0.06, 1, 1])
+
     fig.savefig(
         OUTPUT_DIR / "energy_intensity_by_mineral.png",
         dpi=180,
         bbox_inches="tight",
     )
+
     plt.close(fig)
 
 
@@ -224,6 +233,7 @@ def plot_energy_contribution(comparison):
     ]
 
     fig, ax = plt.subplots(figsize=(10, 5.8))
+
     bars = ax.barh(
         chart["mineral_name"],
         chart["energy_demand_twh_2040"],
@@ -248,6 +258,7 @@ def plot_energy_contribution(comparison):
         fontsize=16,
         fontweight="bold",
     )
+
     ax.set_xlabel("Demanda elétrica no cenário de referência (TWh)")
     ax.grid(axis="x", linestyle="--", alpha=0.35)
     ax.set_axisbelow(True)
@@ -264,11 +275,13 @@ def plot_energy_contribution(comparison):
     )
 
     fig.tight_layout(rect=[0, 0.06, 1, 1])
+
     fig.savefig(
         OUTPUT_DIR / "energy_demand_contribution_2040.png",
         dpi=180,
         bbox_inches="tight",
     )
+
     plt.close(fig)
 
 
