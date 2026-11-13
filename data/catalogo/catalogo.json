@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-11-10",
+  "built_on": "2026-11-13",
   "versao_base": "v1",
   "gerado_por": "scripts/build_catalogo_painel.py",
   "nota": "Última atualização de pacote gerado vem do built_on que o próprio pacote grava; a de arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo, não digitados."
@@ -194,7 +194,7 @@
    "familia": "Monitoramento",
    "natureza": "coletada",
    "origem": "Coletor de notícias do repositório, lendo feeds de veículos do setor",
-   "atualizado_em": "2026-11-10",
+   "atualizado_em": "2026-11-13",
    "periodo": "Acervo por mês em public/data/noticias/meses/",
    "volume": "180 matérias na última coleta",
    "onde": "public/data/noticias/latest.json e meses/*.json",
