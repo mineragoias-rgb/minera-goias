@@ -1,13 +1,13 @@
 """Benchmark de produção mineral para ampliar a análise além dos cinco minerais do modelo.
 
-Não transforma minerais adicionais em demanda elétrica: compara somente produção
-observada, em toneladas e em índice base 2025 = 100.
+O benchmark compara apenas produção observada. Não transforma minerais adicionais
+em TWh sem um coeficiente energético validado.
 """
 
 from __future__ import annotations
 
 import json
-from pathlib import Path
+import math
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -23,7 +23,7 @@ BASE_YEAR = 2025
 
 
 def load_production() -> pd.DataFrame:
-    """Carrega somente séries estaduais, observadas, válidas e beneficiadas."""
+    """Lê produção estadual, observada, válida e beneficiada."""
     data = pd.read_csv(SQUAD1_INTERFACE)
 
     production = data[
@@ -41,11 +41,10 @@ def load_production() -> pd.DataFrame:
     production = production.dropna(
         subset=["mineral_id", "mineral_name", "year", "production_t"]
     )
-
     production = production[production["production_t"] >= 0].copy()
     production["year"] = production["year"].astype(int)
 
-    production = (
+    return (
         production.groupby(
             ["mineral_id", "mineral_name", "year"],
             as_index=False,
@@ -54,59 +53,49 @@ def load_production() -> pd.DataFrame:
         .sort_values(["mineral_name", "year"])
     )
 
-    return production
 
-
-def select_complete_series(production: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Separa séries aptas ao benchmark das séries curtas ou incompletas."""
+def select_series(
+    production: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Seleciona as séries históricas aptas e marca as normalizáveis."""
     summary = (
         production.groupby(["mineral_id", "mineral_name"], as_index=False)
         .agg(
             first_year=("year", "min"),
             last_year=("year", "max"),
             observed_years=("year", "nunique"),
-            production_2025=("production_t", lambda values: 0.0),
         )
     )
 
-    values_2025 = (
+    production_2025 = (
         production[production["year"] == BASE_YEAR]
         .groupby(["mineral_id", "mineral_name"], as_index=False)["production_t"]
         .sum()
         .rename(columns={"production_t": "production_2025"})
     )
 
-    summary = summary.drop(columns=["production_2025"]).merge(
-        values_2025,
+    summary = summary.merge(
+        production_2025,
         on=["mineral_id", "mineral_name"],
         how="left",
     )
-
     summary["production_2025"] = summary["production_2025"].fillna(0.0)
 
-    complete = summary[
+    selected = summary[
         (summary["observed_years"] >= MIN_YEARS_REQUIRED)
         & (summary["last_year"] == BASE_YEAR)
-        & (summary["production_2025"] > 0)
     ].copy()
 
-    incomplete = summary[
+    selected["can_normalize_2025"] = selected["production_2025"] > 0
+
+    excluded = summary[
         ~summary.set_index(["mineral_id", "mineral_name"]).index.isin(
-            complete.set_index(["mineral_id", "mineral_name"]).index
+            selected.set_index(["mineral_id", "mineral_name"]).index
         )
     ].copy()
 
-    complete = complete.sort_values("mineral_name")
-    incomplete = incomplete.sort_values(
-        ["observed_years", "mineral_name"],
-        ascending=[False, True],
-    )
-
-    selected_ids = set(complete["mineral_id"])
-    benchmark = production[production["mineral_id"].isin(selected_ids)].copy()
-
-    benchmark = benchmark.merge(
-        complete[
+    benchmark = production.merge(
+        selected[
             [
                 "mineral_id",
                 "mineral_name",
@@ -114,116 +103,164 @@ def select_complete_series(production: pd.DataFrame) -> tuple[pd.DataFrame, pd.D
                 "last_year",
                 "observed_years",
                 "production_2025",
+                "can_normalize_2025",
             ]
         ],
         on=["mineral_id", "mineral_name"],
         how="inner",
     )
 
-    benchmark["index_2025_100"] = (
-        benchmark["production_t"] / benchmark["production_2025"] * 100
+    benchmark["index_2025_100"] = pd.NA
+
+    mask = benchmark["can_normalize_2025"]
+    benchmark.loc[mask, "index_2025_100"] = (
+        benchmark.loc[mask, "production_t"]
+        / benchmark.loc[mask, "production_2025"]
+        * 100
     )
 
-    return benchmark, incomplete
+    return (
+        benchmark.sort_values(["mineral_name", "year"]),
+        selected.sort_values("mineral_name"),
+        excluded.sort_values(
+            ["observed_years", "mineral_name"],
+            ascending=[False, True],
+        ),
+    )
 
 
 def create_chart(benchmark: pd.DataFrame) -> None:
-    """Gera gráfico das séries normalizadas para apresentação e verificação."""
-    pivot = benchmark.pivot(
-        index="year",
-        columns="mineral_name",
-        values="index_2025_100",
-    ).sort_index()
+    """Cria painéis individuais: evita que séries pequenas escondam as demais."""
+    minerals = benchmark["mineral_name"].drop_duplicates().tolist()
 
-    plt.figure(figsize=(14, 8))
+    columns = 3
+    rows = math.ceil(len(minerals) / columns)
 
-    for mineral in pivot.columns:
-        series = pivot[mineral].dropna()
-        plt.plot(
-            series.index,
-            series.values,
-            linewidth=1.8,
-            alpha=0.9,
-            label=mineral,
+    figure, axes = plt.subplots(
+        rows,
+        columns,
+        figsize=(15, rows * 3.1),
+        squeeze=False,
+    )
+
+    for index, mineral in enumerate(minerals):
+        axis = axes.flat[index]
+
+        series = benchmark[
+            (benchmark["mineral_name"] == mineral)
+            & (benchmark["can_normalize_2025"])
+        ].sort_values("year")
+
+        if series.empty:
+            axis.text(
+                0.5,
+                0.55,
+                "Sem índice 2025\nprodução igual a zero",
+                ha="center",
+                va="center",
+                fontsize=10,
+            )
+            axis.set_title(mineral, fontsize=11, fontweight="bold")
+            axis.set_xticks([])
+            axis.set_yticks([])
+            continue
+
+        axis.plot(
+            series["year"],
+            series["index_2025_100"],
+            color="#0f6fb0",
+            linewidth=2,
+            marker="o",
+            markersize=3,
         )
+        axis.axhline(
+            100,
+            color="#6f8290",
+            linewidth=1,
+            linestyle="--",
+        )
+        axis.set_title(mineral, fontsize=11, fontweight="bold")
+        axis.grid(axis="y", alpha=0.25)
+        axis.tick_params(axis="both", labelsize=8)
+        axis.set_xlabel("Ano", fontsize=8)
+        axis.set_ylabel("Índice", fontsize=8)
 
-    plt.axhline(
-        100,
-        color="#4b6273",
-        linewidth=1,
-        linestyle="--",
-        alpha=0.8,
+    for index in range(len(minerals), rows * columns):
+        axes.flat[index].axis("off")
+
+    figure.suptitle(
+        "Produção mineral observada — índice base 2025 = 100",
+        fontsize=16,
+        fontweight="bold",
+        y=1.01,
+    )
+    figure.text(
+        0.5,
+        0.995,
+        "Cada painel tem escala própria; o objetivo é comparar tendências, não toneladas entre minerais.",
+        ha="center",
+        fontsize=10,
     )
 
-    plt.title("Produção mineral observada — índice base 2025 = 100")
-    plt.xlabel("Ano")
-    plt.ylabel("Índice de produção")
-    plt.grid(axis="y", alpha=0.22)
-    plt.legend(
-        title="Mineral",
-        bbox_to_anchor=(1.02, 1),
-        loc="upper left",
-        fontsize=8,
-    )
-    plt.tight_layout()
+    figure.tight_layout()
 
-    chart_path = OUTPUT_DIR / "production_benchmark_index_2025.png"
-    plt.savefig(chart_path, dpi=180, bbox_inches="tight")
-    plt.close()
+    figure.savefig(
+        OUTPUT_DIR / "production_benchmark_panels_2025.png",
+        dpi=180,
+        bbox_inches="tight",
+    )
+    plt.close(figure)
+
+
+def records_for_json(data: pd.DataFrame) -> list[dict]:
+    """Converte NaN em null, para JSON válido no site."""
+    return json.loads(
+        data.to_json(
+            orient="records",
+            force_ascii=False,
+        )
+    )
 
 
 def build_public_json(
     benchmark: pd.DataFrame,
-    complete: pd.DataFrame,
-    incomplete: pd.DataFrame,
+    selected: pd.DataFrame,
+    excluded: pd.DataFrame,
 ) -> None:
-    """Salva o formato que a plataforma web poderá ler diretamente."""
-    records = (
-        benchmark[
-            [
-                "mineral_id",
-                "mineral_name",
-                "year",
-                "production_t",
-                "index_2025_100",
-            ]
+    """Gera o arquivo que o site poderá buscar diretamente."""
+    series = benchmark[
+        [
+            "mineral_id",
+            "mineral_name",
+            "year",
+            "production_t",
+            "index_2025_100",
+            "can_normalize_2025",
         ]
-        .sort_values(["mineral_name", "year"])
-        .round({"production_t": 4, "index_2025_100": 2})
-        .to_dict(orient="records")
-    )
+    ].copy()
 
-    minerals = (
-        complete[
-            [
-                "mineral_id",
-                "mineral_name",
-                "first_year",
-                "last_year",
-                "observed_years",
-                "production_2025",
-            ]
+    minerals = selected[
+        [
+            "mineral_id",
+            "mineral_name",
+            "first_year",
+            "last_year",
+            "observed_years",
+            "production_2025",
+            "can_normalize_2025",
         ]
-        .sort_values("mineral_name")
-        .round({"production_2025": 4})
-        .to_dict(orient="records")
-    )
+    ].copy()
 
-    excluded = (
-        incomplete[
-            [
-                "mineral_id",
-                "mineral_name",
-                "first_year",
-                "last_year",
-                "observed_years",
-                "production_2025",
-            ]
+    not_included = excluded[
+        [
+            "mineral_id",
+            "mineral_name",
+            "first_year",
+            "last_year",
+            "observed_years",
+            "production_2025",
         ]
-        .sort_values(["observed_years", "mineral_name"], ascending=[False, True])
-        .round({"production_2025": 4})
-        .to_dict(orient="records")
-    )
+    ].copy()
 
     payload = {
         "title": "Benchmark de produção mineral",
@@ -232,14 +269,16 @@ def build_public_json(
         "base_year": BASE_YEAR,
         "minimum_observed_years": MIN_YEARS_REQUIRED,
         "methodology": (
-            "As séries são estaduais, observadas, válidas e em produção "
-            "beneficiada. O índice 2025 = 100 permite comparar tendências "
-            "entre minerais sem somar toneladas de substâncias diferentes. "
-            "Este benchmark não converte os minerais adicionais em TWh."
+            "Inclui séries estaduais, observadas, válidas e de produção "
+            "beneficiada com pelo menos 12 anos e dado em 2025. Toneladas "
+            "não são somadas entre minerais. O índice base 2025 = 100 "
+            "compara a evolução de cada mineral separadamente. Séries com "
+            "produção igual a zero em 2025 continuam no benchmark em "
+            "toneladas, mas não recebem índice normalizado."
         ),
-        "minerals_in_benchmark": minerals,
-        "minerals_not_in_benchmark": excluded,
-        "series": records,
+        "minerals_in_benchmark": records_for_json(minerals),
+        "minerals_not_in_benchmark": records_for_json(not_included),
+        "series": records_for_json(series),
     }
 
     PUBLIC_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -252,22 +291,7 @@ def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     production = load_production()
-    benchmark, incomplete = select_complete_series(production)
-
-    complete = (
-        benchmark[
-            [
-                "mineral_id",
-                "mineral_name",
-                "first_year",
-                "last_year",
-                "observed_years",
-                "production_2025",
-            ]
-        ]
-        .drop_duplicates()
-        .sort_values("mineral_name")
-    )
+    benchmark, selected, excluded = select_series(production)
 
     benchmark.to_csv(
         OUTPUT_DIR / "production_benchmark_series.csv",
@@ -275,19 +299,20 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    incomplete.to_csv(
+    excluded.to_csv(
         OUTPUT_DIR / "production_series_not_in_benchmark.csv",
         index=False,
         encoding="utf-8",
     )
 
     create_chart(benchmark)
-    build_public_json(benchmark, complete, incomplete)
+    build_public_json(benchmark, selected, excluded)
+
+    normalized = selected["can_normalize_2025"].sum()
 
     print(
-        "Benchmark concluído: "
-        f"{len(complete)} minerais com pelo menos {MIN_YEARS_REQUIRED} anos "
-        f"observados e produção disponível em {BASE_YEAR}."
+        f"Benchmark concluído: {len(selected)} séries históricas; "
+        f"{normalized} com índice base {BASE_YEAR} = 100."
     )
     print(f"Saída para o site: {PUBLIC_OUTPUT}")
     print(f"Saídas de análise: {OUTPUT_DIR}")
