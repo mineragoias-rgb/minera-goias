@@ -3,6 +3,9 @@ name: Generate energy comparison
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-energy-analysis:
     runs-on: ubuntu-latest
@@ -10,6 +13,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -32,6 +37,22 @@ jobs:
       - name: Generate production benchmark
         run: |
           python "Squad 2/modello_reale/src/build_production_benchmark.py"
+
+      - name: Publish benchmark data for the site
+        run: |
+          git add public/data/previsao/production_benchmark_v1.json
+
+          if git diff --cached --quiet; then
+            echo "Benchmark data unchanged."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "chore(squad2): update production benchmark data"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Upload energy analysis outputs
         uses: actions/upload-artifact@v4
