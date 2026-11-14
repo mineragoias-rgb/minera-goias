@@ -1,8 +1,7 @@
-"""Benchmark de produção mineral 2027–2040.
+"""Previsões de produção mineral para o benchmark fora do modelo elétrico.
 
-Inclui minerais sem coeficiente energético no escopo analítico por meio de
-produção física: séries históricas, modelo selecionado por rolling backtest,
-projeção de produção e faixa de incerteza. Não converte esses minerais em TWh.
+Os minerais adicionais permanecem fora do total em TWh até existir um
+coeficiente energético compatível. Este arquivo prevê somente toneladas.
 """
 
 from __future__ import annotations
@@ -21,37 +20,54 @@ OUTPUT_DIR = MODEL_DIR / "outputs" / "production_benchmark"
 PUBLIC_OUTPUT = ROOT / "public" / "data" / "previsao" / "production_benchmark_v1.json"
 
 MIN_YEARS_REQUIRED = 12
-LATEST_YEAR_REQUIRED = 2025
+LAST_OBSERVED_YEAR = 2025
 FORECAST_START = 2027
 FORECAST_END = 2040
-BACKTEST_YEARS = 3
+MAX_ACCEPTABLE_SMAPE = 35.0
+MIN_IMPROVEMENT_VS_PERSISTENCE = 0.15
 
 
-def load_production() -> pd.DataFrame:
-    """Lê produção estadual, observada, válida e beneficiada."""
-    data = pd.read_csv(SQUAD1_INTERFACE)
+def records(frame: pd.DataFrame) -> list[dict]:
+    return json.loads(frame.to_json(orient="records", force_ascii=False))
 
-    production = data[
-        (data["nivel_agregacao"] == "estado")
-        & (data["valor_observado_estimado"] == "observado")
-        & (data["status_validacao"] == "valido")
-        & (data["production_basis"].str.lower() == "beneficiada")
+
+def smape(actual: np.ndarray, forecast: np.ndarray) -> float:
+    denominator = np.abs(actual) + np.abs(forecast)
+    valid = denominator > 0
+    if not valid.any():
+        return 0.0
+    return float(
+        np.mean(
+            200.0
+            * np.abs(forecast[valid] - actual[valid])
+            / denominator[valid]
+        )
+    )
+
+
+def read_production() -> pd.DataFrame:
+    raw = pd.read_csv(SQUAD1_INTERFACE)
+
+    frame = raw[
+        (raw["nivel_agregacao"] == "estado")
+        & (raw["valor_observado_estimado"] == "observado")
+        & (raw["status_validacao"] == "valido")
+        & (raw["production_basis"].fillna("").str.lower() == "beneficiada")
     ].copy()
 
-    production["year"] = pd.to_numeric(production["year"], errors="coerce")
-    production["production_t"] = pd.to_numeric(
-        production["production_t"],
-        errors="coerce",
+    frame["year"] = pd.to_numeric(frame["year"], errors="coerce")
+    frame["production_t"] = pd.to_numeric(
+        frame["production_t"], errors="coerce"
     )
 
-    production = production.dropna(
+    frame = frame.dropna(
         subset=["mineral_id", "mineral_name", "year", "production_t"]
     )
-    production = production[production["production_t"] >= 0].copy()
-    production["year"] = production["year"].astype(int)
+    frame = frame[frame["production_t"] >= 0].copy()
+    frame["year"] = frame["year"].astype(int)
 
     return (
-        production.groupby(
+        frame.groupby(
             ["mineral_id", "mineral_name", "year"],
             as_index=False,
         )["production_t"]
@@ -60,12 +76,126 @@ def load_production() -> pd.DataFrame:
     )
 
 
-def select_series(
-    production: pd.DataFrame,
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Seleciona séries históricas longas para o benchmark."""
-    summary = (
-        production.groupby(["mineral_id", "mineral_name"], as_index=False)
+def fit_persistence(values: np.ndarray, horizon: int) -> np.ndarray:
+    return np.repeat(float(values[-1]), horizon)
+
+
+def fit_weighted_log_trend(
+    values: np.ndarray,
+    horizon: int,
+) -> np.ndarray:
+    log_values = np.log1p(values)
+    x = np.arange(len(log_values), dtype=float)
+    weights = np.linspace(0.35, 1.0, len(log_values))
+
+    slope, intercept = np.polyfit(
+        x,
+        log_values,
+        1,
+        w=weights,
+    )
+
+    future_x = np.arange(
+        len(log_values),
+        len(log_values) + horizon,
+        dtype=float,
+    )
+
+    return np.maximum(
+        0.0,
+        np.expm1(intercept + slope * future_x),
+    )
+
+
+def fit_holt_damped(values: np.ndarray, horizon: int) -> np.ndarray:
+    """Holt simples em log, com tendência amortecida."""
+
+    y = np.log1p(values)
+
+    level = float(y[0])
+    trend = float(y[1] - y[0]) if len(y) > 1 else 0.0
+
+    alpha = 0.55
+    beta = 0.20
+    phi = 0.72
+
+    for value in y[1:]:
+        previous_level = level
+        level = alpha * value + (1.0 - alpha) * (
+            level + phi * trend
+        )
+        trend = beta * (level - previous_level) + (
+            1.0 - beta
+        ) * phi * trend
+
+    steps = np.arange(1, horizon + 1, dtype=float)
+    damped_steps = phi * (
+        1.0 - np.power(phi, steps)
+    ) / (1.0 - phi)
+
+    return np.maximum(
+        0.0,
+        np.expm1(level + damped_steps * trend),
+    )
+
+
+METHODS = {
+    "persistence": fit_persistence,
+    "weighted_log_trend": fit_weighted_log_trend,
+    "holt_damped": fit_holt_damped,
+}
+
+
+def backtest(values: np.ndarray) -> dict[str, float]:
+    """Deixa os últimos três anos fora e mede o erro de cada método."""
+
+    test_size = min(3, max(2, len(values) // 4))
+
+    train = values[:-test_size]
+    actual = values[-test_size:]
+
+    return {
+        name: smape(actual, function(train, test_size))
+        for name, function in METHODS.items()
+    }
+
+
+def select_method(scores: dict[str, float]) -> str:
+    """Tendência só entra se superar persistência de forma clara."""
+
+    persistence_score = scores["persistence"]
+
+    eligible = {
+        name: score
+        for name, score in scores.items()
+        if score <= MAX_ACCEPTABLE_SMAPE
+        and (
+            name == "persistence"
+            or score
+            <= persistence_score
+            * (1.0 - MIN_IMPROVEMENT_VS_PERSISTENCE)
+        )
+    }
+
+    if not eligible:
+        return "persistence"
+
+    return min(eligible, key=eligible.get)
+
+
+def build() -> tuple[
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+]:
+    production = read_production()
+
+    counts = (
+        production.groupby(
+            ["mineral_id", "mineral_name"],
+            as_index=False,
+        )
         .agg(
             first_observed_year=("year", "min"),
             last_year=("year", "max"),
@@ -73,363 +203,167 @@ def select_series(
         )
     )
 
-    selected = summary[
-        (summary["observed_years"] >= MIN_YEARS_REQUIRED)
-        & (summary["last_year"] == LATEST_YEAR_REQUIRED)
+    eligible = counts[
+        (counts["observed_years"] >= MIN_YEARS_REQUIRED)
+        & (counts["last_year"] == LAST_OBSERVED_YEAR)
     ].copy()
 
-    excluded = summary[
-        ~summary.set_index(["mineral_id", "mineral_name"]).index.isin(
-            selected.set_index(["mineral_id", "mineral_name"]).index
-        )
-    ].copy()
-
-    benchmark = production.merge(
-        selected[
-            [
-                "mineral_id",
-                "mineral_name",
-                "first_observed_year",
-                "last_year",
-                "observed_years",
-            ]
-        ],
+    included = production.merge(
+        eligible[["mineral_id", "mineral_name"]],
         on=["mineral_id", "mineral_name"],
-        how="inner",
     )
 
-    first_positive = (
-        benchmark[benchmark["production_t"] > 0]
-        .sort_values("year")
-        .groupby(["mineral_id", "mineral_name"], as_index=False)
-        .first()[["mineral_id", "mineral_name", "year", "production_t"]]
-        .rename(
-            columns={
-                "year": "index_base_year",
-                "production_t": "index_base_production_t",
-            }
-        )
-    )
-
-    selected = selected.merge(
-        first_positive,
-        on=["mineral_id", "mineral_name"],
-        how="inner",
-    )
-
-    benchmark = benchmark.merge(
-        selected[
-            [
-                "mineral_id",
-                "mineral_name",
-                "index_base_year",
-                "index_base_production_t",
-            ]
-        ],
-        on=["mineral_id", "mineral_name"],
-        how="inner",
-    )
-
-    benchmark["index_first_year_100"] = (
-        benchmark["production_t"]
-        / benchmark["index_base_production_t"]
-        * 100
-    )
-
-    production_latest = (
-        benchmark[benchmark["year"] == LATEST_YEAR_REQUIRED]
-        .groupby(["mineral_id", "mineral_name"], as_index=False)["production_t"]
-        .sum()
-        .rename(columns={"production_t": "production_latest_t"})
-    )
-
-    selected = selected.merge(
-        production_latest,
+    excluded = counts.merge(
+        eligible[["mineral_id", "mineral_name"]],
         on=["mineral_id", "mineral_name"],
         how="left",
+        indicator=True,
     )
 
-    selected["production_latest_t"] = selected[
-        "production_latest_t"
-    ].fillna(0.0)
+    excluded = excluded[
+        excluded["_merge"] == "left_only"
+    ].drop(columns="_merge")
 
-    selected["change_from_base_pct"] = (
-        selected["production_latest_t"]
-        / selected["index_base_production_t"]
-        - 1
-    ) * 100
+    summaries = []
+    forecasts = []
 
-    return (
-        benchmark.sort_values(["mineral_name", "year"]),
-        selected.sort_values("mineral_name"),
-        excluded.sort_values(
-            ["observed_years", "mineral_name"],
-            ascending=[False, True],
-        ),
-    )
+    for (
+        mineral_id,
+        mineral_name,
+    ), group in included.groupby(
+        ["mineral_id", "mineral_name"],
+        sort=True,
+    ):
+        group = group.sort_values("year")
+        values = group["production_t"].to_numpy(dtype=float)
 
+        first_positive = group[group["production_t"] > 0].iloc[0]
+        base = float(first_positive["production_t"])
 
-def smape(actual: float, predicted: float) -> float:
-    """Erro percentual simétrico: funciona também quando a produção é zero."""
-    denominator = abs(actual) + abs(predicted)
+        scores = backtest(values)
+        latest = float(values[-1])
 
-    if denominator == 0:
-        return 0.0
+        forecast_eligible = latest > 0
 
-    return 200 * abs(actual - predicted) / denominator
-
-
-def persistence_forecast(train_log: np.ndarray, horizon: int) -> float:
-    """Mantém o último nível observado: apenas candidato de referência."""
-    return float(train_log[-1])
-
-
-def weighted_log_trend_forecast(train_log: np.ndarray, horizon: int) -> float:
-    """Tendência logarítmica com maior peso para os anos recentes."""
-    x = np.arange(len(train_log), dtype=float)
-    weights = np.arange(1, len(train_log) + 1, dtype=float)
-
-    slope, intercept = np.polyfit(
-        x,
-        train_log,
-        1,
-        w=weights,
-    )
-
-    return float(intercept + slope * (len(train_log) - 1 + horizon))
-
-
-def holt_damped_forecast(
-    train_log: np.ndarray,
-    horizon: int,
-    alpha: float,
-    beta: float,
-    phi: float,
-) -> tuple[float, float]:
-    """Holt com tendência amortecida, calculado sem dependência externa."""
-    if len(train_log) < 2:
-        return float(train_log[-1]), 0.0
-
-    level = float(train_log[0])
-    trend = float(train_log[1] - train_log[0])
-
-    for value in train_log[1:]:
-        previous_level = level
-        level = alpha * float(value) + (1 - alpha) * (
-            level + phi * trend
-        )
-        trend = beta * (level - previous_level) + (1 - beta) * phi * trend
-
-    damped_sum = sum(phi**step for step in range(1, horizon + 1))
-
-    return float(level + trend * damped_sum), trend
-
-
-def fit_holt_parameters(train_log: np.ndarray) -> tuple[float, float, float]:
-    """Escolhe parâmetros pelo menor erro de ajuste no período de treino."""
-    candidates = []
-
-    for alpha in (0.2, 0.4, 0.6, 0.8):
-        for beta in (0.05, 0.15, 0.30, 0.50):
-            for phi in (0.70, 0.80, 0.90, 0.95):
-                if len(train_log) < 3:
-                    candidates.append((float("inf"), alpha, beta, phi))
-                    continue
-
-                errors = []
-
-                for end in range(2, len(train_log)):
-                    predicted, _ = holt_damped_forecast(
-                        train_log[:end],
-                        1,
-                        alpha,
-                        beta,
-                        phi,
-                    )
-                    errors.append((train_log[end] - predicted) ** 2)
-
-                candidates.append(
-                    (
-                        float(np.mean(errors)),
-                        alpha,
-                        beta,
-                        phi,
-                    )
-                )
-
-    _, alpha, beta, phi = min(candidates, key=lambda item: item[0])
-
-    return alpha, beta, phi
-
-
-def forecast_candidate(
-    method: str,
-    train_production: np.ndarray,
-    horizon: int,
-) -> float:
-    """Prevê em escala logarítmica e retorna toneladas não negativas."""
-    train_log = np.log1p(np.maximum(train_production, 0))
-
-    if method == "persistence":
-        prediction_log = persistence_forecast(train_log, horizon)
-
-    elif method == "weighted_log_trend":
-        prediction_log = weighted_log_trend_forecast(train_log, horizon)
-
-    elif method == "holt_damped":
-        alpha, beta, phi = fit_holt_parameters(train_log)
-        prediction_log, _ = holt_damped_forecast(
-            train_log,
-            horizon,
-            alpha,
-            beta,
-            phi,
+        method = (
+            select_method(scores)
+            if forecast_eligible
+            else "not_forecastable_zero_2025"
         )
 
-    else:
-        raise ValueError(f"Método desconhecido: {method}")
-
-    return max(0.0, float(np.expm1(prediction_log)))
-
-
-def evaluate_methods(production: np.ndarray) -> tuple[str, dict[str, float]]:
-    """Compara candidatos em rolling backtest dos três últimos anos."""
-    methods = [
-        "persistence",
-        "weighted_log_trend",
-        "holt_damped",
-    ]
-
-    scores: dict[str, list[float]] = {method: [] for method in methods}
-
-    first_test = max(8, len(production) - BACKTEST_YEARS)
-
-    for split in range(first_test, len(production)):
-        train = production[:split]
-        actual = float(production[split])
-
-        for method in methods:
-            prediction = forecast_candidate(method, train, 1)
-            scores[method].append(smape(actual, prediction))
-
-    mean_scores = {
-        method: float(np.mean(values))
-        for method, values in scores.items()
-        if values
-    }
-
-    selected = min(mean_scores, key=mean_scores.get)
-
-    return selected, mean_scores
-
-
-def forecast_series(
-    benchmark: pd.DataFrame,
-    selected: pd.DataFrame,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Seleciona o melhor método e gera 2027–2040 com incerteza calibrada."""
-    forecast_rows = []
-    model_rows = []
-
-    for mineral_id, historical in benchmark.groupby("mineral_id"):
-        historical = historical.sort_values("year")
-        production = historical["production_t"].to_numpy(dtype=float)
-
-        method, scores = evaluate_methods(production)
-
-        backtest_errors = []
-        first_test = max(8, len(production) - BACKTEST_YEARS)
-
-        for split in range(first_test, len(production)):
-            prediction = forecast_candidate(
-                method,
-                production[:split],
-                1,
+        log_error = (
+            max(
+                0.12,
+                min(
+                    0.60,
+                    scores.get(
+                        method,
+                        scores["persistence"],
+                    )
+                    / 100.0,
+                ),
             )
-            actual = float(production[split])
+            if forecast_eligible
+            else None
+        )
 
-            backtest_errors.append(
-                abs(
-                    math.log1p(actual)
-                    - math.log1p(prediction)
-                )
-            )
-
-        calibrated_error = float(np.median(backtest_errors))
-        calibrated_error = max(0.12, min(calibrated_error, 1.25))
-
-        mineral_name = historical["mineral_name"].iloc[0]
-        last_observed_year = int(historical["year"].max())
-
-        for year in range(last_observed_year + 1, FORECAST_END + 1):
-            horizon = year - last_observed_year
-
-            reference = forecast_candidate(
-                method,
-                production,
-                horizon,
-            )
-
-            spread = min(
-                1.75,
-                calibrated_error * math.sqrt(horizon),
-            )
-
-            lower = max(
-                0.0,
-                float(np.expm1(math.log1p(reference) - spread)),
-            )
-            upper = max(
-                reference,
-                float(np.expm1(math.log1p(reference) + spread)),
-            )
-
-            if year >= FORECAST_START:
-                forecast_rows.append(
-                    {
-                        "mineral_id": mineral_id,
-                        "mineral_name": mineral_name,
-                        "year": year,
-                        "production_reference_t": reference,
-                        "production_lower_t": lower,
-                        "production_upper_t": upper,
-                        "selected_method": method,
-                    }
-                )
-
-        model_rows.append(
+        summaries.append(
             {
                 "mineral_id": mineral_id,
                 "mineral_name": mineral_name,
+                "first_observed_year": int(
+                    group["year"].min()
+                ),
+                "index_base_year": int(
+                    first_positive["year"]
+                ),
+                "index_base_production_t": base,
+                "last_year": int(group["year"].max()),
+                "observed_years": int(
+                    group["year"].nunique()
+                ),
+                "production_latest_t": latest,
+                "change_from_base_pct": (
+                    latest / base - 1.0
+                )
+                * 100.0,
+                "forecast_eligible": forecast_eligible,
                 "selected_method": method,
-                "backtest_smape_selected_pct": scores[method],
-                "backtest_smape_persistence_pct": scores["persistence"],
+                "backtest_smape_selected_pct": scores.get(
+                    method
+                ),
+                "backtest_smape_persistence_pct": scores[
+                    "persistence"
+                ],
                 "backtest_smape_weighted_log_trend_pct": scores[
                     "weighted_log_trend"
                 ],
-                "backtest_smape_holt_damped_pct": scores["holt_damped"],
-                "calibrated_log_error": calibrated_error,
+                "backtest_smape_holt_damped_pct": scores[
+                    "holt_damped"
+                ],
+                "calibrated_log_error": log_error,
             }
         )
 
-    forecasts = pd.DataFrame(forecast_rows)
-    models = pd.DataFrame(model_rows)
+        if not forecast_eligible:
+            continue
 
-    selected = selected.merge(
-        models,
-        on=["mineral_id", "mineral_name"],
-        how="left",
+        reference = METHODS[method](
+            values,
+            FORECAST_END - FORECAST_START + 1,
+        )
+
+        for step, (year, point) in enumerate(
+            zip(
+                range(FORECAST_START, FORECAST_END + 1),
+                reference,
+            ),
+            start=1,
+        ):
+            spread = min(
+                1.0,
+                log_error * math.sqrt(step),
+            )
+
+            forecasts.append(
+                {
+                    "mineral_id": mineral_id,
+                    "mineral_name": mineral_name,
+                    "year": year,
+                    "production_reference_t": float(point),
+                    "production_lower_t": float(
+                        point * math.exp(-spread)
+                    ),
+                    "production_upper_t": float(
+                        point * math.exp(spread)
+                    ),
+                    "selected_method": method,
+                }
+            )
+
+    series = included.copy()
+
+    series["index_first_year_100"] = series.groupby(
+        "mineral_id"
+    )["production_t"].transform(
+        lambda values: values
+        / values[values.gt(0)].iloc[0]
+        * 100.0
     )
 
-    return forecasts, selected
+    return (
+        series,
+        pd.DataFrame(summaries),
+        pd.DataFrame(forecasts),
+        excluded,
+    )
 
 
-def create_forecast_panels(
-    benchmark: pd.DataFrame,
+def chart(
+    series: pd.DataFrame,
     forecasts: pd.DataFrame,
 ) -> None:
-    """Painéis: eixo igual entre histórico e futuro de cada mineral."""
-    minerals = benchmark["mineral_name"].drop_duplicates().tolist()
+    minerals = sorted(series["mineral_name"].unique())
 
     columns = 3
     rows = math.ceil(len(minerals) / columns)
@@ -444,76 +378,57 @@ def create_forecast_panels(
     for index, mineral in enumerate(minerals):
         axis = axes.flat[index]
 
-        historical = benchmark[
-            benchmark["mineral_name"] == mineral
+        observed = series[
+            series["mineral_name"] == mineral
         ].sort_values("year")
 
-        future = forecasts[
+        projected = forecasts[
             forecasts["mineral_name"] == mineral
         ].sort_values("year")
 
         axis.plot(
-            historical["year"],
-            historical["production_t"],
-            color="#14354e",
-            linewidth=2.2,
+            observed["year"],
+            observed["production_t"],
+            color="#123a5a",
             marker="o",
-            markersize=3,
-            label="Observado",
+            markersize=2.5,
+            linewidth=1.8,
+            label="Observada",
         )
 
-        axis.fill_between(
-            future["year"],
-            future["production_lower_t"],
-            future["production_upper_t"],
-            color="#0f6fb0",
-            alpha=0.15,
-            label="Faixa de incerteza",
-        )
+        if not projected.empty:
+            axis.plot(
+                projected["year"],
+                projected["production_reference_t"],
+                "--",
+                color="#168a7a",
+                linewidth=1.8,
+                label="Projeção",
+            )
 
-        axis.plot(
-            future["year"],
-            future["production_reference_t"],
-            color="#0f6fb0",
-            linewidth=2.2,
-            linestyle="--",
-            marker="o",
-            markersize=3,
-            label="Referência",
-        )
+            axis.fill_between(
+                projected["year"],
+                projected["production_lower_t"],
+                projected["production_upper_t"],
+                color="#168a7a",
+                alpha=0.16,
+            )
 
-        axis.axvline(
-            LATEST_YEAR_REQUIRED,
-            color="#6f8290",
-            linewidth=1,
-            linestyle=":",
+        axis.set_title(
+            mineral,
+            fontsize=10,
+            fontweight="bold",
         )
-
-        axis.set_title(mineral, fontsize=11, fontweight="bold")
-        axis.grid(axis="y", alpha=0.25)
-        axis.tick_params(axis="both", labelsize=8)
-        axis.set_xlabel("Ano", fontsize=8)
-        axis.set_ylabel("Produção (t)", fontsize=8)
+        axis.grid(axis="y", alpha=0.22)
+        axis.tick_params(labelsize=7)
 
     for index in range(len(minerals), rows * columns):
         axes.flat[index].axis("off")
 
-    handles, labels = axes.flat[0].get_legend_handles_labels()
-
-    figure.legend(
-        handles,
-        labels,
-        loc="upper center",
-        ncol=3,
-        bbox_to_anchor=(0.5, 1.01),
-        fontsize=10,
-    )
-
     figure.suptitle(
-        "Benchmark de produção mineral — histórico e projeção 2027–2040",
-        fontsize=16,
+        "Produção observada e projeção prudente por mineral",
+        fontsize=15,
         fontweight="bold",
-        y=1.06,
     )
 
     figure.tight_layout()
@@ -523,151 +438,90 @@ def create_forecast_panels(
         dpi=180,
         bbox_inches="tight",
     )
+
     plt.close(figure)
-
-
-def records_for_json(data: pd.DataFrame) -> list[dict]:
-    """Converte DataFrame para JSON válido."""
-    return json.loads(
-        data.to_json(
-            orient="records",
-            force_ascii=False,
-        )
-    )
-
-
-def build_public_json(
-    benchmark: pd.DataFrame,
-    selected: pd.DataFrame,
-    excluded: pd.DataFrame,
-    forecasts: pd.DataFrame,
-) -> None:
-    """Gera o arquivo consumido pelo painel web."""
-    history = benchmark[
-        [
-            "mineral_id",
-            "mineral_name",
-            "year",
-            "production_t",
-            "index_first_year_100",
-        ]
-    ].copy()
-
-    minerals = selected[
-        [
-            "mineral_id",
-            "mineral_name",
-            "first_observed_year",
-            "index_base_year",
-            "index_base_production_t",
-            "last_year",
-            "observed_years",
-            "production_latest_t",
-            "change_from_base_pct",
-            "selected_method",
-            "backtest_smape_selected_pct",
-            "backtest_smape_persistence_pct",
-            "backtest_smape_weighted_log_trend_pct",
-            "backtest_smape_holt_damped_pct",
-            "calibrated_log_error",
-        ]
-    ].copy()
-
-    not_included = excluded[
-        [
-            "mineral_id",
-            "mineral_name",
-            "first_observed_year",
-            "last_year",
-            "observed_years",
-        ]
-    ].copy()
-
-    payload = {
-        "title": "Benchmark de produção mineral",
-        "source": "Squad 1 — interface Squad 1 / Squad 2",
-        "production_basis": "beneficiada",
-        "latest_year": LATEST_YEAR_REQUIRED,
-        "minimum_observed_years": MIN_YEARS_REQUIRED,
-        "forecast_start": FORECAST_START,
-        "forecast_end": FORECAST_END,
-        "index_definition": (
-            "Para cada mineral, o primeiro ano com produção positiva recebe "
-            "índice 100. Os demais anos mostram a produção relativa a essa base."
-        ),
-        "forecast_methodology": (
-            "Para cada mineral, três candidatos são comparados por rolling "
-            "backtest: persistência, tendência logarítmica ponderada e Holt "
-            "com tendência amortecida. A projeção de referência usa o menor "
-            "sMAPE. A faixa baixa–alta é calibrada pelo erro histórico do "
-            "método selecionado e não é um cenário econômico nem intervalo "
-            "estatístico de confiança."
-        ),
-        "methodology": (
-            "Inclui séries estaduais, observadas, válidas e de produção "
-            "beneficiada com pelo menos 12 anos e dado em 2025. Toneladas não "
-            "são somadas entre minerais. Minerais adicionais permanecem fora "
-            "do total elétrico até que tenham coeficiente energético compatível."
-        ),
-        "minerals_in_benchmark": records_for_json(minerals),
-        "minerals_not_in_benchmark": records_for_json(not_included),
-        "series": records_for_json(history),
-        "forecast": records_for_json(forecasts),
-    }
-
-    PUBLIC_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
-    with PUBLIC_OUTPUT.open("w", encoding="utf-8") as file:
-        json.dump(payload, file, ensure_ascii=False, indent=2)
 
 
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    PUBLIC_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
-    production = load_production()
-    benchmark, selected, excluded = select_series(production)
+    series, summary, forecasts, excluded = build()
 
-    forecasts, selected = forecast_series(benchmark, selected)
-
-    benchmark.to_csv(
-        OUTPUT_DIR / "production_benchmark_series.csv",
-        index=False,
-        encoding="utf-8",
+    summary = summary.sort_values("mineral_name")
+    series = series.sort_values(["mineral_name", "year"])
+    forecasts = forecasts.sort_values(
+        ["mineral_name", "year"]
     )
 
-    selected.to_csv(
+    series.to_csv(
+        OUTPUT_DIR / "production_benchmark_series.csv",
+        index=False,
+    )
+
+    summary.to_csv(
         OUTPUT_DIR / "production_benchmark_summary.csv",
         index=False,
-        encoding="utf-8",
     )
 
     forecasts.to_csv(
-        OUTPUT_DIR / "production_benchmark_forecast_2027_2040.csv",
+        OUTPUT_DIR
+        / "production_benchmark_forecast_2027_2040.csv",
         index=False,
-        encoding="utf-8",
     )
 
     excluded.to_csv(
         OUTPUT_DIR / "production_series_not_in_benchmark.csv",
         index=False,
+    )
+
+    chart(series, forecasts)
+
+    payload = {
+        "title": "Mineral production benchmark",
+        "source": (
+            "Squad 1 consolidated observed state production"
+        ),
+        "production_basis": "beneficiada",
+        "latest_year": LAST_OBSERVED_YEAR,
+        "minimum_observed_years": MIN_YEARS_REQUIRED,
+        "forecast_start": FORECAST_START,
+        "forecast_end": FORECAST_END,
+        "index_definition": (
+            "First positive observed production year = 100."
+        ),
+        "methodology": (
+            "Observed state-level beneficiated production with "
+            "at least 12 years and a 2025 observation. Tonnes "
+            "are not aggregated between minerals."
+        ),
+        "forecast_methodology": (
+            "Three candidates are compared by rolling backtest: "
+            "persistence, weighted logarithmic trend and damped "
+            "Holt. A trend is used only when it improves "
+            "persistence by at least 15% and its sMAPE is at "
+            "most 35%. Otherwise the reference is persistence. "
+            "Ranges are error-calibrated scenario bands, not "
+            "confidence intervals."
+        ),
+        "minerals_in_benchmark": records(summary),
+        "minerals_not_in_benchmark": records(
+            excluded.sort_values("mineral_name")
+        ),
+        "series": records(series),
+        "forecast": records(forecasts),
+    }
+
+    PUBLIC_OUTPUT.write_text(
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2,
+        ),
         encoding="utf-8",
     )
 
-    create_forecast_panels(benchmark, forecasts)
-
-    build_public_json(
-        benchmark,
-        selected,
-        excluded,
-        forecasts,
-    )
-
-    print(
-        f"Benchmark concluído: {len(selected)} minerais com previsão "
-        f"de produção para {FORECAST_START}–{FORECAST_END}."
-    )
-    print(f"Saída para o site: {PUBLIC_OUTPUT}")
-    print(f"Saídas de análise: {OUTPUT_DIR}")
+    print(f"Created {PUBLIC_OUTPUT}")
 
 
 if __name__ == "__main__":
