@@ -40,6 +40,8 @@ jobs:
 
       - name: Publish benchmark data for the site
         run: |
+          git restore public/data/previsao/previsao_v1.json
+
           git add public/data/previsao/production_benchmark_v1.json
 
           if git diff --cached --quiet; then
