@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 326,
+ "materias": 327,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -3227,6 +3227,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Com a 2ª maior reserva do mundo de terras raras, o Brasil vem atraindo investimentos externos - Valor Econômico",
+   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPelc1R0p5YmczdWNCQVRrMDhTUHhMTDkxZjVldW11QmNhazMzNE0zcVRPUExScDNHN0RzaUsyZG43Slh4TWFDRnFLc3RfbFRGQ1JicUhtTFlvOS1NbkkxMmx3YmM1eXlzRWM1X29WenZac0J5ZC1VTmRCX3p2eWJ5WUpscnNTYXpYd3ZIc3lzNlhWLVlsVV9lRlBHQ1lONUwzbDBjSzdIQ2tMUGJBRkdPYm53cUR1WGNiZkxJVzhoSVlWYVl1QUI1bUZsMGxraUVIcnBXc1E3ZVBkSVF4UzFjTjRxb0RKMHZudXpQa0VWalpRSk9lanBkajNpU0RZRnNrX25B0gGSAkFVX3lxTE9QR3JHdUNwRWRqdXZidzR4WlE0a0E1X0syMmlLVTBJWE1nNWVhYVNvNVVweWttc3NTb0xodDQ0ajZoVU1YejhUU0pvVHFkeXZyS2F3ZFFKdmRSZkNMSllORlFsTXJPTEZQTTF6UTlaVmdpVkpabTdPcjhFUVZIX1h4S3JLQXk1QWRTQjBtZkZZSVFKbUR6WjE2TEltNmQxYTBGMUlFcExMT3B6Q3NPTmNMbEMxREt1LTU2SUNtbjVGRUZMWWVRZmo5VVdJa3RTS3J5NWRadFFlc25lcEc1dHJxbHNZcTVSc1VZSkJIbUtLSVczd3czZW04djFJVVdNTV85Ym5FdDE5SzBTUnF1U2V3QWc?oc=5",
+   "published_at": "2026-08-19T07:00:00+00:00",
+   "first_seen": "2026-11-14T11:03:03.722817+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
