@@ -2,261 +2,287 @@
   "title": "Benchmark de produção mineral",
   "source": "Squad 1 — interface Squad 1 / Squad 2",
   "production_basis": "beneficiada",
-  "base_year": 2025,
+  "latest_year": 2025,
   "minimum_observed_years": 12,
-  "methodology": "Inclui séries estaduais, observadas, válidas e de produção beneficiada com pelo menos 12 anos e dado em 2025. Toneladas não são somadas entre minerais. O índice base 2025 = 100 compara a evolução de cada mineral separadamente. Séries com produção igual a zero em 2025 continuam no benchmark em toneladas, mas não recebem índice normalizado.",
+  "index_definition": "Para cada mineral, o primeiro ano com produção positiva recebe índice 100. Os demais anos mostram a produção relativa a essa base.",
+  "methodology": "Inclui séries estaduais, observadas, válidas e de produção beneficiada com pelo menos 12 anos e dado em 2025. Toneladas não são somadas entre minerais. O índice permite comparar a trajetória de cada mineral desde o início de sua série. O benchmark não atribui demanda elétrica aos minerais adicionais.",
   "minerals_in_benchmark": [
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
-      "first_year": 2014,
+      "first_observed_year": 2014,
+      "index_base_year": 2014,
+      "index_base_production_t": 476371.85,
       "last_year": 2025,
       "observed_years": 12,
-      "production_2025": 1478868.18,
-      "can_normalize_2025": true
+      "production_latest_t": 1478868.18,
+      "change_from_base_pct": 210.4440743088
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 302257.0,
       "last_year": 2025,
       "observed_years": 15,
-      "production_2025": 179184.3,
-      "can_normalize_2025": true
+      "production_latest_t": 179184.3,
+      "change_from_base_pct": -40.7178990065
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 408910.8,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 595052.49,
-      "can_normalize_2025": true
+      "production_latest_t": 595052.49,
+      "change_from_base_pct": 45.5213435302
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 15750.0,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 497.4,
-      "can_normalize_2025": true
+      "production_latest_t": 497.4,
+      "change_from_base_pct": -96.8419047619
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 3235.0,
       "last_year": 2025,
       "observed_years": 13,
-      "production_2025": 13971.22,
-      "can_normalize_2025": true
+      "production_latest_t": 13971.22,
+      "change_from_base_pct": 331.8769706337
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 23390.0,
       "last_year": 2025,
       "observed_years": 13,
-      "production_2025": 0.0,
-      "can_normalize_2025": false
+      "production_latest_t": 0.0,
+      "change_from_base_pct": -100.0
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 4886420.93,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 11717504.4214,
-      "can_normalize_2025": true
+      "production_latest_t": 11717504.4214,
+      "change_from_base_pct": 139.7972788112
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 271475.39,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 202502.52,
-      "can_normalize_2025": true
+      "production_latest_t": 202502.52,
+      "change_from_base_pct": -25.4066749844
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 439700.6,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 663055.87,
-      "can_normalize_2025": true
+      "production_latest_t": 663055.87,
+      "change_from_base_pct": 50.7971264993
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 2643426.88,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 2511254.38,
-      "can_normalize_2025": true
+      "production_latest_t": 2511254.38,
+      "change_from_base_pct": -5.0000437311
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 12065.2,
       "last_year": 2025,
       "observed_years": 13,
-      "production_2025": 28500.0,
-      "can_normalize_2025": true
+      "production_latest_t": 28500.0,
+      "change_from_base_pct": 136.2165567086
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 17941.23135,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 3280804.6,
-      "can_normalize_2025": true
+      "production_latest_t": 3280804.6,
+      "change_from_base_pct": 18186.3959334653
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 95855.67,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 156885.63,
-      "can_normalize_2025": true
+      "production_latest_t": 156885.63,
+      "change_from_base_pct": 63.6685967559
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 4.79467,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 3.40000819,
-      "can_normalize_2025": true
+      "production_latest_t": 3.40000819,
+      "change_from_base_pct": -29.0877539017
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 0.06,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 0.043,
-      "can_normalize_2025": true
+      "production_latest_t": 0.043,
+      "change_from_base_pct": -28.3333333333
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 5970704.88,
       "last_year": 2025,
       "observed_years": 16,
-      "production_2025": 14556324.4686,
-      "can_normalize_2025": true
+      "production_latest_t": 14556324.4686,
+      "change_from_base_pct": 143.7957454129
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 36829.89,
       "last_year": 2025,
       "observed_years": 13,
-      "production_2025": 43.0,
-      "can_normalize_2025": true
+      "production_latest_t": 43.0,
+      "change_from_base_pct": -99.883247004
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
-      "first_year": 2010,
+      "first_observed_year": 2010,
+      "index_base_year": 2010,
+      "index_base_production_t": 44413.0,
       "last_year": 2025,
       "observed_years": 15,
-      "production_2025": 38934.58,
-      "can_normalize_2025": true
+      "production_latest_t": 38934.58,
+      "change_from_base_pct": -12.3351721343
     }
   ],
   "minerals_not_in_benchmark": [
     {
       "mineral_id": "MIN_064",
       "mineral_name": "Talco e outras Cargas Minerais",
-      "first_year": 2011,
+      "first_observed_year": 2011,
       "last_year": 2024,
-      "observed_years": 10,
-      "production_2025": 0.0
+      "observed_years": 10
     },
     {
       "mineral_id": "MIN_016",
       "mineral_name": "Ferro",
-      "first_year": 2014,
+      "first_observed_year": 2014,
       "last_year": 2025,
-      "observed_years": 9,
-      "production_2025": 16045.5
+      "observed_years": 9
     },
     {
       "mineral_id": "MIN_010",
       "mineral_name": "Cobalto",
-      "first_year": 2010,
+      "first_observed_year": 2010,
       "last_year": 2017,
-      "observed_years": 8,
-      "production_2025": 0.0
+      "observed_years": 8
     },
     {
       "mineral_id": "MIN_002",
       "mineral_name": "Diamante",
-      "first_year": 2010,
+      "first_observed_year": 2010,
       "last_year": 2025,
-      "observed_years": 8,
-      "production_2025": 8.282e-06
+      "observed_years": 8
     },
     {
       "mineral_id": "MIN_047",
       "mineral_name": "Feldspato, Leucita e Nefelina-Sienito",
-      "first_year": 2022,
+      "first_observed_year": 2022,
       "last_year": 2025,
-      "observed_years": 4,
-      "production_2025": 37101.59
+      "observed_years": 4
     },
     {
       "mineral_id": "MIN_062",
       "mineral_name": "Saibro",
-      "first_year": 2015,
+      "first_observed_year": 2015,
       "last_year": 2024,
-      "observed_years": 4,
-      "production_2025": 0.0
+      "observed_years": 4
     },
     {
       "mineral_id": "MIN_020",
       "mineral_name": "Monazita e Terras-Raras",
-      "first_year": 2023,
+      "first_observed_year": 2023,
       "last_year": 2025,
-      "observed_years": 3,
-      "production_2025": 325.77
+      "observed_years": 3
     },
     {
       "mineral_id": "MIN_060",
       "mineral_name": "Rochas Ornamentais",
-      "first_year": 2010,
+      "first_observed_year": 2010,
       "last_year": 2014,
-      "observed_years": 3,
-      "production_2025": 0.0
+      "observed_years": 3
     },
     {
       "mineral_id": "MIN_015",
       "mineral_name": "Estanho",
-      "first_year": 2017,
+      "first_observed_year": 2017,
       "last_year": 2017,
-      "observed_years": 1,
-      "production_2025": 0.0
+      "observed_years": 1
     },
     {
       "mineral_id": "MIN_048",
       "mineral_name": "Fluorita e Criolita",
-      "first_year": 2024,
+      "first_observed_year": 2024,
       "last_year": 2024,
-      "observed_years": 1,
-      "production_2025": 0.0
+      "observed_years": 1
     },
     {
       "mineral_id": "MIN_003",
       "mineral_name": "Gemas",
-      "first_year": 2020,
+      "first_observed_year": 2020,
       "last_year": 2020,
-      "observed_years": 1,
-      "production_2025": 0.0
+      "observed_years": 1
     }
   ],
   "series": [
@@ -265,2160 +291,1890 @@
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2014,
       "production_t": 476371.85,
-      "index_2025_100": 32.2119210111,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2015,
       "production_t": 527101.6499999999,
-      "index_2025_100": 35.6422335086,
-      "can_normalize_2025": true
+      "index_first_year_100": 110.6492018787
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2016,
       "production_t": 733565.8200000001,
-      "index_2025_100": 49.6031918139,
-      "can_normalize_2025": true
+      "index_first_year_100": 153.9901696542
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2017,
       "production_t": 828800.32,
-      "index_2025_100": 56.0428800355,
-      "can_normalize_2025": true
+      "index_first_year_100": 173.9818001421
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2018,
       "production_t": 1046203.07,
-      "index_2025_100": 70.7434972331,
-      "can_normalize_2025": true
+      "index_first_year_100": 219.618995119
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2019,
       "production_t": 1123008.59,
-      "index_2025_100": 75.9370311152,
-      "can_normalize_2025": true
+      "index_first_year_100": 235.7420133033
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2020,
       "production_t": 1361851.75,
-      "index_2025_100": 92.0874333776,
-      "can_normalize_2025": true
+      "index_first_year_100": 285.8799801038
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2021,
       "production_t": 1677413.16,
-      "index_2025_100": 113.4254683876,
-      "can_normalize_2025": true
+      "index_first_year_100": 352.1226453662
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2022,
       "production_t": 1563773.32,
-      "index_2025_100": 105.7412243463,
-      "can_normalize_2025": true
+      "index_first_year_100": 328.2673650846
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2023,
       "production_t": 1603688.3,
-      "index_2025_100": 108.4402465134,
-      "can_normalize_2025": true
+      "index_first_year_100": 336.6463194666
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2024,
       "production_t": 1252432.4,
-      "index_2025_100": 84.688575827,
-      "can_normalize_2025": true
+      "index_first_year_100": 262.9106652713
     },
     {
       "mineral_id": "MIN_005",
       "mineral_name": "Alumínio (Bauxita)",
       "year": 2025,
       "production_t": 1478868.18,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 310.4440743088
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2010,
       "production_t": 302257.0,
-      "index_2025_100": 168.684979655,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2011,
       "production_t": 306320.56,
-      "index_2025_100": 170.9527899487,
-      "can_normalize_2025": true
+      "index_first_year_100": 101.3444055886
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2012,
       "production_t": 304568.8,
-      "index_2025_100": 169.9751596541,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.76484581
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2013,
       "production_t": 290825.65,
-      "index_2025_100": 162.3053191602,
-      "can_normalize_2025": true
+      "index_first_year_100": 96.2180032224
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2014,
       "production_t": 311227.9,
-      "index_2025_100": 173.6915008737,
-      "can_normalize_2025": true
+      "index_first_year_100": 102.9679709651
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2015,
       "production_t": 232051.56,
-      "index_2025_100": 129.5044041247,
-      "can_normalize_2025": true
+      "index_first_year_100": 76.7729316443
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2016,
       "production_t": 177677.0,
-      "index_2025_100": 99.1587990689,
-      "can_normalize_2025": true
+      "index_first_year_100": 58.783419408
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2017,
       "production_t": 129093.85,
-      "index_2025_100": 72.0452907984,
-      "can_normalize_2025": true
+      "index_first_year_100": 42.7099620522
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2018,
       "production_t": 111438.5,
-      "index_2025_100": 62.1921116973,
-      "can_normalize_2025": true
+      "index_first_year_100": 36.8687904664
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2019,
       "production_t": 12204.65,
-      "index_2025_100": 6.8112273229,
-      "can_normalize_2025": true
+      "index_first_year_100": 4.0378386605
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2020,
       "production_t": 77057.16,
-      "index_2025_100": 43.0044150073,
-      "can_normalize_2025": true
+      "index_first_year_100": 25.4939207363
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2021,
       "production_t": 172256.0,
-      "index_2025_100": 96.1334224036,
-      "can_normalize_2025": true
+      "index_first_year_100": 56.9899125579
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2022,
       "production_t": 182965.32,
-      "index_2025_100": 102.1101290682,
-      "can_normalize_2025": true
+      "index_first_year_100": 60.5330298388
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2023,
       "production_t": 189340.01,
-      "index_2025_100": 105.6677454442,
-      "can_normalize_2025": true
+      "index_first_year_100": 62.6420595718
     },
     {
       "mineral_id": "MIN_033",
       "mineral_name": "Amianto",
       "year": 2025,
       "production_t": 179184.3,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 59.2821009935
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2010,
       "production_t": 408910.8,
-      "index_2025_100": 68.7184419647,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2011,
       "production_t": 377848.28,
-      "index_2025_100": 63.4983108801,
-      "can_normalize_2025": true
+      "index_first_year_100": 92.4035951117
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2012,
       "production_t": 493607.17,
-      "index_2025_100": 82.9518703468,
-      "can_normalize_2025": true
+      "index_first_year_100": 120.712676212
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2013,
       "production_t": 705806.99,
-      "index_2025_100": 118.6125597088,
-      "can_normalize_2025": true
+      "index_first_year_100": 172.6065904838
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2014,
       "production_t": 832376.31,
-      "index_2025_100": 139.8828378989,
-      "can_normalize_2025": true
+      "index_first_year_100": 203.5593850786
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2015,
       "production_t": 872777.4800000001,
-      "index_2025_100": 146.6723515433,
-      "can_normalize_2025": true
+      "index_first_year_100": 213.4395765531
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2016,
       "production_t": 553430.21,
-      "index_2025_100": 93.0052758875,
-      "can_normalize_2025": true
+      "index_first_year_100": 135.3425270255
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2017,
       "production_t": 523483.8199999999,
-      "index_2025_100": 87.9727131299,
-      "can_normalize_2025": true
+      "index_first_year_100": 128.0190740866
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2018,
       "production_t": 488084.67,
-      "index_2025_100": 82.0238009591,
-      "can_normalize_2025": true
+      "index_first_year_100": 119.3621371703
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2019,
       "production_t": 525549.88,
-      "index_2025_100": 88.3199194747,
-      "can_normalize_2025": true
+      "index_first_year_100": 128.5243334243
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2020,
       "production_t": 659498.8300000001,
-      "index_2025_100": 110.8303622089,
-      "can_normalize_2025": true
+      "index_first_year_100": 161.2818321257
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2021,
       "production_t": 594473.8800000001,
-      "index_2025_100": 99.9027631999,
-      "can_normalize_2025": true
+      "index_first_year_100": 145.3798432323
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2022,
       "production_t": 734461.46,
-      "index_2025_100": 123.4280122078,
-      "can_normalize_2025": true
+      "index_first_year_100": 179.6141016574
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2023,
       "production_t": 687142.96,
-      "index_2025_100": 115.4760246445,
-      "can_normalize_2025": true
+      "index_first_year_100": 168.0422625179
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2024,
       "production_t": 235532.56,
-      "index_2025_100": 39.5818123541,
-      "can_normalize_2025": true
+      "index_first_year_100": 57.5999851312
     },
     {
       "mineral_id": "MIN_034",
       "mineral_name": "Areia",
       "year": 2025,
       "production_t": 595052.49,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 145.5213435302
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2010,
       "production_t": 15750.0,
-      "index_2025_100": 3166.4656212304,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2011,
       "production_t": 63394.05,
-      "index_2025_100": 12745.0844390832,
-      "can_normalize_2025": true
+      "index_first_year_100": 402.5019047619
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2012,
       "production_t": 88585.35,
-      "index_2025_100": 17809.6803377563,
-      "can_normalize_2025": true
+      "index_first_year_100": 562.4466666667
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2013,
       "production_t": 99787.99,
-      "index_2025_100": 20061.9199839164,
-      "can_normalize_2025": true
+      "index_first_year_100": 633.5745396825
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2014,
       "production_t": 48496.85,
-      "index_2025_100": 9750.0703659027,
-      "can_normalize_2025": true
+      "index_first_year_100": 307.9165079365
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2015,
       "production_t": 13634.64,
-      "index_2025_100": 2741.1821471653,
-      "can_normalize_2025": true
+      "index_first_year_100": 86.5691428571
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2016,
       "production_t": 104932.5,
-      "index_2025_100": 21096.2002412545,
-      "can_normalize_2025": true
+      "index_first_year_100": 666.2380952381
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2017,
       "production_t": 137907.6,
-      "index_2025_100": 27725.6936067551,
-      "can_normalize_2025": true
+      "index_first_year_100": 875.6038095238
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2018,
       "production_t": 137945.51,
-      "index_2025_100": 27733.3152392441,
-      "can_normalize_2025": true
+      "index_first_year_100": 875.8445079365
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2019,
       "production_t": 144500.0,
-      "index_2025_100": 29051.0655408122,
-      "can_normalize_2025": true
+      "index_first_year_100": 917.4603174603
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2020,
       "production_t": 141000.0,
-      "index_2025_100": 28347.4065138721,
-      "can_normalize_2025": true
+      "index_first_year_100": 895.2380952381
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2021,
       "production_t": 389950.0,
-      "index_2025_100": 78397.6678729393,
-      "can_normalize_2025": true
+      "index_first_year_100": 2475.873015873
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2022,
       "production_t": 208250.0,
-      "index_2025_100": 41867.7121029353,
-      "can_normalize_2025": true
+      "index_first_year_100": 1322.2222222222
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2023,
       "production_t": 7430.67,
-      "index_2025_100": 1493.902291918,
-      "can_normalize_2025": true
+      "index_first_year_100": 47.1788571429
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2024,
       "production_t": 11400.81,
-      "index_2025_100": 2292.0808202654,
-      "can_normalize_2025": true
+      "index_first_year_100": 72.3860952381
     },
     {
       "mineral_id": "MIN_035",
       "mineral_name": "Areias Industriais",
       "year": 2025,
       "production_t": 497.4,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 3.1580952381
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2010,
       "production_t": 3235.0,
-      "index_2025_100": 23.1547423919,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2014,
       "production_t": 0.0,
-      "index_2025_100": 0.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.0
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2015,
       "production_t": 17398.0,
-      "index_2025_100": 124.5274213705,
-      "can_normalize_2025": true
+      "index_first_year_100": 537.8052550232
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2016,
       "production_t": 26825.79,
-      "index_2025_100": 192.0074982714,
-      "can_normalize_2025": true
+      "index_first_year_100": 829.2361669243
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2017,
       "production_t": 29940.0,
-      "index_2025_100": 214.2976776545,
-      "can_normalize_2025": true
+      "index_first_year_100": 925.5023183926
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2018,
       "production_t": 52868.36,
-      "index_2025_100": 378.4090437342,
-      "can_normalize_2025": true
+      "index_first_year_100": 1634.2615146832
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2019,
       "production_t": 49620.89,
-      "index_2025_100": 355.1650464312,
-      "can_normalize_2025": true
+      "index_first_year_100": 1533.8760432767
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2020,
       "production_t": 49142.23,
-      "index_2025_100": 351.7390034657,
-      "can_normalize_2025": true
+      "index_first_year_100": 1519.0797527048
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2021,
       "production_t": 56533.2,
-      "index_2025_100": 404.6403964722,
-      "can_normalize_2025": true
+      "index_first_year_100": 1747.5486862442
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2022,
       "production_t": 26466.03,
-      "index_2025_100": 189.4324905055,
-      "can_normalize_2025": true
+      "index_first_year_100": 818.115301391
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2023,
       "production_t": 37604.45,
-      "index_2025_100": 269.1565231955,
-      "can_normalize_2025": true
+      "index_first_year_100": 1162.4250386399
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2024,
       "production_t": 2600.0,
-      "index_2025_100": 18.6096847663,
-      "can_normalize_2025": true
+      "index_first_year_100": 80.370942813
     },
     {
       "mineral_id": "MIN_036",
       "mineral_name": "Argilas",
       "year": 2025,
       "production_t": 13971.22,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 431.8769706337
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2010,
       "production_t": 23390.0,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2011,
       "production_t": 12104.0,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 51.7486105173
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2012,
       "production_t": 0.0,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 0.0
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2015,
       "production_t": 20894.95,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 89.3328345447
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2016,
       "production_t": 12133.4,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 51.8743052587
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2017,
       "production_t": 16275.79,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 69.5843950406
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2018,
       "production_t": 5318.18,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 22.7369816161
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2019,
       "production_t": 3415.32,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 14.6016246259
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2020,
       "production_t": 1633.65,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 6.9843950406
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2022,
       "production_t": 4671.81,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 19.973535699
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2023,
       "production_t": 1795.08,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 7.6745617785
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2024,
       "production_t": 256.11,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 1.094955109
     },
     {
       "mineral_id": "MIN_037",
       "mineral_name": "Bário",
       "year": 2025,
       "production_t": 0.0,
-      "index_2025_100": null,
-      "can_normalize_2025": false
+      "index_first_year_100": 0.0
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2010,
       "production_t": 4886420.93,
-      "index_2025_100": 41.7018910706,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2011,
       "production_t": 5636852.78,
-      "index_2025_100": 48.1062569066,
-      "can_normalize_2025": true
+      "index_first_year_100": 115.3574949999
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2012,
       "production_t": 6533564.439999999,
-      "index_2025_100": 55.7590098116,
-      "can_normalize_2025": true
+      "index_first_year_100": 133.7085882202
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2013,
       "production_t": 7142707.6226,
-      "index_2025_100": 60.9575841896,
-      "can_normalize_2025": true
+      "index_first_year_100": 146.1746281158
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2014,
       "production_t": 6378476.42,
-      "index_2025_100": 54.4354513607,
-      "can_normalize_2025": true
+      "index_first_year_100": 130.5347310716
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2015,
       "production_t": 5694321.21,
-      "index_2025_100": 48.5967063055,
-      "can_normalize_2025": true
+      "index_first_year_100": 116.5335793124
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2016,
       "production_t": 6238110.94,
-      "index_2025_100": 53.237538606,
-      "can_normalize_2025": true
+      "index_first_year_100": 127.6621688832
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2017,
       "production_t": 7167507.830000001,
-      "index_2025_100": 61.1692351224,
-      "can_normalize_2025": true
+      "index_first_year_100": 146.6821612931
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2018,
       "production_t": 6971713.293000001,
-      "index_2025_100": 59.4982774683,
-      "can_normalize_2025": true
+      "index_first_year_100": 142.6752503084
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2019,
       "production_t": 10619938.78,
-      "index_2025_100": 90.6331109259,
-      "can_normalize_2025": true
+      "index_first_year_100": 217.3357337023
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2020,
       "production_t": 11700322.5483,
-      "index_2025_100": 99.8533657639,
-      "can_normalize_2025": true
+      "index_first_year_100": 239.4456539032
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2021,
       "production_t": 11667355.8364,
-      "index_2025_100": 99.5720199183,
-      "can_normalize_2025": true
+      "index_first_year_100": 238.7709942213
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2022,
       "production_t": 11549927.0215,
-      "index_2025_100": 98.5698541782,
-      "can_normalize_2025": true
+      "index_first_year_100": 236.3678280475
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2023,
       "production_t": 12771999.1167,
-      "index_2025_100": 108.9993112644,
-      "can_normalize_2025": true
+      "index_first_year_100": 261.3773823349
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2024,
       "production_t": 10136399.2104,
-      "index_2025_100": 86.5064679804,
-      "can_normalize_2025": true
+      "index_first_year_100": 207.4401562127
     },
     {
       "mineral_id": "MIN_038",
       "mineral_name": "Calcário",
       "year": 2025,
       "production_t": 11717504.4214,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 239.7972788112
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2010,
       "production_t": 271475.39,
-      "index_2025_100": 134.0602526823,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2011,
       "production_t": 304146.5,
-      "index_2025_100": 150.1939333891,
-      "can_normalize_2025": true
+      "index_first_year_100": 112.0346488866
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2012,
       "production_t": 273566.73,
-      "index_2025_100": 135.0930003241,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.7703608051
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2013,
       "production_t": 243537.59,
-      "index_2025_100": 120.2639799248,
-      "can_normalize_2025": true
+      "index_first_year_100": 89.708901422
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2014,
       "production_t": 245779.29,
-      "index_2025_100": 121.3709784945,
-      "can_normalize_2025": true
+      "index_first_year_100": 90.534648463
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2015,
       "production_t": 242523.39,
-      "index_2025_100": 119.7631466512,
-      "can_normalize_2025": true
+      "index_first_year_100": 89.3353132304
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2016,
       "production_t": 216332.47,
-      "index_2025_100": 106.8295199487,
-      "can_normalize_2025": true
+      "index_first_year_100": 79.6876910279
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2017,
       "production_t": 242126.55,
-      "index_2025_100": 119.5671787196,
-      "can_normalize_2025": true
+      "index_first_year_100": 89.1891342342
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2018,
       "production_t": 243129.39,
-      "index_2025_100": 120.0624021864,
-      "can_normalize_2025": true
+      "index_first_year_100": 89.5585378844
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2019,
       "production_t": 244899.57,
-      "index_2025_100": 120.936554271,
-      "can_normalize_2025": true
+      "index_first_year_100": 90.21059699
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2020,
       "production_t": 209889.0,
-      "index_2025_100": 103.6475990521,
-      "can_normalize_2025": true
+      "index_first_year_100": 77.3141904318
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2021,
       "production_t": 220680.0,
-      "index_2025_100": 108.9764216268,
-      "can_normalize_2025": true
+      "index_first_year_100": 81.2891363744
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2022,
       "production_t": 203157.0,
-      "index_2025_100": 100.323195978,
-      "can_normalize_2025": true
+      "index_first_year_100": 74.8344076419
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2023,
       "production_t": 205635.0,
-      "index_2025_100": 101.5468844536,
-      "can_normalize_2025": true
+      "index_first_year_100": 75.7471975637
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2024,
       "production_t": 192385.52,
-      "index_2025_100": 95.0040127896,
-      "can_normalize_2025": true
+      "index_first_year_100": 70.866652038
     },
     {
       "mineral_id": "MIN_011",
       "mineral_name": "Cobre",
       "year": 2025,
       "production_t": 202502.52,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 74.5933250156
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2010,
       "production_t": 439700.6,
-      "index_2025_100": 66.3142609687,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2011,
       "production_t": 874521.46,
-      "index_2025_100": 131.8925749047,
-      "can_normalize_2025": true
+      "index_first_year_100": 198.8902130222
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2012,
       "production_t": 303372.0,
-      "index_2025_100": 45.7536104763,
-      "can_normalize_2025": true
+      "index_first_year_100": 68.9951298679
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2013,
       "production_t": 527049.1,
-      "index_2025_100": 79.4878868956,
-      "can_normalize_2025": true
+      "index_first_year_100": 119.8654493535
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2014,
       "production_t": 575510.86,
-      "index_2025_100": 86.7967370532,
-      "can_normalize_2025": true
+      "index_first_year_100": 130.8869853714
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2015,
       "production_t": 702457.0,
-      "index_2025_100": 105.9423544505,
-      "can_normalize_2025": true
+      "index_first_year_100": 159.758026257
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2016,
       "production_t": 650579.22,
-      "index_2025_100": 98.1183109049,
-      "can_normalize_2025": true
+      "index_first_year_100": 147.9595934142
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2017,
       "production_t": 318512.74,
-      "index_2025_100": 48.0370892426,
-      "can_normalize_2025": true
+      "index_first_year_100": 72.4385502317
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2018,
       "production_t": 318916.79,
-      "index_2025_100": 48.0980267922,
-      "can_normalize_2025": true
+      "index_first_year_100": 72.5304423055
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2019,
       "production_t": 42840.45,
-      "index_2025_100": 6.461061871,
-      "can_normalize_2025": true
+      "index_first_year_100": 9.7430956428
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2020,
       "production_t": 58561.49,
-      "index_2025_100": 8.8320596574,
-      "can_normalize_2025": true
+      "index_first_year_100": 13.318492174
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2021,
       "production_t": 1743201.2,
-      "index_2025_100": 262.9041199801,
-      "can_normalize_2025": true
+      "index_first_year_100": 396.4518583782
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2022,
       "production_t": 1666309.06,
-      "index_2025_100": 251.3074893674,
-      "can_normalize_2025": true
+      "index_first_year_100": 378.9644726434
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2023,
       "production_t": 677911.05,
-      "index_2025_100": 102.2404115056,
-      "can_normalize_2025": true
+      "index_first_year_100": 154.1756026715
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2024,
       "production_t": 2272179.18,
-      "index_2025_100": 342.682914488,
-      "can_normalize_2025": true
+      "index_first_year_100": 516.7559880519
     },
     {
       "mineral_id": "MIN_045",
       "mineral_name": "Dolomito e Magnesita",
       "year": 2025,
       "production_t": 663055.87,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 150.7971264993
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2010,
       "production_t": 2643426.88,
-      "index_2025_100": 105.2632063503,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2011,
       "production_t": 3464387.15,
-      "index_2025_100": 137.954449282,
-      "can_normalize_2025": true
+      "index_first_year_100": 131.0566664889
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2012,
       "production_t": 3458682.84,
-      "index_2025_100": 137.7272994542,
-      "can_normalize_2025": true
+      "index_first_year_100": 130.8408742518
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2013,
       "production_t": 3484689.0,
-      "index_2025_100": 138.7628839098,
-      "can_normalize_2025": true
+      "index_first_year_100": 131.8246790318
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2014,
       "production_t": 2426598.37,
-      "index_2025_100": 96.6289352973,
-      "can_normalize_2025": true
+      "index_first_year_100": 91.7974462755
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2015,
       "production_t": 2350333.0,
-      "index_2025_100": 93.5919920625,
-      "can_normalize_2025": true
+      "index_first_year_100": 88.9123515306
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2016,
       "production_t": 2310693.3,
-      "index_2025_100": 92.0135099973,
-      "can_normalize_2025": true
+      "index_first_year_100": 87.4127942589
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2017,
       "production_t": 2132082.95,
-      "index_2025_100": 84.9011142392,
-      "can_normalize_2025": true
+      "index_first_year_100": 80.656021399
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2018,
       "production_t": 2214941.54,
-      "index_2025_100": 88.200604353,
-      "can_normalize_2025": true
+      "index_first_year_100": 83.7905355642
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2019,
       "production_t": 2200210.74,
-      "index_2025_100": 87.6140130416,
-      "can_normalize_2025": true
+      "index_first_year_100": 83.2332740749
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2020,
       "production_t": 2511073.83,
-      "index_2025_100": 99.9928103659,
-      "can_normalize_2025": true
+      "index_first_year_100": 94.9931261197
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2021,
       "production_t": 2247976.83,
-      "index_2025_100": 89.5160939451,
-      "can_normalize_2025": true
+      "index_first_year_100": 85.0402501014
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2022,
       "production_t": 2432016.31,
-      "index_2025_100": 96.8446816606,
-      "can_normalize_2025": true
+      "index_first_year_100": 92.0024052264
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2023,
       "production_t": 2442308.4,
-      "index_2025_100": 97.2545202689,
-      "can_normalize_2025": true
+      "index_first_year_100": 92.3917517249
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2024,
       "production_t": 2444758.93,
-      "index_2025_100": 97.3521021793,
-      "can_normalize_2025": true
+      "index_first_year_100": 92.4844544972
     },
     {
       "mineral_id": "MIN_049",
       "mineral_name": "Fosfato",
       "year": 2025,
       "production_t": 2511254.38,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 94.9999562689
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2010,
       "production_t": 12065.2,
-      "index_2025_100": 42.3340350877,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2011,
       "production_t": 18519.11,
-      "index_2025_100": 64.9793333333,
-      "can_normalize_2025": true
+      "index_first_year_100": 153.4919437722
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2012,
       "production_t": 1162.24,
-      "index_2025_100": 4.0780350877,
-      "can_normalize_2025": true
+      "index_first_year_100": 9.6329940656
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2013,
       "production_t": 657.17,
-      "index_2025_100": 2.3058596491,
-      "can_normalize_2025": true
+      "index_first_year_100": 5.4468222657
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2014,
       "production_t": 7105.59,
-      "index_2025_100": 24.9318947368,
-      "can_normalize_2025": true
+      "index_first_year_100": 58.8932632696
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2018,
       "production_t": 713.03,
-      "index_2025_100": 2.5018596491,
-      "can_normalize_2025": true
+      "index_first_year_100": 5.9098067168
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2019,
       "production_t": 16681.0,
-      "index_2025_100": 58.5298245614,
-      "can_normalize_2025": true
+      "index_first_year_100": 138.2571362265
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2020,
       "production_t": 58048.43,
-      "index_2025_100": 203.6787017544,
-      "can_normalize_2025": true
+      "index_first_year_100": 481.1228160329
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2021,
       "production_t": 62792.66,
-      "index_2025_100": 220.325122807,
-      "can_normalize_2025": true
+      "index_first_year_100": 520.4444186586
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2022,
       "production_t": 18889.91,
-      "index_2025_100": 66.2803859649,
-      "can_normalize_2025": true
+      "index_first_year_100": 156.5652454995
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2023,
       "production_t": 502.66,
-      "index_2025_100": 1.7637192982,
-      "can_normalize_2025": true
+      "index_first_year_100": 4.1661969963
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2024,
       "production_t": 34510.0,
-      "index_2025_100": 121.0877192982,
-      "can_normalize_2025": true
+      "index_first_year_100": 286.0292411232
     },
     {
       "mineral_id": "MIN_018",
       "mineral_name": "Manganês",
       "year": 2025,
       "production_t": 28500.0,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 236.2165567086
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2010,
       "production_t": 17941.23135,
-      "index_2025_100": 0.5468546146,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2011,
       "production_t": 17314.78931,
-      "index_2025_100": 0.5277604558,
-      "can_normalize_2025": true
+      "index_first_year_100": 96.508366523
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2012,
       "production_t": 20189.85258,
-      "index_2025_100": 0.615393327,
-      "can_normalize_2025": true
+      "index_first_year_100": 112.5332603216
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2013,
       "production_t": 20162.14921,
-      "index_2025_100": 0.6145489192,
-      "can_normalize_2025": true
+      "index_first_year_100": 112.3788485677
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2014,
       "production_t": 20522.2844,
-      "index_2025_100": 0.6255259579,
-      "can_normalize_2025": true
+      "index_first_year_100": 114.3861533227
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2015,
       "production_t": 20208.00308,
-      "index_2025_100": 0.6159465602,
-      "can_normalize_2025": true
+      "index_first_year_100": 112.6344267335
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2016,
       "production_t": 23235.32278,
-      "index_2025_100": 0.7082202573,
-      "can_normalize_2025": true
+      "index_first_year_100": 129.5079603329
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2017,
       "production_t": 28228.98,
-      "index_2025_100": 0.8604285668,
-      "can_normalize_2025": true
+      "index_first_year_100": 157.3413744537
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2018,
       "production_t": 29076.62,
-      "index_2025_100": 0.886264912,
-      "can_normalize_2025": true
+      "index_first_year_100": 162.0659108217
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2019,
       "production_t": 25440.34,
-      "index_2025_100": 0.7754299052,
-      "can_normalize_2025": true
+      "index_first_year_100": 141.7981826537
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2020,
       "production_t": 27313.88,
-      "index_2025_100": 0.8325360188,
-      "can_normalize_2025": true
+      "index_first_year_100": 152.2408326784
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2021,
       "production_t": 26431.47,
-      "index_2025_100": 0.8056398726,
-      "can_normalize_2025": true
+      "index_first_year_100": 147.3224969032
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2022,
       "production_t": 27900.88,
-      "index_2025_100": 0.8504279712,
-      "can_normalize_2025": true
+      "index_first_year_100": 155.5126259492
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2023,
       "production_t": 31009.57,
-      "index_2025_100": 0.9451818618,
-      "can_normalize_2025": true
+      "index_first_year_100": 172.8396975384
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2024,
       "production_t": 3562063.18,
-      "index_2025_100": 108.5728537445,
-      "can_normalize_2025": true
+      "index_first_year_100": 19854.0619119769
     },
     {
       "mineral_id": "MIN_021",
       "mineral_name": "Nióbio",
       "year": 2025,
       "production_t": 3280804.6,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 18286.3959334653
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2010,
       "production_t": 95855.67,
-      "index_2025_100": 61.0990758045,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2011,
       "production_t": 111154.26,
-      "index_2025_100": 70.8505042814,
-      "can_normalize_2025": true
+      "index_first_year_100": 115.9600261518
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2012,
       "production_t": 87282.74,
-      "index_2025_100": 55.6346301443,
-      "can_normalize_2025": true
+      "index_first_year_100": 91.0564184675
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2013,
       "production_t": 83807.71,
-      "index_2025_100": 53.4196216696,
-      "can_normalize_2025": true
+      "index_first_year_100": 87.431145179
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2014,
       "production_t": 144898.2,
-      "index_2025_100": 92.3591281114,
-      "can_normalize_2025": true
+      "index_first_year_100": 151.1628889559
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2015,
       "production_t": 137395.9500000001,
-      "index_2025_100": 87.5771413864,
-      "can_normalize_2025": true
+      "index_first_year_100": 143.336278386
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2016,
       "production_t": 169075.5700000001,
-      "index_2025_100": 107.7699531818,
-      "can_normalize_2025": true
+      "index_first_year_100": 176.3855700972
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2017,
       "production_t": 158144.74,
-      "index_2025_100": 100.8025655377,
-      "can_normalize_2025": true
+      "index_first_year_100": 164.9821445096
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2018,
       "production_t": 154732.83,
-      "index_2025_100": 98.6277901934,
-      "can_normalize_2025": true
+      "index_first_year_100": 161.4227202209
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2019,
       "production_t": 168656.71,
-      "index_2025_100": 107.5029688825,
-      "can_normalize_2025": true
+      "index_first_year_100": 175.9486006409
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2020,
       "production_t": 168663.47,
-      "index_2025_100": 107.5072777539,
-      "can_normalize_2025": true
+      "index_first_year_100": 175.9556529103
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2021,
       "production_t": 159991.78,
-      "index_2025_100": 101.9798817776,
-      "can_normalize_2025": true
+      "index_first_year_100": 166.9090414787
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2022,
       "production_t": 152705.91,
-      "index_2025_100": 97.335817181,
-      "can_normalize_2025": true
+      "index_first_year_100": 159.308166121
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2023,
       "production_t": 159139.73,
-      "index_2025_100": 101.4367791365,
-      "can_normalize_2025": true
+      "index_first_year_100": 166.0201530071
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2024,
       "production_t": 156221.04,
-      "index_2025_100": 99.5763856766,
-      "can_normalize_2025": true
+      "index_first_year_100": 162.9752731372
     },
     {
       "mineral_id": "MIN_022",
       "mineral_name": "Níquel",
       "year": 2025,
       "production_t": 156885.63,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 163.6685967559
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2010,
       "production_t": 4.79467,
-      "index_2025_100": 141.0193661916,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2011,
       "production_t": 4.14012611,
-      "index_2025_100": 121.7681216821,
-      "can_normalize_2025": true
+      "index_first_year_100": 86.3485101164
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2012,
       "production_t": 4.03642497,
-      "index_2025_100": 118.7180954996,
-      "can_normalize_2025": true
+      "index_first_year_100": 84.1856680439
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2013,
       "production_t": 4.91735127,
-      "index_2025_100": 144.627630147,
-      "can_normalize_2025": true
+      "index_first_year_100": 102.5587010159
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2014,
       "production_t": 5.04010359,
-      "index_2025_100": 148.2379838032,
-      "can_normalize_2025": true
+      "index_first_year_100": 105.1188838856
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2015,
       "production_t": 6.69989857,
-      "index_2025_100": 197.0553656225,
-      "can_normalize_2025": true
+      "index_first_year_100": 139.7363858201
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2016,
       "production_t": 6.81425254,
-      "index_2025_100": 200.4187095796,
-      "can_normalize_2025": true
+      "index_first_year_100": 142.1214085641
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2017,
       "production_t": 6.51341165,
-      "index_2025_100": 191.5704694229,
-      "can_normalize_2025": true
+      "index_first_year_100": 135.8469227288
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2018,
       "production_t": 5.5954621,
-      "index_2025_100": 164.5720182809,
-      "can_normalize_2025": true
+      "index_first_year_100": 116.7017146123
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2019,
       "production_t": 5.00871146,
-      "index_2025_100": 147.3146880861,
-      "can_normalize_2025": true
+      "index_first_year_100": 104.4641541545
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2020,
       "production_t": 4.73127517,
-      "index_2025_100": 139.1548168594,
-      "can_normalize_2025": true
+      "index_first_year_100": 98.677806189
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2021,
       "production_t": 3.77276977,
-      "index_2025_100": 110.9635494731,
-      "can_normalize_2025": true
+      "index_first_year_100": 78.6867452817
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2022,
       "production_t": 3.98356865,
-      "index_2025_100": 117.1635015973,
-      "can_normalize_2025": true
+      "index_first_year_100": 83.0832705901
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2023,
       "production_t": 3.27062244,
-      "index_2025_100": 96.1945459314,
-      "can_normalize_2025": true
+      "index_first_year_100": 68.213713144
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2024,
       "production_t": 4.61364857,
-      "index_2025_100": 135.6952193106,
-      "can_normalize_2025": true
+      "index_first_year_100": 96.2245278611
     },
     {
       "mineral_id": "MIN_023",
       "mineral_name": "Ouro",
       "year": 2025,
       "production_t": 3.40000819,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 70.9122460983
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2010,
       "production_t": 0.06,
-      "index_2025_100": 139.5348837209,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2011,
       "production_t": 0.2,
-      "index_2025_100": 465.1162790698,
-      "can_normalize_2025": true
+      "index_first_year_100": 333.3333333333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2012,
       "production_t": 0.227005,
-      "index_2025_100": 527.9186046512,
-      "can_normalize_2025": true
+      "index_first_year_100": 378.3416666667
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2013,
       "production_t": 0.196977,
-      "index_2025_100": 458.0860465116,
-      "can_normalize_2025": true
+      "index_first_year_100": 328.295
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2014,
       "production_t": 0.233336,
-      "index_2025_100": 542.6418604651,
-      "can_normalize_2025": true
+      "index_first_year_100": 388.8933333333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2015,
       "production_t": 0.222242,
-      "index_2025_100": 516.8418604651,
-      "can_normalize_2025": true
+      "index_first_year_100": 370.4033333333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2016,
       "production_t": 0.233874,
-      "index_2025_100": 543.8930232558,
-      "can_normalize_2025": true
+      "index_first_year_100": 389.79
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2017,
       "production_t": 0.219207,
-      "index_2025_100": 509.7837209302,
-      "can_normalize_2025": true
+      "index_first_year_100": 365.345
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2018,
       "production_t": 0.187664,
-      "index_2025_100": 436.4279069767,
-      "can_normalize_2025": true
+      "index_first_year_100": 312.7733333333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2019,
       "production_t": 0.18890855,
-      "index_2025_100": 439.3222093023,
-      "can_normalize_2025": true
+      "index_first_year_100": 314.8475833333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2020,
       "production_t": 0.1520592,
-      "index_2025_100": 353.6260465116,
-      "can_normalize_2025": true
+      "index_first_year_100": 253.432
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2021,
       "production_t": 0.09548605,
-      "index_2025_100": 222.0605813953,
-      "can_normalize_2025": true
+      "index_first_year_100": 159.1434166667
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2022,
       "production_t": 0.088611,
-      "index_2025_100": 206.0720930233,
-      "can_normalize_2025": true
+      "index_first_year_100": 147.685
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2023,
       "production_t": 0.07787795,
-      "index_2025_100": 181.1115116279,
-      "can_normalize_2025": true
+      "index_first_year_100": 129.7965833333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2024,
       "production_t": 0.06447905,
-      "index_2025_100": 149.9512790698,
-      "can_normalize_2025": true
+      "index_first_year_100": 107.4650833333
     },
     {
       "mineral_id": "MIN_025",
       "mineral_name": "Prata",
       "year": 2025,
       "production_t": 0.043,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 71.6666666667
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2010,
       "production_t": 5970704.88,
-      "index_2025_100": 41.0179430452,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2011,
       "production_t": 7573053.649999999,
-      "index_2025_100": 52.0258645397,
-      "can_normalize_2025": true
+      "index_first_year_100": 126.8368442622
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2012,
       "production_t": 10476837.55,
-      "index_2025_100": 71.9744711146,
-      "can_normalize_2025": true
+      "index_first_year_100": 175.4706983608
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2013,
       "production_t": 10257833.7574,
-      "index_2025_100": 70.4699443842,
-      "can_normalize_2025": true
+      "index_first_year_100": 171.8027262034
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2014,
       "production_t": 10188944.38,
-      "index_2025_100": 69.9966835857,
-      "can_normalize_2025": true
+      "index_first_year_100": 170.6489365122
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2015,
       "production_t": 7162881.550000001,
-      "index_2025_100": 49.208037135,
-      "can_normalize_2025": true
+      "index_first_year_100": 119.9671009363
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2016,
       "production_t": 6745678.430000001,
-      "index_2025_100": 46.3419075643,
-      "can_normalize_2025": true
+      "index_first_year_100": 112.979598985
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2017,
       "production_t": 4928010.01,
-      "index_2025_100": 33.8547689056,
-      "can_normalize_2025": true
+      "index_first_year_100": 82.5364862113
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2018,
       "production_t": 8313509.606999999,
-      "index_2025_100": 57.1126978169,
-      "can_normalize_2025": true
+      "index_first_year_100": 139.2383273681
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2019,
       "production_t": 7620296.66,
-      "index_2025_100": 52.3504176926,
-      "can_normalize_2025": true
+      "index_first_year_100": 127.6280910404
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2020,
       "production_t": 8085252.3617,
-      "index_2025_100": 55.5446011055,
-      "can_normalize_2025": true
+      "index_first_year_100": 135.4153743017
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2021,
       "production_t": 9141410.4436,
-      "index_2025_100": 62.800265708,
-      "can_normalize_2025": true
+      "index_first_year_100": 153.1043759041
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2022,
       "production_t": 9021231.4585,
-      "index_2025_100": 61.9746521724,
-      "can_normalize_2025": true
+      "index_first_year_100": 151.0915652307
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2023,
       "production_t": 11144332.8533,
-      "index_2025_100": 76.5600744703,
-      "can_normalize_2025": true
+      "index_first_year_100": 186.6502042436
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2024,
       "production_t": 12630803.2796,
-      "index_2025_100": 86.7719272598,
-      "can_normalize_2025": true
+      "index_first_year_100": 211.5462668723
     },
     {
       "mineral_id": "MIN_059",
       "mineral_name": "Rochas (Britadas) e Cascalho",
       "year": 2025,
       "production_t": 14556324.4686,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 243.7957454129
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2010,
       "production_t": 36829.89,
-      "index_2025_100": 85650.9069767442,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2011,
       "production_t": 6155.19,
-      "index_2025_100": 14314.3953488372,
-      "can_normalize_2025": true
+      "index_first_year_100": 16.7124854296
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2012,
       "production_t": 18884.44,
-      "index_2025_100": 43917.3023255814,
-      "can_normalize_2025": true
+      "index_first_year_100": 51.2747662293
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2013,
       "production_t": 28607.82,
-      "index_2025_100": 66529.8139534884,
-      "can_normalize_2025": true
+      "index_first_year_100": 77.6755510266
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2014,
       "production_t": 3556.08,
-      "index_2025_100": 8269.9534883721,
-      "can_normalize_2025": true
+      "index_first_year_100": 9.6554184658
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2015,
       "production_t": 45285.7,
-      "index_2025_100": 105315.5813953488,
-      "can_normalize_2025": true
+      "index_first_year_100": 122.9590965382
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2019,
       "production_t": 11134.37,
-      "index_2025_100": 25893.8837209302,
-      "can_normalize_2025": true
+      "index_first_year_100": 30.231885026
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2020,
       "production_t": 0.0,
-      "index_2025_100": 0.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.0
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2021,
       "production_t": 1076.95,
-      "index_2025_100": 2504.5348837209,
-      "can_normalize_2025": true
+      "index_first_year_100": 2.9241195127
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2022,
       "production_t": 87.0,
-      "index_2025_100": 202.3255813953,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.236221178
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2023,
       "production_t": 101.0,
-      "index_2025_100": 234.8837209302,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.2742337813
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2024,
       "production_t": 52.0,
-      "index_2025_100": 120.9302325581,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.1411896696
     },
     {
       "mineral_id": "MIN_026",
       "mineral_name": "Titânio",
       "year": 2025,
       "production_t": 43.0,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 0.116752996
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2010,
       "production_t": 44413.0,
-      "index_2025_100": 114.0708336908,
-      "can_normalize_2025": true
+      "index_first_year_100": 100.0
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2011,
       "production_t": 1973.8,
-      "index_2025_100": 5.0695294517,
-      "can_normalize_2025": true
+      "index_first_year_100": 4.4441942674
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2013,
       "production_t": 58163.0,
-      "index_2025_100": 149.3864836862,
-      "can_normalize_2025": true
+      "index_first_year_100": 130.9594037782
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2014,
       "production_t": 54737.42,
-      "index_2025_100": 140.5881866454,
-      "can_normalize_2025": true
+      "index_first_year_100": 123.2463918222
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2015,
       "production_t": 48896.17,
-      "index_2025_100": 125.5854564246,
-      "can_normalize_2025": true
+      "index_first_year_100": 110.094274199
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2016,
       "production_t": 55147.0,
-      "index_2025_100": 141.6401563854,
-      "can_normalize_2025": true
+      "index_first_year_100": 124.168599284
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2017,
       "production_t": 52109.0,
-      "index_2025_100": 133.8373240446,
-      "can_normalize_2025": true
+      "index_first_year_100": 117.3282597438
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2018,
       "production_t": 53305.0,
-      "index_2025_100": 136.9091434915,
-      "can_normalize_2025": true
+      "index_first_year_100": 120.0211649742
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2019,
       "production_t": 47581.0,
-      "index_2025_100": 122.2075594497,
-      "can_normalize_2025": true
+      "index_first_year_100": 107.1330466305
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2020,
       "production_t": 53727.0,
-      "index_2025_100": 137.993012895,
-      "can_normalize_2025": true
+      "index_first_year_100": 120.9713372211
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2021,
       "production_t": 64531.0,
-      "index_2025_100": 165.7421243532,
-      "can_normalize_2025": true
+      "index_first_year_100": 145.2975480152
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2022,
       "production_t": 65792.0,
-      "index_2025_100": 168.9808905092,
-      "can_normalize_2025": true
+      "index_first_year_100": 148.1368067908
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2023,
       "production_t": 48380.0,
-      "index_2025_100": 124.2597197658,
-      "can_normalize_2025": true
+      "index_first_year_100": 108.9320694391
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2024,
       "production_t": 50871.0,
-      "index_2025_100": 130.6576313395,
-      "can_normalize_2025": true
+      "index_first_year_100": 114.5407876072
     },
     {
       "mineral_id": "MIN_066",
       "mineral_name": "Vermiculita e Perlita",
       "year": 2025,
       "production_t": 38934.58,
-      "index_2025_100": 100.0,
-      "can_normalize_2025": true
+      "index_first_year_100": 87.6648278657
     }
   ]
 }
