@@ -1,502 +1,241 @@
-/* Benchmark de produção mineral.
-   Mostra uma visão geral das séries, uma tabela-resumo e o detalhe
-   de cada mineral. Nenhum mineral adicional é convertido em TWh. */
-
 (() => {
   "use strict";
 
   const SOURCE = "/data/previsao/production_benchmark_v1.json";
+  const $ = (selector) => document.querySelector(selector);
 
-  const COPY = {
-    pt: {
-      title: "Benchmark de produção mineral",
-      subtitle:
-        "Produção beneficiada estadual observada para ampliar a análise além dos cinco minerais do modelo elétrico.",
-      overviewTitle: "Evolução de todos os minerais do benchmark",
-      overviewSub:
-        "Índice base no primeiro ano com produção positiva = 100. A escala vertical é logarítmica para tornar visíveis séries com trajetórias muito diferentes.",
-      summaryTitle: "Resumo das séries históricas",
-      detailTitle: "Detalhe do mineral selecionado",
-      mineral: "Mineral",
-      view: "Visualização",
-      index: "Índice desde o primeiro ano = 100",
-      tonnes: "Produção observada (t)",
-      series: "Séries históricas",
-      indexed: "Índices calculados",
-      coverage: "Cobertura mínima",
-      firstYear: "Primeiro ano positivo",
-      initialOutput: "Produção inicial (t)",
-      latestOutput: "Produção em 2025 (t)",
-      totalChange: "Variação até 2025",
-      note:
-        "Toneladas não são somadas entre minerais. O índice compara a evolução de cada mineral desde o primeiro ano com produção positiva. O benchmark não atribui demanda elétrica aos minerais adicionais.",
-      source:
-        "Fonte: interface consolidada do Squad 1 — produção beneficiada, observada e válida.",
-      logScale: "Escala logarítmica",
-      years: "anos observados",
-    },
-    en: {
-      title: "Mineral production benchmark",
-      subtitle:
-        "Observed state-level beneficiated output used to broaden the analysis beyond the five minerals in the electricity model.",
-      overviewTitle: "Evolution of all benchmark minerals",
-      overviewSub:
-        "Index base in the first year with positive output = 100. The vertical axis is logarithmic so that series with very different trajectories remain visible.",
-      summaryTitle: "Historical-series summary",
-      detailTitle: "Selected mineral detail",
-      mineral: "Mineral",
-      view: "View",
-      index: "Index since first year = 100",
-      tonnes: "Observed output (t)",
-      series: "Historical series",
-      indexed: "Calculated indices",
-      coverage: "Minimum coverage",
-      firstYear: "First positive year",
-      initialOutput: "Initial output (t)",
-      latestOutput: "Output in 2025 (t)",
-      totalChange: "Change to 2025",
-      note:
-        "Tonnes are not added across minerals. The index compares each mineral with its own first year with positive output. This benchmark does not assign electricity demand to additional minerals.",
-      source:
-        "Source: Squad 1 consolidated interface — observed, valid beneficiated output.",
-      logScale: "Logarithmic scale",
-      years: "observed years",
-    },
-  };
-
-  const COLORS = [
-    "#0f6fb0",
-    "#c2681b",
-    "#0d9488",
-    "#b03a55",
-    "#8250c4",
-    "#4e7d36",
-    "#855d42",
-    "#277a9a",
-    "#9b4b76",
-    "#8c6c13",
-    "#3e6ea8",
-    "#bd4c42",
-    "#536d7a",
-    "#4c8b70",
-    "#9a5c2d",
-    "#6c62a6",
-    "#48766d",
-    "#9c4775",
-  ];
-
-  const esc = (value) =>
+  const escapeHtml = (value) =>
     String(value ?? "").replace(
       /[&<>"']/g,
-      (character) =>
+      (char) =>
         ({
           "&": "&amp;",
           "<": "&lt;",
           ">": "&gt;",
           '"': "&quot;",
           "'": "&#39;",
-        })[character]
+        })[char]
     );
 
-  const language = () => (window.I18N?.lang === "en" ? "en" : "pt");
-  const text = () => COPY[language()];
-  const locale = () => (language() === "en" ? "en-US" : "pt-BR");
+  const number = (value, digits = 0) =>
+    value == null || !Number.isFinite(Number(value))
+      ? "—"
+      : new Intl.NumberFormat("pt-BR", {
+          maximumFractionDigits: digits,
+          minimumFractionDigits: digits,
+        }).format(Number(value));
 
-  const number = (value, decimals = 0) =>
-    Number(value).toLocaleString(locale(), {
-      maximumFractionDigits: decimals,
-      minimumFractionDigits: decimals,
-    });
+  const tonnes = (value) => {
+    const numeric = Number(value);
 
-  const percent = (value) => {
-    const sign = value > 0 ? "+" : "";
-    return `${sign}${number(value, 1)}%`;
+    if (!Number.isFinite(numeric)) return "—";
+    if (Math.abs(numeric) >= 1e6) return `${number(numeric / 1e6, 2)} Mt`;
+    if (Math.abs(numeric) >= 1e3) return `${number(numeric / 1e3, 1)} mil t`;
+
+    return `${number(numeric, 0)} t`;
   };
 
-  let data = null;
-  let selectedMineral = null;
-  let selectedView = "index";
-  let started = false;
+  const percent = (value, digits = 1) =>
+    value == null || !Number.isFinite(Number(value))
+      ? "—"
+      : `${number(value, digits)}%`;
 
-  function createPanel() {
-    const target = document.getElementById("pv-dados");
-
-    if (!target || document.getElementById("pv-production-benchmark")) {
-      return;
-    }
-
-    const panel = document.createElement("article");
-    panel.id = "pv-production-benchmark";
-    panel.className = "panel pv-panel";
-
-    panel.innerHTML = `
-      <style>
-        #pv-production-benchmark .pb-toolbar {
-          display: flex;
-          align-items: end;
-          flex-wrap: wrap;
-          gap: 16px;
-          margin: 16px 0;
-        }
-
-        #pv-production-benchmark .pb-toolbar label {
-          color: #486170;
-          display: block;
-          font-size: 12px;
-          font-weight: 700;
-          margin-bottom: 6px;
-        }
-
-        #pv-production-benchmark .pb-toolbar select {
-          min-width: 260px;
-        }
-
-        #pv-production-benchmark .pb-metrics {
-          display: grid;
-          gap: 12px;
-          grid-template-columns: repeat(3, minmax(150px, 1fr));
-          margin: 14px 0 20px;
-        }
-
-        #pv-production-benchmark .pb-metric {
-          background: #f5f9fb;
-          border-left: 3px solid #0f6fb0;
-          padding: 12px 14px;
-        }
-
-        #pv-production-benchmark .pb-metric span,
-        #pv-production-benchmark .pb-metric small {
-          color: #637787;
-          display: block;
-          font-size: 12px;
-        }
-
-        #pv-production-benchmark .pb-metric strong {
-          color: #14354e;
-          display: block;
-          font-size: 24px;
-          margin: 3px 0;
-        }
-
-        #pv-production-benchmark .pb-chart {
-          min-height: 330px;
-          overflow-x: auto;
-        }
-
-        #pv-production-benchmark .pb-chart svg {
-          display: block;
-        }
-
-        #pv-production-benchmark .pb-legend {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 7px 14px;
-          margin: 10px 0 18px;
-        }
-
-        #pv-production-benchmark .pb-legend span {
-          align-items: center;
-          color: #4e6471;
-          display: inline-flex;
-          font-size: 11px;
-          gap: 5px;
-        }
-
-        #pv-production-benchmark .pb-legend i {
-          border-radius: 50%;
-          display: inline-block;
-          height: 8px;
-          width: 8px;
-        }
-
-        #pv-production-benchmark .pb-note {
-          background: #eef7fb;
-          border-left: 3px solid #0f6fb0;
-          color: #365363;
-          line-height: 1.55;
-          margin-top: 16px;
-          padding: 12px 14px;
-        }
-
-        #pv-production-benchmark .pb-source {
-          color: #637787;
-          font-size: 12px;
-          margin: 14px 0 0;
-        }
-
-        #pv-production-benchmark .pb-subtitle {
-          color: #637787;
-          font-size: 13px;
-          margin: -4px 0 12px;
-        }
-
-        #pv-production-benchmark .pb-table-positive {
-          color: #19715d;
-          font-weight: 700;
-        }
-
-        #pv-production-benchmark .pb-table-negative {
-          color: #9a3a4d;
-          font-weight: 700;
-        }
-
-        @media (max-width: 650px) {
-          #pv-production-benchmark .pb-metrics {
-            grid-template-columns: 1fr;
-          }
-
-          #pv-production-benchmark .pb-toolbar select {
-            min-width: 220px;
-          }
-        }
-      </style>
-
-      <div class="pv-head">
-        <div>
-          <h3 id="pb-title"></h3>
-          <p class="subtitle" id="pb-subtitle"></p>
-        </div>
-      </div>
-
-      <div class="pb-metrics" id="pb-metrics"></div>
-
-      <h3 class="mk-sub" id="pb-overview-title"></h3>
-      <p class="pb-subtitle" id="pb-overview-subtitle"></p>
-      <div class="pb-chart" id="pb-overview-chart"></div>
-      <div class="pb-legend" id="pb-overview-legend"></div>
-
-      <h3 class="mk-sub" id="pb-summary-title"></h3>
-      <div class="table-wrap" id="pb-summary-table"></div>
-
-      <div class="pb-toolbar">
-        <div>
-          <label for="pb-mineral" id="pb-mineral-label"></label>
-          <select id="pb-mineral"></select>
-        </div>
-
-        <div>
-          <label for="pb-view" id="pb-view-label"></label>
-          <select id="pb-view"></select>
-        </div>
-      </div>
-
-      <h3 class="mk-sub" id="pb-detail-title"></h3>
-      <div class="pb-chart" id="pb-detail-chart"></div>
-
-      <div class="pb-note" id="pb-note"></div>
-      <p class="pb-source" id="pb-source"></p>
-    `;
-
-    target.insertBefore(panel, target.firstChild);
-  }
-
-  function summaryTable(copy) {
-    const rows = data.minerals_in_benchmark.map((mineral) => {
-      const changeClass =
-        mineral.change_from_base_pct >= 0
-          ? "pb-table-positive"
-          : "pb-table-negative";
-
-      return `
-        <tr>
-          <td><b>${esc(mineral.mineral_name)}</b></td>
-          <td class="num">${number(mineral.index_base_year)}</td>
-          <td class="num">${number(mineral.index_base_production_t)}</td>
-          <td class="num">${number(mineral.production_latest_t)}</td>
-          <td class="num ${changeClass}">${esc(
-            percent(mineral.change_from_base_pct)
-          )}</td>
-        </tr>
-      `;
-    });
-
-    return `
-      <table class="pn-table">
-        <thead>
-          <tr>
-            <th>${esc(copy.mineral)}</th>
-            <th class="num">${esc(copy.firstYear)}</th>
-            <th class="num">${esc(copy.initialOutput)}</th>
-            <th class="num">${esc(copy.latestOutput)}</th>
-            <th class="num">${esc(copy.totalChange)}</th>
-          </tr>
-        </thead>
-        <tbody>${rows.join("")}</tbody>
-      </table>
-    `;
-  }
-
-  function overviewSvg() {
-    const container = document.getElementById("pb-overview-chart");
-    const width = Math.max(700, container.clientWidth || 940);
-    const height = 390;
-    const left = 62;
-    const right = 18;
-    const top = 18;
-    const bottom = 42;
-
-    const all = data.series.filter(
-      (point) => Number(point.index_first_year_100) > 0
-    );
-
-    const years = all.map((point) => Number(point.year));
-    const values = all.map((point) => Number(point.index_first_year_100));
-
-    const minYear = Math.min(...years);
-    const maxYear = Math.max(...years);
-
-    const minPositive = Math.min(...values);
-    const maxPositive = Math.max(...values);
-
-    const minExponent = Math.floor(Math.log10(minPositive));
-    const maxExponent = Math.ceil(Math.log10(maxPositive));
-
-    const minValue = 10 ** minExponent;
-    const maxValue = 10 ** maxExponent;
-
-    const x = (year) =>
-      left +
-      ((year - minYear) / Math.max(1, maxYear - minYear)) *
-        (width - left - right);
-
-    const y = (value) => {
-      const fraction =
-        (Math.log10(value) - Math.log10(minValue)) /
-        Math.max(1, Math.log10(maxValue) - Math.log10(minValue));
-
-      return top + (1 - fraction) * (height - top - bottom);
+  const methodName = (method) => {
+    const names = {
+      persistence: "Persistência",
+      weighted_log_trend: "Tendência logarítmica",
+      holt_damped: "Holt com tendência amortecida",
+      not_forecastable_zero_2025: "Sem projeção",
     };
 
-    let svg = `
-      <svg
-        width="${width}"
-        height="${height}"
-        viewBox="0 0 ${width} ${height}"
-        role="img"
-        aria-label="${esc(text().overviewTitle)}"
-      >
-    `;
+    return names[method] || method;
+  };
 
-    for (let exponent = minExponent; exponent <= maxExponent; exponent += 1) {
-      const value = 10 ** exponent;
-      const lineY = y(value);
-
-      svg += `
-        <line
-          x1="${left}"
-          x2="${width - right}"
-          y1="${lineY}"
-          y2="${lineY}"
-          stroke="#e4edf2"
-        />
-        <text
-          x="${left - 8}"
-          y="${lineY + 4}"
-          text-anchor="end"
-          fill="#637787"
-          font-size="11"
-        >${esc(number(value))}</text>
-      `;
+  const style = `
+    #production-benchmark-panel {
+      margin-top: 24px;
     }
 
-    const baseline = y(100);
-
-    svg += `
-      <line
-        x1="${left}"
-        x2="${width - right}"
-        y1="${baseline}"
-        y2="${baseline}"
-        stroke="#607d8b"
-        stroke-width="1.3"
-        stroke-dasharray="5 4"
-      />
-      <text
-        x="${width - right}"
-        y="${baseline - 7}"
-        text-anchor="end"
-        fill="#637787"
-        font-size="11"
-      >100</text>
-    `;
-
-    const yearStep = Math.max(1, Math.ceil((maxYear - minYear) / 6));
-
-    for (let year = minYear; year <= maxYear; year += 1) {
-      if ((year - minYear) % yearStep !== 0 && year !== maxYear) {
-        continue;
-      }
-
-      svg += `
-        <text
-          x="${x(year)}"
-          y="${height - 14}"
-          text-anchor="middle"
-          fill="#637787"
-          font-size="11"
-        >${year}</text>
-      `;
+    .pb-topline {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    data.minerals_in_benchmark.forEach((mineral, index) => {
-      const color = COLORS[index % COLORS.length];
+    .pb-control {
+      min-width: 280px;
+    }
 
-      const series = data.series
-        .filter(
-          (point) =>
-            point.mineral_id === mineral.mineral_id &&
-            Number(point.index_first_year_100) > 0
-        )
-        .sort((a, b) => a.year - b.year);
+    .pb-control label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #36566d;
+    }
 
-      if (!series.length) {
-        return;
+    .pb-control select {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid #c9d8e3;
+      border-radius: 4px;
+      background: #fff;
+      padding: 8px 10px;
+      color: #173d59;
+      font-weight: 600;
+    }
+
+    .pb-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .pb-metric {
+      border-left: 3px solid #0f6fb0;
+      background: #f4f8fa;
+      padding: 14px 15px;
+    }
+
+    .pb-metric span {
+      display: block;
+      color: #5d7383;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .pb-metric strong {
+      display: block;
+      color: #123a5a;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .pb-metric small {
+      display: block;
+      color: #6b7e8a;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .pb-chart-wrap {
+      overflow-x: auto;
+      margin-top: 8px;
+    }
+
+    .pb-chart-wrap svg {
+      display: block;
+      min-width: 680px;
+      max-width: 100%;
+    }
+
+    .pb-legend {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      color: #526a7a;
+      font-size: 12px;
+    }
+
+    .pb-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .pb-dot {
+      width: 19px;
+      height: 3px;
+      display: inline-block;
+      border-radius: 3px;
+    }
+
+    .pb-dot.dashed {
+      background: repeating-linear-gradient(
+        90deg,
+        #168a7a 0 7px,
+        transparent 7px 11px
+      );
+    }
+
+    .pb-band {
+      width: 19px;
+      height: 11px;
+      display: inline-block;
+      background: rgba(22, 138, 122, .17);
+    }
+
+    .pb-note {
+      border-left: 3px solid #0f6fb0;
+      padding: 11px 14px;
+      background: #eef6fa;
+      color: #355c72;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 18px 0;
+    }
+
+    .pb-table button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #0b5d93;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      padding: 0;
+      text-align: left;
+    }
+
+    .pb-table tr.pb-selected td {
+      background: #e9f4fa;
+    }
+
+    @media (max-width: 760px) {
+      .pb-metrics {
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
       }
+    }
+  `;
 
-      const path = series
-        .map(
-          (point, pointIndex) =>
-            `${pointIndex === 0 ? "M" : "L"}${x(
-              Number(point.year)
-            )},${y(Number(point.index_first_year_100))}`
-        )
-        .join(" ");
-
-      svg += `
-        <path
-          d="${path}"
-          fill="none"
-          stroke="${color}"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          opacity="0.9"
-        >
-          <title>${esc(mineral.mineral_name)}</title>
-        </path>
-      `;
-    });
-
-    svg += "</svg>";
-    return svg;
-  }
-
-  function detailSvg(points, mode) {
-    const container = document.getElementById("pb-detail-chart");
-    const width = Math.max(620, container.clientWidth || 900);
+  function chart(observed, projected, mineralName) {
+    const width = 940;
     const height = 330;
-    const left = 64;
-    const right = 20;
-    const top = 18;
-    const bottom = 42;
+    const left = 76;
+    const right = 22;
+    const top = 20;
+    const bottom = 44;
 
-    const years = points.map((point) => Number(point.year));
-    const values = points.map((point) => Number(point.value));
+    const points = [
+      ...observed.map((row) => ({
+        year: Number(row.year),
+        value: Number(row.production_t),
+      })),
+      ...projected.map((row) => ({
+        year: Number(row.year),
+        value: Number(row.production_reference_t),
+      })),
+    ];
 
-    const minYear = Math.min(...years);
-    const maxYear = Math.max(...years);
-    const maxValue = Math.max(...values, mode === "index" ? 100 : 0);
-    const topValue = maxValue === 0 ? 1 : maxValue * 1.12;
+    const bandValues = projected.flatMap((row) => [
+      Number(row.production_lower_t),
+      Number(row.production_upper_t),
+    ]);
+
+    const allValues = [
+      ...points.map((point) => point.value),
+      ...bandValues,
+      0,
+    ];
+
+    const maxValue = Math.max(...allValues) * 1.08 || 1;
+    const minYear = Math.min(...points.map((point) => point.year));
+    const maxYear = Math.max(...points.map((point) => point.year));
 
     const x = (year) =>
       left +
@@ -504,278 +243,416 @@
         (width - left - right);
 
     const y = (value) =>
-      top + (1 - value / topValue) * (height - top - bottom);
+      top + (1 - value / maxValue) * (height - top - bottom);
 
-    const ticks = 5;
-    let svg = `
-      <svg
-        width="${width}"
-        height="${height}"
-        viewBox="0 0 ${width} ${height}"
-        role="img"
-        aria-label="${esc(text().detailTitle)}"
-      >
-    `;
+    const niceStep = (value) => {
+      const power = Math.pow(10, Math.floor(Math.log10(value)));
+      const scaled = value / power;
 
-    for (let step = 0; step <= ticks; step += 1) {
-      const value = (topValue / ticks) * step;
-      const lineY = y(value);
+      if (scaled <= 1) return power;
+      if (scaled <= 2) return 2 * power;
+      if (scaled <= 5) return 5 * power;
 
-      svg += `
-        <line
-          x1="${left}"
-          x2="${width - right}"
-          y1="${lineY}"
-          y2="${lineY}"
-          stroke="#e4edf2"
-        />
-        <text
-          x="${left - 9}"
-          y="${lineY + 4}"
-          text-anchor="end"
-          fill="#637787"
-          font-size="11"
-        >${esc(number(value))}</text>
-      `;
+      return 10 * power;
+    };
+
+    const step = niceStep(maxValue / 4);
+    const ticks = [];
+
+    for (let tick = 0; tick <= maxValue + step; tick += step) {
+      ticks.push(tick);
     }
 
-    if (mode === "index") {
-      const baseline = y(100);
-
-      svg += `
-        <line
-          x1="${left}"
-          x2="${width - right}"
-          y1="${baseline}"
-          y2="${baseline}"
-          stroke="#607d8b"
-          stroke-width="1.3"
-          stroke-dasharray="5 4"
-        />
-        <text
-          x="${width - right}"
-          y="${baseline - 7}"
-          text-anchor="end"
-          fill="#637787"
-          font-size="11"
-        >100</text>
-      `;
-    }
-
-    const yearStep = Math.max(1, Math.ceil((maxYear - minYear) / 6));
-
-    for (let year = minYear; year <= maxYear; year += 1) {
-      if ((year - minYear) % yearStep !== 0 && year !== maxYear) {
-        continue;
-      }
-
-      svg += `
-        <text
-          x="${x(year)}"
-          y="${height - 14}"
-          text-anchor="middle"
-          fill="#637787"
-          font-size="11"
-        >${year}</text>
-      `;
-    }
-
-    const path = points
+    const grid = ticks
       .map(
-        (point, index) =>
-          `${index === 0 ? "M" : "L"}${x(Number(point.year))},${y(
-            Number(point.value)
-          )}`
+        (tick) => `
+          <line
+            x1="${left}"
+            x2="${width - right}"
+            y1="${y(tick)}"
+            y2="${y(tick)}"
+            stroke="#e4edf2"
+          />
+          <text
+            x="${left - 10}"
+            y="${y(tick) + 4}"
+            text-anchor="end"
+            fill="#637787"
+            font-size="11"
+          >${escapeHtml(tonnes(tick))}</text>
+        `
       )
-      .join(" ");
+      .join("");
 
-    svg += `
-      <path
-        d="${path}"
-        fill="none"
-        stroke="#0f6fb0"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    `;
+    const years = Array.from(
+      new Set(points.map((point) => point.year))
+    ).sort((a, b) => a - b);
 
-    for (const point of points) {
-      const label =
-        mode === "index"
-          ? number(point.value, 1)
-          : number(point.value);
+    const xLabels = years
+      .filter(
+        (year, index) =>
+          index === 0 ||
+          index === years.length - 1 ||
+          year % 2 === 0
+      )
+      .map(
+        (year) => `
+          <text
+            x="${x(year)}"
+            y="${height - 15}"
+            text-anchor="middle"
+            fill="#637787"
+            font-size="11"
+          >${year}</text>
+        `
+      )
+      .join("");
 
-      svg += `
-        <circle
-          cx="${x(Number(point.year))}"
-          cy="${y(Number(point.value))}"
-          r="4"
-          fill="#0f6fb0"
-          stroke="#ffffff"
-          stroke-width="2"
-        >
-          <title>${esc(`${point.year}: ${label}`)}</title>
-        </circle>
-      `;
-    }
-
-    svg += "</svg>";
-    return svg;
-  }
-
-  function render() {
-    if (!data || !selectedMineral) {
-      return;
-    }
-
-    const copy = text();
-    const mineral = data.minerals_in_benchmark.find(
-      (item) => item.mineral_id === selectedMineral
-    );
-
-    const selectedSeries = data.series
-      .filter((point) => point.mineral_id === selectedMineral)
-      .sort((a, b) => a.year - b.year)
-      .map((point) => ({
-        year: point.year,
-        value:
-          selectedView === "index"
-            ? Number(point.index_first_year_100)
-            : Number(point.production_t),
-      }));
-
-    document.getElementById("pb-title").textContent = copy.title;
-    document.getElementById("pb-subtitle").textContent = copy.subtitle;
-    document.getElementById("pb-overview-title").textContent =
-      copy.overviewTitle;
-    document.getElementById("pb-overview-subtitle").textContent =
-      copy.overviewSub;
-    document.getElementById("pb-summary-title").textContent =
-      copy.summaryTitle;
-    document.getElementById("pb-detail-title").textContent =
-      `${copy.detailTitle}: ${mineral.mineral_name}`;
-    document.getElementById("pb-mineral-label").textContent = copy.mineral;
-    document.getElementById("pb-view-label").textContent = copy.view;
-    document.getElementById("pb-note").textContent = copy.note;
-    document.getElementById("pb-source").textContent = copy.source;
-
-    document.getElementById("pb-metrics").innerHTML = `
-      <div class="pb-metric">
-        <span>${esc(copy.series)}</span>
-        <strong>${number(data.minerals_in_benchmark.length)}</strong>
-        <small>${data.minimum_observed_years}+ ${esc(copy.years)}</small>
-      </div>
-      <div class="pb-metric">
-        <span>${esc(copy.indexed)}</span>
-        <strong>${number(data.minerals_in_benchmark.length)}</strong>
-        <small>${esc(copy.firstYear)} = 100</small>
-      </div>
-      <div class="pb-metric">
-        <span>${esc(copy.coverage)}</span>
-        <strong>${number(data.minimum_observed_years)}+</strong>
-        <small>${esc(data.production_basis)}</small>
-      </div>
-    `;
-
-    document.getElementById("pb-overview-chart").innerHTML = overviewSvg();
-
-    document.getElementById("pb-overview-legend").innerHTML =
-      data.minerals_in_benchmark
+    const line = (rows, field) =>
+      rows
         .map(
-          (item, index) => `
-            <span>
-              <i style="background:${COLORS[index % COLORS.length]}"></i>
-              ${esc(item.mineral_name)}
-            </span>
-          `
+          (row) =>
+            `${x(Number(row.year))},${y(Number(row[field]))}`
         )
-        .join("");
+        .join(" ");
 
-    document.getElementById("pb-summary-table").innerHTML =
-      summaryTable(copy);
+    const band = projected.length
+      ? `
+        <path
+          d="
+            M ${projected
+              .map(
+                (row) =>
+                  `${x(Number(row.year))},${y(
+                    Number(row.production_upper_t)
+                  )}`
+              )
+              .join(" L ")}
+            L ${[...projected]
+              .reverse()
+              .map(
+                (row) =>
+                  `${x(Number(row.year))},${y(
+                    Number(row.production_lower_t)
+                  )}`
+              )
+              .join(" L ")}
+            Z
+          "
+          fill="#168a7a"
+          opacity=".16"
+        />
+      `
+      : "";
 
-    document.getElementById("pb-detail-chart").innerHTML = detailSvg(
-      selectedSeries,
-      selectedView
-    );
+    const projectionStart = projected.length
+      ? `
+        <line
+          x1="${x(Number(projected[0].year))}"
+          x2="${x(Number(projected[0].year))}"
+          y1="${top}"
+          y2="${height - bottom}"
+          stroke="#9fb3c2"
+          stroke-dasharray="4 4"
+        />
+        <text
+          x="${x(Number(projected[0].year)) + 7}"
+          y="${top + 14}"
+          fill="#637787"
+          font-size="11"
+        >projeção</text>
+      `
+      : "";
+
+    return `
+      <div class="pb-chart-wrap">
+        <svg
+          viewBox="0 0 ${width} ${height}"
+          role="img"
+          aria-label="Produção histórica e projeção de ${escapeHtml(
+            mineralName
+          )}"
+        >
+          ${grid}
+          ${xLabels}
+          ${projectionStart}
+          ${band}
+          <polyline
+            points="${line(observed, "production_t")}"
+            fill="none"
+            stroke="#123a5a"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+          ${observed
+            .map(
+              (row) => `
+                <circle
+                  cx="${x(Number(row.year))}"
+                  cy="${y(Number(row.production_t))}"
+                  r="2.8"
+                  fill="#123a5a"
+                />
+              `
+            )
+            .join("")}
+          ${
+            projected.length
+              ? `
+                <polyline
+                  points="${line(projected, "production_reference_t")}"
+                  fill="none"
+                  stroke="#168a7a"
+                  stroke-width="2.5"
+                  stroke-dasharray="7 5"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                />
+              `
+              : ""
+          }
+        </svg>
+      </div>
+      <div class="pb-legend">
+        <span><i class="pb-dot" style="background:#123a5a"></i>Produção observada</span>
+        <span><i class="pb-dot dashed"></i>Previsão de referência</span>
+        <span><i class="pb-band"></i>Faixa calibrada pelo erro histórico</span>
+      </div>
+    `;
   }
 
-  function populate() {
-    const copy = text();
-    const mineralSelect = document.getElementById("pb-mineral");
-    const viewSelect = document.getElementById("pb-view");
+  function setup(data) {
+    const dataTab = $("#pv-dados");
 
-    mineralSelect.innerHTML = "";
-    data.minerals_in_benchmark.forEach((mineral) => {
-      const option = document.createElement("option");
-      option.value = mineral.mineral_id;
-      option.textContent = mineral.mineral_name;
-      mineralSelect.appendChild(option);
-    });
+    if (!dataTab || $("#production-benchmark-panel")) return;
 
-    viewSelect.innerHTML = `
-      <option value="index">${esc(copy.index)}</option>
-      <option value="tonnes">${esc(copy.tonnes)}</option>
+    const styleNode = document.createElement("style");
+    styleNode.textContent = style;
+    document.head.appendChild(styleNode);
+
+    const panel = document.createElement("article");
+    panel.className = "panel pv-panel";
+    panel.id = "production-benchmark-panel";
+
+    panel.innerHTML = `
+      <div class="pb-topline">
+        <div>
+          <h3>Benchmark de produção mineral</h3>
+          <p class="subtitle">
+            Produção estadual observada e previsão 2027–2040.
+            Este painel amplia a análise além dos cinco minerais elétricos,
+            mas não os soma em TWh sem coeficiente energético compatível.
+          </p>
+        </div>
+
+        <div class="pb-control">
+          <label for="pb-mineral">Selecionar mineral</label>
+          <select id="pb-mineral"></select>
+        </div>
+      </div>
+
+      <div class="pb-metrics" id="pb-metrics"></div>
+
+      <div id="pb-chart"></div>
+
+      <div class="pb-note">
+        A previsão compara persistência, tendência logarítmica e Holt
+        amortecido em backtest. Uma tendência só é usada quando melhora
+        claramente a previsão simples e tem erro aceitável; caso contrário,
+        o modelo mantém o último nível observado.
+      </div>
+
+      <div class="table-wrap pb-table" id="pb-table"></div>
     `;
 
-    selectedMineral = data.minerals_in_benchmark[0].mineral_id;
+    dataTab.appendChild(panel);
 
-    mineralSelect.onchange = (event) => {
-      selectedMineral = event.target.value;
-      render();
-    };
+    const select = $("#pb-mineral");
+    const metrics = $("#pb-metrics");
+    const chartTarget = $("#pb-chart");
+    const tableTarget = $("#pb-table");
 
-    viewSelect.onchange = (event) => {
-      selectedView = event.target.value;
-      render();
-    };
+    const minerals = [...data.minerals_in_benchmark].sort((a, b) =>
+      a.mineral_name.localeCompare(
+        b.mineral_name,
+        "pt-BR"
+      )
+    );
 
+    select.innerHTML = minerals
+      .map(
+        (mineral) => `
+          <option value="${escapeHtml(mineral.mineral_id)}">
+            ${escapeHtml(mineral.mineral_name)}
+          </option>
+        `
+      )
+      .join("");
+
+    const bauxite = minerals.find(
+      (mineral) => mineral.mineral_id === "MIN_005"
+    );
+
+    select.value = bauxite
+      ? bauxite.mineral_id
+      : minerals[0].mineral_id;
+
+    function renderTable(selectedId) {
+      tableTarget.innerHTML = `
+        <table class="pn-table">
+          <thead>
+            <tr>
+              <th>Mineral</th>
+              <th class="num">Anos observados</th>
+              <th>Método escolhido</th>
+              <th class="num">Erro no backtest</th>
+              <th class="num">Produção 2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${minerals
+              .map(
+                (mineral) => `
+                  <tr class="${
+                    mineral.mineral_id === selectedId
+                      ? "pb-selected"
+                      : ""
+                  }">
+                    <td>
+                      <button
+                        type="button"
+                        data-pb-mineral="${escapeHtml(
+                          mineral.mineral_id
+                        )}"
+                      >${escapeHtml(mineral.mineral_name)}</button>
+                    </td>
+                    <td class="num">${number(
+                      mineral.observed_years
+                    )}</td>
+                    <td>${escapeHtml(
+                      methodName(mineral.selected_method)
+                    )}</td>
+                    <td class="num">${percent(
+                      mineral.backtest_smape_selected_pct
+                    )}</td>
+                    <td class="num">${tonnes(
+                      mineral.production_latest_t
+                    )}</td>
+                  </tr>
+                `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
+
+      tableTarget
+        .querySelectorAll("[data-pb-mineral]")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            select.value = button.dataset.pbMineral;
+            render();
+            panel.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          });
+        });
+    }
+
+    function render() {
+      const id = select.value;
+
+      const mineral = minerals.find(
+        (item) => item.mineral_id === id
+      );
+
+      const observed = data.series
+        .filter((row) => row.mineral_id === id)
+        .sort((a, b) => Number(a.year) - Number(b.year));
+
+      const projected = data.forecast
+        .filter((row) => row.mineral_id === id)
+        .sort((a, b) => Number(a.year) - Number(b.year));
+
+      const forecast2040 = projected.find(
+        (row) => Number(row.year) === 2040
+      );
+
+      metrics.innerHTML = `
+        <div class="pb-metric">
+          <span>Primeiro ano observado</span>
+          <strong>${number(
+            mineral.first_observed_year
+          )}</strong>
+          <small>Base do índice histórico = 100</small>
+        </div>
+
+        <div class="pb-metric">
+          <span>Produção em 2025</span>
+          <strong>${tonnes(
+            mineral.production_latest_t
+          )}</strong>
+          <small>${number(
+            mineral.observed_years
+          )} anos observados</small>
+        </div>
+
+        <div class="pb-metric">
+          <span>Método selecionado</span>
+          <strong>${escapeHtml(
+            methodName(mineral.selected_method)
+          )}</strong>
+          <small>Escolhido por backtest</small>
+        </div>
+
+        <div class="pb-metric">
+          <span>Produção de referência em 2040</span>
+          <strong>${
+            forecast2040
+              ? tonnes(forecast2040.production_reference_t)
+              : "Não projetável"
+          }</strong>
+          <small>${
+            forecast2040
+              ? `Erro de backtest: ${percent(
+                  mineral.backtest_smape_selected_pct
+                )}`
+              : "Produção de 2025 igual a zero"
+          }</small>
+        </div>
+      `;
+
+      chartTarget.innerHTML = chart(
+        observed,
+        projected,
+        mineral.mineral_name
+      );
+
+      renderTable(id);
+    }
+
+    select.addEventListener("change", render);
     render();
   }
 
-  async function start() {
-    if (started) {
-      render();
-      return;
-    }
-
-    createPanel();
-
-    if (!document.getElementById("pv-production-benchmark")) {
-      return;
-    }
-
+  async function init() {
     try {
-      const response = await fetch(SOURCE, { cache: "no-store" });
+      const response = await fetch(`${SOURCE}?v=20261115a`, {
+        cache: "no-store",
+      });
 
       if (!response.ok) {
-        throw new Error("Benchmark data unavailable");
+        throw new Error("Não foi possível carregar o benchmark.");
       }
 
-      data = await response.json();
-      started = true;
-      populate();
+      const data = await response.json();
+      setup(data);
     } catch (error) {
-      document.getElementById("pb-overview-chart").innerHTML =
-        '<p class="muted small">Benchmark data is not available yet.</p>';
+      console.error(error);
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    start();
-
-    document.addEventListener("click", (event) => {
-      if (event.target.closest('#pv-tabs [data-pv="dados"]')) {
-        setTimeout(render, 50);
-      }
-    });
-
-    let resizeTimer;
-
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(render, 160);
-    });
-  });
+  init();
 })();
