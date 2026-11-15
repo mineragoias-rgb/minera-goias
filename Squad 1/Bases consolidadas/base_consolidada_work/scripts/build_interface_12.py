@@ -81,6 +81,7 @@ tot, fids, flags = defaultdict(float), defaultdict(list), defaultdict(set)
 cf_rs, cf_t, tot_rs, tot_t = defaultdict(float), defaultdict(float), defaultdict(float), defaultdict(float)
 cf_emp, cf_mun, cf_sub, cf_alerta = defaultdict(Counter), defaultdict(Counter), defaultdict(set), set()
 pelo_cnpj = set()  # processos sem titular no Cadastro cuja empresa veio da raiz do CNPJ pagador no CFEM (notas da 08)
+cf_rs_mes, cf_t_mes = defaultdict(lambda: defaultdict(float)), defaultdict(lambda: defaultdict(float))  # (mineral, ano, processo) -> mês -> R$ / t
 for r in fato["linhas"]:
     if r[C["uf"]] != "GO":
         continue
@@ -98,6 +99,7 @@ for r in fato["linhas"]:
         cat = PAI.get(mid, mid)
         kp = (cat, r[C["year"]], r[C["processo_anm"]])
         if met == "cfem_recolhido" and vt is not None:
+            cf_rs_mes[kp][r[C["periodo_referencia"]]] += vt
             cf_rs[kp] += vt
             tot_rs[kp[:2]] += vt
             cf_emp[kp][r[C["company_id"]]] += vt
@@ -109,10 +111,49 @@ for r in fato["linhas"]:
                 cf_sub[kp].add(NOME[mid])
         elif met == "quantidade_comercializada_cfem":
             if vt is not None and r[C["unidade_padrao"]] == "t":
+                cf_t_mes[kp][r[C["periodo_referencia"]]] += vt
                 cf_t[kp] += vt
                 tot_t[kp[:2]] += vt
             if r[C["status_validacao"]] == "alerta_processo_09c":
                 cf_alerta.add(kp)
+# Recolhimento atípico (diagnóstico de 15/11/2026): um mês em que o processo recolhe mais de 3× a mediana dos outros meses do
+# ano em R$ e mais de 10× em toneladas, com o R$/t caindo abaixo da metade do usual, não é venda do mês — é acerto de período
+# anterior ou declaração de outra base (ex.: Mosaic, Catalão, ago/2025: R$ 7,8 mi e 4,8 Mt num mês, contra ~R$ 0,9 mi e
+# ~80 mil t nos outros; sozinho, invertia o rateio do fosfato entre Mosaic e CMOC). No rateio, esse mês entra pela mediana dos
+# outros meses do processo; o R$ recolhido de fato continua em cfem_brl_operacao. Só vale com 6 meses ou mais no ano.
+# Validação do rateio contra a produção publicada pelas empresas (Squad 1/Auditoria e qualidade/producao_empresas_ri_2025_2026.csv):
+# só onde o mineral tem mais de uma empresa e a empresa publica o ano inteiro.
+VALIDACAO = "CBA bauxita 2024 −8%, Serra Grande ouro 2024 +11%, Mara Rosa ouro 2024 −9%"
+ERRO_TIPICO_PCT = 10
+MESES_MIN, FATOR_RS, FATOR_T, FATOR_PRECO = 6, 3.0, 10.0, 0.5
+atipicos = {}  # kp -> [(mês, R$ observado, R$ usado)]
+
+
+def _mediana(xs):
+    xs = sorted(xs)
+    n = len(xs)
+    return (xs[n // 2] if n % 2 else (xs[n // 2 - 1] + xs[n // 2]) / 2) if n else 0.0
+
+
+cf_rs_obs = dict(cf_rs)
+for kp, meses in cf_rs_mes.items():
+    if len(meses) < MESES_MIN:
+        continue
+    tm = cf_t_mes.get(kp, {})
+    for mes, v in list(meses.items()):
+        outros_rs = [w for m, w in meses.items() if m != mes]
+        outros_t = [w for m, w in tm.items() if m != mes]
+        mv, mq, q = _mediana(outros_rs), _mediana(outros_t), tm.get(mes, 0.0)
+        if mv > 0 and mq > 0 and q > 0 and v > FATOR_RS * mv and q > FATOR_T * mq and v / q < FATOR_PRECO * mv / mq:
+            atipicos.setdefault(kp, []).append((mes, v, mv))
+            cf_rs[kp] += mv - v
+            tot_rs[kp[:2]] += mv - v
+            if kp in cf_t:
+                cf_t[kp] += mq - q
+                tot_t[kp[:2]] += mq - q
+print(f"recolhimento atípico: {sum(len(v) for v in atipicos.values())} meses em {len(atipicos)} processo-mineral-anos; "
+      f"R$ {sum(o - u for v in atipicos.values() for _, o, u in v):,.0f} trocados pela mediana do processo")
+
 procs_de = defaultdict(list)
 for (cat, ano, proc), v in cf_rs.items():
     procs_de[(cat, ano)].append((proc, v))
@@ -162,6 +203,7 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     if not abre:
         continue
     R, T = tot_rs[(mid, ano)], tot_t.get((mid, ano), 0.0)
+    n_procs = len(procs_de[(mid, ano)])
     soma = 0.0
     for proc, v in sorted(procs_de[(mid, ano)], key=lambda x: -x[1]):
         kp = (mid, ano, proc)
@@ -175,6 +217,9 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
             + (["SRC_ANM_SIGMINE", "SRC_IBGE_MALHA_2025"] if o else [])
         faixa = (f"entre {br(min(est, alt), 3)} e {br(max(est, alt), 3)} t (rateio por R$ × rateio pela quantidade em t da CFEM)" if alt is not None
                  else "sem alternativa: a CFEM do mineral no ano não tem quantidade em t")
+        if n_procs > 1:  # com uma operação só, a abertura é o próprio total do estado
+            faixa += (f"; erro observado contra a produção publicada pelas empresas: {VALIDACAO} — use ±{ERRO_TIPICO_PCT}% "
+                      f"(entre {br(est * (1 - ERRO_TIPICO_PCT / 100), 3)} e {br(est * (1 + ERRO_TIPICO_PCT / 100), 3)} t)")
         obs = []
         if cf_sub[kp]:
             obs.append("CFEM declarada como " + ", ".join(sorted(cf_sub[kp])) + f" (subitem de {NOME[mid]})")
@@ -186,12 +231,15 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
             obs.append("processo sem titular nas bases de título: empresa pela raiz do CNPJ pagador no CFEM")
         if kp in cf_alerta:
             obs.append("processo na 09c (quantidade da CFEM implausível frente ao AMB): o rateio por R$ não usa a quantidade, mas a alternativa em t fica distorcida")
+        if kp in atipicos:
+            obs.append("recolhimento atípico substituído pela mediana do processo no rateio: "
+                       + ", ".join(f"{m} (R$ {br(o)} → R$ {br(u)})" for m, o, u in atipicos[kp]))
         if flags[k]:
             obs.append("o total do estado tem produção repetida entre linhas do AMB (ver linha de nível estado)")
         nova(mineral_id=mid, mineral_name=NOME[mid], company_id=comp, operation_id=o["operation_id"] if o else None, municipality_id=mun, year=ano,
              production_t=est, production_basis=base, latitude=o["latitude"] if o else None, longitude=o["longitude"] if o else None,
              nivel_agregacao="operacao", processo_anm=proc, valor_observado_estimado="estimado", metodo_estimacao=METODO, erro_estimativa_intervalo=faixa,
-             participacao_cfem_brl=s, cfem_brl_operacao=v, cfem_brl_mineral_ano=R, production_t_rateio_por_t=alt,
+             participacao_cfem_brl=s, cfem_brl_operacao=cf_rs_obs[kp], cfem_brl_mineral_ano=R, production_t_rateio_por_t=alt,
              status_validacao="estimativa_com_alerta_09c" if kp in cf_alerta else "estimativa_conferida_no_total", responsavel_validacao=RESPONSAVEL,
              periodo_referencia=str(ano), tipo_fonte="oficial", fato_ids="; ".join(fids[k]), observacao="; ".join(obs) or None, **fontes(ids))
         soma += est

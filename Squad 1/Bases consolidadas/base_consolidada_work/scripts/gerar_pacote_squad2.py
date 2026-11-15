@@ -265,3 +265,5 @@ print(f"SALVO: {PASTA} (interface_squad1_squad2.csv, dicionario_interface_squad1
 import runpy  # noqa: E402
 
 runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), "gerar_coprodutos.py"), run_name="__main__")
+# Estimativa de 2026 pela CFEM do período já fechado (também lê a aba 12 recém-gravada).
+runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), "gerar_estimativa_2026.py"), run_name="__main__")

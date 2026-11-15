@@ -14,7 +14,7 @@ Parcela da produção estimada por operação que fica sem coordenadas (soma ent
 
 | Base | 2022 | 2023 | 2024 | 2025 |
 |---|---:|---:|---:|---:|
-| ROM | 25,4% | 23,5% | 16,5% | 17,8% |
+| ROM | 25,4% | 23,5% | 16,5% | 18,2% |
 | beneficiada | 10,2% | 8,4% | 6,8% | 9,9% |
 
 Minerais mais afetados (produção bruta, ROM):
@@ -24,12 +24,12 @@ Minerais mais afetados (produção bruta, ROM):
 | Ouro | 2022 | 26,46 Mt | 91,8% |
 | Ouro | 2023 | 25,49 Mt | 81,2% |
 | Ouro | 2024 | 14,52 Mt | 55,8% |
-| Ouro | 2025 | 13,06 Mt | 57,6% |
+| Ouro | 2025 | 13,49 Mt | 59,5% |
 | Calcário | 2022 | 3,38 Mt | 22,1% |
 | Calcário | 2025 | 2,90 Mt | 20,3% |
 | Calcário | 2024 | 2,85 Mt | 21,0% |
 | Calcário | 2023 | 2,19 Mt | 15,9% |
-| Areia | 2025 | 2,10 Mt | 37,3% |
+| Areia | 2025 | 2,10 Mt | 37,4% |
 | Areia | 2024 | 1,14 Mt | 39,7% |
 | Areia | 2023 | 0,97 Mt | 35,3% |
 | Rochas (Britadas) e Cascalho | 2025 | 0,79 Mt | 5,8% |
@@ -40,12 +40,12 @@ Minerais mais afetados (produção bruta, ROM):
 
 | Processo | Minerais | Anos | ROM estimada no período | Titular |
 |---|---|---|---:|---|
-| 960658/1987 | Ouro, Prata | 2022–2025 | 70,29 Mt | COM_CNPJ_42445403 |
+| 960658/1987 | Ouro, Prata | 2022–2025 | 70,73 Mt | COM_CNPJ_42445403 |
 | 960657/1987 | Ouro | 2022–2024 | 9,03 Mt | COM_CNPJ_42445403 |
 | 960079/1988 | Calcário | 2022–2025 | 4,62 Mt | COM_CNPJ_01413855 |
 | 960993/2007 | Calcário | 2022–2025 | 4,29 Mt | COM_CNPJ_37883097 |
 | 961799/2009 | Calcário | 2022–2025 | 1,62 Mt | COM_CNPJ_62258884 |
-| 960442/2012 | Areia | 2023–2025 | 0,81 Mt | COM_CNPJ_00652008 |
+| 960442/2012 | Areia | 2023–2025 | 0,82 Mt | COM_CNPJ_00652008 |
 | 960317/2017 | Rochas (Britadas) e Cascalho | 2025–2025 | 0,79 Mt | COM_CNPJ_17833812 |
 | 960704/2008 | Areia, Rochas Ornamentais, Saibro | 2022–2025 | 0,58 Mt | COM_CNPJ_00097494 |
 | 860906/2007 | Calcário | 2022–2025 | 0,37 Mt | COM_CNPJ_86924701 |

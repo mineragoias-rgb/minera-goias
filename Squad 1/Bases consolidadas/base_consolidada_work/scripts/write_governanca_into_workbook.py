@@ -1063,9 +1063,9 @@ D.update({
     "mineral_nome_original": ("Substância exatamente como escrita na fonte, antes do crosswalk para mineral_id (01b/01c).", "texto", "fonte da linha"),
     # aba 12 (interface Squad 1 → Squad 2, real na v9)
     "nivel_agregacao": ("estado = total observado de Goiás (AMB); operacao = abertura estimada desse total por processo. Não somar os dois níveis.", "", "Derivado"),
-    "participacao_cfem_brl": ("Participação do processo na CFEM recolhida (R$) do mineral no ano em Goiás — a chave do rateio.", "0 a 1", "Derivado — 08 (cfem_recolhido)"),
-    "cfem_brl_operacao": ("CFEM recolhida pelo processo no mineral e ano (numerador da participação).", "R$ nominais", "ANM CFEM (via 08)"),
-    "cfem_brl_mineral_ano": ("CFEM recolhida em Goiás no mineral e ano (denominador da participação).", "R$ nominais", "ANM CFEM (via 08)"),
+    "participacao_cfem_brl": ("Participação do processo na CFEM (R$) do mineral no ano em Goiás — a chave do rateio. Mês de recolhimento atípico (acerto de período: R$ > 3× e t > 10× a mediana do processo, R$/t < metade) entra pela mediana dos outros meses.", "0 a 1", "Derivado — 08 (cfem_recolhido)"),
+    "cfem_brl_operacao": ("CFEM recolhida pelo processo no mineral e ano, como veio da ANM (sem o ajuste do recolhimento atípico; ver observacao).", "R$ nominais", "ANM CFEM (via 08)"),
+    "cfem_brl_mineral_ano": ("CFEM do mineral no ano em Goiás, denominador da participação (com o ajuste do recolhimento atípico).", "R$ nominais", "ANM CFEM (via 08)"),
     "production_t_rateio_por_t": ("Sensibilidade: o mesmo total rateado pela quantidade comercializada em t da CFEM. Distorcida pelos erros de quantidade da CFEM (09b/09c); "
                                   "vazia quando a CFEM do mineral no ano não tem quantidade em t.", "t", "Derivado — 08 (quantidade_comercializada_cfem)"),
     "fato_ids": ("Linhas da 08 somadas no total do AMB (no nível operação, o total que foi rateado).", "FATO_###### separados por ';'", "08_fato_producao_energia"),

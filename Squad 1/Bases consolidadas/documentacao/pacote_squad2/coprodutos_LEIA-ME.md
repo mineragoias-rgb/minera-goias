@@ -17,8 +17,8 @@ Gerado por `base_consolidada_work/scripts/gerar_coprodutos.py` (chamado no fim d
 |---|---|---|---|---|---|
 | Chapada (Alto Horizonte) | Cobre | 67,9% | 242.239 | 5,51 MWh/t | 8,11 MWh/t (conteudo_mineral) |
 | Chapada (Alto Horizonte) | Ouro | 32,1% | 114.296 | 1,86 MWh/oz | fora do motor |
-| Complexo Catalão/Ouvidor (CMOC) | Nióbio | 61,6% | 116.732 | 11,28 MWh/t | fora do motor |
-| Complexo Catalão/Ouvidor (CMOC) | Fosfato | 38,4% | 176.285 | 0,17 MWh/t | 0,12 MWh/t (beneficiada) |
+| Complexo Catalão/Ouvidor (CMOC) | Nióbio | 54,9% | 115.813 | 11,19 MWh/t | fora do motor |
+| Complexo Catalão/Ouvidor (CMOC) | Fosfato | 45,1% | 177.203 | 0,13 MWh/t | 0,12 MWh/t (beneficiada) |
 
 ## Leitura para o Squad 2
 - **Chapada:** hoje toda a energia vai para o cobre. Pelo valor, o ouro leva cerca de 1/3. Usar a intensidade rateada do cobre **sem** criar a linha

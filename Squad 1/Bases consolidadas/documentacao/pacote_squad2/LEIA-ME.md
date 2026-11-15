@@ -22,7 +22,7 @@ vazios ficam vazios (nada foi preenchido com zero).
 | `operacao` | 4.831 | 2022–2025 | estimado: 4.831 | o total do estado rateado entre 931 processos pela participação de cada um na CFEM recolhida (R$) do mineral no ano |
 
 - Em 153 das 181 combinações de mineral, ano e base de 2022–2025 com produção no estado, a soma das operações é igual ao total do estado (diferença até 0,1%); em 28 não há abertura por operação (1,4% da produção do estado nesses anos — Areias Industriais: 8; Feldspato, Leucita e Nefelina-Sienito: 7; Talco e outras Cargas Minerais: 6; Diamante: 3; Monazita e Terras-Raras: 2; Bário: 1; Fluorita e Criolita: 1; o motivo fica em `observacao` na linha do estado).
-- **Sem `operation_id`:** 457 linhas do nível operação (112 processos, 18,3% da
+- **Sem `operation_id`:** 457 linhas do nível operação (112 processos, 18,4% da
   produção estimada) são de processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás. O `processo_anm` identifica essas
   linhas; a lista está em `../operacoes_sem_coordenadas.csv` e a explicação em `../nota_squad2_operacoes_sem_coordenadas.md`.
 - **Titular não identificado:** 30 linhas do nível operação têm `company_id = COM_NAO_IDENTIFICADO`
