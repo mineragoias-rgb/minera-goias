@@ -214,8 +214,7 @@ A bauxita não usa a regra de tendência histórica no cenário de referência: 
 
 ## Camada de projetos
 
-A projeção de tendência representa as operações existentes. Os novos projetos entram por uma camada própria, em
-`src/projects.py`, que liga a base de projetos do Squad 1 ao modelo:
+A projeção de tendência representa as operações existentes. Os novos projetos entram por uma camada própria, em `src/projects.py`, que liga a base de projetos do Squad 1 ao modelo:
 
 ```text
 produção projetada(m, t, s) = tendência(m, t, s) + Σ peso(maturidade do projeto, s) × incremento do projeto(t)
@@ -227,9 +226,7 @@ produção projetada(m, t, s) = tendência(m, t, s) + Σ peso(maturidade do proj
 | Quantificação | `parameters/project_pipeline.csv` | Incremento anual de produção, ano de entrada e de saída de cada projeto, na base de produção do mineral |
 | Pesos | `parameters/project_maturity_weights.csv` | Fração do incremento somada em cada cenário, por maturidade |
 
-A maturidade é lida da curadoria a cada execução: se um projeto avança ou recua no Radar, o peso muda sem editar o
-modelo. Um projeto só entra no pipeline quando a fonte traz incremento de produção e período; o modelo recusa a execução
-se o projeto não existir na curadoria, se o mineral for outro ou se a base de produção não for a que o modelo usa.
+A maturidade é lida da curadoria a cada execução: se um projeto avança ou recua no Radar, o peso muda sem editar o modelo. Um projeto só entra no pipeline quando a fonte traz incremento de produção e período; o modelo recusa a execução se o projeto não existir na curadoria, se o mineral for outro ou se a base de produção não for a que o modelo usa.
 
 | Maturidade | Conservador | Referência | Expansão |
 |---|---:|---:|---:|
@@ -240,14 +237,9 @@ se o projeto não existir na curadoria, se o mineral for outro ou se a base de p
 | Possível | 0 | 0 | 0,5 |
 | Sinal | 0 | 0 | 0 |
 
-Os pesos são hipóteses ilustrativas (`SRC_S2_ASSUMPTION_002`), não probabilidades estimadas. Projetos em operação já
-estão na série histórica e têm peso zero, para não contar duas vezes.
+Os pesos são hipóteses ilustrativas (`SRC_S2_ASSUMPTION_002`), não probabilidades estimadas. Projetos em operação já estão na série histórica e têm peso zero, para não contar duas vezes.
 
-Na curadoria atual, 13 projetos são dos cinco minerais do modelo: 8 em operação, 2 possíveis (níquel de Santa Fé e
-Morro do Engenho, leilões do SGB), 2 sinais e 1 expansão. Só a **expansão de Chapada (depósito Saúva)** traz incremento
-e período nas fontes: cerca de 15 mil t de cobre contido por ano de 2029 a 2032 (estudo citado pela Lundin, não
-capacidade anunciada). No cenário de referência, isso soma cerca de 0,11–0,12 TWh por ano entre 2029 e 2032, cerca de
-2,5% da demanda desses anos; 2027 e 2040 não mudam.
+Na curadoria atual, 13 projetos são dos cinco minerais do modelo: 8 em operação, 2 possíveis (níquel de Santa Fé e Morro do Engenho, leilões do SGB), 2 sinais e 1 expansão. Só a **expansão de Chapada (depósito Saúva)** traz incremento e período nas fontes: cerca de 15 mil t de cobre contido por ano de 2029 a 2032. No cenário de referência, isso soma cerca de 0,11–0,12 TWh por ano entre 2029 e 2032, cerca de 2,5% da demanda desses anos; 2027 e 2040 não mudam.
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -296,9 +288,7 @@ Com os coeficientes finais integrados e a regra de referência da bauxita ajusta
 - **4,59 TWh em 2027**
 - **4,84 TWh em 2040**
 
-Em 2040, os principais componentes são níquel, com cerca de 2,56 TWh, e bauxita, com cerca de 1,81 TWh. Entre 2029 e
-2032, a expansão de Chapada (Saúva) acrescenta cerca de 0,11–0,12 TWh por ano no cenário de referência (camada de
-projetos).
+Em 2040, os principais componentes são níquel, com cerca de 2,56 TWh, e bauxita, com cerca de 1,81 TWh. Entre 2029 e 2032, a expansão de Chapada acrescenta cerca de 0,11–0,12 TWh por ano no cenário de referência.
 
 | Cenário | Demanda elétrica em 2040 |
 |---|---:|
@@ -343,7 +333,7 @@ faixa baixa = energia base × (1 - MAPE do backtest) × 0,90
 faixa alta  = energia base × (1 + MAPE do backtest) × 1,10
 ```
 
-As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança. Elas mostram como a projeção varia quando se combinam o erro da regra selecionada no backtest e a incerteza dos coeficientes energéticos.
+As faixas são **intervalos de cenário**, não intervalos estatísticos de confiança.
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -395,13 +385,49 @@ A partir da raiz do repositório:
 
 ```bash
 python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+
 python "Squad 2/modello_reale/src/common.py"
 python "Squad 2/modello_reale/src/run_backtest.py"
 python "Squad 2/modello_reale/src/run_future_scenarios.py"
 python "Squad 2/modello_reale/src/run_intensity_sensitivity.py"
 python "Squad 2/modello_reale/src/run_uncertainty_bands.py"
+
+python "Squad 2/modello_reale/src/build_energy_comparison.py"
+python "Squad 2/modello_reale/src/build_production_benchmark.py"
+
 python "Squad 2/modello_reale/src/build_presentation_summary.py"
 python "Squad 2/modello_reale/src/build_presentation_charts.py"
+```
+
+## Benchmark produtivo e comparações externas
+
+Além do modelo elétrico de cinco minerais, o script:
+
+```text
+src/build_production_benchmark.py
+```
+
+gera um benchmark de produção para 18 minerais com série estadual observada suficiente. Para cada série, compara persistência, tendência logarítmica ponderada e Holt amortecido por backtest. A previsão só utiliza tendência quando ela supera claramente a persistência e apresenta erro aceitável; caso contrário, mantém o último nível observado.
+
+Os minerais adicionais aparecem no painel com produção histórica, previsão e índice de pressão energética relativa, com 2025 = 100. Esse índice indica como a demanda de energia do próprio mineral variaria se sua intensidade energética permanecesse constante. Ele não representa TWh e não entra no total elétrico sem um coeficiente MWh/t compatível.
+
+O script:
+
+```text
+src/build_energy_comparison.py
+```
+
+gera a comparação dos coeficientes energéticos dos cinco minerais incluídos no modelo elétrico.
+
+O painel também compara a trajetória do cenário de referência com o PDE 2035 da EPE/MME. A comparação é normalizada em 2027 = 100: o modelo Squad 2 cobre eletricidade de cinco minerais em Goiás, enquanto a EPE cobre energia final de mineração e pelotização no Brasil. Portanto, ela compara ritmos de crescimento, não níveis absolutos de TWh.
+
+Os painéis web relacionados usam os arquivos:
+
+```text
+public/production-benchmark.js
+public/energy-intensity.js
+public/additional-minerals-status.js
+public/external-comparison.js
 ```
 
 ## Automação e verificação
@@ -427,10 +453,10 @@ Ele:
 
 - A bauxita depende de benchmark proxy, pois não há consumo CCEE observado para os produtores identificados.
 - Os coeficientes observados ou estimados referem-se a 2025; mudanças futuras de tecnologia ou operação podem modificá-los.
-- A camada de projetos só soma o que as fontes quantificam (incremento de produção e período); hoje, apenas a expansão de Chapada. Encerramentos e atrasos operacionais não são modelados, e a tendência histórica pode já embutir parte de expansões passadas.
+- A camada de projetos só soma o que as fontes quantificam; hoje, apenas a expansão de Chapada.
 - Não há camada macroeconômica ou elasticidade entre demanda global e produção de Goiás.
 - Não foi realizado backtest de consumo elétrico agregado, porque ainda não existe uma série histórica com o mesmo perímetro de operações e produção.
 - O backtest possui apenas dois anos de teste por mineral; a comparação com a referência simples é evidência útil, mas ainda não demonstra superioridade estatística generalizável entre métodos.
 - Mudanças estruturais, como a queda de bauxita em 2024, não podem ser antecipadas somente por uma tendência histórica.
-- A cobertura está limitada a cinco minerais.
+- A cobertura quantitativa em TWh está limitada a cinco minerais.
 - As faixas baixa, base e alta são cenários de sensibilidade; não devem ser interpretadas como intervalos estatísticos de confiança.
