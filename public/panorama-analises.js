@@ -62,6 +62,21 @@ cards.push(
 {id:'rom_benef',sec:'prod',filters:['ano','min'],render(X,box){const C=X.C,amb=X.amb(),last=lastYear(amb),rows=amb.filter(r=>r[0]===last&&r[2]>0&&r[4]>0).sort((a,b)=>b[2]-a[2]);
  C.table(tableIn(X,box,X.t('pn.refYear',{y:last||'—'})),[{label:X.t('pn.h.min'),get:r=>X.min(r[1])},{label:X.t('pn.h.rom'),get:r=>r[2],num:1,fmt:v=>C.fmt(v,0)},
   {label:X.t('pn.h.benefT'),get:r=>r[4],num:1,fmt:v=>C.fmt(v,2)},{label:X.t('pn.h.romPorT'),get:r=>r[2]/r[4],num:1,fmt:v=>C.fmt(v,v<10?2:0)}],rows,{limit:12})}},
+// Physical beneficiated output by mineral, in tonnes and never summed across minerals. A break is a year more than 10 times above, or
+// below a tenth of, the median of the other producing years (at least 3): a change in how the company reports, flagged and not corrected.
+{id:'benef_t',sec:'prod',wide:true,filters:['ano','min'],render(X,box){const C=X.C,years=X.years(2010,2025),amb=X.amb();
+ const serie=mi=>{const m=new Map();amb.forEach(r=>{if(r[1]===mi)m.set(r[0],(m.get(r[0])||0)+r[4])});return m};
+ const quebras=s=>[...s].filter(([y,v])=>{if(!(v>0))return false;const o=[...s].filter(([z,w])=>z!==y&&w>0).map(x=>x[1]).sort((a,b)=>a-b);
+  if(o.length<3)return false;const h=o.length>>1,med=o.length%2?o[h]:(o[h-1]+o[h])/2;return v>10*med||v<med/10}).map(([y])=>y).sort((a,b)=>a-b);
+ const ton=v=>C.fmt(v,v<100?2:0);
+ if(X.F.min>=0){const s=serie(X.F.min),q=quebras(s);
+  return (q.length?`<p class="small muted">${X.E(X.t('pn.benefT.quebra',{y:q.join(', ')}))}</p>`:'')
+   +C.vbar(years.map(String),[{name:X.min(X.F.min),values:years.map(y=>s.get(y)||0)}],{fmt:v=>ton(v)+' t',axis:v=>C.short(v),partial:new Set(q.map(String)),aria:X.t('pn.c.benef_t')})}
+ const last=lastYear(amb),rows=[...new Set(amb.filter(r=>r[1]>=0).map(r=>r[1]))].map(mi=>{const s=serie(mi),ys=[...s.keys()].filter(y=>s.get(y)>0).sort((a,b)=>a-b);
+  return {mi,s,first:ys[0],q:quebras(s)}}).filter(r=>r.s.get(last)>0).sort((a,b)=>b.s.get(last)-a.s.get(last));
+ C.table(tableIn(X,box,X.t('pn.benefT.tabela',{y:last||'—'})),[{label:X.t('pn.h.min'),get:r=>X.min(r.mi)},{label:X.t('pn.h.desde'),get:r=>r.first,num:1,fmt:v=>String(v)},
+  {label:X.t('pn.h.tPrimeiro'),get:r=>r.s.get(r.first)||0,num:1,fmt:ton},{label:X.t('pn.h.tUltimo'),get:r=>r.s.get(last),num:1,fmt:ton},
+  {label:X.t('pn.h.quebras'),get:r=>r.q.join(', ')||'—'}],rows,{limit:15})}},
 
 {id:'inv_cfem',sec:'pesq',wide:true,filters:['ano','min'],render(X,box){const C=X.C,P=X.P,F=X.F,y0=Math.max(F.y0,2022),y1=Math.min(F.y1,2025);
  if(y0>y1)return notice(X,'pn.invCfemYears');

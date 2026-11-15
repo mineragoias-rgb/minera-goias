@@ -72,6 +72,20 @@ class PanoramaTests(unittest.TestCase):
         self.assertEqual(len(d['rod']['rows']), 3632)
         self.assertEqual(sum(1 for r in d['rod']['rows'] if situacao[r[1]] == 'Arrematada'), 942)
 
+    def test_beneficiated_tonnes_match_the_yearbook(self):
+        # o cartão "Produção beneficiada em toneladas" mostra benef_t por mineral: confere com "Quantidade Produção" do arquivo
+        # bruto, só convertendo kg em t (ouro, prata); quilate não é massa e fica fora
+        d = self.d
+        amb = linhas_anm(BRUTOS / 'ANM - Anuário Mineral Brasileiro (AMB)' / 'Producao_Beneficiada.csv', ',')
+        fator = {'t': 1.0, 'kg': 0.001}
+        for ano in (2010, 2025):
+            bruto = sum(numero(l['Quantidade Produção']) * fator.get(l['Unidade de Medida - Produção'], 0.0)
+                        for l in amb if l['UF'] == 'GO' and l['Ano base'] == str(ano))
+            self.assertAlmostEqual(sum(r[4] for r in d['amb_go']['rows'] if r[0] == ano), bruto, delta=1)
+        card = (ROOT / 'public' / 'panorama-analises.js').read_text(encoding='utf-8')
+        self.assertIn("id:'benef_t'", card)
+        self.assertIn('v>10*med||v<med/10', card)  # a regra de quebra que o texto do cartão descreve
+
     def test_ccee_distributors_are_their_own_group(self):
         # Loads without a sector are the distributors (captive market), kept apart from the free-market sectors.
         ramo = self.d['dims']['ramo']
