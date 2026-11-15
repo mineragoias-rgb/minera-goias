@@ -69,7 +69,7 @@ for r in linhas:
     ms = minerais_do_proc.get(proc_canon(r["Processo"], r["AnoDoProcesso"]))
     for m in ms or ():  # processo com dois minerais vota meio para cada; a substância fica com o mineral mais votado
         votos[r["Substância"].strip().upper()][m] += 1 / len(ms)
-sub2min = {s: c.most_common(1)[0][0] for s, c in votos.items()}
+sub2min = {s: min(c.items(), key=lambda kv: (-round(kv[1], 9), kv[0]))[0] for s, c in votos.items()}  # empate: menor mineral_id (estável entre execuções)
 
 # meses de 2026 já fechados
 n_mes = Counter((r["Ano"], int(r["Mês"])) for r in linhas)

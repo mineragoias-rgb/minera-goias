@@ -13,11 +13,11 @@ estado;MIN_033;Amianto;;ROM;4097726.0;R$: 100% da produção;jan–jun;;;-31.4;2
 empresa;MIN_033;Amianto;COM_CNPJ_15104599;ROM;4097726.0;R$ recolhidos (inclui variação de preço);jan–jun;5526926.22;3792857.05;-31.4;2812067.382;
 estado;MIN_033;Amianto;;beneficiada;179184.3;R$: 100% da produção;jan–jun;;;-31.4;122965.353;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_033;Amianto;COM_CNPJ_15104599;beneficiada;179184.3;R$ recolhidos (inclui variação de preço);jan–jun;5526926.22;3792857.05;-31.4;122965.353;
-estado;MIN_034;Areia;;ROM;5618517.71;"R$: 58% da produção; t: 31% da produção; mantida: 11% da produção";jan–jun;;;41.4;7941788.121;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+estado;MIN_034;Areia;;ROM;5618517.71;"R$: 58% da produção; t: 31% da produção; mantida: 11% da produção";jan–jun;;;41.5;7951885.129;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_034;Areia;COM_CNPJ_00652008;ROM;2186248.476;R$ recolhidos (inclui variação de preço);jan–jun;386466.06;419201.87;8.5;2371435.798;
 empresa;MIN_034;Areia;COM_CNPJ_12021400;ROM;365576.128;t comercializadas (R$/t estável);jan–jun;168817.2;182171.25;7.9;394494.52;
 empresa;MIN_034;Areia;COM_CNPJ_37299462;ROM;241795.774;t comercializadas (R$/t estável);jan–jun;64791.46;55690.08;-14.0;207830.26;
-empresa;MIN_034;Areia;COM_CNPJ_00097494;ROM;221941.813;R$ recolhidos (inclui variação de preço);jan–jun;31801.19;41236.24;29.7;287789.415;
+empresa;MIN_034;Areia;COM_CNPJ_00097494;ROM;221941.813;R$ recolhidos (inclui variação de preço);jan–jun;31901.22;42817.26;34.2;297886.423;
 empresa;MIN_034;Areia;COM_CNPJ_45701942;ROM;163174.219;t comercializadas (R$/t estável);jan–jun;65210.73;117420.17;80.1;293815.826;
 empresa;MIN_034;Areia;COM_CNPJ_02204584;ROM;147064.986;t comercializadas (R$/t estável);jan–jun;16547.4;19231.5;16.2;170919.92;
 empresa;MIN_034;Areia;COM_NOME_24664CCC;ROM;114945.148;;jan–jun;0.0;0.0;;114945.148;empresa sem CFEM no período de 2025: mantida a produção de 2025
@@ -197,11 +197,11 @@ empresa;MIN_034;Areia;COM_CNPJ_20677187;ROM;117.273;R$ recolhidos (inclui varia�
 empresa;MIN_034;Areia;COM_CNPJ_19017399;ROM;116.145;R$ recolhidos (inclui variação de preço);jan–jun;33.7;540.25;1503.1;1861.943;
 empresa;MIN_034;Areia;COM_CNPJ_28608546;ROM;68.758;;jan–jun;0.0;0.0;;68.758;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_034;Areia;COM_NOME_E71E5494;ROM;59.241;;jan–jun;0.0;0.0;;59.241;empresa sem CFEM no período de 2025: mantida a produção de 2025
-estado;MIN_034;Areia;;beneficiada;595052.49;"R$: 58% da produção; t: 31% da produção; mantida: 11% da produção";jan–jun;;;41.4;841108.107;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+estado;MIN_034;Areia;;beneficiada;595052.49;"R$: 58% da produção; t: 31% da produção; mantida: 11% da produção";jan–jun;;;41.5;842177.473;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_034;Areia;COM_CNPJ_00652008;beneficiada;231543.739;R$ recolhidos (inclui variação de preço);jan–jun;386466.06;419201.87;8.5;251156.773;
 empresa;MIN_034;Areia;COM_CNPJ_12021400;beneficiada;38717.861;t comercializadas (R$/t estável);jan–jun;168817.2;182171.25;7.9;41780.583;
 empresa;MIN_034;Areia;COM_CNPJ_37299462;beneficiada;25608.387;t comercializadas (R$/t estável);jan–jun;64791.46;55690.08;-14.0;22011.128;
-empresa;MIN_034;Areia;COM_CNPJ_00097494;beneficiada;23505.671;R$ recolhidos (inclui variação de preço);jan–jun;31801.19;41236.24;29.7;30479.535;
+empresa;MIN_034;Areia;COM_CNPJ_00097494;beneficiada;23505.671;R$ recolhidos (inclui variação de preço);jan–jun;31901.22;42817.26;34.2;31548.901;
 empresa;MIN_034;Areia;COM_CNPJ_45701942;beneficiada;17281.644;t comercializadas (R$/t estável);jan–jun;65210.73;117420.17;80.1;31117.787;
 empresa;MIN_034;Areia;COM_CNPJ_02204584;beneficiada;15575.529;t comercializadas (R$/t estável);jan–jun;16547.4;19231.5;16.2;18101.985;
 empresa;MIN_034;Areia;COM_NOME_24664CCC;beneficiada;12173.744;;jan–jun;0.0;0.0;;12173.744;empresa sem CFEM no período de 2025: mantida a produção de 2025
@@ -539,11 +539,11 @@ estado;MIN_016;Ferro;;ROM;6020.0;t: 100% da produção;jan–jun;;;-47.3;3173.84
 empresa;MIN_016;Ferro;COM_CNPJ_33931486;ROM;6020.0;t comercializadas (R$/t estável);jan–jun;172030.57;90697.44;-47.3;3173.846;
 estado;MIN_016;Ferro;;beneficiada;16045.5;t: 100% da produção;jan–jun;;;-47.3;8459.46;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_016;Ferro;COM_CNPJ_33931486;beneficiada;16045.5;t comercializadas (R$/t estável);jan–jun;172030.57;90697.44;-47.3;8459.46;
-estado;MIN_049;Fosfato;;ROM;11097426.26;t: 100% da produção;jan–jun;;;0.5;11154698.64;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_049;Fosfato;COM_CNPJ_26108898;ROM;5886465.075;t comercializadas (R$/t estável);jan–jun;920737.53;864973.63;-6.1;5529954.952;
+estado;MIN_049;Fosfato;;ROM;11097426.26;t: 100% da produção;jan–jun;;;-2.5;10823998.891;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_049;Fosfato;COM_CNPJ_26108898;ROM;5886465.075;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;5199255.204;
 empresa;MIN_049;Fosfato;COM_CNPJ_33931486;ROM;5210961.185;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;5624743.687;
-estado;MIN_049;Fosfato;;beneficiada;2511254.38;t: 100% da produção;jan–jun;;;0.5;2524214.639;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_049;Fosfato;COM_CNPJ_26108898;beneficiada;1332057.619;t comercializadas (R$/t estável);jan–jun;920737.53;864973.63;-6.1;1251382.372;
+estado;MIN_049;Fosfato;;beneficiada;2511254.38;t: 100% da produção;jan–jun;;;-2.5;2449380.062;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_049;Fosfato;COM_CNPJ_26108898;beneficiada;1332057.619;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;1176547.796;
 empresa;MIN_049;Fosfato;COM_CNPJ_33931486;beneficiada;1179196.761;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;1272832.267;
 estado;MIN_003;Gemas;;ROM;346.05;mantida: 100% da produção;jan–jun;;;0.0;346.05;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_003;Gemas;COM_NOME_01B00FBC;ROM;346.05;;jan–jun;0.0;0.0;;346.05;empresa sem CFEM no período de 2025: mantida a produção de 2025
@@ -559,27 +559,27 @@ estado;MIN_020;Monazita e Terras-Raras;;ROM;76631.68;R$: 100% da produção;jan�
 empresa;MIN_020;Monazita e Terras-Raras;COM_CNPJ_08842895;ROM;76631.68;R$ recolhidos (inclui variação de preço);jan–jun;1178783.62;407724.21;-65.4;26505.79;
 estado;MIN_020;Monazita e Terras-Raras;;beneficiada;325.77;R$: 100% da produção;jan–jun;;;-65.4;112.679;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_020;Monazita e Terras-Raras;COM_CNPJ_08842895;beneficiada;325.77;R$ recolhidos (inclui variação de preço);jan–jun;1178783.62;407724.21;-65.4;112.679;
-estado;MIN_021;Nióbio;;ROM;8986468.87;t: 100% da produção;jan–jun;;;-7.4;8324639.392;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_021;Nióbio;COM_CNPJ_26108898;ROM;8986468.87;t comercializadas (R$/t estável);jan–jun;1560651.19;1445713.39;-7.4;8324639.392;
-estado;MIN_021;Nióbio;;beneficiada;3280804.6;t: 100% da produção;jan–jun;;;-7.4;3039182.087;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_021;Nióbio;COM_CNPJ_26108898;beneficiada;3280804.6;t comercializadas (R$/t estável);jan–jun;1560651.19;1445713.39;-7.4;3039182.087;
+estado;MIN_021;Nióbio;;ROM;8986468.87;t: 100% da produção;jan–jun;;;-4.6;8572399.902;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_021;Nióbio;COM_CNPJ_26108898;ROM;8986468.87;t comercializadas (R$/t estável);jan–jun;1683749.04;1606167.04;-4.6;8572399.902;
+estado;MIN_021;Nióbio;;beneficiada;3280804.6;t: 100% da produção;jan–jun;;;-4.6;3129635.17;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_021;Nióbio;COM_CNPJ_26108898;beneficiada;3280804.6;t comercializadas (R$/t estável);jan–jun;1683749.04;1606167.04;-4.6;3129635.17;
 estado;MIN_022;Níquel;;ROM;2693905.97;R$: 100% da produção;jan–jun;;;10.1;2965092.832;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_022;Níquel;COM_CNPJ_42184226;ROM;2693905.97;R$ recolhidos (inclui variação de preço);jan–jun;10461289.15;11514393.53;10.1;2965092.832;
 estado;MIN_022;Níquel;;beneficiada;156885.63;R$: 100% da produção;jan–jun;;;10.1;172678.802;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_022;Níquel;COM_CNPJ_42184226;beneficiada;156885.63;R$ recolhidos (inclui variação de preço);jan–jun;10461289.15;11514393.53;10.1;172678.802;
-estado;MIN_023;Ouro;;ROM;22659437.61;"R$: 100% da produção; mantida: 0% da produção";jan–jun;;;-8.8;20669196.423;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_023;Ouro;COM_CNPJ_42445403;ROM;13492629.101;R$ recolhidos (inclui variação de preço);jan–jun;7559004.77;6402179.16;-15.3;11427725.14;
+estado;MIN_023;Ouro;;ROM;22659437.61;"R$: 100% da produção; mantida: 0% da produção";jan–jun;;;-8.7;20681944.655;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_023;Ouro;COM_CNPJ_42445403;ROM;13492629.101;R$ recolhidos (inclui variação de preço);jan–jun;7559004.77;6409321.13;-15.2;11440473.372;
 empresa;MIN_023;Ouro;COM_CNPJ_42799486;ROM;8940079.941;R$ recolhidos (inclui variação de preço);jan–jun;9738652.92;9851660.59;1.2;9043820.942;
 empresa;MIN_023;Ouro;COM_CNPJ_28877196;ROM;207330.672;R$ recolhidos (inclui variação de preço);jan–jun;167101.88;143665.76;-14.0;178252.445;
 empresa;MIN_023;Ouro;COM_NOME_7B274C2A;ROM;19397.896;;jan–jun;0.0;0.0;;19397.896;empresa sem CFEM no período de 2025: mantida a produção de 2025
-estado;MIN_023;Ouro;;beneficiada;3.4;"R$: 100% da produção; mantida: 0% da produção";jan–jun;;;-8.8;3.101;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_023;Ouro;COM_CNPJ_42445403;beneficiada;2.025;R$ recolhidos (inclui variação de preço);jan–jun;7559004.77;6402179.16;-15.3;1.715;
+estado;MIN_023;Ouro;;beneficiada;3.4;"R$: 100% da produção; mantida: 0% da produção";jan–jun;;;-8.7;3.103;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_023;Ouro;COM_CNPJ_42445403;beneficiada;2.025;R$ recolhidos (inclui variação de preço);jan–jun;7559004.77;6409321.13;-15.2;1.717;
 empresa;MIN_023;Ouro;COM_CNPJ_42799486;beneficiada;1.341;R$ recolhidos (inclui variação de preço);jan–jun;9738652.92;9851660.59;1.2;1.357;
 empresa;MIN_023;Ouro;COM_CNPJ_28877196;beneficiada;0.031;R$ recolhidos (inclui variação de preço);jan–jun;167101.88;143665.76;-14.0;0.027;
 empresa;MIN_023;Ouro;COM_NOME_7B274C2A;beneficiada;0.003;;jan–jun;0.0;0.0;;0.003;empresa sem CFEM no período de 2025: mantida a produção de 2025
 estado;MIN_025;Prata;;beneficiada;0.043;mantida: 100% da produção;jan–jun;;;0.0;0.043;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_025;Prata;COM_CNPJ_42445403;beneficiada;0.043;;jan–jun;0.0;0.0;;0.043;empresa sem CFEM no período de 2025: mantida a produção de 2025
-estado;MIN_059;Rochas (Britadas) e Cascalho;;ROM;13677259.829;"t: 74% da produção; R$: 24% da produção; mantida: 2% da produção";jan–jun;;;27.2;17397378.777;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+estado;MIN_059;Rochas (Britadas) e Cascalho;;ROM;13677259.829;"t: 75% da produção; R$: 24% da produção; mantida: 0% da produção";jan–jun;;;26.9;17353012.167;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_19336520;ROM;1473876.925;R$ recolhidos (inclui variação de preço);jan–jun;298539.23;393533.72;31.8;1942861.141;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_00057240;ROM;1324186.25;t comercializadas (R$/t estável);jan–jun;441595.54;507725.17;15.0;1522485.234;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_08987247;ROM;1094181.053;t comercializadas (R$/t estável);jan–jun;316203.11;294651.23;-6.8;1019603.485;
@@ -601,7 +601,7 @@ empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_04631282;ROM;215838.53;t c
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_01005875;ROM;190941.376;R$ recolhidos (inclui variação de preço);jan–jun;44879.05;60658.53;35.2;258076.39;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_09479746;ROM;182650.052;t comercializadas (R$/t estável);jan–jun;44764.72;64213.61;43.4;262005.865;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_11338568;ROM;152542.202;t comercializadas (R$/t estável);jan–jun;51884.58;39865.06;-23.2;117204.457;
-empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13342485;ROM;147232.4;;jan–jun;0.0;0.0;;147232.4;empresa sem CFEM no período de 2025: mantida a produção de 2025
+empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13342485;ROM;147232.4;t comercializadas (R$/t estável);jan–jun;98716.23;68969.35;-30.1;102865.789;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_04832053;ROM;107402.314;R$ recolhidos (inclui variação de preço);jan–jun;26224.59;16173.91;-38.3;66239.943;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_28092524;ROM;97851.782;R$ recolhidos (inclui variação de preço);jan–jun;39300.46;0.0;-100.0;0.0;sem CFEM no período de 2026: parou de vender ou deixou de recolher
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13166181;ROM;94525.45;t comercializadas (R$/t estável);jan–jun;106799.91;138944.08;30.1;122975.307;
@@ -640,7 +640,7 @@ empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_C8251206;ROM;195.138;;jan�
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_77955532;ROM;103.505;R$ recolhidos (inclui variação de preço);jan–jun;17.28;460.99;2567.8;2761.273;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_42FD6DF3;ROM;42.838;;jan–jun;0.0;0.0;;42.838;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_1A140790;ROM;16.563;;jan–jun;0.0;0.0;;16.563;empresa sem CFEM no período de 2025: mantida a produção de 2025
-estado;MIN_059;Rochas (Britadas) e Cascalho;;beneficiada;14556324.469;"t: 74% da produção; R$: 24% da produção; mantida: 2% da produção";jan–jun;;;27.2;18515542.846;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+estado;MIN_059;Rochas (Britadas) e Cascalho;;beneficiada;14556324.469;"t: 75% da produção; R$: 24% da produção; mantida: 0% da produção";jan–jun;;;26.9;18468324.705;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_19336520;beneficiada;1568605.92;R$ recolhidos (inclui variação de preço);jan–jun;298539.23;393533.72;31.8;2067732.683;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_00057240;beneficiada;1409294.329;t comercializadas (R$/t estável);jan–jun;441595.54;507725.17;15.0;1620338.382;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_08987247;beneficiada;1164506.241;t comercializadas (R$/t estável);jan–jun;316203.11;294651.23;-6.8;1085135.425;
@@ -662,7 +662,7 @@ empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_04631282;beneficiada;22971
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_01005875;beneficiada;203213.558;R$ recolhidos (inclui variação de preço);jan–jun;44879.05;60658.53;35.2;274663.472;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_09479746;beneficiada;194389.333;t comercializadas (R$/t estável);jan–jun;44764.72;64213.61;43.4;278845.502;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_11338568;beneficiada;162346.392;t comercializadas (R$/t estável);jan–jun;51884.58;39865.06;-23.2;124737.42;
-empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13342485;beneficiada;156695.318;;jan–jun;0.0;0.0;;156695.318;empresa sem CFEM no período de 2025: mantida a produção de 2025
+empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13342485;beneficiada;156695.318;t comercializadas (R$/t estável);jan–jun;98716.23;68969.35;-30.1;109477.178;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_04832053;beneficiada;114305.274;R$ recolhidos (inclui variação de preço);jan–jun;26224.59;16173.91;-38.3;70497.316;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_28092524;beneficiada;104140.91;R$ recolhidos (inclui variação de preço);jan–jun;39300.46;0.0;-100.0;0.0;sem CFEM no período de 2026: parou de vender ou deixou de recolher
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_13166181;beneficiada;100600.788;t comercializadas (R$/t estável);jan–jun;106799.91;138944.08;30.1;130879.174;
@@ -701,7 +701,7 @@ empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_C8251206;beneficiada;207.6
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_CNPJ_77955532;beneficiada;110.158;R$ recolhidos (inclui variação de preço);jan–jun;17.28;460.99;2567.8;2938.746;
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_42FD6DF3;beneficiada;45.592;;jan–jun;0.0;0.0;;45.592;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_059;Rochas (Britadas) e Cascalho;COM_NOME_1A140790;beneficiada;17.628;;jan–jun;0.0;0.0;;17.628;empresa sem CFEM no período de 2025: mantida a produção de 2025
-estado;MIN_060;Rochas Ornamentais;;ROM;138820.77;"mantida: 59% da produção; R$: 38% da produção; t: 3% da produção";jan–jun;;;3.2;143298.364;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+estado;MIN_060;Rochas Ornamentais;;ROM;138820.77;"mantida: 62% da produção; R$: 38% da produção";jan–jun;;;-13.0;120820.607;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_39282298;ROM;52514.442;R$ recolhidos (inclui variação de preço);jan–jun;103352.91;67927.05;-34.3;34514.279;
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_18862543;ROM;44163.193;;jan–jun;0.0;0.0;;44163.193;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_04746729;ROM;10136.307;;jan–jun;0.0;0.0;;10136.307;empresa sem CFEM no período de 2025: mantida a produção de 2025
@@ -710,8 +710,8 @@ empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_04380570;ROM;6679.772;;jan–jun;0.0
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_00063878;ROM;3448.815;;jan–jun;0.0;0.0;;3448.815;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_03724190;ROM;3262.017;;jan–jun;0.0;0.0;;3262.017;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_59637742;ROM;3239.078;;jan–jun;0.0;0.0;;3239.078;empresa sem CFEM no período de 2025: mantida a produção de 2025
-empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_13342485;ROM;2073.876;t comercializadas (R$/t estável);jan–jun;98716.23;68969.35;-30.1;1448.94;
-empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_00097494;ROM;1715.405;t comercializadas (R$/t estável);jan–jun;547.5;7921.11;1346.8;24818.098;
+empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_13342485;ROM;2073.876;;jan–jun;0.0;0.0;;2073.876;empresa sem CFEM no período de 2025: mantida a produção de 2025
+empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_00097494;ROM;1715.405;;jan–jun;0.0;0.0;;1715.405;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_08258118;ROM;1232.373;;jan–jun;0.0;0.0;;1232.373;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_01270710;ROM;784.469;;jan–jun;0.0;0.0;;784.469;empresa sem CFEM no período de 2025: mantida a produção de 2025
 empresa;MIN_060;Rochas Ornamentais;COM_CNPJ_26898916;ROM;623.107;;jan–jun;0.0;0.0;;623.107;empresa sem CFEM no período de 2025: mantida a produção de 2025
