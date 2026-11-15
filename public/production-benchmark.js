@@ -2,19 +2,20 @@
   "use strict";
 
   const SOURCE = "/data/previsao/production_benchmark_v1.json";
+
   const $ = (selector) => document.querySelector(selector);
 
   const escapeHtml = (value) =>
     String(value ?? "").replace(
       /[&<>"']/g,
-      (char) =>
+      (character) =>
         ({
           "&": "&amp;",
           "<": "&lt;",
           ">": "&gt;",
           '"': "&quot;",
           "'": "&#39;",
-        })[char]
+        })[character]
     );
 
   const number = (value, digits = 0) =>
@@ -29,13 +30,18 @@
     const numeric = Number(value);
 
     if (!Number.isFinite(numeric)) return "—";
-    if (Math.abs(numeric) >= 1e6) return `${number(numeric / 1e6, 2)} Mt`;
-    if (Math.abs(numeric) >= 1e3) return `${number(numeric / 1e3, 1)} mil t`;
+    if (Math.abs(numeric) >= 1000000) {
+      return `${number(numeric / 1000000, 2)} Mt`;
+    }
+
+    if (Math.abs(numeric) >= 1000) {
+      return `${number(numeric / 1000, 1)} mil t`;
+    }
 
     return `${number(numeric, 0)} t`;
   };
 
-  const percent = (value, digits = 1) =>
+  const percentage = (value, digits = 1) =>
     value == null || !Number.isFinite(Number(value))
       ? "—"
       : `${number(value, digits)}%`;
@@ -44,7 +50,7 @@
     const names = {
       persistence: "Persistência",
       weighted_log_trend: "Tendência logarítmica",
-      holt_damped: "Holt com tendência amortecida",
+      holt_damped: "Holt amortecido",
       not_forecastable_zero_2025: "Sem projeção",
     };
 
@@ -56,17 +62,24 @@
       margin-top: 24px;
     }
 
-    .pb-topline {
+    .pb-head {
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
       margin-bottom: 18px;
     }
 
+    .pb-controls {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .pb-control {
-      min-width: 280px;
+      min-width: 235px;
     }
 
     .pb-control label {
@@ -82,7 +95,7 @@
       min-height: 40px;
       border: 1px solid #c9d8e3;
       border-radius: 4px;
-      background: #fff;
+      background: #ffffff;
       padding: 8px 10px;
       color: #173d59;
       font-weight: 600;
@@ -111,8 +124,8 @@
     .pb-metric strong {
       display: block;
       color: #123a5a;
-      font-size: 20px;
-      line-height: 1.1;
+      font-size: 19px;
+      line-height: 1.15;
     }
 
     .pb-metric small {
@@ -120,16 +133,17 @@
       color: #6b7e8a;
       font-size: 11px;
       margin-top: 6px;
+      line-height: 1.35;
     }
 
     .pb-chart-wrap {
       overflow-x: auto;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .pb-chart-wrap svg {
       display: block;
-      min-width: 680px;
+      min-width: 700px;
       max-width: 100%;
     }
 
@@ -149,7 +163,7 @@
     }
 
     .pb-dot {
-      width: 19px;
+      width: 20px;
       height: 3px;
       display: inline-block;
       border-radius: 3px;
@@ -164,7 +178,7 @@
     }
 
     .pb-band {
-      width: 19px;
+      width: 20px;
       height: 11px;
       display: inline-block;
       background: rgba(22, 138, 122, .17);
@@ -198,12 +212,23 @@
 
     @media (max-width: 760px) {
       .pb-metrics {
-        grid-template-columns: repeat(2, minmax(130px, 1fr));
+        grid-template-columns: repeat(2, minmax(135px, 1fr));
       }
     }
   `;
 
-  function chart(observed, projected, mineralName) {
+  function niceStep(value) {
+    const power = Math.pow(10, Math.floor(Math.log10(value)));
+    const scaled = value / power;
+
+    if (scaled <= 1) return power;
+    if (scaled <= 2) return 2 * power;
+    if (scaled <= 5) return 5 * power;
+
+    return 10 * power;
+  }
+
+  function buildChart(observed, forecast, mode, mineralName) {
     const width = 940;
     const height = 330;
     const left = 76;
@@ -211,50 +236,57 @@
     const top = 20;
     const bottom = 44;
 
-    const points = [
-      ...observed.map((row) => ({
-        year: Number(row.year),
-        value: Number(row.production_t),
-      })),
-      ...projected.map((row) => ({
-        year: Number(row.year),
-        value: Number(row.production_reference_t),
-      })),
-    ];
+    const baseline = Number(observed[observed.length - 1]?.production_t);
 
-    const bandValues = projected.flatMap((row) => [
-      Number(row.production_lower_t),
-      Number(row.production_upper_t),
-    ]);
+    const value = (row, field) => {
+      const numeric = Number(row[field]);
+
+      if (mode === "index") {
+        return baseline > 0 ? (numeric / baseline) * 100 : null;
+      }
+
+      return numeric;
+    };
+
+    const observedPoints = observed.map((row) => ({
+      year: Number(row.year),
+      value: value(row, "production_t"),
+    }));
+
+    const forecastPoints = forecast.map((row) => ({
+      year: Number(row.year),
+      reference: value(row, "production_reference_t"),
+      low: value(row, "production_lower_t"),
+      high: value(row, "production_upper_t"),
+    }));
 
     const allValues = [
-      ...points.map((point) => point.value),
-      ...bandValues,
       0,
-    ];
+      ...observedPoints.map((row) => row.value),
+      ...forecastPoints.flatMap((row) => [
+        row.reference,
+        row.low,
+        row.high,
+      ]),
+    ].filter(Number.isFinite);
 
     const maxValue = Math.max(...allValues) * 1.08 || 1;
-    const minYear = Math.min(...points.map((point) => point.year));
-    const maxYear = Math.max(...points.map((point) => point.year));
+
+    const years = [
+      ...observedPoints.map((row) => row.year),
+      ...forecastPoints.map((row) => row.year),
+    ];
+
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
 
     const x = (year) =>
       left +
       ((year - minYear) / Math.max(1, maxYear - minYear)) *
         (width - left - right);
 
-    const y = (value) =>
-      top + (1 - value / maxValue) * (height - top - bottom);
-
-    const niceStep = (value) => {
-      const power = Math.pow(10, Math.floor(Math.log10(value)));
-      const scaled = value / power;
-
-      if (scaled <= 1) return power;
-      if (scaled <= 2) return 2 * power;
-      if (scaled <= 5) return 5 * power;
-
-      return 10 * power;
-    };
+    const y = (chartValue) =>
+      top + (1 - chartValue / maxValue) * (height - top - bottom);
 
     const step = niceStep(maxValue / 4);
     const ticks = [];
@@ -262,6 +294,11 @@
     for (let tick = 0; tick <= maxValue + step; tick += step) {
       ticks.push(tick);
     }
+
+    const formatAxis = (chartValue) => {
+      if (mode === "index") return number(chartValue, 0);
+      return tonnes(chartValue);
+    };
 
     const grid = ticks
       .map(
@@ -279,20 +316,17 @@
             text-anchor="end"
             fill="#637787"
             font-size="11"
-          >${escapeHtml(tonnes(tick))}</text>
+          >${escapeHtml(formatAxis(tick))}</text>
         `
       )
       .join("");
 
-    const years = Array.from(
-      new Set(points.map((point) => point.year))
-    ).sort((a, b) => a - b);
-
-    const xLabels = years
+    const labels = [...new Set(years)]
+      .sort((a, b) => a - b)
       .filter(
-        (year, index) =>
+        (year, index, array) =>
           index === 0 ||
-          index === years.length - 1 ||
+          index === array.length - 1 ||
           year % 2 === 0
       )
       .map(
@@ -308,100 +342,122 @@
       )
       .join("");
 
-    const line = (rows, field) =>
-      rows
-        .map(
-          (row) =>
-            `${x(Number(row.year))},${y(Number(row[field]))}`
-        )
-        .join(" ");
+    const observedLine = observedPoints
+      .map((row) => `${x(row.year)},${y(row.value)}`)
+      .join(" ");
 
-    const band = projected.length
-      ? `
-        <path
-          d="
-            M ${projected
-              .map(
-                (row) =>
-                  `${x(Number(row.year))},${y(
-                    Number(row.production_upper_t)
-                  )}`
-              )
-              .join(" L ")}
-            L ${[...projected]
-              .reverse()
-              .map(
-                (row) =>
-                  `${x(Number(row.year))},${y(
-                    Number(row.production_lower_t)
-                  )}`
-              )
-              .join(" L ")}
-            Z
-          "
-          fill="#168a7a"
-          opacity=".16"
-        />
-      `
-      : "";
+    const forecastLine = forecastPoints
+      .map((row) => `${x(row.year)},${y(row.reference)}`)
+      .join(" ");
 
-    const projectionStart = projected.length
-      ? `
-        <line
-          x1="${x(Number(projected[0].year))}"
-          x2="${x(Number(projected[0].year))}"
-          y1="${top}"
-          y2="${height - bottom}"
-          stroke="#9fb3c2"
-          stroke-dasharray="4 4"
-        />
-        <text
-          x="${x(Number(projected[0].year)) + 7}"
-          y="${top + 14}"
-          fill="#637787"
-          font-size="11"
-        >projeção</text>
-      `
-      : "";
+    const band =
+      forecastPoints.length > 0
+        ? `
+          <path
+            d="
+              M ${forecastPoints
+                .map((row) => `${x(row.year)},${y(row.high)}`)
+                .join(" L ")}
+              L ${[...forecastPoints]
+                .reverse()
+                .map((row) => `${x(row.year)},${y(row.low)}`)
+                .join(" L ")}
+              Z
+            "
+            fill="#168a7a"
+            opacity=".16"
+          />
+        `
+        : "";
+
+    const projectionLine =
+      forecastPoints.length > 0
+        ? `
+          <line
+            x1="${x(forecastPoints[0].year)}"
+            x2="${x(forecastPoints[0].year)}"
+            y1="${top}"
+            y2="${height - bottom}"
+            stroke="#9fb3c2"
+            stroke-dasharray="4 4"
+          />
+          <text
+            x="${x(forecastPoints[0].year) + 7}"
+            y="${top + 14}"
+            fill="#637787"
+            font-size="11"
+          >projeção</text>
+        `
+        : "";
+
+    const indexBase =
+      mode === "index"
+        ? `
+          <line
+            x1="${left}"
+            x2="${width - right}"
+            y1="${y(100)}"
+            y2="${y(100)}"
+            stroke="#9fb3c2"
+            stroke-dasharray="3 4"
+          />
+          <text
+            x="${width - right}"
+            y="${y(100) - 7}"
+            text-anchor="end"
+            fill="#637787"
+            font-size="11"
+          >2025 = 100</text>
+        `
+        : "";
+
+    const subtitle =
+      mode === "index"
+        ? "Índice de pressão energética relativa"
+        : "Produção física (toneladas)";
 
     return `
       <div class="pb-chart-wrap">
         <svg
           viewBox="0 0 ${width} ${height}"
           role="img"
-          aria-label="Produção histórica e projeção de ${escapeHtml(
+          aria-label="${escapeHtml(subtitle)} de ${escapeHtml(
             mineralName
           )}"
         >
           ${grid}
-          ${xLabels}
-          ${projectionStart}
+          ${labels}
+          ${projectionLine}
+          ${indexBase}
           ${band}
+
           <polyline
-            points="${line(observed, "production_t")}"
+            points="${observedLine}"
             fill="none"
             stroke="#123a5a"
             stroke-width="2.5"
             stroke-linejoin="round"
             stroke-linecap="round"
           />
-          ${observed
+
+          ${observedPoints
             .map(
               (row) => `
                 <circle
-                  cx="${x(Number(row.year))}"
-                  cy="${y(Number(row.production_t))}"
+                  cx="${x(row.year)}"
+                  cy="${y(row.value)}"
                   r="2.8"
                   fill="#123a5a"
                 />
               `
             )
             .join("")}
+
           ${
-            projected.length
+            forecastPoints.length
               ? `
                 <polyline
-                  points="${line(projected, "production_reference_t")}"
+                  points="${forecastLine}"
                   fill="none"
                   stroke="#168a7a"
                   stroke-width="2.5"
@@ -414,6 +470,7 @@
           }
         </svg>
       </div>
+
       <div class="pb-legend">
         <span><i class="pb-dot" style="background:#123a5a"></i>Produção observada</span>
         <span><i class="pb-dot dashed"></i>Previsão de referência</span>
@@ -422,10 +479,10 @@
     `;
   }
 
-  function setup(data) {
-    const dataTab = $("#pv-dados");
+  function createPanel(data) {
+    const target = $("#pv-dados");
 
-    if (!dataTab || $("#production-benchmark-panel")) return;
+    if (!target || $("#production-benchmark-panel")) return;
 
     const styleNode = document.createElement("style");
     styleNode.textContent = style;
@@ -436,19 +493,28 @@
     panel.id = "production-benchmark-panel";
 
     panel.innerHTML = `
-      <div class="pb-topline">
+      <div class="pb-head">
         <div>
-          <h3>Benchmark de produção mineral</h3>
+          <h3>Benchmark de produção e pressão energética relativa</h3>
           <p class="subtitle">
-            Produção estadual observada e previsão 2027–2040.
-            Este painel amplia a análise além dos cinco minerais elétricos,
-            mas não os soma em TWh sem coeficiente energético compatível.
+            Produção estadual observada e previsão 2027–2040 para além
+            dos cinco minerais do modelo elétrico.
           </p>
         </div>
 
-        <div class="pb-control">
-          <label for="pb-mineral">Selecionar mineral</label>
-          <select id="pb-mineral"></select>
+        <div class="pb-controls">
+          <div class="pb-control">
+            <label for="pb-mineral">Mineral</label>
+            <select id="pb-mineral"></select>
+          </div>
+
+          <div class="pb-control">
+            <label for="pb-view">Visualização</label>
+            <select id="pb-view">
+              <option value="tonnes">Produção física (t)</option>
+              <option value="index">Pressão energética relativa · 2025 = 100</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -456,31 +522,25 @@
 
       <div id="pb-chart"></div>
 
-      <div class="pb-note">
-        A previsão compara persistência, tendência logarítmica e Holt
-        amortecido em backtest. Uma tendência só é usada quando melhora
-        claramente a previsão simples e tem erro aceitável; caso contrário,
-        o modelo mantém o último nível observado.
-      </div>
+      <div class="pb-note" id="pb-note"></div>
 
       <div class="table-wrap pb-table" id="pb-table"></div>
     `;
 
-    dataTab.appendChild(panel);
-
-    const select = $("#pb-mineral");
-    const metrics = $("#pb-metrics");
-    const chartTarget = $("#pb-chart");
-    const tableTarget = $("#pb-table");
+    target.appendChild(panel);
 
     const minerals = [...data.minerals_in_benchmark].sort((a, b) =>
-      a.mineral_name.localeCompare(
-        b.mineral_name,
-        "pt-BR"
-      )
+      a.mineral_name.localeCompare(b.mineral_name, "pt-BR")
     );
 
-    select.innerHTML = minerals
+    const selectMineral = $("#pb-mineral");
+    const selectView = $("#pb-view");
+    const metrics = $("#pb-metrics");
+    const chart = $("#pb-chart");
+    const note = $("#pb-note");
+    const table = $("#pb-table");
+
+    selectMineral.innerHTML = minerals
       .map(
         (mineral) => `
           <option value="${escapeHtml(mineral.mineral_id)}">
@@ -494,12 +554,28 @@
       (mineral) => mineral.mineral_id === "MIN_005"
     );
 
-    select.value = bauxite
+    selectMineral.value = bauxite
       ? bauxite.mineral_id
       : minerals[0].mineral_id;
 
+    function index2040(mineral) {
+      const projected = data.forecast.find(
+        (row) =>
+          row.mineral_id === mineral.mineral_id &&
+          Number(row.year) === 2040
+      );
+
+      const base = Number(mineral.production_latest_t);
+
+      if (!projected || base <= 0) return null;
+
+      return (
+        (Number(projected.production_reference_t) / base) * 100
+      );
+    }
+
     function renderTable(selectedId) {
-      tableTarget.innerHTML = `
+      table.innerHTML = `
         <table class="pn-table">
           <thead>
             <tr>
@@ -507,7 +583,7 @@
               <th class="num">Anos observados</th>
               <th>Método escolhido</th>
               <th class="num">Erro no backtest</th>
-              <th class="num">Produção 2025</th>
+              <th class="num">Índice 2040<br>2025 = 100</th>
             </tr>
           </thead>
           <tbody>
@@ -525,7 +601,9 @@
                         data-pb-mineral="${escapeHtml(
                           mineral.mineral_id
                         )}"
-                      >${escapeHtml(mineral.mineral_name)}</button>
+                      >
+                        ${escapeHtml(mineral.mineral_name)}
+                      </button>
                     </td>
                     <td class="num">${number(
                       mineral.observed_years
@@ -533,12 +611,14 @@
                     <td>${escapeHtml(
                       methodName(mineral.selected_method)
                     )}</td>
-                    <td class="num">${percent(
+                    <td class="num">${percentage(
                       mineral.backtest_smape_selected_pct
                     )}</td>
-                    <td class="num">${tonnes(
-                      mineral.production_latest_t
-                    )}</td>
+                    <td class="num">${
+                      index2040(mineral) == null
+                        ? "—"
+                        : number(index2040(mineral), 0)
+                    }</td>
                   </tr>
                 `
               )
@@ -547,11 +627,11 @@
         </table>
       `;
 
-      tableTarget
+      table
         .querySelectorAll("[data-pb-mineral]")
         .forEach((button) => {
           button.addEventListener("click", () => {
-            select.value = button.dataset.pbMineral;
+            selectMineral.value = button.dataset.pbMineral;
             render();
             panel.scrollIntoView({
               behavior: "smooth",
@@ -562,23 +642,26 @@
     }
 
     function render() {
-      const id = select.value;
+      const mineralId = selectMineral.value;
+      const mode = selectView.value;
 
       const mineral = minerals.find(
-        (item) => item.mineral_id === id
+        (item) => item.mineral_id === mineralId
       );
 
       const observed = data.series
-        .filter((row) => row.mineral_id === id)
+        .filter((row) => row.mineral_id === mineralId)
         .sort((a, b) => Number(a.year) - Number(b.year));
 
-      const projected = data.forecast
-        .filter((row) => row.mineral_id === id)
+      const forecast = data.forecast
+        .filter((row) => row.mineral_id === mineralId)
         .sort((a, b) => Number(a.year) - Number(b.year));
 
-      const forecast2040 = projected.find(
+      const in2040 = forecast.find(
         (row) => Number(row.year) === 2040
       );
+
+      const pressure2040 = index2040(mineral);
 
       metrics.innerHTML = `
         <div class="pb-metric">
@@ -586,7 +669,9 @@
           <strong>${number(
             mineral.first_observed_year
           )}</strong>
-          <small>Base do índice histórico = 100</small>
+          <small>${number(
+            mineral.observed_years
+          )} anos históricos disponíveis</small>
         </div>
 
         <div class="pb-metric">
@@ -594,9 +679,7 @@
           <strong>${tonnes(
             mineral.production_latest_t
           )}</strong>
-          <small>${number(
-            mineral.observed_years
-          )} anos observados</small>
+          <small>Base para o índice relativo</small>
         </div>
 
         <div class="pb-metric">
@@ -604,42 +687,60 @@
           <strong>${escapeHtml(
             methodName(mineral.selected_method)
           )}</strong>
-          <small>Escolhido por backtest</small>
+          <small>Escolhido pelo menor erro no backtest</small>
         </div>
 
         <div class="pb-metric">
-          <span>Produção de referência em 2040</span>
+          <span>Pressão energética relativa em 2040</span>
           <strong>${
-            forecast2040
-              ? tonnes(forecast2040.production_reference_t)
-              : "Não projetável"
+            pressure2040 == null
+              ? "Não calculável"
+              : `${number(pressure2040, 0)}`
           }</strong>
           <small>${
-            forecast2040
-              ? `Erro de backtest: ${percent(
-                  mineral.backtest_smape_selected_pct
-                )}`
-              : "Produção de 2025 igual a zero"
+            pressure2040 == null
+              ? "Sem previsão: produção de 2025 igual a zero"
+              : "Índice: 2025 = 100, intensidade constante"
           }</small>
         </div>
       `;
 
-      chartTarget.innerHTML = chart(
+      chart.innerHTML = buildChart(
         observed,
-        projected,
+        forecast,
+        mode,
         mineral.mineral_name
       );
 
-      renderTable(id);
+      note.innerHTML =
+        mode === "index"
+          ? `
+            <strong>Como ler este índice:</strong> 100 representa a
+            produção de 2025. Se o processo do mineral mantiver a mesma
+            intensidade energética, um índice de 120 em 2040 significa
+            20% mais demanda elétrica relativa que em 2025. Não é TWh:
+            minerais sem coeficiente MWh/t compatível continuam fora do
+            total elétrico.
+          `
+          : `
+            A previsão compara persistência, tendência logarítmica e Holt
+            amortecido em backtest. Uma tendência só é usada quando melhora
+            claramente a previsão simples e tem erro aceitável; caso contrário,
+            o modelo mantém o último nível observado.
+          `;
+
+      renderTable(mineralId);
     }
 
-    select.addEventListener("change", render);
+    selectMineral.addEventListener("change", render);
+    selectView.addEventListener("change", render);
+
     render();
   }
 
   async function init() {
     try {
-      const response = await fetch(`${SOURCE}?v=20261115a`, {
+      const response = await fetch(`${SOURCE}?v=20261115b`, {
         cache: "no-store",
       });
 
@@ -647,8 +748,7 @@
         throw new Error("Não foi possível carregar o benchmark.");
       }
 
-      const data = await response.json();
-      setup(data);
+      createPanel(await response.json());
     } catch (error) {
       console.error(error);
     }
