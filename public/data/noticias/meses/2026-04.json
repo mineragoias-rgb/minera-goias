@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 156,
+ "materias": 158,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -590,6 +590,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af83fe695374a659ba126a3f6721e28&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T13:03:00+00:00",
    "first_seen": "2026-11-14T11:03:03.216041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af99976d8594783acd07436cb442f54&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-15T11:37:26.576546+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
@@ -1234,6 +1250,22 @@
    "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOa044WHY5YUdZWFNJX0YyZkFJV3ctVjJrcTNtNS1UYzhJdzMySHVhMnp0NnRRM050bThLV3pYWTl1X3NuTzdaVHRnR2RHQy1FbFdaalRyTC1uNFRXUWJNVkV4eE9XODAzWXA4YldDZXdHVGxBNDVyVGZEMmd5S1Q4TW01elJIdHVCWFpGWnFiaWl6Y0Roa0kzNXM5WDRxVkUzeXNMdEpqMlk1ZEtSS1lNTXRsV2ZBZlRhMmotU3RQY0MzYkJZOTZDUEF0UkhxNGtacUVKRkpNUDJCaWp3aEJKUTczY0VTYXVBOGFnRHFYcjJsVjVGMlRFVTMxRUVwOVE?oc=5",
    "published_at": "2026-04-23T07:00:00+00:00",
    "first_seen": "2026-10-31T10:01:59.376934+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Deputados do PSOL pedem à PGR anulação de venda de terras raras em GO - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQkhIbXl3WUwxSFQtZTduXzQ3cG1JWFpUNFYzRGJNRGVOOEpLVFp6c2lGUmkyODdaSUZ1TWlmeURDNEt0bkVscjV0UENIMWpEamNBSml6TjBIeUZ5ZmR6WVlobkpJQ3ZHdGVZLWpSZXJSeE56azkxWm12REw2UFRsS1huQ0V4THRMNTVCTFcwaW1nak5mSlFKTjVxOGVvZWVrVUl2cUh2THdwYWhYR1VLbDR4eTUyYjNZblE2aFZHeU9MZlk?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-11-15T11:37:26.088978+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
