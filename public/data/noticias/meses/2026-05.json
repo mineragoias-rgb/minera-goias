@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 195,
+ "materias": 200,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -297,6 +297,22 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Corrida por terras-raras avança no Brasil, mas produção ainda é baixa - Poder360",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdkxNeVhfeWRib3FTX3dhN1ZjeVRiakFxT2FUejlTVmlMazJzSW5CYkxDYjZtSlVLcVZXVmRlUU1jbGxzejdlbl9kRjZod3lUZFdDRkNRbXZtS0tqd0l0YTUyNDdTdTgyelVIV2U5QklLQ05fcGxrWUdadGh0aHFfbU8xRVJTbklHQ3B5UEpuTUxHSEcwU2hpZTJpNWtseVJaTm8wN19ZQXl1YmMzYklGeQ?oc=5",
+   "published_at": "2026-05-24T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.125757+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -979,6 +995,22 @@
    "brasil": 1
   },
   {
+   "title": "Mineradora tenta destravar projeto bilionário de terras raras — e mira refino - Capital Reset",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPckZiSHpRUGt6cDRjODRjT09idDZGS1hIeUFZTGNVVlkwWllWZmdUbU5EX3dBTkRtUGRnWE1DU2Q0NXk4ZGVFQVN6SndVaVdabW9Xdm9DUHdrN3hZQnBjbVl0RnhWcDFLZC1uclU2M1ZDakFXdnd0QlR6aFh1M3Nma0xPOEpQbmNBbkxfY01SMVB0LVk3aDlGVkNfalVjbEkzR1BKQllnMHR3d3lXcGRrOE5lSmlVeTVLZEFrQ3A5N3h1LW5HWnBRdg?oc=5",
+   "published_at": "2026-05-13T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:17.306400+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Governo de Goiás quer liberar mineração na Chapada dos Veadeiros - ICL Notícias",
    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9fU3pmbFZzVk03ZHYxdmU2S2xtazE3MFNGOU14N3NvaEZULUFLTDNUQzBodEk2WkhkVWxBUndIc0s1NnVHVUxma0R1eUxSZkxrdW9SdlFNUUJLRi1jRTR3cjNQYi1BZ1BUVEo1LWFwS29qVTNNRXRCTw?oc=5",
    "published_at": "2026-05-12T07:00:00+00:00",
@@ -1342,6 +1374,22 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: novos nomes, mesmo modelo de exploração - Instituto Guaicuy",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOY1hCaGpZRkxIek1LRXBSd19hUXRTOGRMWDlzbHZ0WUdFRkhCSG5zWkM3WVBRNzZjd0tRYThfa1Fic3FlYXA2c1ZBVUgyRDRhdWlVb0pCbkExekJYd0lBcDJXZ2dOenpIcTNrLW9JSWdEOFJ0YWt4YXF4Q3JHT25qcw?oc=5",
+   "published_at": "2026-05-11T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:17.304612+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1881,6 +1929,20 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af99976d8594783acd07436cb442f54&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T18:38:00+00:00",
    "first_seen": "2026-11-15T11:37:26.575383+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afaf2e4dc2e42f5bd57ad19afa33482&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.627862+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,
@@ -2513,6 +2575,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af99976d8594783acd07436cb442f54&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
    "published_at": "2026-05-08T08:17:00+00:00",
    "first_seen": "2026-11-15T11:37:26.579125+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Ação judicial em Goiás quer barrar venda da Serra Verde à USA Rare Earth",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afaf2e4dc2e42f5bd57ad19afa33482&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
+   "published_at": "2026-05-08T08:17:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.629316+00:00",
    "regional": 1,
    "regiao_termo": "goias",
    "setorial": 1,

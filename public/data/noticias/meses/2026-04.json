@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 158,
+ "materias": 161,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -619,6 +619,22 @@
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afaf2e4dc2e42f5bd57ad19afa33482&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.633914+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T12:57:00+00:00",
    "first_seen": "2026-09-19T19:49:02.790539+00:00",
@@ -1036,6 +1052,22 @@
    "regiao_termo": "goias",
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA - Revista Fórum",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZlM3bzhhZkdGbFExM25iV1IwVkJ3N2xUVV84dmZsSkloVDZQOUN6OEMzbGpCc3dWSGRlUENHM1gyd2k2a1NpSU1Yd3ZycTlwNFFsSTNiSGtKYWkxVF91YXIxQlBfOGpzZnV6U2xnQTJ5Y1duSW0xNkQtbklocWc1MU8yeFc0OThZd2JTUDQyd1NfUVk?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.126904+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
@@ -1531,6 +1563,22 @@
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora brasileira de terras raras é comprada por empresa dos EUA - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOT3EwUU8xMHFkeUVoSHIyQU5NU1lndFI5SXN1aUpuZkMwazd2eWRSbmoxcWV6NFQyRE9RZm9TNEUwSU5WYWJOZkZncTlFcjk2QWVvdVJpZHpubUdodUkxZW9ac0dFZi1TQUNNNjRIcDBQNlhzTlpJZGVpdFlLak03LUREQXFyZ3ZUbVFQdnl6eUtLUHFCaXJYcXdiTENaVHBxcEZFTDlwV3k2TU9BUE44UHFfMmViYnotVWdhb0dDU3FTeXJWcUhJcUlrMGg1LUVCenRMbjUzU19WT2c?oc=5",
+   "published_at": "2026-04-21T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:17.305510+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
