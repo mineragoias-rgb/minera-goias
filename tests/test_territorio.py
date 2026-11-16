@@ -31,15 +31,34 @@ class ArquivosTests(unittest.TestCase):
         for f in g['features']:
             self.assertNotRegex(json.dumps(f['properties'], ensure_ascii=False), cpf, f['properties'].get('id'))
 
-    def test_aba_no_painel(self):
+    def test_relatorio_traz_as_tabelas_que_a_aba_le(self):
+        """A aba desenha os gráficos a partir do objeto `const D={...}` do relatório; se o Squad 2 mudar isso, a aba quebra."""
+        html = (PASTA / 'relatorio_mineracao_cerrado_GO.html').read_text(encoding='utf-8')
+        inicio = re.search(r'\bconst\s+D\s*=\s*\{', html)
+        self.assertIsNotNone(inicio)
+        dados, _ = json.JSONDecoder().raw_decode(html, inicio.end() - 1)
+        code = (ROOT / 'public' / 'territorio.js').read_text(encoding='utf-8')
+        usadas = set(re.findall(r'\bD\.([a-z_A-Z0-9]+)', code))
+        self.assertTrue(usadas)
+        self.assertEqual(usadas - set(dados), set(), 'tabelas que a aba lê e o relatório não tem')
+
+    def test_aba_desenhada_no_painel_sem_iframe(self):
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
         self.assertIn('data-view="territorio"', markup)
         self.assertIn('id="territorio-view"', markup)
-        self.assertIn('id="te-frame"', markup)
-        self.assertNotRegex(markup, r'id="te-frame"[^>]*\ssrc=')  # o iframe só carrega quando a aba abre
-        code = (ROOT / 'public' / 'painel.js').read_text(encoding='utf-8')
-        self.assertIn("'territorio'", code)
-        self.assertIn('/api/territorio/relatorio', code)
+        self.assertNotIn('te-frame', markup)
+        self.assertNotIn('<iframe', markup)
+        for gancho in ('id="te-tabs"', 'id="te-metrics"', 'id="te-area"', 'id="te-cen"', 'id="te-mapa"', 'id="te-proj"',
+                       '/territorio.js?v=', '/territorio.css?v='):
+            self.assertIn(gancho, markup)
+        self.assertLess(markup.index('/i18n.js'), markup.index('/territorio.js'))
+        painel = (ROOT / 'public' / 'painel.js').read_text(encoding='utf-8')
+        self.assertIn("'territorio'", painel)
+        self.assertIn('window.showTerritorio', painel)
+        code = (ROOT / 'public' / 'territorio.js').read_text(encoding='utf-8')
+        self.assertIn("'/api/territorio/'", code)
+        self.assertIn("buscar('relatorio')", code)
+        self.assertIn("buscar('risco.geojson')", code)
 
 
 try:

@@ -1,0 +1,22 @@
+/* Território e emissões tab (public/territorio.js). Panels, tables, metrics, tabs and tooltips come from the shared styles. */
+#territorio-view .notice{margin:18px 0}
+.te-panel{margin:20px 0;min-width:0}
+.te-chart{width:100%;min-height:260px;overflow:hidden}
+.te-chart-auto{min-height:0}
+.te-chart svg{display:block;max-width:100%}
+.te-hit{cursor:crosshair}
+.te-hit:hover{fill:rgba(15,111,176,.06)}
+.te-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.te-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px}
+.te-mini{min-width:0}
+.te-mini h4{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--ink,#14354e)}
+.te-scroll{max-height:430px;overflow-y:auto}
+.te-map{height:520px;border:1px solid #e3e9ee;border-radius:4px;margin:6px 0 4px;background:#eef3f6}
+.te-mais{margin-top:14px}
+.te-dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+.te-faixa{display:block;white-space:nowrap}
+.te-risco{display:inline-block;padding:2px 8px;border-radius:2px;font-size:12px;font-weight:600;white-space:nowrap;color:#14354e;
+ background:color-mix(in srgb,var(--c) 22%,#fff);border-left:3px solid var(--c)}
+#territorio-view .pn-table td b{font-weight:600}
+@media(max-width:980px){.te-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.te-trio{grid-template-columns:1fr}.te-map{height:420px}}
