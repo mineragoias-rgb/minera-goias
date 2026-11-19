@@ -3,7 +3,7 @@
 
     python scripts/build_indicadores_municipais.py
 
-Lê o banco de 22 indicadores por município (2025) de `Squad 2/indicadores_compostos/entregas/MINERA_Goias_Indicadores_2025.xlsx`
+Lê o banco de 20 indicadores por município (2025) de `Squad 2/indicadores_compostos/entregas/MINERA_Goias_Indicadores_2025.xlsx`
 (aba Indicadores, valores já calculados) e grava `data/indicadores/indicadores_municipais.json`, que o painel lê atrás do login
 (/api/indicadores). Cada indicador vem com família, unidade, fórmula, leitura e origem (nova ou antiga), em português e inglês.
 Só a CFEM por ano (cfem_anual) é somada aqui, para o painel recalcular o crescimento; o resto do cálculo está em `Squad 2/indicadores_compostos/build_xlsx.py`.
@@ -72,21 +72,15 @@ IND = [
  ("S1", ("Substâncias", "Substances"), ("Quantidade de substâncias", "Number of substances"), "nº", "int",
   ("Substâncias distintas nos processos do município.", "Distinct substances in the municipality's processes."),
   ("Quanto maior, mais variado o leque de substâncias.", "The higher, the wider the range of substances."), "nova"),
- ("S2", ("Substâncias", "Substances"), ("HHI por substância (área)", "HHI by substance (area)"), "0 a 1", "dec3",
+ ("S2", ("Substâncias", "Substances"), ("HHI por substância", "HHI by substance"), "0 a 1", "dec3",
   ("Σ (parcela²) da área dos processos por substância. Direto: valor alto é concentração alta.", "Σ (share²) of process area by substance. Direct: a high value means high concentration."),
   ("Quanto maior, mais a área se concentra em poucas substâncias. 1 = uma só.", "The higher, the more area is concentrated in few substances. 1 = a single one."), "nova"),
- ("S3", ("Substâncias", "Substances"), ("HHI por substância (receita)", "HHI by substance (revenue)"), "0 a 1", "dec3",
-  ("Σ (parcela²) da CFEM 2025 por substância. Direto: valor alto é concentração alta. Vazio sem CFEM.", "Σ (share²) of 2025 CFEM by substance. Direct: a high value means high concentration. Empty without CFEM."),
-  ("Quanto maior, mais a receita se concentra em poucas substâncias. 1 = uma só.", "The higher, the more revenue is concentrated in few substances. 1 = a single one."), "nova"),
  ("T1", ("Titulares", "Holders"), ("Quantidade de titulares", "Number of holders"), "nº", "int",
   ("Titulares distintos nos processos do município.", "Distinct holders in the municipality's processes."),
   ("Quanto maior, mais agentes presentes no município.", "The higher, the more players in the municipality."), "nova"),
- ("T2", ("Titulares", "Holders"), ("HHI por titular (área)", "HHI by holder (area)"), "0 a 1", "dec3",
+ ("T2", ("Titulares", "Holders"), ("HHI por titular", "HHI by holder"), "0 a 1", "dec3",
   ("Σ (parcela²) da área dos processos por titular. Direto: valor alto é concentração alta.", "Σ (share²) of process area by holder. Direct: a high value means high concentration."),
   ("Quanto maior, mais a área se concentra em poucos titulares. 1 = um só.", "The higher, the more area is concentrated in few holders. 1 = a single one."), "nova"),
- ("T3", ("Titulares", "Holders"), ("HHI por titular (receita)", "HHI by holder (revenue)"), "0 a 1", "dec3",
-  ("Σ (parcela²) da CFEM 2025 por titular. Direto: valor alto é concentração alta. Vazio sem CFEM.", "Σ (share²) of 2025 CFEM by holder. Direct: a high value means high concentration. Empty without CFEM."),
-  ("Quanto maior, mais a receita se concentra em poucos titulares. 1 = um só.", "The higher, the more revenue is concentrated in few holders. 1 = a single one."), "nova"),
 ]
 
 # Combinações fixas: pesos de 0 a 100 sobre indicadores já normalizados de 0 a 1.
@@ -98,7 +92,7 @@ PRESETS = [
  ("atividade", ("Atividade minerária", "Mining activity"), {"P1": 0.25, "P2": 0.25, "P3": 0.25, "P4": 0.25}),
  ("territorio", ("Ocupação do território", "Territory occupation"), {"A4": 0.4, "A5": 0.3, "A6": 0.3}),
  ("diversidade", ("Diversidade de substâncias e titulares", "Substance and holder diversity"), {"S1": 0.5, "T1": 0.5}),
- ("concentracao", ("Concentração (HHI)", "Concentration (HHI)"), {"S2": 0.25, "S3": 0.25, "T2": 0.25, "T3": 0.25}),
+ ("concentracao", ("Concentração (HHI)", "Concentration (HHI)"), {"S2": 0.5, "T2": 0.5}),
 ]
 
 RESSALVAS = (

@@ -1,6 +1,6 @@
 # Indicadores compostos e cenários (Frente 8)
 
-Responsável: Lucas. Apresentação em 12/11/2026. Metodologia reproduzível dos índices (IRMM, IVFM, IPMM, IPES), validação, cenários e o banco de 22 indicadores por município (2025).
+Responsável: Lucas. Apresentação em 12/11/2026. Metodologia reproduzível dos índices (IRMM, IVFM, IPMM, IPES), validação, cenários e o banco de 20 indicadores por município (2025).
 
 **Esta pasta não faz parte do site.** Não fica em `public/` e não dispara a publicação nem os testes da plataforma.
 
@@ -13,7 +13,7 @@ Responsável: Lucas. Apresentação em 12/11/2026. Metodologia reproduzível dos
 | `run_extra.py` | IVFM, IPMM, tipologia e cenários |
 | `cenarios.py` | Choques de preço e retirada de titular |
 | `validacao.py` | Protocolo de validação (limiares fixados antes de rodar) |
-| `build_xlsx.py` | Banco de 22 indicadores por município, 2025 |
+| `build_xlsx.py` | Banco de 20 indicadores por município, 2025 |
 | `test_indices.py`, `test_extra.py` | Testes (18/19 e 10/10; D06 falha de propósito, é a reprovação do IPES) |
 | `registro_metodologico.md` | Fontes, decisões, validação e pendências |
 | `resultados/` | Saídas geradas (CSV e JSON) |
@@ -41,4 +41,4 @@ Dependências: numpy, pandas, scipy, openpyxl. Semente fixa 20261112.
 
 ## No site
 
-O banco de 22 indicadores aparece no painel em a seção "Ranking por Indicador" do menu lateral. O pacote de dados é gerado por `scripts/build_indicadores_municipais.py` a partir de `entregas/MINERA_Goias_Indicadores_2025.xlsx` e sai por `/api/indicadores`, atrás do login.
+O banco de 20 indicadores aparece no painel em a seção "Ranking por Indicador" do menu lateral. O pacote de dados é gerado por `scripts/build_indicadores_municipais.py` a partir de `entregas/MINERA_Goias_Indicadores_2025.xlsx` e sai por `/api/indicadores`, atrás do login.

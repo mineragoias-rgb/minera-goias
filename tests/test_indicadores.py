@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 JSON = ROOT / 'data' / 'indicadores' / 'indicadores_municipais.json'
 XLSX = ROOT / 'Squad 2' / 'indicadores_compostos' / 'entregas' / 'MINERA_Goias_Indicadores_2025.xlsx'
 PUBLIC = ROOT / 'public'
-IDS = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'P1', 'P2', 'P3', 'P4', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'S1', 'S2', 'S3', 'T1', 'T2', 'T3']
+IDS = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'P1', 'P2', 'P3', 'P4', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'S1', 'S2', 'T1', 'T2']
 
 
 class PacoteTests(unittest.TestCase):
@@ -23,7 +23,7 @@ class PacoteTests(unittest.TestCase):
         cls.p = json.loads(JSON.read_text(encoding='utf-8'))
         cls.col = {c: [r[j] for r in cls.p['rows']] for j, c in enumerate(cls.p['cols'])}
 
-    def test_vinte_e_dois_indicadores_para_todos_os_municipios(self):
+    def test_vinte_indicadores_para_todos_os_municipios(self):
         self.assertEqual([i['id'] for i in self.p['indicadores']], IDS)
         self.assertEqual(len(self.p['rows']), 246)
         self.assertEqual(self.p['cols'], ['cod', *IDS, 'meses'])
@@ -52,16 +52,6 @@ class PacoteTests(unittest.TestCase):
             self.assertEqual(x is None, self.col['T2'][k] is None)
             if x is None:
                 self.assertEqual(self.col['S1'][k], 0)
-
-    def test_hhi_por_receita_so_onde_ha_cfem(self):
-        for c in ('S3', 'T3'):
-            v = [x for x in self.col[c] if x is not None]
-            self.assertGreater(len(v), 100)
-            self.assertTrue(all(0 < x <= 1 for x in v), c)
-        for k, r1 in enumerate(self.col['R1']):
-            com_cfem = r1 is not None and r1 > 0
-            self.assertEqual(self.col['S3'][k] is not None, com_cfem, k)
-            self.assertEqual(self.col['T3'][k] is not None, com_cfem, k)
 
     def test_cfem_anual_reproduz_o_crescimento_padrao(self):
         ca = self.p['cfem_anual']
@@ -220,7 +210,7 @@ class RotaTests(unittest.TestCase):
         r = self.client.get('/api/indicadores')
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()['meta']['n_municipios'], 246)
-        self.assertEqual(len(r.json()['indicadores']), 22)
+        self.assertEqual(len(r.json()['indicadores']), 20)
 
 
 if __name__ == '__main__':
