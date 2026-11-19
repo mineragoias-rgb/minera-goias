@@ -1,0 +1,135 @@
+[
+ {
+  "id": "D01",
+  "grupo": "Dados",
+  "teste": "a soma da CFEM dos municípios do universo é igual à do painel",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "D02",
+  "grupo": "Dados",
+  "teste": "sem CFEM negativa e sem população ou PIB ausentes",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "D03",
+  "grupo": "Dados",
+  "teste": "os processos por status somam o cadastro (16.875)",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "D04",
+  "grupo": "Ranking",
+  "teste": "ranking-base sem empates",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "D05",
+  "grupo": "Validade de face",
+  "teste": "IRMM: ≥ 3 dos 5 maiores arrecadadores no top 10 e Spearman(nota, CFEM) ≥ 0,5",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "D06",
+  "grupo": "Validade de face",
+  "teste": "IPES: ≥ 2 das 3 substâncias de maior valor no top 5",
+  "passou": false,
+  "obs": ""
+ },
+ {
+  "id": "D07",
+  "grupo": "Reprodução",
+  "teste": "rodar o pipeline do zero reproduz o mesmo ranking (hash)",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T01",
+  "grupo": "Normalização",
+  "teste": "toda normalização fica em [0, 1]",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T02",
+  "grupo": "Normalização",
+  "teste": "mudar a unidade (R$ → R$ mil) não muda nota nem posição",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T03",
+  "grupo": "Normalização",
+  "teste": "inverter o sentido do indicador devolve 1 − valor",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T04",
+  "grupo": "Agregação",
+  "teste": "melhorar um indicador nunca reduz a nota (aritmética e geométrica)",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T05",
+  "grupo": "Pesos",
+  "teste": "pesos (igual, especialista, entropia, CRITIC) somam 1 e não são negativos",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T06",
+  "grupo": "Simulação",
+  "teste": "mesma semente, mesmo resultado; outra semente, outro resultado",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T07",
+  "grupo": "Ranking",
+  "teste": "empates recebem a mesma posição, sem desempate arbitrário",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T08",
+  "grupo": "Dados",
+  "teste": "indicador ausente barra o cálculo em vez de virar zero",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T09",
+  "grupo": "Ranking",
+  "teste": "quem domina em todos os indicadores nunca fica atrás, com qualquer peso",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T10",
+  "grupo": "Agregação",
+  "teste": "média geométrica penaliza o zero sem zerar a nota",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T11",
+  "grupo": "Simulação",
+  "teste": "pesos sorteados somam 1 e as posições ficam entre 1 e n",
+  "passou": true,
+  "obs": ""
+ },
+ {
+  "id": "T12",
+  "grupo": "Ranking",
+  "teste": "métricas de estabilidade dão 1 na comparação consigo mesmo",
+  "passou": true,
+  "obs": ""
+ }
+]
