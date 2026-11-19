@@ -187,3 +187,20 @@ div.rd-card-destaque{cursor:default}div.rd-card-destaque:hover{border-color:tran
 #bases-view .pn-filters{margin-bottom:0}
 #bd-busca{min-width:230px}
 @media(max-width:820px){.bd-lista{grid-template-columns:1fr}.bd-head{grid-template-columns:1fr;gap:12px}}
+
+/* --- Comércio exterior --- */
+/* A coluna de valor da barra nasce com 44px, estreita para "US$ 3,97 bi": sem alargar, o rótulo quebra em duas linhas
+   e desalinha a trilha. Cada gráfico pede uma largura diferente de rótulo — país é curto, município com capítulo é longo. */
+#cx-minerais .bar-row{grid-template-columns:minmax(150px,1fr) 1.15fr 86px}
+#cx-destinos .bar-row{grid-template-columns:minmax(130px,1fr) 1.15fr 86px}
+#cx-serie .bar-row{grid-template-columns:minmax(78px,.55fr) 1.3fr 86px}
+#cx-municipios .bar-row{grid-template-columns:minmax(185px,1fr) 1.1fr 86px}
+#cx-minerais .bar-fill.cx-mineral{background:#0f6fb0}
+#cx-destinos .bar-fill.cx-destino{background:#0d9488}
+#cx-serie .bar-fill.cx-serie{background:#8250c4}
+#cx-municipios .bar-fill.cx-municipio{background:#c2681b}
+#cx-minerais .mk-note,#cx-destinos .mk-note,#cx-serie .mk-note,#cx-municipios .mk-note{margin:0 0 12px}
+#comex-view .pn-filters{margin-bottom:0}
+/* Os limites da base são texto corrido dentro de um painel: sem largura máxima, a linha fica longa demais para ler. */
+#cx-limites .mk-note{max-width:78ch}
+#cx-limites .mk-bullets li{max-width:78ch}

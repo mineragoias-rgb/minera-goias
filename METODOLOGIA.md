@@ -156,13 +156,34 @@ Mede **o grau de comprovação econômica de um projeto**, não a etapa administ
 
 ### 3.8 Catálogo das bases de dados (`data/catalogo`)
 
-Responde a três perguntas por base — **nome, origem e última atualização** — e serve a aba `Base de dados` do painel, com 15 bases catalogadas.
+Responde a três perguntas por base — **nome, origem e última atualização** — e serve a aba `Base de dados` do painel, com 17 bases catalogadas.
 
 **Nenhuma data é digitada.** A de um pacote gerado vem do `built_on` que o próprio pacote grava; a de um arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo. Assim o catálogo não envelhece sozinho enquanto as bases mudam: se uma base sumir, a linha some com ela, e o teste acusa quando o catálogo deixa de bater com o pacote que descreve.
 
 Cada base declara também **o que não mede** — a CCEE não mede consumo da mineração, a CFEM não mede produção, o Anuário não mede produção por empresa, a base de produção não é auditada. É a mesma disciplina das seções acima, reunida num lugar só.
 
-### 3.9 Radar de notícias (protótipo)
+### 3.9 Comércio exterior dos minerais (`data/comex`)
+
+Mede **despacho aduaneiro**: valor FOB em dólares e peso líquido em quilos, por NCM e por mês, com Goiás como UF da operação. Fonte: Comex Stat (MDIC/SECEX), pela API pública.
+
+**Despacho não é produção, e a base nunca diz que é.** Uma mina pode lavrar num ano e embarcar no outro. O peso é do **produto embarcado**, não do metal contido — ferro-níquel não é níquel, concentrado de cobre não é cobre. O `US$/kg` é **preço implícito** (valor declarado ÷ peso declarado), que se move com teor, forma e contrato, e não é cotação. O Comex Stat **não publica quem exportou**: a ligação com uma operação vem do município e das outras bases do projeto, nunca da aduana.
+
+**Ano aberto nunca se compara com ano cheio.** Cada linha anual carrega `ano_completo`, que só é verdadeiro quando a fonte já publicou dezembro daquele ano. A tela marca o ano aberto em toda comparação, porque confrontá-lo com um ano fechado superestima a queda.
+
+**Classificação federal de mineral crítico: `NA`.** O texto oficial (Resolução SGM/MME nº 2, de 18/06/2021, e a Política Nacional de Minerais Críticos e Estratégicos) não pôde ser lido do ambiente em que a base foi montada — o DOU e o Planalto recusam cliente automatizado. Resumos de busca davam listas que não batiam entre si. A base **não atribui classificação legal que não leu**. O recorte crítico é o do próprio projeto: o mineral entra como crítico quando o marco estadual, como a aba Mercado o registra, nomeia uma operação daquele mineral em Goiás — e o gerador **recusa a base** se esse vínculo sumir da fonte citada.
+
+**Duas armadilhas da fonte, documentadas porque custaram número errado antes de serem vistas:**
+
+- **Período que cruza anos devolve só o acumulado, calado.** Pedir de `2019-01` a `2026-10` faz a API responder, para *todo* ano, apenas janeiro–outubro. A NCM 26030010 em 2024 volta com US$ 378,6 mi nesse formato e US$ 500,3 mi quando 2024 é pedido sozinho; a diferença é novembro e dezembro. A coleta faz um pedido por ano, e um teste fecha destinos contra o total do ano para impedir a volta da armadilha.
+- **O detalhe `economicBlock` dobra a soma**, porque um país pertence a mais de um bloco e a mesma venda volta uma vez por bloco (US$ 1.000,6 mi contra US$ 500,3 mi, no mesmo recorte). Não se usa.
+
+**Granularidade do município é o capítulo da NCM, não o mineral.** A API recusa `ncm` como detalhe em `/cities`. O capítulo 72 reúne ferro-níquel e ferro-nióbio; eles só se separam porque saem de municípios diferentes, e essa separação é leitura do município, não medida da fonte.
+
+**O que fica deliberadamente de fora:** capítulo 31 (adubos — produto industrial, e Goiás importa potássio em volume maior que todo o seu comércio mineral), NCM 26169000 (não nomeia o mineral), platina/paládio/ródio (Goiás não os lavra), compostos de ouro farmacêuticos e sucata.
+
+**Divergência esperada com a CFEM.** A CFEM mede quantidade comercializada **declarada para arrecadação**; o Comex mede **despacho**. São declarações a órgãos diferentes, com finalidade diferente. Divergir é o comportamento correto das duas, e somá-las seria erro.
+
+### 3.10 Radar de notícias (protótipo)
 
 Mede **o que a imprensa está dizendo**, não preço.
 

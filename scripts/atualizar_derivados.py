@@ -12,7 +12,8 @@ Cadeia (cada etapa só roda depois das que ela usa):
     curadoria de produção ──────────► Produção ─┴► Empresas
     levantamento do Lucas Maia ─────► carteira de projetos (Mercado)
     curadoria do Radar de Projetos ─► camada de projetos do Squad 2 ─► Simulador e aba Previsão de demanda
-    pacotes acima ──────────────────► catálogo da aba Base de dados (data/catalogo)
+    bruto do Comex Stat ────────────► Comércio exterior (data/comex) ─┐
+    pacotes acima ──────────────────────────────────────────────────┴► catálogo da aba Base de dados (data/catalogo)
     camadas do P3M (Squad 1/P3M) ───► inventário (classificação, metadados do site, registros, datas) ─► Mapa mineral (data/mapa)
     pacote de vegetação e rios e série do MapBiomas (Squad 1/Mapa vegetação e rios 2025, Squad 1/MapBiomas) ──► Mapa mineral
 
@@ -72,8 +73,13 @@ ETAPAS = [
     ("previsao", [PY, "scripts/build_previsao_base.py"], ".",
      ["public/data/previsao/previsao_v1.json"], ["pacote_squad2", "intensidade_squad2"], ["tests/test_previsao.py"]),
     # o catálogo da aba Base de dados lê a data e o volume dos pacotes acima: roda por último
+    # O Comex se refaz do bruto já versionado em comex/bruto/: não precisa de rede. Baixar de novo é `comex/coleta.py`,
+    # fora desta cadeia, porque depende da API do MDIC estar no ar.
+    ("comex", [PY, "scripts/build_comex_base.py"], ".",
+     ["data/comex/comex.json", "data/comex/comex.csv"], [], ["tests/test_comex.py"]),
     ("catalogo_painel", [PY, "scripts/build_catalogo_painel.py"], ".",
-     ["data/catalogo/catalogo.json"], ["panorama", "producao", "empresas", "projetos_mercado", "simulador"],
+     ["data/catalogo/catalogo.json"],
+     ["panorama", "producao", "empresas", "projetos_mercado", "simulador", "comex"],
      ["tests/test_projetos.py"]),
 ]
 # Campos que só registram quando o arquivo foi gerado; mudança só neles não é mudança de dado.

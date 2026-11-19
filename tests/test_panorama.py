@@ -107,9 +107,8 @@ class PanoramaTests(unittest.TestCase):
     def test_page_wires_the_tab(self):
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
         views = re.findall(r'data-view="(\w+)"', markup)
-        # Atlas swallowed the panorama; the Mapa Mineral sits right below it, then Previsão de demanda and Mercado,
-        # com Empresas logo abaixo.
-        self.assertEqual(views[:6], ['atlas', 'indicadores', 'mapa', 'previsao', 'mercado', 'empresas'])
+        # O Atlas engoliu o panorama; a ordem das abas é a da main, com Comércio exterior logo abaixo de Empresas.
+        self.assertEqual(views[:7], ['atlas', 'indicadores', 'mapa', 'previsao', 'mercado', 'empresas', 'comex'])
         self.assertNotIn('panorama', views)
         self.assertLess(markup.index('id="atlas-view"'), markup.index('id="panorama-view"'))
         self.assertLess(markup.index('id="atlas-map"'), markup.index('id="panorama-view"'))

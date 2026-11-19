@@ -130,6 +130,8 @@ from territorio import router as territorio_router
 app.include_router(territorio_router)
 from indicadores import router as indicadores_router
 app.include_router(indicadores_router)
+from comex import router as comex_router
+app.include_router(comex_router)
 
 import radar_api
 radar_api.connection_factory=get_connection

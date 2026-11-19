@@ -1,0 +1,282 @@
+{
+ "versao": "v1",
+ "curadoria": "Mapa de NCMs do Comex Stat para o vocabulário mineral do projeto. A curadoria aqui é só o vínculo NCM ↔ mineral: os valores, os pesos, os destinos e as descrições oficiais vêm da API e nunca são digitados.",
+ "fonte": {
+  "nome": "Comex Stat — Ministério do Desenvolvimento, Indústria, Comércio e Serviços (MDIC) / Secretaria de Comércio Exterior (SECEX)",
+  "portal": "https://comexstat.mdic.gov.br/",
+  "api": "https://api-comexstat.mdic.gov.br/general",
+  "natureza": "Registro administrativo de despacho aduaneiro. É o que foi declarado à Receita na exportação e na importação — não é produção, não é consumo e não é faturamento da empresa."
+ },
+ "uf": {
+  "nome": "Goiás",
+  "codigo_comexstat": 53,
+  "nota": "Código da própria API do Comex Stat, lido varrendo os códigos e conferindo o nome devolvido. Não é o código do IBGE (52)."
+ },
+ "criticidade": {
+  "classificacao_federal": "NA",
+  "por_que_na": "O texto oficial da lista federal (Resolução SGM/MME nº 2, de 18/06/2021, e a Política Nacional de Minerais Críticos e Estratégicos) não pôde ser lido do ambiente em que esta base foi montada: o DOU e o Planalto recusam cliente automatizado. A base não atribui a nenhum mineral uma classificação legal que não leu.",
+  "recorte_do_projeto": "O recorte crítico desta base é o do próprio projeto: o mineral entra como crítico quando o marco estadual de minerais críticos, como a aba Mercado o registra (public/data/mercado/mercado_v1.json), nomeia uma operação ou um alvo daquele mineral em Goiás. O gerador confere esse vínculo mineral a mineral e recusa a base se o termo sumir do arquivo do Mercado.",
+  "classes": {
+   "marco_estadual": "Nomeado no marco estadual de minerais críticos (aba Mercado).",
+   "produzido_em_goias": "Goiás produz e exporta, mas o projeto não o registra no recorte crítico.",
+   "insumo_importado": "Entra no estado como insumo mineral; Goiás não o produz em escala."
+  }
+ },
+ "regras": {
+  "capitulos_aceitos": [
+   25,
+   26,
+   28,
+   71,
+   72
+  ],
+  "o_que_fica_de_fora": [
+   "Capítulo 31 (adubos e fertilizantes): são produtos industriais, não minério. Goiás importa cloreto de potássio e fosfatos de amônio em volume muito maior que todo o seu comércio mineral, e somar os dois leria indústria química como mineração.",
+   "NCM 26169000 'minérios de outros metais preciosos': a posição não nomeia o mineral, e atribuí-lo a um mineral de Goiás seria inventar.",
+   "NCMs 71101910, 71102900 e 71103100 (platina, paládio e ródio): Goiás não lavra metais do grupo da platina. O embarque sai de Anápolis e Goiânia e é compatível com recuperação industrial, não com mina — a base não o trata como produção mineral do estado.",
+   "NCMs 28433010 e 28433090 (compostos de ouro, auranofina): produto químico-farmacêutico, não ouro de lavra.",
+   "Sucata (74040000, 76020000, 7204): metal que volta, não metal que sai da mina."
+  ],
+  "sentido": "Cada NCM declara o fluxo que a curadoria espera dela — exportação para o que Goiás produz, importação para o que entra como insumo. O vínculo NCM↔mineral, porém, não depende do sentido: ouro e compostos de terras raras também ENTRAM em Goiás, e a base mostra os dois lados."
+ },
+ "minerais": [
+  {
+   "mineral": "Cobre",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "Cobre",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Chapada — Alto Horizonte e Nova Iguaçu de Goiás (Mineração Maracá / Lundin Mining)"
+   ],
+   "ncms": [
+    {
+     "codigo": "26030010",
+     "forma": "minério e concentrado",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Níquel",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "Níquel",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Barro Alto e Niquelândia/Codemin (Anglo American / Barro Alto Níquel)"
+   ],
+   "ncms": [
+    {
+     "codigo": "72026000",
+     "forma": "ferroliga",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Nióbio",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "Nióbio",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Catalão e Ouvidor (CMOC Brasil)"
+   ],
+   "ncms": [
+    {
+     "codigo": "72029300",
+     "forma": "ferroliga",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Monazita e Terras-Raras",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "Terras raras",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Pela Ema — Minaçu (Serra Verde)"
+   ],
+   "ncms": [
+    {
+     "codigo": "28469090",
+     "forma": "composto químico",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Titânio",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "titânio",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [],
+   "ncms": [
+    {
+     "codigo": "26140010",
+     "forma": "minério e concentrado",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Fosfato",
+   "criticidade": "marco_estadual",
+   "termo_no_mercado": "fosfato",
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Catalão e Ouvidor (CMOC Brasil)"
+   ],
+   "ncms": [
+    {
+     "codigo": "25101010",
+     "forma": "minério",
+     "fluxo_principal": "import"
+    },
+    {
+     "codigo": "25102010",
+     "forma": "minério",
+     "fluxo_principal": "import"
+    }
+   ],
+   "fluxo_principal": "import"
+  },
+  {
+   "mineral": "Ouro",
+   "criticidade": "produzido_em_goias",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Crixás (Aura Minerals)",
+    "Posse — Mara Rosa (Hochschild Mining)",
+    "Pilar de Goiás"
+   ],
+   "ncms": [
+    {
+     "codigo": "71081210",
+     "forma": "metal bruto",
+     "fluxo_principal": "export"
+    },
+    {
+     "codigo": "71081290",
+     "forma": "metal bruto",
+     "fluxo_principal": "export"
+    },
+    {
+     "codigo": "71081310",
+     "forma": "metal semimanufaturado",
+     "fluxo_principal": "export"
+    },
+    {
+     "codigo": "71081390",
+     "forma": "metal semimanufaturado",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Amianto",
+   "criticidade": "produzido_em_goias",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "Cana Brava — Minaçu (SAMA)"
+   ],
+   "ncms": [
+    {
+     "codigo": "25249000",
+     "forma": "fibra",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Vermiculita e Perlita",
+   "criticidade": "produzido_em_goias",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [
+    "São Luís de Montes Belos e Sanclerlândia"
+   ],
+   "ncms": [
+    {
+     "codigo": "25301090",
+     "forma": "minério",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Manganês",
+   "criticidade": "produzido_em_goias",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [],
+   "ncms": [
+    {
+     "codigo": "26020090",
+     "forma": "minério e concentrado",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Alumínio (Bauxita)",
+   "criticidade": "produzido_em_goias",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": true,
+   "operacoes_em_goias": [],
+   "ncms": [
+    {
+     "codigo": "26060011",
+     "forma": "minério",
+     "fluxo_principal": "export"
+    },
+    {
+     "codigo": "26060012",
+     "forma": "minério calcinado",
+     "fluxo_principal": "export"
+    }
+   ],
+   "fluxo_principal": "export"
+  },
+  {
+   "mineral": "Enxofre",
+   "criticidade": "insumo_importado",
+   "termo_no_mercado": null,
+   "no_vocabulario_do_projeto": false,
+   "operacoes_em_goias": [],
+   "ncms": [
+    {
+     "codigo": "25030010",
+     "forma": "mineral bruto",
+     "fluxo_principal": "import"
+    },
+    {
+     "codigo": "25030090",
+     "forma": "mineral bruto",
+     "fluxo_principal": "import"
+    }
+   ],
+   "fluxo_principal": "import"
+  }
+ ],
+ "capitulos": {
+  "25": "Sal; enxofre; terras e pedras; gesso, cal e cimento",
+  "26": "Minérios, escórias e cinzas",
+  "28": "Produtos químicos inorgânicos; compostos de metais preciosos, de terras raras, de elementos radioativos",
+  "71": "Pérolas, pedras e metais preciosos",
+  "72": "Ferro fundido, ferro e aço (inclui as ferroligas)",
+  "74": "Cobre e suas obras",
+  "75": "Níquel e suas obras",
+  "81": "Outros metais comuns e suas obras"
+ }
+}
