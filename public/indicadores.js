@@ -180,7 +180,7 @@
   D.ind.forEach(i => {
    if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<div class="in-comp-fam">${escape(fam)}</div>`); }
    const w = E.pesos[i.id] || 0, parte = total ? w / total * 100 : 0;
-   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(campo(i, 'nome'))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><output>${num(w, 2)}</output><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
+   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(campo(i, 'nome'))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><input type="number" class="in-num" min="0" max="1" step="0.05" value="${w}" data-n="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
   });
   el('in-comp-rows').innerHTML = linhas.join('');
   el('in-preset').innerHTML = `<option value="">${escape(t('in.presetFree'))}</option>` + D.presets.map(p => `<option value="${p.id}">${escape(campo(p, 'nome'))}</option>`).join('');
@@ -193,19 +193,24 @@
   el('in-comp-rows').querySelectorAll('[data-w]').forEach(r => r.oninput = () => {
    E.pesos[r.dataset.w] = +r.value; E.preset = ''; mudou(false);
   });
+  el('in-comp-rows').querySelectorAll('[data-n]').forEach(r => r.oninput = () => {
+   const v = parseFloat(String(r.value).replace(',', '.'));
+   if (!isFinite(v)) return;
+   E.pesos[r.dataset.n] = Math.min(1, Math.max(0, v)); E.preset = ''; mudou(false, r.dataset.n);
+  });
   el('in-comp-rows').querySelectorAll('[data-on]').forEach(c2 => c2.onchange = () => {
    E.pesos[c2.dataset.on] = c2.checked ? (E.pesos[c2.dataset.on] > 0 ? E.pesos[c2.dataset.on] : 0.25) : 0; E.preset = ''; mudou(true);
   });
  }
  // Reconstrói o que depende do estado; `completo` refaz as linhas da composição (senão só atualiza o que mudou ao arrastar).
- function mudou(completo) {
+ function mudou(completo, editando) {
   if (!E.dados) return;
   if (completo || !el('in-comp-rows').children.length) composicao();
   else {
    const total = Object.values(E.pesos).reduce((s, w) => s + (w > 0 ? w : 0), 0);
    el('in-comp-rows').querySelectorAll('.in-comp-row').forEach(r => {
     const id = r.querySelector('[data-w]').dataset.w, w = E.pesos[id] || 0;
-    r.querySelector('output').textContent = num(w, 2); r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
+    r.querySelector('[data-w]').value = w; const nn = r.querySelector('[data-n]'); if (nn.dataset.n !== editando) nn.value = w; r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
     r.querySelector('[data-on]').checked = w > 0;
    });
    el('in-preset').value = E.preset || '';

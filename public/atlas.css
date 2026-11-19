@@ -108,3 +108,4 @@
 .in-explain-box>summary,.in-comp-box>summary{cursor:pointer;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
 .in-explain-box,.in-comp-box{margin:14px 0}
 .in-warn{margin:8px 0;padding:8px 10px;border-radius:8px;background:#fdecea;color:#8a1c12;border:1px solid #f0b4ac;font-weight:600}
+.in-num{width:64px;flex:none}
