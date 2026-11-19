@@ -132,9 +132,13 @@ class ProtecaoETelaTests(unittest.TestCase):
         self.assertIn('max="1" step="0.05"', js)
         self.assertIn("in-comp-warn", js)
 
-    def test_tema_territorio_oferece_a_camada(self):
+    def test_tema_proprio_de_indicadores(self):
         code = (PUBLIC / 'panorama.js').read_text(encoding='utf-8')
-        self.assertRegex(code, r"\['territorio',\[[^\]]*\],\[[^\]]*'indicators'[^\]]*\]\]")
+        self.assertRegex(code, r"\['indicadores',\[\],\['indicators'\]\]")
+        self.assertNotRegex(code, r"\['territorio',\[[^\]]*\],\[[^\]]*'indicators'")
+        i18n = (PUBLIC / 'i18n.js').read_text(encoding='utf-8')
+        self.assertEqual(i18n.count("'pn.tab.indicadores'"), 2)
+
 
     def test_atlas_desenha_a_camada_e_le_a_rota(self):
         atlas = (PUBLIC / 'atlas.js').read_text(encoding='utf-8')

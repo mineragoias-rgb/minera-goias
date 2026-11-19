@@ -5,8 +5,8 @@ const SECTIONS=['cfem','geo','subs','prod','usos','terr','pesq','proj','rod','em
 const FILTERS=['ano','mes','mun','min','emp','fase','rub','ramo'];
 // [id, seções do Panorama, camadas do mapa]. The tab bar is the whole page's navigation, so a theme
 // picks at once what the atlas map draws and which panels appear below it; [] means the theme has no map.
-const TABS=[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences','indicators']],
- ['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
+const TABS=[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences']],
+ ['indicadores',[],['indicators']],['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
  ['empresas',['emp'],[]],['energia',['energia','intens'],['energy','coefficient']],
  ['barragens',['barr'],['dams']],['notas',['nr'],[]]];
 const FILTER_IDS={ano:['pn-y0','pn-y1'],mes:['pn-mes'],mun:['pn-mun'],min:['pn-min'],emp:['pn-emp'],fase:['pn-fase'],rub:['pn-rub'],ramo:['pn-ramo']};
