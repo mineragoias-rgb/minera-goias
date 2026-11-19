@@ -1,4 +1,6 @@
-"""Indicadores municipais (Atlas · Território · Visão do mapa · Indicadores): pacote de dados, rota autenticada e ligação ao painel."""
+"""Indicadores municipais (Atlas · Território · Visão do mapa · Indicadores): pacote de dados, rota autenticada e ligação ao painel.
+
+O pacote em data/indicadores sai de scripts/build_indicadores_municipais.py; o teste test_json_reproduz_o_xlsx confere cada valor com o xlsx do Squad 2."""
 import json
 import os
 from pathlib import Path
