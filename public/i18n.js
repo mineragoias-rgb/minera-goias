@@ -56,7 +56,7 @@ const DICT={pt:{
 'ov.sourcePrefix':'Fonte: ','ov.sourceSuffix':' · Versão atual importada no banco. Uma linha representa um registro, não uma empresa única.',
 'ov.exportFirst':'Carregue os dados antes de exportar.','ov.csvAll':'Todas',
 'ov.csvSource':'fonte','ov.csvYear':'ano','ov.csvActivity':'atividade','ov.csvMonth':'mes','ov.csvRecords':'registros','ov.csvName':'minera-goias-ccee-{year}-resumo.csv',
-'at.eyebrow':'Mineração · Energia · Território','at.title':'Atlas mineral de Goiás','at.lead':'Explore municípios, processos minerários e barragens em um mapa integrado.',
+'at.eyebrow':'Mineração · Energia · Território','at.title':'Atlas mineral de Goiás','at.lead':'O mapa e os números da mineração em Goiás. No mapa, veja municípios, processos minerários e barragens; clique num município para abrir o perfil dele. Abaixo, o Panorama traz os gráficos por tema: arrecadação, produção, pesquisa e direitos, empresas, energia, território e barragens. As sub-abas escolhem o tema, e os filtros recortam por período, município, mineral e titular.',
 'at.tag':'BASE CONSOLIDADA · RETRATO',
 'at.loading':'Preparando o atlas…','at.layer':'Camada temática','at.mapView':'Visão do mapa','nav.themeAria':'Temas do painel','at.layer.cfem':'CFEM por município','at.layer.production':'Quantidade comercializada por mineral',
 'at.layer.energy':'Energia da cadeia mineral','at.layer.coefficient':'Intensidade energética','at.layer.processes':'Polígonos dos processos minerários','at.layer.dams':'Barragens de mineração',
@@ -67,7 +67,7 @@ const DICT={pt:{
 
 
 
-'at.footSources':'Fontes: base consolidada do Squad 1 (v17) — ANM/CFEM, Anuário Mineral Brasileiro, Cadastro Mineiro, SIGMINE, RECMIN do SGB e malha municipal do IBGE 2025. Energia (CCEE) e barragens (SIGBM) seguem do retrato recebido anteriormente. Geometrias simplificadas para o mapa; limites não cadastrais. Dados demonstrativos e cenários fictícios não foram importados.',
+'at.footSources':'Fontes: base consolidada do projeto — ANM/CFEM, Anuário Mineral Brasileiro, Cadastro Mineiro, SIGMINE, RECMIN do SGB e malha municipal do IBGE 2025. Energia (CCEE) e barragens (SIGBM) seguem do retrato recebido anteriormente. Geometrias simplificadas para o mapa; limites não cadastrais. Dados demonstrativos e cenários fictícios não foram importados.',
 'at.noRecord':'Sem registro','at.notInformed':'Não informado','at.leafletFail':'Não foi possível carregar o Leaflet. Atualize a página.',
 'at.tileFail':'Mapa-base indisponível. Os limites e dados locais continuam disponíveis.','at.loadingPolys':'Carregando polígonos…',
 'at.quantileNote':'Cores por faixas de quantis dos valores positivos. Cinza: sem registro ou valor zero.',
@@ -86,7 +86,7 @@ const DICT={pt:{
 'at.recordsHint':'{n} registros · clique em uma linha para localizar no mapa','at.noneInCut':'Nenhum registro no recorte.','at.locate':'Localizar {name}',
 'at.unitGold':'kg declarados','at.unitTons':'t comercializadas','at.from':'A partir de','at.noneZero':'Sem registro / zero','at.cfemPrefix':'CFEM · ',
 'at.allMunicipalities':' · 246 municípios','at.ref2025':'Referência 2025 · ',
-'at.csvSource':'Fonte','at.csvArtefact':'Base consolidada do Squad 1 (v17)','at.csvLayer':'Camada','at.csvRef':'Referência','at.thPeriod':'Período',
+'at.csvSource':'Fonte','at.csvArtefact':'Base consolidada do projeto (v17)','at.csvLayer':'Camada','at.csvRef':'Referência','at.thPeriod':'Período',
 
 
 
@@ -353,13 +353,13 @@ const DICT={pt:{
 'pn.imp.Depósito':'Depósito','pn.imp.Ocorrência':'Ocorrência','pn.imp.Indício':'Indício','pn.imp.Indeterminado':'Indeterminado',
 'pn.cov.com_coordenadas':'Com coordenada','pn.cov.sem_coordenadas':'Sem coordenada','pn.cov.sem_cfem':'Sem CFEM',
 'pn.c.cobertura':'Quanto da produção a base atribui a operações','pn.c.cobertura.n':'Parcela da produção bruta ligada a uma operação com coordenada. Diz o quanto os números de produção podem ser lidos no território.',
-'nav.panorama':"Panorama",'pn.eyebrow':"Base consolidada · Squad 1",'pn.title':"Panorama da mineração de Goiás",'pn.lead':"Os gráficos e tabelas do Panorama, refeitos com as bases do Squad 1 no GitHub e recortáveis por período, município, mineral, titular e outros filtros.",
+'nav.panorama':"Panorama",'pn.eyebrow':"Mineração em números",'pn.title':"Panorama da mineração de Goiás",'pn.lead':"Gráficos e tabelas sobre a mineração em Goiás, recortáveis por período, município, mineral, titular e outros filtros. Cada quadro diz o que mostra e quais filtros valem nele.",
 'pn.tag':"BASE CONSOLIDADA · RETRATO",'pn.loading':"Preparando o panorama…",'pn.f.y0':"Ano inicial",'pn.f.y1':"Ano final",
 'pn.f.ano':"Ano",'pn.f.mes':"Mês",'pn.f.mun':"Município",'pn.f.min':"Mineral",
 'pn.f.emp':"Titular ou empresa",'pn.f.fase':"Fase do processo",'pn.f.rub':"Gasto em pesquisa",'pn.f.ramo':"Ramo (CCEE)",
 'pn.empPh':"Buscar pelo nome",'pn.reset':"Limpar filtros",'pn.allMonths':"Todos os meses",'pn.allMun':"Todos os municípios",
 'pn.allMin':"Todos os minerais",'pn.allFase':"Todas as fases",'pn.allRub':"Todos os gastos",'pn.allRamo':"Todos os ramos",
-'pn.cut':"Recorte:",'pn.appliedFilters':"Filtros que valem aqui:",'pn.source':"Fonte: base consolidada do Squad 1 ({v}), dados brutos do repositório (investimento em pesquisa, CCEE e rodadas da ANM) e retrato do atlas para energia por município e barragens. Pacote gerado em {d} por scripts/build_panorama_base.py.",'pn.notInformed':"Não informado",
+'pn.cut':"Recorte:",'pn.appliedFilters':"Filtros que valem aqui:",'pn.source':"Fonte: base consolidada do projeto ({v}), com dados da ANM (investimento em pesquisa e rodadas), da CCEE e o retrato do atlas para energia por município e barragens. Atualizado em {d}.",'pn.notInformed':"Não informado",
 'pn.noMineral':"Sem mineral",'pn.pf':"Pessoa física (nome oculto)",'pn.others':"Outros",'pn.empty':"Sem dados neste recorte.",
 'pn.showAll':"Mostrar todos ({n})",'pn.showLess':"Mostrar menos",
 'pn.u.bi':"bi",'pn.u.mi':"mi",'pn.u.k':"mil",'pn.refYear':"Ano de referência: {y} (último ano do recorte com dado).",
@@ -417,10 +417,10 @@ const DICT={pt:{
 'pn.c.ee_mes.n':"Mercado livre e carga das distribuidoras (mercado cativo), em GWh.",'pn.c.ee_ano':"Mercado cativo e mercado livre, por ano",'pn.c.ee_ano.n':"Mercado livre, distribuidoras e meses cobertos por ano; a coluna de empresas conta só o mercado livre.",'pn.c.ee_emp':"Empresas com título minerário no mercado livre",
 'pn.c.ee_emp.n':"Carga ligada ao titular pela raiz do CNPJ. CFEM por MWh compara períodos iguais só quando o filtro de ano coincide.",'pn.c.ee_coef':"Coeficiente energético por município",'pn.c.ee_coef.n':"Retrato do atlas, por município e não por operação: kWh por tonelada nos comparáveis e MWh por quilo nos de ouro, com todas as empresas do município somadas.",'pn.c.barr':"As barragens",
 'pn.c.barr.n':"Risco reflete a estrutura; dano potencial reflete o que há a jusante.",'pn.c.barr_matriz':"Risco e dano potencial",'pn.c.barr_matriz.n':"Barragens por categoria de risco (linhas) e dano potencial (colunas).",'pn.c.nr':"Quadros sem fonte nas bases do repositório",
-'pn.c.nr.n':"Para refazê-los, a fonte precisa entrar em Squad 1/Dados brutos com link e data de acesso.",'pn.nr.cfem_nacional':"CFEM nacional e ranking das UFs.",'pn.nr.cfem_nacional.why':"A base de CFEM do Squad 1 é só de Goiás; o ranking das UFs foi trocado pelo do valor da produção beneficiada.",'pn.nr.repasse':"Repasse da CFEM aos municípios.",
+'pn.c.nr.n':"Para refazê-los, a fonte precisa entrar em Squad 1/Dados brutos com link e data de acesso.",'pn.nr.cfem_nacional':"CFEM nacional e ranking das UFs.",'pn.nr.cfem_nacional.why':"A base de CFEM do projeto é só de Goiás; o ranking das UFs foi trocado pelo do valor da produção beneficiada.",'pn.nr.repasse':"Repasse da CFEM aos municípios.",
 'pn.nr.repasse.why':"A distribuição da CFEM por ente não está entre as fontes da base.",'pn.nr.agua':"Água mineral e termalismo.",'pn.nr.agua.why':"A produção de água mineral está só na cópia de trabalho, não em Dados brutos.",'pn.nr.tah':"Taxa anual por hectare (TAH).",
 'pn.nr.tah.why':"A base de pagamentos da TAH não foi incluída.",'pn.nr.repem':"Planos de pesquisa (subatividades como sondagem rotativa).",'pn.nr.repem.why':"O arquivo de investimento traz só os tipos de gasto, sem as subatividades.",'pn.nr.inativos':"Cemitério de títulos (processos inativos).",
-'pn.nr.inativos.why':"O SIGMINE da base tem só os processos ativos; a década de abertura aparece só para eles.",'pn.nr.coef_empresas':"Coeficientes por operação e produção declarada pelas empresas.",'pn.nr.coef_empresas.why':"Dependem de relatórios das empresas; o pareamento da CCEE com as operações é do Estudante 3.",'pn.tabsAria':"Categorias de análise",'pn.tab.arrecadacao':"Arrecadação (CFEM)",'pn.tab.territorio':"Território",'pn.tab.producao':"Produção",
+'pn.nr.inativos.why':"O SIGMINE da base tem só os processos ativos; a década de abertura aparece só para eles.",'pn.nr.coef_empresas':"Coeficientes por operação e produção declarada pelas empresas.",'pn.nr.coef_empresas.why':"Dependem de relatórios das empresas e do pareamento da CCEE com as operações.",'pn.tabsAria':"Categorias de análise",'pn.tab.arrecadacao':"Arrecadação (CFEM)",'pn.tab.territorio':"Território",'pn.tab.producao':"Produção",
 'pn.tab.pesquisa':"Pesquisa e direitos",'pn.tab.empresas':"Empresas",'pn.tab.energia':"Energia",'pn.tab.barragens':"Barragens",
 'pn.tab.notas':"Notas",
 'pn.empNi':"Titular não identificado",'pn.empHidden':"Pessoa física ou sem CNPJ (nome oculto)",
@@ -883,7 +883,7 @@ const DICT={pt:{
 'ov.sourcePrefix':'Source: ','ov.sourceSuffix':' · Current version imported into the database. One row is one record, not one distinct company.',
 'ov.exportFirst':'Load the data before exporting.','ov.csvAll':'All',
 'ov.csvSource':'source','ov.csvYear':'year','ov.csvActivity':'sector','ov.csvMonth':'month','ov.csvRecords':'records','ov.csvName':'minera-goias-ccee-{year}-summary.csv',
-'at.eyebrow':'Mining · Energy · Territory','at.title':'Mineral atlas of Goiás','at.lead':'Explore municipalities, mining claims and tailings dams on one integrated map.',
+'at.eyebrow':'Mining · Energy · Territory','at.title':'Mineral atlas of Goiás','at.lead':'The map and the numbers of mining in Goiás. On the map, see municipalities, mining claims and tailings dams; click a municipality to open its profile. Below, the Panorama brings the charts by topic: royalties, production, research and rights, companies, energy, territory and dams. The sub-tabs pick the topic, and the filters slice by period, municipality, mineral and holder.',
 'at.tag':'CONSOLIDATED BASE · SNAPSHOT',
 'at.loading':'Preparing the atlas…','at.layer':'Thematic layer','at.mapView':'Map view','nav.themeAria':'Panel themes','at.layer.cfem':'CFEM royalties by municipality','at.layer.production':'Quantity sold by mineral',
 'at.layer.energy':'Mineral chain energy','at.layer.coefficient':'Energy intensity','at.layer.processes':'Mining claim polygons','at.layer.dams':'Mining tailings dams',
@@ -894,7 +894,7 @@ const DICT={pt:{
 
 
 
-'at.footSources':'Sources: Squad 1 consolidated base (v17) — ANM/CFEM, Brazilian Mineral Yearbook, Mining Register, SIGMINE, SGB RECMIN and the IBGE 2025 municipal grid. Energy (CCEE) and dams (SIGBM) still come from the artefact received earlier. Geometries simplified for the map; boundaries are not cadastral. Demonstration data and fictional scenarios were not imported.',
+'at.footSources':'Sources: the project consolidated base — ANM/CFEM, Brazilian Mineral Yearbook, Mining Register, SIGMINE, SGB RECMIN and the IBGE 2025 municipal grid. Energy (CCEE) and dams (SIGBM) still come from the artefact received earlier. Geometries simplified for the map; boundaries are not cadastral. Demonstration data and fictional scenarios were not imported.',
 'at.noRecord':'No record','at.notInformed':'Not informed','at.leafletFail':'Leaflet could not be loaded. Please refresh the page.',
 'at.tileFail':'Base map unavailable. Boundaries and local data remain available.','at.loadingPolys':'Loading polygons…',
 'at.quantileNote':'Colours follow quantile bands of the positive values. Grey: no record or zero value.',
@@ -913,7 +913,7 @@ const DICT={pt:{
 'at.recordsHint':'{n} records · click a row to locate it on the map','at.noneInCut':'No records in this selection.','at.locate':'Locate {name}',
 'at.unitGold':'kg declared','at.unitTons':'t sold','at.from':'From','at.noneZero':'No record / zero','at.cfemPrefix':'CFEM · ',
 'at.allMunicipalities':' · 246 municipalities','at.ref2025':'2025 reference · ',
-'at.csvSource':'Source','at.csvArtefact':'Squad 1 consolidated base (v17)','at.csvLayer':'Layer','at.csvRef':'Reference','at.thPeriod':'Period',
+'at.csvSource':'Source','at.csvArtefact':'Project consolidated base (v17)','at.csvLayer':'Layer','at.csvRef':'Reference','at.thPeriod':'Period',
 
 
 
@@ -1180,13 +1180,13 @@ const DICT={pt:{
 'pn.imp.Depósito':'Deposit','pn.imp.Ocorrência':'Occurrence','pn.imp.Indício':'Showing','pn.imp.Indeterminado':'Undetermined',
 'pn.cov.com_coordenadas':'With coordinates','pn.cov.sem_coordenadas':'Without coordinates','pn.cov.sem_cfem':'No CFEM',
 'pn.c.cobertura':'How much production the base ties to operations','pn.c.cobertura.n':'Share of run-of-mine production linked to an operation with coordinates. It says how far the production figures can be read on the ground.',
-'nav.panorama':"Panorama",'pn.eyebrow':"Consolidated base · Squad 1",'pn.title':"Panorama of mining in Goiás",'pn.lead':"The charts and tables of the Panorama, rebuilt from the Squad 1 bases on GitHub and filterable by period, municipality, mineral, holder and more.",
+'nav.panorama':"Panorama",'pn.eyebrow':"Mining in numbers",'pn.title':"Panorama of mining in Goiás",'pn.lead':"Charts and tables on mining in Goiás, filterable by period, municipality, mineral, holder and other filters. Each card says what it shows and which filters apply to it.",
 'pn.tag':"CONSOLIDATED BASE · SNAPSHOT",'pn.loading':"Preparing the panorama…",'pn.f.y0':"From year",'pn.f.y1':"To year",
 'pn.f.ano':"Year",'pn.f.mes':"Month",'pn.f.mun':"Municipality",'pn.f.min':"Mineral",
 'pn.f.emp':"Holder or company",'pn.f.fase':"Claim phase",'pn.f.rub':"Research spending",'pn.f.ramo':"Sector (CCEE)",
 'pn.empPh':"Search by name",'pn.reset':"Clear filters",'pn.allMonths':"All months",'pn.allMun':"All municipalities",
 'pn.allMin':"All minerals",'pn.allFase':"All phases",'pn.allRub':"All spending",'pn.allRamo':"All sectors",
-'pn.cut':"Cut:",'pn.appliedFilters':"Filters used here:",'pn.source':"Source: Squad 1 consolidated base ({v}), raw files in the repository (research investment, CCEE and ANM rounds) and the atlas snapshot for energy by municipality and dams. Package built on {d} by scripts/build_panorama_base.py.",'pn.notInformed':"Not informed",
+'pn.cut':"Cut:",'pn.appliedFilters':"Filters used here:",'pn.source':"Source: the project consolidated base ({v}), with ANM data (research investment and rounds), CCEE data and the atlas snapshot for energy by municipality and dams. Updated on {d}.",'pn.notInformed':"Not informed",
 'pn.noMineral':"No mineral",'pn.pf':"Individual (name hidden)",'pn.others':"Others",'pn.empty':"No data in this cut.",
 'pn.showAll':"Show all ({n})",'pn.showLess':"Show less",
 'pn.u.bi':"bn",'pn.u.mi':"M",'pn.u.k':"k",'pn.refYear':"Reference year: {y} (latest year with data in the cut).",
@@ -1244,10 +1244,10 @@ const DICT={pt:{
 'pn.c.ee_mes.n':"Free market and distributor load (captive market), in GWh.",'pn.c.ee_ano':"Captive and free market, by year",'pn.c.ee_ano.n':"Free market, distributors and months covered per year; the companies column counts the free market only.",'pn.c.ee_emp':"Companies with a mining title in the free market",
 'pn.c.ee_emp.n':"Load matched to the holder by CNPJ root. CFEM per MWh compares equal periods only when the year filter matches.",'pn.c.ee_coef':"Energy coefficient by municipality",'pn.c.ee_coef.n':"Atlas snapshot, by municipality and not by operation: kWh per tonne in comparable ones and MWh per kilo in gold ones, with every company in the municipality summed.",'pn.c.barr':"The dams",
 'pn.c.barr.n':"Risk reflects the structure; potential damage reflects what lies downstream.",'pn.c.barr_matriz':"Risk and potential damage",'pn.c.barr_matriz.n':"Dams by risk category (rows) and potential damage (columns).",'pn.c.nr':"Panels without a source in the repository bases",
-'pn.c.nr.n':"To rebuild them, the source has to enter Squad 1/Dados brutos with link and access date.",'pn.nr.cfem_nacional':"National CFEM and state ranking.",'pn.nr.cfem_nacional.why':"The Squad 1 CFEM base covers Goiás only; the state ranking was replaced by the one on beneficiated production value.",'pn.nr.repasse':"CFEM transfers to municipalities.",
+'pn.c.nr.n':"To rebuild them, the source has to enter Squad 1/Dados brutos with link and access date.",'pn.nr.cfem_nacional':"National CFEM and state ranking.",'pn.nr.cfem_nacional.why':"The project CFEM base covers Goiás only; the state ranking was replaced by the one on beneficiated production value.",'pn.nr.repasse':"CFEM transfers to municipalities.",
 'pn.nr.repasse.why':"The CFEM distribution by government level is not among the base sources.",'pn.nr.agua':"Mineral water and hot springs.",'pn.nr.agua.why':"Mineral water production is only in the working copy, not in Dados brutos.",'pn.nr.tah':"Annual fee per hectare (TAH).",
 'pn.nr.tah.why':"The TAH payments base was not included.",'pn.nr.repem':"Research plans (sub-activities such as rotary drilling).",'pn.nr.repem.why':"The investment file only has spending types, without sub-activities.",'pn.nr.inativos':"Title graveyard (inactive claims).",
-'pn.nr.inativos.why':"The base SIGMINE only has active claims; the decade of filing is shown for them only.",'pn.nr.coef_empresas':"Coefficients by operation and production declared by companies.",'pn.nr.coef_empresas.why':"They depend on company reports; pairing CCEE with operations belongs to Student 3.",'pn.tabsAria':"Analysis categories",'pn.tab.arrecadacao':"Royalties (CFEM)",'pn.tab.territorio':"Territory",'pn.tab.producao':"Production",
+'pn.nr.inativos.why':"The base SIGMINE only has active claims; the decade of filing is shown for them only.",'pn.nr.coef_empresas':"Coefficients by operation and production declared by companies.",'pn.nr.coef_empresas.why':"They depend on company reports and on pairing CCEE with operations.",'pn.tabsAria':"Analysis categories",'pn.tab.arrecadacao':"Royalties (CFEM)",'pn.tab.territorio':"Territory",'pn.tab.producao':"Production",
 'pn.tab.pesquisa':"Research and rights",'pn.tab.empresas':"Companies",'pn.tab.energia':"Energy",'pn.tab.barragens':"Dams",
 'pn.tab.notas':"Notes",
 'pn.empNi':"Unidentified holder",'pn.empHidden':"Individual or no CNPJ (name hidden)",
