@@ -124,8 +124,8 @@
         "nome": "ANM — SIGMINE, pela base consolidada do Squad 1 (v17, camada processos_minerarios_go)",
         "url": "https://dadosabertos.anm.gov.br/SIGMINE/PROCESSOS_MINERARIOS/GO.zip"
       },
-      "data_retrato": "2026-09-10",
-      "periodo_referencia": "situação dos processos no arquivo do SIGMINE de 10/09/2026",
+      "data_retrato": "2026-10-24",
+      "periodo_referencia": "situação dos processos no arquivo do SIGMINE de 24/10/2026",
       "chave": "processo",
       "carga": "sob_demanda",
       "visivel_padrao": false,
@@ -485,8 +485,8 @@
       "fonte": {
         "nome": "Base consolidada do Squad 1 (v17), aba 04_dim_projetos — classificação do Radar de Projetos"
       },
-      "data_retrato": "2026-09-10",
-      "periodo_referencia": "situação dos processos no arquivo do SIGMINE de 10/09/2026 (aba 04)",
+      "data_retrato": "2026-10-24",
+      "periodo_referencia": "situação dos processos no arquivo do SIGMINE de 24/10/2026 (aba 04)",
       "chave": "id",
       "carga": "sob_demanda",
       "visivel_padrao": false,

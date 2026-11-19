@@ -145,7 +145,7 @@ if atlas:
     base(id="sigmine", nome="Cadastro mineiro / SIGMINE — processos", familia="Mineração", natureza="bruta",
          origem="Agência Nacional de Mineração (ANM), shapefile do SIGMINE",
          atualizado_em=commit_date("Squad 1/Dados brutos/ANM - SIGMINE"),
-         periodo="Extração de 10/09/2026",
+         periodo="Extração de 24/10/2026",
          volume=f"{conta(atlas.get('processes')) or (conta(panorama['proc']) if panorama else 0) or 'NA'} processos",
          onde="Squad 1/Dados brutos/ANM - SIGMINE · pacote data/atlas/processes.json",
          mede="Polígono e atributos de cada processo minerário: fase, substância, titular, município e área.",

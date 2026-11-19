@@ -880,7 +880,7 @@ def tabela_municipios(atlas, minas, radar_linhas, ctx):
                                     'distribuída (repasse a estado e municípios). 0 = nenhum recolhimento no arquivo naquele ano. O último ano é '
                                     'parcial e não se compara com os anos completos.')},
         'processos_que_tocam': {'rotulo': 'Processos minerários que tocam o município', 'rotulo_en': 'Mining claims touching the municipality',
-                                'unidade': 'processos distintos', 'retrato': 'SIGMINE de 10/09/2026', 'aditiva_entre_municipios': False,
+                                'unidade': 'processos distintos', 'retrato': 'SIGMINE de 24/10/2026', 'aditiva_entre_municipios': False,
                                 'nota': 'Processo que cruza vários municípios conta em cada um; a soma dos municípios passa do total do estado.'},
         'minas_ativas_que_tocam': {'rotulo': 'Minas ativas (SGB) que tocam o município', 'rotulo_en': 'Active mines (SGB) touching the municipality',
                                    'unidade': 'processos distintos', 'retrato': 'P3M, 21/10/2026', 'aditiva_entre_municipios': False,
@@ -889,7 +889,7 @@ def tabela_municipios(atlas, minas, radar_linhas, ctx):
                            'unidade': 'projetos (ID distinto)', 'aditiva_entre_municipios': True,
                            'nota': f'Cada projeto conta só no município principal. {sem_mun} projetos sem município principal ficam fora.'},
         'projetos_anm': {'rotulo': 'Projetos que ainda não produzem (aba 04)', 'rotulo_en': 'Pre-production projects (sheet 04)', 'unidade': 'projetos',
-                         'aditiva_entre_municipios': True, 'retrato': 'SIGMINE de 10/09/2026'},
+                         'aditiva_entre_municipios': True, 'retrato': 'SIGMINE de 24/10/2026'},
         'ocorrencias': {'rotulo': 'Ocorrências e depósitos do RECMIN', 'rotulo_en': 'RECMIN occurrences and deposits', 'unidade': 'pontos',
                         'aditiva_entre_municipios': True, 'retrato': 'RECMIN de 12/09/2026'},
     }

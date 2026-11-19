@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-11-18",
+  "built_on": "2026-11-19",
   "versao_base": "v1",
   "gerado_por": "scripts/build_catalogo_painel.py",
   "nota": "Última atualização de pacote gerado vem do built_on que o próprio pacote grava; a de arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo, não digitados."
@@ -83,7 +83,7 @@
    "natureza": "bruta",
    "origem": "Agência Nacional de Mineração (ANM), shapefile do SIGMINE",
    "atualizado_em": "2026-10-24",
-   "periodo": "Extração de 10/09/2026",
+   "periodo": "Extração de 24/10/2026",
    "volume": "16875 processos",
    "onde": "Squad 1/Dados brutos/ANM - SIGMINE · pacote data/atlas/processes.json",
    "mede": "Polígono e atributos de cada processo minerário: fase, substância, titular, município e área.",
