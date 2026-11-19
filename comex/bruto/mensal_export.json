@@ -1,0 +1,6794 @@
+[
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "64410645",
+  "metricKG": "16304870"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "56013914",
+  "metricKG": "34980610"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "53216170",
+  "metricKG": "33871910"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "52884229",
+  "metricKG": "13139400"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "49581821",
+  "metricKG": "1283"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "48678497",
+  "metricKG": "32141650"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "39392788",
+  "metricKG": "23914970"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "39256350",
+  "metricKG": "10309390"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "38333822",
+  "metricKG": "11399750"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "38165899",
+  "metricKG": "964"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "36298285",
+  "metricKG": "1014"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35979677",
+  "metricKG": "12464270"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "35871182",
+  "metricKG": "21741180"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35200538",
+  "metricKG": "12076660"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "34649774",
+  "metricKG": "22071520"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34645618",
+  "metricKG": "1529308"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "34528629",
+  "metricKG": "21740890"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "34236702",
+  "metricKG": "21741320"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "34102547",
+  "metricKG": "22793510"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "33414692",
+  "metricKG": "9644770"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "31389566",
+  "metricKG": "11605720"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "30685735",
+  "metricKG": "11099860"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "29442608",
+  "metricKG": "11460720"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29214768",
+  "metricKG": "1258628"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29094252",
+  "metricKG": "1251871"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "28474188",
+  "metricKG": "785"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27869554",
+  "metricKG": "1207741"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "26164447",
+  "metricKG": "9181040"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "23974405",
+  "metricKG": "8681310"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "23815182",
+  "metricKG": "1031865"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "23142125",
+  "metricKG": "1002865"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "22771421",
+  "metricKG": "1005282"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22339783",
+  "metricKG": "476"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22001030",
+  "metricKG": "464"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "21429886",
+  "metricKG": "528"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "20010624",
+  "metricKG": "11957950"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "18890659",
+  "metricKG": "915444"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18154583",
+  "metricKG": "372"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "17091959",
+  "metricKG": "10870060"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "17017285",
+  "metricKG": "10870120"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "15418570",
+  "metricKG": "371"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15395369",
+  "metricKG": "343"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "15085715",
+  "metricKG": "440"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15009532",
+  "metricKG": "369"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "14872725",
+  "metricKG": "381"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "13854963",
+  "metricKG": "299"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "13196032",
+  "metricKG": "605135"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "12245593",
+  "metricKG": "265"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11782996",
+  "metricKG": "302"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "10854330",
+  "metricKG": "311"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "10031420",
+  "metricKG": "248"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "9217847",
+  "metricKG": "408560"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "8681722",
+  "metricKG": "227"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "7141845",
+  "metricKG": "220"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "5569138",
+  "metricKG": "206"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "5560787",
+  "metricKG": "178"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "5556489",
+  "metricKG": "255855"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "5452824",
+  "metricKG": "26504567"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5187693",
+  "metricKG": "12000500"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "4642675",
+  "metricKG": "220000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4091482",
+  "metricKG": "9385000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "3945775",
+  "metricKG": "19734022"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3561426",
+  "metricKG": "121"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "1761977",
+  "metricKG": "51"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1412003",
+  "metricKG": "7638127"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1079264",
+  "metricKG": "5834320"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "804652",
+  "metricKG": "1862500"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "799570",
+  "metricKG": "2607200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "787000",
+  "metricKG": "2618400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "782352",
+  "metricKG": "2790000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "740832",
+  "metricKG": "2280600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "714759",
+  "metricKG": "2307000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "660167",
+  "metricKG": "2700624"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "635239",
+  "metricKG": "2219600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "606504",
+  "metricKG": "1921100"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "574971",
+  "metricKG": "1889000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "564649",
+  "metricKG": "1485000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "499504",
+  "metricKG": "1855000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "410150",
+  "metricKG": "1356000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "404325",
+  "metricKG": "1336600"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "370618",
+  "metricKG": "1552764"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "359920",
+  "metricKG": "1234000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "290145",
+  "metricKG": "720000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "274519",
+  "metricKG": "1358336"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "181853",
+  "metricKG": "472500"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "09",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "173007",
+  "metricKG": "1290776"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2019",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "79040",
+  "metricKG": "208000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "28645",
+  "metricKG": "135000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "26274",
+  "metricKG": "2334550"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2019",
+  "monthNumber": "11",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "21077",
+  "metricKG": "118874"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "05",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "19105",
+  "metricKG": "1964770"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "01",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "18294",
+  "metricKG": "1895200"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "04",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "7819",
+  "metricKG": "812030"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "02",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "4517",
+  "metricKG": "467800"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "12",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "3424",
+  "metricKG": "354770"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "06",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "1482",
+  "metricKG": "158230"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2019",
+  "monthNumber": "07",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "729",
+  "metricKG": "56170"
+ },
+ {
+  "coNcm": "25102010",
+  "year": "2019",
+  "monthNumber": "03",
+  "ncm": "Fosfatos de cálcio naturais, moídos",
+  "metricFOB": "8",
+  "metricKG": "705"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "76527831",
+  "metricKG": "20012300"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "70797618",
+  "metricKG": "32913730"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "63824198",
+  "metricKG": "33698630"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "55502733",
+  "metricKG": "18893620"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "54175630",
+  "metricKG": "16553020"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "49643404",
+  "metricKG": "33734140"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "47469948",
+  "metricKG": "16932850"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "43915167",
+  "metricKG": "12548020"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "42150800",
+  "metricKG": "15543870"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "41419299",
+  "metricKG": "11919980"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "40482130",
+  "metricKG": "1878790"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "35963453",
+  "metricKG": "21305190"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35436310",
+  "metricKG": "10450300"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35138088",
+  "metricKG": "10993320"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34895553",
+  "metricKG": "1568177"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "34469588",
+  "metricKG": "21741610"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34063819",
+  "metricKG": "1617965"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "33810895",
+  "metricKG": "555"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "31419630",
+  "metricKG": "22370840"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "31044806",
+  "metricKG": "10384070"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "29876201",
+  "metricKG": "21740740"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27789948",
+  "metricKG": "1261858"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "26790575",
+  "metricKG": "1277790"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "23987578",
+  "metricKG": "1146185"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "23295281",
+  "metricKG": "480"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "23044228",
+  "metricKG": "10571690"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22936101",
+  "metricKG": "386"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "22848888",
+  "metricKG": "8284700"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "21878583",
+  "metricKG": "986198"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "21698737",
+  "metricKG": "376"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "21215158",
+  "metricKG": "1029560"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "20900829",
+  "metricKG": "347"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "20786703",
+  "metricKG": "9800700"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "20712757",
+  "metricKG": "7699590"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "19984286",
+  "metricKG": "325"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "19868893",
+  "metricKG": "10653320"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "19463177",
+  "metricKG": "356"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "19425203",
+  "metricKG": "11336740"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18972376",
+  "metricKG": "350"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "18843598",
+  "metricKG": "887765"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "18607383",
+  "metricKG": "865313"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18510563",
+  "metricKG": "328"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "16423534",
+  "metricKG": "886040"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "16052278",
+  "metricKG": "848755"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15647412",
+  "metricKG": "313"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "12728695",
+  "metricKG": "279"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "12020559",
+  "metricKG": "260"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11228988",
+  "metricKG": "229"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "10664906",
+  "metricKG": "203"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "9449799",
+  "metricKG": "220"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "8126216",
+  "metricKG": "214"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "7385121",
+  "metricKG": "161"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "6502504",
+  "metricKG": "156"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "5138004",
+  "metricKG": "132"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "4808839",
+  "metricKG": "122"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "4708913",
+  "metricKG": "128"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4234122",
+  "metricKG": "10841500"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "4189699",
+  "metricKG": "28663101"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "4000795",
+  "metricKG": "105"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "3963469",
+  "metricKG": "9593500"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3609108",
+  "metricKG": "95"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "3409125",
+  "metricKG": "9045000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "3381648",
+  "metricKG": "28548096"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "3018594",
+  "metricKG": "7382700"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "2868408",
+  "metricKG": "79"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2730017",
+  "metricKG": "7110000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2312033",
+  "metricKG": "6772500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2262277",
+  "metricKG": "5886100"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "2145765",
+  "metricKG": "20666565"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2085539",
+  "metricKG": "5251800"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "1853004",
+  "metricKG": "4410000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1552471",
+  "metricKG": "15122899"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "1354816",
+  "metricKG": "3116800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1162829",
+  "metricKG": "3816200"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "1105525",
+  "metricKG": "21"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "944180",
+  "metricKG": "3124000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "831372",
+  "metricKG": "2723000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "804765",
+  "metricKG": "2832050"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "802599",
+  "metricKG": "2920000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "779543",
+  "metricKG": "2573000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "762772",
+  "metricKG": "1777100"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "665485",
+  "metricKG": "2292000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "586423",
+  "metricKG": "1988000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "450526",
+  "metricKG": "3321040"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "425526",
+  "metricKG": "1376150"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "384965",
+  "metricKG": "1377000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "375400",
+  "metricKG": "3437165"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "02",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "301477",
+  "metricKG": "2630908"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "262014",
+  "metricKG": "2270647"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "230255",
+  "metricKG": "761200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2020",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "204766",
+  "metricKG": "665000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "10",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "7811",
+  "metricKG": "809260"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "12",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "4462",
+  "metricKG": "462420"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "09",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "3824",
+  "metricKG": "396160"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "01",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "2469",
+  "metricKG": "255870"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "08",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "1854",
+  "metricKG": "192100"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "03",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "1801",
+  "metricKG": "186800"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2020",
+  "monthNumber": "11",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "836",
+  "metricKG": "86630"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "83341560",
+  "metricKG": "34786210"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "77367991",
+  "metricKG": "33698730"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "74411472",
+  "metricKG": "15405030"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "62177523",
+  "metricKG": "14117830"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "55949346",
+  "metricKG": "12106940"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "51671098",
+  "metricKG": "21741000"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "51306757",
+  "metricKG": "21741050"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "51087531",
+  "metricKG": "13730810"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "50371579",
+  "metricKG": "21740730"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "48955150",
+  "metricKG": "20663635"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "48196195",
+  "metricKG": "20652680"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "47964302",
+  "metricKG": "9988940"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "47697534",
+  "metricKG": "20679510"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "47332303",
+  "metricKG": "12187340"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "46274298",
+  "metricKG": "21620650"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "44278968",
+  "metricKG": "12279280"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "43579357",
+  "metricKG": "12825230"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "40630265",
+  "metricKG": "11033780"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "39581274",
+  "metricKG": "9773140"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "37606045",
+  "metricKG": "1793574"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "34549786",
+  "metricKG": "7297860"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "34506906",
+  "metricKG": "582"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "30411056",
+  "metricKG": "581"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29272234",
+  "metricKG": "1359269"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "25888551",
+  "metricKG": "1199830"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "25134257",
+  "metricKG": "521"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "24172553",
+  "metricKG": "478"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "23413941",
+  "metricKG": "1090770"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "23342113",
+  "metricKG": "1085355"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "23332484",
+  "metricKG": "425"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22894448",
+  "metricKG": "399"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22867531",
+  "metricKG": "408"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "22461616",
+  "metricKG": "5941550"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "21763873",
+  "metricKG": "10438675"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "20824135",
+  "metricKG": "442"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "20738294",
+  "metricKG": "978945"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "20635392",
+  "metricKG": "950722"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "19662678",
+  "metricKG": "367"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18583132",
+  "metricKG": "338"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "18482112",
+  "metricKG": "864958"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18340598",
+  "metricKG": "343"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18311697",
+  "metricKG": "323"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "18110541",
+  "metricKG": "851235"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "17814908",
+  "metricKG": "368"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "17296098",
+  "metricKG": "339"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "17124490",
+  "metricKG": "784785"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "16880819",
+  "metricKG": "335"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "16827262",
+  "metricKG": "771615"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "16559220",
+  "metricKG": "792231"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "16100573",
+  "metricKG": "386"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "14652211",
+  "metricKG": "264"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "13979121",
+  "metricKG": "248"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "12749417",
+  "metricKG": "221"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "12488214",
+  "metricKG": "232"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "12023216",
+  "metricKG": "229"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "11080702",
+  "metricKG": "240"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "10528849",
+  "metricKG": "201"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "9794984",
+  "metricKG": "200"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8011648",
+  "metricKG": "19698800"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7063686",
+  "metricKG": "18306000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7050049",
+  "metricKG": "16307250"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6496929",
+  "metricKG": "16461000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5190646",
+  "metricKG": "13557500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4831432",
+  "metricKG": "12283500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4817761",
+  "metricKG": "11551000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4343480",
+  "metricKG": "11241000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4007336",
+  "metricKG": "9291500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "3676255",
+  "metricKG": "9112500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "3621274",
+  "metricKG": "9570100"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2321009",
+  "metricKG": "6191000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "1147762",
+  "metricKG": "26"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1115920",
+  "metricKG": "3250200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1022929",
+  "metricKG": "3470000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1018055",
+  "metricKG": "9180146"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "938542",
+  "metricKG": "3368850"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "902534",
+  "metricKG": "2988000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "884879",
+  "metricKG": "2602200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "855558",
+  "metricKG": "2821800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "823329",
+  "metricKG": "2844000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "819018",
+  "metricKG": "2915000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "689821",
+  "metricKG": "2032400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "650551",
+  "metricKG": "2231200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "587227",
+  "metricKG": "1960200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2021",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "553616",
+  "metricKG": "1659800"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "06",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "206138",
+  "metricKG": "829250"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "02",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "110345",
+  "metricKG": "993855"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "107821",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "10",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "95757",
+  "metricKG": "999000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "01",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "71850",
+  "metricKG": "1250000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "08",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "58995",
+  "metricKG": "307625"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "35343",
+  "metricKG": "168859"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2021",
+  "monthNumber": "11",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "4086",
+  "metricKG": "35071"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2021",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "570",
+  "metricKG": "11"
+ },
+ {
+  "coNcm": "25101010",
+  "year": "2021",
+  "monthNumber": "03",
+  "ncm": "Fosfatos de cálcio naturais, não moídos",
+  "metricFOB": "90",
+  "metricKG": "4210"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "83756340",
+  "metricKG": "42432900"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "72612422",
+  "metricKG": "15975120"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "68021205",
+  "metricKG": "10598200"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "61607346",
+  "metricKG": "9720500"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "59586285",
+  "metricKG": "11043580"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "56167897",
+  "metricKG": "7390050"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "55238205",
+  "metricKG": "10447920"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "54460957",
+  "metricKG": "9549540"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "50358174",
+  "metricKG": "21747600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "45190136",
+  "metricKG": "21765560"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "45089143",
+  "metricKG": "20731253"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "45045245",
+  "metricKG": "8754600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "44490559",
+  "metricKG": "21742180"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "43774283",
+  "metricKG": "11355650"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "41884487",
+  "metricKG": "21763140"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "40405957",
+  "metricKG": "10271115"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "39018803",
+  "metricKG": "21746980"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "37098513",
+  "metricKG": "742"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34043612",
+  "metricKG": "1312200"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "33297666",
+  "metricKG": "614"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "32957418",
+  "metricKG": "8954250"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "32286180",
+  "metricKG": "1481674"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "32241280",
+  "metricKG": "1298195"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "32058724",
+  "metricKG": "8331550"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "31484536",
+  "metricKG": "585"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "30289213",
+  "metricKG": "1263600"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "30104352",
+  "metricKG": "615"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "30003843",
+  "metricKG": "1187595"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "29334377",
+  "metricKG": "532"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29263413",
+  "metricKG": "1234785"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29066178",
+  "metricKG": "1235785"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "28950552",
+  "metricKG": "541"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "27970259",
+  "metricKG": "598"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "27873827",
+  "metricKG": "547"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27499547",
+  "metricKG": "1109000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "27263920",
+  "metricKG": "523"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "26120187",
+  "metricKG": "1009190"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "26006795",
+  "metricKG": "475"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "24084779",
+  "metricKG": "514"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "23279964",
+  "metricKG": "10532580"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "22912958",
+  "metricKG": "904585"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "22609708",
+  "metricKG": "1000439"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "22057419",
+  "metricKG": "10885800"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "21856341",
+  "metricKG": "10874140"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "21356846",
+  "metricKG": "10327160"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "21108206",
+  "metricKG": "854790"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "19598984",
+  "metricKG": "10881340"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18554267",
+  "metricKG": "318"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "17370086",
+  "metricKG": "305"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15544896",
+  "metricKG": "253"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15253503",
+  "metricKG": "244"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15207094",
+  "metricKG": "278"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "13406122",
+  "metricKG": "235"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "13169377",
+  "metricKG": "218"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11730347",
+  "metricKG": "208"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "11368278",
+  "metricKG": "22275750"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "11336806",
+  "metricKG": "243"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10833218",
+  "metricKG": "22053500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10590888",
+  "metricKG": "20348500"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "10264593",
+  "metricKG": "189"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "9999255",
+  "metricKG": "171"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "9990095",
+  "metricKG": "190"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9684512",
+  "metricKG": "18023500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9567893",
+  "metricKG": "18614500"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "8850103",
+  "metricKG": "153"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7488126",
+  "metricKG": "14549750"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7231346",
+  "metricKG": "13965250"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7131441",
+  "metricKG": "15907500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6371838",
+  "metricKG": "14805000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5994379",
+  "metricKG": "11933500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5494834",
+  "metricKG": "13230000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4890741",
+  "metricKG": "11389500"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1443812",
+  "metricKG": "12313445"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1111589",
+  "metricKG": "3440600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1053451",
+  "metricKG": "2850000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "1007456",
+  "metricKG": "24"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "987910",
+  "metricKG": "2646800"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "924228",
+  "metricKG": "3088481"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "913592",
+  "metricKG": "2547500"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "905203",
+  "metricKG": "2510200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "872987",
+  "metricKG": "1934150"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "859552",
+  "metricKG": "2327900"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "832528",
+  "metricKG": "2817020"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "792905",
+  "metricKG": "1856800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "762880",
+  "metricKG": "2161000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "760910",
+  "metricKG": "2123000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "727446",
+  "metricKG": "18"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "628256",
+  "metricKG": "1716900"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "626111",
+  "metricKG": "4499444"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "491479",
+  "metricKG": "8"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "353994",
+  "metricKG": "2530620"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "340913",
+  "metricKG": "6"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "254857",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "218720",
+  "metricKG": "475000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "103465",
+  "metricKG": "250000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "47184",
+  "metricKG": "100000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "11500",
+  "metricKG": "25000"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "5728",
+  "metricKG": "133"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "09",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "3109",
+  "metricKG": "51"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "03",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "2622",
+  "metricKG": "32"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "2522",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "1446",
+  "metricKG": "33"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "1325",
+  "metricKG": "54"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "947",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "04",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "907",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "694",
+  "metricKG": "17"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2022",
+  "monthNumber": "02",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "432",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2022",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "155",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2022",
+  "monthNumber": "01",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "136",
+  "metricKG": "40"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "61292538",
+  "metricKG": "30988100"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "56528906",
+  "metricKG": "31659000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "53904903",
+  "metricKG": "18087490"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "53132910",
+  "metricKG": "15512830"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "43263244",
+  "metricKG": "21757180"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "42579366",
+  "metricKG": "21745980"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "42204370",
+  "metricKG": "9716630"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "40977520",
+  "metricKG": "1609600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "38634582",
+  "metricKG": "20683230"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "38382043",
+  "metricKG": "20671201"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "37463490",
+  "metricKG": "20698340"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "36864075",
+  "metricKG": "20691380"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35595128",
+  "metricKG": "9044340"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35443832",
+  "metricKG": "11790980"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35336286",
+  "metricKG": "10384650"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34263630",
+  "metricKG": "1411000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "33761749",
+  "metricKG": "11676440"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "33245758",
+  "metricKG": "1385060"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "33043695",
+  "metricKG": "1375000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "32239855",
+  "metricKG": "1229000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "32170970",
+  "metricKG": "1256616"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "30246027",
+  "metricKG": "8743300"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "27714738",
+  "metricKG": "9026210"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "27456236",
+  "metricKG": "8124110"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "27401784",
+  "metricKG": "424"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "26942223",
+  "metricKG": "1119000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "26634494",
+  "metricKG": "8881250"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "25277609",
+  "metricKG": "958000"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "25010660",
+  "metricKG": "403"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "24647815",
+  "metricKG": "395"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "24193925",
+  "metricKG": "1016000"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "22116607",
+  "metricKG": "10898840"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "21674243",
+  "metricKG": "7800130"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "21224549",
+  "metricKG": "10395780"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "20454091",
+  "metricKG": "10349600"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "20030891",
+  "metricKG": "832000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "17505549",
+  "metricKG": "655000"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15807084",
+  "metricKG": "251"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15042740",
+  "metricKG": "259"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "14450156",
+  "metricKG": "276"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "14327841",
+  "metricKG": "550000"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "12498787",
+  "metricKG": "198"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11420827",
+  "metricKG": "186"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10963944",
+  "metricKG": "20920500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10783740",
+  "metricKG": "20655000"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "10067542",
+  "metricKG": "164"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9882665",
+  "metricKG": "21532500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9636625",
+  "metricKG": "17433000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "9467919",
+  "metricKG": "203"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "9440016",
+  "metricKG": "148"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9197106",
+  "metricKG": "20002000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "9149601",
+  "metricKG": "183"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "8400012",
+  "metricKG": "158"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "8340975",
+  "metricKG": "133"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "7821519",
+  "metricKG": "134"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7624271",
+  "metricKG": "14341000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7555308",
+  "metricKG": "14661000"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "7375750",
+  "metricKG": "124"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7154876",
+  "metricKG": "13984500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6828599",
+  "metricKG": "12996000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6517338",
+  "metricKG": "13230000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5244404",
+  "metricKG": "11042000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "4652054",
+  "metricKG": "100"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4567223",
+  "metricKG": "9225000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "4534541",
+  "metricKG": "25566750"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "4322412",
+  "metricKG": "89"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3777532",
+  "metricKG": "76"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3734390",
+  "metricKG": "70"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3301123",
+  "metricKG": "72"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "2758598",
+  "metricKG": "54"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1393925",
+  "metricKG": "3662600"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "1260197",
+  "metricKG": "25"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1191102",
+  "metricKG": "3045700"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "1082527",
+  "metricKG": "7493255"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "889069",
+  "metricKG": "2343800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "834197",
+  "metricKG": "2424400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "794028",
+  "metricKG": "2025850"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "765942",
+  "metricKG": "2277600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "748892",
+  "metricKG": "2016000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "744221",
+  "metricKG": "1969800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "711914",
+  "metricKG": "1771000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "605075",
+  "metricKG": "1670800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "592495",
+  "metricKG": "1522200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "556541",
+  "metricKG": "1449800"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "481395",
+  "metricKG": "6000000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "423000",
+  "metricKG": "1152000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "224172",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "216599",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "175000",
+  "metricKG": "500000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "175000",
+  "metricKG": "500000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "175000",
+  "metricKG": "499875"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "135176",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "92012",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "69918",
+  "metricKG": "1"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "43893",
+  "metricKG": "44"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "30578",
+  "metricKG": "1"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "25288",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "17323",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "16428",
+  "metricKG": "18"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "16200",
+  "metricKG": "27000"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "15705",
+  "metricKG": "672"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "14692",
+  "metricKG": "12"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "13234",
+  "metricKG": "26000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "04",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "11243",
+  "metricKG": "1020060"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "11209",
+  "metricKG": "901"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "10161",
+  "metricKG": "10"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "9900",
+  "metricKG": "15000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "05",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "8495",
+  "metricKG": "772240"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "8272",
+  "metricKG": "606"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "03",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "8214",
+  "metricKG": "746760"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "02",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "8175",
+  "metricKG": "743230"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "7037",
+  "metricKG": "7"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "6168",
+  "metricKG": "560690"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "5288",
+  "metricKG": "6"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "5147",
+  "metricKG": "465595"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "5141",
+  "metricKG": "467340"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "5111",
+  "metricKG": "464580"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "4288",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2023",
+  "monthNumber": "10",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "3850",
+  "metricKG": "10000"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "3151",
+  "metricKG": "29"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "09",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "3075",
+  "metricKG": "279510"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "11",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "2710",
+  "metricKG": "246350"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2023",
+  "monthNumber": "07",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "2554",
+  "metricKG": "232160"
+ },
+ {
+  "coNcm": "25101010",
+  "year": "2023",
+  "monthNumber": "08",
+  "ncm": "Fosfatos de cálcio naturais, não moídos",
+  "metricFOB": "1677",
+  "metricKG": "8000"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2023",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "921",
+  "metricKG": "26"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2023",
+  "monthNumber": "12",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "432",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "72406959",
+  "metricKG": "31036580"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "54047973",
+  "metricKG": "20661360"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "52481324",
+  "metricKG": "21751760"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "50338665",
+  "metricKG": "20715600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "50302362",
+  "metricKG": "20688600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "49692262",
+  "metricKG": "20713000"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "49636248",
+  "metricKG": "21762740"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "49298736",
+  "metricKG": "20712160"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "44156439",
+  "metricKG": "12213840"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "43151101",
+  "metricKG": "1616000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "42645034",
+  "metricKG": "1608600"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "42057984",
+  "metricKG": "13163790"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "40785683",
+  "metricKG": "1505250"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "40740013",
+  "metricKG": "1521000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "37754631",
+  "metricKG": "12091250"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "37001982",
+  "metricKG": "10344250"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "36930966",
+  "metricKG": "11515150"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "36519075",
+  "metricKG": "10491640"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "36332973",
+  "metricKG": "1360000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34785069",
+  "metricKG": "1327239"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "33548605",
+  "metricKG": "1248650"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "33494726",
+  "metricKG": "1239000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "32928303",
+  "metricKG": "10211130"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "32109274",
+  "metricKG": "10105390"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "29493921",
+  "metricKG": "10763210"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "28580616",
+  "metricKG": "9799090"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27282141",
+  "metricKG": "1015000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27177127",
+  "metricKG": "1039630"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "26992495",
+  "metricKG": "8379150"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "25151117",
+  "metricKG": "10327120"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "24724437",
+  "metricKG": "8415170"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "24549774",
+  "metricKG": "10902580"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "24133800",
+  "metricKG": "340"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "22979890",
+  "metricKG": "856600"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "22567138",
+  "metricKG": "833000"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "22396707",
+  "metricKG": "10337480"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "21987014",
+  "metricKG": "260"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "21489023",
+  "metricKG": "317"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "21455971",
+  "metricKG": "253"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "20636422",
+  "metricKG": "235"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "19602612",
+  "metricKG": "263"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "17607330",
+  "metricKG": "256"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "16562433",
+  "metricKG": "255"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "16547725",
+  "metricKG": "277"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "16327815",
+  "metricKG": "216"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "15181295",
+  "metricKG": "240"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "14744093",
+  "metricKG": "197"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "13788379",
+  "metricKG": "230"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "13398159",
+  "metricKG": "173"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11251913",
+  "metricKG": "140"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "11204770",
+  "metricKG": "158"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "10609969",
+  "metricKG": "161"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "10166892",
+  "metricKG": "153"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9928480",
+  "metricKG": "18637500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9908065",
+  "metricKG": "18855000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "9275393",
+  "metricKG": "136"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "8936683",
+  "metricKG": "133"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8460726",
+  "metricKG": "15672000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8173820",
+  "metricKG": "15030000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8118173",
+  "metricKG": "14340000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7673266",
+  "metricKG": "14157000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7427177",
+  "metricKG": "14299500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6050349",
+  "metricKG": "11924500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5923824",
+  "metricKG": "11637000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5768275",
+  "metricKG": "11227500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5497235",
+  "metricKG": "10260000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "5483948",
+  "metricKG": "100"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4001367",
+  "metricKG": "7523500"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "2577950",
+  "metricKG": "56"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "2165303",
+  "metricKG": "59998"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "1579825",
+  "metricKG": "35"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "1509814",
+  "metricKG": "33"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1310471",
+  "metricKG": "3435600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "1153020",
+  "metricKG": "3071000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "923340",
+  "metricKG": "2556400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "885436",
+  "metricKG": "2344200"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "816039",
+  "metricKG": "2175000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "799346",
+  "metricKG": "2093000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "783280",
+  "metricKG": "1904600"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "726608",
+  "metricKG": "1696400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "660056",
+  "metricKG": "1702000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "626154",
+  "metricKG": "1688000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "572214",
+  "metricKG": "8"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "493431",
+  "metricKG": "6"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "429397",
+  "metricKG": "1127250"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "394099",
+  "metricKG": "1080800"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "386035",
+  "metricKG": "6"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "339995",
+  "metricKG": "1865349"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "314742",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "306339",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "281098",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "269454",
+  "metricKG": "2160000"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "219933",
+  "metricKG": "1058530"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "197626",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "160340",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "140142",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "124597",
+  "metricKG": "812860"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "97785",
+  "metricKG": "513780"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "95624",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "78579",
+  "metricKG": "520000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "21802",
+  "metricKG": "660690"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "19550",
+  "metricKG": "60000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "07",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "19284",
+  "metricKG": "47500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "09",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "04",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "08",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "12",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2024",
+  "monthNumber": "05",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "10905",
+  "metricKG": "330560"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "10322",
+  "metricKG": "26000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "03",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "8260",
+  "metricKG": "20000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "6316",
+  "metricKG": "22000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "4956",
+  "metricKG": "12000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2024",
+  "monthNumber": "11",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "4800",
+  "metricKG": "12000"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2024",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "2407",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "71081390",
+  "year": "2024",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas semimanufaturadas, bulhão dourado, uso não monetário",
+  "metricFOB": "726",
+  "metricKG": "15"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "225",
+  "metricKG": "500"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2024",
+  "monthNumber": "06",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "125",
+  "metricKG": "500"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2024",
+  "monthNumber": "10",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "5",
+  "metricKG": "292"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "94027473",
+  "metricKG": "33766720"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "86145006",
+  "metricKG": "31540940"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "67126888",
+  "metricKG": "22845060"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "53102462",
+  "metricKG": "21806920"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "53007097",
+  "metricKG": "21202220"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "47939072",
+  "metricKG": "21747140"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "43247103",
+  "metricKG": "1539544"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "41820421",
+  "metricKG": "1528904"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "41658201",
+  "metricKG": "13666112"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "40267509",
+  "metricKG": "12788590"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "39586048",
+  "metricKG": "1473020"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "38954890",
+  "metricKG": "11665410"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "38294270",
+  "metricKG": "12126950"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "37345565",
+  "metricKG": "1340800"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "37298988",
+  "metricKG": "1344760"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "37025830",
+  "metricKG": "11703430"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "36928338",
+  "metricKG": "1361800"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35805387",
+  "metricKG": "11547500"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "35494588",
+  "metricKG": "1280000"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "35356612",
+  "metricKG": "11486290"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "35069830",
+  "metricKG": "1321600"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "33711521",
+  "metricKG": "11279710"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "31998283",
+  "metricKG": "462"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "31279024",
+  "metricKG": "1081600"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "30864260",
+  "metricKG": "10244920"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "30763874",
+  "metricKG": "9928430"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29685210",
+  "metricKG": "1041000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "29382761",
+  "metricKG": "1133930"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "29012915",
+  "metricKG": "9330320"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "27681680",
+  "metricKG": "10874860"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "27332057",
+  "metricKG": "1036223"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "26597886",
+  "metricKG": "10879300"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "25621523",
+  "metricKG": "10896060"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "22926503",
+  "metricKG": "178"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "22841993",
+  "metricKG": "10336860"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "21531402",
+  "metricKG": "175"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "20959652",
+  "metricKG": "258"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "20925830",
+  "metricKG": "196"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "20342850",
+  "metricKG": "194"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "19100061",
+  "metricKG": "166"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "18668904",
+  "metricKG": "6041350"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "18651205",
+  "metricKG": "145"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "16580988",
+  "metricKG": "195"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15989492",
+  "metricKG": "119"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "15966669",
+  "metricKG": "188"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "15246091",
+  "metricKG": "142"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "14932420",
+  "metricKG": "140"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "14287125",
+  "metricKG": "152"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "13236226",
+  "metricKG": "158"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "11697459",
+  "metricKG": "166"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "10596686",
+  "metricKG": "104"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10374662",
+  "metricKG": "21912750"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "9547469",
+  "metricKG": "93"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "9420733",
+  "metricKG": "18625500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8467568",
+  "metricKG": "16118500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "8179231",
+  "metricKG": "15974500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7968860",
+  "metricKG": "15528500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7651911",
+  "metricKG": "14633500"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "7514456",
+  "metricKG": "93"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "7266344",
+  "metricKG": "76"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "7251601",
+  "metricKG": "97"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7034107",
+  "metricKG": "13770000"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "6796295",
+  "metricKG": "78"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6387656",
+  "metricKG": "12288500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6221202",
+  "metricKG": "11843500"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "5763410",
+  "metricKG": "419085"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5384049",
+  "metricKG": "10386000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5250196",
+  "metricKG": "10417500"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "4339124",
+  "metricKG": "49"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "3744729",
+  "metricKG": "46"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "3610610",
+  "metricKG": "27410560"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "3537520",
+  "metricKG": "32301760"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "3481736",
+  "metricKG": "37700150"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "3198820",
+  "metricKG": "137948"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "2848350",
+  "metricKG": "5781000"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "2034945",
+  "metricKG": "61328"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "965363",
+  "metricKG": "60550"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "653600",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "602075",
+  "metricKG": "1434800"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "591121",
+  "metricKG": "1442000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "584465",
+  "metricKG": "1230000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "534424",
+  "metricKG": "1458000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "517756",
+  "metricKG": "1426000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "492991",
+  "metricKG": "1050400"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "477382",
+  "metricKG": "1295000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "471304",
+  "metricKG": "5"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "449652",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "434257",
+  "metricKG": "1220000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "432213",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "401844",
+  "metricKG": "813000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "401390",
+  "metricKG": "1134000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "333227",
+  "metricKG": "730000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "305808",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "280264",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "273343",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "265714",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "239268",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "236212",
+  "metricKG": "660000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "205453",
+  "metricKG": "373793"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2025",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "131420",
+  "metricKG": "1"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "116195",
+  "metricKG": "290942"
+ },
+ {
+  "coNcm": "26140010",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Ilmenita (minérios de titânio)",
+  "metricFOB": "108098",
+  "metricKG": "500000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "52153",
+  "metricKG": "138000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "18400",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "08",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "14850",
+  "metricKG": "27500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "05",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "03",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12704",
+  "metricKG": "32000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "06",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "12650",
+  "metricKG": "27500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "7740",
+  "metricKG": "18000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "02",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "5710",
+  "metricKG": "13500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "3800",
+  "metricKG": "10000"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "1730",
+  "metricKG": "51"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "450",
+  "metricKG": "4500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2025",
+  "monthNumber": "12",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "288",
+  "metricKG": "78"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2025",
+  "monthNumber": "11",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "150",
+  "metricKG": "5000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2025",
+  "monthNumber": "01",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "120",
+  "metricKG": "2400"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2025",
+  "monthNumber": "04",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "45",
+  "metricKG": "500"
+ },
+ {
+  "coNcm": "26060011",
+  "year": "2025",
+  "monthNumber": "09",
+  "ncm": "Bauxita não calcinada (minério de alumínio)",
+  "metricFOB": "11",
+  "metricKG": "428"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "122778849",
+  "metricKG": "33192610"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "119589069",
+  "metricKG": "34256260"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "117333313",
+  "metricKG": "33706600"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "82950759",
+  "metricKG": "22834380"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "78404985",
+  "metricKG": "22865200"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "71225356",
+  "metricKG": "22289160"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "67104117",
+  "metricKG": "22837460"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "55284090",
+  "metricKG": "16204210"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "52228519",
+  "metricKG": "461"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "51747841",
+  "metricKG": "15439220"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "47354812",
+  "metricKG": "14072850"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "46316326",
+  "metricKG": "376"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "45074442",
+  "metricKG": "323"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "44451037",
+  "metricKG": "12722870"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "44002002",
+  "metricKG": "1566605"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "43522975",
+  "metricKG": "1645930"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "43478731",
+  "metricKG": "12116910"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "43039786",
+  "metricKG": "12773810"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "42373244",
+  "metricKG": "11012500"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "41666078",
+  "metricKG": "11801400"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "41471816",
+  "metricKG": "396"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "41055049",
+  "metricKG": "1446515"
+ },
+ {
+  "coNcm": "26030010",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Sulfetos de minérios de cobre e seus concentrados",
+  "metricFOB": "40709786",
+  "metricKG": "10875060"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "40156380",
+  "metricKG": "320"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "38601074",
+  "metricKG": "292"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "38021180",
+  "metricKG": "1430000"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "37645458",
+  "metricKG": "1334473"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "37135833",
+  "metricKG": "336"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "36695127",
+  "metricKG": "10908800"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "35377111",
+  "metricKG": "1261546"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34695174",
+  "metricKG": "1244936"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "34444522",
+  "metricKG": "267"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34330264",
+  "metricKG": "1207695"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "34238872",
+  "metricKG": "10493950"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "34217946",
+  "metricKG": "1240650"
+ },
+ {
+  "coNcm": "72026000",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Ferro-níquel",
+  "metricFOB": "32399348",
+  "metricKG": "9172050"
+ },
+ {
+  "coNcm": "72029300",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Ferro-nióbio",
+  "metricFOB": "31994230",
+  "metricKG": "1181394"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "26197292",
+  "metricKG": "182"
+ },
+ {
+  "coNcm": "71081210",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Bulhão dourado (bullion doré), em formas brutas, para uso não monetário",
+  "metricFOB": "18584043",
+  "metricKG": "161"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "10413027",
+  "metricKG": "19914000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7405835",
+  "metricKG": "14182000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7339587",
+  "metricKG": "14881000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "7182621",
+  "metricKG": "13792500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6726764",
+  "metricKG": "13455000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "6571093",
+  "metricKG": "12927000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5864073",
+  "metricKG": "11173000"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "5232256",
+  "metricKG": "10435500"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "4069398",
+  "metricKG": "7208500"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "3917969",
+  "metricKG": "25"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "2037467",
+  "metricKG": "17"
+ },
+ {
+  "coNcm": "25249000",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Outras formas de amianto",
+  "metricFOB": "1537113",
+  "metricKG": "2956000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "1147036",
+  "metricKG": "9"
+ },
+ {
+  "coNcm": "26020090",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Outros minérios de manganês e seus concentrados, incluindo os minérios de manganês ferruginosos e seus concentrados, de teor em manganês de 20 % ou mais, em peso, sobre o produto seco",
+  "metricFOB": "981890",
+  "metricKG": "11725510"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "736990",
+  "metricKG": "7"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "728830",
+  "metricKG": "6"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "707275",
+  "metricKG": "20832"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "577000",
+  "metricKG": "1588950"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "553414",
+  "metricKG": "4"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "536848",
+  "metricKG": "1422000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "520247",
+  "metricKG": "1271900"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "493212",
+  "metricKG": "1278000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "442448",
+  "metricKG": "1218000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "442016",
+  "metricKG": "1239500"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "413475",
+  "metricKG": "1172000"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "390191",
+  "metricKG": "11955"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "379968",
+  "metricKG": "501247"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "376029",
+  "metricKG": "501332"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "355337",
+  "metricKG": "3"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "335617",
+  "metricKG": "847000"
+ },
+ {
+  "coNcm": "26060012",
+  "year": "2026",
+  "monthNumber": "08",
+  "ncm": "Bauxita calcinada (minério de alumínio)",
+  "metricFOB": "328082",
+  "metricKG": "501801"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "313638",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "273475",
+  "metricKG": "774000"
+ },
+ {
+  "coNcm": "25301090",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Vermiculita e cloritas, não expandidas",
+  "metricFOB": "265060",
+  "metricKG": "713000"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "254811",
+  "metricKG": "1"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "197086",
+  "metricKG": "2"
+ },
+ {
+  "coNcm": "71081290",
+  "year": "2026",
+  "monthNumber": "01",
+  "ncm": "Ouro em outras formas brutas, para uso não monetário",
+  "metricFOB": "175924",
+  "metricKG": "1"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "131240",
+  "metricKG": "65500"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "02",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "39739",
+  "metricKG": "65000"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "10",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "22784",
+  "metricKG": "11375"
+ },
+ {
+  "coNcm": "71081310",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Ouro em barras, fios e perfis de seção maciça",
+  "metricFOB": "19667",
+  "metricKG": "0"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "03",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "199",
+  "metricKG": "36"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "07",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "180",
+  "metricKG": "30"
+ },
+ {
+  "coNcm": "25030090",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Outras formas de enxofre de qualquer espécie, exceto o enxofre sublimado, o precipitado e o coloidal",
+  "metricFOB": "149",
+  "metricKG": "24"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2026",
+  "monthNumber": "06",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "99",
+  "metricKG": "1573"
+ },
+ {
+  "coNcm": "26140010",
+  "year": "2026",
+  "monthNumber": "09",
+  "ncm": "Ilmenita (minérios de titânio)",
+  "metricFOB": "96",
+  "metricKG": "385"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2026",
+  "monthNumber": "04",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "20",
+  "metricKG": "13"
+ },
+ {
+  "coNcm": "28469090",
+  "year": "2026",
+  "monthNumber": "05",
+  "ncm": "Outros compostos dos metais das terras raras, de ítrio, etc",
+  "metricFOB": "15",
+  "metricKG": "1504"
+ }
+]

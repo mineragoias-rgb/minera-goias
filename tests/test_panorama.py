@@ -64,7 +64,7 @@ class PanoramaTests(unittest.TestCase):
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
         views = re.findall(r'data-view="(\w+)"', markup)
         # Atlas swallowed the panorama; Mercado keeps the place it took next to it, com Empresas logo abaixo.
-        self.assertEqual(views[:4], ['atlas', 'mercado', 'empresas', 'radar'])
+        self.assertEqual(views[:5], ['atlas', 'mercado', 'empresas', 'comex', 'radar'])
         self.assertNotIn('panorama', views)
         self.assertLess(markup.index('id="atlas-view"'), markup.index('id="panorama-view"'))
         self.assertLess(markup.index('id="atlas-map"'), markup.index('id="panorama-view"'))

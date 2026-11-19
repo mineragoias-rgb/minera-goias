@@ -1,0 +1,21 @@
+{
+ "baixado_em": "2026-11-19",
+ "api": "https://api-comexstat.mdic.gov.br",
+ "uf_comexstat": 53,
+ "ano_inicial": 2019,
+ "publicado_ate": {
+  "ano": 2026,
+  "mes": 10
+ },
+ "atualizacao_declarada_pela_api": "2026-11-06",
+ "capitulos_dos_municipios": [
+  25,
+  26,
+  28,
+  71,
+  72,
+  74,
+  75,
+  81
+ ]
+}
