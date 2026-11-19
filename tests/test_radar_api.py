@@ -140,8 +140,8 @@ class RadarTests(unittest.TestCase):
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
         for anchor in ('id="rd-explorer"', 'id="rd-search"', 'id="rd-list"', 'id="rd-detail-body"', 'id="rd-detail-map"'):
             self.assertIn(anchor, markup)
-        self.assertLess(markup.index('src="/processes.js"'), markup.index('src="/radar.js"'))
-        self.assertLess(markup.index('src="/processes.js"'), markup.index('src="/atlas.js"'))
+        self.assertLess(markup.index('src="/processes.js?v='), markup.index('src="/radar.js?v='))
+        self.assertLess(markup.index('src="/processes.js?v='), markup.index('src="/atlas.js?v='))
         radar_js = (ROOT / 'public' / 'radar.js').read_text(encoding='utf-8')
         atlas_js = (ROOT / 'public' / 'atlas.js').read_text(encoding='utf-8')
         # One decoder for the 2.6 MB packet, fetched only once a phase is opened.

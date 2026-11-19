@@ -1,4 +1,4 @@
-"""Authenticated catalogue of the data bases the system uses, rebuilt by scripts/build_catalogo_bases.py.
+"""Authenticated catalogue of the data bases the system uses, rebuilt by scripts/build_catalogo_painel.py.
 
 It names the sources and where each base lives in the repository, so it stays behind the reader dependency like the atlas, the panorama
 and the Empresas tab — never under public/, which Nginx serves without a session.

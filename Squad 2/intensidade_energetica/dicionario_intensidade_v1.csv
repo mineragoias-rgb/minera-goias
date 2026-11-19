@@ -43,7 +43,7 @@ tipo_fonte,"oficial, companhia, setorial ou imprensa",texto
 data_acesso,Data de geração desta base,AAAA-MM-DD
 metodo_estimacao,Como a estimativa foi feita (linhas estimadas),texto
 erro_estimativa_intervalo,Faixa da intensidade trocando o rateio da CFEM por R$ pelo rateio por t,texto
-checagem_ccee_bruta,Conferência da energia com o arquivo bruto da CCEE no repositório (jun–dez/2025 anualizado),texto
+checagem_ccee_bruta,Conferência da energia com o arquivo bruto da CCEE no repositório (meses de 2025 que o arquivo tiver, anualizados),texto
 status_validacao,Situação da validação,texto
 responsavel_validacao,Quem gerou e conferiu,texto
 usar_no_motor,Se a linha entra em energy_intensity_para_motor_v1.csv e por quê,sim; não — motivo

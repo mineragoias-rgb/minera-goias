@@ -5,7 +5,8 @@
     python scripts/build_simulador_base.py --repo <clone>
 
 Executa os três scripts de `Squad 2/modello_reale/src` e lê os arquivos que eles produzem em
-`Squad 2/modello_reale/outputs/`. Nenhum número é recalculado aqui: o script extrai as primitivas do
+`Squad 2/modello_reale/outputs/`. As intensidades vêm de `load_parameters()` do próprio modelo — a mesma tabela que ele
+usa no cálculo —, para o simulador nunca apontar para um arquivo que o Squad 2 deixou de usar. Nenhum número é recalculado aqui: o script extrai as primitivas do
 modelo (ano-base, produção do último ano observado, crescimento histórico composto, intensidade
 energética e as hipóteses de cenário) para que o navegador reproduza a mesma projeção sem depender de
 artefatos do GitHub Actions, que não ficam versionados.
@@ -45,10 +46,21 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
         primeira = linhas.iloc[0]
         crescimento = float(primeira["historical_growth_rate"])
         ano_base = int(primeira["base_year"])
+        # Taxa que o modelo aplica em cada cenário: tendência + ajuste do cenário na regra geral; a bauxita tem regra
+        # própria desde 31/10/2026 (declínio, último valor observado e tendência pós-ramp-up — run_future_scenarios.py).
+        do_mineral = projecao[projecao["mineral_id"] == mineral_id].sort_values("year")
+        por_cenario = OrderedDict(
+            (sc, float(g.iloc[0]["applied_production_growth_rate"])) for sc, g in do_mineral.groupby("scenario", sort=False))
+        metodos = OrderedDict((sc, str(g.iloc[0]["projection_method"])) for sc, g in do_mineral.groupby("scenario", sort=False))
         # O modelo do Squad 2 publica a produção projetada, não a do ano-base; ela volta
-        # dividindo a projeção pelo crescimento composto acumulado até aquele ano.
+        # dividindo a tendência (sem a camada de projetos) pelo crescimento composto aplicado até aquele ano.
         expoente = int(primeira["year"]) - ano_base
-        producao_base = float(primeira["projected_production_t"]) / (1 + crescimento) ** expoente
+        producao_base = float(primeira["trend_production_t"]) / (1 + por_cenario["referencia"]) ** expoente
+        # Camada de projetos do Squad 2 (projects.py): produção adicional ponderada pela maturidade, por cenário e ano.
+        projetos = OrderedDict(
+            (sc, OrderedDict((str(int(l.year)), round(float(l.project_production_t), 6))
+                             for l in g.sort_values("year").itertuples() if l.project_production_t > 0))
+            for sc, g in do_mineral.groupby("scenario", sort=False))
 
         par = intensidade[intensidade["mineral_id"] == mineral_id].iloc[0]
         erro = backtest[backtest["mineral_id"] == mineral_id]
@@ -58,7 +70,11 @@ def primitivas_por_mineral(projecao, intensidade, backtest):
             ("production_basis", str(primeira["production_basis"])),
             ("ano_base", ano_base),
             ("producao_base_t", producao_base),
+            ("producao_projetos_t", projetos),
             ("crescimento_historico", crescimento),
+            ("crescimento_por_cenario", por_cenario),
+            ("metodo_projecao_por_cenario", metodos),
+            ("janela_tendencia", f"{int(primeira['trend_start_year'])}–{int(primeira['trend_end_year'])}"),
             ("energy_intensity_mwh_t", float(par["energy_intensity_mwh_t"])),
             ("mape_backtest", float(erro.iloc[0]["mean_absolute_percentage_error"]) if len(erro) else None),
             ("anos_testados_backtest", int(erro.iloc[0]["tested_years"]) if len(erro) else None),
@@ -77,7 +93,8 @@ def conferir(minerais, cenarios, projecao):
         m = indice[linha["mineral_id"]]
         c = cenarios[linha["scenario"]]
         n = int(linha["year"]) - m["ano_base"]
-        producao = m["producao_base_t"] * (1 + m["crescimento_historico"] + c["growth_adjustment"]) ** n
+        producao = (m["producao_base_t"] * (1 + m["crescimento_por_cenario"][linha["scenario"]]) ** n
+                    + m["producao_projetos_t"][linha["scenario"]].get(str(int(linha["year"])), 0.0))
         ie = m["energy_intensity_mwh_t"] * (1 - c["ganho_eficiencia_anual_padrao"]) ** n
         maior = max(maior, abs(producao * ie - float(linha["energy_demand_mwh"])))
     if maior > TOLERANCIA_MWH:
@@ -101,7 +118,10 @@ def main():
 
     projecao = pd.read_csv(modelo / "outputs" / "future" / "future_projection_by_mineral.csv", encoding="utf-8-sig")
     backtest = pd.read_csv(modelo / "outputs" / "backtest" / "backtest_summary.csv", encoding="utf-8-sig")
-    intensidade = pd.read_csv(modelo / "parameters" / "energy_intensity.csv")
+    sys.path.insert(0, str(modelo / "src"))
+    import common  # noqa: E402 — o carregador de parâmetros do modelo do Squad 2
+    intensidade, _ = common.load_parameters()
+    arquivo_intensidade = Path(common.FINAL_ENERGY_PARAMETERS).resolve().relative_to(raiz).as_posix()
     hipoteses = pd.read_csv(modelo / "parameters" / "scenarios.csv")
     contrato = json.loads((modelo / "outputs" / "sensitivity" / "intensity_sensitivity_contract.json").read_text(encoding="utf-8"))
 
@@ -136,11 +156,14 @@ def main():
             ("squad", "Squad 2 — Federico Castro"),
             ("diretorio", "Squad 2/modello_reale"),
             ("gerado_por", "scripts/build_simulador_base.py"),
-            ("metodo_projecao", str(projecao.iloc[0]["projection_method"])),
+            ("metodo_projecao", "; ".join(sorted(projecao["projection_method"].astype(str).unique()))),
         ])),
         ("horizonte", OrderedDict([("inicio", int(projecao["year"].min())), ("fim", int(projecao["year"].max()))])),
         ("equacoes", OrderedDict([
-            ("producao", "producao_base_t × (1 + crescimento_historico + growth_adjustment)^(t − ano_base)"),
+            ("producao", "producao_base_t × (1 + crescimento_por_cenario[cenário])^(t − ano_base) + producao_projetos_t[cenário][t]; "
+                         "crescimento_por_cenario = "
+                         "crescimento_historico + growth_adjustment, exceto a bauxita, que segue a regra própria do Squad 2 "
+                         "(conservador −2% a.a., referência = último valor observado, expansão = tendência desde 2018)"),
             ("intensidade", "energy_intensity_mwh_t × (1 + ajuste_pct/100) × (1 − g)^(t − ano_base)"),
             ("energia", "producao × intensidade"),
         ])),
@@ -162,9 +185,10 @@ def main():
             ("nota", "Faixa e fórmula definidas pelo contrato de sensibilidade do Squad 2, "
                      "intensity_sensitivity_contract.json."),
         ])),
-        ("aviso", "As intensidades energéticas são benchmarks, não medições do consumo observado de cada operação. "
-                  "As hipóteses de crescimento e eficiência dos cenários são ilustrativas. Os resultados são "
-                  "cenários condicionais, não previsão oficial."),
+        ("aviso", "As intensidades energéticas vêm da base do Squad 2: energia das cargas na CCEE em 2025 dividida pela "
+                  "produção do mesmo ano, nas operações que a CCEE cobre; a bauxita, sem carga identificada, segue com "
+                  "benchmark. São coeficientes por mineral, não medição de cada planta. As hipóteses de crescimento e "
+                  "eficiência dos cenários são ilustrativas. Os resultados são cenários condicionais, não previsão oficial."),
         ("conferencia_modelo", OrderedDict([
             ("referencia_2027_twh", total(2027, "referencia")),
             ("referencia_2040_twh", total(2040, "referencia")),
@@ -176,7 +200,7 @@ def main():
         ])),
         ("cenarios", list(cenarios.values())),
         ("minerais", minerais),
-        ("fontes", fontes(projecao, minerais)),
+        ("fontes", fontes(projecao, minerais, arquivo_intensidade)),
     ])
 
     saida.parent.mkdir(parents=True, exist_ok=True)
@@ -190,9 +214,83 @@ def main():
     print(f"maior diferença para o modelo do Squad 2: {maior_diferenca:.2e} MWh")
 
 
-def fontes(projecao, minerais):
+def fontes(projecao, minerais, arquivo_intensidade):
+    """Catálogo de fontes: as que os minerais citam (o `source_id` do Squad 2 pode juntar várias com `;`) e as fixas."""
     hoje = date.today().isoformat()
-    return [
+    usadas = {sid for m in minerais for sid in m["source_id"].split(";")}
+    so_benchmark = sorted(m["mineral_name"] for m in minerais if m["source_id"] == "SRC_FGV_EPGE_001")
+    catalogo = [
+        OrderedDict([
+            ("source_id", "SRC_S2_INTENSIDADE_V1"),
+            ("source_name", "Squad 2 — base de intensidade energética v1 (coeficiente estadual por mineral)"),
+            ("source_url", arquivo_intensidade),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "Consumo específico (EPE): energia das cargas na CCEE em 2025 ÷ produção física de 2025 da "
+                                 "mesma entidade, somando as operações cobertas de cada mineral. Mineral sem carga na CCEE "
+                                 "mantém o benchmark anterior. É a tabela que o modelo do Squad 2 carrega."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 2 — intensidade energética"),
+            ("notas", "Gerada por Squad 2/intensidade_energetica/build_intensidade.py, que o fluxo de derivados refaz quando "
+                      "as bases mudam. Cada mineral cita as fontes primárias abaixo no campo source_id."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_CCEE_PARCELA_CARGA"),
+            ("source_name", "CCEE — consumo das parcelas de carga em Goiás"),
+            ("source_url", "https://dadosabertos.ccee.org.br/dataset/parcela_carga_consumo"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025 (doze meses)"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "conferido_squad1"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Carga ligada à empresa pela raiz do CNPJ. Não inclui autoprodução nem geração própria. Cópia filtrada "
+                      "para Goiás em Squad 1/dados/CCEE."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_EMPRESA_RELATORIO"),
+            ("source_name", "Relatórios das empresas — produção declarada da operação"),
+            ("source_url", None),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "empresa"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 2 — intensidade energética"),
+            ("notas", "Usado quando a empresa publica a produção da própria operação em Goiás (ex.: cobre contido da Lundin "
+                      "em Alto Horizonte). Fonte de cada número em Squad 2/intensidade_energetica/base_intensidade_energetica_v1.csv."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_ANM_PROD_BENEF"),
+            ("source_name", "ANM — Anuário Mineral Brasileiro, produção beneficiada"),
+            ("source_url", "https://dadosabertos.anm.gov.br/AMB/Producao_Beneficiada.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "observado"),
+            ("metodo_estimacao", None),
+            ("status_validacao", "validado_squad1"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Produção estadual por substância, lida da base consolidada do Squad 1."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_ANM_CFEM"),
+            ("source_name", "ANM — arrecadação da CFEM por processo"),
+            ("source_url", "https://dadosabertos.anm.gov.br/CFEM/CFEM_Arrecadacao_2022_2026.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2025"),
+            ("tipo_fonte", "oficial"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "A produção estadual da ANM é aberta por operação pela participação de cada processo na CFEM "
+                                 "do mineral no município (aba 12 da base consolidada do Squad 1)."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
+            ("notas", "Serve só para atribuir a produção a cada operação; não entra como valor monetário no simulador."),
+        ]),
         OrderedDict([
             ("source_id", "SRC_FGV_EPGE_001"),
             ("source_name", "Apresentação FGV Energia-EPGE — intensidades energéticas de referência"),
@@ -201,12 +299,12 @@ def fontes(projecao, minerais):
             ("periodo_referencia", "não informado no material-base"),
             ("tipo_fonte", "institucional"),
             ("valor_observado_estimado", "estimado"),
-            ("metodo_estimacao", "Coeficientes usados pelo Squad 2 como benchmark ou proxy operacional por mineral, "
-                                 "em Squad 2/modello_reale/parameters/energy_intensity.csv. Não são medição do "
-                                 "consumo observado de cada operação."),
+            ("metodo_estimacao", "Benchmark ou proxy operacional por mineral, mantido pelo Squad 2 só onde não há energia "
+                                 "observada na CCEE. Não é medição do consumo observado de cada operação."),
             ("status_validacao", "pendente_validacao"),
             ("responsavel_validacao", "Squad 2 — intensidade energética"),
-            ("notas", "A intensidade do níquel é a média ponderada pela produção das duas operações da tabela original."),
+            ("notas", "Hoje usado só para: " + (", ".join(so_benchmark) or "nenhum mineral") + ". Os demais minerais têm "
+                      "coeficiente calculado com a CCEE (SRC_S2_INTENSIDADE_V1)."),
         ]),
         OrderedDict([
             ("source_id", "SRC_SQUAD1_PRODUCAO_001"),
@@ -236,10 +334,44 @@ def fontes(projecao, minerais):
                                  "O próprio Squad 2 identifica essas hipóteses como ilustrativas."),
             ("status_validacao", "nao_validado"),
             ("responsavel_validacao", "Squad 2 — modelo de projeção"),
-            ("notas", "A projeção é de tendência histórica. O modelo ainda não inclui carteira física de projetos: "
-                      "não há, nas bases atuais, capacidade, ano de entrada e grau de certeza estruturados."),
+            ("notas", "Vale para a tendência das operações existentes. A produção de novos projetos entra pela camada "
+                      "de projetos (SRC_S1_RADAR_PROJETOS e SRC_S2_ASSUMPTION_002)."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_S1_RADAR_PROJETOS"),
+            ("source_name", "Squad 1 — Radar de Projetos, curadoria da pesquisa na web"),
+            ("source_url", "Squad 1/Radar de Projetos/curadoria_web.json"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "situação dos projetos até a data de cada evidência"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "estimado"),
+            ("metodo_estimacao", "A maturidade de cada projeto (OPERAÇÃO a SINAL) vem da curadoria. O incremento anual de "
+                                 "produção e o período só entram quando a fonte os traz, e ficam em "
+                                 "Squad 2/modello_reale/parameters/project_pipeline.csv, na base de produção do mineral."),
+            ("status_validacao", "pendente_validacao"),
+            ("responsavel_validacao", "Squad 1 — Radar de Projetos"),
+            ("notas", "Nenhum documento de origem foi aberto um a um (ver LEIA-ME do Radar de Projetos). Projetos em "
+                      "operação já estão na série histórica e não somam de novo."),
+        ]),
+        OrderedDict([
+            ("source_id", "SRC_S2_ASSUMPTION_002"),
+            ("source_name", "Squad 2 — pesos da carteira de projetos por maturidade"),
+            ("source_url", "Squad 2/modello_reale/parameters/project_maturity_weights.csv"),
+            ("data_acesso", hoje),
+            ("periodo_referencia", "2027–2040"),
+            ("tipo_fonte", "interna_projeto"),
+            ("valor_observado_estimado", "ilustrativo"),
+            ("metodo_estimacao", "Fração do incremento de cada projeto somada à produção em cada cenário, conforme a "
+                                 "maturidade: expansão e construção 0,5/1/1; definido 0,25/0,75/1; provável 0/0,5/1; "
+                                 "possível 0/0/0,5; sinal e operação 0 (conservador/referência/expansão)."),
+            ("status_validacao", "nao_validado"),
+            ("responsavel_validacao", "Squad 2 — modelo de projeção"),
+            ("notas", "Hipótese ilustrativa, não probabilidade estimada."),
         ]),
     ]
+    fixas = {"SRC_S2_INTENSIDADE_V1", "SRC_SQUAD1_PRODUCAO_001", "SRC_S2_ASSUMPTION_001", "SRC_S1_RADAR_PROJETOS",
+             "SRC_S2_ASSUMPTION_002"}
+    return [f for f in catalogo if f["source_id"] in usadas | fixas]
 
 
 if __name__ == "__main__":

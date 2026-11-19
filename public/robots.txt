@@ -1,0 +1,12 @@
+# Minera Goiás — instruções para robôs de busca (Google, Bing etc.)
+# Só a página inicial é pública. Painel, login, simulador, API e dados são de uso da equipe.
+# Atenção: este arquivo é um pedido aos buscadores, não uma proteção de acesso.
+#
+# login.html, painel.html e simulador.html NÃO são bloqueados aqui de propósito: cada uma traz
+# <meta name="robots" content="noindex">, e o buscador só lê essa etiqueta se puder abrir a página.
+# Bloqueá-las aqui faria o endereço aparecer no Google sem descrição.
+User-agent: *
+# A página inicial busca os números de /api/public/summary; liberado para o Google montar a página como o visitante a vê.
+Allow: /api/public/
+Disallow: /api/
+Disallow: /data/

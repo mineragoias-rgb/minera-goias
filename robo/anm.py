@@ -1,0 +1,220 @@
+# -*- coding: utf-8 -*-
+"""Robô da ANM: baixa os arquivos de dados abertos, recorta Goiás como em `Squad 1/Dados brutos` e confere a forma.
+
+Ordem: SIGMINE primeiro (o recorte do Cadastro Mineiro usa os processos com poligonal em Goiás), depois Cadastro Mineiro,
+CFEM e Anuário Mineral. Para cada arquivo:
+  1. baixa o arquivo nacional (ou o de Goiás, no SIGMINE);
+  2. recorta Goiás pela regra registrada (robo/anm_recorte.py) — as linhas que ficam saem byte a byte como a ANM publica;
+  3. confere a forma do recorte contra o arquivo atual: mesmas colunas na mesma ordem, mesma codificação e separador,
+     tipos das colunas mantidos, nenhuma coluna esvaziada, número de linhas sem queda grande;
+  4. igual ao atual → nada a fazer; diferente → grava, e registra a data em `datas_de_acesso.json`, o sha256, o tamanho e,
+     na CFEM, no Anuário e no DIPEM, o período coberto no LEIA-ME de `Dados brutos` e, no Cadastro, as contagens em
+     `recorte_goias.json`.
+Depois disso o pipeline da base consolidada (Squad 1/Bases consolidadas) precisa rodar para os números chegarem ao site: o
+workflow do robô faz isso (ver robo/LEIA-ME.md).
+"""
+import csv
+import io
+import json
+import re
+import shutil
+from datetime import datetime
+from pathlib import Path
+
+import anm_recorte
+import forma
+import formato_csv
+from brutos import Registro
+from comum import FalhaDownload, Resultado, baixar, digital_zip, sha256
+
+
+def periodo_csv(dados, f):
+    """O texto de 'Período coberto' do LEIA-ME, no formato da aba 07 da planilha (write_governanca_into_workbook.py):
+    anos → "2010–2025"; competência da CFEM → "2022-01 a 2026-10 (registros criados até 2026-09-14)"."""
+    p = f["periodo"]
+    linhas = list(csv.DictReader(io.StringIO(dados.decode(f["codificacao"], "replace").lstrip("\ufeff")), delimiter=f["separador"]))
+    if p["tipo"] == "anos":
+        anos = sorted(int(r[p["coluna"]]) for r in linhas if (r[p["coluna"]] or "").strip().isdigit())
+        return f"{anos[0]}–{anos[-1]}"
+    comp = sorted(int(r[p["ano"]]) * 100 + int(r[p["mes"]]) for r in linhas)
+    criados = []
+    for r in linhas:
+        try:
+            criados.append(datetime.strptime(r[p["criacao"]].strip(), "%d/%m/%Y %H:%M"))
+        except ValueError:
+            pass  # a planilha também ignora a data que não lê
+    return (f"{comp[0] // 100}-{comp[0] % 100:02d} a {comp[-1] // 100}-{comp[-1] % 100:02d} "
+            f"(registros criados até {max(criados):%Y-%m-%d})")
+
+
+class ANM:
+    def __init__(self, raiz, hoje, cfg, gravar=True, espelho=None, pasta_tmp=None, aceitar=(), registro=None):
+        self.raiz, self.hoje, self.cfg, self.gravar = Path(raiz), hoje, cfg, gravar
+        self.espelho = espelho or {}
+        self.aceitar = set(aceitar)  # fontes ou arquivos em que uma queda grande de linhas foi aceita por alguém
+        self.tmp = Path(pasta_tmp)
+        self.reg = registro or Registro(raiz, hoje, gravar)  # datas_de_acesso.json e LEIA-ME de Dados brutos (robo/brutos.py)
+        self.brutos = self.reg.brutos
+        self.recorte_path = self.brutos / "ANM - Cadastro Mineiro" / "recorte_goias.json"
+        self.recorte_json = json.loads(self.recorte_path.read_text(encoding="utf-8"))
+        self.mudou = False
+        self.fontes_alteradas = set()
+
+    def _url(self, url):
+        return self.espelho.get(url, url)
+
+    def _baixar(self, url, nome, r):
+        destino = self.tmp / nome
+        try:
+            baixar(self._url(url), destino, limite_mb=self.cfg.get("limite_download_mb"))
+            r.baixado = str(destino)
+            return destino
+        except FalhaDownload as e:
+            r.situacao, r.motivo = "falhou", f"{url}: {e}"
+            return None
+
+    def _fracao(self, *nomes):
+        """Fração mínima de linhas (ou registros) do arquivo atual; zero quando a queda foi aceita (`--aceitar-queda`)."""
+        return 0.0 if self.aceitar & set(nomes) else self.cfg.get("fracao_minima", 0.9)
+
+    # ----------------------------------------------------------------------------------------------------------- fontes
+    def rodar(self, so=None):
+        resultados = []
+        for f in self.cfg["fontes"]:
+            if so and f["id"] not in so:
+                continue
+            if f["tipo"] == "shapefile":
+                resultados.append(self.shapefile(f))
+            elif f["tipo"] == "cadastro":
+                resultados += self.cadastro(f)
+            else:
+                resultados.append(self.csv(f))
+        return resultados
+
+    def shapefile(self, f):
+        r = Resultado("ANM", f["nome"])
+        atual = self.brutos / f["arquivo"]
+        novo = self._baixar(f["url"], Path(f["arquivo"]).name, r)
+        if novo is None:
+            return r
+        # o pipeline lê vários campos do SIGMINE: todos os campos de hoje são exigidos
+        bloq, av = forma.checar_shapefile(novo, atual, todos_exigidos=True, fracao_minima=self._fracao(f["id"], atual.name))
+        r.avisos += av
+        if bloq:
+            r.situacao, r.motivo = "bloqueada", "; ".join(bloq)
+            return r
+        if digital_zip(novo) == digital_zip(atual):
+            r.situacao = "sem_mudanca"
+            return r
+        self._gravar(novo, atual, f, r)
+        return r
+
+    def csv(self, f):
+        r = Resultado("ANM", f["nome"])
+        # quase tudo fica em Dados brutos; as rodadas de disponibilidade ficam em Squad 1/dados (arquivo_raiz)
+        atual = self.raiz / f["arquivo_raiz"] if f.get("arquivo_raiz") else self.brutos / f["arquivo"]
+        baixado = self._baixar(f["url"], Path(f["url"]).name, r)
+        if baixado is None:
+            return r
+        dados = baixado.read_bytes()
+        if forma.parece_html(dados):
+            r.situacao, r.motivo = "bloqueada", "o servidor devolveu uma página HTML/XML em vez do CSV"
+            return r
+        if f.get("recorte"):
+            try:
+                convertido = None
+                if f.get("converter_formato"):  # a fonte mudou de formato: volta ao do repositório (robo/formato_csv.py)
+                    convertido = formato_csv.converter(dados, atual.read_bytes(), f["codificacao"], f["separador"],
+                                                       f["recorte"]["coluna"], f["recorte"]["valor"], f.get("diagnostico_soma"))
+                if convertido:
+                    dados, cont, notas, diag = convertido
+                    r.avisos += notas
+                    r.detalhes["diagnostico"] = diag
+                else:
+                    dados, cont = anm_recorte.recortar_uf(dados, f["separador"], f["recorte"]["coluna"], f["recorte"]["valor"])
+            except (ValueError, IndexError) as e:
+                r.situacao, r.motivo = "bloqueada", f"não deu para recortar Goiás: {e}"
+                return r
+            r.detalhes.update(cont)
+        return self._conferir_e_gravar_csv(dados, atual, f, r)
+
+    def cadastro(self, f):
+        """Os 13 arquivos do Cadastro Mineiro (lista e regra de cada um em recorte_goias.json)."""
+        pasta = self.brutos / f["pasta"]
+        municipios = anm_recorte.municipios_goias(self.raiz / f["malha_municipal"])
+        processos = anm_recorte.processos_sigmine(self.brutos / f["sigmine"])  # o SIGMINE já atualizado nesta execução
+        saida = []
+        for item in self.recorte_json["arquivos"]:
+            nome = item["arquivo"]
+            r = Resultado("ANM", f"Cadastro Mineiro — {nome}")
+            saida.append(r)
+            baixado = self._baixar(f["url_base"] + nome, nome, r)
+            if baixado is None:
+                continue
+            dados = baixado.read_bytes()
+            if forma.parece_html(dados):
+                r.situacao, r.motivo = "bloqueada", "o servidor devolveu uma página HTML/XML em vez do CSV"
+                continue
+            try:
+                goias, cont = anm_recorte.recortar_cadastro(dados, item["regra"], municipios, processos, f["separador"])
+            except (ValueError, IndexError) as e:
+                r.situacao, r.motivo = "bloqueada", f"não deu para recortar Goiás: {e}"
+                continue
+            r.detalhes = cont
+            sub = {**f, "arquivo": f"{f['pasta']}/{nome}", "logico": f["logico"] + nome}
+            self._conferir_e_gravar_csv(goias, pasta / nome, sub, r)
+            if r.situacao == "bloqueada":  # o arquivo nacional encolheu, ou mudou o que casa com Goiás?
+                r.avisos.append("; ".join(f"{rotulo}: {cont[k]} (antes {item.get(k, '?')})" for k, rotulo in (
+                    ("linhas_nacional", "linhas no arquivo nacional"), ("linhas_com_municipio_de_goias", "com município de Goiás"),
+                    ("processos_do_sigmine_go", "processos do SIGMINE de Goiás"))))
+            if r.situacao == "atualizada":
+                item.update(cont)
+                item.update({"mb_nacional": round(len(dados) / 1e6, 2), "mb_goias": round(len(goias) / 1e6, 2),
+                             "sha256_nacional": sha256(baixado), "sha256_goias": sha256(pasta / nome) if self.gravar else ""})
+                self._linha_recorte_leiame(nome, item)
+        return saida
+
+    # ---------------------------------------------------------------------------------------------------------- comum
+    def _conferir_e_gravar_csv(self, dados, atual, f, r):
+        bloq, av = forma.checar_csv(dados, atual.read_bytes(), f["codificacao"], f["separador"],
+                                    fracao_minima=self._fracao(f["id"], atual.name, atual.stem))
+        r.avisos += av
+        if bloq:
+            r.situacao, r.motivo = "bloqueada", "; ".join(bloq)
+            return r
+        if dados == atual.read_bytes():
+            r.situacao = "sem_mudanca"
+            return r
+        novo = self.tmp / ("recorte_" + atual.name)
+        novo.write_bytes(dados)
+        self._gravar(novo, atual, f, r)
+        return r
+
+    def _gravar(self, novo, atual, f, r):
+        r.situacao = "atualizada"
+        if not r.motivo:
+            r.motivo = "conteúdo novo"
+        if not self.gravar:
+            return
+        shutil.copyfile(novo, atual)
+        r.arquivos.append(atual.relative_to(self.raiz).as_posix())
+        self.reg.arquivo(atual, f.get("logico"), f.get("src"))
+        if f.get("periodo"):
+            self.reg.celula_da_fonte(f["src"], 3, periodo_csv(atual.read_bytes(), f))
+        self.fontes_alteradas.add(f.get("src") or f["nome"])
+        self.mudou = True
+
+    # ------------------------------------------------------------------------------------------------- LEIA-ME e índices
+    def _linha_recorte_leiame(self, nome, item):
+        """| `arquivo` | regra | linhas nacionais | linhas aqui | `sha256 nacional` | na tabela do recorte do Cadastro."""
+        num = lambda n: f"{n:,}".replace(",", ".")  # noqa: E731
+        padrao = re.compile(r"^\| `" + re.escape(nome) + r"` \| (\w+) \| [\d.]+ \| [\d.]+ \| `[0-9a-f]{64}` \|$", re.M)
+        self.reg.leiame = padrao.sub(lambda m: f"| `{nome}` | {m.group(1)} | {num(item['linhas_nacional'])} | {num(item['linhas_goias'])} | "
+                                               f"`{item['sha256_nacional']}` |", self.reg.leiame, count=1)
+
+    def salvar(self):
+        """Grava recorte_goias.json; datas_de_acesso.json e o LEIA-ME saem do registro comum (Registro.salvar)."""
+        if not (self.gravar and self.mudou):
+            return []
+        self.recorte_path.write_text(json.dumps(self.recorte_json, ensure_ascii=False, indent=1), encoding="utf-8")
+        return [self.recorte_path.relative_to(self.raiz).as_posix()]

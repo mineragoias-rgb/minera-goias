@@ -7,6 +7,7 @@ on:
       - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
       - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
+      - "Squad 1/Radar de Projetos/curadoria_web.json"
       - ".github/workflows/validate-modelo-real.yml"
   pull_request:
     paths:
@@ -14,6 +15,7 @@ on:
       - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
       - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
+      - "Squad 1/Radar de Projetos/curadoria_web.json"
       - ".github/workflows/validate-modelo-real.yml"
   workflow_dispatch:
 
@@ -55,6 +57,18 @@ jobs:
         run: |
           python "Squad 2/modello_reale/src/run_intensity_sensitivity.py"
 
+      - name: Build uncertainty bands
+        run: |
+          python "Squad 2/modello_reale/src/run_uncertainty_bands.py"
+
+      - name: Build presentation summaries
+        run: |
+          python "Squad 2/modello_reale/src/build_presentation_summary.py"
+
+      - name: Build presentation charts
+        run: |
+          python "Squad 2/modello_reale/src/build_presentation_charts.py"
+
       - name: Publish backtest results
         uses: actions/upload-artifact@v6
         with:
@@ -76,5 +90,29 @@ jobs:
         with:
           name: real-model-intensity-sensitivity
           path: Squad 2/modello_reale/outputs/sensitivity/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish uncertainty-band results
+        uses: actions/upload-artifact@v6
+        with:
+          name: real-model-uncertainty-bands
+          path: Squad 2/modello_reale/outputs/uncertainty/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish presentation-summary results
+        uses: actions/upload-artifact@v6
+        with:
+          name: real-model-presentation-summary
+          path: Squad 2/modello_reale/outputs/presentation/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish presentation-chart results
+        uses: actions/upload-artifact@v6
+        with:
+          name: real-model-presentation-charts
+          path: Squad 2/modello_reale/outputs/presentation/charts/
           if-no-files-found: error
           retention-days: 30

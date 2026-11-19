@@ -21,7 +21,7 @@ Squad 2 (`Squad 2/modello_reale`), que projeta a produção histórica consolida
 | `public/data/simulador/parametros_v1.json` | Parâmetros em uso, com campo `versao` |
 | `public/data/simulador/parametros_v0.json` | Primeira versão, marcada como substituída |
 | `scripts/build_simulador_base.py` | Gera o pacote v1 a partir do modelo do Squad 2 |
-| `tests/simulador.test.js` | 55 verificações do cálculo |
+| `tests/simulador.test.js` | 62 verificações do cálculo |
 | `tests/test_simulador.py` | Contrato dos parâmetros, rastreabilidade e ausência de segredos |
 
 ## Como rodar
@@ -52,6 +52,7 @@ estatística intermediária. São as mesmas equações do modelo do Squad 2:
 
 ```
 Produção(m,t)    = producao_base_t(m) × (1 + crescimento_historico(m) + growth_adjustment(s))^(t − ano_base)
+                   + producao_projetos_t(m)[s][t]
 Intensidade(m,t) = energy_intensity_mwh_t(m) × (1 + ajuste_pct(m)/100) × (1 − g)^(t − ano_base)
 Energia(m,t)     = Produção(m,t) × Intensidade(m,t)
 ```
@@ -73,12 +74,16 @@ conteúdo mineral e os demais usam produção beneficiada.
 | Camada | Origem | Natureza |
 |---|---|---|
 | Produção histórica | Squad 1, séries consolidadas 2010–2025 (bauxita desde 2014) | observado |
-| Intensidade energética | Benchmarks da apresentação FGV Energia-EPGE, em `Squad 2/modello_reale/parameters/energy_intensity.csv` | estimado |
+| Intensidade energética | Coeficiente estadual do Squad 2 (`Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv`): energia CCEE 2025 ÷ produção 2025; a bauxita, sem carga na CCEE, segue com o benchmark FGV Energia-EPGE | estimado |
 | Crescimento e eficiência dos cenários | Hipóteses do Squad 2, em `scenarios.csv` | ilustrativo |
 | Faixa de sensibilidade | Contrato `intensity_sensitivity_contract.json` do Squad 2 | — |
 
-As intensidades são **benchmarks ou proxies operacionais**, não medição do consumo observado
-de cada operação. Os resultados são cenários condicionais, não previsão oficial.
+As intensidades são as que o modelo do Squad 2 carrega (`load_parameters()` em
+`Squad 2/modello_reale/src/common.py`), lidas pela mesma função — o simulador não aponta para
+um arquivo próprio. Desde 23/09/2026 são coeficientes calculados com a carga observada na CCEE
+em 2025 dividida pela produção do mesmo ano; a bauxita, sem carga identificada, segue com
+benchmark. São coeficientes por mineral, não medição de cada planta. Os resultados são cenários
+condicionais, não previsão oficial.
 
 ### Cobertura e limites
 
@@ -86,13 +91,20 @@ Cinco minerais: cobre, bauxita, níquel, fosfato e amianto. O **nióbio ficou de
 o Squad 2 não conseguiu conciliar com segurança as unidades e o conceito de produção
 disponíveis com o coeficiente energético.
 
-O erro do backtest do Squad 2 aparece no painel de fontes, por mineral. A **bauxita** tem
-44,3%: a produção caiu em 2024 depois de anos de crescimento, e uma projeção de tendência não
-antecipa interrupções operacionais nem decisões de mercado. Como a bauxita é o segundo maior
-consumidor projetado, esse número merece atenção ao interpretar o total.
+O erro do backtest do Squad 2 aparece no painel de fontes, por mineral. A **bauxita** tem o
+maior erro: 34,1% com a tendência histórica e 18,2% repetindo o último valor observado. A produção
+caiu em 2024 depois de anos de crescimento, e uma projeção de tendência não antecipa interrupções
+operacionais nem decisões de mercado; por isso, no cenário de referência, a bauxita mantém a
+produção de 2025. Com as intensidades da CCEE, o níquel caiu de 45,55 para 11,40 MWh/t, e a
+bauxita passou a disputar com ele o posto de maior consumidor projetado: no cenário de referência,
+a bauxita lidera até 2029, e o níquel a ultrapassa a partir de 2030. Em 2040, os dois somam cerca
+de 90% da demanda (níquel 2,56 TWh e bauxita 1,81 TWh), então o número da bauxita pesa bastante
+ao interpretar o total.
 
-O modelo ainda **não inclui carteira física de projetos**. As bases atuais não trazem
-capacidade, ano de entrada e grau de certeza de forma estruturada e validada.
+A produção inclui a **camada de projetos** do Squad 2: os projetos da carteira do Squad 1 que
+têm incremento de produção e ano de entrada nas fontes somam à tendência, ponderados pela
+maturidade (`producao_projetos_t` no pacote de parâmetros). Hoje só a expansão de Chapada (Saúva)
+é quantificada, de 2029 a 2032; os demais projetos não trazem esses dados.
 
 ## Como atualizar e versionar os parâmetros
 

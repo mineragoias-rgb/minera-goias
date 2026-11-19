@@ -72,4 +72,4 @@ e do SEDAR+ — todos alcançáveis da VPS, que tem rede aberta.
 2. Rodar `python scripts/build_projetos_base.py`. Ele recusa a curadoria que quebre as regras: maturidade fora das sete categorias,
    projeto sem evidência, evidência órfã, ID repetido, campo vazio, CAPEX sem moeda.
 3. Rodar `python -m unittest discover -s tests -p test_projetos.py`.
-4. Rodar `python scripts/build_catalogo_bases.py`, para o catálogo do painel registrar a nova data.
+4. Rodar `python scripts/build_catalogo_painel.py`, para o catálogo do painel registrar a nova data.

@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 96,
+ "materias": 164,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -13,7 +13,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Serra Verde e USA Rare Earth: Entenda o Que Está em Jogo na Operação de Terras Raras - Forbes Brasil",
@@ -28,7 +29,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil pode ser potência em terras raras – “se não criar uma TerraBras” - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcjQyVDNEeTBFeFJ5NVZvbTNncEhKei1VUUxWZXZ0bFdwSjdrU1FRNnR5WWNteUlTdDI1c1E1X2ZQZ1ZzSEFqS3k0WVRMaEFNMTh0LTNGRmJlamt1dFhVTnRaOVlFTXFvRy04cmhnbmloVEVRNXFIajd4MGFlNVpsZ01rWVpONkVJUGdJbEV4WU9hSjFSX3ZJeg?oc=5",
+   "published_at": "2026-04-30T07:00:00+00:00",
+   "first_seen": "2026-10-30T10:32:15.949342+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Setor privado vê espaço para refinar lítio e terras raras no Brasil - CNN Brasil",
@@ -44,7 +62,24 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "ANGLO AMERICAN | Produção do Minas-Rio fica estável, mas a de níquel cai 7% - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNQm4zdDRNSFdCYlcyNGRTY1VhQ3Z1TWNvUVpTcUNjYXRUUmszZVp5dFNQWHhwUkdMREZZWlFpNURkZDFjR01rLU40dmVHY2tVcTd5UU5nb3dNNXZFVXFGTmpyYU9qVEhNYzN3VFlNbnVGN0R4Q0VIUnJCWEFUX19VSnczS3NuNTYtQjBuajZYazVPMXdvM251allR?oc=5",
+   "published_at": "2026-04-29T07:00:00+00:00",
+   "first_seen": "2026-10-09T10:58:38.853238+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: após críticas, Serra Verde afirma que não exporta minério bruto de mina em Goiás - G1",
@@ -59,7 +94,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Atlas Lithium contrata quatro empresas de engenharia e construção para seu projeto de US$60 milhões no Brasil - BNamericas",
@@ -74,7 +110,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Nunes Marques relata ação contra venda da Serra Verde - Agência iNFRA",
@@ -89,7 +126,56 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: após críticas, Serra Verde afirma que não exporta minério bruto de mina em Goiás - g1.globo.com",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNNjU4a3JSTGJtVHUxQ1VvSjd5WDY0MENFMjZUdjh5SGpzVzFsR2xiQ1ZtMWluaE9kQ2U1NC04UWxJaU5GU2NPalVuYllqQmdlQzFMZEdUSThEMHhJYU5EbG5Sd1I1eVg3NE1peTV6NUttRDgyWkxBMHhlN2RkaXE1MncxSW8yWEdWOE42SHdSOVpjZ2hDTlcyV0E0QXdYY0hmTU1iS3JaM1ItZC1TLTZFUU92TXE5b0cyS3E1cGdoX3p5X3pvT0ZIMEZhbWVEZw?oc=5",
+   "published_at": "2026-04-28T07:00:00+00:00",
+   "first_seen": "2026-10-02T10:07:03.902458+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Grupo australiano conclui compra de projeto de terras raras no Sul de Minas por R$ 80 milhões - G1",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOaUZTVlhwR2cwVk5YLU5vTGlVdGt5UUY1TkVfdFdyQ1hXN1JVWDBHZnlkN1Z0V1JyeEJrMXlPbEphcTliM2c0bUN5QWFkYWVWWkRNZVNNeGFZUS1wVjBDVUExLXdjZm1WTkphY0xfUHVYYk9xU1JtczB5a1BSZUFCVkQ0RTc2OEMwUlJuS19BTmZjMzUzd0hiNDNxM3JoZTZ5TmtxV3JPdS1tV253OWt1VV9Wc0d6YlQ3SWxlbFZBdHY1dmlJVHVVa1FRMm00MkpCUUlGR1hkZlNEZ0nSAeoBQVVfeXFMUDhfTGtNc2c3LWlLNmh5RzEzOUFTQUpBQUNWSjVBcXVYdGZZUWVYdVNvcUVJaGdEUGJqdDRUNlR0dGVtZm5MVHkzdjVTa01oOVhQamtvTGxMV19qc1hVVjFlNkF5TzFNeThjblY3WWtRZ0g0cE45Q1lqZGZCcEtZQWJ1X3VfYWlKX19MRGFGWXdEWjNnMVFWa0hEWTMtZGpVdjVxak9VYVY0dnJNc0pnQ18ybFRKZmhkTjM3ODBVZDBpbnhQRWY2Tld2c3VORDBuZ2U3LUhwS0IxVkNpWGFsaW1MOXdFYk9wb0V3?oc=5",
+   "published_at": "2026-04-28T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.026974+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: após críticas, Serra Verde afirma que não exporta minério bruto de mina em Goiás",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f04%2f28%2fterras-raras-serra-verde-afirma-que-nao-exporta-minerio-bruto-de-mina-de-goias.ghtml&c=10158231394218707355&mkt=en-us",
+   "published_at": "2026-04-28T05:24:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.757093+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás defende acordo com EUA para exploração de minerais críticos - Portal IN - Pompeu Vasconcelos - Balada IN",
@@ -102,7 +188,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás defende acordo com EUA sobre minerais críticos em meio a críticas - Jornal de Brasília",
@@ -115,7 +202,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Goiás defende acordo com EUA para exploração de minerais críticos - Folha PE",
@@ -128,7 +216,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Compra da Serra Verde turbina ações de empresas com terras raras no Brasil - CNN Brasil",
@@ -143,7 +232,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Atlas Lithium contrata fornecedores para projeto Neves - brasilmineral.com.br",
@@ -158,7 +248,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Atlas Lithium contrata parceiros para avançar projeto de lítio em Minas Gerais - ESG Inside",
@@ -173,7 +264,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Atlas Lithium avança para fase produtiva em Minas Gerais e reforça aposta estratégica no mercado global de lítio - Cenário Energia",
@@ -188,7 +280,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Solis Minerals adquire projeto de lítio da Rio Tinto no Brasil - BNamericas",
@@ -203,7 +296,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás defende acordo com EUA para exploração de minerais críticos - Agência Brasil",
@@ -216,7 +310,40 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: Serra Verde rebate Governo Federal e garante que não exporta minério bruto de Minaçu - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPY0VIY1VoakZZbVpod09rcGFsSThxWC0xUHZZSy1WWU5jT0txSkxrUW9QVTI4TVNUTXExSDBkQjBrRjVnaXhqVTg1SnMzSmVCbnBqenFadWVzNFM1aDc2ZDVIamE0TGdIWGpTUnlDaTMzUUhOU1hldjVTa3VzRkFvRGo2T25mZS1kU1ZNb1dOemJGenlHOWQzWi1XTTV2Y3lKS3pBYVhlMmJ6NU8tTFdvNEI2SFRrRWZfMFV5M1cwUQ?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:05.115264+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras de Goiás podem competir com a China, diz mineradora - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZUVXbkFtT0NnUHRmN05yWURVQkVVWEVkeUxhZnVXcU9UMW8wNGN0blQ3Skp4bHp1eGM3ZkxYWTNvTzJ5ZDFyNFdGWFFqaXJVbXBzbDZwaVh4S0dYS1NXQV8wd3kyWmhzRGhqRVo3el82U3NWN0hnbzhqOWxLU0c3aXBndWdrVktUclNQaVprMGw0eFFPVU55SGl0cWpQalotR0JtZXlR?oc=5",
+   "published_at": "2026-04-27T07:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:26.428542+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Acordo Goiás-Estados Unidos sobre terras raras é inconstitucional - Consultor Jurídico",
@@ -231,7 +358,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Rede vai ao STF contra venda de mineradora de terras raras em Goiás - Revista Oeste",
@@ -246,7 +374,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: Rede entra com ação no STF para suspender acordo com empresa dos EUA sobre mina de Goiás",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac8c8e1ee594239a2e3aab981879aed&url=https%3a%2f%2fg1.globo.com%2fgo%2fgoias%2fnoticia%2f2026%2f04%2f25%2fterras-raras-rede-entra-com-acao-no-stf-para-suspender-acordo-com-empresa-dos-eua-sobre-mina-de-goias.ghtml&c=4719593890890591127&mkt=en-us",
+   "published_at": "2026-04-25T11:52:00+00:00",
+   "first_seen": "2026-10-09T10:58:41.224032+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras raras vendida a empresa dos EUA por US$ 2,8 bilhões em Goiás: o que muda na prática? - G1",
@@ -261,7 +406,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Rede entra com ação no STF para suspender acordo com empresa dos EUA sobre mina de Goiás - G1",
@@ -276,7 +422,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras raras vendida a empresa dos EUA por US$ 2,8 bilhões em Goiás: o que muda na prática? - Agua Boa News",
@@ -291,7 +438,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "O que são terras-raras e minerais críticos, que motivaram venda de mineradora em Goiás - O GLOBO",
@@ -306,7 +454,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras, minerais estratégicos e críticos: entenda as diferenças - Agência Brasil",
@@ -321,7 +470,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Rede vai ao STF para suspender venda de mineradora brasileira de terras-raras aos EUA - O GLOBO",
@@ -336,7 +486,40 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Venda de mineradora brasileira de terras-raras aos EUA leva Rede ao STF - InfoMoney",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPLWgwcUJKY2NjSFVXN05rZW5tYUpiM3FuUUVFZWMxWlItbHZKX2I0M01qcVZHSHYwam1HWkZSQlA1WVdFRmNHVHNZYzVPYVViUlFjTjlrQUxwaS1uWjJHZ2VNZG1rQXMtTzhYMXU2cEJQTy1iS3l1NmVfc09ENVRrTlU4UU1DbjZzQ3FaQjFfQUxnR2xUaVFOaVdfYV8wcS1WYnVnZEd0T2UteEY2aDB0UzhlVEN4RXFJVVdoa0xfWVFod9IBxwFBVV95cUxPdzc3dHlNM2RwVEtZTmtkUkxYNWVRYnF3MUY3YjRPTWtqMEVNQ25oejQ4VzdhTjI0QlNrYzVMXzhSNFJjZE1SdjFVWG9tbWVjejVJUWxIbTdrS1pMSVZLNXh0YnpTYlRyRWIzdkMzYXBPeWJLaEdwcU5fUzFMVzdXV0ExRmVra1dPYllXTEdUeUVXTFJwb1FxNVJTRmZWY3ppMTJwd2ZWdlhYaWkxY1ViQTFoanRnN25MRGlpU1hzRzdKZmZVUHdR?oc=5",
+   "published_at": "2026-04-25T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.685473+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mina de terras raras vendida a empresa dos EUA por US$ 2,8 bilhões em Goiás: o que muda na prática? - G1",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNbmkyTnBIUEQ1eERnUkZraDlpeVpnWFg0N0c2RFU4SEVKMzBIWnc5WjZtMF9xQVp0R29CSThzblFrSVdJa1BlWGhEZFJKTW1NNjdUMEowOGthUERCbnFVR3RmZHFWNmV5OUJpSFQ1cmF6c3ZiVklZbi00X2lnRWFqQTlKNVE3bmlQdllORnpKZFpFUEF2RHVjSXhvUXV2YWtKTWVOWkkyZWk5V0ZVVWZYQnFEdWpsS3VocEVRSWZMTFlXTGxDTnZtc2tnQk81QzMybmVnRGJNdUkwbnpWQko0bEV4Ykk?oc=5",
+   "published_at": "2026-04-25T07:00:00+00:00",
+   "first_seen": "2026-11-14T11:03:01.043494+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Mina de terras raras vendida a empresa dos EUA por US$ 2,8 bilhões em Goiás: o que muda na prática?",
@@ -351,7 +534,152 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4521ae5b0434a90a055bed31108da&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-11T11:31:38.751310+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af5a9d6df634ff0913809c27bb50338&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-12T11:58:14.886650+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af6f75751084722944e844dac62b3f4&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-13T11:41:11.266938+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af83fe695374a659ba126a3f6721e28&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-14T11:03:03.216041+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af99976d8594783acd07436cb442f54&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-15T11:37:26.576546+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afaf2e4dc2e42f5bd57ad19afa33482&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.633914+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afc4a3958144a98a4f4049571e9015c&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-17T12:36:09.439402+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afd98fe66db4dcc9e6234e34cba2c8c&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-18T12:24:30.433848+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6afee91157a046f2b2326b72a25472c8&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T13:03:00+00:00",
+   "first_seen": "2026-11-19T12:18:26.080549+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -366,7 +694,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -381,7 +710,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -396,7 +726,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -411,7 +742,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -426,7 +758,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -441,7 +774,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
@@ -456,7 +790,200 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6abf824adc274328be36e513e0da4ef6&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-02T10:07:07.019015+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac0cb7f7bac4cbaa9f287eb7bceeaf2&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-03T09:31:43.759742+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac227a30c644924a479f508ad55eb19&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-04T10:17:07.851129+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac4d2c1d0054ee295690d0b4a39b964&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-06T10:51:46.179345+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac50379934e425ca1e5d6444b690ef7&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-06T14:19:38.150484+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac6214906a243d39a05959914882219&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-07T10:39:05.966074+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac777cbff6c43aaa9f22946a40ecc47&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-08T11:00:27.593730+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ac8c8e1ee594239a2e3aab981879aed&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-09T10:58:41.221401+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aca0f4646fd46e8af32ec829e2a3ee5&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-10T10:11:18.638063+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6acb63a1d7d24561b04c6e59d6fda1e0&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-11T10:23:29.323538+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6accc393dfb24030b09e93d064c73c62&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-12T11:25:07.759357+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6acf460e10c84f9b839bdeb641004c82&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-10-14T09:06:22.977729+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Ministro diz que compra dos EUA de mineradora de terras raras em Goiás não deve avançar - OpiniãoCE",
@@ -471,7 +998,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Deputados tentam anular venda de mineradora de terras-raras em Goiás para empresa dos EUA - Mais Goiás",
@@ -486,7 +1014,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Quais substâncias minerais a China domina em relação a minerais críticos e estratégicos em cada etapa da cadeia produtiva? — Agência Nacional de Mineração - www.gov.br",
@@ -499,7 +1028,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Atualmente quais são as políticas de incentivo à exploração de minerais críticos e estratégicos no Brasil? - www.gov.br",
@@ -512,7 +1042,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Ministro diz que acordo de Goiás com EUA sobre terras raras não deve avançar - diaonline.ig.com.br",
@@ -527,7 +1058,70 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: Especialistas dizem que futuro dos carros elétricos e smartphones depende do solo de Goiás - Mais Goiás",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNUWExYlRaazRPXy1qSjdNbGdicFl0ckJDV2NDTmlITGxvNENuOXV4UXoxMmhnbEVzdzg1Z2NIaEFLZW04TkxrZ1lXZnVmbmc4LS1QUVdTREVuZVBRN3lvcmxhYkdaR2N0UTU3OTYyUjQwTTQxTXQzTE1NZ0JXTG1nZ0NVMFdCcnFhV2drYS1IRmg5c1pqVWxtb2FqNWpRNG5CQ21OTFNtcm02anF4ZUhlRFBkRW5xRWxmSmhxTUZQbVBIVy1IRGQ1ZnZfZURPT3dZX0kyLW5Ydw?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:05.115898+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Minerais Críticos e Estratégicos — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRE1pUl9BRllBUkdTeV9IMWc5di03UEUyNl9DdS1nUWF3OGFuaWVXekVUN1RFTU1fbkhvcVRyNXRHUEw0UlRaV1dNV3dhZ2J1SlVtUFNNcGhjbF9sNmNJNjdLRzZnelVpQmlGSFZITThsSE9oSHAyY3FGd3g0b2JtZDFSRjZqc2MtZ3lJU0dGdmRnbUQ3YlVVLV9lNlAtdloyVXM5eQ?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-04T10:17:10.194952+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra única mineradora brasileira de terras raras em Goiás - O Fluminense",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVnhxT2xJOXYwbXpLamZmU2dMdlFuWkJaSklJLVpWYkRwRFlZVlBya0trelJFSjlaUGVFTVJPcnVSSkZmZEFzSXYtbElwZGNqQjUyR2VYb2k5V2oyd1ZWYXEtdi1HN2RZWXo2UjljTnhYTFNYalpZMFN2NUFQbDRpNUhxXy0wZkFBR0tfR05nT1ZBR2FfLU9Cb25xN01MVnI4SlVnX0Vn?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-10-19T09:23:19.288364+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA - Revista Fórum",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZlM3bzhhZkdGbFExM25iV1IwVkJ3N2xUVV84dmZsSkloVDZQOUN6OEMzbGpCc3dWSGRlUENHM1gyd2k2a1NpSU1Yd3ZycTlwNFFsSTNiSGtKYWkxVF91YXIxQlBfOGpzZnV6U2xnQTJ5Y1duSW0xNkQtbklocWc1MU8yeFc0OThZd2JTUDQyd1NfUVk?oc=5",
+   "published_at": "2026-04-24T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:16.126904+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Deputados do PSOL pedem à PGR anulação de venda de terras raras em Goiás",
@@ -542,7 +1136,36 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "PSOL entra na Justiça para evitar venda de mineradora brasileira para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae87812fb2946b1b22b228d0eb248a3&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fpsol-entra-na-justi%25C3%25A7a-para-evitar-venda-de-mineradora-brasileira-para-os-eua%2far-AA21zL5T&c=6157310145815943615&mkt=en-us",
+   "published_at": "2026-04-23T11:17:00+00:00",
+   "first_seen": "2026-11-02T11:46:26.461318+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "PSOL entra na Justiça para evitar venda de mineradora brasileira para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aec6bb270034ee88693b616360f9a9e&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fpsol-entra-na-justi%25C3%25A7a-para-evitar-venda-de-mineradora-brasileira-para-os-eua%2far-AA21zL5T&c=6157310145815943615&mkt=en-us",
+   "published_at": "2026-04-23T11:17:00+00:00",
+   "first_seen": "2026-11-05T11:42:42.337438+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Terras raras: a mina em Goiás comprada por uma firma dos EUA - Nexo Jornal",
@@ -557,7 +1180,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Operação identifica garimpo irregular e aplica multas no interior de Goiás - Portal Agro2",
@@ -570,7 +1194,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Corporação norte americana apoiada por Trump compra mineradora de terras raras em Goiás - Esquerda Diário",
@@ -585,7 +1210,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Daniel Vilela negocia interesses de Goiás após venda de mineradora de terras raras em Minaçu - aredacao.com.br",
@@ -600,7 +1226,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "PSOL pede anulação de venda de mineradora de terras raras em Goiás para EUA - Jornal de Brasília",
@@ -615,7 +1242,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Diretores da Lithium Ionic renunciam após acusação de fraude no Canadá - CNN Brasil",
@@ -630,7 +1258,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Deputados do PSOL acionam a PGR contra venda de mineradora de terras raras em Goiás e pedem investigação sobre Caiado - G1",
@@ -645,7 +1274,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Serra Verde vai multiplicar a produção de terras raras após compra pela USA Rare Earth - Bloomberg Línea Brasil",
@@ -660,7 +1290,88 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "A quem interessa minerar terras raras no Rio Grande do Sul? - ((o))eco | Jornalismo Ambiental",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNQnlfeWY1b0JEUUxkRUlaUklxMldVOWZpanBhMEVfaVhRTE5MUm5tVEhoam1JLXgzTzUtalpzVWJrSlRFVlNFaldyWVZVako1Z3BmNS1yQzJPbFJubUV3ZmhZdHdjMGNjWGVxOTltX2ctcEpjLWN2dU0tckNZZ2FkMEp3VVNiUlV4NDJ4a0hoUDJ4QQ?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.029129+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: a mina em Goiás comprada por uma firma dos EUA - Nexo Jornal",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNLVVNM2pkRm9uUWFFUDhjRHhGdUNGdjdnSUtiR3dZaW5XanNFS3RYWGxRWDZFTnh1a0l1Vm5TTlFRZGdRY3k2OVpVVlBDVW5VU1VVUF9KNmJiaUEwMzNnS0FMSWUwVlp4UGtCbnVYZzUzYTJiVW5QYzZvaWZKbXptbXJMeU9sQzlkWjA3ejRkZ3BFQlhOQ3JoaUhOMnBZbEtySWxGbzIxaFZENzNvZGhxbF93?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-10-26T09:27:25.536044+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Em entrevista exclusiva, Presidente da Serra Verde detalha venda e futuro da produção de terras raras fora da China - Jornal Opção",
+   "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOa044WHY5YUdZWFNJX0YyZkFJV3ctVjJrcTNtNS1UYzhJdzMySHVhMnp0NnRRM050bThLV3pYWTl1X3NuTzdaVHRnR2RHQy1FbFdaalRyTC1uNFRXUWJNVkV4eE9XODAzWXA4YldDZXdHVGxBNDVyVGZEMmd5S1Q4TW01elJIdHVCWFpGWnFiaWl6Y0Roa0kzNXM5WDRxVkUzeXNMdEpqMlk1ZEtSS1lNTXRsV2ZBZlRhMmotU3RQY0MzYkJZOTZDUEF0UkhxNGtacUVKRkpNUDJCaWp3aEJKUTczY0VTYXVBOGFnRHFYcjJsVjVGMlRFVTMxRUVwOVE?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-10-31T10:01:59.376934+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Deputados do PSOL pedem à PGR anulação de venda de terras raras em GO - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQkhIbXl3WUwxSFQtZTduXzQ3cG1JWFpUNFYzRGJNRGVOOEpLVFp6c2lGUmkyODdaSUZ1TWlmeURDNEt0bkVscjV0UENIMWpEamNBSml6TjBIeUZ5ZmR6WVlobkpJQ3ZHdGVZLWpSZXJSeE56azkxWm12REw2UFRsS1huQ0V4THRMNTVCTFcwaW1nak5mSlFKTjVxOGVvZWVrVUl2cUh2THdwYWhYR1VLbDR4eTUyYjNZblE2aFZHeU9MZlk?oc=5",
+   "published_at": "2026-04-23T07:00:00+00:00",
+   "first_seen": "2026-11-15T11:37:26.088978+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Exclusivo: Serra Verde, primeira mineradora de terras raras no Brasil, foi multada por desmatar vegetação nativa em nascentes do Cerrado - Observatório da Mineração",
+   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxONDhkX3ZUSnJ3RlMxZFpwZWdLVDhOcFZoYXlYTDR1emJTNnZFZFpUVmQ3RDAySUVrZWdhVGRNTzE1aHpxMFcxMGlJNTdaNUhBWmFKc2RwUmNVdEJ1dzRzS3VScDA3THpLSWZHcWMtTkZxRHZUaUFLS2k1S3oxdHBrNDRtMEZjMVprSW9EWkpIeF9DdnNsYjIwUXFDZnRnS1NHM1Y2UVRGc1M3eE5acmZ4RlltRXhXa3lfMUw3QmFab1lydkw5VHdnOFlYc3RWUWtLcFA1by0ydEs5cF8wdkZjTllmbS1lazVhZkRVM0syNkhLOHdxTUVTMDNGUkhKZkR1M2dB?oc=5",
+   "published_at": "2026-04-23T06:05:30+00:00",
+   "first_seen": "2026-10-04T10:17:07.001439+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Veja detalhes da mina em Goiás vendida por R$ 14 bilhões a empresa dos EUA - Jornal do Tocantins",
@@ -675,7 +1386,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Com compra de mineradora em Goiás, Brasil vira alvo na disputa por terras-raras entre EUA e China - Goiás 246",
@@ -690,7 +1402,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Projeto das terras raras, que impacta Goiás, pode ser votado na Câmara nesta quarta-feira - Diário de Goiás",
@@ -705,7 +1418,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Quem está por trás da mineradora brasileira vendida por US$ 2,8 bilhões - Exame",
@@ -718,7 +1432,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Nióbio coloca Araxá em posição estratégica no futuro da mineração brasileira - Portal Imbiara",
@@ -733,7 +1448,8 @@
    "tema": "mineracao",
    "substancias": [
     "niobio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Prioridades desalinhadas: a pauta institucional da ANM e os entraves do setor mineral - JOTA Info",
@@ -746,7 +1462,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Serra Verde segurou terras raras por 15 anos sob aval da ANM - Capital Digital",
@@ -761,7 +1478,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Com compra de mineradora em Goiás, Brasil vira alvo na disputa por terras-raras entre EUA e China - Goiás 246",
@@ -776,7 +1494,24 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "U.S. deal for Brazil rare earth mine signals strategic supply push - Valor International",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPajE2cy01dFB5NnBTUDUzVG9VVnVNRDdVMmpJSWdEaUMwSmlJZEhWNHNsV2NsLVFlRk5zREJNZjlMckVLMDRLRTUydktrMzF1dERiMURkOG9wZHp3TklxQ1NNZ1NRdC1hRjhOZU9DWmMzTWFNNnpCOF9kaXlzbFk3M01WalUzSS14TTJXSU5Oc3pSd3YzV0dGR2NqOFg2TmNQOUFGeXFTODFFR1E2RjlyMjgxaE9WNGxJb1ZaeXdCVTVONC12SEdrWUNMWWXSAdsBQVVfeXFMT3AzSzl0V0hpVHhLc01NbVFiRjNTS3JxUi16b3otQTVHUUZOYTVpX0xGMTB4R1lpUTBiOThxZlFOM1kzQzU2UUptZERCak1CY0lNN2hWczVRTTU1c1daMHV3LVQ1LWhGaUFFUml1UHBVYnFjd1lkUEZuNVdEY3diTWJxblAyU2lGZ19FMXBzVVVWTDFqbU56SUJNUU9Ka1BEbHZCb2E3MmJOdGZkYzQtVU9KYmk0V0VvTGQ4TUVzOGVrZlVocDlVQUdlNjdDNUZnVjFBaG53WXFCRFpV?oc=5",
+   "published_at": "2026-04-22T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.433241+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Venda de mineradora em Goiás garante preço mínimo por 15 anos e deve dar estabilidade à economia - CBN Goiânia",
@@ -789,7 +1524,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Extração de terras raras em Goiás vira negócio bilionário com aquisição americana - apublica.org",
@@ -804,7 +1540,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Após empresa dos EUA comprar Serra Verde, presidente diz que trabalho na mina em Goiás ainda terá liderança local - Jornal Opção",
@@ -817,7 +1554,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Cidade de Goiás une 3 indústrias e sobe ao 3º lugar com automóveis, minério e químicos - olhardigital.com.br",
@@ -830,7 +1568,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM: royalties da mineração destinam mais de R$ 473 milhões a estados e municípios produtores em abril - capitalnews.com.br",
@@ -843,7 +1582,56 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Venda de Serra Verde expõe o vazio brasileiro em política industrial para terras raras - Capital Digital",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObEpNMWFDN3laWGZ6RUlXQi1DdDY5TFJwV1o4TDlmQWlEUWZCaUpBenNhMVVyYzc4QUVqb3V5QjJ6RGczZ0xfMDlqUlY5ZU9RWGp3bXBEQWk0QnJMX1doMmNBMURTR2s0RGhnRDBkOVh0Ql9JQUNaaWs1c2k4cC1HNk9zNnZZZnFZaDJQTG1kTGt1TU0zNDN1U2FzdjF2RWU1azFjd0l6VEZweHNldWNxeXNvWFFjV2dw?oc=5",
+   "published_at": "2026-04-21T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.682338+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth to buy Brazilian mine to secure heavy rare earths - C&EN",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRGxTVkhlelhEemZ0WHdUc0l0bjRLRWp1OGVvamNnYVc2ZFFOaHVfbV9pYUdjR0NfdVU5MElmUUJZMm9wTmcyOEFTTmVyYzh0YUJaVDZld0RXclh1dWN1V1lpNzN0YklVSWlyM2ItcmRYLW56Q0gtb2dtU3hXcloxMThnMExxbE4telduQ210Z1FfMGpoRWpvRDlmRWQ?oc=5",
+   "published_at": "2026-04-21T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.427122+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora brasileira de terras raras é comprada por empresa dos EUA - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOT3EwUU8xMHFkeUVoSHIyQU5NU1lndFI5SXN1aUpuZkMwazd2eWRSbmoxcWV6NFQyRE9RZm9TNEUwSU5WYWJOZkZncTlFcjk2QWVvdVJpZHpubUdodUkxZW9ac0dFZi1TQUNNNjRIcDBQNlhzTlpJZGVpdFlLak03LUREQXFyZ3ZUbVFQdnl6eUtLUHFCaXJYcXdiTENaVHBxcEZFTDlwV3k2TU9BUE44UHFfMmViYnotVWdhb0dDU3FTeXJWcUhJcUlrMGg1LUVCenRMbjUzU19WT2c?oc=5",
+   "published_at": "2026-04-21T07:00:00+00:00",
+   "first_seen": "2026-11-16T12:11:17.305510+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Empresa americana compra mina em Goiás por US$ 2,8 bilhões - G1",
@@ -858,7 +1646,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Exploração de terras raras em Goiás avança sob questionamentos jurídicos e pressiona territórios quilombolas - Comissão Pastoral da Terra - CPT",
@@ -873,7 +1662,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradora Serra Verde, de Goiás, exportava toda sua produção de terras raras para a China antes de venda aos EUA - Brasil 247",
@@ -888,7 +1678,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineradora de terras raras em Goiás é vendida para empresa americana - Diário de Goiás",
@@ -903,7 +1694,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa americana compra mineradora em Goiás produtora de terras raras - Correio Braziliense",
@@ -918,7 +1710,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Empresa dos EUA compra mineradora de terras raras em Goiás por US$ 2,8 bilhões - A Redação",
@@ -933,20 +1726,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
-  },
-  {
-   "title": "Brazil’s Votorantim close to selling controlling stake in Nexa Resources - Mining.com",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNWEk4S1o3d2FOekpra09yQjRwdUx2VFh2YXhmdXZjYzVzVGlOU3VqTXY2ZkU1M244YVVwNklXSHFvSFRIV3piOTVOamx0YnFseVE3LUNEbmMyMEowaEplOVF5bExjbm05MGhMMXIzSTJ2NU5HZ09McUxLNkl4VjZuVVl6eEVVUWRQenpUVHg0bDhLNEdIODFOTE5yb1pSOU95?oc=5",
-   "published_at": "2026-04-20T07:00:00+00:00",
-   "first_seen": "2026-09-19T19:49:07.611869+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth buys Brazil's Serra Verde for $2.8 billion, extending takeover spree - Reuters",
@@ -961,7 +1742,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Compra bilionária no Brasil acelera corrida global por terras raras - Capital Aberto",
@@ -976,7 +1758,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Compra da Serra Verde pela USA Rare Earth trará investimentos, diz CEO - CNN Brasil",
@@ -991,7 +1774,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "USA Rare Earth to buy Brazil's Serra Verde for $2.8 billion to build supply outside Asia - CNBC",
@@ -1006,7 +1790,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras: Empresa americana compra mina em Goiás por US$ 2,8 bilhões - G1",
@@ -1021,7 +1806,296 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora de Goiás é exemplo da disputa de terras raras entre China e EUA - BNC Amazonas",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONlJPbWJtTmV5RHB6dGxNS3A4YjlUb0FDTnpCZmlhWDI1b01SN04yVk03U1M0SFNHZ1BDc1NLU2RYTktYQ0NVWjk2aFJESU5tV3NKcUh3c2lfVkN3S3BOTVFQcjdvWnVtVjNpY3FjMXhzV2Z4Q2JpMy1GLTJ2TG4yLU1UOFh0aEdZN3dRUEt5TmVhek5QbW1JM1BVVWh5TGdlTEFDemdZSTdvbXBh?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-07T10:39:02.955706+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde anuncia fusão com a USA Rare Earth e fecha contrato de 15 anos para fornecimento aos EUA - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPaW1iNHFObnZ4SWl1SFhHSlE1QXo2S0pUWk5uR1EwT3o3ZVJJNzUxOXcxUDB2emNQdkFFQzhPM3doaGt5RmZVS2tvRHNHMzNsYkdfaVFNajM2RGt3NlVTa0ZlZF9ZOFFPV0ZQRi1PVTNXNGZnYjAyVFNMX3htUHAzV1N1OFRjWDQtN1Q4bWs1MEE2OWllOWZVcGtGUVVFck0yQTFJTXQtTklwdXZ3YUxPWkIwYUtnUkttSU16X1lOcVlQTlhBR1libU96c2NZMGpRLTBNZzdiUE9LNDVMVUIxMXlQSGNaWldmU0E?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-14T09:06:22.237385+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA anuncia compra de mineradora brasileira de terras raras - G1",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd0pMTkh2WlVwYUI2bjBDdTNyOUZZdWFYYjQzNVBxZ2VIR3JfZG5ZOTRndjFYREdqM3g0VTdiZ0NNdEdfR3JWRkg0RFZ2STMyc3VEdG1veklsekRhakRLbE5idEMxc2lWNFFCb0ZRMFU0dmNyams3c01JZTQzNFFQX3ZuWUptMXVfUkJtVmNIR0kwMFhNZTFUVzgtbmkyZmZ5Z3FYV19DRkFzOFZSR2VESEdsSk1RN0llQm15TmJBUi1FT1Rz0gHTAUFVX3lxTFBDS2pQcTBSQ0JhSWRWSkZ4NXBobThpSUZEYkN4TW5wODl3YzZfYUlHeUMtZ19RbzBHaTJRaXA1bVBwaWZPZXFRTFE2a3ZnQjR1VHBXZklpVEhLZHZvZjgxREhrU2N2V2YwNThJNXFqRlNwYUVZRzExY0I3U0dJZy15UlBGcS1tWjZyZjJHSjF3WmpONkdfTkZ1dzBTVmRiVjluT1hvMUYxTnJOQjhOT0JvN01kbFpiTDdaVDJpRU9ra3JheGFrN2hUNVR4Tm5QNEhxaWc?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.029865+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mercado de terras raras vê preço pago na Serra Verde como surpreendente - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONDRmaTRDS3ZxeU9IZkdrWHZEMHItb0xxbVBaRTBOUmdhdXVSUFNpYlo3eUFmN0F4Qy1sRE52MExZejJfUFlsY0xyRHBkUHFYaHZ2WG44MjFFdmpjeXpiUlg5RXB1endkR0E3UVJhbnpwdDZPSnEzMXdzSko4Q3VoaExscDRESFpGcVFPOFZmdW5MZzlNZklXUUtGblRGZ1hyd0lhcUhBOGM1TU0?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.675671+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mineradora americana compra Serra Verde, de terras-raras, e avalia negócio em US$ 2,8 bilhões - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQT3FRQ2hkTm9EVFdiWkxHZ1QtWkxWTmhGd24xekszQVpkZTY3cWhQdExLN3pQUlVqemcxQUlSLVlYVFQ2RjBTczNQODR6d202M2VCNWxwbFk0b255VFR0WWtwQXh4YU15cS1tUnlSSE16cGg4N3VhQ0VGd3dHWHlWRW5QOWZGZnc1MFYxVk0yZ1RUTDFkTFl4Z2RqaWl1Mm0zYXUwWklfTFY5S0lWb0R6V2JCaHdHc0Mzc0N6bW04cnJIbnFlTERmNXFCRkIyaloyWUZWU0JyWEpseUtDWG1mRlNTMXdHaC1p0gH3AUFVX3lxTE50cXFGOU1TMlJ1Zno4aXZPUlc1bWVTM21fWFZ4aGxkeFhvV3BlM1Nkb1ZwT01xcnlXZE81OFJkemNWcFp0dmlxdGJRTnhEOUVKNU1UcDNHaF9XVXJFODdZM1lXS0lMYXJRNGhQNTdKSkxRcnFmREIwRUNkanVDOVVLdllPSnlGc29OMmNneHJQZFozVnNRQnZFVnZfRFpNeTBGY2xPN01hY3hta3BqQVN4SzRMWkxCQWZ4V1F6QS1ScHk5cEhCWmItTG01Rndoblo2cnYzSTI2V2xacndYOS1Ub2lCTm1maUhrdlcyQWRCRmlLdmppaTg?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.676682+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "‘Art of the Deal’: americanos fecham negócio bilionário por terras raras do Brasil - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQYnM4NVVPR2h6Zzh0MlNxc3I1aUJJUEZ0TGhEWV9rendoOXRIV0ZLbGR6OC00UzJuLWVoeDRkR0RfWXExdFM0Rm15VGpwQ21BNGJQd1pwdXBqSV9fMDAxc1hFX3VEVTJVSmZvUDFEUzRXZVVSNmc4WXIwby1PLWpBNWdRUHg1b1NiNVNMbjhsV0hRYmJMTEhZSzk0UnV2MUMxNTZXaEJzSHA?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.677757+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra única mina de terras raras do Brasil por US$ 2,8 bi - Capital Reset",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNHlodW93NmZ5N0hZSEVtdmZnVkZxalRwRkdLX1ZyT3RqVE1aSlAtYWJCQklpT2JHam5WS1N1SjhNcTZ6QjBob2FyY0k3MkFvTmVpZVJYMGNZODEyQ2FDSjFoN0VLcUhCNlFOMVZRU09uRXhSSUViRXNVQ25zNmJuLVZobGtaeUhjcklseFhVR2t3c0R3SUY0Z3dZek85Z0VjQl9wR04tNTJadVN0ZExBNFJRYU9HWDl6TDlabGI2eURaMW42?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.681345+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra única mina brasileira de terras raras - Brasil de Fato",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPMmIzcGNnOXFvcU10TmdXeFRiSnVOMWpZeVJPWm52dmxWYTdMSFgyTS1JUXRRVFFJZHNnZWM5c0ZfeF9VQ01pZ0NpajZ1OHkyTkNVejFHVXl4YnRwQzNzUWJjeXdpRmp0aEc3V1Iwenhoa2VUX3lLaDJ6VkEyWmlGQmotUDRMRXVJU2ZpZXl5TnlVckxGN0hibGsyZXZPcUpWSnpFMU1TNA?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:06:58.654833+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth adquire mineradora de terras raras Serra Verde por US$ 2,8 bi - InfoMoney",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWFoxNTRSWERtWDRVTHV0UFRjV0tjNmR6VTJaR1FUQ3VhWWF3dXlVaE8xaGp3Qng5NGhZNkFoR0pRTGE4cnRKWjYwYngyc3AxMDd2enJqc3JHUE5ndTlnLXhzUUppdzk1LXBNQk85MGFMMWttRE9EeGJXNUJKSW1oSEFZT1drRmFONXVZRkZ4SnNENnVxMHl5ekNBWk9EYldLTkRRYXVjX20tblhTTGxhaS04NNIBuAFBVV95cUxORXZBb09aN2lWLXBPeWNfaXJfWTNvc2x1emxSbjJES1Fya3Y5Qk93M1NzcGF1TkJEcjFtVk1TcElxbEQzRjdKM0EtUndOSFB0ZTBlNGowRm1GYzc0NWY1bG5HclJ0WWR2aDdwVzJLZW1pNnREWS1HUlZXcWtUam1TS2g1a0J3ckZOSjZTZmNvbWdlWGNSSE0yRGRvQmxITEo1YnRjNzN4STVPemhTUklGVjU5aGxISHda?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:06:58.655591+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth boosts Western supply with $2.8B Brazil deal - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS3Zpbm9vNWRJNEhhOGFqSnFPUmRNdU9FTXdtLVRqdzAzdTB0NjNrdWhUXzBGQ2g3WTFvcWp6UnRiOVlhcmFBTmllU01kM3BwbFpCQjNUaXZ3ZTZYMmpzeDBPZVY2eFZhUzgxY19qdm9IWGhEWDhiM3ROLWFJQ0QyUnNXVGpLZHhHWTV0R0pOUG9HalcwSThQWVBla3ZiUU1r?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.431716+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra mineradora brasileira de terras raras - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQXFxc1VOQjk2N1ZxUlRJdVlSRUp6c3RRLUgyYkd3UUJoS1NhR3BJSWZ1YWRWNEs1QmlPTFRkU1VMd0Y0cGtrbkYwbTMtYU94S0pQLXBIOER1Wm5DR0lPeTA2MGNaS2VjZFpWQjl2Y1NfWmQ4cHpnNzE0ZnJrQlNMSlhSdzJyOXJ0cnpfeFFHTEFlNGJpTGFSTXJLVDNIcEVtUWJ2Zk15SW1VQlktc3dRM05YOGJISTU1ZFE?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-10-31T10:01:57.423888+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth compra mineradora brasileira Serra Verde por US$ 2,8 bi para garantir terras raras - Estadão",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNGk0Tl9RVU5wMXVVbl9UaHZuR05ZNmdUV3lBMXpPNFZQNl9KeHF2WDE2Rk54UzJweFY4M2dTSlA2Yms5cHhWc2d4a3RHS2xFcjhsUlhGTTJVVlFlSnlVZGhLSzZHV1plbXJSRXhNVlJoa0tSSEVLcFl1bzIwQlJOYjIta1p0XzlqR2xkNDVGZnlTLTZpZlV3STBsOXDSAaIBQVVfeXFMUE1OUkNBT3V3M3JRQkRiNFFwQkJoMTVSZTFEbFpzakZmck5sSzhKaEMwcnVCaHFIY0I2Z1pvY2tkcC1vaW5GMWhzZ2MzRVpQak5EUndhVW53cHZDcGY1U05kdVBqX2k3Qk83R1prTVBJV1V6YW5nNkFLZjIxdW1MOGZldnIzTTBDN3VFMzItX0twajNsejBPSmpuOUM0SG1tSjNn?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:55.210493+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa dos EUA compra mineradora brasileira de terras raras por US$ 2,8 bilhões - ISTOÉ DINHEIRO",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qb2FIVU9Za0NrRk1RR1VyX0V3QWJiQ0d1NWNnV1hCRVVOMXo5OUNrQjRrcEZyd3djN2FnV3pXNVFMUmJrdGdQdlFZWWkzbXVrWVBObmFab0hjdW5Yc0t6cEQwZlY?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-05T11:42:41.618002+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Donos da Serra Verde serão sócios de empresa americana e exportarão 100% das terras raras para agências dos Estados Unidos - Brasil 247",
+   "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQX1R4S1NReVNUb1NXYk4tcGpQVjUtQklWYU1KRUVScDlKLXdYMDYxNlo0d3lkUFhPaEFmUVRqTHBTTDA0b010LUhlcl9iUk94ZWxBTVVVMFNpWTVkb1lSeE9QdHprQnpBcGJTY2ozNmtyNzhLVEMzeG5UMFM0V25FY0VKaElRNHNaY3VNZGRvR2tGSDZpMWY2TGlBUmlESndnUXp6ck1VaGZxdGxGLVhia2xNeFhaMGtUZ1dZTUZWeXFJa3N0dHdxZ2U3ZXVkTmhIaE0wNXlJaFJDdExndktQdkJjZUFsaVZHVWlnbmxB?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-05T11:42:41.619005+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "US company to buy Brazilian rare earth miner Serra Verde for $2.8 billion - Courthouse News",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZGFLaVdrWDNIeld4NjdhOFlEdF92U2JkeGdwaTBJNGI4VmRSVEJKV0RvclE5UHZyRGFWemNDdmNXeGNPNWUzRU5nN04wYzY0RFhIaW5WT21JMHd2M2NMOU5kZEZwblNjZ2g0MlhSdS02MU5ULURLejVVMHZBMnMwUlNBeEhtRDB4VkpHcmdzTk5ESU5DcDFqbUxQRVZ0Q0M5U2c?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-07T10:46:56.566222+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth compra mineradora de terras raras Serra Verde por US$ 2,8 bi - Valor Econômico",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOb3pxbUViM0VVaDFtNThKOWprYnBwaUJscVYtVGRNNVQyWTdwbTBFY1EyYm8tOExXYU5TZkZXaHA0OEZRTnlhSF9LQVlaRF9aSWU4ZDc1N19ld3NOSWpMT3p4U2tEbnB3QzQ3ZV94bEJFeTRaZGxCZmpMd29WNG0wa0l2Z0R4eGFETTBLX0FMR2VxdW1TM2VFUXZVREdCRUpUdUh2REIyUlVObEQ4bUtFaG9rOUZjZy1hVXJKR0ZoVU1EUllfVjVVOTZ2VdIB2gFBVV95cUxNd29XV1FWZWVCRWxsd2RNYVU2a2JaYTN2MVB2U3RpS2FLYlpsN2ViZHFkcjZfYkY3MEZsSjdOTG5adUlULWt3VjVsZU5vRjdfcHhBejNOWEdTQ3c1ZG85YzZzUEFaTGFmWER6dFYzWG5WcmJZLURxazRMQVJXRFlMS1RtNzBPN3lLUy1FbktlVWVHc1NnWUppZjN3X0NVN182dzY3MmJSRFJJUjRfNDNER0VaRTJKNGxQWGJfeTZuQUp2emdEWFUyUzZqVGNRMEZfSVdTU09NMWN4QQ?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-12T11:58:14.154907+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth to buy Brazil's Serra Verde for $2.8 billion to build supply outside Asia - CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORTR5OUkyT0g4VlpKU0Uza3hGSkFmbVNSUlNBOEJ6VGtDaVZfR1NvMldiZm9MTlE1WkdXSjRndGtydzJieFlaUU4yRktkQWNYMDZsaGVKSFkzNDZCeThTcm1WR2Y4Q3hQS2dpU2QtUzc4MXIxMGJKUU9zaThJV3k4YjRwcFE?oc=5",
+   "published_at": "2026-04-20T07:00:00+00:00",
+   "first_seen": "2026-11-13T11:41:13.712748+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "USA Rare Earth to buy Brazil’s Serra Verde in US$2.8 bil deal - Yahoo Finance Singapore",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBIb0luOS05RWtDdXpnX3JnVWpDV0pwYUtaYnZPV3ZiU1o0RWJQY1VDOC1UNnZjdlE1OUVtRnA0eWFhX19nc09RRXY5TTBQdG9MRFJtazVFd0w1NFl0VHFaSG5VVjdWZk9JNF9kZjhlMWdXUDFYLVVjUTZ4dWVmem8?oc=5",
+   "published_at": "2026-04-19T07:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.234592+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "MPF apura esquema de mineração ilegal com indícios de dano ambiental grave em Goiás - Jornal Opção",
@@ -1034,7 +2108,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Garimpo ilegal de ouro é denunciado em fazenda de Goiás - Metrópoles",
@@ -1049,7 +2124,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lítio entra no radar da mineração ilegal no Brasil - BNamericas",
@@ -1064,7 +2140,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: royalties da mineração destinam mais de R$ 473 milhões a estados e municípios produtores em abril - brasil61.com",
@@ -1077,7 +2154,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração destinam mais de R$ 473 milhões a estados e municípios produtores em abril - jornaldaregiao.com",
@@ -1090,7 +2168,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brasil consolida liderança na exportação de lítio e projeta autossuficiência em baterias até 2028 - Rede Estação Democracia",
@@ -1105,7 +2184,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Mineração em Goiás: Lei usurpa competência da União - Migalhas",
@@ -1118,7 +2198,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineração cresce 6% e movimenta R$ 77,9 bi no Brasil - Brasil 247",
@@ -1131,20 +2212,38 @@
    "fonte": "Busca · lítio no Brasil",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
-   "title": "Sob a montanha — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE8xVmxXNDFPQk5TT1FQNXJXeUZFdjFseHJCRDMwVUZJMHA5cXl3WHVYeEJUT2trWjE4WF9GWTVHU2JFcmNlUGZSQ3p1a3hlV0o0cjVZbHc0OUtfUVpPV21PUzN0dDh3NGt4dnlzTi1B?oc=5",
+   "title": "China and the US want rare earths. Brazil will share – on one condition - South China Morning Post",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUHZGcnFvdndnUm1seHFaZHoyVnljSDdYNHZXYldVYVh0TUxMWTZvcHVMTEJPMEtDcnZrTU1vektVVjlKRUd2bVN3dDdhUTdEM0dRUDNiRWNJRkJtR2h5a2FLTEljSUlLc3Y2TmpycEZwMXpzRVhvRlhkelBLRlpQR0MycmpXa0xMc1oxZjlFSkgtM2lKNFlhWjc4Z2xDcVhKUXJUR2J1bHFmRUNJdGcteGhOUdIBswFBVV95cUxNNC1NNEU0WGZoOGhmdzNYbktuNkh0WmV1eFpRYVZFak5mdVRVNW4yM2pVOHdXa3RVX2JkajB4QTMwZU96NmdjRkJaRlRfa1JKaHFVWEI3LVRXWGdCVlNlZjVPNkpkbUMtYnd4cWtRcHo0YVMtdmpQMHFCYnhzM0xuajlKY2N6N1ZiQmh5NXg2Z1pSMjRUMVRxQkkxVjRtMGItVlhYODVQZjhxbzAwSDgzX1Btdw?oc=5",
    "published_at": "2026-04-15T07:00:00+00:00",
-   "first_seen": "2026-09-20T04:02:47.782777+00:00",
+   "first_seen": "2026-09-29T10:12:07.614887+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "China and the US want rare earths. Brazil will share – on one condition - South China Morning Post",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUHZGcnFvdndnUm1seHFaZHoyVnljSDdYNHZXYldVYVh0TUxMWTZvcHVMTEJPMEtDcnZrTU1vektVVjlKRUd2bVN3dDdhUTdEM0dRUDNiRWNJRkJtR2h5a2FLTEljSUlLc3Y2TmpycEZwMXpzRVhvRlhkelBLRlpQR0MycmpXa0xMc1oxZjlFSkgtM2lKNFlhWjc4Z2xDcVhKUXJUR2J1bHFmRUNJdGcteGhOUQ?oc=5",
+   "published_at": "2026-04-15T07:00:00+00:00",
+   "first_seen": "2026-11-06T11:41:19.631932+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Manutenção emergencial em alguns sistemas da ANM — Agência Nacional de Mineração - www.gov.br",
@@ -1157,7 +2256,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração injetam mais de R$ 473 milhões em estados e municípios produtores - www.gov.br",
@@ -1170,7 +2270,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic garante validade dos direitos minerários no Brasil - brasilmineral.com.br",
@@ -1185,7 +2286,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Projeto da Lithium Ionic em MG é alvo de acusação de fraude no Canadá - CNN Brasil",
@@ -1200,7 +2302,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Goiás cria estrutura centralizada para gerir minerais críticos e amplia papel do Estado no setor - Jornal Opção",
@@ -1213,7 +2316,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Exploração de terras raras, lítio, cobre, estanho e outros minerais críticos disparou nos últimos cinco anos, cercando 278 terras indígenas e boom da mineração acende alerta no Brasil - CPG Click Petróleo e Gás",
@@ -1230,7 +2334,8 @@
     "cobre",
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "1ª turma do STF mantém anulação de \"CPI da Mineração\" no Pará - migalhas.com.br",
@@ -1243,7 +2348,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Briga entre governo Lula e Caiado acirra disputa por controle de terras raras em Goiás enquanto impactos ambientais são esquecidos - observatoriodamineracao.com.br",
@@ -1258,7 +2364,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Supremo barra CPI da Mineração em Parauapebas por invasão de competência da União - Portal Debate",
@@ -1271,7 +2378,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "STF anula CPI da mineração em Parauapebas após câmara extrapolar prerrogativas - Correio de Carajás",
@@ -1284,7 +2392,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil, India, Vietnam, and Russia hold large reserves of rare earth, but mine very little of them - Our World in Data",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPR3RwZ21ETWtNTENrcGstakN3eTNXQ2JCY0NwTF80dTV2TUp6U0k4bE9qZzhSSzdyV3F4NWlpNUNpbEV6X1Brd3drdVNTc1NhVlI1bGdGUU9aX1I1SFU0UVNxVXUtZHRUcHlubzlPR0pWVzRVOU80MTdYRUE1eVNmaG1QYWhhTC1RMUNaaTVKZnRLbFAweUVNOWpGWktsZlhFQkIwenNCamQ3MXVkSjdvVGN4dHZERm9xeExxWnBsMHFxaEM5R200aFlpazdrTXdT?oc=5",
+   "published_at": "2026-04-07T07:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.429216+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "MUNICÍPIOS MINERADORES | AMIG Brasil critica falta de transparência da ANM sobre CFEM - brasilmineral.com.br",
@@ -1297,7 +2422,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Banco dos EUA confirma empréstimo a mineradora brasileira com fornecimento de terras raras - Brasil 247",
@@ -1312,7 +2438,40 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras: o que são e por que defendê-las dos interesses estrangeiros? - Partido dos Trabalhadores",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUzZidjB0alYzbkg4anZoMG9JaUlYaUNpaFN4ZU8tNUhBaEJGYWpLR3lISjZqMWxXdk03V0g1SXkybXotRmoxTkZhb1RVLUU2Q0xIZVZXUERfbmdDRGNQOXY2WmxxcnFrUS1haDBTUGd1THprZ1RLR1d2WlhhLWFCZ1M3cDg4TzRoMHpYcXREQk5GR2pEbEHSAZ4BQVVfeXFMT3VBTjBYampLam5IR2RvdFFsQ1hoNFpSNEUzMW9fYVdHV1NseVd6Z2xoT0hNZTNtZ0dxVXFMbEFsSEhBZl9aWW5ZYWhvamFCTFBkSDg1elJyT3l2aWdONGZkNDlkMmFTLWpKTXVpc2k2R09ZS3pEQWltaUE4b2VCSkpQbzNzYkQtc2JyWFRMWXBveTIxcUZqZXlIMnoweXc?oc=5",
+   "published_at": "2026-04-03T07:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.028374+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Banco dos EUA confirma que empréstimo a mineradora brasileira prevê fornecimento de terras raras - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSFV4NG9SZWU2Q3prX2JWQXpnelU1ejBjRWo2MmpKOE94RnpaRVc3TmNyYndRZFE1TWltc0xpNVc1dlAzdGRwX05UWV9mVlhyZGFSUkxqYXlIMkQ0X3JuRWFhN0gySXo0YUVMU3BtT1BkaVV6WC1NanljMEpRUF92RUxyWXE1MXNJZl9NR2VaekY4dEFYSVExV25xTEYyR0lWREZtUTZuRjdfVm5HRmR0M2NLQnowc1BNTWJyZFBSandmelUtMzN4NVp5NEVESU5SbmtGUjFLblEwSHJtbEF2cHV30gHnAUFVX3lxTFBUSUo3eS03cHNlN19pSXBEMU9nN01NR0JoUWpKZzdkWndleGZEb241ZEJUNVlGYVk2bWlpejdUTHN5MzE1SVhYQlBWenZoQ1lhRXJNVktPalBnNGRCWV9TQ2lZbHVUaXdjdmhBbUk3eHFIRHZWUS1xSU9lMTBwdUdkQ3lnTU84bVRVbVJtMnpYclo4MjZNYlRVcU5zNTJtSHRPbjg4RjR3WE1YR25iVVU2UVZ4dWdGZTI3X3VIVzdXY2xXM3R5UHlwT1EwazlrN1FNdEFRWkhod19YNFNJLWMzYmp1dG5OMA?oc=5",
+   "published_at": "2026-04-03T07:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.674493+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Lítio no Brasil: mineradora quer triplicar produção com chegada de novos sócios - Estadão",
@@ -1327,7 +2486,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "EUA e Japão consideram apoio para projetos de lítio e terras raras no Brasil - Valor Econômico",
@@ -1343,7 +2503,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ATLAS LITHIUM | Projeto Neves é listado como estratégico nos EUA e Japão - brasilmineral.com.br",
@@ -1358,7 +2519,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Lítio no Brasil: mineradora quer triplicar produção com chegada de novos sócios - Estadão",
@@ -1373,7 +2535,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Fiscalização da CFEM é tema de capacitação obrigatória da Agência Nacional de Mineração - Brasil 61",
@@ -1386,7 +2549,22 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Nova página oficial do Programa de Gestão e Desempenho no portal gov.br — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQVp5N2ktaWVfc1Y4SkpnU01wUWdXa3pGLVZLNXYyTjJ2VDRNRDBIQkVhUUtzWUFQYTNYS0NucVR3VlI0SndLRkhCaUVRbXVhcWVNTGdpRU5aYlJYUUt3dF85aWNhUXpFMkQ1RHRSV2JnazFYZjk3eVNHYUJsTlZRTFBtUkhreTFRbGRCZ05GWUw3VldCVXJuYjZJX3JfUlNOck02RExGZDFhZFJobVlJQ2pGaGctTlYxSEE?oc=5",
+   "published_at": "2026-04-02T07:00:00+00:00",
+   "first_seen": "2026-10-18T08:23:45.565736+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   }
  ]
 }

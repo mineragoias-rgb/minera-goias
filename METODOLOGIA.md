@@ -24,7 +24,7 @@ Atualizado em 06/11/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 
 | Fonte | Uma linha é… | Volume | Período |
 |---|---|---|---|
-| CCEE — parcelas de carga | Uma parcela de carga de um agente, em um mês, município e ramo | 4.241 (2024) · 8.072 (2025) · 8.245 (2026) | 2024–2026 |
+| CCEE — parcelas de carga | Uma parcela de carga de um agente, em um mês, município e ramo | 8.820 (2024) · 13.680 (2025) · 8.245 (2026) | abr/2024–jul/2026 |
 | CFEM — arrecadação | Um recolhimento por processo, substância, município e mês | 38.854 | 2022–2026 |
 | Cadastro mineiro (shapefile) | Um polígono de um processo minerário | 17.428 polígonos em 16.656 processos | Data de extração não informada |
 | Rodadas de disponibilidade | Uma área oferecida em uma rodada | 31.841 no Brasil · **3.632 em Goiás** | Rodadas 1 a 8 |
@@ -35,6 +35,10 @@ Atualizado em 06/11/2026. Ao mudar uma regra de cálculo, atualize este arquivo 
 | Atlas (base consolidada do Squad 1, v17) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
+
+Os volumes da CFEM e do cadastro mineiro são os dos arquivos baixados em 10/09/2026. No dia 1º de cada mês, o robô das bases (`robo/`) baixa de
+novo P3M, SIGMINE, Cadastro Mineiro, CFEM e Anuário Mineral. Os números do dia ficam na planilha consolidada (aba 07) e em
+`Squad 1/Dados brutos/LEIA-ME.md`.
 
 ---
 
@@ -118,13 +122,13 @@ Mede **a razão entre dois números publicados**, cada um com sua cobertura decl
 
 **A ligação é o CNPJ raiz, não o nome.** A tabela `ccee` do panorama traz o CNPJ raiz do agente e a base de produção o do titular; nove das dez empresas casam. A CBA fica de fora porque sua unidade de bauxita em Barro Alto não aparece com carga própria sob o CNPJ raiz da companhia.
 
-**Anualização é pro rata e sai declarada.** A CCEE do repositório cobre quatro meses de 2024, sete de 2025 e sete de 2026; a produção nem sempre vem publicada como ano. Cada linha traz o observado e o anualizado lado a lado — `observado ÷ meses observados × 12` — com a qualidade da estimativa: `observado_completo` (doze meses), `estimado_alto` (nove a onze), `estimado_medio` (seis a oito) e `estimado_baixo` (menos de seis). O coeficiente herda a qualidade **do lado mais fraco**.
+**Anualização é pro rata e sai declarada.** A CCEE do repositório cobre nove meses de 2024 (abril a dezembro; a CCEE não publica antes), os doze de 2025 e sete de 2026; a produção nem sempre vem publicada como ano. Cada linha traz o observado e o anualizado lado a lado — `observado ÷ meses observados × 12` — com a qualidade da estimativa: `observado_completo` (doze meses), `estimado_alto` (nove a onze), `estimado_medio` (seis a oito) e `estimado_baixo` (menos de seis). O coeficiente herda a qualidade **do lado mais fraco**.
 
 **Períodos parciais não se sobrepõem.** Um S1 já contém Q1 e Q2, e somar os três daria um ano e meio dentro de um ano. Linha de planta isolada (Barro Alto e Codemin separados) também não entra no total da empresa.
 
 **O coeficiente é `energia (kWh) ÷ produção`, na unidade que a empresa publica** — kWh/t ou kWh/oz. Nada é convertido, e os dois grupos aparecem separados no painel porque não se comparam. Só entra produção realizada, do recorte de Goiás, no nível da empresa: embarque, venda, capacidade, meta e consolidado do Brasil ficam fora do numerador.
 
-**A carga de uma empresa com vários minerais é separada pelo que a CCEE já declara — ramo de atividade e município —, nunca por proporção arbitrada.** A CMOC declara a carga em três ramos: extração de minerais metálicos e metalurgia são o nióbio (mina e planta de ferronióbio); minerais não-metálicos é o fosfato. Como nióbio é substância metálica e fosfato não é, o ramo separa os dois negócios sem rateio inventado — em 2025 o nióbio ficou com 43% da carga, e o coeficiente caiu de 27.816 para 11.884 kWh/t. As regras têm de **particionar** a carga: cada parcela cai em exatamente um mineral, sem sobra nem sobreposição, e um teste guarda isso.
+**A carga de uma empresa com vários minerais é separada pelo que a CCEE já declara — ramo de atividade e município —, nunca por proporção arbitrada.** A CMOC declara a carga em três ramos: extração de minerais metálicos e metalurgia são o nióbio (mina e planta de ferronióbio); minerais não-metálicos é o fosfato. Como nióbio é substância metálica e fosfato não é, o ramo separa os dois negócios sem rateio inventado — em 2025 o nióbio ficou com 42% da carga, e o coeficiente caiu de 28.316 para 11.792 kWh/t. As regras têm de **particionar** a carga: cada parcela cai em exatamente um mineral, sem sobra nem sobreposição, e um teste guarda isso.
 
 **Quando nem município nem ramo separam, nada é rateado.** É o caso de Chapada: cobre e ouro saem do mesmo minério, da mesma usina, no mesmo município e sob o mesmo ramo. Alocar entre co-produtos exigiria convenção de inventário — por receita, por valor do metal contido —, que é escolha e não medição. O coeficiente de cada metal sai com `energia_exclusiva=false` e carrega a energia inteira da operação.
 
@@ -205,7 +209,7 @@ Declarar isto é parte da metodologia.
 ## 5. Precisão e incerteza declaradas
 
 - **Geometrias do atlas:** municípios da malha IBGE 2025 simplificados como cobertura (tolerância de 0,003°); processos do SIGMINE simplificados (~45 m) e quantizados em UInt16. Projetos são o ponto representativo dos seus processos (73 caem fora de Goiás porque os processos cruzam a divisa); ocorrências usam a coordenada do RECMIN, 83% posicionada em carta 1:250.000. Servem para localizar e comparar; **não são limites cadastrais**.
-- **Identificadores em notação científica:** 34.212 registros da CFEM trazem CPF/CNPJ como número em notação científica. Dígitos perdidos na origem não são recuperados por aproximação — são sinalizados como alerta.
+- **Identificadores em notação científica:** no arquivo da CFEM baixado em 10/09/2026, 34.212 dos 38.854 registros traziam CPF/CNPJ como número em notação científica. Na publicação de outubro de 2026, a ANM passou a trazer o CNPJ completo. A planilha consolidada informa, a cada atualização, quantas linhas do arquivo em uso ainda vêm em notação científica (aba 07 e aba 02b). Dígitos perdidos na origem não são recuperados por aproximação — são sinalizados como alerta.
 - **CPF de pessoa física** vem mascarado da ANM (`***370285**`). CNPJ de pessoa jurídica vem íntegro, e é dado público.
 - **Fórmulas de planilha** não são recalculadas: 2.358 células da base consolidada estão sem valor em cache e aparecem como alerta, não como zero.
 - **Barragens** trazem classificação de risco, dano potencial e nível de emergência como categorias de uma extração sem data. **Não servem para avaliar condição atual.**

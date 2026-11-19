@@ -22,7 +22,8 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 warnings.filterwarnings("ignore")
 sys.stdout.reconfigure(encoding="utf-8")
-from caminhos import ARRANJO, BASE, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
+from caminhos import ARRANJO, BASE, TMP, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
+import qualidade_cfem
 SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx"  # v5 + 06/06b + 04/04b + 12 + 08 (write_ocorrencias_06 → write_projetos_04 → write_interface_12 → write_fato_08)
 OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v17.xlsx"
 VERSAO = "v17"
@@ -290,6 +291,28 @@ try:
     periodo_cfem = f"{_comp.min() // 100}-{_comp.min() % 100:02d} a {_comp.max() // 100}-{_comp.max() % 100:02d} (registros criados até {_dc.max():%Y-%m-%d})"
 except Exception as e:
     _cf, periodo_cfem = None, f"(não calculado: {e})"
+# qualidade do CPF_CNPJ contada no arquivo em uso (a ANM passou a publicar o CNPJ completo em out/2026) e cobertura da ponte do
+# processo (build_base3): os textos da fonte SRC_ANM_CFEM e o aviso das contagens de titulares saem daqui
+_q_cfem = qualidade_cfem.contar(_cf["CPF_CNPJ"]) if _cf is not None else None
+try:
+    _q_ponte = json.load(open(f"{TMP}/_cfem_qualidade.json", encoding="utf-8"))
+except (OSError, ValueError):
+    _q_ponte = None
+_cob = qualidade_cfem.cobertura_ponte(_q_ponte)
+if _q_cfem is None:
+    _lim_cpf, _conf_cfem, AVISO_CNPJ = "CPF_CNPJ não verificado", "alta (oficial) para valores", "Contado pelo CPF_CNPJ da CFEM."
+else:
+    _lim_cpf, AVISO_CNPJ = qualidade_cfem.limitacao_catalogo(_q_cfem), qualidade_cfem.aviso_titulares(_q_cfem)
+    _conf_cfem = "alta (oficial) para valores; " + ("baixa para identificação do titular" if qualidade_cfem.corrompido(_q_cfem)
+                                                   else "média para identificação do titular (CNPJ completo, sem nome)")
+
+
+def ano_sidra(p):
+    """O ano do arquivo do SIDRA (o robô das bases baixa o último publicado): entra na URL da consulta que reproduz o arquivo."""
+    try:
+        return json.load(open(arquivo(p), encoding="utf-8"))[1]["D3N"]
+    except Exception:
+        return "?"
 
 
 def periodo_json(p):
@@ -321,8 +344,9 @@ try:  # RECMIN: URL exata da requisição e período vêm do próprio download (
     _ano_top, _n_top = Counter(x[:4] for x in _dts).most_common(1)[0]
     periodo_recmin = (f"cadastros no GeoSGB de {_dts[0]} a {_dts[-1]} ({100 * _n_top / len(_dts):.0f}% em {_ano_top}, carga do banco); "
                       f"baixado em {_META_RECMIN['data_download_utc'][:10]}")
+    _data_recmin = "/".join(reversed(_META_RECMIN["data_download_utc"][:10].split("-")))
 except Exception as e:
-    _META_RECMIN, periodo_recmin = {}, f"(não calculado: {e})"
+    _META_RECMIN, periodo_recmin, _data_recmin = {}, f"(não calculado: {e})", "(data não encontrada)"
 
 
 def periodo_imb():
@@ -433,10 +457,11 @@ FONTES = [
          metadados_oficiais="https://dadosabertos.anm.gov.br/CFEM/metadados-cfem.ods (cópia em dados/ANM/cfem/)",
          padroes=["dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv"], granularidade="mês × processo × substância × município × titular",
          formato_declarado="CSV separado por ponto e vírgula; Windows-1252", frequencia_atualizacao="diária (metadados ANM)",
-         periodo=lambda: periodo_cfem, confiabilidade="alta (oficial) para valores; baixa para identificação do titular",
+         periodo=lambda: periodo_cfem, confiabilidade=_conf_cfem,
          limitacoes="Recorte UF=GO do arquivo nacional feito antes de chegar em dados/ (passo não documentado — registrar no GitHub). "
-                    "CPF_CNPJ IRRECUPERÁVEL: 88% das linhas em notação científica ('9,69944E+11'); CPF de pessoa física mascarado por LGPD; sem nome do titular. "
-                    "Empresa só pela ponte do número do processo (93,1% das linhas; 90,1% do valor). Quantidade comercializada ≠ produção. 2026 parcial."),
+                    f"{_lim_cpf}; sem nome do titular. "
+                    "Empresa pela ponte do número do processo (titular no Cadastro Mineiro) e, para processo fora das bases de título, pela raiz do CNPJ pagador" + (f" ({_cob.replace(' das linhas e ', ' das linhas; ')})" if _cob else "")
+                    + ". Quantidade comercializada ≠ produção. 2026 parcial."),
     dict(source_id="SRC_ANM_CADASTRO", nome_fonte="ANM — Cadastro Mineiro (SCM): títulos e requerimentos", orgao="ANM", tipo_fonte="oficial",
          url_catalogo="https://dadosabertos.anm.gov.br/SCM/",
          url_recurso="https://dadosabertos.anm.gov.br/SCM/<arquivo>.csv — 13 arquivos (Alvara_de_Pesquisa, Cessoes_de_Direitos, Guia_de_Utilizacao_Autorizada, Licenciamento, PLG, Portaria_de_Lavra, …)",
@@ -468,22 +493,24 @@ FONTES = [
          limitacoes="O uso implica aceitar a nota metodológica do IBGE (condição do leia-me). O centro da caixa envolvente cai fora do município em 20 casos — usar representative_point."),
     dict(source_id="SRC_IBGE_POP", nome_fonte="IBGE — Estimativas de população (SIDRA, tabela 6579, variável 9324)", orgao="IBGE", tipo_fonte="oficial",
          url_catalogo="https://sidra.ibge.gov.br/tabela/6579",
-         url_recurso="https://apisidra.ibge.gov.br/values/t/6579/n6/all/v/9324/p/2025 (consulta equivalente ao arquivo local)",
+         url_recurso=f"https://apisidra.ibge.gov.br/values/t/6579/n6/all/n3/52/v/9324/p/{ano_sidra('dados/IBGE/populacao_municipal_goias_ultimo_ano.json')} (consulta equivalente ao arquivo local)",
          metadados_oficiais="https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579",
          padroes=["dados/IBGE/populacao_municipal_goias_ultimo_ano.json"], granularidade="município × ano",
          formato_declarado="JSON da API SIDRA (1ª linha = cabeçalho)", frequencia_atualizacao="anual",
          periodo=lambda: periodo_json("dados/IBGE/populacao_municipal_goias_ultimo_ano.json"), confiabilidade="alta (oficial; estimativa)",
          limitacoes="Apesar do nome, o arquivo traz todos os municípios do Brasil e ainda uma linha da UF de Goiás (código 52) — filtrar código de 7 dígitos começando com 52, "
-                    "senão a soma de Goiás dobra. A tabela 6579 já publica 2026: o arquivo local está um ano defasado. "
+                    "senão a soma de Goiás dobra. O robô das bases (robo/) baixa o último ano publicado uma vez por mês. "
                     "Estimativa, não contagem censitária."),
     dict(source_id="SRC_IBGE_PIB", nome_fonte="IBGE — PIB dos Municípios (SIDRA, tabela 5938, variável 37)", orgao="IBGE", tipo_fonte="oficial",
          url_catalogo="https://sidra.ibge.gov.br/tabela/5938",
-         url_recurso="https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2023 (consulta equivalente ao arquivo local)",
+         url_recurso=f"https://apisidra.ibge.gov.br/values/t/5938/n6/all/n3/52/v/37/p/{ano_sidra('dados/IBGE/pib_municipal_goias_ultimo_ano.json')} (consulta equivalente ao arquivo local)",
          metadados_oficiais="https://apisidra.ibge.gov.br/desctabapi.aspx?c=5938",
          padroes=["dados/IBGE/pib_municipal_goias_ultimo_ano.json"], granularidade="município × ano",
          formato_declarado="JSON da API SIDRA (1ª linha = cabeçalho)", frequencia_atualizacao="anual (defasagem de ~2 anos)",
          periodo=lambda: periodo_json("dados/IBGE/pib_municipal_goias_ultimo_ano.json"), confiabilidade="alta (oficial)",
-         limitacoes="Unidade = MIL REAIS (convertida para R$ na Base 2 desde a v5; antes estava rotulada como R$). 2023 é o último ano da tabela (2002–2023). "
+         limitacoes="Unidade = MIL REAIS (convertida para R$ na Base 2 desde a v5; antes estava rotulada como R$). "
+                    f"{ano_sidra('dados/IBGE/pib_municipal_goias_ultimo_ano.json')} é o último ano baixado (a tabela começa em 2002; o robô das bases "
+                    "baixa o mais recente uma vez por mês). "
                     "Arquivo com todos os municípios do Brasil e ainda uma linha da UF de Goiás (código 52) — filtrar código de 7 dígitos começando com 52."),
     dict(source_id="SRC_SGB_GEOSGB", nome_fonte="SGB — GeoSGB: pacotes de geoquímica (Oeste de Goiás, Noroeste de Goiás/Bonópolis, Folha Goiás PLGB)", orgao="SGB", tipo_fonte="oficial",
          url_catalogo="https://geosgb.sgb.gov.br/", url_recurso="não verificável automaticamente (o portal é uma aplicação JavaScript) — registrar o link de download à mão",
@@ -500,7 +527,8 @@ FONTES = [
          padroes=["dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.geojson"], granularidade="ponto por ocorrência (id_ocorrencia do GeoSGB)",
          formato_declarado="WFS 2.0 (GeoServer): GeoJSON, SHAPE-ZIP ou CSV; baixado em GeoJSON (WGS84)", frequencia_atualizacao="contínua (base corporativa do GeoSGB)",
          periodo=lambda: periodo_recmin, confiabilidade="alta (oficial) — evidência geológica, não projeto; posição por carta 1:250.000 na maioria dos pontos",
-         limitacoes="Baixado em 12/09/2026 com autorização do Eliel, pela caixa de Goiás com folga (inclui pontos de MG, MT, DF, TO e MS, recortados pela malha do IBGE). "
+         limitacoes=f"Baixado em {_data_recmin} pela caixa de Goiás com folga (download só de Goiás autorizado pelo Eliel em 12/09/2026; inclui pontos de "
+                    "MG, MT, DF, TO e MS, recortados pela malha do IBGE). "
                     "Evidência geológica (ocorrência, depósito, mina, garimpo), não lista de projetos (guia, seção 9). data_cadastro é a data de carga no banco, não a de "
                     "descoberta: 'Mina Ativo(a)' é a situação daquele cadastro, não a atual. Maioria dos pontos posicionada em carta 1:250.000. Status e importância "
                     "'Indeterminado' na maior parte. Campos sem informação: localizacao_mina ('Mina subterrânea (GPS sem sinal)' em quase tudo), situacao_garimpo "
@@ -512,10 +540,12 @@ FONTES = [
          periodo=lambda: periodo_ano("dados/ANM/agua_mineral/Agua_Mineral_Producao.csv"), confiabilidade="alta (oficial), declaratória",
          limitacoes="Água mineral aparece no Cadastro Mineiro e na CFEM, mas esta produção ainda não foi integrada à Base 1.", status_padrao="disponível em dados/, ainda não usada"),
     dict(source_id="SRC_ANM_INVEST_PESQUISA", nome_fonte="ANM — Investimento em pesquisa mineral por UF", orgao="ANM", tipo_fonte="oficial",
-         url_catalogo="não verificada", url_recurso="não verificada", metadados_oficiais="", padroes=["dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv"],
-         granularidade="UF × substância × ano × rubrica", formato_declarado="não verificado", frequencia_atualizacao="não verificada",
+         url_catalogo="https://dadosabertos.anm.gov.br/DIPEM/", url_recurso="https://dadosabertos.anm.gov.br/DIPEM/InvestimentoPesquisaMineralUf.csv",
+         metadados_oficiais="https://dadosabertos.anm.gov.br/DIPEM/metadados-dipem.ods", padroes=["dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv"],
+         granularidade="UF × substância × ano × rubrica", formato_declarado="CSV separado por ponto e vírgula; Windows-1252", frequencia_atualizacao="não verificada",
          periodo=lambda: periodo_ano("dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv"), confiabilidade="alta (oficial)",
-         limitacoes="Origem exata e metadados não localizados em dados/.", status_padrao="disponível em dados/, ainda não usada"),
+         limitacoes="Arquivo nacional (todas as UFs) da pasta DIPEM dos dados abertos da ANM; o robô das bases baixa de novo uma vez por mês. "
+                    "Metadados oficiais em metadados-dipem.ods (não copiado para dados/).", status_padrao="disponível em dados/, ainda não usada"),
     dict(source_id="SRC_IMB_GOIAS_EM_DADOS", nome_fonte="IMB — Goiás em Dados (4 consultas: energia elétrica e produção mineral estadual)", orgao="IMB", tipo_fonte="oficial",
          url_catalogo="https://www.imb.go.gov.br/", url_recurso="exportação manual do Goiás em Dados (parâmetros da consulta não registrados)",
          metadados_oficiais="", padroes=["dados/IMB/consulta*.csv"], granularidade="estado × variável × ano",
@@ -556,7 +586,7 @@ FONTES = [
          status_padrao="disponível em dados/, não usada (o pipeline usa a malha 2025)"),
     dict(source_id="SRC_IBGE_POP_UF", nome_fonte="IBGE — Estimativa de população de Goiás (SIDRA, tabela 6579, variável 9324, nível UF)", orgao="IBGE", tipo_fonte="oficial",
          url_catalogo="https://sidra.ibge.gov.br/tabela/6579",
-         url_recurso="https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/2025 (consulta conferida em 12/09/2026: mesmo valor do arquivo local)",
+         url_recurso=f"https://apisidra.ibge.gov.br/values/t/6579/n3/52/v/9324/p/{ano_sidra('dados/IBGE/populacao_goias_ultimo_ano.json')} (consulta equivalente ao arquivo local)",
          metadados_oficiais="https://apisidra.ibge.gov.br/desctabapi.aspx?c=6579", padroes=["dados/IBGE/populacao_goias_ultimo_ano.json"],
          granularidade="UF × ano", formato_declarado="JSON da API SIDRA (1ª linha = cabeçalho)", frequencia_atualizacao="anual",
          periodo=lambda: periodo_json_uf("dados/IBGE/populacao_goias_ultimo_ano.json"), confiabilidade="alta (oficial; estimativa)",
@@ -714,7 +744,7 @@ for _aba in NATUREZA_GOV:
                                              "calculado: gerado pelo pipeline; o método está em metodo_estimacao."),
         (_aba, "metodo_estimacao"): "Método quando o valor não é observado; vazio nas linhas observadas.",
         (_aba, "status_validacao"): ("valido, ou os alertas das linhas da 08 que entram na soma (alerta_processo_09c, quantidade_excluida_da_soma_09b, "
-                                     "alerta_producao_repetida), separados por ';'." if _aba in CONSULTAS else
+                                     "alerta_producao_repetida, rom_minerio_associado), separados por ';'." if _aba in CONSULTAS else
                                      "valido, ou os alertas das linhas de CFEM do processo na 08." if _aba == "03_dim_operacoes" else
                                      "valido; alerta_titular_nao_identificado no grupo COM_NAO_IDENTIFICADO (processos sem titular no Cadastro Mineiro)." if _aba == "02_dim_empresas" else
                                      "valido: passou nas checagens automáticas da 14b."),
@@ -744,11 +774,9 @@ except Exception as e:
     nota_cfem_qtd = f"(checagem de unidades não executada: {e})"
 print("CFEM qtd comercializada:", nota_cfem_qtd[:160])
 
-AVISO_CNPJ = ("ATENÇÃO: contado pelo CPF_CNPJ da CFEM, que está corrompido (notação científica) — CNPJs diferentes podem colidir, "
-              "então é um limite inferior aproximado. Recalcular pela ponte do número do processo (pendente).")
 D = {  # campo -> (descrição, unidade/domínio, fonte ou derivação)
     "mineral_id": ("Identificador estável do mineral. Atribuído por ordenação (classe, nome) sobre as 57 categorias oficiais da ANM + subitens justificados; nunca por hash do nome. Para rochas, a categoria depende do tipo de uso declarado (ver 01c).", "MIN_### (3 dígitos)", "Derivado — 01_dim_minerais / crosswalk 01b"),
-    "company_id": ("Identificador estável do titular. PJ: raiz do CNPJ (agrupa matriz e filiais). PF: CPF íntegro ou sha1 do nome normalizado (CPF mascarado por LGPD). COM_NAO_IDENTIFICADO = CFEM de processo ausente do Cadastro Mineiro e do SIGMINE.", "COM_CNPJ_########, COM_CPF_###########, COM_NOME_<8 hex>, COM_NAO_IDENTIFICADO", "Derivado — Cadastro Mineiro (Titular, CPF/CNPJ)"),
+    "company_id": ("Identificador estável do titular. PJ: raiz do CNPJ (agrupa matriz e filiais). PF: CPF íntegro ou sha1 do nome normalizado (CPF mascarado por LGPD). Processo da CFEM ausente do Cadastro Mineiro e do SIGMINE: raiz do CNPJ pagador no CFEM; COM_NAO_IDENTIFICADO = nem isso (CPF mascarado ou CNPJ em notação científica).", "COM_CNPJ_########, COM_CPF_###########, COM_NOME_<8 hex>, COM_NAO_IDENTIFICADO", "Derivado — Cadastro Mineiro (Titular, CPF/CNPJ)"),
     "operation_id": ("Identificador estável do processo minerário, derivado do número canônico do processo ANM.", "OPE_<número>_<ano>", "Derivado — SIGMINE.PROCESSO"),
     "municipality_id": ("Código IBGE do município (7 dígitos). Padrão externo estável.", "52##### (7 dígitos)", "IBGE — malha 2025 (CD_MUN)"),
     "source_ids": ("Fontes de onde vieram os valores da linha. Cada fonte entra se, e somente se, alguma coluna da linha veio dela.", "SRC_* separados por ';' (IDs da aba 07)", "Governança"),
@@ -914,7 +942,7 @@ DA = {  # (aba, campo) -> descrição específica da aba
     ("12_interface_squad1_squad2", "processo_anm"): "Processo cuja CFEM define a participação no rateio (formato canônico) — identifica também processos sem poligonal (sem operation_id).",
     ("12_interface_squad1_squad2", "metodo_estimacao"): "Preenchido nas linhas estimadas (nível operação): regra do rateio e suas premissas.",
     ("12_interface_squad1_squad2", "erro_estimativa_intervalo"): "Nível operação: faixa entre o rateio por R$ (production_t) e o rateio pela quantidade em t da CFEM (production_t_rateio_por_t).",
-    ("12_interface_squad1_squad2", "status_validacao"): "Estado: valido ou alerta_producao_repetida (vem da 08). Operação: estimativa_conferida_no_total, ou estimativa_com_alerta_09c quando o processo está na 09c.",
+    ("12_interface_squad1_squad2", "status_validacao"): "Estado: valido, alerta_producao_repetida ou rom_minerio_associado (vem da 08; o associado não é aberto por operação nem entra na cobertura). Operação: estimativa_conferida_no_total, ou estimativa_com_alerta_09c quando o processo está na 09c.",
     ("12_interface_squad1_squad2", "periodo_referencia"): "Ano de referência (AAAA).",
     ("12_interface_squad1_squad2", "observacao"): "Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado.",
     ("04_dim_projetos", "nome_projeto"): "Nome descritivo gerado (mineral — titular — município): a ANM não publica nome de projeto; o nome anunciado vem de RI, CVM ou SEMAD. CPF dentro do nome do titular sai mascarado (LGPD).",
@@ -1007,7 +1035,9 @@ D.update({
     "erro_estimativa_intervalo": ("Erro ou intervalo de referência da estimativa (obrigatório quando o dado não é observado).", "texto/número", "Método de estimação"),
     "status_validacao": ("Situação da validação do valor. Na 08: valido = entra nas somas; quantidade_excluida_da_soma_09b = quantidade corrompida ou "
                          "implausível, fora da soma (o R$ fica); alerta_processo_09c = processo sinalizado, mantido na soma; alerta_producao_repetida = "
-                         "a mesma tonelagem aparece em outra linha da mesma UF e ano (co-produto, teor ou categoria), mantida na soma — não somar entre essas linhas.", "", "Governança"),
+                         "a mesma tonelagem aparece em outra linha da mesma UF e ano (co-produto, teor ou categoria), mantida na soma — não somar entre essas linhas; rom_minerio_associado = ROM de "
+                         "subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fica na 09 do mineral, mas "
+                         "não se soma com o ROM de outros minerais e não é aberto por operação na 12 (o subproduto se mede pelo contido e pela beneficiada).", "", "Governança"),
     "responsavel_validacao": ("Quem validou o valor.", "texto", "Governança"),
     "notas": ("Notas de rastreabilidade da linha.", "texto livre", "—"),
     # aba 08 (fato longo, real na v8)
@@ -1035,9 +1065,9 @@ D.update({
     "mineral_nome_original": ("Substância exatamente como escrita na fonte, antes do crosswalk para mineral_id (01b/01c).", "texto", "fonte da linha"),
     # aba 12 (interface Squad 1 → Squad 2, real na v9)
     "nivel_agregacao": ("estado = total observado de Goiás (AMB); operacao = abertura estimada desse total por processo. Não somar os dois níveis.", "", "Derivado"),
-    "participacao_cfem_brl": ("Participação do processo na CFEM recolhida (R$) do mineral no ano em Goiás — a chave do rateio.", "0 a 1", "Derivado — 08 (cfem_recolhido)"),
-    "cfem_brl_operacao": ("CFEM recolhida pelo processo no mineral e ano (numerador da participação).", "R$ nominais", "ANM CFEM (via 08)"),
-    "cfem_brl_mineral_ano": ("CFEM recolhida em Goiás no mineral e ano (denominador da participação).", "R$ nominais", "ANM CFEM (via 08)"),
+    "participacao_cfem_brl": ("Participação do processo na CFEM (R$) do mineral no ano em Goiás — a chave do rateio. Mês de recolhimento atípico (acerto de período: R$ > 3× e t > 10× a mediana do processo, R$/t < metade) entra pela mediana dos outros meses.", "0 a 1", "Derivado — 08 (cfem_recolhido)"),
+    "cfem_brl_operacao": ("CFEM recolhida pelo processo no mineral e ano, como veio da ANM (sem o ajuste do recolhimento atípico; ver observacao).", "R$ nominais", "ANM CFEM (via 08)"),
+    "cfem_brl_mineral_ano": ("CFEM do mineral no ano em Goiás, denominador da participação (com o ajuste do recolhimento atípico).", "R$ nominais", "ANM CFEM (via 08)"),
     "production_t_rateio_por_t": ("Sensibilidade: o mesmo total rateado pela quantidade comercializada em t da CFEM. Distorcida pelos erros de quantidade da CFEM (09b/09c); "
                                   "vazia quando a CFEM do mineral no ano não tem quantidade em t.", "t", "Derivado — 08 (quantidade_comercializada_cfem)"),
     "fato_ids": ("Linhas da 08 somadas no total do AMB (no nível operação, o total que foi rateado).", "FATO_###### separados por ';'", "08_fato_producao_energia"),
@@ -1838,6 +1868,9 @@ assert not _com_rotulo, f"título ainda com rótulo de versão: {_com_rotulo}"
 # COM_###/OPE_#####). Agora descreve a planilha como ela é; as notas de cada versão ficam embaixo, como histórico, sem reescrita.
 # ---------------------------------------------------------------------------
 DATA_VERSAO = "2026-09-13"
+# Quando o robô de atualização (robo/robo_bases.py) refaz a planilha com arquivos novos da ANM, ele passa a data em
+# MINERA_DATA_DADOS: a estrutura continua a da v17, os dados são os baixados naquele dia.
+DATA_DADOS = os.environ.get("MINERA_DATA_DADOS")
 _lin = list(wb["00_LEIA-ME"].iter_rows(max_col=2, values_only=True))
 HIST = [(b, _lin[i + 1][1] if i + 1 < len(_lin) else "") for i, (_, b) in enumerate(_lin) if isinstance(b, str) and b.startswith("ATUALIZAÇÃO")]
 assert [h[0].split()[1] for h in HIST] == [f"v{i}" for i in range(1, 12)], [h[0][:24] for h in HIST]
@@ -1951,7 +1984,7 @@ SECOES = [
         "mineral_id = MIN_### (ordem de classe e nome da 01; criar mineral renumeraria os IDs, por isso só com decisão do grupo) · municipality_id = código IBGE "
         "de 7 dígitos · source_id = SRC_<órgão>_<base> · fato_id = FATO_###### · camada_id = CAM_##.",
         "company_id = COM_CNPJ_<8 primeiros dígitos do CNPJ> (a raiz agrupa matriz e filiais); pessoa física ou titular sem documento = COM_NOME_<sha1 do nome "
-        "normalizado>; CFEM de processo que não está em nenhuma base de título = COM_NAO_IDENTIFICADO.",
+        "normalizado>; CFEM de processo que não está em nenhuma base de título = raiz do CNPJ pagador no CFEM ou, sem CNPJ completo, COM_NAO_IDENTIFICADO.",
         "operation_id = OPE_<número>_<ano> do processo na ANM · project_id = PRJ_<número>_<ano> do processo-âncora do projeto · occurrence_id = OCC_<id da "
         "ocorrência no RECMIN>."]),
     ("Cuidados de uso", [
@@ -2020,7 +2053,8 @@ for _titulo, _texto in HIST:
     _faixa(_r, _titulo, LBLUE, 11, NAVY)
     _paragrafo(_r + 1, str(_texto or ""))
     _r += 3
-_paragrafo(_r, f"Última atualização: {DATA_VERSAO} · {VERSAO} · autor: Eliel (Squad 1 / Estudante 1) com apoio do Claude Code.", 9, "808080")
+_paragrafo(_r, f"Última atualização: {DATA_VERSAO} · {VERSAO} · autor: Eliel (Squad 1 / Estudante 1) com apoio do Claude Code."
+              + (f" Dados das fontes atualizados pelo robô de atualização em {DATA_DADOS} (robo/robo_bases.py)." if DATA_DADOS else ""), 9, "808080")
 
 wb._sheets.sort(key=lambda s: s.title)
 wb.active = 0

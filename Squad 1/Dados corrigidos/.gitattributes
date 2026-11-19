@@ -1,0 +1,3 @@
+# Cópias corrigidas guardadas byte a byte, como os brutos (CRLF e cp1252): sem conversão de fim de linha pelo git,
+# para que o sha256 do REGISTRO_DE_ALTERACOES.md valha para o arquivo baixado do GitHub e o teste compare linha a linha.
+* -text

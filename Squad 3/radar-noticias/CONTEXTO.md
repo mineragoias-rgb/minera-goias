@@ -186,6 +186,27 @@ Com isso o filtro "Só mineração" perdeu a função e saiu — não há mais o
 
 **O custo, que é real:** o que foi descartado não volta. Se um dia o critério do setor ficar mais largo, as matérias que ficaram de fora não estarão lá para serem reclassificadas — feed RSS é janela rolante e não dá para recoletar o passado. Foi decisão consciente: o Kayo foi explícito em que esse material não deveria existir no site.
 
+## Decisão 12 — auditoria do acervo, Brasil primeiro e cartões que servem (06/10/2026)
+
+O Kayo duvidou das 2.531 matérias. A auditoria item por item mostrou que quase tudo era mineração de verdade, mas um terço não servia ao projeto:
+
+| Grupo | Matérias | Correção |
+|---|---|---|
+| Entraram pelo **nome do site** no título ("Ouvidoria — Agência Nacional de Mineração - www.gov.br") | 84 | `titulo_limpo()` tira o veículo antes de classificar. Notícia do site da ANM com 7+ palavras entra sem palavra-chave; página institucional, não |
+| Publicadas **anos antes** de serem coletadas (vaga de 2022, itens de 2012 e "1970") | 161 + | `idade_maxima_dias: 365`, contado da coleta e não de hoje |
+| Sentido errado (hotel Ouro Minas, Yerry Mina, bitcoin mining, "era do ouro") | ~10 | `fora_do_setor` em `feeds.json`, só com casos vistos |
+| Mineração de **outros países** | 649 | Não saem: cada matéria ganha `brasil` e a página abre no Brasil, com "Brasil + mundo" a um clique |
+
+Duas falhas do próprio coletor apareceram no caminho. A recoleta sobrescrevia `first_seen` com a data do dia, o que, com o corte por idade, derrubava matéria legítima se o cache do banco se perdesse; agora vale a primeira data. E "rare earths" no plural não casava com "rare earth".
+
+Uma tentativa foi desfeita: ler a marca de Goiás no título limpo tirou a marca de quatro matérias, e as quatro eram de Goiás ("- Mais Goiás", "- Poder Goiás"). Veículo goiano falando de mineração é imprensa regional; a marca continua lendo o nome do veículo.
+
+Os cartões antigos (total do acervo, "substâncias citadas: 9", "veículos: 47") não mudavam com filtro nenhum e contavam buscas como veículos. Os novos respondem a perguntas e são atalhos: **novas desde ontem**, **Goiás**, **regulação e governo** (ANM, CFEM, leis, licenças, justiça) e a **mais repercutida**, contando veículos distintos e não cópias. Um cartão "em alta na semana" foi descartado antes de ir ao ar: a maior alta medida era lítio, de 12 para 15, ou seja, ruído.
+
+Fica de fora, por regra, a matéria boa cujo título não cita mineração: "Viridis gets Brazil backing for Colossus" e outras duas na auditoria. É a mesma regra que já valia para os feeds diretos desde a decisão 6.
+
+Os testes estão em `tests/test_radar_noticias.py`, ligados ao `validate-web.yml`.
+
 ## O que foi feito nesta sessão
 
 - Validação das 22 fontes antigas e de ~130 candidatas.

@@ -1,0 +1,1848 @@
+{
+ "seed": 20261112,
+ "limiares": {
+  "estab": 0.8,
+  "loo": 0.85,
+  "nulo": 0.2,
+  "indep": 0.6,
+  "pred_ivfm": 0.2,
+  "pred_ipmm": 0.3,
+  "univ_min": 250000
+ },
+ "ivfm": {
+  "n": 42,
+  "linhas": [
+   {
+    "nome": "Alto Horizonte",
+    "pos": 1,
+    "nota": 75.7650947691062,
+    "Dependência": 100.0,
+    "Concentração": 99.94225783738612,
+    "Volatilidade": 27.3530264699325
+   },
+   {
+    "nome": "Mara Rosa",
+    "pos": 2,
+    "nota": 69.14798038860188,
+    "Dependência": 41.66571617573856,
+    "Concentração": 99.9906035928493,
+    "Volatilidade": 65.78762139721778
+   },
+   {
+    "nome": "Colinas do Sul",
+    "pos": 3,
+    "nota": 67.17245438908665,
+    "Dependência": 17.963440904623766,
+    "Concentração": 100.0,
+    "Volatilidade": 83.55392226263622
+   },
+   {
+    "nome": "Santa Rita do Novo Destino",
+    "pos": 4,
+    "nota": 65.87644921918108,
+    "Dependência": 10.903888722851532,
+    "Concentração": 93.33877136235682,
+    "Volatilidade": 93.38668757233492
+   },
+   {
+    "nome": "Perolândia",
+    "pos": 5,
+    "nota": 65.53040149317863,
+    "Dependência": 1.9561881033792077,
+    "Concentração": 98.0093612384996,
+    "Volatilidade": 96.62565513765713
+   },
+   {
+    "nome": "Crixás",
+    "pos": 6,
+    "nota": 59.48200310924303,
+    "Dependência": 58.05346562207143,
+    "Concentração": 99.19366659093225,
+    "Volatilidade": 21.198877114725423
+   },
+   {
+    "nome": "Hidrolândia",
+    "pos": 7,
+    "nota": 58.59260030401643,
+    "Dependência": 1.5616559275349213,
+    "Concentração": 74.21614498451436,
+    "Volatilidade": 100.0
+   },
+   {
+    "nome": "Ouvidor",
+    "pos": 8,
+    "nota": 55.98239542326382,
+    "Dependência": 76.789660792045,
+    "Concentração": 60.19050013134814,
+    "Volatilidade": 30.967025346398312
+   },
+   {
+    "nome": "Faina",
+    "pos": 9,
+    "nota": 52.561271857345695,
+    "Dependência": 5.520797388145133,
+    "Concentração": 96.3324700320007,
+    "Volatilidade": 55.83054815189124
+   },
+   {
+    "nome": "Divinópolis de Goiás",
+    "pos": 10,
+    "nota": 51.072497497234814,
+    "Dependência": 30.767938961036258,
+    "Concentração": 94.92021160197346,
+    "Volatilidade": 27.529341928694755
+   },
+   {
+    "nome": "Jandaia",
+    "pos": 11,
+    "nota": 48.11353269676266,
+    "Dependência": 11.675663086775451,
+    "Concentração": 91.99674387525698,
+    "Volatilidade": 40.66819112825556
+   },
+   {
+    "nome": "Guarani de Goiás",
+    "pos": 12,
+    "nota": 47.22590297982936,
+    "Dependência": 41.4771725869709,
+    "Concentração": 72.81153438781945,
+    "Volatilidade": 27.38900196469773
+   },
+   {
+    "nome": "Montividiu",
+    "pos": 13,
+    "nota": 45.91617617728133,
+    "Dependência": 0.5736469248342537,
+    "Concentração": 88.67577132462077,
+    "Volatilidade": 48.499110282388955
+   },
+   {
+    "nome": "Cocalzinho de Goiás",
+    "pos": 14,
+    "nota": 45.707699192976406,
+    "Dependência": 6.934163047759906,
+    "Concentração": 77.82793674967714,
+    "Volatilidade": 52.36099778149219
+   },
+   {
+    "nome": "Cezarina",
+    "pos": 15,
+    "nota": 45.680174891379274,
+    "Dependência": 4.1914753622056224,
+    "Concentração": 92.70945078769685,
+    "Volatilidade": 40.13959852423534
+   },
+   {
+    "nome": "Santa Bárbara de Goiás",
+    "pos": 16,
+    "nota": 45.585322442090316,
+    "Dependência": 8.86064930325833,
+    "Concentração": 98.63440875908113,
+    "Volatilidade": 29.260909263931495
+   },
+   {
+    "nome": "Cavalcante",
+    "pos": 17,
+    "nota": 45.28929018208589,
+    "Dependência": 3.327265125227529,
+    "Concentração": 67.00879749843816,
+    "Volatilidade": 65.531807922592
+   },
+   {
+    "nome": "Minaçu",
+    "pos": 18,
+    "nota": 44.71530982948902,
+    "Dependência": 32.83190121428349,
+    "Concentração": 77.59680526512949,
+    "Volatilidade": 23.717223009054116
+   },
+   {
+    "nome": "Piranhas",
+    "pos": 19,
+    "nota": 44.295630202835916,
+    "Dependência": 1.0694428967439111,
+    "Concentração": 82.77345861069414,
+    "Volatilidade": 49.04398910106971
+   },
+   {
+    "nome": "Portelândia",
+    "pos": 20,
+    "nota": 42.68893770906409,
+    "Dependência": 5.891674131691652,
+    "Concentração": 89.48552344834204,
+    "Volatilidade": 32.689615547158574
+   },
+   {
+    "nome": "Caiapônia",
+    "pos": 21,
+    "nota": 40.679500647875564,
+    "Dependência": 1.1143296791492037,
+    "Concentração": 71.50440065258753,
+    "Volatilidade": 49.41977161188997
+   },
+   {
+    "nome": "São Luís de Montes Belos",
+    "pos": 22,
+    "nota": 40.223941030087204,
+    "Dependência": 3.4934081156080503,
+    "Concentração": 99.71762614437377,
+    "Volatilidade": 17.4607888302798
+   },
+   {
+    "nome": "Indiara",
+    "pos": 23,
+    "nota": 37.14239488831366,
+    "Dependência": 24.408998561667605,
+    "Concentração": 60.32225171730592,
+    "Volatilidade": 26.69593438596745
+   },
+   {
+    "nome": "Barro Alto",
+    "pos": 24,
+    "nota": 36.659440354663296,
+    "Dependência": 42.04360739634282,
+    "Concentração": 67.93471366764707,
+    "Volatilidade": 0.0
+   },
+   {
+    "nome": "Anápolis",
+    "pos": 25,
+    "nota": 34.249425802320424,
+    "Dependência": 0.08785481762316863,
+    "Concentração": 73.33846519753078,
+    "Volatilidade": 29.321957391807334
+   },
+   {
+    "nome": "Catalão",
+    "pos": 26,
+    "nota": 33.79749103695544,
+    "Dependência": 8.714725568670504,
+    "Concentração": 76.64206809880764,
+    "Volatilidade": 16.035679443388194
+   },
+   {
+    "nome": "Guapó",
+    "pos": 27,
+    "nota": 33.66579396981175,
+    "Dependência": 8.788220349329672,
+    "Concentração": 50.345865736601844,
+    "Volatilidade": 41.863295823503755
+   },
+   {
+    "nome": "Vila Propício",
+    "pos": 28,
+    "nota": 33.56915916001544,
+    "Dependência": 38.8123894930187,
+    "Concentração": 25.307195255250893,
+    "Volatilidade": 36.58789273177673
+   },
+   {
+    "nome": "Itapaci",
+    "pos": 29,
+    "nota": 32.14063458988888,
+    "Dependência": 2.83387330172247,
+    "Concentração": 43.939504367190764,
+    "Volatilidade": 49.64852610075343
+   },
+   {
+    "nome": "Goiás",
+    "pos": 30,
+    "nota": 31.816202199699934,
+    "Dependência": 7.26652986592371,
+    "Concentração": 36.18090734525526,
+    "Volatilidade": 52.00116938792083
+   },
+   {
+    "nome": "Posse",
+    "pos": 31,
+    "nota": 30.972552180564637,
+    "Dependência": 3.808244265649515,
+    "Concentração": 62.93085383770366,
+    "Volatilidade": 26.178558438340744
+   },
+   {
+    "nome": "Rio Verde",
+    "pos": 32,
+    "nota": 27.84971406223275,
+    "Dependência": 0.0326554445483546,
+    "Concentração": 37.54642080985472,
+    "Volatilidade": 45.97006593229518
+   },
+   {
+    "nome": "Aparecida de Goiânia",
+    "pos": 33,
+    "nota": 27.16710700344855,
+    "Dependência": 0.0144043689402611,
+    "Concentração": 65.69881236243783,
+    "Volatilidade": 15.788104278967557
+   },
+   {
+    "nome": "Cabeceiras",
+    "pos": 34,
+    "nota": 24.46203473839882,
+    "Dependência": 7.347629364494554,
+    "Concentração": 36.30283397630216,
+    "Volatilidade": 29.73564087439974
+   },
+   {
+    "nome": "Niquelândia",
+    "pos": 35,
+    "nota": 23.2060142339529,
+    "Dependência": 1.0865674264043617,
+    "Concentração": 19.059130522672376,
+    "Volatilidade": 49.47234475278196
+   },
+   {
+    "nome": "Formosa",
+    "pos": 36,
+    "nota": 18.5493080544962,
+    "Dependência": 0.28998526535797114,
+    "Concentração": 14.101837471092676,
+    "Volatilidade": 41.256101427037954
+   },
+   {
+    "nome": "Caldas Novas",
+    "pos": 37,
+    "nota": 18.287417198735696,
+    "Dependência": 0.7281131894414327,
+    "Concentração": 31.005569534284344,
+    "Volatilidade": 23.128568872481313
+   },
+   {
+    "nome": "Abadiânia",
+    "pos": 38,
+    "nota": 17.46093333580772,
+    "Dependência": 3.1855781516228365,
+    "Concentração": 36.35827035771235,
+    "Volatilidade": 12.838951498087978
+   },
+   {
+    "nome": "Planaltina",
+    "pos": 39,
+    "nota": 14.698318065414021,
+    "Dependência": 3.4724209449797323,
+    "Concentração": 17.408685942919256,
+    "Volatilidade": 23.213847308343077
+   },
+   {
+    "nome": "Luziânia",
+    "pos": 40,
+    "nota": 14.182315455010574,
+    "Dependência": 0.2649544817802296,
+    "Concentração": 28.264351868824384,
+    "Volatilidade": 14.017640014427107
+   },
+   {
+    "nome": "Jataí",
+    "pos": 41,
+    "nota": 13.41720990225693,
+    "Dependência": 0.0,
+    "Concentração": 24.360652815016497,
+    "Volatilidade": 15.89097689175429
+   },
+   {
+    "nome": "Padre Bernardo",
+    "pos": 42,
+    "nota": 10.190914804263986,
+    "Dependência": 4.670323351681746,
+    "Concentração": 7.21606284581936,
+    "Volatilidade": 18.686358215290856
+   }
+  ],
+  "mc": {
+   "amplitude_mediana": 14.5,
+   "top10_p90": 4,
+   "intervalos": [
+    {
+     "nome": "Alto Horizonte",
+     "base": 1,
+     "p5": 1.0,
+     "p50": 1.0,
+     "p95": 15.0,
+     "top10": 0.9068
+    },
+    {
+     "nome": "Mara Rosa",
+     "base": 2,
+     "p5": 2.0,
+     "p50": 4.0,
+     "p95": 5.0,
+     "top10": 1.0
+    },
+    {
+     "nome": "Colinas do Sul",
+     "base": 3,
+     "p5": 2.0,
+     "p50": 4.0,
+     "p95": 10.0,
+     "top10": 0.9852
+    },
+    {
+     "nome": "Santa Rita do Novo Destino",
+     "base": 4,
+     "p5": 2.0,
+     "p50": 5.0,
+     "p95": 12.0,
+     "top10": 0.9078
+    },
+    {
+     "nome": "Perolândia",
+     "base": 5,
+     "p5": 1.0,
+     "p50": 5.0,
+     "p95": 15.0,
+     "top10": 0.8234
+    },
+    {
+     "nome": "Crixás",
+     "base": 6,
+     "p5": 2.0,
+     "p50": 6.0,
+     "p95": 24.0,
+     "top10": 0.7598
+    },
+    {
+     "nome": "Hidrolândia",
+     "base": 7,
+     "p5": 1.0,
+     "p50": 8.0,
+     "p95": 23.0,
+     "top10": 0.5942
+    },
+    {
+     "nome": "Ouvidor",
+     "base": 8,
+     "p5": 2.0,
+     "p50": 9.0,
+     "p95": 24.0,
+     "top10": 0.567
+    },
+    {
+     "nome": "Faina",
+     "base": 9,
+     "p5": 6.0,
+     "p50": 9.0,
+     "p95": 16.0,
+     "top10": 0.6584
+    },
+    {
+     "nome": "Divinópolis de Goiás",
+     "base": 10,
+     "p5": 5.0,
+     "p50": 10.0,
+     "p95": 24.0,
+     "top10": 0.5744
+    },
+    {
+     "nome": "Jandaia",
+     "base": 11,
+     "p5": 10.0,
+     "p50": 12.0,
+     "p95": 17.0,
+     "top10": 0.1296
+    },
+    {
+     "nome": "Guarani de Goiás",
+     "base": 12,
+     "p5": 5.0,
+     "p50": 16.0,
+     "p95": 25.0,
+     "top10": 0.3506
+    }
+   ]
+  },
+  "validacao": [
+   {
+    "id": "A1",
+    "nome": "Estabilidade temporal (2022–23 x 2024–25)",
+    "valor": {
+     "spearman": 0.848,
+     "n": 42
+    },
+    "criterio": "Spearman ≥ 0.8",
+    "passou": true,
+    "nota": ""
+   },
+   {
+    "id": "A2",
+    "nome": "Valor preditivo: IVFM 2022–23 x oscilação da CFEM até 2024–25",
+    "valor": {
+     "spearman": 0.242,
+     "n": 42
+    },
+    "criterio": "Spearman ≥ 0.2",
+    "passou": true,
+    "nota": "vulnerável deve oscilar mais"
+   },
+   {
+    "id": "A3",
+    "nome": "Modelo nulo (indicadores embaralhados, 500x)",
+    "valor": {
+     "abs_p95": 0.321
+    },
+    "criterio": "P95 de |Spearman| < 0.2",
+    "passou": false,
+    "nota": ""
+   },
+   {
+    "id": "A4",
+    "nome": "Remover um indicador por vez",
+    "valor": {
+     "spearman_min": 0.89,
+     "pior": "cv_mes"
+    },
+    "criterio": "mínimo ≥ 0.85",
+    "passou": true,
+    "nota": ""
+   },
+   {
+    "id": "A5",
+    "nome": "Não redundante com o IRMM",
+    "valor": {
+     "spearman": -0.337
+    },
+    "criterio": "|Spearman| ≤ 0.6",
+    "passou": true,
+    "nota": "se alto, os índices contam a mesma história"
+   }
+  ],
+  "sens_universo": {
+   "250000": {
+    "n": 42,
+    "spearman": 1.0
+   },
+   "500000": {
+    "n": 27,
+    "spearman": 0.9999999999999999
+   },
+   "1000000": {
+    "n": 18,
+    "spearman": 0.9401444788441692
+   }
+  },
+  "loo": {
+   "cfem_pib": 0.8907706020581801,
+   "hhi_sub": 0.9392269670205007,
+   "hhi_emp": 0.9559192934122034,
+   "cv_mes": 0.8899602949517867
+  }
+ },
+ "tipologia": {
+  "corte_irmm": 42.29763191217076,
+  "corte_ivfm": 40.45172083898139,
+  "contagem": {
+   "Âncora resiliente": 16,
+   "Pequeno e exposto": 16,
+   "Âncora exposta": 5,
+   "Pequeno e estável": 5
+  },
+  "linhas": [
+   {
+    "nome": "Vila Propício",
+    "irmm": 67.6689933046505,
+    "ivfm": 33.56915916001544,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 1
+   },
+   {
+    "nome": "Ouvidor",
+    "irmm": 64.00755553950968,
+    "ivfm": 55.98239542326382,
+    "tipo": "Âncora exposta",
+    "pos_irmm": 2
+   },
+   {
+    "nome": "Barro Alto",
+    "irmm": 58.43837606717194,
+    "ivfm": 36.659440354663296,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 3
+   },
+   {
+    "nome": "Padre Bernardo",
+    "irmm": 57.86153944344772,
+    "ivfm": 10.190914804263986,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 4
+   },
+   {
+    "nome": "Alto Horizonte",
+    "irmm": 56.86945601893652,
+    "ivfm": 75.7650947691062,
+    "tipo": "Âncora exposta",
+    "pos_irmm": 5
+   },
+   {
+    "nome": "Niquelândia",
+    "irmm": 54.48489687682072,
+    "ivfm": 23.2060142339529,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 6
+   },
+   {
+    "nome": "Planaltina",
+    "irmm": 54.20294731276053,
+    "ivfm": 14.698318065414021,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 7
+   },
+   {
+    "nome": "Formosa",
+    "irmm": 53.34474738624573,
+    "ivfm": 18.5493080544962,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 8
+   },
+   {
+    "nome": "Goiás",
+    "irmm": 52.321307061183,
+    "ivfm": 31.816202199699934,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 9
+   },
+   {
+    "nome": "Indiara",
+    "irmm": 52.21335872045088,
+    "ivfm": 37.14239488831366,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 10
+   },
+   {
+    "nome": "Crixás",
+    "irmm": 52.12135696844652,
+    "ivfm": 59.48200310924303,
+    "tipo": "Âncora exposta",
+    "pos_irmm": 11
+   },
+   {
+    "nome": "Minaçu",
+    "irmm": 51.19007723003634,
+    "ivfm": 44.71530982948902,
+    "tipo": "Âncora exposta",
+    "pos_irmm": 12
+   },
+   {
+    "nome": "Caldas Novas",
+    "irmm": 49.4543723830195,
+    "ivfm": 18.287417198735696,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 13
+   },
+   {
+    "nome": "Guarani de Goiás",
+    "irmm": 49.272982131560056,
+    "ivfm": 47.22590297982936,
+    "tipo": "Âncora exposta",
+    "pos_irmm": 14
+   },
+   {
+    "nome": "Rio Verde",
+    "irmm": 47.34943577094227,
+    "ivfm": 27.84971406223275,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 15
+   },
+   {
+    "nome": "Jataí",
+    "irmm": 46.51829851688861,
+    "ivfm": 13.41720990225693,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 16
+   },
+   {
+    "nome": "Catalão",
+    "irmm": 46.30199873749203,
+    "ivfm": 33.79749103695544,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 17
+   },
+   {
+    "nome": "Luziânia",
+    "irmm": 46.21687692333936,
+    "ivfm": 14.182315455010574,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 18
+   },
+   {
+    "nome": "Cabeceiras",
+    "irmm": 45.64008281716093,
+    "ivfm": 24.46203473839882,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 19
+   },
+   {
+    "nome": "Guapó",
+    "irmm": 43.9589444146882,
+    "ivfm": 33.66579396981175,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 21
+   },
+   {
+    "nome": "Abadiânia",
+    "irmm": 42.53502964384405,
+    "ivfm": 17.46093333580772,
+    "tipo": "Âncora resiliente",
+    "pos_irmm": 23
+   },
+   {
+    "nome": "Cocalzinho de Goiás",
+    "irmm": 42.06023418049746,
+    "ivfm": 45.707699192976406,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 24
+   },
+   {
+    "nome": "Mara Rosa",
+    "irmm": 41.59386449726752,
+    "ivfm": 69.14798038860188,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 25
+   },
+   {
+    "nome": "Divinópolis de Goiás",
+    "irmm": 41.38079239896822,
+    "ivfm": 51.072497497234814,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 26
+   },
+   {
+    "nome": "Cavalcante",
+    "irmm": 40.296817681423,
+    "ivfm": 45.28929018208589,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 27
+   },
+   {
+    "nome": "Jandaia",
+    "irmm": 37.32978766139157,
+    "ivfm": 48.11353269676266,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 30
+   },
+   {
+    "nome": "Posse",
+    "irmm": 36.744104162055955,
+    "ivfm": 30.972552180564637,
+    "tipo": "Pequeno e estável",
+    "pos_irmm": 32
+   },
+   {
+    "nome": "Hidrolândia",
+    "irmm": 35.45425043580089,
+    "ivfm": 58.59260030401643,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 36
+   },
+   {
+    "nome": "Santa Rita do Novo Destino",
+    "irmm": 35.240322418799266,
+    "ivfm": 65.87644921918108,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 37
+   },
+   {
+    "nome": "Caiapônia",
+    "irmm": 34.68507657438841,
+    "ivfm": 40.679500647875564,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 39
+   },
+   {
+    "nome": "Itapaci",
+    "irmm": 33.81087232161292,
+    "ivfm": 32.14063458988888,
+    "tipo": "Pequeno e estável",
+    "pos_irmm": 46
+   },
+   {
+    "nome": "São Luís de Montes Belos",
+    "irmm": 33.40691098988423,
+    "ivfm": 40.223941030087204,
+    "tipo": "Pequeno e estável",
+    "pos_irmm": 48
+   },
+   {
+    "nome": "Piranhas",
+    "irmm": 32.90491091126688,
+    "ivfm": 44.295630202835916,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 50
+   },
+   {
+    "nome": "Faina",
+    "irmm": 32.7230361471324,
+    "ivfm": 52.561271857345695,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 51
+   },
+   {
+    "nome": "Aparecida de Goiânia",
+    "irmm": 31.910597485419228,
+    "ivfm": 27.16710700344855,
+    "tipo": "Pequeno e estável",
+    "pos_irmm": 55
+   },
+   {
+    "nome": "Anápolis",
+    "irmm": 31.392202784464356,
+    "ivfm": 34.249425802320424,
+    "tipo": "Pequeno e estável",
+    "pos_irmm": 60
+   },
+   {
+    "nome": "Colinas do Sul",
+    "irmm": 28.438899179142552,
+    "ivfm": 67.17245438908665,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 69
+   },
+   {
+    "nome": "Cezarina",
+    "irmm": 28.348634794672588,
+    "ivfm": 45.680174891379274,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 70
+   },
+   {
+    "nome": "Perolândia",
+    "irmm": 27.697367635047605,
+    "ivfm": 65.53040149317863,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 73
+   },
+   {
+    "nome": "Santa Bárbara de Goiás",
+    "irmm": 27.492960272535576,
+    "ivfm": 45.585322442090316,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 74
+   },
+   {
+    "nome": "Montividiu",
+    "irmm": 27.3521457730636,
+    "ivfm": 45.91617617728133,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 75
+   },
+   {
+    "nome": "Portelândia",
+    "irmm": 26.83951512952435,
+    "ivfm": 42.68893770906409,
+    "tipo": "Pequeno e exposto",
+    "pos_irmm": 78
+   }
+  ]
+ },
+ "ipmm": {
+  "n": 246,
+  "linhas": [
+   {
+    "nome": "Niquelândia",
+    "pos": 1,
+    "nota": 97.40777312782586,
+    "Volume de títulos": 92.43083153917028,
+    "Área": 99.79248784430736,
+    "Diversidade": 100.0,
+    "irmm_pos": 6
+   },
+   {
+    "nome": "Cavalcante",
+    "pos": 2,
+    "nota": 84.97319189144974,
+    "Volume de títulos": 72.04037427722172,
+    "Área": 97.97725968541044,
+    "Diversidade": 84.90194171171707,
+    "irmm_pos": 27
+   },
+   {
+    "nome": "Monte Alegre de Goiás",
+    "pos": 3,
+    "nota": 80.24377084912378,
+    "Volume de títulos": 67.86331131065808,
+    "Área": 91.21622025719523,
+    "Diversidade": 81.65178097951804,
+    "irmm_pos": 34
+   },
+   {
+    "nome": "Cristalina",
+    "pos": 4,
+    "nota": 79.68164737332502,
+    "Volume de títulos": 74.03733134158682,
+    "Área": 88.95146375781596,
+    "Diversidade": 76.05614702057227,
+    "irmm_pos": 33
+   },
+   {
+    "nome": "Goiás",
+    "pos": 5,
+    "nota": 78.6723561760647,
+    "Volume de títulos": 70.3063428535522,
+    "Área": 83.51443583606803,
+    "Diversidade": 82.19628983857386,
+    "irmm_pos": 9
+   },
+   {
+    "nome": "Faina",
+    "pos": 6,
+    "nota": 77.72240015556508,
+    "Volume de títulos": 70.83680775640569,
+    "Área": 87.01823844122293,
+    "Diversidade": 75.31215426906662,
+    "irmm_pos": 51
+   },
+   {
+    "nome": "Formosa",
+    "pos": 7,
+    "nota": 76.3324722982642,
+    "Volume de títulos": 64.11060922471194,
+    "Área": 86.25637732740043,
+    "Diversidade": 78.63043034268027,
+    "irmm_pos": 8
+   },
+   {
+    "nome": "Catalão",
+    "pos": 8,
+    "nota": 76.16184410998112,
+    "Volume de títulos": 66.21368147318955,
+    "Área": 82.50571771333156,
+    "Diversidade": 79.76613314342225,
+    "irmm_pos": 17
+   },
+   {
+    "nome": "Minaçu",
+    "pos": 9,
+    "nota": 75.37182531301141,
+    "Volume de títulos": 58.9554605899628,
+    "Área": 81.90123400396455,
+    "Diversidade": 85.2587813451069,
+    "irmm_pos": 12
+   },
+   {
+    "nome": "Vila Propício",
+    "pos": 10,
+    "nota": 75.17736704428532,
+    "Volume de títulos": 65.25904583264179,
+    "Área": 79.60884891627543,
+    "Diversidade": 80.66420638393876,
+    "irmm_pos": 1
+   },
+   {
+    "nome": "Crixás",
+    "pos": 11,
+    "nota": 75.16532676612063,
+    "Volume de títulos": 61.3461715477296,
+    "Área": 86.7011682479751,
+    "Diversidade": 77.44864050265721,
+    "irmm_pos": 11
+   },
+   {
+    "nome": "Rio Verde",
+    "pos": 12,
+    "nota": 74.54499601250394,
+    "Volume de títulos": 69.17657508884461,
+    "Área": 77.00977244601006,
+    "Diversidade": 77.44864050265721,
+    "irmm_pos": 15
+   },
+   {
+    "nome": "Ipameri",
+    "pos": 13,
+    "nota": 74.4957032313715,
+    "Volume de títulos": 59.82735550154311,
+    "Área": 87.09537289313965,
+    "Diversidade": 76.56438129943172,
+    "irmm_pos": 68
+   },
+   {
+    "nome": "Padre Bernardo",
+    "pos": 14,
+    "nota": 71.78094006760105,
+    "Volume de títulos": 59.37292740081496,
+    "Área": 80.32799271417716,
+    "Diversidade": 75.64190008781105,
+    "irmm_pos": 4
+   },
+   {
+    "nome": "Campinaçu",
+    "pos": 15,
+    "nota": 71.6199590657776,
+    "Volume de títulos": 56.559967183506174,
+    "Área": 81.10109459575327,
+    "Diversidade": 77.1988154180734,
+    "irmm_pos": 122
+   }
+  ],
+  "mc": {
+   "amplitude_mediana": 27.0,
+   "top10_p90": 6,
+   "intervalos": [
+    {
+     "nome": "Niquelândia",
+     "base": 1,
+     "p5": 1.0,
+     "p50": 1.0,
+     "p95": 1.0,
+     "top10": 1.0
+    },
+    {
+     "nome": "Cavalcante",
+     "base": 2,
+     "p5": 2.0,
+     "p50": 2.0,
+     "p95": 2.0,
+     "top10": 1.0
+    },
+    {
+     "nome": "Monte Alegre de Goiás",
+     "base": 3,
+     "p5": 3.0,
+     "p50": 4.0,
+     "p95": 6.0,
+     "top10": 1.0
+    },
+    {
+     "nome": "Cristalina",
+     "base": 4,
+     "p5": 3.0,
+     "p50": 4.0,
+     "p95": 9.0,
+     "top10": 0.9814
+    },
+    {
+     "nome": "Goiás",
+     "base": 5,
+     "p5": 3.0,
+     "p50": 5.0,
+     "p95": 9.0,
+     "top10": 0.9862
+    },
+    {
+     "nome": "Faina",
+     "base": 6,
+     "p5": 4.0,
+     "p50": 6.0,
+     "p95": 12.0,
+     "top10": 0.8598
+    },
+    {
+     "nome": "Formosa",
+     "base": 7,
+     "p5": 6.0,
+     "p50": 8.0,
+     "p95": 11.0,
+     "top10": 0.9494
+    },
+    {
+     "nome": "Catalão",
+     "base": 8,
+     "p5": 7.0,
+     "p50": 8.0,
+     "p95": 12.0,
+     "top10": 0.8476
+    },
+    {
+     "nome": "Minaçu",
+     "base": 9,
+     "p5": 3.0,
+     "p50": 11.0,
+     "p95": 16.0,
+     "top10": 0.4586
+    },
+    {
+     "nome": "Vila Propício",
+     "base": 10,
+     "p5": 6.0,
+     "p50": 10.0,
+     "p95": 18.0,
+     "top10": 0.5738
+    },
+    {
+     "nome": "Crixás",
+     "base": 11,
+     "p5": 7.0,
+     "p50": 10.0,
+     "p95": 12.0,
+     "top10": 0.519
+    },
+    {
+     "nome": "Rio Verde",
+     "base": 12,
+     "p5": 7.0,
+     "p50": 11.0,
+     "p95": 27.0,
+     "top10": 0.4242
+    }
+   ]
+  },
+  "validacao": [
+   {
+    "id": "B1",
+    "nome": "Valor preditivo: IPMM só com processos até 2018 x novos processos de lavra e pré-lavra de 2019 em diante",
+    "valor": {
+     "spearman": 0.429,
+     "n": 227,
+     "p": 1.4054528492490886e-11
+    },
+    "criterio": "Spearman ≥ 0.3",
+    "passou": true,
+    "nota": "processos mais antigos em pesquisa devem anteceder novos títulos"
+   },
+   {
+    "id": "B2",
+    "nome": "Modelo nulo (indicadores embaralhados, 500x)",
+    "valor": {
+     "abs_p95": 0.115
+    },
+    "criterio": "P95 de |Spearman| < 0.2",
+    "passou": true,
+    "nota": ""
+   },
+   {
+    "id": "B3",
+    "nome": "Remover um indicador por vez",
+    "valor": {
+     "spearman_min": 0.985,
+     "pior": "arrem_ha"
+    },
+    "criterio": "mínimo ≥ 0.85",
+    "passou": true,
+    "nota": ""
+   },
+   {
+    "id": "B4",
+    "nome": "Não redundante com o IRMM (municípios em comum)",
+    "valor": {
+     "spearman": 0.632,
+     "n": 181
+    },
+    "criterio": "|Spearman| ≤ 0.6",
+    "passou": false,
+    "nota": ""
+   }
+  ],
+  "loo": {
+   "pesq_n": 0.9967966015279419,
+   "pre_n": 0.9922365549359864,
+   "req_n": 0.994702381792057,
+   "pesq_ha": 0.993739708506016,
+   "arrem_ha": 0.9848076368890599,
+   "disp_ha": 0.9852042327743775,
+   "n_tit": 0.9953230704743632,
+   "n_sub": 0.9947846028902327
+  },
+  "fora_irmm": []
+ },
+ "cenarios_estresse": [
+  {
+   "spearman": 0.9996316758747696,
+   "top10_comum": 0.9,
+   "entrou": [
+    "Crixás"
+   ],
+   "saiu": [
+    "Goiás"
+   ],
+   "maior_queda": [
+    [
+     "Mineiros",
+     -4
+    ],
+    [
+     "Brazabrantes",
+     -3
+    ],
+    [
+     "Goiás",
+     -3
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Panamá",
+     6
+    ],
+    [
+     "Nova Roma",
+     6
+    ],
+    [
+     "Crixás",
+     5
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "E1",
+   "nome": "Cobre −30%",
+   "descricao": "CFEM da substância varia com o valor da produção (alíquota fixa)",
+   "tipo": "preço",
+   "d_cfem_pct": -7.516901115906438,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.99999797624107,
+   "top10_comum": 1.0,
+   "entrou": [],
+   "saiu": [],
+   "maior_queda": [
+    [
+     "Niquelândia",
+     -1
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Planaltina",
+     1
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "E2",
+   "nome": "Níquel −30%",
+   "descricao": "CFEM da substância varia com o valor da produção (alíquota fixa)",
+   "tipo": "preço",
+   "d_cfem_pct": -3.4309804730388915,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9999230971606661,
+   "top10_comum": 0.9,
+   "entrou": [
+    "Crixás"
+   ],
+   "saiu": [
+    "Indiara"
+   ],
+   "maior_queda": [
+    [
+     "Abadiânia",
+     -1
+    ],
+    [
+     "Faina",
+     -1
+    ],
+    [
+     "Cocalzinho de Goiás",
+     -1
+    ]
+   ],
+   "maior_alta": [
+    [
+     "São Luiz do Norte",
+     5
+    ],
+    [
+     "Crixás",
+     4
+    ],
+    [
+     "Mara Rosa",
+     4
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "E3",
+   "nome": "Ouro +30%",
+   "descricao": "CFEM da substância varia com o valor da produção (alíquota fixa)",
+   "tipo": "preço",
+   "d_cfem_pct": 3.4021108742054107,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9999939287232104,
+   "top10_comum": 1.0,
+   "entrou": [],
+   "saiu": [],
+   "maior_queda": [
+    [
+     "Catalão",
+     -2
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Luziânia",
+     1
+    ],
+    [
+     "Cabeceiras",
+     1
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "E4",
+   "nome": "Fosfato e nióbio −20%",
+   "descricao": "CFEM da substância varia com o valor da produção (alíquota fixa)",
+   "tipo": "preço",
+   "d_cfem_pct": -4.4741498185174144,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9998360755266831,
+   "top10_comum": 1.0,
+   "entrou": [],
+   "saiu": [],
+   "maior_queda": [
+    [
+     "São Luiz do Norte",
+     -5
+    ],
+    [
+     "Brazabrantes",
+     -3
+    ],
+    [
+     "Caturaí",
+     -2
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Panamá",
+     3
+    ],
+    [
+     "Itapaci",
+     3
+    ],
+    [
+     "Nova Veneza",
+     3
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "E5",
+   "nome": "Cobre, níquel e ouro −20%",
+   "descricao": "CFEM da substância varia com o valor da produção (alíquota fixa)",
+   "tipo": "preço",
+   "d_cfem_pct": -9.56666164210046,
+   "n_universo": 181
+  },
+  {
+   "spearman": 1.0,
+   "top10_comum": 1.0,
+   "entrou": [],
+   "saiu": [],
+   "maior_queda": [],
+   "maior_alta": [],
+   "saiu_universo": [],
+   "cod": "P1",
+   "nome": "Paralisação do maior titular de Vila Propício",
+   "descricao": "Zera a CFEM de PIRECAL PIRENOPOLIS CALCARIO LTDA (37% da CFEM do município)",
+   "tipo": "paralisação",
+   "d_cfem_pct": -1.1440009700396714,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9999089308481574,
+   "top10_comum": 0.9,
+   "entrou": [
+    "Crixás"
+   ],
+   "saiu": [
+    "Ouvidor"
+   ],
+   "maior_queda": [
+    [
+     "Ouvidor",
+     -9
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Planaltina",
+     1
+    ],
+    [
+     "Goiás",
+     1
+    ],
+    [
+     "Indiara",
+     1
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "P2",
+   "nome": "Paralisação do maior titular de Ouvidor",
+   "descricao": "Zera a CFEM de MOSAIC FERTILIZANTES P&K LTDA. (53% da CFEM do município)",
+   "tipo": "paralisação",
+   "d_cfem_pct": -5.718019252461226,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9998664319106307,
+   "top10_comum": 0.9,
+   "entrou": [
+    "Crixás"
+   ],
+   "saiu": [
+    "Barro Alto"
+   ],
+   "maior_queda": [
+    [
+     "Barro Alto",
+     -11
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Planaltina",
+     1
+    ],
+    [
+     "Guarani de Goiás",
+     1
+    ],
+    [
+     "Minaçu",
+     1
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "P3",
+   "nome": "Paralisação do maior titular de Barro Alto",
+   "descricao": "Zera a CFEM de ANGLO AMERICAN NIQUEL BRASIL LTDA (86% da CFEM do município)",
+   "tipo": "paralisação",
+   "d_cfem_pct": -11.407640151164944,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9999797624107016,
+   "top10_comum": 1.0,
+   "entrou": [],
+   "saiu": [],
+   "maior_queda": [
+    [
+     "Padre Bernardo",
+     -4
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Planaltina",
+     1
+    ],
+    [
+     "Formosa",
+     1
+    ],
+    [
+     "Alto Horizonte",
+     1
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "P4",
+   "nome": "Paralisação do maior titular de Padre Bernardo",
+   "descricao": "Zera a CFEM de SARKIS MINERACAO LTDA (31% da CFEM do município)",
+   "tipo": "paralisação",
+   "d_cfem_pct": -0.18878072973339544,
+   "n_universo": 181
+  },
+  {
+   "spearman": 0.9778701961022402,
+   "top10_comum": 0.8,
+   "entrou": [
+    "Minaçu",
+    "Crixás"
+   ],
+   "saiu": [
+    "Formosa",
+    "Alto Horizonte"
+   ],
+   "maior_queda": [
+    [
+     "Alto Horizonte",
+     -144
+    ],
+    [
+     "Itapuranga",
+     -4
+    ],
+    [
+     "Mairipotaba",
+     -4
+    ]
+   ],
+   "maior_alta": [
+    [
+     "Panamá",
+     9
+    ],
+    [
+     "Formoso",
+     9
+    ],
+    [
+     "Nova Roma",
+     9
+    ]
+   ],
+   "saiu_universo": [],
+   "cod": "P5",
+   "nome": "Paralisação do maior titular de Alto Horizonte",
+   "descricao": "Zera a CFEM de MINERACAO MARACA INDUSTRIA E COMERCIO S/A (100% da CFEM do município)",
+   "tipo": "paralisação",
+   "d_cfem_pct": -25.05633705302146,
+   "n_universo": 181
+  }
+ ],
+ "cenarios_nota": "Choques de preço e paralisações são testes de estresse ilustrativos, não previsões.",
+ "cfem_por_substancia": [
+  {
+   "nome": "Cobre",
+   "pct": 25.05633705302146
+  },
+  {
+   "nome": "Fosfato",
+   "pct": 11.68768167210331
+  },
+  {
+   "nome": "Níquel",
+   "pct": 11.436601576796306
+  },
+  {
+   "nome": "Ouro",
+   "pct": 11.340369580684637
+  },
+  {
+   "nome": "Nióbio",
+   "pct": 10.683067420483837
+  },
+  {
+   "nome": "Calcário",
+   "pct": 7.611486521871472
+  },
+  {
+   "nome": "Amianto",
+   "pct": 6.388789515518209
+  },
+  {
+   "nome": "Dolomito e Magnesita",
+   "pct": 3.632355638446812
+  }
+ ],
+ "prospectivo": {
+  "cenarios": {
+   "conservador": {
+    "projetos_ponderados": 0.5,
+    "municipios_com_projeto": [
+     "Alto Horizonte"
+    ],
+    "spearman": 0.9999797624107016,
+    "top10_comum": 1.0,
+    "entrou": [],
+    "saiu": [],
+    "maior_queda": [
+     [
+      "Barro Alto",
+      -1
+     ],
+     [
+      "Ouvidor",
+      -1
+     ],
+     [
+      "Padre Bernardo",
+      -1
+     ]
+    ],
+    "maior_alta": [
+     [
+      "Alto Horizonte",
+      4
+     ]
+    ],
+    "saiu_universo": []
+   },
+   "referencia": {
+    "projetos_ponderados": 1.0,
+    "municipios_com_projeto": [
+     "Alto Horizonte"
+    ],
+    "spearman": 0.9999797624107016,
+    "top10_comum": 1.0,
+    "entrou": [],
+    "saiu": [],
+    "maior_queda": [
+     [
+      "Barro Alto",
+      -1
+     ],
+     [
+      "Ouvidor",
+      -1
+     ],
+     [
+      "Padre Bernardo",
+      -1
+     ]
+    ],
+    "maior_alta": [
+     [
+      "Alto Horizonte",
+      4
+     ]
+    ],
+    "saiu_universo": []
+   },
+   "expansao": {
+    "projetos_ponderados": 2.0,
+    "municipios_com_projeto": [
+     "Alto Horizonte",
+     "Montes Claros de Goiás",
+     "Santa Fé de Goiás"
+    ],
+    "spearman": 0.9933782607815757,
+    "top10_comum": 1.0,
+    "entrou": [],
+    "saiu": [],
+    "maior_queda": [
+     [
+      "Abadiânia",
+      -1
+     ],
+     [
+      "Alexânia",
+      -1
+     ],
+     [
+      "Amaralina",
+      -1
+     ]
+    ],
+    "maior_alta": [
+     [
+      "Santa Fé de Goiás",
+      73
+     ],
+     [
+      "Montes Claros de Goiás",
+      33
+     ],
+     [
+      "Alto Horizonte",
+      4
+     ]
+    ],
+    "saiu_universo": []
+   }
+  },
+  "n_projetos": 13,
+  "n_com_peso": 3,
+  "natureza": "illustrative (SRC_S2_ASSUMPTION_001); previsão v1 não validada pela frente 7",
+  "total_mwh": [
+   {
+    "ano": 2027,
+    "cenario": "conservador",
+    "mwh": 4451257.602
+   },
+   {
+    "ano": 2028,
+    "cenario": "conservador",
+    "mwh": 4393116.043
+   },
+   {
+    "ano": 2029,
+    "cenario": "conservador",
+    "mwh": 4397415.524
+   },
+   {
+    "ano": 2030,
+    "cenario": "conservador",
+    "mwh": 4344141.917
+   },
+   {
+    "ano": 2031,
+    "cenario": "conservador",
+    "mwh": 4293290.101
+   },
+   {
+    "ano": 2032,
+    "cenario": "conservador",
+    "mwh": 4244776.778
+   },
+   {
+    "ano": 2033,
+    "cenario": "conservador",
+    "mwh": 4139632.354
+   },
+   {
+    "ano": 2034,
+    "cenario": "conservador",
+    "mwh": 4095796.329
+   },
+   {
+    "ano": 2035,
+    "cenario": "conservador",
+    "mwh": 4054069.493
+   },
+   {
+    "ano": 2036,
+    "cenario": "conservador",
+    "mwh": 4014382.34
+   },
+   {
+    "ano": 2037,
+    "cenario": "conservador",
+    "mwh": 3976668.409
+   },
+   {
+    "ano": 2038,
+    "cenario": "conservador",
+    "mwh": 3940864.138
+   },
+   {
+    "ano": 2039,
+    "cenario": "conservador",
+    "mwh": 3906908.73
+   },
+   {
+    "ano": 2040,
+    "cenario": "conservador",
+    "mwh": 3874744.018
+   },
+   {
+    "ano": 2027,
+    "cenario": "expansao",
+    "mwh": 4849684.571
+   },
+   {
+    "ano": 2028,
+    "cenario": "expansao",
+    "mwh": 4995261.121
+   },
+   {
+    "ano": 2029,
+    "cenario": "expansao",
+    "mwh": 5261783.346
+   },
+   {
+    "ano": 2030,
+    "cenario": "expansao",
+    "mwh": 5417953.253
+   },
+   {
+    "ano": 2031,
+    "cenario": "expansao",
+    "mwh": 5580568.575
+   },
+   {
+    "ano": 2032,
+    "cenario": "expansao",
+    "mwh": 5749854.564
+   },
+   {
+    "ano": 2033,
+    "cenario": "expansao",
+    "mwh": 5817399.645
+   },
+   {
+    "ano": 2034,
+    "cenario": "expansao",
+    "mwh": 6002259.206
+   },
+   {
+    "ano": 2035,
+    "cenario": "expansao",
+    "mwh": 6194497.868
+   },
+   {
+    "ano": 2036,
+    "cenario": "expansao",
+    "mwh": 6394378.271
+   },
+   {
+    "ano": 2037,
+    "cenario": "expansao",
+    "mwh": 6602173.181
+   },
+   {
+    "ano": 2038,
+    "cenario": "expansao",
+    "mwh": 6818165.867
+   },
+   {
+    "ano": 2039,
+    "cenario": "expansao",
+    "mwh": 7042650.48
+   },
+   {
+    "ano": 2040,
+    "cenario": "expansao",
+    "mwh": 7275932.461
+   },
+   {
+    "ano": 2027,
+    "cenario": "referencia",
+    "mwh": 4586437.451
+   },
+   {
+    "ano": 2028,
+    "cenario": "referencia",
+    "mwh": 4594633.758
+   },
+   {
+    "ano": 2029,
+    "cenario": "referencia",
+    "mwh": 4722020.116
+   },
+   {
+    "ano": 2030,
+    "cenario": "referencia",
+    "mwh": 4732945.085
+   },
+   {
+    "ano": 2031,
+    "cenario": "referencia",
+    "mwh": 4745774.381
+   },
+   {
+    "ano": 2032,
+    "cenario": "referencia",
+    "mwh": 4760511.773
+   },
+   {
+    "ano": 2033,
+    "cenario": "referencia",
+    "mwh": 4664030.407
+   },
+   {
+    "ano": 2034,
+    "cenario": "referencia",
+    "mwh": 4683619.632
+   },
+   {
+    "ano": 2035,
+    "cenario": "referencia",
+    "mwh": 4705128.268
+   },
+   {
+    "ano": 2036,
+    "cenario": "referencia",
+    "mwh": 4728566.226
+   },
+   {
+    "ano": 2037,
+    "cenario": "referencia",
+    "mwh": 4753944.893
+   },
+   {
+    "ano": 2038,
+    "cenario": "referencia",
+    "mwh": 4781277.121
+   },
+   {
+    "ano": 2039,
+    "cenario": "referencia",
+    "mwh": 4810577.219
+   },
+   {
+    "ano": 2040,
+    "cenario": "referencia",
+    "mwh": 4841860.941
+   }
+  ]
+ }
+}

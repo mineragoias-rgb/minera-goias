@@ -1,0 +1,11 @@
+﻿spearman,top10_comum,cod,nome,descricao,tipo,d_cfem_pct,n_universo
+0.9996316758747696,0.9,E1,Cobre −30%,CFEM da substância varia com o valor da produção (alíquota fixa),preço,-7.516901115906438,181
+0.99999797624107,1.0,E2,Níquel −30%,CFEM da substância varia com o valor da produção (alíquota fixa),preço,-3.4309804730388915,181
+0.9999230971606661,0.9,E3,Ouro +30%,CFEM da substância varia com o valor da produção (alíquota fixa),preço,3.4021108742054107,181
+0.9999939287232104,1.0,E4,Fosfato e nióbio −20%,CFEM da substância varia com o valor da produção (alíquota fixa),preço,-4.4741498185174144,181
+0.9998360755266831,1.0,E5,"Cobre, níquel e ouro −20%",CFEM da substância varia com o valor da produção (alíquota fixa),preço,-9.56666164210046,181
+1.0,1.0,P1,Paralisação do maior titular de Vila Propício,Zera a CFEM de PIRECAL PIRENOPOLIS CALCARIO LTDA (37% da CFEM do município),paralisação,-1.1440009700396714,181
+0.9999089308481574,0.9,P2,Paralisação do maior titular de Ouvidor,Zera a CFEM de MOSAIC FERTILIZANTES P&K LTDA. (53% da CFEM do município),paralisação,-5.718019252461226,181
+0.9998664319106307,0.9,P3,Paralisação do maior titular de Barro Alto,Zera a CFEM de ANGLO AMERICAN NIQUEL BRASIL LTDA (86% da CFEM do município),paralisação,-11.407640151164944,181
+0.9999797624107016,1.0,P4,Paralisação do maior titular de Padre Bernardo,Zera a CFEM de SARKIS MINERACAO LTDA (31% da CFEM do município),paralisação,-0.18878072973339544,181
+0.9778701961022402,0.8,P5,Paralisação do maior titular de Alto Horizonte,Zera a CFEM de MINERACAO MARACA INDUSTRIA E COMERCIO S/A (100% da CFEM do município),paralisação,-25.05633705302146,181

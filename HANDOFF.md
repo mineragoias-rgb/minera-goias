@@ -97,7 +97,7 @@ Aba `Empresas` entre o Mercado e o Radar (`public/empresas.js`, com o bloco `---
 
 O endpoint fica **atrás de sessão**, como o atlas e o panorama: a aba nomeia empresas ao lado da carga de energia, e por isso o pacote não vai para `public/`, que o Nginx serve sem sessão. Um teste guarda isso.
 
-Quando a empresa move mais de um mineral, a carga é separada pelo que a própria CCEE declara (`rateio_ccee` na curadoria): a CMOC sai por ramo de atividade — extração e metalurgia são o nióbio, não-metálicos é o fosfato —, o que derrubou o coeficiente de 27.816 para 11.884 kWh/t. Chapada não separa: cobre e ouro são co-produtos da mesma usina, e alocar entre eles seria convenção de inventário, não medição. `notas_energia` guarda o que a empresa publica sobre o próprio consumo com o efeito declarado — a autogeração de 35% do fosfato da CMOC faz a CCEE subestimar aquele negócio.
+Quando a empresa move mais de um mineral, a carga é separada pelo que a própria CCEE declara (`rateio_ccee` na curadoria): a CMOC sai por ramo de atividade — extração e metalurgia são o nióbio, não-metálicos é o fosfato —, o que derrubou o coeficiente de 28.316 para 11.792 kWh/t (2025). Chapada não separa: cobre e ouro são co-produtos da mesma usina, e alocar entre eles seria convenção de inventário, não medição. `notas_energia` guarda o que a empresa publica sobre o próprio consumo com o efeito declarado — a autogeração de 35% do fosfato da CMOC faz a CCEE subestimar aquele negócio.
 
 O painel traz gráfico da carga inteira da empresa (barra clara é o anualizado, escura é o medido), coeficiente em blocos separados por unidade — kWh/t e kWh/oz não se comparam —, a tabela completa com a parcela de cada mineral e exportação em CSV, a série da empresa selecionada e um painel que mostra de onde vem cada número, com o rateio e as notas de energia. Filtros por ano, empresa, mineral e qualidade do dado.
 
@@ -107,6 +107,241 @@ python -m unittest discover -s tests -p test_empresas.py -v
 node --check public/empresas.js
 ```
 
+## Derivados atualizados sozinhos
+
+Quando uma base do Squad 1 muda na `main` (planilha consolidada, `Squad 1/dados`, `Squad 1/Dados brutos`, `Squad 1/P3M`, curadoria de produção) ou muda um gerador, o workflow `.github/workflows/atualizar-derivados.yml` roda `python scripts/atualizar_derivados.py`: refaz, na ordem de dependência, o inventário do P3M e o Mapa mineral (`data/mapa`, que lê do inventário a data, a pasta e a ficha de cada camada), o pacote da aba 12 para o Squad 2, o Panorama, a Produção, as Empresas, a intensidade energética do Squad 2, a carteira de projetos do Mercado e os parâmetros do Simulador; roda os testes dessas saídas e, se algo mudou, faz o commit `chore(derivados): …` na `main`, que a VPS publica. Etapa que falha não altera a própria saída nem deixa rodar as que dependem dela; o resumo da execução diz qual foi e por quê. Mudança só de data de geração ou de quebra de linha não vira commit. Localmente, o mesmo script refaz tudo; `--verificar` só aponta o que está desatualizado. Ficam manuais, porque dependem de arquivo fora do repositório: o atlas (`build_atlas_base.py`) e o download da CCEE (`build_ccee_go.py`). `tests/test_derivados.py` impede que o workflow e o script deixem de descrever a mesma cadeia.
+
+## Robô de atualização das bases (P3M, ANM, IBGE e SGB)
+
+Primeira versão, de 23/10/2026, em `robo/` (detalhes em `robo/LEIA-ME.md`). O workflow `.github/workflows/robo-bases.yml` roda uma
+vez por mês, no dia 1º às 06:17 de Brasília, ou à mão em Actions. Ele baixa:
+
+- as camadas do P3M que o mapa usa, pela URL de cada uma no inventário;
+- da ANM: SIGMINE, Cadastro Mineiro, CFEM, Anuário Mineral, investimento em pesquisa (DIPEM) e rodadas de disponibilidade
+  (SOPLE);
+- do IBGE: população e PIB pelo SIDRA. As malhas só são conferidas: o robô avisa quando sai o ano seguinte;
+- do SGB: RECMIN, pelo WFS.
+
+Fase 2 (24/10/2026): `robo/explorar.py` (workflow `robo-explorar.yml`, manual, só lê) achou as URLs que faltavam.
+
+- Achou DIPEM, SOPLE, `SIGBM/Barragens.csv`, os recursos da ANEEL e do ONS, e a consulta do SIDRA que reproduz os arquivos byte
+  a byte.
+- A CCEE bloqueia os servidores do GitHub (HTTP 403, também como navegador). Fica à mão, ou para a VPS.
+- O SIGBM está disponível, mas ligar o arquivo ao atlas é mudança no site.
+- `robo/brutos.py` guarda o registro comum de `datas_de_acesso.json` e do LEIA-ME de `Dados brutos`; `robo/diretos.py`
+  cuida de SIDRA, RECMIN e malhas.
+- O pipeline roda quando muda qualquer base da planilha.
+- Os textos do catálogo 07 sobre SIDRA, RECMIN e DIPEM saem dos arquivos.
+
+Para cada arquivo:
+
+1. **Checagem de forma** contra o arquivo que o site usa: colunas, codificação, separador e tipos nos CSV; geometria, sistema de
+   coordenadas, caixa e campos nos shapefiles, com os campos que `scripts/mapa_camadas.json` lê obrigatórios; queda grande de
+   registros; página de erro no lugar do arquivo. O que não passa é barrado e o arquivo atual fica.
+2. **Mesmo tratamento de antes**, conferido contra o repositório:
+   - P3M: recorte por Goiás; das 155 camadas de um zip só, 154 saem idênticas byte a byte e 1 com a mesma geometria;
+   - ANM: CFEM com UF = GO; Cadastro Mineiro pela regra do pipeline, com as mesmas contagens de `recorte_goias.json`.
+3. **Grava só o que mudou**, com a data em `datas_de_acesso.json` ou no inventário do P3M, e o sha256 e o tamanho no LEIA-ME de
+   `Dados brutos`.
+
+Quando a ANM muda, o workflow também:
+
+- roda o pipeline do Squad 1, que refaz a v17 no lugar. A aba 14b não pode ganhar ALERTA novo; a exceção esperada no GitHub está
+  em `robo/fontes.json`;
+- refaz o atlas e o Radar de Projetos;
+- roda `scripts/atualizar_derivados.py` e os testes, e publica na `main`.
+
+Fonte barrada ou que não baixou deixa o job vermelho, e o resumo da execução diz qual foi e por quê. Só ela fica de fora:
+numa camada do mapa feita de vários zips, a chave repetida ou vazia barra só os zips daquela camada. O que foi barrado sobe
+como artefato da execução (`robo-bases`). Uma queda de linhas conferida na fonte passa com `aceitar_queda` no Run workflow.
+
+Sem rede, `python robo/robo_bases.py --checar` diz se os arquivos do repositório estão no padrão do site, e `tests/test_robo.py`
+roda o robô contra um portal falso.
+
+Testes sem publicar de 23/10/2026: o GitHub baixou da ANM e do SGB. A cadeia inteira passou:
+
+- pipeline;
+- aba 14b sem alerta novo;
+- atlas;
+- derivados;
+- testes do site.
+
+Entrariam no site:
+
+- o SIGMINE (+244 processos);
+- 7 arquivos do Cadastro Mineiro;
+- o Anuário Mineral;
+- a CFEM.
+
+As 53 camadas do P3M vieram iguais às do repositório.
+
+A CFEM passou a vir com vírgula e aspas, e o robô a converte para o formato antigo (`robo/formato_csv.py`). Nessa conversão,
+2022–2024 ficaram com a mesma soma. O CNPJ completo que a ANM passou a publicar foi mantido, e os textos da planilha sobre o
+CPF_CNPJ saem do arquivo (`qualidade_cfem.py`).
+
+Ficaram barrados quatro arquivos do Cadastro Mineiro, que encolheram na própria ANM (ver `robo/LEIA-ME.md`, Limites).
+
+**Primeira publicação: 24/10/2026.** Foram três commits do robô: 2376b6f (dados brutos), 60dd978 (planilha, atlas e Radar) e
+579ce0b (derivados). Entraram:
+
+- a CFEM convertida, com 41.079 linhas e CNPJ completo;
+- o SIGMINE, com 17.644 registros;
+- 8 arquivos do Cadastro Mineiro;
+- o Anuário Mineral.
+
+O P3M veio igual. Os quatro arquivos do Cadastro seguem barrados. O de Alvará de Pesquisa continuou encolhendo na ANM entre 23 e
+24/10 (81.479 → 78.220 linhas no arquivo nacional). A partir daqui, o robô roda no dia 1º de cada mês.
+
+## Carteira de projetos (seção da aba Mercado)
+
+Integração de 08/10/2026. O quadro `Carteira de projetos em Goiás`, na aba `Mercado` logo abaixo de "Operações e alvos", publica o levantamento
+do aluno Lucas Maia (Squad 1): 15 projetos classificados nas sete etiquetas de maturidade da planilha (OPERAÇÃO > EXPANSÃO > CONSTRUÇÃO >
+DEFINIDO > PROVÁVEL > POSSÍVEL > SINAL), as notícias que sustentam a classificação e a nota metodológica. A planilha versionada fica em
+`Squad 1/Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx`; o pacote `public/data/mercado/projetos_go_v1.json` sai de
+`python scripts/build_projetos_go.py`, que copia o texto como está (`NA` vira `null`) e recusa a planilha quando ela foge do próprio vocabulário.
+Como o resto do Mercado, são fontes públicas e o pacote é estático em `public/`. Capacidade e produção ficam na unidade original e não se somam;
+CAPEX de anos diferentes também não. Em 08/10/2026 os links de nove projetos e três notícias passaram a apontar para o documento citado (conferido título, data e conteúdo); os demais citam fonte genérica ou documento não localizado e seguem na página da empresa.
+Ao atualizar a planilha, rode o gerador: `tests/test_mercado.py` compara o hash da planilha com o do pacote.
+
+
+## Mapa Mineral de Goiás — checkpoint final (etapas 1 a 5, 22/10/2026)
+
+Nova aba inspirada no visualizador P3M do SGB, recorte Goiás. Há cinco etapas: diagnóstico, dados, interface, validação e envio à `main`.
+As cinco etapas estão feitas. A entrega é o commit `feat(mapa): adiciona mapa mineral interativo de Goiás` na `main`.
+
+- **Aba e rota.**
+  - Botão "Mapa mineral" logo abaixo de "Atlas e panorama" (`data-view="mapa"`), seção `#mapa-view` em `public/painel.html`.
+  - `public/painel.js` chama `window.showMapa`.
+  - A mesma sessão de leitor das outras abas. Os dados vêm de `GET /api/mapa/*` e de `/api/atlas`, e o 401 volta ao login como no resto do painel.
+- **Arquivos.**
+  - Etapa 3: `public/mapa.js` (aba), `public/mapa.css` (tudo sob `#mapa-view`), `public/painel.html`, `public/painel.js`, `public/i18n.js`
+    (chaves `mp.*` em PT e EN), `public/mapa-dados.js`, `scripts/mapa_camadas.json`, `scripts/build_mapa_base.py`, `data/mapa/`,
+    `tests/test_mapa.py`, `tests/mapa-dados.test.js`, `tests/test_i18n.py` e `tests/test_panorama.py` (ordem do menu com `mapa`),
+    `.github/workflows/validate-web.yml`.
+  - Da etapa 2: `Squad 3/backend/mapa.py`, `Squad 3/backend/main.py` e `scripts/build_projetos_minerais_goias.py`.
+  - Detalhes dos dados em `data/mapa/README.md`.
+- **O que a aba faz.**
+  - Cabeçalho compacto: recorte fixo Goiás, filtros ativos em chips com "Limpar filtros" e o retrato da camada em análise.
+  - Painel lateral recolhível (gaveta no celular) com duas abas.
+    - **Camadas:** 44 camadas. No topo, fora dos grupos, o limite de Goiás e os municípios, e logo abaixo o "Fundo liso", que tira
+      o mapa-base (sem vegetação, ruas e cidades; Goiás em branco sobre cinza-claro; a escolha fica guardada no navegador). Depois
+      as 39 do P3M, nos grupos que são as 8 pastas temáticas do Squad 1, na ordem das pastas e sem o número no nome (Geologia a
+      Infraestrutura; o grupo sai da pasta do zip no inventário `Squad 1/P3M/inventario_p3m.csv`); o Radar de Projetos
+      ("Levantamento da equipe"); por último as outras 4 que a aba reaproveita do Atlas ("Também na aba Atlas e panorama":
+      processos, barragens, projetos ANM e ocorrências, cada uma com a pasta da camada equivalente do P3M). O seletor da camada em
+      análise segue a mesma ordem, com Municípios no topo; as áreas de "Atividade mineira" ficam no plano de cima.
+    - **Inventário do P3M (22/10/2026):** o retrato de cada camada é o dia exato do download (`data_download`: 21/10 ou 19/10/2026),
+      no lugar do antigo "out/2026"; o painel "i" mostra a pasta, a classificação no site P3M (categoria › tema › subtema e as
+      outras), o órgão, o resumo, a última atualização no SGB quando ele publica (com a fonte) e a ficha de metadados. O link do
+      inventário no GitHub está no painel "i", na linha de fontes, no CSV, no GeoJSON, no LEIAME do shapefile e na seção Fontes da
+      página inicial. Camadas novas: poços do SIAGAS (sem proprietário, perfurador e endereço), levantamentos aerogeofísicos,
+      amostras geoquímicas do SGB, recursos minerais do SIG estadual (símbolos químicos lidos por `apelidos`), índice dos
+      mapeamentos geológicos (com link para o RIGEO) e usinas de etanol. As 105 camadas do inventário que ficaram fora, com o
+      motivo, estão em `data/mapa/README.md`. A etapa `mapa` de `scripts/atualizar_derivados.py` refaz `data/mapa` depois do
+      inventário (pyshp 3.1.6 e shapely 2.2.0 fixos no workflow, para o GEOS simplificar igual).
+    - **Tela cheia:** o botão no canto do mapa, abaixo de "Voltar para Goiás", põe camadas, filtros, mapa e detalhes em tela cheia
+      (API do navegador; no iPhone, uma camada fixa sobre a página). Fica no mapa porque o painel de detalhes cobre a direita da
+      barra de cima. Esc ou o botão saem. Cada camada tem ligar e desligar, legenda, opacidade,
+      aproximar para a extensão, fonte, retrato e período de referência, notas, campos omitidos, estado de carregamento e falha com
+      "tentar de novo".
+    - **Download por camada (como no P3M):** o ícone ↓ da camada, ou o link do painel "i", baixa a camada inteira, sem os filtros,
+      como shapefile num .zip (.shp, .shx, .dbf em UTF-8, .cpg, .prj SIRGAS 2000 e LEIAME com fonte, retrato, campos e avisos).
+      O arquivo é montado no navegador a partir dos mesmos dados e colunas das exportações (`public/mapa-shp.js`); pessoa física
+      segue sem nome. Texto acima de 254 bytes, limite do .dbf, é cortado e contado no LEIAME. Partes que não desenham nada
+      (anel sem área, linha de 1 ponto) ficam fora e contam como "sem geometria". Se montar o .zip passar de 4 s (rede lenta), a
+      linha da camada oferece "baixar o .zip ↓", porque o navegador já não trata o download como pedido pelo usuário.
+    - **Estilo da legenda:** na legenda do mapa e no painel "i" cada cor é um seletor, com a opacidade da camada e "Restaurar cor e
+      opacidade originais". Vale enquanto a página está aberta e não muda os arquivos baixados.
+    - **Filtros:**
+      - valem para todas as camadas: município e mineral (múltiplos), empresa ou titular e processo ou identificador (sem acento,
+        `860.337/2020` = `860337/2020`);
+      - valem só para a camada em análise: situação e período.
+      - Cada filtro diz a que camadas se aplica.
+  - Mapa único, sem instâncias duplicadas: Leaflet com zoom, escala, legenda, "Voltar para Goiás" e mapa-base OpenStreetMap ou fundo liso.
+    - Goiás fica destacado, com o entorno esmaecido.
+    - "Ir para município" só aproxima, não filtra.
+    - Áreas pequenas da ANM aparecem como ponto em escala estadual.
+    - Abre com o limite, os municípios e as minas ativas; o resto carrega quando é ligado.
+  - Clique numa feição: destaque e painel de detalhes com unidades, retrato, fonte, "Não informado" e lista para escolher entre
+    feições sobrepostas. O processo mostra os projetos do Radar que o citam; o município mostra a CFEM por ano (2026 parcial).
+  - Tabela da camada em análise:
+    - pesquisa, ordenação e páginas de 50 linhas;
+    - contagem de registros e dos que têm localização;
+    - linha selecionada destacada no mapa, sem virar filtro;
+    - "Só a área visível do mapa" é uma opção explícita;
+    - CSV e GeoJSON levam o conjunto filtrado inteiro e informam os registros sem geometria.
+    - Anéis que se tocam depois da simplificação não somem mais da exportação: antes, 860752/2021, 860975/2024 e 864052/2023 saíam
+      com geometria vazia no GeoJSON (22/10/2026).
+  - Indicadores e gráficos do mesmo recorte: processos e titulares PJ distintos, municípios com registros e CFEM recolhida no período
+    escolhido (o padrão é 2025).
+    - Cada gráfico diz a medida (quantidade de processos, R$ correntes…).
+    - Título minerário vem rotulado como "não comprova operação".
+    - O Radar entra no mapa pelos polígonos dos processos, sem coordenada inventada.
+- **Dados acrescentados nesta etapa.**
+  - Camada `limite_goias`.
+  - Papéis de filtro por camada (`papeis`).
+  - Municípios IBGE derivados dos nomes, com apelidos explícitos no catálogo.
+  - Tabela `processos_complemento`, que substitui `processos_titulares`: titular PJ, municípios e mineral. Na etapa 4, municípios e
+    mineral passaram a vir da aba 03 da base consolidada; ver abaixo.
+  - Mineral do Radar na categoria da ANM.
+- **Conferido.**
+  - Testes web do CI rodados localmente em Python 3.10, mais `node tests/mapa-dados.test.js`.
+  - Roteiro no Chromium (desktop 1440 px e celular 390 px), sem erro de página:
+    - filtros com "ou" e "e";
+    - escopo de cada filtro;
+    - identificador com pontos e titular sem acento;
+    - paginação, área visível e período da CFEM;
+    - Radar, opacidade e extensão;
+    - troca de aba sem mapa duplicado;
+    - painel recolhido e gaveta no celular;
+    - CSV de 15 linhas e GeoJSON de 15 polígonos para Catalão + fosfato.
+  - A CFEM de 2025 na aba (R$ 229.924.046) e a de 2022–2025 (R$ 751.671.930) batem com o Atlas.
+- **Validação (etapa 4).**
+  - Referência independente: os valores esperados foram calculados direto de `data/mapa`, `data/atlas` e dos zips do P3M, sem o código
+    do gerador nem o da aba. O script ficou fora do repositório; o teste que restou é o de consistência município × Atlas.
+  - Roteiro no Chromium com 61 asserções, todas aprovadas: visão inicial, Catalão, fosfato, Catalão e fosfato, união de municípios,
+    limpar filtros, visibilidade, opacidade, pan e zoom, área visível, seleção pela tabela e pelo mapa, sobreposição, vazio, CSV e
+    GeoJSON além da 1ª página, Radar sem geometria, período, CFEM parcial, valor ausente, teclado, falhas simuladas, camada pesada,
+    sair e voltar, outras abas e celular.
+  - Corrigido na validação:
+    - **Municípios dos processos:** a contagem do filtro diferia do Atlas em 152 municípios (Catalão: 285 contra 289). O complemento
+      passou a usar `municipios_intersectados` e `mineral_ids` da aba 03, e agora filtro, perfil do município e Atlas dão o mesmo
+      número.
+    - **Codificação estragada na fonte:** 953 nomes reparados. Dois nomes de pessoa ("…INÃ¡CIA…", "PATRÃ\x8dCIA…") passavam por empresa
+      pelo "CIA" isolado. Agora saem sem nome, e há um teste contra texto estragado. A planilha do Radar não tinha esses nomes.
+    - **Rótulos:** a contagem passou a dizer o que é contado (`entidade` no catálogo), sem chamar processo de mina.
+    - **Busca por identificador:** "GO-0001" casava também com "GO-0010…". Agora a comparação é por chave (`chaveId`/`casaId`, com
+      teste).
+    - **Exportação:** o CSV e o GeoJSON levavam a área em 6 casas ("147,229996"); agora usam as casas declaradas.
+    - **Telas:** mensagem própria quando os gráficos ficam vazios; a mensagem de exportação some quando o recorte muda.
+    - **Carga:** `atlas.json` (2,1 MB) é baixado uma vez e compartilhado por Atlas, Panorama e Mapa (`window.loadAtlas`).
+  - Medido no navegador local:
+    - aba pronta em cerca de 0,3 s, só com catálogo, municípios, limite e minas ativas (342 KB);
+    - processos: 4 tarefas longas, a maior de 296 ms;
+    - sair e voltar não repete requisição nem cria outro mapa.
+  - Checagens do repositório: as suítes do `validate-web` em Python 3.10, `node --check`, `tests/mapa-dados.test.js` e
+    `tests/simulador.test.js`. O gerador foi conferido em Python 3.11. `ruff` (F, E9) e `eslint` (no-undef) sem achados no código novo.
+  - Não executado:
+    - nginx real (não instalado aqui); a configuração em `deploy/labfgv.com.br.conf` serve `public/` e repassa `/api/` como nas outras abas;
+    - mapa-base OpenStreetMap e fontes do Google (barrados pelo proxy deste ambiente);
+    - aba Radar: `/api/radar` depende de MySQL, ausente aqui.
+- **Limitações que continuam.**
+  - Compressão: desde 22/10/2026 a API manda em gzip os dados do mapa e do atlas (`Squad 3/backend/compressed.py`), porque o nginx da
+    VPS só comprime HTML e não acompanha o deploy (`deploy/README.md`). Na rede, 9,3 MB viram 4,2 MB. `mapa.js`, os CSS e `i18n.js`
+    seguem sem compressão até alguém com root na VPS incluir `gzip_types` no nginx. `processos` (1,7 MB na rede) e `litoestratigrafia`
+    (720 KB) continuam carregando só quando a camada é ligada.
+  - A consulta de feição no mapa é por clique ou toque; pelo teclado, o caminho é a tabela.
+  - Os números das guias (quantidade e prazo) continuam como texto da ANM, e não são somados.
+- **Fora, e o motivo** (sem mudança desde a etapa 2).
+  - Produção por mina ou por município: não existe nas fontes, e quantidade da CFEM não é produção.
+  - Classe de mineral crítico ou estratégico: não há taxonomia documentada.
+  - Geofísica: os dados só existem como imagem; o mapa mostra a área coberta pelos levantamentos aerogeofísicos.
+  - SIGEF, cobertura do solo, hidrografia, afloramentos e litologia estadual: volume (lista completa em `data/mapa/README.md`).
+
+## Previsão de demanda (aba do painel)
+
+Aba `Previsão de demanda` entre o Mapa mineral e o Mercado (`public/previsao.js`, `previsao.css`, seção `previsao-view` em `painel.html`), com três sub-abas: **Previsão** (demanda total e por mineral de 2027 a 2040 nos três cenários, faixas baixa/alta e CSV), **Dados utilizados** (produção histórica do Squad 1, intensidade energética com a rastreabilidade da CCEE e catálogo de fontes) e **Metodologia** (passos, equações, hipóteses, regra por mineral, backtest, faixas e limitações). Lê só o arquivo estático `public/data/previsao/previsao_v1.json`, gerado por `python scripts/build_previsao_base.py` a partir dos outputs de `Squad 2/modello_reale` e conferido por `tests/test_previsao.py` (inclusive contra os totais do Simulador). A etapa `previsao` de `scripts/atualizar_derivados.py` refaz o pacote quando a base consolidada ou os coeficientes mudam. Desde 10/11/2026 o modelo tem uma camada de projetos (`Squad 2/modello_reale/src/projects.py`): a curadoria do Radar de Projetos dá a maturidade, `parameters/project_pipeline.csv` quantifica o incremento de cada projeto e `parameters/project_maturity_weights.csv` dá o peso por cenário. Para incluir um projeto novo, acrescente a linha no pipeline com a fonte e rode o gerador.
+
 ## Projetos minerais e aba Base de dados
 
 Integração de 06/11/2026, em duas partes.
@@ -115,10 +350,10 @@ Integração de 06/11/2026, em duas partes.
 
 A base cobre operação, expansão, construção, projeto definido, provável, possível e sinal — de Chapada e CMOC à reativação de Pilar de Goiás, ao Saúva da Lundin, ao Carina da Aclara em Nova Roma, ao Sertão da P.A. Gold em Faina e aos alvos de terras raras da Alvo e da Appia em Iporá. **Nenhum documento foi lido na origem**: a coleta saiu de busca na web num ambiente cujo proxy bloqueia os sites, e a cobertura não é exaustiva — o README lista o que ficou de fora e o caminho para fechar.
 
-**Aba Base de dados.** Entre o Radar e a administração (`public/bases.js`, bloco `--- Base de dados ---` no fim de `public/style.css`), servida por `Squad 3/backend/catalogo.py` em `/api/catalogo`. Cataloga as bases que o sistema usa (17 hoje), agrupadas por família, cada cartão abrindo com **nome, origem e última atualização** e trazendo período, volume, onde vive, o que mede e o que não mede. O pacote `data/catalogo/catalogo.json` é gerado por `python scripts/build_catalogo_bases.py`, que lê o `built_on` dos pacotes e a data do último commit dos arquivos brutos — nenhuma data é digitada. Como as demais bases que nomeiam empresas, fica atrás de sessão e não vai para `public/`.
+**Aba Base de dados.** Entre o Radar e a administração (`public/bases.js`, bloco `--- Base de dados ---` no fim de `public/style.css`), servida por `Squad 3/backend/catalogo.py` em `/api/catalogo`. Cataloga as bases que o sistema usa (17 hoje), agrupadas por família, cada cartão abrindo com **nome, origem e última atualização** e trazendo período, volume, onde vive, o que mede e o que não mede. O pacote `data/catalogo/catalogo.json` é gerado por `python scripts/build_catalogo_painel.py`, que lê o `built_on` dos pacotes e a data do último commit dos arquivos brutos — nenhuma data é digitada. Como as demais bases que nomeiam empresas, fica atrás de sessão e não vai para `public/`.
 
 ```sh
-python scripts/build_projetos_base.py && python scripts/build_catalogo_bases.py
+python scripts/build_projetos_base.py && python scripts/build_catalogo_painel.py
 python -m unittest discover -s tests -p test_projetos.py -v
 node --check public/bases.js
 ```
@@ -141,7 +376,7 @@ Integração de 19/11/2026. Lê o **Comex Stat (MDIC/SECEX)** pela API pública 
 
 ```sh
 python3 comex/coleta.py --check     # até que mês a fonte publicou
-python3 comex/coleta.py && python3 scripts/build_comex_base.py && python3 scripts/build_catalogo_bases.py
+python3 comex/coleta.py && python3 scripts/build_comex_base.py && python3 scripts/build_catalogo_painel.py
 python3 -m unittest tests.test_comex -v
 node --check public/comex.js
 ```

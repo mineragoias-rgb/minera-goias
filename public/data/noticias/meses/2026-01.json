@@ -1,7 +1,23 @@
 {
  "mes": "2026-01",
- "materias": 24,
+ "materias": 29,
  "itens": [
+  {
+   "title": "China’s rare-earth chokehold terrifies the West, but Brazil benefits - The Economist",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNVFlIYm95VWh1MFRwM2huTEZ3X0F2MkUydXItS3N1RGlRT0RzRmFuZkxWZ0ZRR053c3UwQ3k0eXQydnVCTUdaajdzUHhXbGVkcUpGa1JLS1lMNGNSclMtRUU3UkRvTkhRSTc5bXFyeWJVZkRITnJFOExCV0FSbFZFbElULWgzWGUzZnZPQlVCVGxIRmhPNURPT0lWTjBOeTgybGtoei1Zb0E2T25lNUxNaXFZZ0djU28?oc=5",
+   "published_at": "2026-01-29T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.430923+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
   {
    "title": "CFEM: ANM repassa R$ 564 milhões a estados e municípios produtores minerários - Brasil 61",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNHRoODRiaXVNa3hiSURkNVF6cVVRb29RUjBJTTViWklpSUZDSi1vaWF4NGg3WlJmemVfUWpLb19SV0ZyQU9FRlgxUUhSWC0zVGhoQ1pFay1Hc0RuN0ZmUjBZSlgwOS1oQ0JJNXFBSmo4V0J2bHVYTzllTVRnLUxKV3h1bVcxRkIwX1ZpaXJTc2tDUkJPaHVDczhySHJNa0w1SHJ5Z2VmbVEtY0NxSFR30gG0AUFVX3lxTFA2Z0JYOHNldDl0eHRPekdRS3UtZl8yZjMxSzJmamZ0VGJmdDRXc09mck5xZ1ltOVhxeXltZ2VYeXoxa29QdlBKcjVNQUs1T09TVDV4YWtuMkRYWHFTQkd0SDdBRVhiMU9zSGItS0dtdWtHeUplX2IwRmNTSXU0VTFmckxab3RfeDE4QTJPZnNvQ3VTWGxYNWN5R0VCWG1qM3JXUkhyWm9RS0xXZTA5N25SWUZWeQ?oc=5",
@@ -13,7 +29,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil invests in research to master the production cycle of rare-earth minerals and supermagnets - Revista Pesquisa FAPESP",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNSHFmWU03SElXS084ZlVCU2wzY0JSdGt0VW9wMzRIc3BJbVdEUzFGbFlMZThFSm1seXBLWmZROXFkaUJ5UC1EZVdJZVlaM0VpMXlyVUlmbmxhcDB2LU5PTWZ4TGZ5aEZ6VFk2N3B0ekMzNkJFdG1ERDFxTjJCVjNiUWhma1ctLVctNTNraU5zVDNJNTFCY0NsNTRxU29EdV9wcm9qOGx4ZVljMEotNjBBMVF1bEZ1SEVsUWJtaUM3dzd1S0xFWExUWUpoeUNTWkx5?oc=5",
+   "published_at": "2026-01-27T23:12:06+00:00",
+   "first_seen": "2026-10-28T10:07:02.436730+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "TCU identifica desvio em 72% das guias de mineração e impõe prazo à ANM - ofator.com.br",
@@ -26,7 +59,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "CFEM: ANM distribui mais de R$ 112 milhões em royalties da mineração a municípios afetados e limítrofes - Brasil 61",
@@ -39,7 +73,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Painel Interativo da CFEM — Agência Nacional de Mineração - www.gov.br",
@@ -52,7 +87,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Flood in Vale mining area damaged Brazilian river, state government says - Reuters",
@@ -65,7 +101,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência distribui mais de R$ 112 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
@@ -78,7 +115,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração injetam R$ 564 milhões em estados e municípios produtores - www.gov.br",
@@ -91,7 +129,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "The US and Europe are courting Brazil for its critical minerals and rare earth elements - EL PAÍS English",
+   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNZmtkOFVpWTIzbGs4b1FmcUFSYl9IUVVYMW5Uc0xwS19WMktUZUhJamViV2J6dWtJNzk5cERrMnFZc0hwODFSRWhqRUtvVG9SWGNXdV9zN0hhQ2FaR001T3llSHB4RFNZeEpoejlkVmZhMm5KblE5amNIaExaWkxYTWtBT19yYXctc3pXMDQ4WWhNS1lPV010S0FtMjhna081cGlWVG9lenl5MnFPMVI3TFlpb1ZXRVBjNnktNUZOaEVpZ0pIUEh0MTZXLTVTaE1OTU5CSTI3Z2xXSXFIRWEzd2g3SUM4QdIB-gFBVV95cUxNWE9icTc1SG1GR3h0dHVJTWNheDd4enNyQ3F4NzZxVVZ6TjZyUzJ4U0JPbHdxcEd5NUhxT29xd3FjZ0NfRE1rSmNHUllhU09SV3BpR2JnTHUwdnlWYmZzMFJiUElFbDh2SHA2TkNpUExobkZiSGZxMTVVbHl4a0hDajlHRE5XQUVUeTFTcTRBV3FrSlZJYWs0Y3N0aHhYd2x6QmxaMUJDYzZZZ3NaSk9PRzdXVDJuSWZQVkVUWGExN3BjdzMtNXRqS24yTEJONU5HVkdmbU1GQ3lVUmhVMG44bkx6UWtWUThodUpGMS1OU1hyRm5ucTd6aV9B?oc=5",
+   "published_at": "2026-01-23T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.434031+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Terras raras, nióbio e lítio: entenda por que MG e o Brasil também estão na mira de Donald Trump - Brasil de Fato",
@@ -108,7 +163,8 @@
     "litio",
     "niobio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Pilhas de rejeito de lítio da Sigma têm risco \"extremo\" de desmoronamento e ruptura parcial ameaçou escola infantil, afirma MTE - observatoriodamineracao.com.br",
@@ -123,7 +179,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Quase R$ 8 bilhões arrecadados com royalties da mineração em 2025 - www.gov.br",
@@ -136,7 +193,22 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Unidade Avançada da ANM em Criciúma — Agência Nacional de Mineração - GOV.BR",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAza0VuRzBYd3BISWh5a3JWVVNYUmwyeDlZWGZkM1Z2cmJXZW93Y1Y4VkFIV0RhdTF3ZG9MQldNTmMtNl91Q1hBN05qWUJCODhnVEUxZi02ZEJoZUF5V0wwb3BBcmJGTnh4N2FaMGdvYWZzd3M2SU1KNjY4R2gxYk0?oc=5",
+   "published_at": "2026-01-19T21:13:45+00:00",
+   "first_seen": "2026-11-03T11:28:06.886202+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Gerência Regional no Estado do Rio de Janeiro - GER-RJ/ANM — Agência Nacional de Mineração - www.gov.br",
@@ -149,20 +221,22 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
-   "title": "Gerente Regional no Estado do Amapá — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9TNjhTOGdFOWppNWlLMlBGa0xPU2xHVFQzUWVIOXRIRXYwU0NUN3BDY2E1ZF93ZzJIY1BpajRRYk5lamwtX0IxandyNTNuRFExZ0FjMVBkTXV2ZTJ0MUZGMFVRN3kteVdTSFd6bGxhZGthdE1PVnFpQ3dn?oc=5",
-   "published_at": "2026-01-19T16:39:10+00:00",
-   "first_seen": "2026-09-23T04:02:54.460540+00:00",
+   "title": "Gerência Regional no Estado do Tocantins - GER-TO/ANM — Agência Nacional de Mineração - GOV.BR",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB2NHllWk5KaWVTUGhHNXVXV2NEOFNFRW1uelRWSTVOWUFIQ21lRk9iTnpqTDlhOHEzcGlsS19Ed2lHYWlhcF95SW90TllzcDdBZFhWUTNWWHc3SjJLMi1WMmxtOHNDalhyZzA4LTBKdm1fY3ZKa1k3TVNR?oc=5",
+   "published_at": "2026-01-19T16:39:07+00:00",
+   "first_seen": "2026-10-30T10:32:17.230505+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Gerência Regional no Estado do Mato Grosso - GER-MT/ANM — Agência Nacional de Mineração - www.gov.br",
@@ -175,7 +249,24 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "US in talks with Brazil on rare earth partnership: FT - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNQndJUU5QNUlrMzhZeWVoYWlad1hEcWRtdVpMR1ktNjJNOXEzS1l1MmxOQVVXSkVFa1J6X1NHSl92WGFfa2dMZTc2Uy13U21aTGwzUzVOd0ZUZ0s5dDRxYThCc0o2YV9XVl9NUnV5UERXWlFVN2tteTZtTDA2Nm5yajln?oc=5",
+   "published_at": "2026-01-18T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.438256+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Relatório Anual de Lavra 2026: mineradores devem cumprir prazos da ANM para evitar multas - Brasil 61",
@@ -188,7 +279,24 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil and US eye rare earths deal - Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNa1ptWXp4cHNhWWtCSzdqTF95U1VKSmtMdTYxbEpXYnRfbjFlbVZDUzBZOWx3ZDBDdmZFcGhiNjcyZnQtYTdBOEJXTFZjcTVrX2pRQTVuTXNfRGNtcGFLTXd4bVJHYVhMYVZpRTZxZ2lrRkVkX1pKRjFTcmJOMG1HcC00SVk?oc=5",
+   "published_at": "2026-01-17T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.437606+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM questiona competência de ministério e enviará fiscais para avaliar pilhas de rejeito da Sigma Lithium - Folha de S.Paulo",
@@ -203,7 +311,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Ministério do Trabalho interdita pilhas de rejeito da maior mineradora de lítio do Brasil - Folha de S.Paulo",
@@ -218,7 +327,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Aberta a campanha para entrega do Relatório Anual de Lavra — Agência Nacional de Mineração - www.gov.br",
@@ -231,7 +341,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Brazil shuts down Sigma Lithium waste piles over safety concerns - Reuters",
@@ -246,7 +357,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "SIGMA LITHIUM | Venda de 100 mil t de finos de lítio e anúncio de Kátia Abreu para Conselho - Brasil Mineral",
@@ -261,20 +373,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
-  },
-  {
-   "title": "Assessoria Parlamentar — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUG9LSHBMNGxiREFoR3NOenR1SXVkbW5yTVRBbm1Dc0N1elpYbDNNc1lRbVZ2MWQ0cTRHQ2dnd2tOZ0J3U2twUkhVS3JWRElwcDg1YnBlWk5XUUpSSGJjZjhQMkZmb1NkZnU1dXR4QVhGQy15WlZMWTRlMFJJajVtaFNKVE02a1ZrN2cwenBKYVI0TTVELTlmeVF4R0tvdW5TeFNDQkpxc0VyVy12bXl3QWxWMU01bzF1bUFmLTc2ck1pYmdl?oc=5",
-   "published_at": "2026-01-11T21:50:42+00:00",
-   "first_seen": "2026-09-19T19:49:06.250354+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   ],
+   "brasil": 1
   },
   {
    "title": "MINERAÇÃO PARA ENERGIA LIMPA - www.gov.br",
@@ -287,7 +387,8 @@
    "fonte": "Busca · MME (site oficial)",
    "escopo": "setorial",
    "tema": "energia",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Funcionários e motoristas são presos por fraude milionária em mineradora de Catalão - Mais Goiás",
@@ -300,7 +401,8 @@
    "fonte": "Busca · Catalão e Ouvidor",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Desvio de fosfato em Catalão: esquema com notas falsas causou prejuízo milionário - badiinho.com.br",
@@ -315,7 +417,8 @@
    "tema": "mineracao",
    "substancias": [
     "fosfato"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "OURO | PA Gold adquire projeto Faina e planeja mina subterrânea - Brasil Mineral",
@@ -330,7 +433,8 @@
    "tema": "mineracao",
    "substancias": [
     "ouro"
-   ]
+   ],
+   "brasil": 1
   }
  ]
 }

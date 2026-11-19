@@ -1,0 +1,62 @@
+[
+ {
+  "id": "X01",
+  "teste": "cenário neutro (fator 1) reproduz o ranking-base",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X02",
+  "teste": "choque de preço: variação da CFEM = parcela da substância x variação",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X03",
+  "teste": "paralisação só reduz a CFEM do município afetado e não mexe nos demais",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X04",
+  "teste": "comparação de dois rankings iguais: Spearman 1, nada entra nem sai",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X05",
+  "teste": "município sem CFEM sai do universo",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X06",
+  "teste": "aumentar o preço nunca reduz a CFEM de nenhum município",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X07",
+  "teste": "resultados dos cenários batem com a parcela de cada substância",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X08",
+  "teste": "IVFM tem universo definido e notas em [0, 100]",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X09",
+  "teste": "IVFM e IPMM com notas entre 0 e 100",
+  "passou": true,
+  "erro": ""
+ },
+ {
+  "id": "X10",
+  "teste": "rodar de novo produz exatamente o mesmo extra.json (semente fixa)",
+  "passou": true,
+  "erro": ""
+ }
+]

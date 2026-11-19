@@ -1,22 +1,23 @@
 // Testes do motor de cálculo do simulador (public/simulador-engine.js).
 // Os valores de referência foram extraídos de
-// Squad 2/modello_reale/outputs/future/future_projection_by_mineral.csv.
+// Squad 2/modello_reale/outputs/future/future_projection_by_mineral.csv, com as intensidades do coeficiente estadual
+// do Squad 2 (Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv), que o modelo usa desde 23/09/2026.
 // Execução: node tests/simulador.test.js
 
 // Energia total em MWh, por cenário, nos extremos do horizonte.
 var MODELO_SQUAD2 = {
-  conservador: { 2027: 10561939.834208, 2040: 15655399.254880 },
-  referencia: { 2027: 10868128.123801, 2040: 19299991.867175 },
-  expansao: { 2027: 11174444.700407, 2040: 23660502.625987 }
+  conservador: { 2027: 4451257.602298, 2040: 3874744.017574 },
+  referencia: { 2027: 4586437.450550, 2040: 4841860.940832 },
+  expansao: { 2027: 4849684.570787, 2040: 7275932.460680 }
 };
 
 // Referência em 2040, por mineral.
 var POR_MINERAL_2040 = {
-  MIN_022: { producao: 256772.509133, intensidade: 39.7746237, energia: 10213029.924561 },
-  MIN_005: { producao: 6931318.960980, intensidade: 1.2224549, energia: 8473224.969393 },
-  MIN_049: { producao: 2385690.562801, intensidade: 0.1309773, energia: 312471.339352 },
-  MIN_011: { producao: 27770.415338, intensidade: 9.7796394, energia: 271584.646991 },
-  MIN_033: { producao: 106224.217691, intensidade: 0.2794183, energia: 29680.986878 }
+  MIN_022: { producao: 256772.509133, intensidade: 9.9543116, energia: 2555993.561513 },
+  MIN_005: { producao: 1478868.180000, intensidade: 1.2224549, energia: 1807849.683409 },
+  MIN_049: { producao: 2385690.562801, intensidade: 0.1058698, energia: 252572.666740 },
+  MIN_011: { producao: 27770.415338, intensidade: 7.0796276, energia: 196604.199726 },
+  MIN_033: { producao: 106224.217691, intensidade: 0.2715090, energia: 28840.829443 }
 };
 
 function executarTestes(engine, parametros) {
@@ -51,8 +52,8 @@ function executarTestes(engine, parametros) {
   var referencia = engine.simular(parametros, { scenario: 'referencia' });
   ok('horizonte cobre 2027 a 2040',
     referencia.anos.length === 14 && referencia.anos[0] === 2027 && referencia.anos[13] === 2040);
-  perto('referência começa em 10,868 TWh', referencia.serie[0].energia_twh, 10.868128, 1e-6);
-  perto('referência termina em 19,300 TWh', referencia.serie[13].energia_twh, 19.299992, 1e-6);
+  perto('referência começa em 4,586 TWh', referencia.serie[0].energia_twh, 4.586437, 1e-6);
+  perto('referência termina em 4,842 TWh', referencia.serie[13].energia_twh, 4.841861, 1e-6);
 
   var minerais2040 = engine.energiaPorMineral(referencia, 2040);
   ok('cobre os cinco minerais do modelo', minerais2040.length === 5, 'obtido ' + minerais2040.length);
@@ -74,8 +75,25 @@ function executarTestes(engine, parametros) {
     return m.mineral_id === 'MIN_022';
   })[0];
   perto('níquel · expansão · 2033 · produção', niquel2033.producao_t, 237846.903280691, 1e-6);
-  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 40.692707030, 1e-7);
-  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 9678634.353236686, 1e-5);
+  perto('níquel · expansão · 2033 · intensidade', niquel2033.intensidade_mwh_t, 10.184078372, 1e-7);
+  perto('níquel · expansão · 2033 · energia', niquel2033.energia_mwh, 2422251.503603191, 1e-5);
+
+  // Camada de projetos: em 2030 a expansão de Chapada (Saúva) soma cobre à tendência, com peso pela maturidade.
+  var MODELO_SQUAD2_2030 = { conservador: 4344141.917298, referencia: 4732945.085425, expansao: 5417953.253118 };
+  Object.keys(MODELO_SQUAD2_2030).forEach(function (scenario) {
+    var r = engine.simular(parametros, { scenario: scenario });
+    perto('reproduz o Squad 2 com projetos · ' + scenario + ' · 2030',
+      r.serie.filter(function (s) { return s.ano === 2030; })[0].energia_mwh, MODELO_SQUAD2_2030[scenario], 1e-5);
+  });
+  var cobre2030 = engine.simular(parametros, { scenario: 'referencia' }).detalhe.filter(function (l) {
+    return l.mineral_id === 'MIN_011' && l.ano === 2030;
+  })[0];
+  perto('cobre · referência · 2030 · tendência', cobre2030.producao_tendencia_t, 37732.96891917368, 1e-6);
+  perto('cobre · referência · 2030 · projetos', cobre2030.producao_projetos_t, 15000, 1e-9);
+  perto('cobre · referência · 2030 · produção = tendência + projetos', cobre2030.producao_t,
+    cobre2030.producao_tendencia_t + cobre2030.producao_projetos_t, 1e-9);
+  ok('sem projeto no ano, a camada soma zero',
+    engine.producaoProjetos(parametros.minerais[0], 'referencia', 2027) === 0);
 
   // Controle 1: cenário. O ajuste de crescimento é em pontos percentuais.
   var conservador = engine.simular(parametros, { scenario: 'conservador' });
@@ -94,7 +112,7 @@ function executarTestes(engine, parametros) {
       - engine.energiaPorMineral(referencia, 2040)[0].producao_t) < 1e-6);
   perto('sem ganho a intensidade fica na base',
     engine.energiaPorMineral(semGanho, 2040).filter(function (m) { return m.mineral_id === 'MIN_049'; })[0].intensidade_mwh_t,
-    0.15, 1e-12);
+    0.121246, 1e-12);
 
   // Controle 3: sensibilidade da intensidade, um mineral por vez.
   var ajustado = engine.simular(parametros, {

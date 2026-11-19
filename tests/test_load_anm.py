@@ -1,13 +1,37 @@
 """The load must not lose rows, invent documents, or total areas that may overlap."""
 import sqlite3
+import struct
 import sys
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'Squad 3' / 'database'))
 import load_anm  # noqa: E402
+
+
+def contar_sigmine():
+    """(polígonos com processo, processos distintos) lidos direto do GO.zip, sem o leitor do load_anm. O SIGMINE é atualizado
+    pelo robô das bases (robo/), então o teste não pode fixar números."""
+    with zipfile.ZipFile(ROOT / load_anm.SHAPEFILE) as z:
+        dados = z.read(next(n for n in z.namelist() if n.lower().endswith('.dbf')))
+    n, cab, tam = struct.unpack('<IHH', dados[4:12])
+    campos, pos = [], 1
+    for k in range(32, cab - 1, 32):
+        if dados[k:k + 1] == b'\r':
+            break
+        campos.append((dados[k:k + 11].split(b'\0')[0].decode('latin-1'), pos, dados[k + 16]))
+        pos += dados[k + 16]
+    _, ini, largura = next(c for c in campos if c[0] == 'PROCESSO')
+    processos = []
+    for i in range(n):
+        reg = dados[cab + i * tam: cab + (i + 1) * tam]
+        p = reg[ini:ini + largura].decode('latin-1').strip()
+        if reg[:1] != b'*' and p:
+            processos.append(p)
+    return len(processos), len(set(processos))
 
 
 class LoadTests(unittest.TestCase):
@@ -32,11 +56,13 @@ class LoadTests(unittest.TestCase):
             conn.close()
 
     def test_every_polygon_survives_the_process_key(self):
-        # 17.428 polygons across 16.656 processes: keying only by process loses 772.
-        self.assertEqual(self.report['poligonos'], 17428)
-        self.assertEqual(self.report['projetos'], 16656)
-        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projeto_poligono')[0][0], 17428)
-        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projetos')[0][0], 16656)
+        # Mais polígonos que processos (17.428 em 16.656 no SIGMINE de 10/09/2026): chavear só pelo processo perderia linhas.
+        poligonos, processos = contar_sigmine()
+        self.assertGreater(poligonos, processos)
+        self.assertEqual(self.report['poligonos'], poligonos)
+        self.assertEqual(self.report['projetos'], processos)
+        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projeto_poligono')[0][0], poligonos)
+        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projetos')[0][0], processos)
         orphans = self.query('''SELECT COUNT(*) FROM tb_projeto_poligono g
             LEFT JOIN tb_projetos p ON p.processo_anm=g.processo_anm WHERE p.processo_anm IS NULL''')
         self.assertEqual(orphans[0][0], 0)
@@ -79,7 +105,7 @@ class LoadTests(unittest.TestCase):
             load_anm.load(load_anm.Target(connection, False), ROOT, '2026-09-13')
         finally:
             connection.close()
-        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projetos')[0][0], 16656)
+        self.assertEqual(self.query('SELECT COUNT(*) FROM tb_projetos')[0][0], contar_sigmine()[1])
         self.assertEqual(self.query('SELECT COUNT(*) FROM tb_empresas')[0][0], self.report['empresas'])
 
     def test_holder_name_is_kept_but_stays_out_of_the_public_endpoint(self):

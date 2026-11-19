@@ -1,0 +1,116 @@
+{
+ "limiares": {
+  "V3_spearman": 0.8,
+  "V3_top10": 0.5,
+  "V4_spearman": 0.5,
+  "V5_pop": 0.5,
+  "V6_spearman": 0.95,
+  "V7_p95": 0.2,
+  "V8_spearman": 0.85
+ },
+ "testes": [
+  {
+   "id": "V1",
+   "nome": "Reprodutibilidade (mesma entrada, mesmo ranking; hash)",
+   "valor": {
+    "teste": "D07"
+   },
+   "criterio": "D07 passa",
+   "passou": true,
+   "nota": "reexecuta o pipeline do zero"
+  },
+  {
+   "id": "V2",
+   "nome": "Validade de face IRMM (critério fixado antes)",
+   "valor": {
+    "teste": "D05"
+   },
+   "criterio": "D05 passa",
+   "passou": true,
+   "nota": "3 dos 5 maiores arrecadadores no top 10"
+  },
+  {
+   "id": "V3",
+   "nome": "Estabilidade temporal (2022–23 x 2024–25)",
+   "valor": {
+    "spearman": 0.861,
+    "top10_comum": 0.8,
+    "n_comum": 157,
+    "p_acaso_top10": 2.588265386761468e-10
+   },
+   "criterio": "Spearman ≥ 0.8 e top 10 em comum ≥ 50%",
+   "passou": true,
+   "nota": "8 de 10 em comum; p de acaso = 2.6e-10"
+  },
+  {
+   "id": "V4",
+   "nome": "Convergência com consumo medido de energia (CCEE, fora do índice)",
+   "valor": {
+    "spearman": 0.2,
+    "n": 9,
+    "p": 0.606
+   },
+   "criterio": "Spearman ≥ 0.5 (n pequeno: indicativo)",
+   "passou": false,
+   "nota": "n = 9; fonte independente, só 9 municípios"
+  },
+  {
+   "id": "V5",
+   "nome": "Não é proxy de população",
+   "valor": {
+    "spearman": 0.326
+   },
+   "criterio": "|Spearman| ≤ 0.5",
+   "passou": true,
+   "nota": ""
+  },
+  {
+   "id": "V6",
+   "nome": "Robustez ao maior outlier (sem Alto Horizonte)",
+   "valor": {
+    "spearman": 0.999
+   },
+   "criterio": "Spearman ≥ 0.95",
+   "passou": true,
+   "nota": ""
+  },
+  {
+   "id": "V7",
+   "nome": "Modelo nulo (indicadores embaralhados, 500x)",
+   "valor": {
+    "abs_spearman_p95": 0.137
+   },
+   "criterio": "P95 de |Spearman| < 0.2",
+   "passou": true,
+   "nota": "o índice carrega estrutura que o acaso não reproduz"
+  },
+  {
+   "id": "V8",
+   "nome": "Remover um indicador por vez (7 casos)",
+   "valor": {
+    "spearman_min": 0.952,
+    "pior": "div_emp",
+    "todos": {
+     "cfem_med": 0.994,
+     "cfem_pc": 0.994,
+     "cfem_pib": 0.993,
+     "lavra": 0.97,
+     "prelavra": 0.972,
+     "div_sub": 0.962,
+     "div_emp": 0.952
+    }
+   },
+   "criterio": "Spearman mínimo ≥ 0.85",
+   "passou": true,
+   "nota": ""
+  }
+ ],
+ "irmm_aprovado_tecnicamente": false,
+ "ipes_aprovado": false,
+ "veredito_irmm": "Não validado: reprovou em pelo menos um critério",
+ "pendente_externo": [
+  "consulta estruturada de pesos (AHP)",
+  "revisão técnica independente (frente 10)",
+  "validação humana das bases"
+ ]
+}

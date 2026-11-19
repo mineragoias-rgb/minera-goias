@@ -110,7 +110,7 @@ function bind(){for(const id of ['pn-y0','pn-y1','pn-mes','pn-min','pn-fase','pn
   if(innerWidth===lastWidth||el('panorama-view').offsetParent===null)return;lastWidth=innerWidth;visible().forEach(draw)},250)});
  el('pn-reset').onclick=()=>{el('pn-y0').value=2010;el('pn-y1').value=2026;for(const id of ['pn-mes'])el(id).value=0;
   for(const id of ['pn-mun','pn-min','pn-fase','pn-rub','pn-ramo'])el(id).value=-1;el('pn-emp').value='';render()}}
-async function init(){const [p,a]=await Promise.all([api('/panorama'),api('/atlas').catch(()=>null)]);P=p;X.A=a;X.distRamo=P.dims.ramo.indexOf(P.meta.ccee_distribuidora);
+async function init(){const [p,a]=await Promise.all([api('/panorama'),(window.loadAtlas?window.loadAtlas():api('/atlas')).catch(()=>null)]);P=p;X.A=a;X.distRamo=P.dims.ramo.indexOf(P.meta.ccee_distribuidora);
  fillFilters();build();bind();el('pn-content').hidden=false;showTab(tab);
  el('pn-source').textContent=t('pn.source',{v:P.meta.versao_base,d:P.meta.built_on})}
 window.showPanorama=async()=>{el('pn-error').textContent='';try{if(!loading)loading=init().catch(e=>{loading=null;throw e});await loading}

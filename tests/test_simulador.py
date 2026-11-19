@@ -3,6 +3,7 @@
 O pacote v1 é gerado por scripts/build_simulador_base.py a partir do modelo real do Squad 2
 (Squad 2/modello_reale). O v0 fica no repositório como registro da primeira versão.
 """
+import ast
 import csv
 import json
 import re
@@ -24,6 +25,19 @@ GOVERNANCA = (
 NATUREZAS = {'observado', 'estimado', 'ilustrativo'}
 
 
+def tabela_de_intensidade_do_modelo():
+    """O arquivo que o modelo do Squad 2 carrega (FINAL_ENERGY_PARAMETERS em src/common.py), lido sem executar o modelo."""
+    arvore = ast.parse((MODELO_S2 / 'src' / 'common.py').read_text(encoding='utf-8'))
+    for no in ast.walk(arvore):
+        if isinstance(no, ast.Assign) and any(getattr(a, 'id', '') == 'FINAL_ENERGY_PARAMETERS' for a in no.targets):
+            def partes(n):  # ROOT / 'a' / 'b' é BinOp aninhado à esquerda: lê da esquerda para a direita
+                if isinstance(n, ast.BinOp):
+                    return partes(n.left) + partes(n.right)
+                return [n.value] if isinstance(n, ast.Constant) and isinstance(n.value, str) else []
+            return ROOT.joinpath(*partes(no.value))
+    raise AssertionError('FINAL_ENERGY_PARAMETERS não encontrado em Squad 2/modello_reale/src/common.py')
+
+
 class ParametrosV1Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -40,8 +54,8 @@ class ParametrosV1Tests(unittest.TestCase):
         self.assertTrue((ROOT / origem['diretorio']).is_dir())
 
     def test_minerais_batem_com_os_parametros_do_squad_2(self):
-        # Contrato de integração: o pacote não pode divergir do modelo que o gerou.
-        with (MODELO_S2 / 'parameters' / 'energy_intensity.csv').open(encoding='utf-8-sig') as fh:
+        # Contrato de integração: o pacote não pode divergir do modelo que o gerou — nem da tabela que ele usa hoje.
+        with tabela_de_intensidade_do_modelo().open(encoding='utf-8-sig') as fh:
             catalogo = {l['mineral_id']: l for l in csv.DictReader(fh)}
         self.assertEqual({m['mineral_id'] for m in self.d['minerais']}, set(catalogo))
         for m in self.d['minerais']:
@@ -73,13 +87,14 @@ class ParametrosV1Tests(unittest.TestCase):
         self.assertEqual(len(self.d['minerais']), self.d['cobertura']['minerais'])
         for m in self.d['minerais']:
             for campo in ('mineral_id', 'mineral_name', 'production_basis', 'ano_base',
-                          'producao_base_t', 'crescimento_historico', 'energy_intensity_mwh_t',
+                          'producao_base_t', 'crescimento_historico', 'crescimento_por_cenario', 'energy_intensity_mwh_t',
                           'valor_observado_estimado', 'source_id'):
                 self.assertIn(campo, m, m.get('mineral_id'))
             self.assertGreater(m['producao_base_t'], 0)
             self.assertGreater(m['energy_intensity_mwh_t'], 0)
             self.assertLess(m['ano_base'], self.d['horizonte']['inicio'])
             self.assertGreater(m['crescimento_historico'], -1)
+            self.assertEqual(set(m['crescimento_por_cenario']), {c['scenario'] for c in self.d['cenarios']}, m['mineral_id'])
             self.assertIn(m['valor_observado_estimado'], NATUREZAS)
             self.assertIn(m['production_basis'], {'beneficiada', 'conteudo_mineral'})
 
@@ -97,7 +112,7 @@ class ParametrosV1Tests(unittest.TestCase):
             total = 0.0
             for m in self.d['minerais']:
                 n = ano - m['ano_base']
-                producao = m['producao_base_t'] * (1 + m['crescimento_historico'] + c['growth_adjustment']) ** n
+                producao = m['producao_base_t'] * (1 + m['crescimento_por_cenario'][scenario]) ** n
                 ie = m['energy_intensity_mwh_t'] * (1 - c['ganho_eficiencia_anual_padrao']) ** n
                 total += producao * ie
             self.assertAlmostEqual(self.d['conferencia_modelo'][chave], total / 1e6, places=5, msg=chave)
@@ -127,7 +142,8 @@ class ParametrosV1Tests(unittest.TestCase):
             if f['valor_observado_estimado'] != 'observado':
                 self.assertTrue(f['metodo_estimacao'], f['source_id'])
                 self.assertNotEqual(f['status_validacao'], 'validado')
-        referencias = {m['source_id'] for m in self.d['minerais']}
+        # O Squad 2 pode citar várias fontes num mesmo source_id, separadas por ';'.
+        referencias = {sid for m in self.d['minerais'] for sid in m['source_id'].split(';')}
         referencias |= {c['source_id'] for c in self.d['cenarios']}
         for sid in referencias:
             self.assertIn(sid, fontes, sid)

@@ -44,3 +44,17 @@ Configure no Registro.br:
 | CNAME | www.labfgv.com.br | labfgv.com.br |
 
 O serviço `minera-goias-https.timer` verifica o DNS a cada 15 minutos. Quando ambos os nomes apontarem exclusivamente para a VPS, ele emite o certificado com a conta Let's Encrypt já existente, ativa o redirecionamento para HTTPS e desativa essa verificação inicial. A renovação posterior fica a cargo do `certbot.timer` existente. O cadastro do domínio já foi confirmado; a configuração DNS depende do acesso à conta.
+
+## Endereço inexistente responde 404
+
+`labfgv.com.br.conf` usa `try_files $uri $uri/ =404;`: endereço que não existe em `public/` responde 404, e não mais a página inicial com 200
+(que os buscadores tratavam como página duplicada). O painel navega por `#âncora`, então não depende desse fallback.
+
+Como no resto deste diretório, a configuração do Nginx **não** é atualizada pelo deploy automático, e o certbot reescreveu o arquivo instalado
+ao ativar o HTTPS. Na VPS, troque a linha nos dois blocos `server` (porta 80 e 443) e recarregue:
+
+```sh
+sudo sed -i 's#try_files $uri $uri/ /index.html;#try_files $uri $uri/ =404;#' /etc/nginx/sites-available/labfgv.com.br.conf
+sudo nginx -t && sudo systemctl reload nginx
+curl -s -o /dev/null -w '%{http_code}\n' https://labfgv.com.br/pagina-que-nao-existe   # deve dar 404
+```

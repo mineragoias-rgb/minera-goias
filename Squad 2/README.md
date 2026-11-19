@@ -25,6 +25,7 @@ O modelo real está integrado e validado automaticamente. Ele:
 - utiliza um coeficiente estadual de energia por mineral e base de produção;
 - executa backtest de produção;
 - projeta três cenários para 2027–2040;
+- soma à tendência os projetos da carteira do Squad 1 com incremento de produção e ano de entrada, ponderados pela maturidade;
 - calcula demanda estimada de energia por mineral, ano e cenário;
 - executa análise de sensibilidade das intensidades energéticas;
 - publica os resultados como artefatos da GitHub Actions.
@@ -100,7 +101,7 @@ Ela contém um coeficiente estadual por mineral, compatível com a base de produ
 |---|---|---:|
 | Cobre | Conteúdo mineral | 8,107848 MWh/t |
 | Alumínio (Bauxita) | Produção beneficiada | 1,40 MWh/t |
-| Níquel | Produção beneficiada | 11,674042 MWh/t |
+| Níquel | Produção beneficiada | 11,400041 MWh/t |
 | Fosfato | Produção beneficiada | 0,121246 MWh/t |
 | Amianto | Produção beneficiada | 0,310942 MWh/t |
 
@@ -124,22 +125,30 @@ As hipóteses são explícitas e ilustrativas; não constituem previsão oficial
 
 O backtest avalia a projeção de produção, reservando os dois últimos anos disponíveis como teste.
 
-| Mineral | MAPE |
-|---|---:|
-| Fosfato | 2,3% |
-| Cobre | 3,0% |
-| Níquel | 7,8% |
-| Amianto | 8,6% |
-| Alumínio (Bauxita) | 44,3% |
+| Mineral | MAPE da tendência | MAPE da referência simples | Regra usada no cenário de referência |
+|---|---:|---:|---|
+| Fosfato | 2,3% | 1,4% | Tendência histórica |
+| Cobre | 3,0% | 5,4% | Tendência histórica |
+| Níquel | 7,8% | 1,7% | Tendência histórica |
+| Amianto | 8,6% | 2,7% | Tendência histórica |
+| Alumínio (Bauxita) | 34,1% | 18,2% | Referência simples (último valor observado) |
 
-O resultado da bauxita requer cautela: a queda observada em 2024 não poderia ser antecipada apenas com uma tendência histórica.
+O resultado da bauxita requer cautela: a queda observada em 2024 não poderia ser antecipada apenas com uma tendência histórica. Por isso, no cenário de referência, a bauxita mantém a produção de 2025.
 
 ### Cenário de referência
 
 Com os coeficientes finais integrados, a demanda estimada de energia dos cinco minerais cobertos é aproximadamente:
 
-- **5,10 TWh em 2027**
-- **11,57 TWh em 2040**
+- **4,59 TWh em 2027**
+- **4,84 TWh em 2040**, com faixa de cenário de 3,87 a 5,92 TWh
+
+| Cenário | 2027 | 2040 |
+|---|---:|---:|
+| Conservador | 4,45 TWh | 3,87 TWh |
+| Referência | 4,59 TWh | 4,84 TWh |
+| Expansão | 4,85 TWh | 7,28 TWh |
+
+Em 2040, no cenário de referência, níquel (2,56 TWh) e bauxita (1,81 TWh) somam cerca de 90% da demanda estimada.
 
 Esses resultados representam cenários condicionais às hipóteses do modelo, não consumo observado ou previsão oficial do setor mineral de Goiás.
 
@@ -197,7 +206,7 @@ Ele executa backtest, cenários futuros e sensitivity analysis, depois publica o
 
 - A bauxita ainda utiliza benchmark proxy.
 - Os coeficientes observados ou estimados referem-se a 2025.
-- O modelo ainda não incorpora projetos, expansões, capacidade ou encerramentos reais.
+- A camada de projetos só soma o que as fontes quantificam: hoje, apenas a expansão de Chapada (Saúva, cerca de 15 mil t de cobre por ano de 2029 a 2032). Encerramentos não são modelados.
 - Não há ainda uma camada macroeconômica de elasticidade entre demanda global e produção de Goiás.
 - Não foi realizado backtest de consumo elétrico agregado, pois não existe uma série histórica com o mesmo perímetro de produção.
 - A cobertura atual está limitada a cinco minerais.

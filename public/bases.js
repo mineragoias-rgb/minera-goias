@@ -1,5 +1,5 @@
 /* Base de dados: catalogue of every data base the system uses. Each card carries the three fields the catalogue exists for —
-   name, origin and last update — and the data comes from /api/catalogo (authenticated), rebuilt by scripts/build_catalogo_bases.py.
+   name, origin and last update — and the data comes from /api/catalogo (authenticated), rebuilt by scripts/build_catalogo_painel.py.
    Nothing is computed here: the generator counts rows and reads dates from the packets and from git, so the page cannot drift
    from the bases it describes. */
 (()=>{'use strict';

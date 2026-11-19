@@ -1,11 +1,36 @@
 """Pacote da aba Panorama (data/panorama/panorama.json), gerado das bases do Squad 1 por scripts/build_panorama_base.py."""
+import csv
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data' / 'panorama' / 'panorama.json'
+BRUTOS = ROOT / 'Squad 1' / 'Dados brutos'
+sys.path.insert(0, str(ROOT / 'robo'))
+import anm_recorte  # noqa: E402
+
+
+def numero(v):
+    return float(v.replace('.', '').replace(',', '.')) if v.strip() else 0.0
+
+
+def linhas_anm(caminho, separador):
+    with open(caminho, encoding='cp1252', newline='') as f:
+        linhas = list(csv.reader(f, delimiter=separador))
+    return [dict(zip(linhas[0], l)) for l in linhas[1:] if len(l) == len(linhas[0])]
+
+
+# Os totais conferem com os arquivos brutos que a base consolidada concilia (aba 14b), e não com números fixos: o robô de
+# atualização (robo/) troca esses arquivos quando a ANM publica dado novo, e o teste tem de continuar valendo.
+def cfem_bruta():
+    linhas = linhas_anm(BRUTOS / 'ANM - CFEM' / 'CFEM_Arrecadacao_2022_2026_GO.csv', ';')
+    por_ano = {}
+    for l in linhas:
+        por_ano[int(l['Ano'])] = por_ano.get(int(l['Ano']), 0) + numero(l['ValorRecolhido'])
+    return sum(por_ano.values()), len(linhas), por_ano
 
 
 class PanoramaTests(unittest.TestCase):
@@ -28,19 +53,38 @@ class PanoramaTests(unittest.TestCase):
 
     def test_cfem_matches_the_consolidated_base(self):
         rows = self.d['cfem']['rows']
-        self.assertAlmostEqual(sum(r[5] for r in rows), 867578398.91, places=1)
-        self.assertEqual(sum(r[6] for r in rows), 38854)
-        self.assertAlmostEqual(sum(r[5] for r in rows if r[0] == 2025), 229924046.03, places=1)
+        total, linhas, por_ano = cfem_bruta()
+        self.assertAlmostEqual(sum(r[5] for r in rows), total, places=1)
+        self.assertEqual(sum(r[6] for r in rows), linhas)
+        self.assertAlmostEqual(sum(r[5] for r in rows if r[0] == 2025), por_ano[2025], places=1)
         self.assertTrue(all(1 <= r[1] <= 12 for r in rows))
 
     def test_production_research_claims_and_rounds(self):
         d = self.d
-        self.assertAlmostEqual(sum(r[5] for r in d['amb_go']['rows'] if r[0] == 2010), 2823902658.66, places=0)
+        amb = linhas_anm(BRUTOS / 'ANM - Anuário Mineral Brasileiro (AMB)' / 'Producao_Beneficiada.csv', ',')
+        venda_2010 = sum(numero(l['Valor Venda (R$)']) for l in amb if l['UF'] == 'GO' and l['Ano base'] == '2010')
+        self.assertAlmostEqual(sum(r[5] for r in d['amb_go']['rows'] if r[0] == 2010), venda_2010, places=0)
+        # investimento em pesquisa e rodadas não são atualizados pelo robô: os números ficam fixos
         self.assertAlmostEqual(sum(r[3] for r in d['inv_go']['rows'] if r[0] == 2003), 16175609.20, places=1)
-        self.assertEqual(len(d['proc']['rows']), 16656)
+        processos = anm_recorte.processos_sigmine(BRUTOS / 'ANM - SIGMINE' / 'GO.zip')
+        self.assertEqual(len(d['proc']['rows']), len(processos))
         situacao = d['dims']['sit']
         self.assertEqual(len(d['rod']['rows']), 3632)
         self.assertEqual(sum(1 for r in d['rod']['rows'] if situacao[r[1]] == 'Arrematada'), 942)
+
+    def test_beneficiated_tonnes_match_the_yearbook(self):
+        # o cartão "Produção beneficiada em toneladas" mostra benef_t por mineral: confere com "Quantidade Produção" do arquivo
+        # bruto, só convertendo kg em t (ouro, prata); quilate não é massa e fica fora
+        d = self.d
+        amb = linhas_anm(BRUTOS / 'ANM - Anuário Mineral Brasileiro (AMB)' / 'Producao_Beneficiada.csv', ',')
+        fator = {'t': 1.0, 'kg': 0.001}
+        for ano in (2010, 2025):
+            bruto = sum(numero(l['Quantidade Produção']) * fator.get(l['Unidade de Medida - Produção'], 0.0)
+                        for l in amb if l['UF'] == 'GO' and l['Ano base'] == str(ano))
+            self.assertAlmostEqual(sum(r[4] for r in d['amb_go']['rows'] if r[0] == ano), bruto, delta=1)
+        card = (ROOT / 'public' / 'panorama-analises.js').read_text(encoding='utf-8')
+        self.assertIn("id:'benef_t'", card)
+        self.assertIn('v>10*med||v<med/10', card)  # a regra de quebra que o texto do cartão descreve
 
     def test_ccee_distributors_are_their_own_group(self):
         # Loads without a sector are the distributors (captive market), kept apart from the free-market sectors.
@@ -63,16 +107,16 @@ class PanoramaTests(unittest.TestCase):
     def test_page_wires_the_tab(self):
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
         views = re.findall(r'data-view="(\w+)"', markup)
-        # Atlas swallowed the panorama; Mercado keeps the place it took next to it, com Empresas logo abaixo.
-        self.assertEqual(views[:5], ['atlas', 'mercado', 'empresas', 'comex', 'radar'])
+        # O Atlas engoliu o panorama; a ordem das abas é a da main, com Comércio exterior logo abaixo de Empresas.
+        self.assertEqual(views[:7], ['atlas', 'indicadores', 'mapa', 'previsao', 'mercado', 'empresas', 'comex'])
         self.assertNotIn('panorama', views)
         self.assertLess(markup.index('id="atlas-view"'), markup.index('id="panorama-view"'))
         self.assertLess(markup.index('id="atlas-map"'), markup.index('id="panorama-view"'))
         self.assertLess(markup.index('id="panorama-view"'), markup.index('id="radar-view"'))
         for script in ('panorama-charts.js', 'panorama-cards1.js', 'panorama-cards2.js', 'panorama-cards3.js', 'panorama-analises.js', 'panorama.js'):
-            self.assertIn(f'src="/{script}"', markup)
-        self.assertLess(markup.index('/panorama-cards3.js'), markup.index('/panorama.js"'))
-        self.assertLess(markup.index('/panorama-analises.js'), markup.index('/panorama.js"'))
+            self.assertIn(f'src="/{script}?v=', markup)
+        self.assertLess(markup.index('/panorama-cards3.js'), markup.index('/panorama.js?v='))
+        self.assertLess(markup.index('/panorama-analises.js'), markup.index('/panorama.js?v='))
         # The category tabs sit above the filters.
         self.assertIn('id="pn-tabs"', markup)
         self.assertLess(markup.index('id="pn-tabs"'), markup.index('class="pn-filters"'))

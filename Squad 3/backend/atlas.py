@@ -1,13 +1,14 @@
-"""Authenticated, immutable artifact snapshots; separate from live MySQL ingestion."""
+"""Authenticated, immutable artifact snapshots; separate from live MySQL ingestion.
+Sent gzipped when the browser accepts it (compressed.py)."""
 from pathlib import Path
-from fastapi import APIRouter,Depends
-from fastapi.responses import FileResponse
+from fastapi import APIRouter,Depends,Request
 from auth import reader
+from compressed import json_file
 router=APIRouter(prefix='/api/atlas')
 DATA=Path(__file__).resolve().parents[2]/'data'/'atlas'
 @router.get('')
-def atlas(user=Depends(reader)):
-    return FileResponse(DATA/'atlas.json',media_type='application/json')
+def atlas(request:Request,user=Depends(reader)):
+    return json_file(request,DATA/'atlas.json')
 @router.get('/processes')
-def processes(user=Depends(reader)):
-    return FileResponse(DATA/'processes.json',media_type='application/json')
+def processes(request:Request,user=Depends(reader)):
+    return json_file(request,DATA/'processes.json')

@@ -1,9 +1,20 @@
 """Retrato do atlas gerado por scripts/build_atlas_base.py a partir da base consolidada do Squad 1 (v17)."""
-import base64,json,struct,unittest
+import base64,importlib.util,json,struct,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tests'));sys.path.insert(0,str(ROOT/'robo'))
+import anm_recorte  # noqa: E402
+from test_panorama import cfem_bruta  # noqa: E402
+SIGMINE=ROOT/'Squad 1/Dados brutos/ANM - SIGMINE/GO.zip'
+PLANILHA=ROOT/'Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx'
 ANOS=[2022,2023,2024,2025,2026]
 def atlas():return json.loads((ROOT/'data/atlas/atlas.json').read_text(encoding='utf-8'))
+def projetos_aba04():
+ """Projetos da aba 04 da planilha (uma feição por projeto no atlas); sem openpyxl, os do próprio pacote."""
+ if not importlib.util.find_spec('openpyxl'):return len(atlas()['projects']['rows'])
+ import openpyxl
+ wb=openpyxl.load_workbook(PLANILHA,read_only=True)
+ return sum(1 for r in wb['04_dim_projetos'].iter_rows(values_only=True) if r and str(r[0]).startswith('PRJ_'))
 class AtlasTests(unittest.TestCase):
  def test_municipalities_geometry_and_cfem(self):
   d=atlas();mun=d['municipalities']
@@ -19,8 +30,8 @@ class AtlasTests(unittest.TestCase):
   self.assertEqual(len(d['dams']),23)
   total=sum(m['cfem_total'] for m in mun)
   self.assertAlmostEqual(total,sum(r['valor'] for r in d['cfem_years']),places=2)
-  # conciliado com o arquivo bruto da CFEM na base consolidada (aba 14b da planilha)
-  self.assertAlmostEqual(total,867578398.91,places=2)
+  # conciliado com o arquivo bruto da CFEM, como na base consolidada (aba 14b da planilha); o robô troca o arquivo quando há dado novo
+  self.assertAlmostEqual(total,cfem_bruta()[0],places=2)
  def test_yearly_cfem_covers_every_municipality(self):
   d=atlas();por_nome={m['name']:m for m in d['municipalities']}
   self.assertEqual(d['cfem']['anos'],ANOS)
@@ -31,7 +42,7 @@ class AtlasTests(unittest.TestCase):
   p=json.loads((ROOT/'data/atlas/processes.json').read_text(encoding='utf-8'))
   def arr(key,fmt):
    b=base64.b64decode(p[key]);return struct.unpack('<'+fmt*(len(b)//struct.calcsize(fmt)),b)
-  n=p['n'];self.assertEqual(n,16656)  # processos do SIGMINE em Goiás na base consolidada (aba 03)
+  n=p['n'];self.assertEqual(n,len(anm_recorte.processos_sigmine(SIGMINE)))  # processos do SIGMINE em Goiás (aba 03)
   for key in ('nome','dNome','titular','razao_social','company_id'):self.assertNotIn(key,p)
   self.assertEqual(len(p['processo'].split('\x01')),n)
   for key,fmt in [('g','B'),('fase','B'),('subs','H'),('area','f')]:self.assertEqual(len(arr(key,fmt)),n)
@@ -54,11 +65,11 @@ class AtlasTests(unittest.TestCase):
   subs=d['production']['subs']
   self.assertTrue(subs)
   self.assertEqual({s['sub'] for s in subs},set(d['production']['dados']))
-  self.assertEqual(sorted(d['meta']['retained_from_artifact']['layers']),['dams','energy','energy_months'])
+  self.assertEqual(sorted(d['meta']['retained_from_artifact']['layers']),['coef','dams','energy','energy_months'])  # o que build_atlas_base.py carrega adiante
  def test_project_and_occurrence_points(self):
   d=atlas();codes={m['code'] for m in d['municipalities']}
   # uma feição por linha das abas 04 (camada CAM_06) e 06 (camada CAM_05) da base consolidada
-  for key,n,prefix in (('projects',3377,'PRJ_'),('occurrences',1796,'OCC_')):
+  for key,n,prefix in (('projects',projetos_aba04(),'PRJ_'),('occurrences',1796,'OCC_')):
    rows=[dict(zip(d[key]['cols'],r)) for r in d[key]['rows']]
    self.assertEqual(len(rows),n);self.assertEqual(len({r['id'] for r in rows}),n)
    self.assertTrue(all(r['id'].startswith(prefix) and r['mun'] in codes for r in rows))
@@ -80,7 +91,7 @@ class AtlasTests(unittest.TestCase):
   self.assertAlmostEqual(sum(c['cfem_substances']['values'][0]),by_year['2025'],places=4)
   cover=c['operation_coverage']
   for j in range(len(cover['labels'])):self.assertAlmostEqual(sum(v[j] for v in cover['values']),100,places=3)
-  self.assertEqual(sum(map(sum,c['projects_minerals']['values'])),3377)
+  self.assertEqual(sum(map(sum,c['projects_minerals']['values'])),len(d['projects']['rows']))
   self.assertGreaterEqual(sum(map(sum,c['occurrences_substances']['values'])),1796)  # com várias substâncias, conta em cada uma
   conc=c['cfem_concentration']['values']
   self.assertTrue(all(0<v<=100 for g in conc for v in g));self.assertTrue(all(a<=b for g in conc for a,b in zip(g,g[1:])))

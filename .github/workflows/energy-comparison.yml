@@ -1,0 +1,67 @@
+name: Generate energy comparison
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-energy-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r "Squad 2/modello_reale/requirements.txt"
+
+      - name: Generate model outputs
+        run: |
+          python scripts/build_previsao_base.py
+
+      - name: Generate energy comparison
+        run: |
+          python "Squad 2/modello_reale/src/build_energy_comparison.py"
+
+      - name: Generate production benchmark
+        run: |
+          python "Squad 2/modello_reale/src/build_production_benchmark.py"
+
+      - name: Publish benchmark data for the site
+        run: |
+          git restore public/data/previsao/previsao_v1.json
+
+          git add public/data/previsao/production_benchmark_v1.json
+
+          if git diff --cached --quiet; then
+            echo "Benchmark data unchanged."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "chore(squad2): update production benchmark data"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload energy analysis outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: energy-analysis
+          path: |
+            Squad 2/modello_reale/outputs/energy_comparison/
+            Squad 2/modello_reale/outputs/production_benchmark/
+            public/data/previsao/production_benchmark_v1.json
+          if-no-files-found: error

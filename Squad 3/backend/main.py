@@ -122,8 +122,14 @@ from panorama import router as panorama_router
 app.include_router(panorama_router)
 from empresas import router as empresas_router
 app.include_router(empresas_router)
+from mapa import router as mapa_router
+app.include_router(mapa_router)
 from catalogo import router as catalogo_router
 app.include_router(catalogo_router)
+from territorio import router as territorio_router
+app.include_router(territorio_router)
+from indicadores import router as indicadores_router
+app.include_router(indicadores_router)
 from comex import router as comex_router
 app.include_router(comex_router)
 

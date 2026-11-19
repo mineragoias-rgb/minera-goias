@@ -211,7 +211,7 @@ cols4 = [
 ]
 style_header(ws4, "Auditoria — Quantidade comercializada da CFEM excluída da soma (Base 1)",
              f"{len(_exc)} linhas da CFEM cuja QUANTIDADE ficou fora de cfem_qtd_comercializada_t na aba 09 — o valor em R$ continua somado em cfem_recolhido_brl. "
-             "Motivos: (a) quantidade em notação científica, a mesma corrupção de exportação do CPF_CNPJ; (b) quantidade implausível, com R$ por unidade mais de 1.000× abaixo "
+             "Motivos: (a) quantidade em notação científica (valor corrompido na exportação); (b) quantidade implausível, com R$ por unidade mais de 1.000× abaixo "
              "da mediana do mesmo mineral e unidade (ex.: bilhões de t pagando poucos milhares de reais). Sem essas linhas, a CFEM em t fica na ordem de grandeza da produção do AMB "
              "(Calcário 2022: 14,9 Mt × 15,3 Mt). A linha original continua intacta no arquivo da CFEM.",
              len(cols4))

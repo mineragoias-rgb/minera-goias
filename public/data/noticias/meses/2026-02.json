@@ -1,7 +1,23 @@
 {
  "mes": "2026-02",
- "materias": 33,
+ "materias": 50,
  "itens": [
+  {
+   "title": "Influência chinesa continua causando turbulências no segmento de níquel - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYzFyUXd4ajUxRlRTS2t3YlFsSTdQM2llQTFBM3FEV1JNaUhOb1RsWFoyWmZfQ1JQM2Z5OGRzNHRaLUVvdEhiUG96Sk9tNlRqWldRVW50RU04cDBSTkl5MjlIczRYcExUV2VmamVpOEFWRU1uT3NJNGNoN1BjTWE4bDVNTkNhLWgwQktwUjZ1T1k0ZkR5cEVDMy1TNkE5RzJTYVcxVnAxZC0zdXd3SUE?oc=5",
+   "published_at": "2026-02-27T08:00:00+00:00",
+   "first_seen": "2026-10-10T10:11:16.426565+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · níquel e nióbio em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "niquel"
+   ],
+   "brasil": 1
+  },
   {
    "title": "Agência distribui mais de R$ 108 milhões em royalties da mineração a municípios afetados e limítrofes - www.gov.br",
    "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPQ2MyNU9BWkYzTWRsaEtkSThvRVVUVzFHZEFsQ0RtT2NRbndfcnRwbmJFdVozU21jOVFSNjR3NGpQQmxjRHVrVkNVY1p4SVZZWFozVWUwSWZGMmVabElNc3o0c2Rxblp0cDc0N2gwaC1NZDB1cXpGNjRPS2dNOFJDel9xUG1udnVrU2JLajlBM2czR2ctYW9UanJ1RnpjNlNFcXBhdE92RS1BeG5lRTk2bjlPWEN3WVFKc1J1Qzc5ZkhkcE0yX2JheThaeW1UUzFRSWJ3WlRLTGhEcXpWajR6eg?oc=5",
@@ -13,7 +29,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANM averba penhora sobre concessão de lavra da Cooperativa de Mineração dos Garimpeiros de Serra Pelada - ZÉ DUDU",
@@ -26,7 +43,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Governo do Zimbábue suspende exportação de minérios e concentrados - brasilmineral.com.br",
@@ -41,7 +59,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Com foco em ouro e terras raras, Goiás busca captar US$ 10 mi na maior vitrine mundial da mineração - Jornal Opção",
@@ -57,20 +76,24 @@
    "substancias": [
     "ouro",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
-   "title": "Engie eyes bitcoin mine and storage system at huge new Brazil solar plant - Reuters",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPbEF6T3FzaW55NUtxaVFSUUt4NjFHMzBoWWd1dEtGRzFNQ0ZRRTc5MzJoUGo5dVJwTjhXUTAyeEdrcXZGM25rU1RxXzdGRzNjUXBPc2Izck9FcVg3SVlJT1NoVC1OZjJzR3B5azkzYldTSXNXQ0JvYXdia1U3bVh0OWFRcGlXOGRtTGFUa1hvTndGRjdMY0dLT0RYaEhMM3ZEX2xkNGJoenpRbkZINlNGNEZ0ajZfZmxEUzFCSldiUHA1aXB4NWJIRWZ1MUI?oc=5",
+   "title": "Serra Verde prevê dobrar produção de terras raras no Brasil até 2030 - BNamericas",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORFdBdTZNREtqM0QtU2xBcndWcnZVMHhoZVk0VHpyanA2aUVSWHZpTTc4MDhBdWxSVmhYTU1mVC1UR24tdGhINk83TDdfUU93N2h3dmNzU1ZvTUNHZUlfbkdvYy03UWtnYzVqYXNha1NXb0JhbzlPOGJRUXFleWJHeThzWTVhajVOU2FDd0Fqalg0NmQ2VDJSUmIxZWVMR0FpbnZQY0w1dlhodjZYTmpv?oc=5",
    "published_at": "2026-02-23T08:00:00+00:00",
-   "first_seen": "2026-09-20T04:02:48.693962+00:00",
+   "first_seen": "2026-10-27T09:24:54.684466+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
-   "fonte": "Busca · Brazil mining (Reuters)",
-   "escopo": "internacional",
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "India, Brazil sign mining pact as Modi targets $20 billion trade in five years - Reuters",
@@ -83,7 +106,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Empresa indiana terá participação em refinaria de lítio no Brasil - CNN Brasil",
@@ -98,7 +122,72 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brasil e Índia assinam acordo sobre terras raras e minerais críticos - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSk05WXlzc0hXTlZyZXJObGVnQWFleWNNbExLQVBiT2RaSjlJeW9pbngwR0xtVkRwZENDWk9qQ0twdDBwc2thTHBjbGdJSzg4eGc3OU1TMV9Cei1ycjZGUk1qdmw1TjlWZFRIZ0daVm96cFRDM0VQSGVHbEVkaEhiNUdNZUJPM3dvaTczaTFCX3FVbFpBUVNYMHhITUhEejZnNUVudUExQTVaOEhSUm5MdXBhcjBkcXYzSmQ1SkVSVzJpcl9QbFFJWTBnWQ?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.031216+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras e minerais críticos: o que são e o acordo Brasil-Índia - G1",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMWVtMFVyQjVRTHViSjZxa1hobmdnbkEyUkNQMGVuY2dzcjNURXQtbEFINmgzdmRCQnJ6dG1WdE9YXzJtS2lnNnYxOVhfLXZrbURjUGRNcVdkYnNXU0piVURVTE16bEdyZVZROXBJcWw2VXVsNUJIX2hEOTdyU3ZXeGczQ25kcFdvUldnNnhpUUVaQ0lqYS1EbUUzeVgwRmNRRmRScw?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-10-22T09:00:26.732718+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil and India agree to boost cooperation on rare earths - AP News",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOVnhzcC1XeU9uZ2x5NHQ0b2NRLWc1c1c5Y2RrVWhJTDBTTGpzV1ZGMjVNeGI4X09sTFZnaGoxejRKdm5FdmZ3MnlOMjdsSnZXMGdzaXlpQXpHdVdVNVhKSWFCUW4tRlpESEtiZUd1QmVLb0VwOG5EMDhOV1BZZnJqZDc5RC1ENmNfejM1Znk0Z0x0aWZ4VWdiTTNvaExSemxPcFJVVnI5M0ZfZFph?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-11-02T11:46:28.642154+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Entenda o que são terras raras e minerais críticos - G1",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMWVtMFVyQjVRTHViSjZxa1hobmdnbkEyUkNQMGVuY2dzcjNURXQtbEFINmgzdmRCQnJ6dG1WdE9YXzJtS2lnNnYxOVhfLXZrbURjUGRNcVdkYnNXU0piVURVTE16bEdyZVZROXBJcWw2VXVsNUJIX2hEOTdyU3ZXeGczQ25kcFdvUldnNnhpUUVaQ0lqYS1EbUUzeVgwRmNRRmRSc9IBswFBVV95cUxPM1BkODU0QUxDdXZEZWJpT2dZdFFxYnE4bDI4VkUyRjhvYU5vWXplVktwb2d2cHdLQ0t4SFdiaWcyazh6R3pJdFRwRlhUZnhxMlk3YWN5Zy14STVHb1FIVk9iVFNMT05jWUdSVUd2TE1WUDNfM1ZQdDd2Rmd3ZFVtYzJ5ampBRC1UYUJUalJjVjZKTFZteFZ0bExHZXdGbmE1UndnUVdoWlU0OWtmYmd2eGRlVQ?oc=5",
+   "published_at": "2026-02-21T08:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.606316+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Alerta: mensagens que simulam cobranças a regulados são tentativa de golpe — Agência Nacional de Mineração - www.gov.br",
@@ -111,7 +200,8 @@
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Agência de Comunicação - Goiás anuncia fim do Fundeinfra e alivia custos para a mineração - Estadão Blue Studio",
@@ -124,7 +214,8 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Mineradora australiana descobre terras raras em Goiás e ações disparam - CNN Brasil",
@@ -139,7 +230,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale, Anglo American e CSN lideram pagamentos da Cfem em Minas Gerais - Diário do Comércio",
@@ -152,7 +244,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Rare earth projects in Brazil total R$13.2bn in investments - Valor International",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPb3NnV1d3ek5HRG9nZzh2SXpLZzV1RFRLRTRGRUo2U0xESjRzLVJ6WGR6Y2pYTk03c3BYVE5xVlloUHRnY3VwWVJ6OC1FSmNFZy1OQ2lFSnpyZ09uZmdhU0dkMzJPMGI5b01NS3NOZ0VZc0w4V0I2MEVHdHNic0NaSUVHTVFkWktoaVNwQmhUUkhsRENhRTlGbkE4SjVuVkdWbHBFNGZuT3ZiUHNueU8wTzVSNDlod2JZVHZEbUZMZnpCTnPSAdIBQVVfeXFMTnNGczliMUY0RjZCMW1lMnc4R0VfaldiQVhJRDVIOXRjUzN0azF1UUNrSTRGLXcwdl9DakNYWEZiY2M4TzYyQXA2MXlTMmQyZTA1NUhMbWFrelZmSHZaNHlCdEhkTzg3WWxxOXpaMm5lWEJKSEVQY05wdXo3MG5sNW9zREwtRG1NREJsdk9YdjBvcGtwa2tGbzNlMFg2WUJWeDV4YWVkUUl2TWdEeUhlcnRpR2Y4ZmY3bTluSE5rbDEtQzZhN05hMWJwaUdZdGVQT2dn?oc=5",
+   "published_at": "2026-02-18T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.435039+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "CFEM: royalties da mineração somam mais R$ 546 milhões destinados a estados e municípios produtores, em fev... - Brasil 61",
@@ -165,7 +274,24 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "O que são as terras-raras? - Revista Pesquisa FAPESP",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5yVER5YUprODIwNVk3alhDMFlTUVNzZGJaT0hxcnE5WE03OTNMeENmaThPcTVSNzlXeFhHZjVNeGFoNWxPdHp5WEZ5NkhwT1ZIWE16TkVoY1dGQzhCMV8tNGNKVkhLMHNpalBETA?oc=5",
+   "published_at": "2026-02-15T08:00:00+00:00",
+   "first_seen": "2026-10-21T08:57:11.027777+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "Royalties da mineração injetam mais de R$ 546 milhões em estados e municípios produtores - www.gov.br",
@@ -178,7 +304,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma vende 150 mil toneladas de finos e assegura crédito de US$ 96 milhões - brasilmineral.com.br",
@@ -193,7 +320,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Lithium Ionic indica avanços na engenharia do projeto Bandeira - brasilmineral.com.br",
@@ -208,7 +336,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Indiana Altmin aporta US$ 40 milhões para ampliação da CBL - brasilmineral.com.br",
@@ -223,7 +352,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "ANM, AGU e obras públicas: quando falta de registro de extração não gera indenização - JOTA Info",
@@ -236,7 +366,8 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India Pursues Critical Minerals Deals with Brazil, Canada, France, Netherlands, Reuters Reports - Autocar Professional",
@@ -249,7 +380,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India Pursues Critical Minerals Deals with Brazil, Canada, France, Netherlands, Reuters Reports - autocarpro.in",
@@ -262,7 +394,8 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "Webinar RAL 2026: ANM tira dúvidas sobre a Campanha do RAL 2026 — Agência Nacional de Mineração - www.gov.br",
@@ -275,7 +408,22 @@
    "fonte": "Busca · ANM, lavra e outorga",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "To reduce China dependence, India explores critical minerals deals with Brazil, Canada & France - Firstpost",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNaGFxWE1GNEhObzNUUnV0U0J2QkxpZkJyOU9hdklVNEg1dS1GNkNYei1aWHRrV3dlaHVleXJFVUV0WVRzVWowcTVvWW15S1ZpNG9zdXhuVXI0cUdHWFMxankwekhIVFNJUWxGUzNpbFVvcnJhN29mZGU3M2pSQUJISGJfOVhJcE5lUzlKbUl3TFA4SEdUa1BtWEVpTEozUnV6a25UbjFnNUdyRlNSanZaSWVMZ1pDZ21QbF9hNThTVFZwbWtmLUxWdDBxeVdpczdGbEVZ0gHYAUFVX3lxTE9qZUJUWFZFMFYyWUdnRVRwWkRoTFdCRVZfUlZwZ0w5SnFFYU50S2oxWVNaR2xuYV9nTVAxN0doamVSM3VoMEU5NEJxMmJMbDBXUXpXZ3BaanVoYUpITk9OdkU5bUFmZWZzSXJSRENyNy1UbkpuT3FQZmZibHBhZjd3ZWowZXlybFJ1SkFKNnRtNHhzbS1HMnUyZHFrNE8xcURiTnVfMWN4c00xTmhpLUlUM21MOTNMRlhLeXhwS0dxM1dmdklmaFIxUFl1ZTRHVkV5Q002dnBIZg?oc=5",
+   "published_at": "2026-02-10T08:00:00+00:00",
+   "first_seen": "2026-10-11T10:23:33.027128+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "India in talks over critical minerals deals with Brazil, Canada, France, Netherlands, sources say - Reuters",
@@ -288,7 +436,22 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "A CFEM e o risco da maldição dos recursos naturais - Migalhas",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcmpyR19mT01kUDRjY2xKaXljbFMyUXVnYXA2Q1JiNXBBZG1GcVJVYWJwS25Jd3V1UmZ1SVFTeXpoSFZ5RnlZMjYtekQ5RWpFNDBYN2IyeDh3bVFRUHhWZDh3VUh5X2lpTUxMZlNWYXc5MTVzR0RNVVVPZHFfaXpqMEZsLVR6enRjcUFsZUl5RXQtWEl5QVc0?oc=5",
+   "published_at": "2026-02-09T08:00:00+00:00",
+   "first_seen": "2026-11-10T11:56:02.756972+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "ANGLO AMERICAN | Resultados positivos em minério de ferro e níquel no Brasil - Brasil Mineral",
@@ -303,7 +466,8 @@
    "tema": "mineracao",
    "substancias": [
     "niquel"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Alvo da China, terras raras de Goiás recebem US$ 565 milhões dos EUA - braziljournal.com",
@@ -318,7 +482,8 @@
    "tema": "mineracao",
    "substancias": [
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Faturamento cresce 10% em 2025 e CFEM chega a R$ 7,9 bilhões - Brasil Mineral",
@@ -331,46 +496,180 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
-   "title": "Manuais e Procedimentos — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE12ckZwMUhDeUxzeC1vdF9XQ283SFZWT1U0WHJ2cEtCeFFSMW1oS1M5clkzRzg4RXk4a2c3YVZ2d1Awb3hlV3FldlNmeWpRNXZXMkVHaUxnSmNaSU5pZ3Fma1l1YklWMS1yMWRneTljMGpkcWVMRGxPSlItNnNrOTg?oc=5",
-   "published_at": "2026-02-04T20:13:29+00:00",
-   "first_seen": "2026-09-19T19:49:06.263224+00:00",
+   "title": "Alvo da China, terras raras de Goiás recebem US$ 565 milhões dos EUA - Brazil Journal",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTXF4b1JhZ3lGYmxuWlNIZ0Z6d1lmZ20zY0VNUjBEN1VhQXgyMHBaSDU2Tk5VLTRORzNsaUh1akhtamlYN3V1SXcybjhFZFQwZ3lDc2cteGdCS25uSnFLTTBiSWcySXhvVFhJNFhubnZKUmkzb1hfVDB1ZjJGSDE4SDdVbGozQU9PWmpmZ0dZa2JYZTFvQU5v?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-22T09:00:25.959441+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineradoras em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Empresa de terras raras goiana que terá ajuda dos EUA aposta em 4 minérios - UOL Economia",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzeU9DTUxjaTJiMXJub0J6RWpZdXF1bzZlNG1QZTdBXzBJN20ydk1SVGplMGcxdVpMaUo3c05UbFZkUUFONHU5NnVQSmlnazlGWVktaF9sbnQ3UGFILWFPQ0VqWVdQWkIzMXBiRFNPU0VicXllZEM4OWE4QQ?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.688385+00:00",
+   "regional": 1,
+   "regiao_termo": "goiana",
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Conheça a mineradora brasileira de terras raras que fechou acordo de quase R$ 3 bi com os EUA - ISTOÉ DINHEIRO",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaDhGc3FNenU4VTZLWEtrcGxtUXBDUWwweVBqbzNhT0d0Q25odWtreGJyQ0hCeWhMdmdxaDRKd2FBVGJJalNMWUc3NnhKRnYwMlVKbzJiRDR6N2dXRUoxemZudHN4azRwN0VrR3o2bWl0OTNDcE5sZ3N3dDRCeDV0SE5R?oc=5",
+   "published_at": "2026-02-06T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.686398+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde, única que produz terras-raras no Brasil, poderá ter EUA como sócio após empréstimo de R$ 3 bi - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQcHJWUmpubE1vYVd1aWtMVDI1ZTl4Uk5hQjRieW5RMmZwTUV6UFlZY3ZYYTNTdDhTQXBXa1pBUm1NTnotZFoxMzE5UGZjR2M4cXhqSGJsOC05SVIyeU4xeVBCNkJ6aTdCdWg5WFVPLTRkWXgxLXlTZ284ZmNSaXJjMzhwNWVHTHgxeVBTdnhCY2ZPZzVnVFhOb0otUFZfYnNxbG80NExfMVB4eW0za3p0WFJ0ZEp6RmZSbHRua1VsNHBNb2R1VWh5RjRuMVBDdFh6eTgzc0swNlFteUtJVjczdXU3aVBORklKSkl2S01ydExyX3B00gGDAkFVX3lxTE02N25mM1cwZmpLd3FZV3QyNVZ3dmJUQ09xOUVmQzJSeVBva1RyMXBwWkRfZmFJdnJLWHk0cWk1RFJKbTF0QWg4RnhieFYtbFREMEhqT09QZ0VNdzRrLUVTWGFxQjdPa0JvdDh3Yk1PdnBHZFhSUUJfRE1YMlR1SEdnRXhNZDlQQVNiNEkwclBmX040NVlQVVBPVUs3WmhSS25aeEVNZGxqdTdZamxidmJpWnlzNTFBN3dsSTZBNHlvMWFaaDZtR1BUVnhlR0tGd25Wb1VPeXRTdGx0QXVhVzhiNV9rRHd1X05OaEp3RTFkQmlLbDU2RmNUNTRPaHVOa2k5SHM?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.680154+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "TERRAS RARAS | Serra Verde garante US$ 565 milhões dos EUA para expandir capacidade - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYXV5b0RVR1JhRTdDVGtzWWF5V2EwTk01OEhRY1Noa0tKVjNmbmFOX18wNlRRdnhfeXh4T2QyRS10aWtUVVlLd0RsNXJrc1RXZE96a0hIWWxLZWRHWW5FeTlYRXRLSkZLTElpWmk0dmFXS3pHZm12dE9uSGd2MjN1MVBoM2JJNzQxekhNZll2Sy1JUmFiVEREX1dKZmY2QVhSa29zN083Znk?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-10-27T09:24:54.683411+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s Only Rare Earth Producer Offers US Stake Option for Loan Deal - Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNOXpjR2ZncXpwNTR3dWNKNEdQa1VmN3ZGZkZNbWYzZVI5VVZxaHFIb1gxWENxaS1TYUhwakNvZG9raWRBRnROaE9NTERrczZ4aXl5SEF3b09GRkM4Y3ktVUEyTDF5bmMyU3kwRDBEQkdZSms5cGpvRjFTemExNzJQNExYR016TDFtNVdBYlRyZTdnYlJ2WVQ3TFp0dzVJZWkxTzVSQmJic2hScnFnQkJxdUxoaGJUalltYS1kOWpfYlpRMXRnYmI5ZA?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-10-28T10:07:02.432455+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Brazil’s only rare earth producer offers US stake option for loan deal - Mining.com",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcGE4WmVpbVR6U2o0YXFTY2lnbkQ4cTNLU29Xa01iRnRhRG1qQXdMZTBqYzV2QVJGVHVCVE5LckdXRV9iRHQ1OXNRZTRJN2k3TFcxNFYwUTA3Y0hXcnFPLUNqZDVZdWtBZG9oMmZxZnBtYmZ1Zy1YU0d2U1FRbk4tNzNPUzN0NWh3Q3NUcFlnV2k1LTBURGFjMHlkMzJ0UQ?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-01T10:52:58.235631+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "EUA concedem empréstimo de US$ 565 milhões a mineradora brasileira de terras raras - G1",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYkN5Z0JhdjVKbklEc0Ywb2d3YXZiR21WOGducW1uSHIxOU9xczhpTmJGNERVZDU3b1p2R0FOeWJYX3VRWVNJV1JRVm9naHY4RlVmOHBFdG5pNkc4Tl9Jdi1VTUFFRXQ0QjFWdHFoZFhvNXFsQ0xKOXFQZHFwa2NBNm5oUzFUallJelQtelB6N1A1cWRHVUHSAaQBQVVfeXFMUFFZQ3BaaEI5dXNtcVVDZjY2NE9DNVgzSlRpU2RWSU5UWTlhM3JkTFoxZDNTMG53YjB6MlVyU2k4Y3dOUExudEs5dng2RkF6ZEoxd21fQW5keUxDbEJmTFVsN09KRUpXajB2TzhUX2czcjN3VEptS1FlUUNVMFdLVDFIQVctMzY1ZTE5SU5tVlV3UVFTVnRwQmhUTC1DWUFWRlAtU3k?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-04T11:41:51.606864+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mina brasileira de terras raras recebe financiamento de US$ 570 milhões dos EUA - Capital Reset",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQTWxvTTQyUVNMTVdqVnJkMXlDLWhSQlotTTNNR2NUWE1EbFNQTFF0U041UTh4V0l1eC1DaGNhM3F5SGpQVVRvd0JsNG5BYXNyc1JDNUlrZDVpMUc4ajdmYnEzd1pybUt5SGdRMXRhQjJfTTJ5b3poM3BSUmNKMTNIeDA1RVVjMGxYb2VmM0ZDejBReE1Ec2NZek9IUmU1ellKMlkxNEI2SXhubGlud1EzYjBHTWlobEgxWFRFNzBOMXlWTE9lOUdrUFhWODc?oc=5",
+   "published_at": "2026-02-05T08:00:00+00:00",
+   "first_seen": "2026-11-12T11:58:14.155958+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Mapa Digital das Localidades Fossilíferas do Brasil — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOM0o0cU5Ta1ViUlh3ZWQ1ZUptZHFlbHcyUy1hU3pHa0Y5UFpBR3BQZzJEVGVmV21XWTZOQUFHT3ZVVHVRd29qT09iQlNMZnZMTlBpWTg2eFBxVWZvakVKeDA2T3pmaE1tNDFDMU5lTnBBNThlLWRERTVOaVFLTl9iWHhmQUU1NWVwcjQ3WHVKNWxDT0dWSS1fUk50Q1VmZWtfVEQ5YVdjUWZOQk94cDQydTNsYmNaTUozX2tZSkRWYW9FOTY4MTlyVw?oc=5",
+   "published_at": "2026-02-04T21:18:17+00:00",
+   "first_seen": "2026-10-18T08:23:45.580851+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
-   "title": "Biblioteca — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9fU01Ic19BQkthem0wOFJUTTFndV9BcjZyUTNmRW1WQzgxcVVLRmc4OXZrMHRlbjhMT1l6cTlIanFha29xTWU4aUY3VlVkRXZ5M1pHX2Y1ZFRnMjlxVnZEbjZTYzF0dE84Y3ZSb0RB?oc=5",
-   "published_at": "2026-02-04T20:13:27+00:00",
-   "first_seen": "2026-09-19T19:49:06.255413+00:00",
+   "title": "Mineração em Números — Agência Nacional de Mineração - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5EVnNkd1phN3hHRS1xdWd0dXBVREJKRFRmbzRrRGVpWkNEeWpZM2JSNnBHNUNtS3puV2Nya1E2UXY2dzJ2YkwzN2FwZ2dnVnpXcURGdUVtTmtzX0JPU3dEa2Nic3U5OHpKT2RUQ2J2aWNBTlQtbnhERDlzQQ?oc=5",
+   "published_at": "2026-02-04T20:13:28+00:00",
+   "first_seen": "2026-10-18T08:23:45.571970+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · ANM (site oficial)",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": []
-  },
-  {
-   "title": "Mapa Digital - Região Sudeste — Agência Nacional de Mineração - www.gov.br",
-   "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxNSXBlZHFETlBoTllEVUNZY3UyVjk4UEFWNWhBaTRoN0gzLW9nRDhHSUFUWGlvQ0lIT1BiYk51b0dDbmhzUjJFZDlsLW1BOGRmMG1fMHhEcnN6ckZweG42WHFNaTJzTC1PYzV3ZFVxWC1VZTV1VTg1YVQ3THdtdkZ4SXczUld6dWQ3UklCZG81RUx6MTZ3aUZQdlU1TGZFTFpiZUJ3SDhxLUUtUDBrcWxkcWd5c214TnlST3VMSG44QlNWdFdSLTV2YlVyVmhwVXItenBkeS1ocmJpd294akx5MWZZTFBrTzNfMjh0OVdDc2hkWG9fRVR0dnF4bEJtbldYaTQwbjZ1Mm9NaU5zMFMyOVZXOS1IT3RsZmc0RDhJamQ2NUlWVlZNbA?oc=5",
-   "published_at": "2026-02-04T08:00:00+00:00",
-   "first_seen": "2026-09-24T04:02:32.396562+00:00",
-   "regional": 0,
-   "regiao_termo": null,
-   "setorial": 1,
-   "fonte": "Busca · ANM (site oficial)",
-   "escopo": "setorial",
-   "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   },
   {
    "title": "SIGMA LITHIUM | ANM atesta segurança de pilhas de estéril e materiais - Brasil Mineral",
@@ -385,7 +684,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Reserva de minerais de Trump pode incluir lítio e terras raras do Brasil - CNN Brasil",
@@ -401,7 +701,8 @@
    "substancias": [
     "litio",
     "terras_raras"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Pilhas da Sigma Lithium não oferecem ‘risco iminente’, diz Agência Nacional de Mineração - Valor Econômico",
@@ -416,7 +717,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Sigma Lithium's waste piles offer no 'imminent risk,' Brazil mining regulator says. - Reuters",
@@ -431,7 +733,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "LÍTIO | Sigma Lithium afirma que foram retomadas atividades na Mina 1 - Brasil Mineral",
@@ -446,7 +749,8 @@
    "tema": "mineracao",
    "substancias": [
     "litio"
-   ]
+   ],
+   "brasil": 1
   },
   {
    "title": "Vale aciona a Justiça contra presidente do TCE-MG por declarações sobre sonegação de Cfem - O Fator",
@@ -459,7 +763,8 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": []
+   "substancias": [],
+   "brasil": 1
   }
  ]
 }

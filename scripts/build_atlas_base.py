@@ -222,7 +222,9 @@ def graficos(dados, projects, occurrences):
                                     decimals=1, params={"pct": round(100 * sem_titular / total25)})
 
     # 4) produção bruta (ROM) de Goiás por mineral no ano mais recente do AMB (aba 09); co-produtos não se somam
-    go = [r for r in abas["09_cons_mineral_ano"] if r["uf"] == "GO" and (r["production_t_rom"] or 0) > 0]
+    # ROM de minério associado (bário, cobalto, prata com a massa do minério de outro mineral) não é produção do mineral
+    go = [r for r in abas["09_cons_mineral_ano"] if r["uf"] == "GO" and (r["production_t_rom"] or 0) > 0
+          and "rom_minerio_associado" not in str(r.get("status_validacao") or "")]
     ano_rom = max(r["year"] for r in go)
     rom = sorted(((r["mineral_name"], float(r["production_t_rom"])) for r in go if r["year"] == ano_rom), key=lambda x: -x[1])[:12]
     ch["rom_minerals"] = dict(type="hbar", labels=[m for m, _ in rom], groups=["valor"], values=[[round(t / 1e6, 4) for _, t in rom]],
@@ -231,7 +233,7 @@ def graficos(dados, projects, occurrences):
     # 5) produção bruta do AMB aberta por operação (aba 12): com coordenadas, sem poligonal e sem CFEM para ratear
     cob = defaultdict(lambda: [0.0, 0.0, 0.0])
     for r in abas["12_interface_squad1_squad2"]:
-        if r["production_basis"] != "ROM":
+        if r["production_basis"] != "ROM" or r["status_validacao"] == "rom_minerio_associado":
             continue
         e, t = cob[r["year"]], float(r["production_t"] or 0)
         if r["nivel_agregacao"] == "estado":

@@ -28,7 +28,7 @@ O script mantém o formato lido por `public/atlas.js` e troca só os dados. Depo
 - **Séries**: CFEM por ano e de janeiro a julho (`cfem_years`, `cfem_comparable`); valor de venda da produção beneficiada de Goiás no
   Anuário Mineral Brasileiro (`beneficiated`); investimento declarado em pesquisa mineral em Goiás (`investment`, arquivo
   `InvestimentoPesquisaMineralUf.csv` da ANM, que reproduz exatamente a série do retrato anterior).
-- **16.656 processos** (`processes.json`): um por processo do SIGMINE em Goiás (camada `processos_minerarios_go`), com os fragmentos de
+- **16.875 processos** (`processes.json`): um por processo do SIGMINE em Goiás (camada `processos_minerarios_go`), com os fragmentos de
   cada processo unidos; o retrato anterior tinha 17.402 polígonos. Geometria simplificada (tolerância de ~45 m) e quantizada em UInt16;
   os cinco grupos de fase são os mesmos do retrato anterior. Não há titular, CPF ou CNPJ no pacote.
 - **3.377 projetos** (`projects`): um ponto por projeto que ainda não produz (aba 04, camada `projetos_futuros` do GeoPackage), com

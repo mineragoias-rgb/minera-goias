@@ -483,7 +483,8 @@
       "lang": "en",
       "tipo": "busca",
       "escopo": "internacional",
-      "tema": "mineracao"
+      "tema": "mineracao",
+      "foco": "brasil"
     },
     {
       "name": "Busca · Brazil mining (Reuters)",
@@ -491,7 +492,8 @@
       "lang": "en",
       "tipo": "busca",
       "escopo": "internacional",
-      "tema": "mineracao"
+      "tema": "mineracao",
+      "foco": "brasil"
     },
     {
       "name": "Busca · preço da energia elétrica",
@@ -702,6 +704,7 @@
       "terras raras",
       "terra rara",
       "rare earth",
+      "rare earths",
       "neodimio",
       "neodímio",
       "praseodimio",
@@ -880,5 +883,38 @@
     "idade de ouro",
     "chuteira de ouro"
   ],
-  "commodities_excecoes_comment": "Se o titulo traz um destes E nao traz nenhum termo de 'contexto_mineracao', as substancias ambiguas sao descartadas. Medido sobre setembro e agosto de 2026: pegou exatamente 'Flavia Saraiva e ouro nas assimetricas' e a repetida, 2 em 524, sem derrubar nenhuma legitima - 'Gold heads for weekly gain' e 'KCM awards copper recovery plant' continuam marcadas."
+  "commodities_excecoes_comment": "Se o titulo traz um destes E nao traz nenhum termo de 'contexto_mineracao', as substancias ambiguas sao descartadas. Medido sobre setembro e agosto de 2026: pegou exatamente 'Flavia Saraiva e ouro nas assimetricas' e a repetida, 2 em 524, sem derrubar nenhuma legitima - 'Gold heads for weekly gain' e 'KCM awards copper recovery plant' continuam marcadas.",
+  "fora_do_setor": [
+    "ouro minas",
+    "yerry mina",
+    "bitcoin",
+    "vale ouro",
+    "cobre tudo",
+    "era do ouro"
+  ],
+  "fora_do_setor_comment": "Expressoes que fazem a materia NAO ser do setor, mesmo citando 'ouro', 'mina' ou 'mine'. Cada uma veio de um caso real lido no acervo em 06/10/2026: o hotel Ouro Minas de BH, o zagueiro Yerry Mina, 'bitcoin mining' (mineracao de criptomoeda, 3 casos), 'fulano vale ouro', 'Geracao Z cobre tudo de strass' e o povoado turistico 'que viveu a era do ouro'. Lista curta de proposito: so entra o que foi visto.",
+  "idade_maxima_dias": 365,
+  "idade_maxima_dias_comment": "Materia que ja tinha mais de um ano quando o radar a encontrou nao e noticia, e arquivo que a busca devolveu - a varredura inicial trouxe vaga de emprego de 2022 e itens de 2012. A regra compara a data de publicacao com a da coleta (first_seen), e nao com hoje: o que foi noticia quando chegou continua no acervo conforme o tempo passa. Data anterior a 2000 e tratada como data ausente (o feed manda 1970) e tambem fica de fora.",
+  "termos_brasil": [
+    "brasil",
+    "brazil",
+    "brazilian",
+    "brasileiro",
+    "brasileira",
+    "goias",
+    "minas gerais",
+    "bahia",
+    "carajas",
+    "amazonia",
+    "vale",
+    "petrobras",
+    "bndes",
+    "cbmm",
+    "sigma lithium",
+    "serra verde",
+    "aclara",
+    "brazil potash",
+    "belo sun"
+  ],
+  "termos_brasil_comment": "Uma materia e do Brasil quando vem de fonte brasileira (escopo regional, nacional ou setorial), de uma busca estrangeira com foco 'brasil', ou quando o titulo de um veiculo estrangeiro cita um destes termos. E so com isso que a pagina abre no Brasil e deixa o internacional como opcao. 'vale' so e lido em titulo de veiculo estrangeiro, onde e a empresa e nao o verbo."
 }

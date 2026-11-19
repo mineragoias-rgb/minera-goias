@@ -33,13 +33,36 @@ function detail(title,entries){el('atlas-detail-title').textContent=title;el('at
 function rampScale(vals){const values=vals.filter(v=>Number.isFinite(v)&&v>0).sort((a,b)=>a-b);const cuts=[...new Set([1,2,3,4].map(i=>values[Math.floor(values.length*i/5)]).filter(v=>v>values[0]))];return {cuts,min:values[0],color:v=>v==null||v<=0?'#edf1f4':ramp[cuts.filter(x=>v>=x).length]}}
 function legend(items){el('atlas-legend').innerHTML=items.map(([label,color])=>`<div class="legend-item"><span class="legend-swatch" style="background:${color}"></span><span>${escape(label)}</span></div>`).join('')}
 function selectedMunicipality(m,record){const target=municipalLayers.find(x=>x.code===m.code);if(target){target.shape.openTooltip();map.fitBounds(target.shape.getBounds(),{maxZoom:10,padding:[30,30]})}detail(m.name,[[t('at.ibge'),m.code],...record.detail]);}
-async function init(){packet=await api('/atlas');if(!window.L)throw Error(t('at.leafletFail'));el('atlas-content').hidden=false;map=L.map('atlas-map',{preferCanvas:true,scrollWheelZoom:true,minZoom:5,maxZoom:14,zoomSnap:.25}).fitBounds(bounds);L.control.scale({imperial:false}).addTo(map);const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});tiles.on('tileerror',()=>{el('atlas-error').textContent=t('at.tileFail')});tiles.addTo(map);layers=L.layerGroup().addTo(map);
+/* Focus on Goiás and white background: two quiet switches on the map, the same idea as the Mapa Mineral's state outline and
+   "Fundo liso". The outline is the Mapa Mineral's limite_goias layer (IBGE), fetched when the focus is first on; the mask sits
+   in its own pane, under the data. The focus starts on and the white background off; a change is remembered in this browser only. */
+let atTiles=null,atMascara=null,atContorno=null,atRender=null,atFoco=false,atBranco=false;
+function atGuardado(k,padrao=false){try{const v=localStorage.getItem(k);return v===null?padrao:v==='1'}catch{return padrao}}
+function atGuardar(k,v){try{localStorage.setItem(k,v?'1':'0')}catch{/* private mode: the choice lasts while the page is open */}}
+// over the basemap the surroundings are dimmed; on white they turn light grey so white Goiás stands out (as in the Mapa Mineral)
+function atEstiloMascara(){return atBranco?{fillColor:'#e4ebf1',fillOpacity:1}:{fillColor:'#eef3f7',fillOpacity:.62}}
+function atFundo(branco){atBranco=branco;el('atlas-map').classList.toggle('at-branco',branco);if(atMascara)atMascara.setStyle(atEstiloMascara());if(atTiles){atTiles.remove();atTiles=null}
+ if(!branco){atTiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});atTiles.on('tileerror',()=>{el('atlas-error').textContent=t('at.tileFail')});atTiles.addTo(map)}
+ atGuardar('minera-at-fundo-branco',branco)}
+async function atFocar(foco){atFoco=foco;atGuardar('minera-at-foco-goias',foco);
+ if(!foco){if(atMascara){atMascara.remove();atMascara=null}if(atContorno){atContorno.remove();atContorno=null}return}
+ if(atMascara)return;
+ try{const go=await window.MapaDados.camada('limite_goias');if(!atFoco||atMascara)return;const partes=go.partes.flat(),mundo=[[-89,-179.9],[-89,179.9],[89,179.9],[89,-179.9]];
+  atMascara=L.polygon([mundo,...partes],{pane:'at-mascara',renderer:atRender,stroke:false,fillRule:'evenodd',interactive:false,...atEstiloMascara()}).addTo(map);
+  atContorno=L.polygon(partes,{pane:'at-mascara',renderer:atRender,color:'#35566d',weight:1.4,opacity:.85,fill:false,interactive:false}).addTo(map)}
+ catch{el('atlas-error').textContent=t('at.focusFail');atFoco=false;const c=document.getElementById('at-foco');if(c)c.checked=false}}
+const AtOpcoes=L.Control.extend({onAdd(){const d=L.DomUtil.create('div','at-opcoes');
+ d.innerHTML=`<label><input type="checkbox" id="at-foco"${atFoco?' checked':''}> ${escape(t('at.focusGoias'))}</label><label><input type="checkbox" id="at-branco"${atBranco?' checked':''}> ${escape(t('at.whiteBg'))}</label>`;
+ L.DomEvent.disableClickPropagation(d);L.DomEvent.disableScrollPropagation(d);
+ d.addEventListener('change',ev=>{if(ev.target.id==='at-foco')atFocar(ev.target.checked);else if(ev.target.id==='at-branco')atFundo(ev.target.checked)});return d}});
+async function init(){packet=await (window.loadAtlas?window.loadAtlas():api('/atlas'));if(!window.L)throw Error(t('at.leafletFail'));el('atlas-content').hidden=false;map=L.map('atlas-map',{preferCanvas:true,scrollWheelZoom:true,minZoom:5,maxZoom:14,zoomSnap:.25}).fitBounds(bounds);L.control.scale({imperial:false}).addTo(map);map.createPane('at-mascara').style.zIndex=350;map.getPane('at-mascara').style.pointerEvents='none';atRender=L.canvas({pane:'at-mascara',padding:.4});atFundo(atGuardado('minera-at-fundo-branco'));if(atGuardado('minera-at-foco-goias',true))atFocar(true);new AtOpcoes({position:'topright'}).addTo(map);layers=L.layerGroup().addTo(map);
 el('atlas-mineral').innerHTML=packet.production.subs.map(s=>`<option>${escape(s.sub)}</option>`).join('');
 el('atlas-mun').innerHTML=`<option value="">${escape(t('at.selectMunicipality'))}</option>`+[...packet.municipalities].sort((a,b)=>a.name.localeCompare(b.name,'pt')).map(m=>`<option value="${escape(m.code)}">${escape(m.name)}</option>`).join('');
 yearLabel();
 el('atlas-layer').onchange=render;for(const id of ['atlas-year-from','atlas-year-to']){
  el(id).oninput=yearLabel;el(id).onchange=()=>{yearLabel();render()}}el('atlas-mun').onchange=()=>{selectMun(el('atlas-mun').value);if(['projects','occurrences'].includes(layer))render()};el('mun-clear').onclick=()=>{selectMun('');if(['projects','occurrences'].includes(layer))render()};el('atlas-mineral').onchange=render;el('atlas-group').onchange=render;el('atlas-cat').onchange=render;el('atlas-minfilter').onchange=render;el('atlas-search').oninput=()=>{limit=50;filterRows()};el('atlas-more').onclick=()=>{limit+=50;table()};el('atlas-reset').onclick=()=>map.fitBounds(bounds);el('atlas-export').onclick=exportRows;
-el('atlas-content').hidden=false;map.invalidateSize();map.fitBounds(bounds,{padding:[15,15]});await render();}
+el('atlas-content').hidden=false;map.invalidateSize();map.fitBounds(bounds,{padding:[15,15]});
+await render();}
 window.showAtlas=async()=>{el('atlas-error').textContent='';try{if(!loadingPromise){loadingPromise=init().catch(e=>{if(map){map.remove();map=null}loadingPromise=null;throw e})}await loadingPromise;requestAnimationFrame(()=>map.invalidateSize())}catch(e){el('atlas-error').textContent=e.message}finally{el('atlas-loading').hidden=true}};
 async function getProcesses(){if(processRecords)return;const decoded=await window.loadProcesses();processPacket=decoded.packet;processRecords=decoded.records;
 el('atlas-group').innerHTML=`<option value="">${escape(t('at.allGroups'))}</option>`+processPacket.grupos.map((g,i)=>`<option value="${i}">${escape(g)}</option>`).join('');}
@@ -108,10 +131,13 @@ window.atlasShowProcess=async id=>{
  map.fitBounds(record.shape.getBounds(),{maxZoom:12,padding:[30,30]});
  el('atlas-map').scrollIntoView({behavior:'smooth',block:'center'})};
 function exportRows(){const heads=[...el('atlas-table-head').querySelectorAll('th')].map(t=>t.textContent),safe=x=>'"'+String(x??'').replace(/^[=+@-]/,"'$&").replaceAll('"','""')+'"';const text=[[t('at.csvSource'),t('at.csvArtefact')],['SHA256',packet.meta.sha256],[t('at.csvLayer'),layer],[t('at.csvRef'),el('atlas-context').textContent],heads,...visibleRows.map(r=>r.cells)].map(r=>r.map(safe).join(';')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='minera-goias-atlas-'+layer+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+// The two points share one track and may cross: yearRange orders them, so either point can move either way.
 function yearLabel(){
  el('atlas-year-label').textContent=rangeLabel();
- const [a,b]=yearRange(),ticks=el('atlas-year-ticks');
- if(!ticks.children.length)ticks.innerHTML=YEARS.map((y,i)=>`<button type="button" data-year-index="${i}">${escape(y)}</button>`).join('');
+ const [a,b]=yearRange(),ticks=el('atlas-year-ticks'),last=YEARS.length-1,fill=el('atlas-year-fill');
+ fill.style.left=a/last*100+'%';fill.style.right=(last-b)/last*100+'%';
+ if(!ticks.children.length){ticks.innerHTML=YEARS.map((y,i)=>`<button type="button" data-year-index="${i}">${escape(y)}</button>`).join('');
+  ticks.style.gridTemplateColumns=`1fr repeat(${last-1},2fr) 1fr`}
  [...ticks.children].forEach((button,i)=>{const inside=i>=a&&i<=b;
   button.classList.toggle('active',inside);
   button.classList.toggle('edge',i===a||i===b);
