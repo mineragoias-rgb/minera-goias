@@ -12,13 +12,13 @@ dicionário dos campos e a correspondência com o `production_history` do motor.
 
 Em resumo:
 - **Nível estado** (745 linhas, 2010–2025): produção observada de Goiás no AMB, por mineral, ano e base.
-- **Nível operação** (4.831 linhas, 2022–2025, 931 processos): estimativa, o total do estado rateado pela CFEM
+- **Nível operação** (4.819 linhas, 2022–2025, 931 processos): estimativa, o total do estado rateado pela CFEM
   recolhida por processo. Os dois níveis não se somam.
 
 Para fechar o formato antes da Entrega 1 (21/09), precisamos que vocês confirmem:
 
 1. **Nível:** o motor vai usar a produção estimada por operação ou o total observado do estado?
-2. **`operation_id` vazio:** 457 linhas estimadas (18,4% da produção estimada) são de processos sem
+2. **`operation_id` vazio:** 457 linhas estimadas (18,9% da produção estimada) são de processos sem
    poligonal no SIGMINE. Podemos usar o número do processo (`processo_anm`) como identificador, ou vocês preferem agrupar ou deixar essas linhas
    de fora?
 3. **Base de produção:** a aba usa `ROM` e `beneficiada`, e 29 dos 33 minerais têm as duas. Qual base vocês

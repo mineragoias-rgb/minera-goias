@@ -286,14 +286,117 @@ p("|---:|---|---:|---|---|")
 for x in cfem:
     p(f"| {x['linha']} | {x['chave']} | {x['antes']} | {x['depois']} | {x['evidencia']} |")
 p()
+# ------------------------------------------------------------------------------------------------ tratamentos no pipeline
+# Tudo o que a base consolidada faz com os dados, além das cópias corrigidas acima: contado na planilha v17 e no pacote do
+# Squad 2 a cada execução, para o registro não ficar desatualizado. Nada disso altera os arquivos brutos.
+from collections import Counter
+import openpyxl
+DOC = os.path.join(SQ1, "Bases consolidadas", "documentacao")
+wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v17.xlsx"), read_only=True)
+
+
+def _aba(nome):
+    it = wb[nome].iter_rows(min_row=4, values_only=True)
+    cab = list(next(it))
+    return cab, [r for r in it if r and r[0] is not None]
+
+
+def fmtn(n):
+    return format(n, ",").replace(",", ".")
+
+
+cab8, f08 = _aba("08_fato_producao_energia")
+i8 = {c: k for k, c in enumerate(cab8)}
+trat, stat = Counter(), Counter()
+cnpj = contido = 0
+for r in f08:
+    if r[i8["tratamento"]]:
+        trat[(r[i8["source_id"]], r[i8["tratamento"]])] += 1
+    stat[(r[i8["source_id"]], r[i8["status_validacao"]])] += 1
+    n = r[i8["notas"]] or ""
+    cnpj += "raiz do CNPJ pagador" in n
+    contido += "contido expresso" in n
+cab12, f12 = _aba("12_interface_squad1_squad2")
+i12 = {c: k for k, c in enumerate(cab12)}
+obs12 = Counter()
+for r in f12:
+    o = r[i12["observacao"]] or ""
+    for chave in ("recolhimento atípico", "sem poligonal", "subitem de", "ROM sem abertura"):
+        obs12[chave] += chave in o
+op12 = sum(1 for r in f12 if r[i12["nivel_agregacao"]] == "operacao")
+cw = {n: len(_aba(n)[1]) for n in ("01b_crosswalk_pente_fino", "02b_crosswalk_empresas", "05b_crosswalk_municipios", "06b_crosswalk_recmin")}
+wb.close()
+with open(os.path.join(DOC, "pacote_squad2", "coprodutos_rateio_valor_2025.csv"), encoding="utf-8-sig") as f:
+    coprod = list(csv.DictReader(f, delimiter=";"))
+FONTE = {"SRC_ANM_CFEM": "CFEM", "SRC_ANM_PROD_BRUTA": "AMB bruta", "SRC_ANM_PROD_BENEF": "AMB beneficiada"}
+DESC = {"valido": "entra nas somas",
+        "quantidade_excluida_da_soma_09b": "quantidade da CFEM corrompida ou implausível (R$ por unidade > 1.000x abaixo da mediana do mineral): fora da soma em t; o R$ fica (aba 09b)",
+        "alerta_processo_09c": "processo com quantidade da CFEM implausível frente ao AMB: mantido e sinalizado (aba 09c)",
+        "alerta_producao_repetida": "a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas",
+        "rom_minerio_associado": "ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação",
+        "valor_nao_numerico": "valor não numérico na fonte"}
+p("## Tratamentos feitos nas bases (pipeline da base consolidada)")
+p()
+p("Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/`, "
+  "planilha `prototipo_bases_consolidadas_v17.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: "
+  "o valor original fica na aba 08 (`valor_original`, `unidade_original`) e o tratamento fica registrado na própria linha (`tratamento`, "
+  "`status_validacao`, `notas`). As contagens abaixo são lidas da planilha e do pacote do Squad 2 a cada execução deste script.")
+p()
+p("### Conversões de unidade (aba 08, coluna `tratamento`)")
+p()
+p("| Base | Tratamento | Linhas |")
+p("|---|---|---:|")
+for (src, t), n in sorted(trat.items(), key=lambda kv: (kv[0][0], -kv[1])):
+    p(f"| {FONTE.get(src, src)} | {t} | {fmtn(n)} |")
+p()
+p("### Situação das linhas (aba 08, coluna `status_validacao`)")
+p()
+p("| Base | Status | Linhas | O que significa |")
+p("|---|---|---:|---|")
+for (src, st_), n in sorted(stat.items(), key=lambda kv: (kv[0][0], -kv[1])):
+    p(f"| {FONTE.get(src, src)} | `{st_}` | {fmtn(n)} | {DESC.get(st_, '')} |")
+p()
+p("### Identificação e padronização")
+p()
+p("| Tratamento | Onde | Quantidade |")
+p("|---|---|---:|")
+p(f"| Grafias das substâncias das fontes ligadas às categorias da ANM | aba 01b | {fmtn(cw['01b_crosswalk_pente_fino'])} grafias |")
+p(f"| Titulares e pagadores ligados a uma empresa pela raiz do CNPJ (CPF mascarado) | aba 02b | {fmtn(cw['02b_crosswalk_empresas'])} registros |")
+p(f"| Empresa pela raiz do CNPJ pagador da CFEM quando o processo não tem titular no Cadastro | aba 08 (notas) | {fmtn(cnpj)} linhas |")
+p(f"| Nomes de municípios das fontes ligados ao código do IBGE | aba 05b | {fmtn(cw['05b_crosswalk_municipios'])} grafias |")
+p(f"| Ocorrências do RECMIN ligadas às categorias minerais | aba 06b | {fmtn(cw['06b_crosswalk_recmin'])} registros |")
+p(f"| Contido com a indicação do que é medido (Cu, Ni, BaSO4…) | aba 08 (notas) | {fmtn(contido)} linhas |")
+p("| Recortes de Goiás: CFEM (UF = GO) e Cadastro Mineiro (município de GO ou poligonal em GO) | `Dados brutos/LEIA-ME.md` | — |")
+p()
+p("### Divisão da produção por empresa e operação (aba 12 e pacote do Squad 2)")
+p()
+p("| Tratamento | Regra | Quantidade |")
+p("|---|---|---:|")
+p(f"| Total do estado (AMB) dividido por processo | parcela do processo na CFEM em R$ do mineral e ano; a CFEM em t fica só como sensibilidade "
+  f"(`production_t_rateio_por_t`); margem de ±10% medida contra as empresas | {fmtn(op12)} linhas de operação |")
+p(f"| Mês de recolhimento atípico trocado pela mediana do processo (só no rateio) | R$ > 3x e t > 10x a mediana dos outros meses, com R$/t abaixo "
+  f"de metade do usual, em processos com 6 meses ou mais no ano | {fmtn(obs12['recolhimento atípico'])} linhas |")
+p(f"| CFEM declarada como subitem somada ao mineral do AMB (ex.: minério de cobre → cobre) | crosswalk da 01b | {fmtn(obs12['subitem de'])} linhas |")
+p(f"| Operação sem coordenadas (processo sem poligonal no SIGMINE de GO) | fica com o município da CFEM | {fmtn(obs12['sem poligonal'])} linhas |")
+p(f"| ROM de minério associado sem abertura por operação | status `rom_minerio_associado` | {fmtn(obs12['ROM sem abertura'])} linhas de estado |")
+p(f"| Coprodutos: energia da CCEE dividida por valor (ISO 14044) | carga dedicada fica com o produto; carga compartilhada por valor a preços de 2025; "
+  f"coproduto abaixo de 5% fica no principal; energia conservada | {len(coprod)} linhas em `coprodutos_rateio_valor_2025.csv` |")
+p("| Prévia de 2026 pela CFEM | jan–jun 2026 ÷ jan–jun 2025 por empresa; em t só se o R$/t fica estável (±30%), senão em R$ | `estimativa_2026_pela_cfem.csv` |")
+p()
+p("### Não feito de propósito")
+p()
+p("- Linhas repetidas da CFEM **não são removidas** (só com resposta da ANM).")
+p("- m3, m2 e litro da CFEM **não são convertidos** para t: falta a densidade; ficam fora da soma em t.")
+p("- Nenhum valor em R$ é alterado em nenhuma base.")
+p()
 p("## Registrado e não corrigido")
 p()
 p("| Caso | Por que não foi corrigido |")
 p("|---|---|")
 p("| Nióbio, Goiás, beneficiada 2024–2025 (3,3–3,6 Mt contra ~25 kt antes; fator ~10^2) | O fator não é de unidade: a CMOC parece ter passado a "
   "declarar outro produto (minério tratado). Está entre as perguntas para a ANM em auditoria_unidades_anm.md |")
-p("| Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade. "
-  "Não somar com o ROM dos outros minerais |")
+p("| Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade: "
+  "na base, status rom_minerio_associado (fora das somas de ROM e da abertura por operação) |")
 p("| Ferro, Goiás, beneficiada 2024 (1,22 Mt por R$ 274 mil) | Fator não é potência de 10 |")
 p("| Titânio, Goiás, contido 2022 e ROM 2023 | Sem valor em R$ para confirmar o fator |")
 p("| Linhas repetidas da CFEM | Removidas só com resposta da ANM (alinhado com o Rodrigo) |")

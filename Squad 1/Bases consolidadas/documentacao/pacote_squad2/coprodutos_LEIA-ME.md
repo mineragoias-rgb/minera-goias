@@ -26,6 +26,6 @@ Gerado por `base_consolidada_work/scripts/gerar_coprodutos.py` (chamado no fim d
   com a sua intensidade rateada; ou (b) manter "cobre equivalente" (toda a energia no cobre), como está, e registrar isso.
 - **CMOC:** só a carga de rejeitos é compartilhada; o efeito no fosfato é pequeno. O nióbio está fora do motor: as cargas dele não entram na previsão.
 - **Mosaic, Anglo e Serra Grande:** coproduto abaixo de 5% do valor; nada muda.
-- **Bário:** não é coproduto vendido; o ROM de bário do AMB é o mesmo minério do nióbio contado de novo — não somar com o ROM do nióbio.
+- **Bário:** o ROM de bário do AMB (~5,6 Mt/ano, sem valor) é a rocha que a CMOC lavra para nióbio e fosfato contada de novo — na base, status `rom_minerio_associado`, fora das somas de ROM e da abertura por operação. A barita está no contido (60 a 196 mil t de BaSO4/ano, 1–3,5% do minério); só 0 a 5 mil t/ano viram produto vendido (CFEM de barita da CMOC). Pouca massa e sem carga própria na CCEE: a energia fica com nióbio e fosfato. O mesmo vale para o cobalto do minério de níquel e a prata do minério de ouro e cobre.
 
 Decidir entre (a) e (b) é do Squad 2: mexe na lista de minerais do motor. Esta tabela não altera nenhum parâmetro deles.

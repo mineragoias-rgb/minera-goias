@@ -52,9 +52,10 @@ ETAPAS = [
      ["data/mapa"], ["inventario_p3m"], ["tests/test_mapa.py"]),
     ("pacote_squad2", [PY, "base_consolidada_work/scripts/gerar_pacote_squad2.py"], S1,
      [f"{S1}/documentacao/pacote_squad2"], [], []),
-    # cópias corrigidas dos brutos da ANM (unidade fora de escala), com o registro de cada célula alterada; o bruto não muda
+    # cópias corrigidas dos brutos da ANM (unidade fora de escala), com o registro de cada célula alterada e dos tratamentos
+    # do pipeline (lê a planilha e a tabela de coprodutos do pacote); o bruto não muda
     ("dados_corrigidos", [PY, "base_consolidada_work/scripts/gerar_dados_corrigidos.py"], S1,
-     ["Squad 1/Dados corrigidos"], [], ["tests/test_dados_corrigidos.py"]),
+     ["Squad 1/Dados corrigidos"], ["pacote_squad2"], ["tests/test_dados_corrigidos.py"]),
     ("panorama", [PY, "scripts/build_panorama_base.py"], ".",
      ["data/panorama/panorama.json"], [], ["tests/test_panorama.py"]),
     ("producao", [PY, "scripts/build_producao_base.py"], ".",

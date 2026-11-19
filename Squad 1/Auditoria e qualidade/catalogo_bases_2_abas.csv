@@ -349,6 +349,8 @@ MERCADO_LEITURA;public/data/mercado/projetos_go_v1.json;noticias;5;11;lista de r
 NOTICIAS_RSS;public/data/noticias/latest.json;itens;180;12;lista de registros
 NOTICIAS_RSS;public/data/noticias/latest.json;meses;13;7;lista de registros
 SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/energy_intensity.csv;(arquivo único);5;6;CSV, utf-8-sig, separador ','
+SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/project_maturity_weights.csv;(arquivo único);7;6;CSV, utf-8-sig, separador ','
+SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/project_pipeline.csv;(arquivo único);1;8;CSV, utf-8-sig, separador ','
 SQUAD2_PARAMETROS;Squad 2/modello_reale/parameters/scenarios.csv;(arquivo único);3;5;CSV, utf-8-sig, separador ','
 SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/base_intensidade_energetica_v1.csv;(arquivo único);24;50;CSV, utf-8-sig, separador ','
 SQUAD2_INTENSIDADE;Squad 2/intensidade_energetica/coeficiente_estadual_para_modelo_v1.csv;(arquivo único);5;19;CSV, utf-8-sig, separador ','
@@ -358,8 +360,8 @@ BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consoli
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01_dim_minerais;68;16;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
-BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02_dim_empresas;5067;20;dados
-BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02b_crosswalk_empresas;77;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02_dim_empresas;5078;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;03_dim_operacoes;16876;35;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;04_dim_projetos;3404;37;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;04b_eventos_anm_classificados;292;7;auditoria/apoio
@@ -373,14 +375,193 @@ BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consoli
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;10_cons_municipio_ano;965;28;dados
-BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;11_cons_empresa_ano_mineral;10219;29;dados
-BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;12_interface_squad1_squad2;5576;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;11_cons_empresa_ano_mineral;10244;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;12_interface_squad1_squad2;5564;29;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;13_mapas_camadas;12;23;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;14_dicionario_dados;439;12;dados
 BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx;14b_validacoes_governanca;36;4;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;00_LEIA-ME;30;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;02_dim_empresas;7;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;03_dim_operacoes;7;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;04_dim_projetos;2;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;05_dim_municipios;8;12;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;06_dim_ocorrencias_geologicas;2;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;10_cons_municipio_ano;8;17;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;11_cons_empresa_ano_mineral;6;19;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;13_mapas_camadas;6;12;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v1_base1.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;00_LEIA-ME;36;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;02_dim_empresas;7;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;03_dim_operacoes;7;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;04_dim_projetos;2;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;06_dim_ocorrencias_geologicas;2;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;11_cons_empresa_ano_mineral;6;19;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;13_mapas_camadas;6;12;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v3.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;00_LEIA-ME;39;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;03_dim_operacoes;7;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;04_dim_projetos;2;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;06_dim_ocorrencias_geologicas;2;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;13_mapas_camadas;6;12;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v4.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;00_LEIA-ME;42;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;03_dim_operacoes;16875;27;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;04_dim_projetos;2;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;06_dim_ocorrencias_geologicas;2;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;13_mapas_camadas;11;15;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;00_LEIA-ME;42;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;03_dim_operacoes;16875;27;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;04_dim_projetos;2;16;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;06_dim_ocorrencias_geologicas;1796;46;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;06b_crosswalk_recmin;79;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;13_mapas_camadas;11;15;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5a_ocorrencias.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;00_LEIA-ME;42;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;03_dim_operacoes;16875;27;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;04_dim_projetos;3403;36;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;04b_eventos_anm_classificados;292;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;06_dim_ocorrencias_geologicas;1796;46;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;06b_crosswalk_recmin;79;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;12_interface_squad1_squad2;4;13;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;13_mapas_camadas;11;15;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5b_projetos.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;00_LEIA-ME;42;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;03_dim_operacoes;16875;27;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;04_dim_projetos;3403;36;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;04b_eventos_anm_classificados;292;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;06_dim_ocorrencias_geologicas;1796;46;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;06b_crosswalk_recmin;79;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;08_fato_producao_energia;9;25;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;12_interface_squad1_squad2;5564;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;13_mapas_camadas;11;15;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5c_interface.xlsx;14_dicionario_dados;183;4;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;00_LEIA-ME;42;2;explicação da planilha
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;01_dim_minerais;67;7;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;01b_crosswalk_pente_fino;367;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;01c_rochas_por_tipo_de_uso;222;10;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;02_dim_empresas;5077;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;02b_crosswalk_empresas;194;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;03_dim_operacoes;16875;27;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;04_dim_projetos;3403;36;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;04b_eventos_anm_classificados;292;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;05_dim_municipios;246;9;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;05b_crosswalk_municipios;476;6;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;06_dim_ocorrencias_geologicas;1796;46;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;06b_crosswalk_recmin;79;7;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;07_dim_fontes;10;11;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;08_fato_producao_energia;158265;32;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;09_cons_mineral_ano;1356;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;09b_auditoria_cfem_quantidade;89;14;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;09c_alertas_cfem_processo;37;16;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;10_cons_municipio_ano;964;20;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;11_cons_empresa_ano_mineral;10243;21;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;12_interface_squad1_squad2;5564;29;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;13_mapas_camadas;11;15;dados
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;13b_auditoria_mapas;52;5;auditoria/apoio
+BASE_CONSOLIDADA;Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx;14_dicionario_dados;183;4;dados
+PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/coprodutos_rateio_valor_2025.csv;(arquivo único);13;26;"CSV, utf-8-sig, separador ';'"
 PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/dicionario_interface_squad1_squad2.csv;(arquivo único);30;12;CSV, utf-8-sig, separador ','
-PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv;(arquivo único);5576;30;CSV, utf-8-sig, separador ','
+PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/estimativa_2026_pela_cfem.csv;(arquivo único);727;13;"CSV, utf-8-sig, separador ';'"
+PACOTE_SQUAD2;Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv;(arquivo único);5564;30;CSV, utf-8-sig, separador ','
 SITE_ATLAS;data/atlas/atlas.json;municipalities;246;5;lista de registros
 SITE_ATLAS;data/atlas/atlas.json;energy;146;11;lista de registros
 SITE_ATLAS;data/atlas/atlas.json;coef;8;16;lista de registros
@@ -393,7 +574,7 @@ SITE_ATLAS;data/atlas/atlas.json;investment;23;2;lista de registros
 SITE_ATLAS;data/atlas/atlas.json;projects;3403;13;tabela (cols/rows)
 SITE_ATLAS;data/atlas/atlas.json;occurrences;1796;12;tabela (cols/rows)
 SITE_ATLAS;data/atlas/atlas.json;charts;7;;dicionário de blocos: cfem_substances, cfem_substance_years, cfem_concentration, rom_minerals, operation_coverage, projects_minerals, occurrences_substances
-SITE_PANORAMA;data/panorama/panorama.json;cfem;13486;7;tabela (cols/rows)
+SITE_PANORAMA;data/panorama/panorama.json;cfem;13248;7;tabela (cols/rows)
 SITE_PANORAMA;data/panorama/panorama.json;amb_go;429;8;tabela (cols/rows)
 SITE_PANORAMA;data/panorama/panorama.json;amb_br;852;4;tabela (cols/rows)
 SITE_PANORAMA;data/panorama/panorama.json;amb_uf;432;4;tabela (cols/rows)
@@ -412,5 +593,5 @@ SITE_MAPA;data/mapa/tabelas/municipios.json;linhas;246;8;lista de registros
 SITE_MAPA;data/mapa/tabelas/processos_complemento.json;(documento);;6;JSON: id, processos, titular, municipios, mineral, dic
 SITE_MAPA;data/mapa/tabelas/radar_projetos.json;linhas;1059;23;lista de registros
 SITE_SIMULADOR;public/data/simulador/parametros_v1.json;cenarios;3;7;lista de registros
-SITE_SIMULADOR;public/data/simulador/parametros_v1.json;minerais;5;12;lista de registros
-SITE_SIMULADOR;public/data/simulador/parametros_v1.json;fontes;8;11;lista de registros
+SITE_SIMULADOR;public/data/simulador/parametros_v1.json;minerais;5;16;lista de registros
+SITE_SIMULADOR;public/data/simulador/parametros_v1.json;fontes;10;11;lista de registros

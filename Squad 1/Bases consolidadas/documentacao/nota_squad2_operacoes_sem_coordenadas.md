@@ -4,7 +4,7 @@ Gerada por `gerar_nota_sem_coordenadas.py` a partir da planilha; a lista complet
 
 ## O que é
 
-No nível `operacao` da aba `12_interface_squad1_squad2`, a produção observada do AMB em Goiás é aberta por processo pela participação na CFEM recolhida. Das 4.831 linhas desse nível, **457 (9,5%) não têm `operation_id`, `latitude` nem `longitude`**. Elas vêm de 112 processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás (86 da série 96xxxx, 25 da série 86xxxx, 1 da série 92xxxx); nenhum está na aba 03.
+No nível `operacao` da aba `12_interface_squad1_squad2`, a produção observada do AMB em Goiás é aberta por processo pela participação na CFEM recolhida. Das 4.819 linhas desse nível, **457 (9,5%) não têm `operation_id`, `latitude` nem `longitude`**. Elas vêm de 112 processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás (86 da série 96xxxx, 25 da série 86xxxx, 1 da série 92xxxx); nenhum está na aba 03.
 
 A produção dessas linhas **não se perde**: o total de cada mineral e ano continua igual ao do estado. Só a localização da operação fica desconhecida. 457 das 457 linhas trazem o município de arrecadação da CFEM (`municipality_id`).
 
@@ -14,7 +14,7 @@ Parcela da produção estimada por operação que fica sem coordenadas (soma ent
 
 | Base | 2022 | 2023 | 2024 | 2025 |
 |---|---:|---:|---:|---:|
-| ROM | 25,4% | 23,5% | 16,5% | 18,2% |
+| ROM | 26,6% | 24,6% | 17,3% | 18,2% |
 | beneficiada | 10,2% | 8,4% | 6,8% | 9,9% |
 
 Minerais mais afetados (produção bruta, ROM):

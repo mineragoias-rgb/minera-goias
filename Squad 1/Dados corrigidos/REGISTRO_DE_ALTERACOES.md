@@ -575,12 +575,77 @@ Todas as linhas:
 | 40828 | 2026-06 · processo 850037/1975 · AMIANTO · MINAÇU | 1 t | (vazia) | R$ 809,951.85 recolhidos; R$ 8.1e+05 recolhidos por t, fora da faixa de R$ 0.2751 a R$ 629.1/t que o AMB de Goiás dá para Amianto em 2025 (alíquota de 2.0% sobre o valor por t de ROM e de produto, folga de 10x) |
 | 40959 | 2026-07 · processo 960146/2003 · MINÉRIO DE NÍQUEL · BARRO ALTO | 1840205,38 t | (vazia) | R$ 1,781,902.40 recolhidos; R$ 0.9683 recolhidos por t, fora da faixa de R$ 2.181 a R$ 3,745/t que o AMB de Goiás dá para Níquel em 2025 (alíquota de 2.0% sobre o valor por t de ROM e de produto, folga de 10x) |
 
+## Tratamentos feitos nas bases (pipeline da base consolidada)
+
+Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/`, planilha `prototipo_bases_consolidadas_v17.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: o valor original fica na aba 08 (`valor_original`, `unidade_original`) e o tratamento fica registrado na própria linha (`tratamento`, `status_validacao`, `notas`). As contagens abaixo são lidas da planilha e do pacote do Squad 2 a cada execução deste script.
+
+### Conversões de unidade (aba 08, coluna `tratamento`)
+
+| Base | Tratamento | Linhas |
+|---|---|---:|
+| CFEM | m3: sem conversão para t (sem densidade), fora da soma em t | 5.849 |
+| CFEM | kg → t (× 0,001) | 2.053 |
+| CFEM | l: sem conversão para t (sem densidade), fora da soma em t | 1.606 |
+| CFEM | g → t (× 0,000001) | 653 |
+| CFEM | m2: sem conversão para t (sem densidade), fora da soma em t | 580 |
+| CFEM | quantidade implausível: R$ por unidade mais de 1.000× abaixo da mediana do mesmo mineral e unidade — fora da soma de quantidade (09b) | 89 |
+| CFEM | ct → t (× 0,0000002) | 2 |
+| AMB beneficiada | kg → t (× 0,001) | 1.985 |
+| AMB beneficiada | ct → t (× 0,0000002) | 330 |
+| AMB beneficiada | unidade não informada na fonte | 274 |
+| AMB bruta | kg → t (× 0,001) | 535 |
+| AMB bruta | ct → t (× 0,0000002) | 89 |
+| AMB bruta | unidade não informada na fonte | 12 |
+
+### Situação das linhas (aba 08, coluna `status_validacao`)
+
+| Base | Status | Linhas | O que significa |
+|---|---|---:|---|
+| CFEM | `valido` | 81.464 | entra nas somas |
+| CFEM | `alerta_processo_09c` | 598 | processo com quantidade da CFEM implausível frente ao AMB: mantido e sinalizado (aba 09c) |
+| CFEM | `quantidade_excluida_da_soma_09b` | 89 | quantidade da CFEM corrompida ou implausível (R$ por unidade > 1.000x abaixo da mediana do mineral): fora da soma em t; o R$ fica (aba 09b) |
+| AMB beneficiada | `valido` | 29.663 | entra nas somas |
+| AMB beneficiada | `alerta_producao_repetida` | 16 | a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas |
+| AMB bruta | `valido` | 46.217 | entra nas somas |
+| AMB bruta | `alerta_producao_repetida` | 131 | a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas |
+| AMB bruta | `rom_minerio_associado` | 87 | ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação |
+
+### Identificação e padronização
+
+| Tratamento | Onde | Quantidade |
+|---|---|---:|
+| Grafias das substâncias das fontes ligadas às categorias da ANM | aba 01b | 367 grafias |
+| Titulares e pagadores ligados a uma empresa pela raiz do CNPJ (CPF mascarado) | aba 02b | 194 registros |
+| Empresa pela raiz do CNPJ pagador da CFEM quando o processo não tem titular no Cadastro | aba 08 (notas) | 5.373 linhas |
+| Nomes de municípios das fontes ligados ao código do IBGE | aba 05b | 476 grafias |
+| Ocorrências do RECMIN ligadas às categorias minerais | aba 06b | 79 registros |
+| Contido com a indicação do que é medido (Cu, Ni, BaSO4…) | aba 08 (notas) | 3.070 linhas |
+| Recortes de Goiás: CFEM (UF = GO) e Cadastro Mineiro (município de GO ou poligonal em GO) | `Dados brutos/LEIA-ME.md` | — |
+
+### Divisão da produção por empresa e operação (aba 12 e pacote do Squad 2)
+
+| Tratamento | Regra | Quantidade |
+|---|---|---:|
+| Total do estado (AMB) dividido por processo | parcela do processo na CFEM em R$ do mineral e ano; a CFEM em t fica só como sensibilidade (`production_t_rateio_por_t`); margem de ±10% medida contra as empresas | 4.819 linhas de operação |
+| Mês de recolhimento atípico trocado pela mediana do processo (só no rateio) | R$ > 3x e t > 10x a mediana dos outros meses, com R$/t abaixo de metade do usual, em processos com 6 meses ou mais no ano | 17 linhas |
+| CFEM declarada como subitem somada ao mineral do AMB (ex.: minério de cobre → cobre) | crosswalk da 01b | 144 linhas |
+| Operação sem coordenadas (processo sem poligonal no SIGMINE de GO) | fica com o município da CFEM | 457 linhas |
+| ROM de minério associado sem abertura por operação | status `rom_minerio_associado` | 4 linhas de estado |
+| Coprodutos: energia da CCEE dividida por valor (ISO 14044) | carga dedicada fica com o produto; carga compartilhada por valor a preços de 2025; coproduto abaixo de 5% fica no principal; energia conservada | 13 linhas em `coprodutos_rateio_valor_2025.csv` |
+| Prévia de 2026 pela CFEM | jan–jun 2026 ÷ jan–jun 2025 por empresa; em t só se o R$/t fica estável (±30%), senão em R$ | `estimativa_2026_pela_cfem.csv` |
+
+### Não feito de propósito
+
+- Linhas repetidas da CFEM **não são removidas** (só com resposta da ANM).
+- m3, m2 e litro da CFEM **não são convertidos** para t: falta a densidade; ficam fora da soma em t.
+- Nenhum valor em R$ é alterado em nenhuma base.
+
 ## Registrado e não corrigido
 
 | Caso | Por que não foi corrigido |
 |---|---|
 | Nióbio, Goiás, beneficiada 2024–2025 (3,3–3,6 Mt contra ~25 kt antes; fator ~10^2) | O fator não é de unidade: a CMOC parece ter passado a declarar outro produto (minério tratado). Está entre as perguntas para a ANM em auditoria_unidades_anm.md |
-| Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade. Não somar com o ROM dos outros minerais |
+| Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade: na base, status rom_minerio_associado (fora das somas de ROM e da abertura por operação) |
 | Ferro, Goiás, beneficiada 2024 (1,22 Mt por R$ 274 mil) | Fator não é potência de 10 |
 | Titânio, Goiás, contido 2022 e ROM 2023 | Sem valor em R$ para confirmar o fator |
 | Linhas repetidas da CFEM | Removidas só com resposta da ANM (alinhado com o Rodrigo) |
