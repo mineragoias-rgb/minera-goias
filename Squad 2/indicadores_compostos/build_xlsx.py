@@ -7,6 +7,9 @@ from pathlib import Path
 REPO=str(Path(__file__).resolve().parents[2])
 P=json.load(open(f"{REPO}/data/panorama/panorama.json")); D=P["dims"]
 mun=pd.DataFrame(D["mun"],columns=["cod","nome","pop","pib"]); mun.index.name="mun"
+# população: estimativa IBGE 2025 (1º de julho), baixada do PDF oficial (data/insumos)
+_pop=pd.read_csv(f"{REPO}/data/insumos/ibge_populacao_estimada_2025_go.csv").set_index("cod_ibge")["pop_estimada_2025_01jul"]
+mun["pop"]=mun.cod.astype(int).map(_pop).astype(float)
 cf=pd.DataFrame(P["cfem"]["rows"],columns=P["cfem"]["cols"])
 pr=pd.DataFrame(P["proc"]["rows"],columns=P["proc"]["cols"])
 rd=pd.DataFrame(P["rod"]["rows"],columns=P["rod"]["cols"]); rd=rd[rd.mun>=0]
@@ -73,7 +76,7 @@ def head(ws,row=1):
     for c in ws[row]: c.fill=H; c.font=HF; c.alignment=Alignment(wrap_text=True,vertical="center")
 # Insumos
 wi=out.active; wi.title="Insumos"
-wi.append(["cod_ibge","município","população (repositório)","PIB R$ (repositório)","área territorial km²","CFEM 2025 R$","CFEM 2024 R$"])
+wi.append(["cod_ibge","município","população estimada IBGE 2025","PIB R$ (repositório)","área territorial km²","CFEM 2025 R$","CFEM 2024 R$"])
 for i,(k,m) in enumerate(mun.iterrows()):
     wi.append([int(m.cod),m.nome,int(m["pop"]) if pd.notna(m["pop"]) else None,float(m.pib) if pd.notna(m.pib) else None,m.area_km2,float(R1[k]),float(R1_24[k])])
 head(wi)
@@ -136,9 +139,9 @@ txt=["MINERA Goiás · Frente 8 · Banco de 20 indicadores por município · ano
 "HHI (S2, T2) é direto: valor alto = concentração alta. Nenhum indicador foi invertido.",
 "Células vazias = indicador indefinido (ex.: crescimento com base zero; HHI sem processos; Sharpe sem variação).",
 "","RESSALVAS (leia antes de usar)",
-"1) População: o repositório traz um único valor por município (rótulo ano 2026). Não é a série 2022–2025 do IBGE. Para trocar, edite a aba Insumos, coluna C; R3 recalcula.",
+"1) População: estimativa IBGE 2025 (1º de julho), baixada do PDF oficial POP2025_20260828 (data/insumos). Para trocar, edite a aba Insumos, coluna C; R3 recalcula.",
 "2) PIB: o repositório traz o PIB de 2023, não o de 2022 pedido. Para trocar, edite a aba Insumos, coluna D; R4 recalcula. R4 mistura CFEM 2025 com PIB defasado.",
-"3) Não foi possível baixar os arquivos do IBGE: o ambiente bloqueia o acesso externo (erro 403 do proxy). Anexe a tabela de população estimada e o PIB 2022 para substituir os insumos.",
+"3) PIB 2022 do IBGE não foi baixado (acesso externo restrito neste ambiente); anexe a tabela do PIB dos Municípios 2022 para substituir a coluna D.",
 "4) Processos e áreas são o estoque atual (fase = status atual) de processos abertos até 2025. Não há histórico de fase.",
 "5) % de área usa a área territorial (aba 10 do repositório). Áreas de processos se sobrepõem, então o valor pode passar de 100%.",
 "6) Áreas de rodadas (A2, A3) corrigidas: área ÷ 100 e um registro por processo. Isso difere dos valores usados no IPMM entregue antes (que estavam inflados).",

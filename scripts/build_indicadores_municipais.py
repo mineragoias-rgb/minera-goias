@@ -85,23 +85,23 @@ IND = [
 
 # Combinações fixas: pesos de 0 a 100 sobre indicadores já normalizados de 0 a 1.
 PRESETS = [
- ("arrecadacao", ("Arrecadação", "Collection"), {"R1": 50, "R3": 50}),
- ("dependencia", ("Dependência fiscal", "Fiscal dependence"), {"R4": 60, "R3": 40}),
- ("risco", ("Risco da receita", "Revenue risk"), {"R5": 40, "S2": 30, "T2": 30}),
- ("dinamica", ("Dinâmica e regularidade", "Dynamics and regularity"), {"R2": 50, "R6": 50}),
- ("atividade", ("Atividade minerária", "Mining activity"), {"P1": 25, "P2": 25, "P3": 25, "P4": 25}),
- ("territorio", ("Ocupação do território", "Territory occupation"), {"A4": 40, "A5": 30, "A6": 30}),
- ("diversidade", ("Diversidade de substâncias e titulares", "Substance and holder diversity"), {"S1": 50, "T1": 50}),
- ("concentracao", ("Concentração (HHI)", "Concentration (HHI)"), {"S2": 50, "T2": 50}),
+ ("arrecadacao", ("Arrecadação", "Collection"), {"R1": 0.5, "R3": 0.5}),
+ ("dependencia", ("Dependência fiscal", "Fiscal dependence"), {"R4": 0.6, "R3": 0.4}),
+ ("risco", ("Risco da receita", "Revenue risk"), {"R5": 0.4, "S2": 0.3, "T2": 0.3}),
+ ("dinamica", ("Dinâmica e regularidade", "Dynamics and regularity"), {"R2": 0.5, "R6": 0.5}),
+ ("atividade", ("Atividade minerária", "Mining activity"), {"P1": 0.25, "P2": 0.25, "P3": 0.25, "P4": 0.25}),
+ ("territorio", ("Ocupação do território", "Territory occupation"), {"A4": 0.4, "A5": 0.3, "A6": 0.3}),
+ ("diversidade", ("Diversidade de substâncias e titulares", "Substance and holder diversity"), {"S1": 0.5, "T1": 0.5}),
+ ("concentracao", ("Concentração (HHI)", "Concentration (HHI)"), {"S2": 0.5, "T2": 0.5}),
 ]
 
 RESSALVAS = (
- ["População e PIB vêm do repositório (um valor por município; PIB de 2023), não da série estimada do IBGE. CFEM per capita e CFEM/PIB herdam essa defasagem.",
+ ["A população é a estimativa do IBGE para 1º de julho de 2025. O PIB é o do repositório (2023), não o de 2022 pedido, e não foi baixado do IBGE; CFEM/PIB mistura CFEM 2025 com PIB defasado.",
   "Processos e áreas são o estoque atual (fase = status atual) dos processos abertos até 2025. Não há histórico de fase.",
   "O % da área usa a área territorial do município e pode passar de 100% por sobreposição de processos.",
   "Volatilidade e Sharpe usam os 12 meses de 2025 e só existem onde há CFEM. A coluna de meses ativos ajuda a avaliar a confiança.",
   "As composições são exploratórias: o ranking depende dos pesos e da normalização escolhidos. Nenhum indicador ou composição foi validado por testes de índice."],
- ["Population and GDP come from the repository (one value per municipality; GDP 2023), not from the IBGE estimate series. CFEM per capita and CFEM/GDP inherit this lag.",
+ ["Population is the IBGE estimate for 1 July 2025. GDP is the repository's (2023), not the 2022 figure requested, and was not downloaded from IBGE; CFEM/GDP mixes 2025 CFEM with lagged GDP.",
   "Processes and areas are the current stock (phase = current status) of processes opened up to 2025. There is no phase history.",
   "The % of area uses the municipal territory and may exceed 100% because of overlapping processes.",
   "Volatility and Sharpe use the 12 months of 2025 and exist only where there is CFEM. The active-months column helps judge confidence.",

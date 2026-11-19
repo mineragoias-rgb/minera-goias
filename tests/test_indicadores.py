@@ -80,6 +80,7 @@ class PacoteTests(unittest.TestCase):
         for pr in self.p['presets']:
             self.assertTrue(pr['pesos'] and set(pr['pesos']) <= set(IDS), pr['id'])
             self.assertTrue(all(w > 0 for w in pr['pesos'].values()))
+            self.assertAlmostEqual(sum(pr['pesos'].values()), 1.0, places=6, msg=pr['id'])
 
     def test_json_reproduz_o_xlsx(self):
         try:
@@ -115,9 +116,21 @@ class ProtecaoETelaTests(unittest.TestCase):
         # a secção fica depois do mapa e antes do perfil do município
         self.assertLess(html.index('class="atlas-layout"'), html.index('id="ind-section"'))
         self.assertLess(html.index('id="ind-section"'), html.index('id="mun-profile"'))
-        # explicação, depois ranking, depois composição
-        self.assertLess(html.index('id="in-explain"'), html.index('id="in-rank-bars"'))
-        self.assertLess(html.index('id="in-rank-bars"'), html.index('id="in-comp-rows"'))
+        # composição em expander acima do mapa, oculta até escolher a composição; explicação em expander no fim da secção
+        self.assertLess(html.index('id="in-comp-box"'), html.index('class="atlas-layout"'))
+        self.assertRegex(html, r'<details[^>]*id="in-comp-box"[^>]*hidden')
+        self.assertLess(html.index('id="in-rank-bars"'), html.index('id="in-explain"'))
+        self.assertRegex(html, r'<details[^>]*id="in-explain-box"')
+        self.assertLess(html.index('id="in-explain"'), html.index('id="mun-profile"'))
+        self.assertIn('id="in-comp-warn"', html)
+        self.assertNotIn('in-comp-use', html)
+
+    def test_sem_coluna_origem_e_pesos_de_0_a_1(self):
+        js = (PUBLIC / 'indicadores.js').read_text(encoding='utf-8')
+        self.assertNotIn('in.col.origin', js)
+        self.assertNotIn('in-origem', js)
+        self.assertIn('max="1" step="0.05"', js)
+        self.assertIn("in-comp-warn", js)
 
     def test_tema_territorio_oferece_a_camada(self):
         code = (PUBLIC / 'panorama.js').read_text(encoding='utf-8')

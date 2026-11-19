@@ -149,11 +149,11 @@
   const D = E.dados, linhas = [];
   let fam = '';
   D.ind.forEach(i => {
-   if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<tr class="in-fam"><th colspan="5" scope="colgroup">${escape(fam)}</th></tr>`); }
-   linhas.push(`<tr><td><b>${i.id}</b></td><td>${escape(campo(i, 'nome'))}<br><span class="small muted">${escape(i.unidade)}</span></td><td>${escape(campo(i, 'formula'))}</td><td>${escape(campo(i, 'leitura'))}</td><td><span class="in-origem in-${i.origem}">${escape(i.origem === 'nova' ? t('in.origin.nova') : t('in.origin.antiga'))}</span></td></tr>`);
+   if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<tr class="in-fam"><th colspan="4" scope="colgroup">${escape(fam)}</th></tr>`); }
+   linhas.push(`<tr><td><b>${i.id}</b></td><td>${escape(campo(i, 'nome'))}<br><span class="small muted">${escape(i.unidade)}</span></td><td>${escape(campo(i, 'formula'))}</td><td>${escape(campo(i, 'leitura'))}</td></tr>`);
   });
   const rs = lang() === 'en' ? D.meta.ressalvas_en : D.meta.ressalvas;
-  el('in-explain').innerHTML = `<div class="table-wrap"><table class="in-table"><thead><tr><th>${escape(t('in.col.code'))}</th><th>${escape(t('in.col.name'))}</th><th>${escape(t('in.col.formula'))}</th><th>${escape(t('in.col.reading'))}</th><th>${escape(t('in.col.origin'))}</th></tr></thead><tbody>${linhas.join('')}</tbody></table></div>`
+  el('in-explain').innerHTML = `<div class="table-wrap"><table class="in-table"><thead><tr><th>${escape(t('in.col.code'))}</th><th>${escape(t('in.col.name'))}</th><th>${escape(t('in.col.formula'))}</th><th>${escape(t('in.col.reading'))}</th></tr></thead><tbody>${linhas.join('')}</tbody></table></div>`
    + `<h4>${escape(t('in.caveats'))}</h4><ul class="in-caveats">${rs.map(r => `<li>${escape(r)}</li>`).join('')}</ul>`;
  }
  function ranking_() {
@@ -169,6 +169,10 @@
   el('in-rank-bars').querySelectorAll('.in-bar').forEach(b => b.onclick = () => window.AtInd.escolherMunicipio && window.AtInd.escolherMunicipio(b.dataset.cod));
   el('in-rank-note').textContent = a.comp ? t('in.rankCompNote') : t('in.rankNote');
  }
+ function avisoSoma(total) {
+  el('in-comp-sum').textContent = total > 0 ? t('in.sumW', {n: num(total, 2)}) : t('in.noWeight');
+  el('in-comp-warn').hidden = !(total > 1 + 1e-9);
+ }
  function composicao() {
   const D = E.dados, linhas = [];
   let fam = '';
@@ -176,22 +180,21 @@
   D.ind.forEach(i => {
    if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<div class="in-comp-fam">${escape(fam)}</div>`); }
    const w = E.pesos[i.id] || 0, parte = total ? w / total * 100 : 0;
-   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(campo(i, 'nome'))}</label><input type="range" min="0" max="100" step="5" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><output>${w}</output><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
+   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(campo(i, 'nome'))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><output>${num(w, 2)}</output><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
   });
   el('in-comp-rows').innerHTML = linhas.join('');
   el('in-preset').innerHTML = `<option value="">${escape(t('in.presetFree'))}</option>` + D.presets.map(p => `<option value="${p.id}">${escape(campo(p, 'nome'))}</option>`).join('');
   el('in-preset').value = E.preset || '';
   el('in-log').checked = E.log;
   el('in-all').checked = E.todos;
-  el('in-comp-sum').textContent = total > 0 ? t('in.sumW', {n: num(total)}) : t('in.noWeight');
+  avisoSoma(total);
   const c = compor(D.col, E.pesos, E.log, E.todos), top = ranking(c.nota, 10, 'desc');
   el('in-comp-prev').innerHTML = total > 0 ? top.map((x, i) => `<li><span>${i + 1}. ${escape(nomeMun(x.k))}</span><b>${escape(num(x.v, 3))}</b></li>`).join('') : '';
-  el('in-comp-use').classList.toggle('active', E.sel === COMP);
   el('in-comp-rows').querySelectorAll('[data-w]').forEach(r => r.oninput = () => {
    E.pesos[r.dataset.w] = +r.value; E.preset = ''; mudou(false);
   });
   el('in-comp-rows').querySelectorAll('[data-on]').forEach(c2 => c2.onchange = () => {
-   E.pesos[c2.dataset.on] = c2.checked ? (E.pesos[c2.dataset.on] > 0 ? E.pesos[c2.dataset.on] : 50) : 0; E.preset = ''; mudou(true);
+   E.pesos[c2.dataset.on] = c2.checked ? (E.pesos[c2.dataset.on] > 0 ? E.pesos[c2.dataset.on] : 0.25) : 0; E.preset = ''; mudou(true);
   });
  }
  // Reconstrói o que depende do estado; `completo` refaz as linhas da composição (senão só atualiza o que mudou ao arrastar).
@@ -202,11 +205,11 @@
    const total = Object.values(E.pesos).reduce((s, w) => s + (w > 0 ? w : 0), 0);
    el('in-comp-rows').querySelectorAll('.in-comp-row').forEach(r => {
     const id = r.querySelector('[data-w]').dataset.w, w = E.pesos[id] || 0;
-    r.querySelector('output').textContent = w; r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
+    r.querySelector('output').textContent = num(w, 2); r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
     r.querySelector('[data-on]').checked = w > 0;
    });
    el('in-preset').value = E.preset || '';
-   el('in-comp-sum').textContent = total > 0 ? t('in.sumW', {n: num(total)}) : t('in.noWeight');
+   avisoSoma(total);
    const c = compor(E.dados.col, E.pesos, E.log, E.todos), top = ranking(c.nota, 10, 'desc');
    el('in-comp-prev').innerHTML = total > 0 ? top.map((x, i) => `<li><span>${i + 1}. ${escape(nomeMun(x.k))}</span><b>${escape(num(x.v, 3))}</b></li>`).join('') : '';
   }
@@ -222,8 +225,7 @@
   el('in-log').onchange = () => { E.log = el('in-log').checked; mudou(false); };
   el('in-all').onchange = () => { E.todos = el('in-all').checked; mudou(false); };
   el('in-comp-clear').onclick = () => { E.pesos = {}; E.preset = ''; mudou(true); };
-  el('in-comp-use').onclick = () => { E.sel = COMP; el('atlas-ind').value = COMP; ranking_(); composicao(); if (window.AtInd.aoMudar) window.AtInd.aoMudar(); el('atlas-map').scrollIntoView({behavior: 'smooth', block: 'center'}); };
  }
 
- window.AtInd = {pronto: carregar, selecao, detalhe, aoMudar: null, escolherMunicipio: null, nomes: null};
+ window.AtInd = {pronto: carregar, selecao, detalhe, composicaoAtiva: () => E.sel === COMP, aoMudar: null, escolherMunicipio: null, nomes: null};
 })(typeof window !== 'undefined' ? window : globalThis);
