@@ -369,7 +369,7 @@ class AbaTests(unittest.TestCase):
 
     def test_navegacao_e_rota(self):
         botoes = re.findall(r'data-view="(\w+)"', self.html)
-        self.assertEqual(botoes[:2], ['atlas', 'mapa'], 'o mapa fica logo abaixo de Atlas e panorama')
+        self.assertEqual(botoes[:3], ['atlas', 'indicadores', 'mapa'], 'o mapa fica logo abaixo de Atlas e Ranking por Indicador')
         self.assertIn("'mapa'", self.painel)
         self.assertIn("if(name==='mapa'&&window.showMapa)window.showMapa()", self.painel)
         self.assertIn('<section id="mapa-view" hidden>', self.html)
