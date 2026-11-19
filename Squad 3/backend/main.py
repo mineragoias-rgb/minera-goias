@@ -128,6 +128,8 @@ from catalogo import router as catalogo_router
 app.include_router(catalogo_router)
 from territorio import router as territorio_router
 app.include_router(territorio_router)
+from indicadores import router as indicadores_router
+app.include_router(indicadores_router)
 
 import radar_api
 radar_api.connection_factory=get_connection
