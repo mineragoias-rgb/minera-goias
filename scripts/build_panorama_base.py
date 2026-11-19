@@ -175,7 +175,7 @@ UF = Dim()
 COL = {"producao_rom": 0, "valor_venda_rom": 1, "producao_beneficiada": 2, "valor_venda_beneficiada": 3, "contido_rom": 4, "contido_beneficiada": 5}
 sem_mes = 0
 for r in ler("08_fato_producao_energia", ["metrica", "year", "periodo_referencia", "uf", "mineral_id", "company_id", "municipality_id",
-                                          "valor_tratado", "unidade_padrao"]):
+                                          "valor_tratado", "unidade_padrao", "status_validacao"]):
     met = r["metrica"]
     if met == "cfem_recolhido":
         m = re.search(r"(\d{4})-(\d{1,2})", str(r["periodo_referencia"] or ""))
@@ -188,6 +188,8 @@ for r in ler("08_fato_producao_energia", ["metrica", "year", "periodo_referencia
     elif met in COL:
         if met.startswith("contido") and r["unidade_padrao"] != "t":
             continue
+        if met == "producao_rom" and r["status_validacao"] == "rom_minerio_associado":
+            continue  # bário, cobalto e prata com a massa do minério de outro mineral: somar contaria o mesmo minério duas vezes
         v, ano, mi = float(r["valor_tratado"] or 0), int(float(r["year"])), mineral(mid=r["mineral_id"])
         if r["uf"] == "GO":
             go[(ano, mi)][COL[met]] += v

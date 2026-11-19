@@ -80,6 +80,7 @@ print(f"08: {len(fato['linhas'])} linhas; 03: {len(OPS)} processos; subitens com
 tot, fids, flags = defaultdict(float), defaultdict(list), defaultdict(set)
 cf_rs, cf_t, tot_rs, tot_t = defaultdict(float), defaultdict(float), defaultdict(float), defaultdict(float)
 cf_emp, cf_mun, cf_sub, cf_alerta = defaultdict(Counter), defaultdict(Counter), defaultdict(set), set()
+associado = {}  # (mineral, ano, base) -> nota: ROM que é o minério de outro mineral, fora da abertura e da cobertura
 pelo_cnpj = set()  # processos sem titular no Cadastro cuja empresa veio da raiz do CNPJ pagador no CFEM (notas da 08)
 cf_rs_mes, cf_t_mes = defaultdict(lambda: defaultdict(float)), defaultdict(lambda: defaultdict(float))  # (mineral, ano, processo) -> mês -> R$ / t
 for r in fato["linhas"]:
@@ -94,6 +95,8 @@ for r in fato["linhas"]:
         fids[k].append(r[C["fato_id"]])
         if r[C["status_validacao"]] == "alerta_producao_repetida":
             flags[k].add(r[C["notas"]])
+        elif r[C["status_validacao"]] == "rom_minerio_associado":  # massa do minério de outro mineral (ver build_fato_08.py)
+            associado[k] = r[C["notas"]]
     elif r[C["source_id"]] == "SRC_ANM_CFEM" and r[C["mineral_id"]]:
         mid = r[C["mineral_id"]]
         cat = PAI.get(mid, mid)
@@ -181,23 +184,26 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     mid, ano, base = k
     P = tot[k]
     src_amb = BASE_DE["producao_rom" if base == "ROM" else "producao_beneficiada"][1]
-    abre = P > 0 and tot_rs.get((mid, ano), 0.0) > 0 and ano <= 2025
+    abre = P > 0 and tot_rs.get((mid, ano), 0.0) > 0 and ano <= 2025 and k not in associado
     obs = []
     if P == 0:
         obs.append("produção zero declarada no AMB")
     if ano < ANO_CFEM_INI:
         obs.append(f"antes de {ANO_CFEM_INI} não há CFEM na base para abrir por operação")
+    elif k in associado:
+        obs.append("ROM sem abertura por operação: " + associado[k].split("minério associado: ", 1)[-1])
     elif abre:
         obs.append("total observado; a abertura estimada por operação está nas linhas de nível operação logo abaixo — não somar os dois níveis")
     elif P > 0:
         obs.append("sem CFEM do mineral no ano em Goiás: produção sem abertura por operação")
         sem_abertura.append(f"{NOME[mid]} {ano} ({base})")
     obs += sorted(flags[k])
-    if 2022 <= ano <= 2025:
+    if 2022 <= ano <= 2025 and k not in associado:  # minério associado não é produção a cobrir: já está no ROM do hospedeiro
         cob[ano][1] += P
         cob[ano][0] += P if abre else 0.0
     nova(mineral_id=mid, mineral_name=NOME[mid], year=ano, production_t=P, production_basis=base, nivel_agregacao="estado",
-         valor_observado_estimado="observado", status_validacao="alerta_producao_repetida" if flags[k] else "valido",
+         valor_observado_estimado="observado",
+         status_validacao="rom_minerio_associado" if k in associado else "alerta_producao_repetida" if flags[k] else "valido",
          responsavel_validacao=RESPONSAVEL, periodo_referencia=str(ano), tipo_fonte="oficial", fato_ids="; ".join(fids[k]),
          observacao="; ".join(obs) or None, **fontes([src_amb]))
     if not abre:

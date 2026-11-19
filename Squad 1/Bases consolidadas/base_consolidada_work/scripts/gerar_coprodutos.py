@@ -60,7 +60,8 @@ OPERACOES = [
          produtos=[("MIN_021", "Nióbio", 10348.0, "t de produto de nióbio", None, "R$ (valor do AMB)", CMOC_NB, None),
                    ("MIN_049", "Fosfato", None, "t beneficiada (aba 12, rateio por CFEM)", None, "R$ (valor do AMB × participação na CFEM)", None, None)],
          nota="carga de rejeitos (TAILINGS) reprocessa o rejeito para nióbio e fosfato: é a única compartilhada; as demais têm produto pela sigla e pelo "
-              "ramo da CCEE. O bário do AMB (ROM ~5,6 Mt/ano, sem produção beneficiada nem CFEM) é o mesmo minério contado de novo, não coproduto vendido"),
+              "ramo da CCEE. O bário do AMB (ROM ~5,6 Mt/ano, sem valor) é a mesma rocha contada de novo (status rom_minerio_associado na base): "
+              "a barita está no contido (60 a 196 mil t de BaSO4/ano) e só 0 a 5 mil t/ano viram produto vendido (CFEM de barita da CMOC), sem carga própria na CCEE"),
 ]
 # Operações com coproduto abaixo do limiar de materialidade: a energia fica toda no produto principal (regra 3).
 MATERIALIDADE = [
@@ -248,7 +249,7 @@ Gerado por `base_consolidada_work/scripts/gerar_coprodutos.py` (chamado no fim d
   com a sua intensidade rateada; ou (b) manter "cobre equivalente" (toda a energia no cobre), como está, e registrar isso.
 - **CMOC:** só a carga de rejeitos é compartilhada; o efeito no fosfato é pequeno. O nióbio está fora do motor: as cargas dele não entram na previsão.
 - **Mosaic, Anglo e Serra Grande:** coproduto abaixo de {LIMIAR:.0%} do valor; nada muda.
-- **Bário:** não é coproduto vendido; o ROM de bário do AMB é o mesmo minério do nióbio contado de novo — não somar com o ROM do nióbio.
+- **Bário:** o ROM de bário do AMB (~5,6 Mt/ano, sem valor) é a rocha que a CMOC lavra para nióbio e fosfato contada de novo — na base, status `rom_minerio_associado`, fora das somas de ROM e da abertura por operação. A barita está no contido (60 a 196 mil t de BaSO4/ano, 1–3,5% do minério); só 0 a 5 mil t/ano viram produto vendido (CFEM de barita da CMOC). Pouca massa e sem carga própria na CCEE: a energia fica com nióbio e fosfato. O mesmo vale para o cobalto do minério de níquel e a prata do minério de ouro e cobre.
 
 Decidir entre (a) e (b) é do Squad 2: mexe na lista de minerais do motor. Esta tabela não altera nenhum parâmetro deles.
 """

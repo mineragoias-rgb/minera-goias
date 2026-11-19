@@ -744,7 +744,7 @@ for _aba in NATUREZA_GOV:
                                              "calculado: gerado pelo pipeline; o método está em metodo_estimacao."),
         (_aba, "metodo_estimacao"): "Método quando o valor não é observado; vazio nas linhas observadas.",
         (_aba, "status_validacao"): ("valido, ou os alertas das linhas da 08 que entram na soma (alerta_processo_09c, quantidade_excluida_da_soma_09b, "
-                                     "alerta_producao_repetida), separados por ';'." if _aba in CONSULTAS else
+                                     "alerta_producao_repetida, rom_minerio_associado), separados por ';'." if _aba in CONSULTAS else
                                      "valido, ou os alertas das linhas de CFEM do processo na 08." if _aba == "03_dim_operacoes" else
                                      "valido; alerta_titular_nao_identificado no grupo COM_NAO_IDENTIFICADO (processos sem titular no Cadastro Mineiro)." if _aba == "02_dim_empresas" else
                                      "valido: passou nas checagens automáticas da 14b."),
@@ -942,7 +942,7 @@ DA = {  # (aba, campo) -> descrição específica da aba
     ("12_interface_squad1_squad2", "processo_anm"): "Processo cuja CFEM define a participação no rateio (formato canônico) — identifica também processos sem poligonal (sem operation_id).",
     ("12_interface_squad1_squad2", "metodo_estimacao"): "Preenchido nas linhas estimadas (nível operação): regra do rateio e suas premissas.",
     ("12_interface_squad1_squad2", "erro_estimativa_intervalo"): "Nível operação: faixa entre o rateio por R$ (production_t) e o rateio pela quantidade em t da CFEM (production_t_rateio_por_t).",
-    ("12_interface_squad1_squad2", "status_validacao"): "Estado: valido ou alerta_producao_repetida (vem da 08). Operação: estimativa_conferida_no_total, ou estimativa_com_alerta_09c quando o processo está na 09c.",
+    ("12_interface_squad1_squad2", "status_validacao"): "Estado: valido, alerta_producao_repetida ou rom_minerio_associado (vem da 08; o associado não é aberto por operação nem entra na cobertura). Operação: estimativa_conferida_no_total, ou estimativa_com_alerta_09c quando o processo está na 09c.",
     ("12_interface_squad1_squad2", "periodo_referencia"): "Ano de referência (AAAA).",
     ("12_interface_squad1_squad2", "observacao"): "Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado.",
     ("04_dim_projetos", "nome_projeto"): "Nome descritivo gerado (mineral — titular — município): a ANM não publica nome de projeto; o nome anunciado vem de RI, CVM ou SEMAD. CPF dentro do nome do titular sai mascarado (LGPD).",
@@ -1035,7 +1035,9 @@ D.update({
     "erro_estimativa_intervalo": ("Erro ou intervalo de referência da estimativa (obrigatório quando o dado não é observado).", "texto/número", "Método de estimação"),
     "status_validacao": ("Situação da validação do valor. Na 08: valido = entra nas somas; quantidade_excluida_da_soma_09b = quantidade corrompida ou "
                          "implausível, fora da soma (o R$ fica); alerta_processo_09c = processo sinalizado, mantido na soma; alerta_producao_repetida = "
-                         "a mesma tonelagem aparece em outra linha da mesma UF e ano (co-produto, teor ou categoria), mantida na soma — não somar entre essas linhas.", "", "Governança"),
+                         "a mesma tonelagem aparece em outra linha da mesma UF e ano (co-produto, teor ou categoria), mantida na soma — não somar entre essas linhas; rom_minerio_associado = ROM de "
+                         "subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fica na 09 do mineral, mas "
+                         "não se soma com o ROM de outros minerais e não é aberto por operação na 12 (o subproduto se mede pelo contido e pela beneficiada).", "", "Governança"),
     "responsavel_validacao": ("Quem validou o valor.", "texto", "Governança"),
     "notas": ("Notas de rastreabilidade da linha.", "texto livre", "—"),
     # aba 08 (fato longo, real na v8)

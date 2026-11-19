@@ -203,6 +203,53 @@ for (sid, uf, ano, met, bruto, un_rep), idxs in grupos_rep.items():
 print(f"Produção repetida no AMB: {rep['linhas']} linhas sinalizadas; tonelagem contada a mais numa soma: {rep['dentro_do_mineral_t']:,.0f} t dentro do "
       f"mesmo mineral (infla o total do mineral na 09) e {rep['entre_minerais_t']:,.0f} t entre minerais. GO: {rep['go']}")
 
+# Minério associado (18/11/2026): subproduto declarado no AMB com a massa do minério de outro mineral como "ROM" próprio — o
+# bário de Catalão (5,6 Mt/ano = a rocha que a CMOC lavra para nióbio e fosfato; em 2023 igual ao ROM do nióbio, com 1–3,5% de
+# BaSO4 contido), o cobalto do minério de níquel, a prata do minério de ouro e cobre. A tonelagem nem sempre é idêntica, então a
+# regra de produção repetida acima não pega. Critério: ROM do subproduto sem valor próprio (venda, consumo e transferência do ROM
+# = 0) e não maior que 1,5x o ROM dos minerais hospedeiros na mesma UF e ano. A linha continua na 08 e na 09 (é o que o AMB
+# publica), com status rom_minerio_associado: o subproduto se mede pelo contido e pela beneficiada; o ROM fica fora das somas
+# entre minerais e da abertura por operação (aba 12).
+def br_num(v):
+    return f"{v:,.0f}".replace(",", ".") if abs(v) >= 100 else f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+HOSPEDEIROS = {"Bário": ("Nióbio", "Fosfato"), "Cobalto": ("Níquel", "Cobre"), "Prata": ("Ouro", "Cobre", "Chumbo", "Zinco")}
+rom_de, valor_rom, contido_rom = defaultdict(float), defaultdict(float), {}
+for row in linhas:
+    if row[IX["source_id"]] != "SRC_ANM_PROD_BRUTA":
+        continue
+    kk = (row[IX["uf"]], row[IX["year"]], row[IX["mineral_nome_original"]])
+    met, vt = row[IX["metrica"]], row[IX["valor_tratado"]] or 0.0
+    if met == "producao_rom":
+        rom_de[kk] += vt
+    elif met in ("valor_venda_rom", "valor_consumo_mina_rom", "valor_transferencia_rom"):
+        valor_rom[kk] += vt
+    elif met == "contido_rom" and vt > 0:
+        contido_rom[kk] = f"{br_num(vt)} {row[IX['unidade_original']]}" + (f" de {IND[(row[IX['source_id']], row[IX['source_linha']])]}"
+                                                                              if IND.get((row[IX['source_id']], row[IX['source_linha']])) else "")
+assoc = dict(linhas=0, go=[])
+for row in linhas:
+    if row[IX["source_id"]] != "SRC_ANM_PROD_BRUTA" or row[IX["metrica"]] != "producao_rom" or not (row[IX["valor_tratado"]] or 0) > 0:
+        continue
+    uf, ano, sub = row[IX["uf"]], row[IX["year"]], row[IX["mineral_nome_original"]]
+    if sub not in HOSPEDEIROS or valor_rom.get((uf, ano, sub), 0.0) > 0:
+        continue
+    hosp = {h: rom_de.get((uf, ano, h), 0.0) for h in HOSPEDEIROS[sub]}
+    hosp = {h: t for h, t in hosp.items() if t > 0}
+    if not hosp or row[IX["valor_tratado"]] > 1.5 * sum(hosp.values()):
+        continue
+    nota = ("minério associado: a massa é o minério de " + " e ".join(f"{h} ({br_num(t)} t de ROM)" for h, t in hosp.items())
+            + f" declarado de novo como ROM de {sub}, sem valor próprio" + (f"; o {sub.lower()} está no contido ({contido_rom[(uf, ano, sub)]})"
+                                                                           if (uf, ano, sub) in contido_rom else "")
+            + " e na produção beneficiada. Não somar com o ROM de outros minerais; fora da abertura por operação (aba 12)")
+    row[IX["notas"]] = (row[IX["notas"]] + "; " if row[IX["notas"]] else "") + nota
+    row[IX["status_validacao"]] = "rom_minerio_associado"
+    assoc["linhas"] += 1
+    if uf == "GO":
+        assoc["go"].append(f"{sub} {ano}: {br_num(row[IX['valor_tratado']])} t")
+print(f"Minério associado no AMB: {assoc['linhas']} linhas de ROM (status rom_minerio_associado). GO: {assoc['go']}")
+
 # ---------------------------------------------------------------------------
 # 2) CFEM (Goiás) -- quantidade comercializada e valor recolhido, linha a linha
 # ---------------------------------------------------------------------------
