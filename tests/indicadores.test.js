@@ -72,4 +72,25 @@ const num = (v, d) => v.toFixed(d);
  assert.strictEqual(I.crescimento(null, 50), null);
  assert.strictEqual(I.crescimento(100, null), null);
 }
+// indicador personalizado: operadores, prioridade e erros
+{
+ const ids = ['R1', 'P1', 'P2', 'S2'];
+ const col = {R1: [100, 200, null, 50], P1: [1, 2, 3, 0], P2: [1, 2, 3, 0], S2: [0.5, 0.25, 0.1, 1]};
+ const v = f => { const c = I.compilar(f, ids); assert.ok(c.ok, f); return c.valores(col, 4); };
+ assert.deepStrictEqual(v('R1 / (P1 + P2)'), [50, 50, null, null], 'divisão por zero e valor ausente dão vazio');
+ assert.deepStrictEqual(v('R1 * 2 + 1'), [201, 401, null, 101]);
+ assert.deepStrictEqual(v('R1 * (2 + 1)'), [300, 600, null, 150], 'parênteses mandam na prioridade');
+ assert.deepStrictEqual(v('1 + 2 * 3 - 4 / 2')[0], 5, '* e / antes de + e -');
+ assert.deepStrictEqual(v('P1 - P2 - 1')[1], -1, 'esquerda para a direita');
+ assert.deepStrictEqual(v('-S2 + 1'), [0.5, 0.75, 0.9, 0], 'menos unário');
+ assert.deepStrictEqual(v('s2 * 0,5')[0], 0.25, 'minúscula e vírgula decimal');
+ assert.deepStrictEqual(I.compilar('R1 / (P1 + P2', ids).erro, 'parenteses');
+ assert.deepStrictEqual(I.compilar('R1 + P1)', ids).erro, 'parenteses');
+ assert.deepStrictEqual(I.compilar('R1 +', ids).erro, 'sintaxe');
+ assert.deepStrictEqual(I.compilar('R1 P1', ids).erro, 'sintaxe');
+ assert.deepStrictEqual(I.compilar('R1 * X9', ids), {erro: 'id', dado: 'X9'});
+ assert.deepStrictEqual(I.compilar('R1 $ 2', ids), {erro: 'caractere', dado: '$'});
+ assert.deepStrictEqual(I.compilar('   ', ids).erro, 'vazio');
+ assert.deepStrictEqual(I.compilar('R1 * P1 / S2', ids).ids.sort(), ['P1', 'R1', 'S2']);
+}
 console.log('indicadores.test.js: ok');

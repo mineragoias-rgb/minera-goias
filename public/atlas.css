@@ -112,3 +112,6 @@
 
 .in-toolbar{margin-top:0}
 .in-ano{display:flex;gap:14px;flex:2;min-width:260px}.in-ano[hidden]{display:none}
+.in-custom{margin:14px 0}.in-formula-row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.in-formula-row>div{flex:1;min-width:260px}#in-formula{font-family:ui-monospace,Menlo,Consolas,monospace}
+.in-codes-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}.in-codes{display:inline-flex;gap:4px;flex-wrap:wrap}
+.in-code{padding:3px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;font:600 12px/1.2 ui-monospace,Menlo,Consolas,monospace;cursor:pointer}.in-code:hover{background:#eef3f7}

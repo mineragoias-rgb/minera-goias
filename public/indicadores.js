@@ -7,7 +7,7 @@
 
  // ---------- funções puras ----------
  const RAMPA = ['#d7e9f6', '#a8cde9', '#6fa9d4', '#3684b9', '#07588b'];
- const FORMATOS = {money0: [0, 'R$ '], money2: [2, 'R$ '], pct: [1, '', '%'], pct2: [2, '', '%'], int: [0], dec2: [2], dec3: [3]};
+ const FORMATOS = {money0: [0, 'R$ '], money2: [2, 'R$ '], pct: [1, '', '%'], pct2: [2, '', '%'], int: [0], dec2: [2], dec3: [3], auto: [null]};
  const valido = v => typeof v === 'number' && Number.isFinite(v);
 
  // Normaliza de 0 a 1 pelo mínimo e máximo dos municípios com valor; com `log`, aplica ln(1 + x) antes.
@@ -69,20 +69,86 @@
  function formatar(v, fmt, num) {
   if (!valido(v)) return null;
   const f = FORMATOS[fmt] || [2], x = f[2] === '%' ? v * 100 : v;
-  return (f[1] || '') + num(x, f[0]) + (f[2] || '');
+  // 'auto' (indicador personalizado): casas conforme a grandeza do valor
+  const casas = f[0] === null ? (Math.abs(x) >= 1000 ? 0 : Math.abs(x) >= 1 ? 2 : Math.abs(x) === 0 ? 0 : 4) : f[0];
+  return (f[1] || '') + num(x, casas) + (f[2] || '');
  }
  function mediana(valores) {
   const xs = valores.filter(valido).sort((a, b) => a - b);
   return xs.length ? (xs.length % 2 ? xs[(xs.length - 1) / 2] : (xs[xs.length / 2 - 1] + xs[xs.length / 2]) / 2) : null;
  }
- const puras = {crescimento, minmax, compor, faixas, corDe, posicoes, ranking, formatar, mediana, RAMPA};
+
+ // Fórmula do indicador personalizado: códigos de indicador (R1, S2…), números e + − * / com parênteses.
+ // Analisador próprio (descida recursiva), sem eval. Erros voltam como {erro: tipo, dado}.
+ function compilar(texto, ids) {
+  const src = String(texto || '').trim();
+  if (!src) return {erro: 'vazio'};
+  const toks = [];
+  const re = /\s*(?:(\d+(?:[.,]\d+)?)|([A-Za-z]\d+)|([+\-*\/×÷()]))/y;
+  let pos = 0;
+  while (pos < src.length) {
+   re.lastIndex = pos;
+   const m = re.exec(src);
+   if (!m) { const c = src.slice(pos).trim()[0]; if (c === undefined) break; return {erro: 'caractere', dado: c}; }
+   pos = re.lastIndex;
+   if (m[1] !== undefined) toks.push({t: 'n', v: parseFloat(m[1].replace(',', '.'))});
+   else if (m[2] !== undefined) { const id = m[2].toUpperCase(); if (!ids.includes(id)) return {erro: 'id', dado: id}; toks.push({t: 'i', v: id}); }
+   else toks.push({t: 'o', v: m[3] === '×' ? '*' : m[3] === '÷' ? '/' : m[3]});
+  }
+  let i = 0;
+  const usados = new Set();
+  const rot = () => i < toks.length ? String(toks[i].v) : '';
+  function primario() {
+   const k = toks[i];
+   if (!k) throw {erro: 'sintaxe', dado: rot()};
+   if (k.t === 'n') { i++; return () => k.v; }
+   if (k.t === 'i') { i++; usados.add(k.v); return get => get(k.v); }
+   if (k.t === 'o' && k.v === '(') {
+    i++; const e = expr();
+    if (!toks[i] || toks[i].v !== ')') throw {erro: 'parenteses'};
+    i++; return e;
+   }
+   if (k.t === 'o' && k.v === ')') throw {erro: 'parenteses'};
+   throw {erro: 'sintaxe', dado: rot()};
+  }
+  function unario() {
+   const k = toks[i];
+   if (k && k.t === 'o' && (k.v === '-' || k.v === '+')) { i++; const e = unario(); return k.v === '-' ? g => { const x = e(g); return valido(x) ? -x : null; } : e; }
+   return primario();
+  }
+  function termo() {
+   let e = unario();
+   while (toks[i] && toks[i].t === 'o' && (toks[i].v === '*' || toks[i].v === '/')) {
+    const op = toks[i++].v, a = e, b = unario();
+    e = op === '*' ? g => { const x = a(g), y = b(g); return valido(x) && valido(y) ? x * y : null; }
+                   : g => { const x = a(g), y = b(g); return valido(x) && valido(y) && y !== 0 ? x / y : null; };
+   }
+   return e;
+  }
+  function expr() {
+   let e = termo();
+   while (toks[i] && toks[i].t === 'o' && (toks[i].v === '+' || toks[i].v === '-')) {
+    const op = toks[i++].v, a = e, b = termo();
+    e = op === '+' ? g => { const x = a(g), y = b(g); return valido(x) && valido(y) ? x + y : null; }
+                   : g => { const x = a(g), y = b(g); return valido(x) && valido(y) ? x - y : null; };
+   }
+   return e;
+  }
+  try {
+   const e = expr();
+   if (i < toks.length) throw toks[i].v === ')' ? {erro: 'parenteses'} : {erro: 'sintaxe', dado: rot()};
+   // avalia por município: `col` = {id: [valores]}, `n` = número de municípios
+   return {ok: true, ids: [...usados], valores: (col, n) => Array.from({length: n}, (_, k) => { const x = e(id => col[id][k]); return valido(x) ? x : null; })};
+  } catch (err) { if (err && err.erro) return err; throw err; }
+ }
+ const puras = {compilar, crescimento, minmax, compor, faixas, corDe, posicoes, ranking, formatar, mediana, RAMPA};
  if (typeof module !== 'undefined' && module.exports) { module.exports = puras; return; }
 
  // ---------- interface ----------
  const el = id => document.getElementById(id), escape = esc, lang = () => (window.I18N && I18N.lang === 'en') ? 'en' : 'pt';
  const num = (v, d = 0) => I18N.num(v, {minimumFractionDigits: d, maximumFractionDigits: d});
- const E = {sel: 'R1', escala: 'q', log: false, todos: false, preset: 'arrecadacao', a0: 2024, a1: 2025, pesos: {}, topo: 15, ordem: 'desc', dados: null, carga: null};
- const COMP = '__comp';
+ const E = {sel: 'R1', escala: 'q', log: false, todos: false, preset: 'arrecadacao', a0: 2024, a1: 2025, custom: null, pesos: {}, topo: 15, ordem: 'desc', dados: null, carga: null};
+ const COMP = '__comp', CUST = '__custom';
 
  function campo(o, nome) { return lang() === 'en' && o[nome + '_en'] ? o[nome + '_en'] : o[nome]; }
  function carregar() {
@@ -129,6 +195,10 @@
    const c = compor(D.col, E.pesos, E.log, E.todos);
    return {id: COMP, comp: true, nome: t('in.comp'), unidade: '', fmt: 'dec3', valores: c.nota, cobertura: c.cobertura, total: c.total};
   }
+  if (E.sel === CUST && E.custom) {
+   const c = compilar(E.custom, D.ids);
+   return {id: CUST, comp: false, nome: t('in.custom') + ': ' + E.custom, unidade: '', fmt: 'auto', valores: c.ok ? c.valores(D.col, D.cods.length) : D.cods.map(() => null)};
+  }
   const i = D.porId[E.sel];
   return {id: i.id, comp: false, nome: nomeInd(i), unidade: i.unidade, fmt: i.fmt, valores: D.col[i.id], ind: i};
  }
@@ -159,7 +229,7 @@
   const D = E.dados, grupos = [];
   D.ind.forEach(i => { const f = campo(i, 'familia'); let g = grupos.find(x => x.f === f); if (!g) { g = {f, l: []}; grupos.push(g); } g.l.push(i); });
   el('in-sel').innerHTML = grupos.map(g => `<optgroup label="${escape(g.f)}">${g.l.map(i => `<option value="${i.id}">${escape(i.id + ' · ' + nomeInd(i))}</option>`).join('')}</optgroup>`).join('')
-   + `<optgroup label="${escape(t('in.compGroup'))}"><option value="${COMP}">${escape(t('in.comp'))}</option></optgroup>`;
+   + `<optgroup label="${escape(t('in.compGroup'))}"><option value="${COMP}">${escape(t('in.comp'))}</option>${E.custom ? `<option value="${CUST}">${escape(t('in.custom') + ': ' + E.custom)}</option>` : ''}</optgroup>`;
   el('in-sel').value = E.sel;
   el('in-scale').value = E.escala;
  }
@@ -238,7 +308,7 @@
   desenhar();
  }
  function montar() {
-  opcoesAnos(); opcoesIndicador(); explicacao(); ranking_(); composicao();
+  montarPersonalizado(); opcoesAnos(); opcoesIndicador(); explicacao(); ranking_(); composicao();
   const trocouAnos = () => { recalcularR2(); opcoesIndicador(); explicacao(); ranking_(); composicao(); desenhar(); };
   el('in-ano0').onchange = () => { E.a0 = +el('in-ano0').value; opcoesAnos(); trocouAnos(); };
   el('in-ano1').onchange = () => { E.a1 = +el('in-ano1').value; trocouAnos(); };
@@ -252,6 +322,42 @@
   el('in-comp-clear').onclick = () => { E.pesos = {}; E.preset = ''; mudou(true); };
  }
 
+
+
+ // ---------- indicador personalizado (fórmula) ----------
+ function mensagemErro(e) {
+  switch (e.erro) {
+   case 'vazio': return t('in.err.empty');
+   case 'caractere': return t('in.err.char', {c: e.dado});
+   case 'id': return t('in.err.id', {c: e.dado});
+   case 'parenteses': return t('in.err.paren');
+   default: return t('in.err.syntax', {c: e.dado || t('in.err.end')});
+  }
+ }
+ function montarPersonalizado() {
+  const D = E.dados, campoF = el('in-formula'), msg = el('in-formula-msg');
+  el('in-codes').innerHTML = D.ind.map(i => `<button type="button" class="in-code" data-code="${i.id}" title="${escape(nomeInd(i))}">${i.id}</button>`).join('');
+  el('in-codes').querySelectorAll('[data-code]').forEach(b => b.onclick = () => {
+   const a = campoF.selectionStart ?? campoF.value.length, z = campoF.selectionEnd ?? a;
+   const antes = campoF.value.slice(0, a), depois = campoF.value.slice(z);
+   const ins = (antes && !/[\s(+\-*\/]$/.test(antes) ? ' ' : '') + b.dataset.code + (depois && !/^[\s)+\-*\/]/.test(depois) ? ' ' : '');
+   campoF.value = antes + ins + depois;
+   campoF.focus(); const p = a + ins.length; campoF.setSelectionRange(p, p);
+  });
+  const calcular = () => {
+   const c = compilar(campoF.value, D.ids);
+   msg.classList.toggle('in-warn', !c.ok);
+   if (!c.ok) { msg.textContent = mensagemErro(c); return; }
+   const n = c.valores(D.col, D.cods.length).filter(valido).length;
+   if (!n) { msg.classList.add('in-warn'); msg.textContent = t('in.err.noValue'); return; }
+   E.custom = campoF.value.trim(); E.sel = CUST;
+   msg.textContent = t('in.customOk', {n: num(n)});
+   opcoesIndicador(); ranking_(); composicao(); desenhar();
+   el('in-map').scrollIntoView({behavior: 'smooth', block: 'center'});
+  };
+  el('in-formula-go').onclick = calcular;
+  campoF.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); calcular(); } };
+ }
 
  // ---------- mapa próprio da seção ----------
  const M = {map: null, camada: null, pol: new Map(), pacote: null, nomes: null, sel: null, destaque: null, carga: null};

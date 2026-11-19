@@ -166,6 +166,12 @@ class ProtecaoETelaTests(unittest.TestCase):
         self.assertIn("api('/indicadores')", js)
         self.assertIn("L.map('in-map'", js)
         self.assertIn('recalcularR2', js)
+        self.assertIn('function compilar', js)
+        self.assertNotRegex(js, r'\beval\s*\(|new Function')
+        html = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
+        for trecho in ('id="in-formula"', 'id="in-formula-go"', 'id="in-codes"', 'id="in-formula-msg"'):
+            self.assertIn(trecho, html)
+        self.assertLess(html.index('id="in-explain"'), html.index('id="in-formula"'))
         html = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
         self.assertIn('id="in-ano0"', html)
         self.assertIn('id="in-ano1"', html)
