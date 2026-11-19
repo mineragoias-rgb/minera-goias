@@ -4,6 +4,8 @@ Este documento fixa **o que o Minera Goiás mede, a partir de qual fonte, em qua
 
 Atualizado em 06/11/2026. Ao mudar uma regra de cálculo, atualize este arquivo na mesma alteração.
 
+No painel, a aba **Metodologia** (`public/metodologia.js`) resume este documento e os README de `data/` em uma sub-aba por produto — o que mede, fontes e período, cálculo, limites e como refazer. Ao mudar uma regra, atualize as duas.
+
 ---
 
 ## 1. Cinco princípios que valem para tudo

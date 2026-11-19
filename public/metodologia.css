@@ -1,0 +1,11 @@
+/* Metodologia: one sub-tab per product; blocks in a responsive grid. */
+#metodologia-view .mt-resumo{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;line-height:1.5}
+#metodologia-view .mt-resumo .btn{margin-left:auto}
+#metodologia-view .mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;margin:16px 0}
+#metodologia-view .mt-bloco{margin:0}
+#metodologia-view .mt-bloco h3{margin:0 0 10px}
+#metodologia-view .mt-bloco ul{margin:0;padding-left:18px;line-height:1.55}
+#metodologia-view .mt-bloco li+li{margin-top:8px}
+#metodologia-view .mt-bloco code{font-size:.92em;overflow-wrap:anywhere}
+#metodologia-view .mt-limites{border-left:3px solid #c2681b}
+#metodologia-view .source-line a{overflow-wrap:anywhere}
