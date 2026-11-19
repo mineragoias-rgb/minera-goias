@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Banco de 20 indicadores por município (Goiás, 2025). Uso: python3 build_xlsx.py  -> indicadores_2025.xlsx"""
+"""Banco de 22 indicadores por município (Goiás, 2025). Uso: python3 build_xlsx.py  -> indicadores_2025.xlsx"""
 import json, numpy as np, pandas as pd, openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter as L
@@ -45,10 +45,14 @@ S1=p.groupby("mun")["min"].nunique().reindex(mun.index).fillna(0)
 S2=p.groupby(["mun","min"]).area_ha.sum().groupby(level=0).apply(hhi).reindex(mun.index)
 T1=p.groupby("mun")["emp"].nunique().reindex(mun.index).fillna(0)
 T2=p.groupby(["mun","emp"]).area_ha.sum().groupby(level=0).apply(hhi).reindex(mun.index)
+# HHI pela receita: parcela = CFEM 2025 (valores positivos) por substância e por titular em cada município
+cp=c25[c25.valor>0]
+S3=cp.groupby(["mun","min"]).valor.sum().groupby(level=0).apply(hhi).reindex(mun.index)
+T3=cp.groupby(["mun","emp"]).valor.sum().groupby(level=0).apply(hhi).reindex(mun.index)
 # ---------- tabela
 df=pd.DataFrame({"cod":mun.cod,"nome":mun.nome,"R1":R1,"R2":R2,"R3":R1/mun["pop"],"R4":R1/mun.pib,"R5":R5,"R6":R6,
  "P1":P1,"P2":P2,"P3":P3,"P4":P4,"A1":A1,"A2":A2,"A3":A3,"A4":A1/100/mun.area_km2,"A5":A2/100/mun.area_km2,"A6":A3/100/mun.area_km2,
- "S1":S1,"S2":S2,"T1":T1,"T2":T2,"meses":act})
+ "S1":S1,"S2":S2,"S3":S3,"T1":T1,"T2":T2,"T3":T3,"meses":act})
 df.to_pickle("/tmp/ind.pkl"); mun.to_pickle("/tmp/mun.pkl")
 # ---------- planilha
 NAMES=[("R1","CFEM 2025 (R$)","Receita","R$","Σ CFEM recolhida jan–dez 2025"),
@@ -68,9 +72,11 @@ NAMES=[("R1","CFEM 2025 (R$)","Receita","R$","Σ CFEM recolhida jan–dez 2025")
 ("A5","% da área do município arrematada","Área","%","A2 ÷ 100 ÷ área territorial (km²)"),
 ("A6","% da área do município ofertada","Área","%","A3 ÷ 100 ÷ área territorial (km²)"),
 ("S1","Quantidade de substâncias","Substâncias","nº","substâncias distintas nos processos do município"),
-("S2","HHI por substância","Substâncias","0–1","Σ(parcela²) da área por substância; direto: alto = concentrado; vazio sem processo"),
+("S2","HHI por substância (área)","Substâncias","0–1","Σ(parcela²) da área dos processos por substância; direto: alto = concentrado; vazio sem processo"),
+("S3","HHI por substância (receita)","Substâncias","0–1","Σ(parcela²) da CFEM 2025 por substância; direto: alto = concentrado; vazio sem CFEM"),
 ("T1","Quantidade de titulares","Titulares","nº","titulares distintos nos processos do município"),
-("T2","HHI por titular","Titulares","0–1","Σ(parcela²) da área por titular; direto: alto = concentrado; vazio sem processo")]
+("T2","HHI por titular (área)","Titulares","0–1","Σ(parcela²) da área dos processos por titular; direto: alto = concentrado; vazio sem processo"),
+("T3","HHI por titular (receita)","Titulares","0–1","Σ(parcela²) da CFEM 2025 por titular; direto: alto = concentrado; vazio sem CFEM")]
 out=openpyxl.Workbook(); H=PatternFill("solid",fgColor="1F3A2E"); HF=Font(bold=True,color="FFFFFF"); B=Font(bold=True)
 def head(ws,row=1):
     for c in ws[row]: c.fill=H; c.font=HF; c.alignment=Alignment(wrap_text=True,vertical="center")
@@ -106,7 +112,7 @@ for i in range(N):
 head(ws); ws.freeze_panes="C2"; ws.row_dimensions[1].height=60
 for j in range(1,len(keys)+4): ws.column_dimensions[L(j)].width=16
 ws.column_dimensions["B"].width=26
-fmt={"R1":"#,##0","R2":"0.0%","R3":"#,##0.00","R4":"0.00%","R5":"0.000","R6":"0.00","A1":"#,##0","A2":"#,##0","A3":"#,##0","A4":"0.0%","A5":"0.0%","A6":"0.0%","S2":"0.000","T2":"0.000"}
+fmt={"R1":"#,##0","R2":"0.0%","R3":"#,##0.00","R4":"0.00%","R5":"0.000","R6":"0.00","A1":"#,##0","A2":"#,##0","A3":"#,##0","A4":"0.0%","A5":"0.0%","A6":"0.0%","S2":"0.000","S3":"0.000","T2":"0.000","T3":"0.000"}
 for kk,f in fmt.items():
     for r in range(2,N+2): ws.cell(r,pos[kk]).number_format=f
 # Dicionário
@@ -134,9 +140,9 @@ for i,s in enumerate(D["sit"]): wm.append([i,s,"A2 arrematada" if i in(0,3) else
 head(wm); wm.column_dimensions["B"].width=60; wm.column_dimensions["C"].width=44
 # Leia-me
 wl=out.create_sheet("LEIA-ME",0)
-txt=["MINERA Goiás · Frente 8 · Banco de 20 indicadores por município · ano-base 2025","",
-"Estrutura: 1 linha por município (246) × 20 indicadores. Sem painel temporal e sem índice composto: cada indicador é independente.",
-"HHI (S2, T2) é direto: valor alto = concentração alta. Nenhum indicador foi invertido.",
+txt=["MINERA Goiás · Frente 8 · Banco de 22 indicadores por município · ano-base 2025","",
+"Estrutura: 1 linha por município (246) × 22 indicadores. Sem painel temporal e sem índice composto: cada indicador é independente.",
+"HHI (S2, S3, T2, T3) é direto: valor alto = concentração alta. Nenhum indicador foi invertido.",
 "Células vazias = indicador indefinido (ex.: crescimento com base zero; HHI sem processos; Sharpe sem variação).",
 "","RESSALVAS (leia antes de usar)",
 "1) População: estimativa IBGE 2025 (1º de julho), baixada do PDF oficial POP2025_20260828 (data/insumos). Para trocar, edite a aba Insumos, coluna C; R3 recalcula.",
@@ -145,7 +151,7 @@ txt=["MINERA Goiás · Frente 8 · Banco de 20 indicadores por município · ano
 "4) Processos e áreas são o estoque atual (fase = status atual) de processos abertos até 2025. Não há histórico de fase.",
 "5) % de área usa a área territorial (aba 10 do repositório). Áreas de processos se sobrepõem, então o valor pode passar de 100%.",
 "6) Áreas de rodadas (A2, A3) corrigidas: área ÷ 100 e um registro por processo. Isso difere dos valores usados no IPMM entregue antes (que estavam inflados).",
-"7) HHI com parcela por área (ha). Substâncias e titulares = todos os processos do município, qualquer fase.",
+"7) HHI por área (S2, T2): parcela = área (ha) dos processos do município, qualquer fase. HHI por receita (S3, T3): parcela = CFEM 2025 por substância e por titular; vazio sem CFEM.",
 "8) CFEM em R$ correntes. R5 e R6 usam os 12 meses de 2025; veja a coluna 'meses com CFEM em 2025' para avaliar a confiança.",
 "9) Nenhum indicador aqui foi validado por testes de índice; são medidas descritivas."]
 for t in txt: wl.append([t])
