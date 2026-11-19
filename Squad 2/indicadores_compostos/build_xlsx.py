@@ -8,7 +8,7 @@ REPO=str(Path(__file__).resolve().parents[2])
 P=json.load(open(f"{REPO}/data/panorama/panorama.json")); D=P["dims"]
 mun=pd.DataFrame(D["mun"],columns=["cod","nome","pop","pib"]); mun.index.name="mun"
 # população: estimativa IBGE 2025 (1º de julho), baixada do PDF oficial (data/insumos)
-_pop=pd.read_csv(f"{REPO}/data/insumos/ibge_populacao_estimada_2025_go.csv").set_index("cod_ibge")["pop_estimada_2025_01jul"]
+_pop=pd.read_csv(f"{REPO}/data/insumos/ibge_populacao_estimada_go.csv").set_index("cod_ibge")["pop_2025_01jul"]
 mun["pop"]=mun.cod.astype(int).map(_pop).astype(float)
 cf=pd.DataFrame(P["cfem"]["rows"],columns=P["cfem"]["cols"])
 pr=pd.DataFrame(P["proc"]["rows"],columns=P["proc"]["cols"])

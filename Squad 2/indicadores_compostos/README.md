@@ -36,7 +36,7 @@ Dependências: numpy, pandas, scipy, openpyxl. Semente fixa 20261112.
 ## Pendências
 
 - Regerar o PPT e o HTML de `entregas/` com o IPMM corrigido (o IPMM já foi refeito em `resultados/`; ver o registro).
-- População: já é a estimativa IBGE de 1º de julho de 2025 (`data/insumos/ibge_populacao_estimada_2025_go.csv`, lida do PDF POP2025_20260828). Falta o PIB 2022 do IBGE: o repositório ainda traz o PIB de 2023 (Insumos, coluna D).
+- População: já é a estimativa IBGE de 1º de julho de 2025 (`data/insumos/ibge_populacao_estimada_go.csv (colunas 2024 e 2025)`, lida do PDF POP2025_20260828). Falta o PIB 2022 do IBGE: o repositório ainda traz o PIB de 2023 (Insumos, coluna D).
 - Os arquivos `.pptx` e `.html` em `entregas/` foram gerados por scripts que não estão aqui.
 
 ## No site
