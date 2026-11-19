@@ -84,8 +84,13 @@ def pipe(pp):
                       "req_n": pp[pp.status == 5].groupby("mun").size(), "n_tit": g.emp.nunique(), "n_sub": g["min"].nunique()})
     return d.fillna(0)
 Pp = pipe(p3)
-Pp["arrem_ha"] = rdd[rdd.situacao.isin([0, 3])].groupby("mun").area_ha.sum().reindex(Pp.index).fillna(0)
-Pp["disp_ha"] = rdd[rdd.situacao.isin([1, 2])].groupby("mun").area_ha.sum().reindex(Pp.index).fillna(0)
+# rod.area_ha vem ~100x maior que a área dos processos e repete o processo em várias rodadas: corrige a unidade e conta cada processo uma vez
+# (arrematada = Conquistada ou Arrematada; ofertada = Livre ou Aguardando Leilão, exceto os já arrematados)
+rdd["ha"] = rdd.area_ha / 100.0
+_arr = rdd[rdd.situacao.isin([0, 3])].drop_duplicates("processo")
+_ofe = rdd[rdd.situacao.isin([1, 2]) & ~rdd.processo.isin(_arr.processo)].drop_duplicates("processo")
+Pp["arrem_ha"] = _arr.groupby("mun").ha.sum().reindex(Pp.index).fillna(0)
+Pp["disp_ha"] = _ofe.groupby("mun").ha.sum().reindex(Pp.index).fillna(0)
 Pp = Pp.join(mun[["nome"]]); Pp = Pp[Pp.nome.notna()]
 SP = {"Volume de títulos": [dict(col="pesq_n", log=True), dict(col="pre_n", log=True), dict(col="req_n", log=True)],
       "Área": [dict(col="pesq_ha", log=True), dict(col="arrem_ha", log=True), dict(col="disp_ha", log=True)],

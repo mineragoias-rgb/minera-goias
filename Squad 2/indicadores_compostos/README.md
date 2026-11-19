@@ -35,6 +35,10 @@ Dependências: numpy, pandas, scipy, openpyxl. Semente fixa 20261112.
 
 ## Pendências
 
-- Refazer o IPMM com as áreas de rodada corrigidas (ver o registro).
+- Regerar o PPT e o HTML de `entregas/` com o IPMM corrigido (o IPMM já foi refeito em `resultados/`; ver o registro).
 - Trocar população e PIB pelos dados do IBGE (população estimada 2022–2025 e PIB 2022).
 - Os arquivos `.pptx` e `.html` em `entregas/` foram gerados por scripts que não estão aqui.
+
+## No site
+
+O banco de 20 indicadores aparece no painel em Atlas · Território · Visão do mapa · Indicadores. O pacote de dados é gerado por `scripts/build_indicadores_municipais.py` a partir de `entregas/MINERA_Goias_Indicadores_2025.xlsx` e sai por `/api/indicadores`, atrás do login.
