@@ -391,17 +391,16 @@ function fonteHtml(e,radar){
 function pacoteHtml(e){
  if(!e.pacote)return '';
  return `<div class="mp-source mp-p3m"><p class="mp-p3m-head">${escape(t('mp.pkgTitle'))}</p>`+
-  `<p><b>${escape(t('mp.pkgFile'))}:</b> ${escape(e.pacote.arquivo)} · <b>${escape(t('mp.pkgLayer'))}:</b> ${escape(e.pacote.camada)}</p>`+
-  `<p><a href="${escape(e.pacote.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.pkgLink'))} ↗</a></p></div>`;
+  `<p><b>${escape(t('mp.pkgLayer'))}:</b> ${escape(e.pacote.camada)}</p>`+
+  `</div>`;
 }
 
 // A yearly series written by the update robot (Squad 1/MapBiomas): the folder, the collection, how 30 m became ~150 m, the link.
 function serieHtml(e){
  if(!e.serie)return '';
  return `<div class="mp-source mp-p3m"><p class="mp-p3m-head">${escape(t('mp.serieTitle'))}</p>`+
-  `<p><b>${escape(t('mp.serieFolder'))}:</b> ${escape(e.serie.pasta)} · <b>${escape(t('mp.serieCollection'))}:</b> ${escape(String(e.serie.colecao))}</p>`+
-  `<p class="mp-note">${escape(e.serie.metodo)}</p>`+
-  `<p><a href="${escape(e.serie.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.serieLink'))} ↗</a></p></div>`;
+  `<p><b>${escape(t('mp.serieCollection'))}:</b> ${escape(String(e.serie.colecao))}</p>`+
+  `<p class="mp-note">${escape(e.serie.metodo)}</p></div>`;
 }
 
 // What the P3M inventory (Squad 1/P3M/inventario_p3m.csv) says of each source layer: Squad 1 folder, classification on the P3M site,
@@ -413,12 +412,12 @@ function p3mHtml(e){
    `<p><b>${escape(f.titulo)}</b> <code>${escape(f.camada)}</code></p>`+
    `<p><b>${escape(t('mp.p3mClass'))}:</b> ${escape(f.classificacao.join(' › ')||t('mp.notInformed'))}</p>`+
    (f.outras_classificacoes.length?`<details class="mp-omit"><summary>${escape(t('mp.p3mOther',{n:f.outras_classificacoes.length}))}</summary><ul>${f.outras_classificacoes.map(x=>`<li>${escape(x)}</li>`).join('')}</ul></details>`:'')+
-   `<p><b>${escape(t('mp.p3mFolder'))}:</b> ${escape(f.pasta)} · <b>${escape(t('mp.p3mAgency'))}:</b> ${escape(f.orgao)}</p>`+
+   `<p><b>${escape(t('mp.p3mAgency'))}:</b> ${escape(f.orgao)}</p>`+
    `<p><b>${escape(t('mp.p3mDownloaded'))}:</b> ${escape(dataBR(f.baixado_em))} · <b>${escape(t('mp.p3mUpdated'))}:</b> `+
     `${f.atualizacao_sgb?escape(dataBR(f.atualizacao_sgb))+' <span class="mp-note">· '+escape(f.fonte_atualizacao_sgb)+'</span>':escape(t('mp.p3mNotPublished'))}</p>`+
    (f.resumo?`<p class="mp-note">${escape(f.resumo)}</p>`:'')+
    (ext(f.metadados)?`<p><a href="${escape(f.metadados)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.p3mMetadata'))} ↗</a></p>`:'')).join('')+
-  (ext(inv.url)?`<p><a href="${escape(inv.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.inventoryLink'))} ↗</a> <span class="mp-note">${escape(t('mp.inventoryNote',{n:num(inv.camadas,0),m:num(inv.no_mapa,0)}))}</span></p>`:'')+`</div>`;
+  `<p class="mp-note">${escape(t('mp.inventoryNote',{n:num(inv.camadas,0),m:num(inv.no_mapa,0)}))}</p></div>`;
 }
 
 /* ---------- universe under analysis: table + indicators ---------- */
@@ -526,7 +525,7 @@ function exportarCsv(){
  const safe=v=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
  const e=st.entrada,f=e.fonte||{};
  const meta=[[t('mp.csvLayer'),rot(e)+(st.modelo.ano?' — '+st.modelo.ano:'')],[t('mp.source'),typeof f==='string'?f:f.nome||''],[t('mp.snapshot'),String(e.data_retrato??t('mp.notRecorded'))],[t('mp.refPeriod'),e.periodo_referencia||t('mp.refNotInformed')],
-  ...(e.p3m?[[t('mp.inventoryLink'),cat.p3m.inventario.url]]:[]),...(e.pacote?[[t('mp.pkgLink'),e.pacote.url]]:[]),[t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
+  [t('mp.csvFilters'),descricaoFiltros()],[t('mp.csvRows'),String(idx.length)],[t('mp.csvUse'),t('mp.csvUseText')]];
  const linhas=[...meta,[],cols.map(c=>rotulo(c)+(c.unidade?' ('+c.unidade+')':'')),...idx.map(i=>cols.map(c=>textoExport(c,c.get(i))))];
  baixar(`mapa-mineral-goias-${st.id}.csv`,'text/csv;charset=utf-8','﻿'+linhas.map(r=>r.map(safe).join(';')).join('\r\n'));
  el('mp-export-msg').textContent=t('mp.csvDone',{n:num(idx.length,0)});
@@ -592,9 +591,8 @@ async function baixarShapefile(st){
   const leiame=['Mapa Mineral de Goiás — '+rot(e),'',
    t('mp.source')+': '+(typeof f==='string'?f:[f.nome,f.url].filter(Boolean).join(' · ')),
    t('mp.snapshot')+': '+dataR+' · '+t('mp.refPeriod')+': '+(e.periodo_referencia||t('mp.refNotInformed')),
-   ...(e.p3m||[]).map(f=>`P3M: ${f.titulo} (${f.camada}) · ${f.classificacao.join(' › ')} · ${t('mp.p3mFolder')}: ${f.pasta} · ${t('mp.p3mAgency')}: ${f.orgao} · `+
+   ...(e.p3m||[]).map(f=>`P3M: ${f.titulo} (${f.camada}) · ${f.classificacao.join(' › ')} · ${t('mp.p3mAgency')}: ${f.orgao} · `+
     `${t('mp.p3mDownloaded')}: ${dataBR(f.baixado_em)} · ${t('mp.p3mUpdated')}: ${f.atualizacao_sgb?dataBR(f.atualizacao_sgb)+', '+f.fonte_atualizacao_sgb:t('mp.p3mNotPublished')}`),
-   ...(e.p3m?[t('mp.inventoryLink')+': '+cat.p3m.inventario.url]:[]),...(e.pacote?[t('mp.pkgLink')+': '+e.pacote.url]:[]),
    t('mp.shpGenerated',{data:dataBR(iso)}),'',
    t('mp.shpWhole'),t('mp.shpCount',{n:num(registros.length,0),sem:num(sem,0)}),prj?t('mp.shpCrs',{crs}):t('mp.shpNoCrs'),
    t('mp.geoWarning'),...(e.geometria==='poligono'?[t('mp.shpInvalid')]:[]),t('mp.csvUseText'),t('mp.shpText'),'',
@@ -838,8 +836,7 @@ function fontes(){
  const vis=[...estados.values()].filter(s=>s.visivel||s.id===analise),vistos=new Set();
  const itens=[];for(const st of vis){const e=st.entrada,nome=st.tipo==='radar'?e.fonte:(e.fonte||{}).nome;if(!nome||vistos.has(nome))continue;vistos.add(nome);
   const d=st.tipo==='radar'?'':Array.isArray(e.data_retrato)?e.data_retrato.map(dataBR).join(', '):e.data_retrato?dataBR(e.data_retrato):t('mp.notRecorded');itens.push(nome+(d?' ('+d+')':''))}
- const inv=cat.p3m.inventario;
- el('mp-sources').innerHTML=escape(t('mp.sourcesLine',{fontes:itens.join('; ')}))+` · <a href="${escape(inv.url)}" target="_blank" rel="noopener noreferrer">${escape(t('mp.inventoryLink'))} ↗</a>`;
+ el('mp-sources').innerHTML=escape(t('mp.sourcesLine',{fontes:itens.join('; ')}));
 }
 
 /* ---------- init ---------- */

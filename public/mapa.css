@@ -2,6 +2,7 @@
 #mapa-view{--mp-h:max(520px,calc(100vh - 260px));--mp-side:310px;--mp-det:330px}
 #mapa-view .mp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 #mapa-view .mp-head h1{font-size:27px;letter-spacing:-1px;margin:6px 0 2px}
+#mapa-view .mp-lead{max-width:860px;margin:6px 0 0;color:var(--muted,#5d7385);line-height:1.5}
 #mapa-view .mp-head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
 #mapa-view .mp-ref{font-size:11px;color:var(--muted);max-width:560px}
 #mapa-view .mp-filterbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:white;border:1px solid var(--line);padding:8px 12px;margin:12px 0}
