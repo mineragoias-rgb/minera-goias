@@ -66,7 +66,8 @@ function metricas(linhas){
  const anos=new Set(linhas.map(l=>l.ano)),minerais=new Set(linhas.map(l=>l.mineral));
  const dest=somaPor(dados.destinos.filter(d=>anos.has(d.ano)&&minerais.has(d.mineral)),d=>d.pais);
  const totalDest=dest.reduce((s,[,b])=>s+b.usd,0);
- const parcial=linhas.filter(l=>!l.ano_completo).length;
+ // Anos, não linhas: onze linhas de 2026 são UM ano aberto, e contar linhas aqui diria "onze anos" a quem lê.
+ const anosAbertos=[...new Set(linhas.filter(l=>!l.ano_completo).map(l=>l.ano))].sort();
  const quantosCriticos=new Set(criticos.map(l=>l.mineral)).size;
  return [
   ['a',fluxo==='export'?t('cx.m.exportado'):t('cx.m.importado'),usd(total),
@@ -75,8 +76,9 @@ function metricas(linhas){
      total?t('cx.m.criticosSub',{parcela:num(valorCritico/total*100,0)}):t('cx.m.criticosVazio')],
   ['c',t('cx.m.destino'),dest.length&&fluxo==='export'?dest[0][0]:'—',
      dest.length&&fluxo==='export'?t('cx.m.destinoSub',{parcela:num(dest[0][1].usd/totalDest*100,0)}):t('cx.m.destinoVazio')],
-  ['d',t('cx.m.parcial'),num(parcial),t('cx.m.parcialSub',{ano:String(dados.meta.publicado_ate.ano),
-     mes:String(dados.meta.publicado_ate.mes)})],
+  ['d',t('cx.m.parcial'),anosAbertos.length?anosAbertos.join(', '):'—',
+     anosAbertos.length?t('cx.m.parcialSub',{ano:String(dados.meta.publicado_ate.ano),
+       mes:String(dados.meta.publicado_ate.mes)}):t('cx.m.parcialNenhum')],
  ].map(([tom,rotulo,valor,detalhe])=>`<div class="metric tone-${tom}"><span>${escape(rotulo)}</span>`
    +`<strong>${escape(valor)}</strong><small>${escape(detalhe)}</small></div>`).join('');}
 

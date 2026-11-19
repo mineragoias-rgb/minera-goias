@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-11-06",
+  "built_on": "2026-11-19",
   "versao_base": "v1",
   "gerado_por": "scripts/build_catalogo_bases.py",
   "nota": "Última atualização de pacote gerado vem do built_on que o próprio pacote grava; a de arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo, não digitados."
@@ -173,6 +173,34 @@
    "mede": "Projeto nomeado com empresa, mineral, município, fase, maturidade, capacidade, CAPEX, cronograma e evidência.",
    "nao_mede": "Pipeline cadastral: o universo de processos da ANM está no atlas, não aqui. Campo sem informação é NA.",
    "readme": "projetos/README.md"
+  },
+  {
+   "id": "comex_fonte",
+   "nome": "Comex Stat — despacho aduaneiro de Goiás",
+   "familia": "Comércio exterior",
+   "natureza": "coletada",
+   "origem": "Comex Stat — Ministério do Desenvolvimento, Indústria, Comércio e Serviços (MDIC) / Secretaria de Comércio Exterior (SECEX) — https://comexstat.mdic.gov.br/",
+   "atualizado_em": "2026-11-06",
+   "periodo": "2019 a 2026/10",
+   "volume": "870 linhas mensais de 12 minerais",
+   "onde": "comex/bruto/*.json, baixado por comex/coleta.py",
+   "mede": "Valor FOB em dólares e peso líquido em quilos, por NCM e por mês, com Goiás como UF da operação.",
+   "nao_mede": "Produção: um embarque pode sair meses depois da lavra, e o peso é do produto, não do metal contido.",
+   "readme": "data/comex/README.md"
+  },
+  {
+   "id": "comex",
+   "nome": "Comércio exterior dos minerais de Goiás",
+   "familia": "Comércio exterior",
+   "natureza": "derivada",
+   "origem": "Comex Stat ligado ao vocabulário mineral do projeto por comex/base_curada.json",
+   "atualizado_em": "2026-11-19",
+   "periodo": "2019 a 2026/10",
+   "volume": "109 linhas anuais · 577 destinos · 326 linhas de município",
+   "onde": "data/comex/comex.json e .csv · API /api/comex",
+   "mede": "Exportação e importação por mineral, ano e mês, com país de destino e município de origem por capítulo da NCM.",
+   "nao_mede": "Classificação federal de mineral crítico: o texto oficial não pôde ser lido, e a base marca NA em vez de atribuí-la.",
+   "readme": "data/comex/README.md"
   },
   {
    "id": "mercado",

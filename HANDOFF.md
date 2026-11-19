@@ -115,10 +115,33 @@ Integração de 06/11/2026, em duas partes.
 
 A base cobre operação, expansão, construção, projeto definido, provável, possível e sinal — de Chapada e CMOC à reativação de Pilar de Goiás, ao Saúva da Lundin, ao Carina da Aclara em Nova Roma, ao Sertão da P.A. Gold em Faina e aos alvos de terras raras da Alvo e da Appia em Iporá. **Nenhum documento foi lido na origem**: a coleta saiu de busca na web num ambiente cujo proxy bloqueia os sites, e a cobertura não é exaustiva — o README lista o que ficou de fora e o caminho para fechar.
 
-**Aba Base de dados.** Entre o Radar e a administração (`public/bases.js`, bloco `--- Base de dados ---` no fim de `public/style.css`), servida por `Squad 3/backend/catalogo.py` em `/api/catalogo`. Cataloga as 15 bases que o sistema usa, agrupadas em seis famílias, cada cartão abrindo com **nome, origem e última atualização** e trazendo período, volume, onde vive, o que mede e o que não mede. O pacote `data/catalogo/catalogo.json` é gerado por `python scripts/build_catalogo_bases.py`, que lê o `built_on` dos pacotes e a data do último commit dos arquivos brutos — nenhuma data é digitada. Como as demais bases que nomeiam empresas, fica atrás de sessão e não vai para `public/`.
+**Aba Base de dados.** Entre o Radar e a administração (`public/bases.js`, bloco `--- Base de dados ---` no fim de `public/style.css`), servida por `Squad 3/backend/catalogo.py` em `/api/catalogo`. Cataloga as bases que o sistema usa (17 hoje), agrupadas por família, cada cartão abrindo com **nome, origem e última atualização** e trazendo período, volume, onde vive, o que mede e o que não mede. O pacote `data/catalogo/catalogo.json` é gerado por `python scripts/build_catalogo_bases.py`, que lê o `built_on` dos pacotes e a data do último commit dos arquivos brutos — nenhuma data é digitada. Como as demais bases que nomeiam empresas, fica atrás de sessão e não vai para `public/`.
 
 ```sh
 python scripts/build_projetos_base.py && python scripts/build_catalogo_bases.py
 python -m unittest discover -s tests -p test_projetos.py -v
 node --check public/bases.js
+```
+
+## Comércio exterior (aba do painel)
+
+Integração de 19/11/2026. Lê o **Comex Stat (MDIC/SECEX)** pela API pública e o liga ao vocabulário mineral que as outras bases já usam: 12 minerais, 18 NCMs, 870 linhas mensais de 2019 a outubro de 2026, com destino por país e município de origem por capítulo da NCM.
+
+`comex/coleta.py` baixa o bruto (só biblioteca padrão, como o agente de produção); `comex/base_curada.json` guarda o vínculo NCM ↔ mineral; `scripts/build_comex_base.py` gera `data/comex/comex.json` e `.csv`. A aba fica abaixo de Empresas (`public/comex.js`, bloco `--- Comércio exterior ---` no fim de `public/style.css`), servida por `Squad 3/backend/comex.py` em `/api/comex`, atrás de sessão como as demais. Regras e limites em `data/comex/README.md` e `METODOLOGIA.md` §3.9.
+
+**Três coisas que quem mexer nisso precisa saber antes de mexer:**
+
+1. **Período que cruza anos devolve só o acumulado, calado.** Pedir de `2019-01` a `2026-10` faz a API responder, para *todo* ano, apenas janeiro–outubro. A NCM 26030010 em 2024 volta com US$ 378,6 mi nesse formato e US$ 500,3 mi quando 2024 é pedido sozinho. Por isso a coleta faz **um pedido por ano**, e `test_os_destinos_somam_a_exportacao_do_ano` existe para impedir a volta da armadilha.
+2. **`economicBlock` dobra a soma** — um país está em mais de um bloco e a venda volta repetida. Não se usa esse detalhe.
+3. **O código da UF não é o do IBGE.** Goiás é **53** no Comex Stat; 52 é Mato Grosso.
+
+**Sobre "crítico".** A classificação federal está como `NA` e aparece assim na tela. O texto oficial (Resolução SGM/MME nº 2, de 18/06/2021, e a Política Nacional de Minerais Críticos e Estratégicos) não abriu deste ambiente: `in.gov.br` e `planalto.gov.br` foram liberados na rede da sessão e ainda assim devolvem resposta vazia a cliente automatizado, e o WebFetch roda fora dessa liberação. A base não atribui classificação legal que não leu. O recorte crítico é o do projeto — o mineral entra quando o marco estadual, como a aba Mercado o registra, nomeia uma operação daquele mineral em Goiás —, e o gerador **recusa a base** se esse vínculo sumir. Quem conseguir ler o texto oficial acrescenta o campo; ele não substitui o recorte.
+
+**Dados da CVM.** Continuam fora do projeto, e o levantamento de 19/11/2026 diz por quê: das dez empresas da base de produção, só a **Companhia Brasileira de Alumínio** (CVM 25984, categoria A) é registrada; a **SAMA** tem registro **cancelado** (CVM 13196) e quem reporta é a controladora **Eternit S.A.** (CVM 5762). Anglo, AngloGold/Serra Grande, CMOC, Amarillo/Hochschild, Maracá/Lundin, Serra Verde e Mosaic P&K **não são emissoras na CVM** — listam-se em Toronto, Londres, Hong Kong ou são fechadas. Há ainda a **Aura Almas Mineração** (CVM 26590, categoria B), do grupo que comprou Crixás em dezembro de 2025. O portal `dados.cvm.gov.br` **responde deste ambiente** e tem CAD, FCA, FRE, DFP, ITR, IPE e VLMO em CSV e ZIP por ano; conferido em 19/11/2026: 68 comunicados da Eternit, 69 da CBA e 8 da Aura Almas em 2026.
+
+```sh
+python3 comex/coleta.py --check     # até que mês a fonte publicou
+python3 comex/coleta.py && python3 scripts/build_comex_base.py && python3 scripts/build_catalogo_bases.py
+python3 -m unittest tests.test_comex -v
+node --check public/comex.js
 ```

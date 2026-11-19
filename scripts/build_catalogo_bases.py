@@ -62,6 +62,7 @@ atlas = carrega("data/atlas/atlas.json")
 producao = carrega("data/producao/producao.json")
 empresas = carrega("data/empresas/empresas.json")
 projetos = carrega("data/projetos/projetos.json")
+comex = carrega("data/comex/comex.json")
 mercado = carrega("public/data/mercado/mercado_v1.json")
 noticias = carrega("public/data/noticias/latest.json")
 
@@ -191,6 +192,30 @@ if projetos:
          mede="Projeto nomeado com empresa, mineral, município, fase, maturidade, capacidade, CAPEX, cronograma e evidência.",
          nao_mede="Pipeline cadastral: o universo de processos da ANM está no atlas, não aqui. Campo sem informação é NA.",
          readme="projetos/README.md")
+if comex:
+    mt = comex["meta"]
+    anos = sorted({l["ano"] for l in comex["anual"]})
+    base(id="comex_fonte", nome="Comex Stat — despacho aduaneiro de Goiás", familia="Comércio exterior",
+         natureza="coletada",
+         origem=mt["fonte"]["nome"] + " — " + mt["fonte"]["portal"],
+         atualizado_em=mt["coleta"]["atualizacao_declarada_pela_api"],
+         periodo=f"{anos[0]} a {mt['publicado_ate']['ano']}/{mt['publicado_ate']['mes']:02d}",
+         volume=f"{len(comex['serie'])} linhas mensais de {len(comex['minerais'])} minerais",
+         onde="comex/bruto/*.json, baixado por comex/coleta.py",
+         mede="Valor FOB em dólares e peso líquido em quilos, por NCM e por mês, com Goiás como UF da operação.",
+         nao_mede="Produção: um embarque pode sair meses depois da lavra, e o peso é do produto, não do metal contido.",
+         readme="data/comex/README.md")
+    base(id="comex", nome="Comércio exterior dos minerais de Goiás", familia="Comércio exterior",
+         natureza="derivada",
+         origem="Comex Stat ligado ao vocabulário mineral do projeto por comex/base_curada.json",
+         atualizado_em=mt.get("built_on"),
+         periodo=f"{anos[0]} a {mt['publicado_ate']['ano']}/{mt['publicado_ate']['mes']:02d}",
+         volume=f"{len(comex['anual'])} linhas anuais · {len(comex['destinos'])} destinos · "
+                f"{len(comex['municipios'])} linhas de município",
+         onde="data/comex/comex.json e .csv · API /api/comex",
+         mede="Exportação e importação por mineral, ano e mês, com país de destino e município de origem por capítulo da NCM.",
+         nao_mede="Classificação federal de mineral crítico: o texto oficial não pôde ser lido, e a base marca NA em vez de atribuí-la.",
+         readme="data/comex/README.md")
 if mercado:
     base(id="mercado", nome="Mercado de minerais críticos", familia="Pipeline e mercado", natureza="curada",
          origem="Fontes públicas: imprensa, resultados divulgados por empresas e estudos setoriais",
