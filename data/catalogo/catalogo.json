@@ -194,7 +194,7 @@
    "familia": "Monitoramento",
    "natureza": "coletada",
    "origem": "Coletor de notícias do repositório, lendo feeds de veículos do setor",
-   "atualizado_em": "2026-11-18",
+   "atualizado_em": "2026-11-19",
    "periodo": "Acervo por mês em public/data/noticias/meses/",
    "volume": "180 matérias na última coleta",
    "onde": "public/data/noticias/latest.json e meses/*.json",
