@@ -189,7 +189,9 @@
  }
  function avisoSoma(total) {
   el('in-comp-sum').textContent = total > 0 ? t('in.sumW', {n: num(total, 2)}) : t('in.noWeight');
-  el('in-comp-warn').hidden = !(total > 1 + 1e-9);
+  const soma = Math.round(total * 1e4) / 1e4, aviso = el('in-comp-warn');
+  aviso.hidden = soma === 1;
+  aviso.textContent = soma > 1 ? t('in.sumOver', {n: num(soma, 2)}) : soma < 1 ? t('in.sumUnder', {n: num(soma, 2)}) : '';
  }
  function composicao() {
   const D = E.dados, linhas = [];
@@ -198,7 +200,7 @@
   D.ind.forEach(i => {
    if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<div class="in-comp-fam">${escape(fam)}</div>`); }
    const w = E.pesos[i.id] || 0, parte = total ? w / total * 100 : 0;
-   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(nomeInd(i))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><input type="number" class="in-num" min="0" max="1" step="0.05" value="${w}" data-n="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
+   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(nomeInd(i))}</label><input type="number" class="in-num" min="0" max="1" step="0.05" value="${w}" data-n="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
   });
   el('in-comp-rows').innerHTML = linhas.join('');
   el('in-preset').innerHTML = `<option value="">${escape(t('in.presetFree'))}</option>` + D.presets.map(p => `<option value="${p.id}">${escape(campo(p, 'nome'))}</option>`).join('');
@@ -208,9 +210,6 @@
   avisoSoma(total);
   const c = compor(D.col, E.pesos, E.log, E.todos), top = ranking(c.nota, 10, 'desc');
   el('in-comp-prev').innerHTML = total > 0 ? top.map((x, i) => `<li><span>${i + 1}. ${escape(nomeMun(x.k))}</span><b>${escape(num(x.v, 3))}</b></li>`).join('') : '';
-  el('in-comp-rows').querySelectorAll('[data-w]').forEach(r => r.oninput = () => {
-   E.pesos[r.dataset.w] = +r.value; E.preset = ''; mudou(false);
-  });
   el('in-comp-rows').querySelectorAll('[data-n]').forEach(r => r.oninput = () => {
    const v = parseFloat(String(r.value).replace(',', '.'));
    if (!isFinite(v)) return;
@@ -227,8 +226,7 @@
   else {
    const total = Object.values(E.pesos).reduce((s, w) => s + (w > 0 ? w : 0), 0);
    el('in-comp-rows').querySelectorAll('.in-comp-row').forEach(r => {
-    const id = r.querySelector('[data-w]').dataset.w, w = E.pesos[id] || 0;
-    r.querySelector('[data-w]').value = w; const nn = r.querySelector('[data-n]'); if (nn.dataset.n !== editando) nn.value = w; r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
+    const nn = r.querySelector('[data-n]'), id = nn.dataset.n, w = E.pesos[id] || 0; if (nn.dataset.n !== editando) nn.value = w; r.querySelector('.in-share').textContent = num(total ? w / total * 100 : 0, 0) + '%';
     r.querySelector('[data-on]').checked = w > 0;
    });
    el('in-preset').value = E.preset || '';

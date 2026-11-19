@@ -156,7 +156,9 @@ class ProtecaoETelaTests(unittest.TestCase):
         js = (PUBLIC / 'indicadores.js').read_text(encoding='utf-8')
         self.assertNotIn('in.col.origin', js)
         self.assertNotIn('in-origem', js)
-        self.assertIn('max="1" step="0.05"', js)
+        self.assertIn('type="number" class="in-num"', js)
+        self.assertNotIn('type="range"', js)
+        self.assertIn('in.sumUnder', js)
         self.assertIn("in-comp-warn", js)
 
     def test_indicadores_fora_do_atlas(self):

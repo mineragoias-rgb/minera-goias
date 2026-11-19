@@ -94,14 +94,14 @@
 .in-check{display:flex;gap:8px;align-items:center;font-size:12px}
 .in-comp-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:26px}
 .in-comp-fam{margin:12px 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#07345c}
-.in-comp-row{display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(110px,1fr) 34px 42px;align-items:center;gap:10px;padding:3px 0;font-size:12px}
+.in-comp-row{display:grid;grid-template-columns:minmax(150px,1fr) 70px 42px;align-items:center;gap:10px;padding:3px 0;font-size:12px}
 .in-comp-row input[type=range]{width:100%;accent-color:#0f6fb0}
 .in-comp-row output,.in-share{text-align:right;font-variant-numeric:tabular-nums}
 .in-share{color:var(--muted)}
 .in-prev{margin:6px 0 14px;padding:0;list-style:none;font-size:12px}
 .in-prev li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px solid var(--line)}
 #in-comp-use.active{outline:2px solid #0f6fb0}
-@media (max-width:900px){.in-comp-grid{grid-template-columns:1fr}.in-bar{grid-template-columns:minmax(90px,150px) 1fr 80px}.in-comp-row{grid-template-columns:1fr 1fr 30px 38px}}
+@media (max-width:900px){.in-comp-grid{grid-template-columns:1fr}.in-bar{grid-template-columns:minmax(90px,150px) 1fr 80px}.in-comp-row{grid-template-columns:1fr 70px 38px}}
 
 .in-comp-name{display:flex;gap:8px;align-items:center;margin:0}.in-comp-name input,.in-check input{width:auto;margin:0;flex:none}.in-check span{flex:1}
 
