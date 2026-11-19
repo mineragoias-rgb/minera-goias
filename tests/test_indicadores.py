@@ -108,21 +108,24 @@ class ProtecaoETelaTests(unittest.TestCase):
 
     def test_painel_liga_o_indicadores(self):
         html = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
-        for trecho in ('value="indicators"', 'id="atlas-ind"', 'id="atlas-ind-scale"', 'id="ind-section"', 'id="in-explain"',
+        for trecho in ('data-view="indicadores"', 'id="indicadores-view"', 'id="in-sel"', 'id="in-scale"', 'id="in-map"', 'id="in-explain"',
                        'id="in-rank-bars"', 'id="in-comp-rows"', 'id="in-preset"', '/indicadores.js?v='):
             self.assertIn(trecho, html)
         self.assertLess(html.index('/i18n.js'), html.index('/indicadores.js'))
-        self.assertLess(html.index('/indicadores.js'), html.index('/atlas.js'))
-        # a secção fica depois do mapa e antes do perfil do município
-        self.assertLess(html.index('class="atlas-layout"'), html.index('id="ind-section"'))
-        self.assertLess(html.index('id="ind-section"'), html.index('id="mun-profile"'))
-        # composição em expander acima do mapa, oculta até escolher a composição; explicação em expander no fim da secção
-        self.assertLess(html.index('id="in-comp-box"'), html.index('class="atlas-layout"'))
-        self.assertRegex(html, r'<details[^>]*id="in-comp-box"[^>]*hidden')
-        self.assertLess(html.index('id="in-rank-bars"'), html.index('id="in-explain"'))
-        self.assertRegex(html, r'<details[^>]*id="in-explain-box"')
-        self.assertLess(html.index('id="in-explain"'), html.index('id="mun-profile"'))
-        self.assertIn('id="in-comp-warn"', html)
+        # seção própria: nada de indicadores dentro do Atlas
+        for resto in ('atlas-ind', 'ind-section', 'value="indicators"'):
+            self.assertNotIn(resto, html)
+        ini = html.index('id="indicadores-view"'); fim = html.index('id="mercado-view"')
+        self.assertLess(ini, fim)
+        sec = html[ini:fim]
+        # composição em expander acima do mapa, fechado e oculto até escolher a composição; explicação em expander no fim
+        self.assertLess(sec.index('id="in-comp-box"'), sec.index('id="in-map"'))
+        self.assertRegex(sec, r'<details[^>]*id="in-comp-box"[^>]*hidden')
+        self.assertNotRegex(sec, r'<details[^>]*id="in-comp-box"[^>]*\bopen\b')
+        self.assertLess(sec.index('id="in-map"'), sec.index('id="in-rank-bars"'))
+        self.assertLess(sec.index('id="in-rank-bars"'), sec.index('id="in-explain"'))
+        self.assertRegex(sec, r'<details[^>]*id="in-explain-box"')
+        self.assertIn('id="in-comp-warn"', sec)
         self.assertNotIn('in-comp-use', html)
 
     def test_sem_coluna_origem_e_pesos_de_0_a_1(self):
@@ -132,19 +135,21 @@ class ProtecaoETelaTests(unittest.TestCase):
         self.assertIn('max="1" step="0.05"', js)
         self.assertIn("in-comp-warn", js)
 
-    def test_tema_proprio_de_indicadores(self):
-        code = (PUBLIC / 'panorama.js').read_text(encoding='utf-8')
-        self.assertRegex(code, r"\['indicadores',\[\],\['indicators'\]\]")
-        self.assertNotRegex(code, r"\['territorio',\[[^\]]*\],\[[^\]]*'indicators'")
+    def test_indicadores_fora_do_atlas(self):
+        for nome in ('atlas.js', 'panorama.js'):
+            code = (PUBLIC / nome).read_text(encoding='utf-8')
+            self.assertNotIn('indicators', code, nome)
+            self.assertNotIn('AtInd', code, nome)
+        self.assertIn("'indicadores'", (PUBLIC / 'painel.js').read_text(encoding='utf-8'))
+        self.assertIn('showIndicadores', (PUBLIC / 'painel.js').read_text(encoding='utf-8'))
         i18n = (PUBLIC / 'i18n.js').read_text(encoding='utf-8')
-        self.assertEqual(i18n.count("'pn.tab.indicadores'"), 2)
+        self.assertEqual(i18n.count("'nav.indicadores'"), 2)
 
-
-    def test_atlas_desenha_a_camada_e_le_a_rota(self):
-        atlas = (PUBLIC / 'atlas.js').read_text(encoding='utf-8')
-        self.assertIn("layer==='indicators'", atlas)
-        self.assertIn('window.AtInd', atlas)
-        self.assertIn("api('/indicadores')", (PUBLIC / 'indicadores.js').read_text(encoding='utf-8'))
+    def test_secao_le_a_rota_e_desenha_o_proprio_mapa(self):
+        js = (PUBLIC / 'indicadores.js').read_text(encoding='utf-8')
+        self.assertIn("api('/indicadores')", js)
+        self.assertIn("L.map('in-map'", js)
+        self.assertIn('window.showIndicadores', js)
 
     def test_composicao_normaliza_e_pondera_sem_inverter(self):
         code = (PUBLIC / 'indicadores.js').read_text(encoding='utf-8')

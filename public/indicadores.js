@@ -136,14 +136,14 @@
  }
 
  // ---------- seções sob o mapa ----------
- function nomeMun(k) { return (window.AtInd.nomes && window.AtInd.nomes.get(E.dados.cods[k])) || E.dados.cods[k]; }
+ function nomeMun(k) { return (M.nomes && M.nomes.get(E.dados.cods[k])) || E.dados.cods[k]; }
  function opcoesIndicador() {
   const D = E.dados, grupos = [];
   D.ind.forEach(i => { const f = campo(i, 'familia'); let g = grupos.find(x => x.f === f); if (!g) { g = {f, l: []}; grupos.push(g); } g.l.push(i); });
-  el('atlas-ind').innerHTML = grupos.map(g => `<optgroup label="${escape(g.f)}">${g.l.map(i => `<option value="${i.id}">${escape(i.id + ' · ' + campo(i, 'nome'))}</option>`).join('')}</optgroup>`).join('')
+  el('in-sel').innerHTML = grupos.map(g => `<optgroup label="${escape(g.f)}">${g.l.map(i => `<option value="${i.id}">${escape(i.id + ' · ' + campo(i, 'nome'))}</option>`).join('')}</optgroup>`).join('')
    + `<optgroup label="${escape(t('in.compGroup'))}"><option value="${COMP}">${escape(t('in.comp'))}</option></optgroup>`;
-  el('atlas-ind').value = E.sel;
-  el('atlas-ind-scale').value = E.escala;
+  el('in-sel').value = E.sel;
+  el('in-scale').value = E.escala;
  }
  function explicacao() {
   const D = E.dados, linhas = [];
@@ -166,7 +166,7 @@
    const cod = E.dados.cods[x.k], larg = maxAbs ? Math.max(1.5, Math.abs(x.v) / maxAbs * 100) : 1.5;
    return `<button type="button" class="in-bar" data-cod="${escape(cod)}" aria-label="${escape(t('in.locate', {name: nomeMun(x.k)}))}"><span class="in-bar-name">${i + 1}. ${escape(nomeMun(x.k))}</span><span class="in-bar-track"><i style="width:${larg.toFixed(1)}%;background:${s.cor.get(cod) || RAMPA[4]}"></i></span><span class="in-bar-val">${escape(texto(a, x.v))}</span></button>`;
   }).join('') || `<p class="muted">${escape(t('in.noValue'))}</p>`;
-  el('in-rank-bars').querySelectorAll('.in-bar').forEach(b => b.onclick = () => window.AtInd.escolherMunicipio && window.AtInd.escolherMunicipio(b.dataset.cod));
+  el('in-rank-bars').querySelectorAll('.in-bar').forEach(b => b.onclick = () => escolher(b.dataset.cod, true));
   el('in-rank-note').textContent = a.comp ? t('in.rankCompNote') : t('in.rankNote');
  }
  function avisoSoma(total) {
@@ -218,12 +218,13 @@
    const c = compor(E.dados.col, E.pesos, E.log, E.todos), top = ranking(c.nota, 10, 'desc');
    el('in-comp-prev').innerHTML = total > 0 ? top.map((x, i) => `<li><span>${i + 1}. ${escape(nomeMun(x.k))}</span><b>${escape(num(x.v, 3))}</b></li>`).join('') : '';
   }
-  if (E.sel === COMP) { ranking_(); if (window.AtInd.aoMudar) window.AtInd.aoMudar(); }
+  if (E.sel === COMP) { ranking_(); }
+  desenhar();
  }
  function montar() {
   opcoesIndicador(); explicacao(); ranking_(); composicao();
-  el('atlas-ind').onchange = () => { E.sel = el('atlas-ind').value; ranking_(); composicao(); if (window.AtInd.aoMudar) window.AtInd.aoMudar(); };
-  el('atlas-ind-scale').onchange = () => { E.escala = el('atlas-ind-scale').value; if (window.AtInd.aoMudar) window.AtInd.aoMudar(); };
+  el('in-sel').onchange = () => { E.sel = el('in-sel').value; ranking_(); composicao(); desenhar(); };
+  el('in-scale').onchange = () => { E.escala = el('in-scale').value; desenhar(); };
   el('in-top').onchange = () => { E.topo = +el('in-top').value; ranking_(); };
   el('in-order').onchange = () => { E.ordem = el('in-order').value; ranking_(); };
   el('in-preset').onchange = () => { const v = el('in-preset').value; if (v) { aplicarPreset(v); mudou(true); } else E.preset = ''; };
@@ -232,5 +233,59 @@
   el('in-comp-clear').onclick = () => { E.pesos = {}; E.preset = ''; mudou(true); };
  }
 
- window.AtInd = {pronto: carregar, selecao, detalhe, composicaoAtiva: () => E.sel === COMP, aoMudar: null, escolherMunicipio: null, nomes: null};
+
+ // ---------- mapa próprio da seção ----------
+ const M = {map: null, camada: null, pol: new Map(), pacote: null, nomes: null, sel: null, destaque: null, carga: null};
+ function desenhar() {
+  if (E.dados) el('in-comp-box').hidden = E.sel !== COMP;
+  if (!M.map || !E.dados) return;
+  const s = selecao(), D = E.dados;
+  M.camada.clearLayers(); M.pol.clear();
+  M.pacote.municipalities.forEach(m => {
+   const v = s.valor.get(m.code), shape = L.polygon(m.rings, {weight: .7, color: '#57768b', fillColor: s.cor.get(m.code) || '#edf1f4', fillOpacity: .8, fillRule: 'evenodd'}).addTo(M.camada);
+   shape.bindTooltip(escape(m.name + ' · ' + (s.texto(v) || t('in.noValue'))));
+   shape.on('click', () => escolher(m.code, false));
+   M.pol.set(m.code, shape);
+  });
+  el('in-legend').innerHTML = s.legenda.map(([rot, cor]) => `<div class="legend-item"><span class="legend-swatch" style="background:${cor}"></span><span>${escape(rot)}</span></div>`).join('');
+  el('in-map-note').textContent = t(E.escala === 'l' ? 'in.mapNoteL' : 'in.mapNoteQ');
+  el('in-context').textContent = t('in.context', {name: s.nome});
+  if (M.sel) escolher(M.sel, false, true);
+ }
+ function escolher(cod, aproximar, manter) {
+  if (!E.dados || !M.pol.has(cod)) return;
+  M.sel = cod;
+  const k = E.dados.idx.get(cod), nome = (M.nomes && M.nomes.get(cod)) || cod;
+  el('in-detail-title').textContent = nome;
+  el('in-detail-body').innerHTML = '<dl>' + [[t('at.ibge'), cod], ...detalhe(cod)].map(([a, b]) => `<dt>${escape(a)}</dt><dd>${escape(b)}</dd>`).join('') + '</dl>';
+  if (M.destaque) { M.destaque.remove(); M.destaque = null; }
+  const shape = M.pol.get(cod);
+  M.destaque = L.polygon(shape.getLatLngs(), {color: '#07345c', weight: 2, fill: false, dashArray: '5 4', interactive: false}).addTo(M.map);
+  if (aproximar && !manter) { M.map.fitBounds(shape.getBounds(), {maxZoom: 10, padding: [30, 30]}); shape.openTooltip(); el('in-map').scrollIntoView({behavior: 'smooth', block: 'center'}); }
+ }
+ async function mostrar() {
+  el('in-error').textContent = '';
+  try {
+   if (!M.carga) M.carga = (async () => {
+    if (!window.L) throw Error(t('at.leafletFail'));
+    const [, pacote] = await Promise.all([carregar(), window.loadAtlas ? window.loadAtlas() : api('/atlas')]);
+    M.pacote = pacote; M.nomes = new Map(pacote.municipalities.map(m => [m.code, m.name]));
+    el('in-content').hidden = false;
+    M.map = L.map('in-map', {preferCanvas: true, scrollWheelZoom: true, minZoom: 5, maxZoom: 14, zoomSnap: .25});
+    L.control.scale({imperial: false}).addTo(M.map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'})
+     .on('tileerror', () => { el('in-error').textContent = t('at.tileFail'); }).addTo(M.map);
+    M.camada = L.layerGroup().addTo(M.map);
+    const pts = pacote.municipalities.flatMap(m => m.rings.flat());
+    M.map.fitBounds(L.latLngBounds(pts));
+    ranking_(); desenhar();
+   })().catch(e => { M.carga = null; if (M.map) { M.map.remove(); M.map = null; } throw e; });
+   await M.carga;
+   el('in-loading').hidden = true; el('in-content').hidden = false;
+   setTimeout(() => M.map && M.map.invalidateSize(), 50);
+  } catch (e) { el('in-loading').hidden = true; el('in-error').textContent = e.message; }
+ }
+
+ window.showIndicadores = mostrar;
+ window.AtInd = {pronto: carregar, selecao, detalhe};
 })(typeof window !== 'undefined' ? window : globalThis);
