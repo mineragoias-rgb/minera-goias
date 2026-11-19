@@ -64,4 +64,12 @@ const num = (v, d) => v.toFixed(d);
  assert.strictEqual(I.formatar(1234.5, 'money0', num), 'R$ 1235'); assert.strictEqual(I.formatar(94.536, 'money2', num), 'R$ 94.54');
  assert.strictEqual(I.formatar(7, 'int', num), '7'); assert.strictEqual(I.formatar(null, 'int', num), null); assert.strictEqual(I.formatar(NaN, 'dec2', num), null);
 }
+// crescimento com ano base e ano final escolhidos
+{
+ assert.strictEqual(I.crescimento(100, 150), 0.5);
+ assert.strictEqual(I.crescimento(100, 0), -1);
+ assert.strictEqual(I.crescimento(0, 50), null, 'base zero não tem crescimento');
+ assert.strictEqual(I.crescimento(null, 50), null);
+ assert.strictEqual(I.crescimento(100, null), null);
+}
 console.log('indicadores.test.js: ok');

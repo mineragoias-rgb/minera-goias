@@ -6,7 +6,7 @@
 Lê o banco de 22 indicadores por município (2025) de `Squad 2/indicadores_compostos/entregas/MINERA_Goias_Indicadores_2025.xlsx`
 (aba Indicadores, valores já calculados) e grava `data/indicadores/indicadores_municipais.json`, que o painel lê atrás do login
 (/api/indicadores). Cada indicador vem com família, unidade, fórmula, leitura e origem (nova ou antiga), em português e inglês.
-Nada é calculado aqui: o cálculo está em `Squad 2/indicadores_compostos/build_xlsx.py`.
+Só a CFEM por ano (cfem_anual) é somada aqui, para o painel recalcular o crescimento; o resto do cálculo está em `Squad 2/indicadores_compostos/build_xlsx.py`.
 """
 import json
 import sys
@@ -25,7 +25,7 @@ IND = [
   ("Soma da CFEM recolhida de janeiro a dezembro de 2025.", "Sum of CFEM collected from January to December 2025."),
   ("Quanto maior, maior a arrecadação do município.", "The higher, the larger the municipality's collection."), "antiga"),
  ("R2", ("Receita", "Revenue"), ("Crescimento da CFEM (2025 vs 2024)", "CFEM growth (2025 vs 2024)"), "%", "pct",
-  ("CFEM de 2025 ÷ CFEM de 2024 − 1. Sem valor quando a CFEM de 2024 é zero.", "CFEM 2025 ÷ CFEM 2024 − 1. Blank when CFEM 2024 is zero."),
+  ("CFEM do ano final ÷ CFEM do ano base − 1. Padrão: 2025 ÷ 2024; os dois anos podem ser trocados na tela. Sem valor quando a CFEM do ano base é zero. 2026 é parcial.", "CFEM of the end year ÷ CFEM of the base year − 1. Default: 2025 ÷ 2024; both years can be changed on screen. Blank when the base-year CFEM is zero. 2026 is partial."),
   ("Quanto maior, mais a arrecadação cresceu.", "The higher, the more collection grew."), "nova"),
  ("R3", ("Receita", "Revenue"), ("CFEM per capita", "CFEM per capita"), "R$/hab.", "money2",
   ("CFEM de 2025 ÷ população do município.", "CFEM 2025 ÷ municipal population."),
@@ -127,9 +127,20 @@ for r in ws.iter_rows(min_row=2, values_only=True):
         return None if x is None or x == "" else round(float(x), 6)
     linhas.append([str(int(r[0])), *[v(pos[i[0]]) for i in IND], int(r[col_meses])])
 
+# CFEM por município e ano (soma dos meses), para o painel recalcular o crescimento (R2) com o ano base e o ano final escolhidos.
+pan = json.loads((REPO / "data" / "panorama" / "panorama.json").read_text(encoding="utf-8"))
+cod_mun = [str(m[0]) for m in pan["dims"]["mun"]]
+cc = pan["cfem"]["cols"]; ia, im, iv = cc.index("ano"), cc.index("mun"), cc.index("valor")
+anos = sorted({r[ia] for r in pan["cfem"]["rows"]})
+soma = {}
+for r in pan["cfem"]["rows"]:
+    soma[(cod_mun[r[im]], r[ia])] = soma.get((cod_mun[r[im]], r[ia]), 0.0) + r[iv]
+cfem_anual = {"anos": anos, "rows": [[round(soma.get((l[0], a), 0.0), 2) for a in anos] for l in linhas]}
+
 pacote = {
  "meta": {"versao": "indicadores-municipais-v1", "ano": 2025, "n_municipios": len(linhas), "fonte": "ANM (CFEM, Cadastro Mineiro, rodadas), IBGE via repositório; Squad 2/indicadores_compostos",
           "ressalvas": RESSALVAS[0], "ressalvas_en": RESSALVAS[1]},
+ "cfem_anual": cfem_anual,
  "indicadores": [{"id": i[0], "familia": i[1][0], "familia_en": i[1][1], "nome": i[2][0], "nome_en": i[2][1], "unidade": i[3], "fmt": i[4],
                   "formula": i[5][0], "formula_en": i[5][1], "leitura": i[6][0], "leitura_en": i[6][1], "origem": i[7]} for i in IND],
  "presets": [{"id": p[0], "nome": p[1][0], "nome_en": p[1][1], "pesos": p[2]} for p in PRESETS],

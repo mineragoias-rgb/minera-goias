@@ -111,3 +111,4 @@
 .in-num{width:64px;flex:none}
 
 .in-toolbar{margin-top:0}
+.in-ano{display:flex;gap:14px;flex:2;min-width:260px}.in-ano[hidden]{display:none}

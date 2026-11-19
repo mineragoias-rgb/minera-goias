@@ -59,6 +59,8 @@
   ord.forEach((x, i) => { pos[x[1]] = i > 0 && x[0] === ord[i - 1][0] ? pos[ord[i - 1][1]] : i + 1; });
   return pos;
  }
+ // crescimento = valor do ano final ÷ valor do ano base − 1; sem valor quando a base é zero ou ausente
+ function crescimento(base, fim) { return valido(base) && base > 0 && valido(fim) ? fim / base - 1 : null; }
  function ranking(valores, n, ordem) {
   const lista = valores.map((v, k) => [v, k]).filter(x => valido(x[0]));
   lista.sort((a, b) => ordem === 'asc' ? a[0] - b[0] : b[0] - a[0]);
@@ -73,13 +75,13 @@
   const xs = valores.filter(valido).sort((a, b) => a - b);
   return xs.length ? (xs.length % 2 ? xs[(xs.length - 1) / 2] : (xs[xs.length / 2 - 1] + xs[xs.length / 2]) / 2) : null;
  }
- const puras = {minmax, compor, faixas, corDe, posicoes, ranking, formatar, mediana, RAMPA};
+ const puras = {crescimento, minmax, compor, faixas, corDe, posicoes, ranking, formatar, mediana, RAMPA};
  if (typeof module !== 'undefined' && module.exports) { module.exports = puras; return; }
 
  // ---------- interface ----------
  const el = id => document.getElementById(id), escape = esc, lang = () => (window.I18N && I18N.lang === 'en') ? 'en' : 'pt';
  const num = (v, d = 0) => I18N.num(v, {minimumFractionDigits: d, maximumFractionDigits: d});
- const E = {sel: 'R1', escala: 'q', log: false, todos: false, preset: 'arrecadacao', pesos: {}, topo: 15, ordem: 'desc', dados: null, carga: null};
+ const E = {sel: 'R1', escala: 'q', log: false, todos: false, preset: 'arrecadacao', a0: 2024, a1: 2025, pesos: {}, topo: 15, ordem: 'desc', dados: null, carga: null};
  const COMP = '__comp';
 
  function campo(o, nome) { return lang() === 'en' && o[nome + '_en'] ? o[nome + '_en'] : o[nome]; }
@@ -90,13 +92,29 @@
     p.cols.forEach((c, j) => { if (c !== 'cod') col[c] = p.rows.map(r => r[j]); });
     const cods = p.rows.map(r => r[0]);
     E.dados = {meta: p.meta, ind: p.indicadores, porId: Object.fromEntries(p.indicadores.map(i => [i.id, i])), ids, col, cods,
-               idx: new Map(cods.map((c, k) => [c, k])), presets: p.presets};
+               idx: new Map(cods.map((c, k) => [c, k])), presets: p.presets, anos: p.cfem_anual.anos, cfem: p.cfem_anual.rows};
+    recalcularR2();
     aplicarPreset(E.preset);
     montar();
     return E.dados;
    }).catch(e => { E.carga = null; throw e; });
   }
   return E.carga;
+ }
+ // R2 recalculado com o ano base e o ano final escolhidos (padrão 2024 e 2025: o mesmo valor do banco)
+ function recalcularR2() {
+  const D = E.dados, ia = D.anos.indexOf(E.a0), ib = D.anos.indexOf(E.a1);
+  D.col.R2 = D.cfem.map(r => crescimento(r[ia], r[ib]));
+ }
+ function nomeInd(i) { return i.id === 'R2' ? t('in.growth', {a: E.a0, b: E.a1}) : campo(i, 'nome'); }
+ function opcoesAnos() {
+  const D = E.dados, rot = a => a + (a === D.anos[D.anos.length - 1] ? ' ' + t('in.partial') : '');
+  el('in-ano0').innerHTML = D.anos.slice(0, -1).map(a => `<option value="${a}">${escape(rot(a))}</option>`).join('');
+  if (!D.anos.slice(0, -1).includes(E.a0)) E.a0 = D.anos[0];
+  if (E.a1 <= E.a0) E.a1 = D.anos.find(a => a > E.a0);
+  el('in-ano0').value = E.a0;
+  el('in-ano1').innerHTML = D.anos.filter(a => a > E.a0).map(a => `<option value="${a}">${escape(rot(a))}</option>`).join('');
+  el('in-ano1').value = E.a1;
  }
  function aplicarPreset(id) {
   const p = E.dados.presets.find(x => x.id === id);
@@ -112,7 +130,7 @@
    return {id: COMP, comp: true, nome: t('in.comp'), unidade: '', fmt: 'dec3', valores: c.nota, cobertura: c.cobertura, total: c.total};
   }
   const i = D.porId[E.sel];
-  return {id: i.id, comp: false, nome: campo(i, 'nome'), unidade: i.unidade, fmt: i.fmt, valores: D.col[i.id], ind: i};
+  return {id: i.id, comp: false, nome: nomeInd(i), unidade: i.unidade, fmt: i.fmt, valores: D.col[i.id], ind: i};
  }
  function texto(a, v) { return a.comp ? (valido(v) ? num(v, 3) : null) : formatar(v, a.fmt, num); }
 
@@ -131,7 +149,7 @@
   const D = E.dados, k = D.idx.get(cod), s = selecao();
   if (k === undefined) return [];
   const linhas = [[s.nome, s.texto(s.valor.get(cod)) || t('in.noValue')], [t('in.rank'), s.pos.get(cod) ? s.pos.get(cod) + ' / ' + s.n : t('in.noValue')]];
-  D.ind.forEach(i => linhas.push([i.id + ' · ' + campo(i, 'nome'), formatar(D.col[i.id][k], i.fmt, num) || t('in.noValue')]));
+  D.ind.forEach(i => linhas.push([i.id + ' · ' + nomeInd(i), formatar(D.col[i.id][k], i.fmt, num) || t('in.noValue')]));
   return linhas;
  }
 
@@ -140,7 +158,7 @@
  function opcoesIndicador() {
   const D = E.dados, grupos = [];
   D.ind.forEach(i => { const f = campo(i, 'familia'); let g = grupos.find(x => x.f === f); if (!g) { g = {f, l: []}; grupos.push(g); } g.l.push(i); });
-  el('in-sel').innerHTML = grupos.map(g => `<optgroup label="${escape(g.f)}">${g.l.map(i => `<option value="${i.id}">${escape(i.id + ' · ' + campo(i, 'nome'))}</option>`).join('')}</optgroup>`).join('')
+  el('in-sel').innerHTML = grupos.map(g => `<optgroup label="${escape(g.f)}">${g.l.map(i => `<option value="${i.id}">${escape(i.id + ' · ' + nomeInd(i))}</option>`).join('')}</optgroup>`).join('')
    + `<optgroup label="${escape(t('in.compGroup'))}"><option value="${COMP}">${escape(t('in.comp'))}</option></optgroup>`;
   el('in-sel').value = E.sel;
   el('in-scale').value = E.escala;
@@ -150,7 +168,7 @@
   let fam = '';
   D.ind.forEach(i => {
    if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<tr class="in-fam"><th colspan="4" scope="colgroup">${escape(fam)}</th></tr>`); }
-   linhas.push(`<tr><td><b>${i.id}</b></td><td>${escape(campo(i, 'nome'))}<br><span class="small muted">${escape(i.unidade)}</span></td><td>${escape(campo(i, 'formula'))}</td><td>${escape(campo(i, 'leitura'))}</td></tr>`);
+   linhas.push(`<tr><td><b>${i.id}</b></td><td>${escape(nomeInd(i))}<br><span class="small muted">${escape(i.unidade)}</span></td><td>${escape(campo(i, 'formula'))}</td><td>${escape(campo(i, 'leitura'))}</td></tr>`);
   });
   const rs = lang() === 'en' ? D.meta.ressalvas_en : D.meta.ressalvas;
   el('in-explain').innerHTML = `<div class="table-wrap"><table class="in-table"><thead><tr><th>${escape(t('in.col.code'))}</th><th>${escape(t('in.col.name'))}</th><th>${escape(t('in.col.formula'))}</th><th>${escape(t('in.col.reading'))}</th></tr></thead><tbody>${linhas.join('')}</tbody></table></div>`
@@ -180,7 +198,7 @@
   D.ind.forEach(i => {
    if (campo(i, 'familia') !== fam) { fam = campo(i, 'familia'); linhas.push(`<div class="in-comp-fam">${escape(fam)}</div>`); }
    const w = E.pesos[i.id] || 0, parte = total ? w / total * 100 : 0;
-   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(campo(i, 'nome'))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><input type="number" class="in-num" min="0" max="1" step="0.05" value="${w}" data-n="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
+   linhas.push(`<div class="in-comp-row"><label class="in-comp-name"><input type="checkbox" data-on="${i.id}"${w > 0 ? ' checked' : ''}> <b>${i.id}</b> ${escape(nomeInd(i))}</label><input type="range" min="0" max="1" step="0.05" value="${w}" data-w="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><input type="number" class="in-num" min="0" max="1" step="0.05" value="${w}" data-n="${i.id}" aria-label="${escape(t('in.weight') + ' ' + i.id)}"><span class="in-share" aria-label="${escape(t('in.share'))}">${num(parte, 0)}%</span></div>`);
   });
   el('in-comp-rows').innerHTML = linhas.join('');
   el('in-preset').innerHTML = `<option value="">${escape(t('in.presetFree'))}</option>` + D.presets.map(p => `<option value="${p.id}">${escape(campo(p, 'nome'))}</option>`).join('');
@@ -222,7 +240,10 @@
   desenhar();
  }
  function montar() {
-  opcoesIndicador(); explicacao(); ranking_(); composicao();
+  opcoesAnos(); opcoesIndicador(); explicacao(); ranking_(); composicao();
+  const trocouAnos = () => { recalcularR2(); opcoesIndicador(); explicacao(); ranking_(); composicao(); desenhar(); };
+  el('in-ano0').onchange = () => { E.a0 = +el('in-ano0').value; opcoesAnos(); trocouAnos(); };
+  el('in-ano1').onchange = () => { E.a1 = +el('in-ano1').value; trocouAnos(); };
   el('in-sel').onchange = () => { E.sel = el('in-sel').value; ranking_(); composicao(); desenhar(); };
   el('in-scale').onchange = () => { E.escala = el('in-scale').value; desenhar(); };
   el('in-top').onchange = () => { E.topo = +el('in-top').value; ranking_(); };
@@ -237,7 +258,7 @@
  // ---------- mapa próprio da seção ----------
  const M = {map: null, camada: null, pol: new Map(), pacote: null, nomes: null, sel: null, destaque: null, carga: null};
  function desenhar() {
-  if (E.dados) el('in-comp-box').hidden = E.sel !== COMP;
+  if (E.dados) { el('in-comp-box').hidden = E.sel !== COMP; el('in-ano-wrap').hidden = !(E.sel === 'R2' || (E.sel === COMP && E.pesos.R2 > 0)); }
   if (!M.map || !E.dados) return;
   const s = selecao(), D = E.dados;
   M.camada.clearLayers(); M.pol.clear();

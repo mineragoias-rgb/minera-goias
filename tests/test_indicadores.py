@@ -63,6 +63,20 @@ class PacoteTests(unittest.TestCase):
             self.assertEqual(self.col['S3'][k] is not None, com_cfem, k)
             self.assertEqual(self.col['T3'][k] is not None, com_cfem, k)
 
+    def test_cfem_anual_reproduz_o_crescimento_padrao(self):
+        ca = self.p['cfem_anual']
+        self.assertEqual(ca['anos'], sorted(ca['anos']))
+        self.assertEqual(len(ca['rows']), 246)
+        ia, ib = ca['anos'].index(2024), ca['anos'].index(2025)
+        for k, (a, r2) in enumerate(zip(ca['rows'], self.col['R2'])):
+            esperado = a[ib] / a[ia] - 1 if a[ia] > 0 else None
+            self.assertEqual(r2 is None, esperado is None, k)
+            if esperado is not None:
+                self.assertAlmostEqual(r2, esperado, places=4)
+        # a CFEM de 2025 do pacote é a do R1
+        for a, r1 in zip(ca['rows'], self.col['R1']):
+            self.assertAlmostEqual(a[ib], r1 or 0, delta=0.05)
+
     def test_dominios_dos_indicadores(self):
         for c in ('R1', 'R3', 'R4', 'R5', 'P1', 'P2', 'P3', 'P4', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'S1', 'T1'):
             self.assertTrue(all(x is None or x >= 0 for x in self.col[c]), c)
@@ -159,6 +173,10 @@ class ProtecaoETelaTests(unittest.TestCase):
         js = (PUBLIC / 'indicadores.js').read_text(encoding='utf-8')
         self.assertIn("api('/indicadores')", js)
         self.assertIn("L.map('in-map'", js)
+        self.assertIn('recalcularR2', js)
+        html = (PUBLIC / 'painel.html').read_text(encoding='utf-8')
+        self.assertIn('id="in-ano0"', html)
+        self.assertIn('id="in-ano1"', html)
         self.assertIn('window.showIndicadores', js)
 
     def test_composicao_normaliza_e_pondera_sem_inverter(self):
