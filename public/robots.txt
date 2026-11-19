@@ -2,6 +2,8 @@
 # Só a página inicial é pública. Painel, login, simulador, API e dados são de uso da equipe.
 # Atenção: este arquivo é um pedido aos buscadores, não uma proteção de acesso.
 User-agent: *
+# A página inicial busca os números de /api/public/summary; liberado para o Google montar a página como o visitante a vê.
+Allow: /api/public/
 Disallow: /login.html
 Disallow: /painel.html
 Disallow: /simulador.html
