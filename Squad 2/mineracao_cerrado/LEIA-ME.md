@@ -18,3 +18,15 @@ na camada.
 
 **Atualização.** Para publicar uma versão nova, substitua os dois arquivos com os mesmos nomes. Fontes declaradas no relatório:
 MapBiomas Coleção 11 e MapBiomas Solo Coleção 2, SEEG 12 e títulos da ANM (aba 04 da base consolidada do Squad 1, pesquisa, CFEM).
+
+## Verificação e reprodução dos artefatos publicados
+
+Na raiz do repositório, execute:
+
+```bash
+python "Squad 2/mineracao_cerrado/validate_territorio.py" --summary
+```
+
+O comando verifica que o relatório HTML, o objeto de dados embutido que a aba lê e a camada GeoJSON estão presentes e coerentes; também verifica que a camada contém 1.046 projetos e não expõe sequências em formato de CPF.
+
+O modelo elétrico do Squad 2 é reproduzível integralmente pelos comandos em `Squad 2/modello_reale/README.md`. Esta análise territorial é complementar: o repositório preserva os artefatos finais, as fontes, o método e a verificação dos outputs, mas não inclui o pipeline geoespacial original que processou os rasters do MapBiomas e os cálculos intermediários. Portanto, este comando reproduz a **verificação e a publicação dos resultados**, não o processamento espacial original pixel a pixel.
