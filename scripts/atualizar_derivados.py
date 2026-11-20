@@ -6,7 +6,7 @@
 
 Cadeia (cada etapa só roda depois das que ela usa):
 
-    planilha consolidada (aba 12) ─► pacote_squad2 ─► intensidade do Squad 2 ─► parâmetros do Simulador e aba Previsão de demanda
+    planilha consolidada (aba 12) ─► pacote_squad2 (e base de produção por empresa) ─► intensidade do Squad 2 ─► parâmetros do Simulador e aba Previsão de demanda
     bases brutas do Squad 1 + CCEE ─► Panorama ─┐
     bases brutas da ANM ────────────► bases corrigidas e registro de alterações (Squad 1/Dados corrigidos)
     curadoria de produção ──────────► Produção ─┴► Empresas
@@ -53,6 +53,9 @@ ETAPAS = [
      ["data/mapa"], ["inventario_p3m"], ["tests/test_mapa.py"]),
     ("pacote_squad2", [PY, "base_consolidada_work/scripts/gerar_pacote_squad2.py"], S1,
      [f"{S1}/documentacao/pacote_squad2"], [], []),
+    # base de produção por empresa (aba 12 legível, com a produção publicada pelas empresas ao lado)
+    ("base_producao", [PY, "base_consolidada_work/scripts/gerar_base_producao.py"], S1,
+     [f"{S1}/documentacao/base_producao"], ["pacote_squad2"], ["tests/test_base_producao.py"]),
     # cópias corrigidas dos brutos da ANM (unidade fora de escala), com o registro de cada célula alterada e dos tratamentos
     # do pipeline (lê a planilha e a tabela de coprodutos do pacote); o bruto não muda
     ("dados_corrigidos", [PY, "base_consolidada_work/scripts/gerar_dados_corrigidos.py"], S1,

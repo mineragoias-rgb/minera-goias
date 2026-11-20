@@ -1,0 +1,696 @@
+﻿ano;mineral;base;producao_estado_t;dividida_por_empresa_t;parcela_dividida;empresas;com_numero_publicado_t;parcela_com_numero_publicado;situacao
+2010;Alumínio (Bauxita);ROM;4160.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Amianto;ROM;4870538.69;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Amianto;beneficiada;302257.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Areia;ROM;2457497.12;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Areia;beneficiada;408910.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Areias Industriais;ROM;7018.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Areias Industriais;beneficiada;15750.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Argilas;ROM;1009348.17;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Argilas;beneficiada;3235.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Bário;ROM;4803283.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2010;Bário;beneficiada;23390.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Calcário;ROM;4270580.785;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Calcário;beneficiada;4886420.93;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Caulim;ROM;14746.44;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Cobalto;ROM;3792814.13;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2010;Cobalto;beneficiada;3203447.44;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Cobre;ROM;25275341.11;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Cobre;beneficiada;271475.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Diamante;ROM;1990.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Diamante;beneficiada;0.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Dolomito e Magnesita;ROM;379238.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Dolomito e Magnesita;beneficiada;439700.6;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Fosfato;ROM;10601898.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Fosfato;beneficiada;2643426.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Gemas;ROM;2180.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Manganês;ROM;37378.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Manganês;beneficiada;12065.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Nióbio;ROM;4857571.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Nióbio;beneficiada;17941.231;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Níquel;ROM;5010277.13;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Níquel;beneficiada;95855.67;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Ouro;ROM;22645671.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Ouro;beneficiada;4.795;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Prata;ROM;983546.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2010;Prata;beneficiada;0.06;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Rochas (Britadas) e Cascalho;ROM;7865412.665;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Rochas (Britadas) e Cascalho;beneficiada;5970704.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Rochas Ornamentais;ROM;4958.63;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Rochas Ornamentais;beneficiada;6980.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Rochas Ornamentais - Outras;ROM;1832.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Saibro;ROM;876.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Talco e outras Cargas Minerais;ROM;25707.22;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Titânio;ROM;59000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Titânio;beneficiada;36829.89;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Vermiculita e Perlita;ROM;172854.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2010;Vermiculita e Perlita;beneficiada;44413.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Alumínio (Bauxita);ROM;10365.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Amianto;ROM;4914502.33;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Amianto;beneficiada;306320.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Areia;ROM;2401513.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Areia;beneficiada;377848.28;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Areias Industriais;ROM;65354.68;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Areias Industriais;beneficiada;63394.05;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Argilas;ROM;695122.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Bário;ROM;5306435.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2011;Bário;beneficiada;12104.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Calcário;ROM;6263856.687;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Calcário;beneficiada;5636852.78;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Caulim;ROM;9484.73;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Cobalto;ROM;4000842.96;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2011;Cobalto;beneficiada;3329076.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Cobre;ROM;26085622.27;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Cobre;beneficiada;304146.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Diamante;ROM;148.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Dolomito e Magnesita;ROM;532835.97;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Dolomito e Magnesita;beneficiada;874521.46;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Fosfato;ROM;11274945.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Fosfato;beneficiada;3464387.15;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Manganês;ROM;35177.11;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Manganês;beneficiada;18519.11;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Nióbio;ROM;3870295.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Nióbio;beneficiada;17314.789;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Níquel;ROM;5528778.96;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Níquel;beneficiada;111154.26;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Ouro;ROM;23281869.02;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Ouro;beneficiada;4.14;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Prata;ROM;23050186.31;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2011;Prata;beneficiada;0.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas (Britadas) e Cascalho;ROM;8228564.523;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas (Britadas) e Cascalho;beneficiada;7573053.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas Ornamentais;ROM;18279.61;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas Ornamentais;beneficiada;395.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas Ornamentais - Outras;ROM;62.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Rochas Ornamentais - Outras;beneficiada;395.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Saibro;ROM;3648.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Talco e outras Cargas Minerais;ROM;41999.92;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Talco e outras Cargas Minerais;beneficiada;6000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Titânio;ROM;6156.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Titânio;beneficiada;6155.19;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Vermiculita e Perlita;ROM;54499.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2011;Vermiculita e Perlita;beneficiada;1973.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Alumínio (Bauxita);ROM;46500.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Amianto;ROM;5272423.19;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Amianto;beneficiada;304568.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Areia;ROM;1996282.26;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Areia;beneficiada;493607.17;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Areias Industriais;ROM;86284.46;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Areias Industriais;beneficiada;88585.35;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Argilas;ROM;931705.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Calcário;ROM;7091875.342;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Calcário;beneficiada;6533564.44;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Caulim;ROM;8136.52;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Cobalto;ROM;3774557.56;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2012;Cobalto;beneficiada;3248182.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Cobre;ROM;26264823.69;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Cobre;beneficiada;273566.73;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Diamante;ROM;100000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Dolomito e Magnesita;ROM;430837.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Dolomito e Magnesita;beneficiada;303372.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Fosfato;ROM;10956886.6;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Fosfato;beneficiada;3458682.84;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Gemas;ROM;20.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Manganês;ROM;1162.24;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Manganês;beneficiada;1162.24;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Nióbio;ROM;4270265.84;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Nióbio;beneficiada;20189.853;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Níquel;ROM;5618914.38;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Níquel;beneficiada;87282.74;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Ouro;ROM;23766247.13;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Ouro;beneficiada;4.036;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Prata;ROM;23564796.13;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2012;Prata;beneficiada;0.227;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Rochas (Britadas) e Cascalho;ROM;10226168.278;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Rochas (Britadas) e Cascalho;beneficiada;10476837.55;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Rochas Ornamentais;ROM;30194.51;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Rochas Ornamentais;beneficiada;350.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Rochas Ornamentais - Outras;ROM;10470.46;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Saibro;ROM;1830.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Talco e outras Cargas Minerais;ROM;40037.52;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Titânio;ROM;18925.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Titânio;beneficiada;18884.44;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2012;Vermiculita e Perlita;ROM;60124.84;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Alumínio (Bauxita);ROM;21261.25;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Amianto;ROM;5357783.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Amianto;beneficiada;290825.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Areia;ROM;2453300.1;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Areia;beneficiada;705806.99;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Areias Industriais;ROM;53864.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Areias Industriais;beneficiada;99787.99;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Argilas;ROM;843545.07;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Calcário;ROM;6675357.527;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Calcário;beneficiada;7142707.623;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Caulim;ROM;15836.28;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Cobalto;ROM;3732514.89;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2013;Cobalto;beneficiada;3239106.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Cobre;ROM;25881841.82;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Cobre;beneficiada;243537.59;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Dolomito e Magnesita;ROM;384394.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Dolomito e Magnesita;beneficiada;527049.1;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Fosfato;ROM;10884990.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Fosfato;beneficiada;3484689.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Gemas;ROM;279.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Manganês;ROM;657.17;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Manganês;beneficiada;657.17;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Nióbio;ROM;4121967.18;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Nióbio;beneficiada;20162.149;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Níquel;ROM;6054248.01;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Níquel;beneficiada;83807.71;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Ouro;ROM;23654562.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Ouro;beneficiada;4.917;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Prata;ROM;22936827.98;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2013;Prata;beneficiada;0.197;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Rochas (Britadas) e Cascalho;ROM;10957492.463;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Rochas (Britadas) e Cascalho;beneficiada;10257833.757;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Rochas Ornamentais;ROM;14241.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Rochas Ornamentais - Outras;ROM;11102.96;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Saibro;ROM;320.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Talco e outras Cargas Minerais;ROM;7000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Titânio;ROM;28612.82;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Titânio;beneficiada;28607.82;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Vermiculita e Perlita;ROM;304495.32;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2013;Vermiculita e Perlita;beneficiada;58163.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Alumínio (Bauxita);ROM;576749.92;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Alumínio (Bauxita);beneficiada;476371.85;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Amianto;ROM;5620971.33;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Amianto;beneficiada;311227.9;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Areia;ROM;2284841.28;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Areia;beneficiada;832376.31;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Areias Industriais;ROM;49994.51;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Areias Industriais;beneficiada;48496.85;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Argilas;ROM;1128041.57;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Calcário;ROM;6629373.058;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Calcário;beneficiada;6378476.42;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Caulim;ROM;11015.37;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Cobalto;ROM;3161719.81;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2014;Cobre;ROM;21990429.66;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Cobre;beneficiada;245779.29;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Diamante;ROM;60032.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Dolomito e Magnesita;ROM;476186.06;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Dolomito e Magnesita;beneficiada;575510.86;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Ferro;ROM;23244.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Ferro;beneficiada;23244.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Fosfato;ROM;10613948.12;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Fosfato;beneficiada;2426598.37;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Manganês;ROM;7105.59;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Manganês;beneficiada;7105.59;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Nióbio;ROM;3920752.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Nióbio;beneficiada;20522.284;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Níquel;ROM;7554217.6;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Níquel;beneficiada;144898.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Ouro;ROM;20682264.61;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Ouro;beneficiada;5.04;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Prata;ROM;19951493.85;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2014;Prata;beneficiada;0.233;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Quartzo (Cristal) e outros Piezelétricos;ROM;36.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Rochas (Britadas) e Cascalho;ROM;11200444.202;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Rochas (Britadas) e Cascalho;beneficiada;10188944.38;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Rochas Ornamentais;ROM;13209.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Rochas Ornamentais;beneficiada;13048.4;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Saibro;ROM;20917.08;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Talco e outras Cargas Minerais;ROM;31899.26;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Talco e outras Cargas Minerais;beneficiada;550.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Titânio;ROM;46523.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Titânio;beneficiada;3556.08;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Vermiculita e Perlita;ROM;305655.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2014;Vermiculita e Perlita;beneficiada;54737.42;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Alumínio (Bauxita);ROM;532230.72;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Alumínio (Bauxita);beneficiada;527101.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Amianto;ROM;4275025.74;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Amianto;beneficiada;232051.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Areia;ROM;2305787.27;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Areia;beneficiada;872777.48;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Areias Industriais;ROM;13632.97;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Areias Industriais;beneficiada;13634.64;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Argilas;ROM;826672.46;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Argilas;beneficiada;17398.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Bário;ROM;5709636.76;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2015;Bário;beneficiada;20894.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Calcário;ROM;5863104.385;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Calcário;beneficiada;5694321.21;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Caulim;ROM;7221.27;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Cobalto;ROM;3563008.15;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2015;Cobre;ROM;19959942.51;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Cobre;beneficiada;242523.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Diamante;ROM;80010.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Dolomito e Magnesita;ROM;583440.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Dolomito e Magnesita;beneficiada;702457.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Ferro;beneficiada;30018.06;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Fosfato;ROM;10349630.76;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Fosfato;beneficiada;2350333.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Manganês;ROM;11200.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Nióbio;ROM;5440587.55;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Nióbio;beneficiada;20208.003;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Níquel;ROM;8854199.66;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Níquel;beneficiada;137395.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Ouro;ROM;22347992.72;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Ouro;beneficiada;6.7;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Prata;ROM;20467951.51;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2015;Prata;beneficiada;0.222;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Rochas (Britadas) e Cascalho;ROM;6962108.545;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Rochas (Britadas) e Cascalho;beneficiada;7162881.55;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Rochas Ornamentais;ROM;18086.22;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Rochas Ornamentais - Outras;ROM;15.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Saibro;ROM;31223.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Saibro;beneficiada;28655.18;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Talco e outras Cargas Minerais;ROM;32266.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Talco e outras Cargas Minerais;beneficiada;500.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Titânio;ROM;56409.52;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Titânio;beneficiada;45285.7;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Vermiculita e Perlita;ROM;341520.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2015;Vermiculita e Perlita;beneficiada;48896.17;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Alumínio (Bauxita);ROM;736510.1;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Alumínio (Bauxita);beneficiada;733565.82;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Amianto;ROM;3151806.05;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Amianto;beneficiada;177677.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Areia;ROM;1609217.42;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Areia;beneficiada;553430.21;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Areias Industriais;ROM;1548.23;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Areias Industriais;beneficiada;104932.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Argilas;ROM;477815.87;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Argilas;beneficiada;26825.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Bário;ROM;5594133.75;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2016;Bário;beneficiada;12133.4;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Calcário;ROM;6672509.153;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Calcário;beneficiada;6238110.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Caulim;ROM;894.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Cobalto;ROM;7479.08;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2016;Cobre;ROM;17089013.05;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Cobre;beneficiada;216332.47;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Diamante;ROM;6270.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Diamante;beneficiada;0.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Dolomito e Magnesita;ROM;487124.68;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Dolomito e Magnesita;beneficiada;650579.22;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Ferro;ROM;24022.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Ferro;beneficiada;24023.03;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Fosfato;ROM;10097365.12;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Fosfato;beneficiada;2310693.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Gemas;ROM;0.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Nióbio;ROM;6295065.72;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Nióbio;beneficiada;23235.323;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Níquel;ROM;5900005.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Níquel;beneficiada;169075.57;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Ouro;ROM;16137528.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Ouro;beneficiada;6.814;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Prata;ROM;14440035.05;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2016;Prata;beneficiada;0.234;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Rochas (Britadas) e Cascalho;ROM;6802392.807;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Rochas (Britadas) e Cascalho;beneficiada;6745678.43;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Rochas Ornamentais;ROM;469648.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Rochas Ornamentais - Outras;ROM;50.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Saibro;ROM;9371.81;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Talco e outras Cargas Minerais;ROM;4706.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Talco e outras Cargas Minerais;beneficiada;800.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Vermiculita e Perlita;ROM;467377.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2016;Vermiculita e Perlita;beneficiada;55147.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Alumínio (Bauxita);ROM;827800.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Alumínio (Bauxita);beneficiada;828800.32;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Amianto;ROM;1995618.97;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Amianto;beneficiada;129093.85;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Areia;ROM;1483889.75;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Areia;beneficiada;523483.82;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Areias Industriais;ROM;5030.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Areias Industriais;beneficiada;137907.6;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Argilas;ROM;411562.49;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Argilas;beneficiada;29940.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Bário;ROM;9317095.77;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2017;Bário;beneficiada;16275.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Calcário;ROM;7290708.697;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Calcário;beneficiada;7167507.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Cobalto;ROM;9146.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Cobre;ROM;33410949.62;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Cobre;beneficiada;242126.55;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Diamante;beneficiada;0.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Dolomito e Magnesita;ROM;583701.78;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Dolomito e Magnesita;beneficiada;318512.74;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Estanho;ROM;2909.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Estanho;beneficiada;6.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Fosfato;ROM;10090244.08;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Fosfato;beneficiada;2132082.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Gemas;ROM;873.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Manganês;ROM;1242.12;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Nióbio;ROM;12507211.76;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Nióbio;beneficiada;28228.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Níquel;ROM;6289441.25;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Níquel;beneficiada;158144.74;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Ouro;ROM;36023677.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Ouro;beneficiada;6.513;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Prata;ROM;34334773.62;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2017;Prata;beneficiada;0.219;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Rochas (Britadas) e Cascalho;ROM;4955758.173;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Rochas (Britadas) e Cascalho;beneficiada;4928010.01;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Rochas Ornamentais;ROM;25779.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Rochas Ornamentais - Outras;ROM;4767.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Saibro;ROM;8688.73;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Saibro;beneficiada;1388.73;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Talco e outras Cargas Minerais;ROM;600.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Talco e outras Cargas Minerais;beneficiada;600.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Titânio;ROM;22774.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Vermiculita e Perlita;ROM;380343.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2017;Vermiculita e Perlita;beneficiada;52109.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Alumínio (Bauxita);ROM;1236659.9;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Alumínio (Bauxita);beneficiada;1046203.07;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Amianto;ROM;1723517.84;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Amianto;beneficiada;111438.5;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Areia;ROM;1736413.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Areia;beneficiada;488084.67;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Areias Industriais;ROM;8811.52;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Areias Industriais;beneficiada;137945.51;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Argilas;ROM;357873.96;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Argilas;beneficiada;52868.36;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Bário;ROM;6144806.8;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2018;Bário;beneficiada;5318.18;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Calcário;ROM;8399124.176;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Calcário;beneficiada;6971713.293;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Cobre;ROM;34549625.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Cobre;beneficiada;243129.39;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Dolomito e Magnesita;ROM;607999.87;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Dolomito e Magnesita;beneficiada;318916.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Ferro;ROM;15591.96;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Ferro;beneficiada;15591.96;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Fosfato;ROM;16012706.98;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Fosfato;beneficiada;2214941.54;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Gemas;ROM;2513.75;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Manganês;ROM;112898.56;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Manganês;beneficiada;713.03;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Nióbio;ROM;14525045.42;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Nióbio;beneficiada;29076.62;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Níquel;ROM;4675605.94;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Níquel;beneficiada;154732.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Ouro;ROM;37026652.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Ouro;beneficiada;5.595;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Prata;ROM;820917.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2018;Prata;beneficiada;0.188;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Rochas (Britadas) e Cascalho;ROM;7172205.084;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Rochas (Britadas) e Cascalho;beneficiada;8313509.607;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Rochas Ornamentais;ROM;39967.54;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Rochas Ornamentais - Outras;ROM;20.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Saibro;ROM;10216.61;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Talco e outras Cargas Minerais;ROM;700.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Talco e outras Cargas Minerais;beneficiada;700.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Titânio;ROM;278.97;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Vermiculita e Perlita;ROM;53305.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2018;Vermiculita e Perlita;beneficiada;53305.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Alumínio (Bauxita);ROM;1570809.34;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Alumínio (Bauxita);beneficiada;1123008.59;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Amianto;ROM;199319.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Amianto;beneficiada;12204.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Areia;ROM;2057815.62;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Areia;beneficiada;525549.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Areias Industriais;ROM;100.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Areias Industriais;beneficiada;144500.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Argilas;ROM;413474.54;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Argilas;beneficiada;49620.89;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Bário;ROM;5828529.53;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2019;Bário;beneficiada;3415.32;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Calcário;ROM;12680556.915;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Calcário;beneficiada;10619938.78;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Cobre;ROM;37672514.29;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Cobre;beneficiada;244899.57;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Dolomito e Magnesita;ROM;42840.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Dolomito e Magnesita;beneficiada;42840.45;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Fosfato;ROM;10756403.43;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Fosfato;beneficiada;2200210.74;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Gemas;ROM;1382.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Manganês;ROM;24781.1;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Manganês;beneficiada;16681.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Nióbio;ROM;14275515.03;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Nióbio;beneficiada;25440.34;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Níquel;ROM;4563878.72;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Níquel;beneficiada;168656.71;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Ouro;ROM;39982624.31;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Ouro;beneficiada;5.009;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Prata;ROM;916057.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2019;Prata;beneficiada;0.189;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Rochas (Britadas) e Cascalho;ROM;8128710.905;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Rochas (Britadas) e Cascalho;beneficiada;7620296.66;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Rochas Ornamentais;ROM;39506.38;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Saibro;ROM;13082.87;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Talco e outras Cargas Minerais;ROM;6000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Talco e outras Cargas Minerais;beneficiada;6000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Titânio;ROM;30941.18;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Titânio;beneficiada;11134.37;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Vermiculita e Perlita;ROM;439549.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2019;Vermiculita e Perlita;beneficiada;47581.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Alumínio (Bauxita);ROM;1437399.1;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Alumínio (Bauxita);beneficiada;1361851.75;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Amianto;ROM;1310586.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Amianto;beneficiada;77057.16;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Areia;ROM;2474441.47;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Areia;beneficiada;659498.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Areias Industriais;beneficiada;141000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Argilas;ROM;495516.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Argilas;beneficiada;49142.23;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Bário;ROM;5889030.88;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2020;Bário;beneficiada;1633.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Calcário;ROM;12590099.256;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Calcário;beneficiada;11700322.548;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Cobre;ROM;29385916.69;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Cobre;beneficiada;209889.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Dolomito e Magnesita;ROM;58561.49;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Dolomito e Magnesita;beneficiada;58561.49;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Estanho;ROM;14.65;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Fosfato;ROM;11727851.8;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Fosfato;beneficiada;2511073.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Gemas;ROM;1367.92;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Gemas;beneficiada;0.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Manganês;ROM;400494.61;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Manganês;beneficiada;58048.43;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Nióbio;ROM;8659803.05;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Nióbio;beneficiada;27313.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Níquel;ROM;4274325.41;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Níquel;beneficiada;168663.47;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Ouro;ROM;32461682.93;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Ouro;beneficiada;4.731;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Prata;ROM;1346142.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2020;Prata;beneficiada;0.152;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Rochas (Britadas) e Cascalho;ROM;8108570.044;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Rochas (Britadas) e Cascalho;beneficiada;8085252.362;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Rochas Ornamentais;ROM;42905.34;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Rochas Ornamentais - Outras;ROM;8239.18;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Saibro;ROM;9046.89;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Talco e outras Cargas Minerais;ROM;5000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Talco e outras Cargas Minerais;beneficiada;5000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Vermiculita e Perlita;ROM;590096.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2020;Vermiculita e Perlita;beneficiada;53727.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Alumínio (Bauxita);ROM;1665376.79;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Alumínio (Bauxita);beneficiada;1677413.16;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Amianto;ROM;2881064.35;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Amianto;beneficiada;172256.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Areia;ROM;2539148.91;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Areia;beneficiada;594473.88;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Areias Industriais;ROM;409866.24;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Areias Industriais;beneficiada;389950.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Argilas;ROM;776378.51;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Argilas;beneficiada;56533.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Bário;ROM;5273937.09;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2021;Calcário;ROM;13474381.113;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Calcário;beneficiada;11667355.836;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Cobre;ROM;37733278.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Cobre;beneficiada;220680.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Dolomito e Magnesita;ROM;554171.77;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Dolomito e Magnesita;beneficiada;1743201.2;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Ferro;ROM;50000.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Fosfato;ROM;11159270.3;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Fosfato;beneficiada;2247976.83;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Gemas;ROM;2999.36;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Manganês;ROM;62792.66;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Manganês;beneficiada;62792.66;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Nióbio;ROM;8569122.4;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Nióbio;beneficiada;26431.47;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Níquel;ROM;3519592.44;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Níquel;beneficiada;159991.78;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Ouro;ROM;40178830.07;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Ouro;beneficiada;3.773;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Prata;ROM;1109989.0;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2021;Prata;beneficiada;0.095;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Rochas (Britadas) e Cascalho;ROM;10501771.307;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Rochas (Britadas) e Cascalho;beneficiada;9141410.444;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Rochas Ornamentais;ROM;62083.9;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Rochas Ornamentais - Outras;ROM;38624.73;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Saibro;ROM;9181.43;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Titânio;beneficiada;1076.95;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Vermiculita e Perlita;ROM;547263.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2021;Vermiculita e Perlita;beneficiada;64531.0;0;0.0;0;0.0;0.0;antes de 2022: sem CFEM na base para dividir
+2022;Alumínio (Bauxita);ROM;1777072.32;1777072.32;1.0;4;0.0;0.0;dividida pela CFEM
+2022;Alumínio (Bauxita);beneficiada;1563773.32;1563773.32;1.0;4;0.0;0.0;dividida pela CFEM
+2022;Amianto;ROM;3981495.0;3981495.0;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Amianto;beneficiada;182965.32;182965.32;1.0;1;182965.32;1.0;dividida pela CFEM
+2022;Areia;ROM;3491205.94;3491205.94;1.0;147;0.0;0.0;dividida pela CFEM
+2022;Areia;beneficiada;734461.46;734461.46;1.0;147;0.0;0.0;dividida pela CFEM
+2022;Areias Industriais;ROM;370052.8;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2022;Areias Industriais;beneficiada;208250.0;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2022;Argilas;ROM;735828.27;735828.27;1.0;32;0.0;0.0;dividida pela CFEM
+2022;Argilas;beneficiada;26466.03;26466.03;1.0;32;0.0;0.0;dividida pela CFEM
+2022;Bário;ROM;5372572.95;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2022;Bário;beneficiada;4671.81;4671.81;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Calcário;ROM;15273772.382;15273772.382;1.0;36;0.0;0.0;dividida pela CFEM
+2022;Calcário;beneficiada;11549927.022;11549927.022;1.0;36;0.0;0.0;dividida pela CFEM
+2022;Cobre;ROM;26319201.78;26319201.78;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Cobre;beneficiada;203157.0;203157.0;1.0;1;203157.0;1.0;dividida pela CFEM
+2022;Dolomito e Magnesita;ROM;880057.27;880057.27;1.0;7;0.0;0.0;dividida pela CFEM
+2022;Dolomito e Magnesita;beneficiada;1666309.06;1666309.06;1.0;7;0.0;0.0;dividida pela CFEM
+2022;Feldspato, Leucita e Nefelina-Sienito;beneficiada;133676.26;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2022;Ferro;ROM;71964.15;71964.15;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Ferro;beneficiada;71964.15;71964.15;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Fosfato;ROM;10458684.52;10458684.52;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Fosfato;beneficiada;2432016.31;2432016.31;1.0;2;1042963.105;0.428847;dividida pela CFEM
+2022;Gemas;ROM;614.26;614.26;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Manganês;ROM;18889.91;18889.91;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Manganês;beneficiada;18889.91;18889.91;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Nióbio;ROM;8676310.51;8676310.51;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Nióbio;beneficiada;27900.88;27900.88;1.0;1;27900.88;1.0;dividida pela CFEM
+2022;Níquel;ROM;3425586.2;3425586.2;1.0;2;0.0;0.0;dividida pela CFEM
+2022;Níquel;beneficiada;152705.91;152705.91;1.0;2;152637.138;0.99955;dividida pela CFEM
+2022;Ouro;ROM;28814158.34;28814158.34;1.0;6;0.0;0.0;dividida pela CFEM
+2022;Ouro;beneficiada;3.984;3.984;1.0;6;3.932;0.98697;dividida pela CFEM
+2022;Prata;beneficiada;0.089;0.089;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Rochas (Britadas) e Cascalho;ROM;11014928.428;11014928.428;1.0;49;0.0;0.0;dividida pela CFEM
+2022;Rochas (Britadas) e Cascalho;beneficiada;9021231.458;9021231.459;1.0;49;0.0;0.0;dividida pela CFEM
+2022;Rochas Ornamentais;ROM;43421.55;43421.55;1.0;13;0.0;0.0;dividida pela CFEM
+2022;Rochas Ornamentais - Outras;ROM;33704.0;33704.0;1.0;10;0.0;0.0;dividida pela CFEM
+2022;Saibro;ROM;466.03;466.03;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Talco e outras Cargas Minerais;ROM;621.93;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2022;Titânio;beneficiada;87.0;87.0;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Vermiculita e Perlita;ROM;637102.0;637102.0;1.0;1;0.0;0.0;dividida pela CFEM
+2022;Vermiculita e Perlita;beneficiada;65792.0;65792.0;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Alumínio (Bauxita);ROM;1635045.45;1635045.45;1.0;4;0.0;0.0;dividida pela CFEM
+2023;Alumínio (Bauxita);beneficiada;1603688.3;1603688.3;1.0;4;0.0;0.0;dividida pela CFEM
+2023;Amianto;ROM;4069539.09;4069539.09;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Amianto;beneficiada;189340.01;189340.01;1.0;1;189340.01;1.0;dividida pela CFEM
+2023;Areia;ROM;2747578.61;2747578.61;1.0;164;0.0;0.0;dividida pela CFEM
+2023;Areia;beneficiada;687142.96;687142.96;1.0;164;0.0;0.0;dividida pela CFEM
+2023;Areias Industriais;ROM;367752.15;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Areias Industriais;beneficiada;7430.67;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Argilas;ROM;503455.38;503455.38;1.0;37;0.0;0.0;dividida pela CFEM
+2023;Argilas;beneficiada;37604.45;37604.45;1.0;37;0.0;0.0;dividida pela CFEM
+2023;Bário;ROM;5526825.44;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2023;Bário;beneficiada;1795.08;1795.08;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Calcário;ROM;13747787.481;13747787.481;1.0;38;0.0;0.0;dividida pela CFEM
+2023;Calcário;beneficiada;12771999.117;12771999.117;1.0;38;0.0;0.0;dividida pela CFEM
+2023;Cobre;ROM;29507903.86;29507903.86;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Cobre;beneficiada;205635.0;205635.0;1.0;1;205635.0;1.0;dividida pela CFEM
+2023;Diamante;ROM;19.56;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Dolomito e Magnesita;ROM;811022.76;811022.76;1.0;6;0.0;0.0;dividida pela CFEM
+2023;Dolomito e Magnesita;beneficiada;677911.05;677911.05;1.0;6;0.0;0.0;dividida pela CFEM
+2023;Feldspato, Leucita e Nefelina-Sienito;ROM;56091.84;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Feldspato, Leucita e Nefelina-Sienito;beneficiada;19813.97;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Ferro;ROM;34000.0;34000.0;1.0;2;0.0;0.0;dividida pela CFEM
+2023;Ferro;beneficiada;67563.77;67563.77;1.0;2;0.0;0.0;dividida pela CFEM
+2023;Fosfato;ROM;10618455.91;10618455.91;1.0;2;0.0;0.0;dividida pela CFEM
+2023;Fosfato;beneficiada;2442308.4;2442308.4;1.0;2;1125071.657;0.460659;dividida pela CFEM
+2023;Gemas;ROM;392.17;392.17;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Manganês;ROM;502.66;502.66;1.0;4;0.0;0.0;dividida pela CFEM
+2023;Manganês;beneficiada;502.66;502.66;1.0;4;0.0;0.0;dividida pela CFEM
+2023;Monazita e Terras-Raras;ROM;4048.32;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Monazita e Terras-Raras;beneficiada;1.34;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Nióbio;ROM;5526825.44;5526825.44;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Nióbio;beneficiada;31009.57;31009.57;1.0;1;31009.57;1.0;dividida pela CFEM
+2023;Níquel;ROM;4328598.21;4328598.21;1.0;2;0.0;0.0;dividida pela CFEM
+2023;Níquel;beneficiada;159139.73;159139.73;1.0;2;159092.18;0.999701;dividida pela CFEM
+2023;Ouro;ROM;31401946.9;31401946.9;1.0;6;0.0;0.0;dividida pela CFEM
+2023;Ouro;beneficiada;3.271;3.271;1.0;6;3.237;0.989677;dividida pela CFEM
+2023;Prata;beneficiada;0.078;0.078;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Rochas (Britadas) e Cascalho;ROM;12014439.959;12014439.959;1.0;49;0.0;0.0;dividida pela CFEM
+2023;Rochas (Britadas) e Cascalho;beneficiada;11144332.853;11144332.853;1.0;49;0.0;0.0;dividida pela CFEM
+2023;Rochas Ornamentais;ROM;50184.48;50184.48;1.0;13;0.0;0.0;dividida pela CFEM
+2023;Talco e outras Cargas Minerais;ROM;5695.19;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Talco e outras Cargas Minerais;beneficiada;5000.0;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2023;Titânio;ROM;25.0;25.0;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Titânio;beneficiada;101.0;101.0;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Vermiculita e Perlita;ROM;401669.0;401669.0;1.0;1;0.0;0.0;dividida pela CFEM
+2023;Vermiculita e Perlita;beneficiada;48380.0;48380.0;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Alumínio (Bauxita);ROM;1630146.44;1630146.44;1.0;4;0.0;0.0;dividida pela CFEM
+2024;Alumínio (Bauxita);beneficiada;1252432.4;1252432.4;1.0;4;0.0;0.0;dividida pela CFEM
+2024;Amianto;ROM;3601187.57;3601187.57;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Areia;ROM;2858520.83;2858520.83;1.0;183;0.0;0.0;dividida pela CFEM
+2024;Areia;beneficiada;235532.56;235532.56;1.0;183;0.0;0.0;dividida pela CFEM
+2024;Areias Industriais;ROM;232715.55;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Areias Industriais;beneficiada;11400.81;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Argilas;ROM;753352.92;753352.92;1.0;28;0.0;0.0;dividida pela CFEM
+2024;Argilas;beneficiada;2600.0;2600.0;1.0;28;0.0;0.0;dividida pela CFEM
+2024;Bário;ROM;5608568.31;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2024;Bário;beneficiada;256.11;256.11;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Calcário;ROM;13586274.827;13586274.827;1.0;36;0.0;0.0;dividida pela CFEM
+2024;Calcário;beneficiada;10136399.21;10136399.21;1.0;36;0.0;0.0;dividida pela CFEM
+2024;Cobre;ROM;21949429.96;21949429.96;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Cobre;beneficiada;192385.52;192385.52;1.0;1;192385.52;1.0;dividida pela CFEM
+2024;Diamante;ROM;1048.0;1048.0;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Diamante;beneficiada;0.0;0.0;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Dolomito e Magnesita;ROM;811869.54;811869.54;1.0;8;0.0;0.0;dividida pela CFEM
+2024;Dolomito e Magnesita;beneficiada;2272179.18;2272179.18;1.0;8;0.0;0.0;dividida pela CFEM
+2024;Feldspato, Leucita e Nefelina-Sienito;ROM;30927.0;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Feldspato, Leucita e Nefelina-Sienito;beneficiada;14500.41;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Ferro;ROM;25900.0;25900.0;1.0;2;0.0;0.0;dividida pela CFEM
+2024;Ferro;beneficiada;1221764.33;1221764.33;1.0;2;0.0;0.0;dividida pela CFEM
+2024;Fluorita e Criolita;beneficiada;169124.01;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Fosfato;ROM;10231606.13;10231606.13;1.0;3;0.0;0.0;dividida pela CFEM
+2024;Fosfato;beneficiada;2444758.93;2444758.93;1.0;3;1218202.43;0.498291;dividida pela CFEM
+2024;Gemas;ROM;4086.46;4086.46;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Manganês;ROM;34510.0;34510.0;1.0;5;0.0;0.0;dividida pela CFEM
+2024;Manganês;beneficiada;34510.0;34510.0;1.0;5;0.0;0.0;dividida pela CFEM
+2024;Monazita e Terras-Raras;ROM;593670.35;593670.35;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Monazita e Terras-Raras;beneficiada;612.54;612.54;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Nióbio;ROM;9249167.9;9249167.9;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Nióbio;beneficiada;3562063.18;3562063.18;1.0;1;3562063.18;1.0;dividida pela CFEM
+2024;Níquel;ROM;3016055.21;3016055.21;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Níquel;beneficiada;156221.04;156221.04;1.0;1;156221.04;1.0;dividida pela CFEM
+2024;Ouro;ROM;26033869.16;26033869.16;1.0;8;0.0;0.0;dividida pela CFEM
+2024;Ouro;beneficiada;4.614;4.614;1.0;8;4.573;0.991104;dividida pela CFEM
+2024;Prata;beneficiada;0.064;0.064;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Rochas (Britadas) e Cascalho;ROM;12456882.873;12456882.873;1.0;70;0.0;0.0;dividida pela CFEM
+2024;Rochas (Britadas) e Cascalho;beneficiada;12630803.28;12630803.28;1.0;70;0.0;0.0;dividida pela CFEM
+2024;Rochas Ornamentais;ROM;71370.99;71370.99;1.0;12;0.0;0.0;dividida pela CFEM
+2024;Saibro;ROM;4298.03;4298.03;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Saibro;beneficiada;2154.14;2154.14;1.0;1;0.0;0.0;dividida pela CFEM
+2024;Talco e outras Cargas Minerais;ROM;6001.66;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Talco e outras Cargas Minerais;beneficiada;5081.64;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2024;Titânio;beneficiada;52.0;52.0;1.0;2;0.0;0.0;dividida pela CFEM
+2024;Vermiculita e Perlita;ROM;459544.0;459544.0;1.0;2;0.0;0.0;dividida pela CFEM
+2024;Vermiculita e Perlita;beneficiada;50871.0;50871.0;1.0;2;0.0;0.0;dividida pela CFEM
+2025;Alumínio (Bauxita);ROM;1868412.88;1868412.88;1.0;4;0.0;0.0;dividida pela CFEM
+2025;Alumínio (Bauxita);beneficiada;1478868.18;1478868.18;1.0;4;0.0;0.0;dividida pela CFEM
+2025;Amianto;ROM;4097726.0;4097726.0;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Amianto;beneficiada;179184.3;179184.3;1.0;1;179184.3;1.0;dividida pela CFEM
+2025;Areia;ROM;5618517.71;5618517.71;1.0;183;0.0;0.0;dividida pela CFEM
+2025;Areia;beneficiada;595052.49;595052.49;1.0;183;0.0;0.0;dividida pela CFEM
+2025;Areias Industriais;ROM;483520.51;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Areias Industriais;beneficiada;497.4;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Argilas;ROM;765182.52;765182.52;1.0;22;0.0;0.0;dividida pela CFEM
+2025;Argilas;beneficiada;13971.22;13971.22;1.0;22;0.0;0.0;dividida pela CFEM
+2025;Bário;ROM;5600020.4;0;0.0;0;0.0;0.0;minério de outro mineral declarado de novo (rom_minerio_associado): não somar
+2025;Calcário;ROM;14307769.271;14307769.271;1.0;41;0.0;0.0;dividida pela CFEM
+2025;Calcário;beneficiada;11717504.421;11717504.421;1.0;41;0.0;0.0;dividida pela CFEM
+2025;Cobre;ROM;19934501.0;19934501.0;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Cobre;beneficiada;202502.52;202502.52;1.0;1;202502.52;1.0;dividida pela CFEM
+2025;Diamante;ROM;6501.37;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Diamante;beneficiada;0.0;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Dolomito e Magnesita;ROM;629533.52;629533.52;1.0;9;0.0;0.0;dividida pela CFEM
+2025;Dolomito e Magnesita;beneficiada;663055.87;663055.87;1.0;9;0.0;0.0;dividida pela CFEM
+2025;Feldspato, Leucita e Nefelina-Sienito;ROM;53904.96;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Feldspato, Leucita e Nefelina-Sienito;beneficiada;37101.59;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Ferro;ROM;6020.0;6020.0;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Ferro;beneficiada;16045.5;16045.5;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Fosfato;ROM;11097426.26;11097426.26;1.0;2;0.0;0.0;dividida pela CFEM
+2025;Fosfato;beneficiada;2511254.38;2511254.38;1.0;2;1179196.761;0.469565;dividida pela CFEM
+2025;Gemas;ROM;346.05;346.05;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Manganês;ROM;28980.0;28980.0;1.0;3;0.0;0.0;dividida pela CFEM
+2025;Manganês;beneficiada;28500.0;28500.0;1.0;3;0.0;0.0;dividida pela CFEM
+2025;Monazita e Terras-Raras;ROM;76631.68;76631.68;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Monazita e Terras-Raras;beneficiada;325.77;325.77;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Nióbio;ROM;8986468.87;8986468.87;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Nióbio;beneficiada;3280804.6;3280804.6;1.0;1;3280804.6;1.0;dividida pela CFEM
+2025;Níquel;ROM;2693905.97;2693905.97;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Níquel;beneficiada;156885.63;156885.63;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Ouro;ROM;22659437.61;22659437.61;1.0;4;0.0;0.0;dividida pela CFEM
+2025;Ouro;beneficiada;3.4;3.4;1.0;4;1.341;0.394541;dividida pela CFEM
+2025;Prata;beneficiada;0.043;0.043;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Rochas (Britadas) e Cascalho;ROM;13677259.829;13677259.829;1.0;60;0.0;0.0;dividida pela CFEM
+2025;Rochas (Britadas) e Cascalho;beneficiada;14556324.469;14556324.469;1.0;60;0.0;0.0;dividida pela CFEM
+2025;Rochas Ornamentais;ROM;138820.77;138820.77;1.0;13;0.0;0.0;dividida pela CFEM
+2025;Saibro;ROM;2801.32;2801.32;1.0;1;0.0;0.0;dividida pela CFEM
+2025;Talco e outras Cargas Minerais;ROM;565010.0;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
+2025;Titânio;beneficiada;43.0;43.0;1.0;2;0.0;0.0;dividida pela CFEM
+2025;Vermiculita e Perlita;ROM;370972.0;370972.0;1.0;2;0.0;0.0;dividida pela CFEM
+2025;Vermiculita e Perlita;beneficiada;38934.58;38934.58;1.0;2;0.0;0.0;dividida pela CFEM

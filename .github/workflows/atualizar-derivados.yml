@@ -17,6 +17,7 @@ on:
       - 'Squad 1/Bases consolidadas/base_consolidada_work/scripts/**'
       - 'Squad 1/dados/**'
       - 'Squad 1/Dados brutos/**'
+      - 'Squad 1/Auditoria e qualidade/producao_empresas_ri_2025_2026.csv'
       - 'producao/**'
       - 'Squad 1/P3M/**'
       - 'Squad 1/Mapa vegetação e rios 2025/**'
@@ -91,7 +92,8 @@ jobs:
         run: |
           saidas=(data/panorama data/producao data/empresas public/data/mercado/projetos_go_v1.json public/data/simulador public/data/previsao data/comex data/catalogo
                   "Squad 1/P3M/inventario_p3m.csv" data/mapa
-                  "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica" "Squad 1/Dados corrigidos")
+                  "Squad 1/Bases consolidadas/documentacao/pacote_squad2" "Squad 2/intensidade_energetica" "Squad 1/Dados corrigidos"
+                  "Squad 1/Bases consolidadas/documentacao/base_producao")
           git add -A -- "${saidas[@]}"
           if git diff --cached --quiet; then
             echo 'Nenhum derivado mudou.'
