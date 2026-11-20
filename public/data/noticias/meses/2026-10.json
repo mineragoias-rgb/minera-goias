@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1828,
+ "materias": 1829,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -6646,6 +6646,22 @@
     "litio"
    ],
    "brasil": 0
+  },
+  {
+   "title": "Terras raras ganham espaço no debate eleitoral; entenda por que Goiás é estratégico para a exploração do minério no Brasil - educativaipora.com.br",
+   "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOTlBPdkkyd3ZuVGY2UEZab3hONnR5TGdOM1B6NFBmYnRyaWlPMW1iNzMwR0ttQ3VoWnlIYUhaZ05ZNzQ4SVRTTkhhM3VDOHE3MlcyNS11WDlXaXd4cmw4S2RYdUh6Y3V0X0VDaFB0TDd0amJjTXkzYjc5R2FGdlg0dUVzSjg3MEhKeV9LeHBvUFJueFJYeXJOSDVqU1gyNW5LRmhuMjdGVHdRVmo3THZ2a1VEa1p1UWNSUnNTb0RxSHlNMUZya1dfOEI2a2x3WGl2SmlSR3NOTmR2ZFl0cXYwamlCbGV5dGJHdU56OWVRaVBqUQ?oc=5",
+   "published_at": "2026-10-23T20:23:07+00:00",
+   "first_seen": "2026-11-20T12:17:59.906477+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Mara Rosa e Serra Verde",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
   },
   {
    "title": "New Found Gold doubles Queensway valuation to $1.7B",
