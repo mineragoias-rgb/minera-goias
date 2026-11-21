@@ -19,3 +19,15 @@ metadado nem pelo nome; estão destacados em laranja na planilha e entram na lis
 
 Refazer depois de mudar ou acrescentar uma base: `python scripts/build_catalogo_bases.py`. A lista de bases e as unidades conferidas
 na fonte ficam no começo do script (`BASES` e `UNIDADES_CONHECIDAS`); origem, links e frequência vêm de `docs/fontes_de_dados.csv`.
+
+## Repositório de erros
+
+`repositorio_erros.xlsx` reúne num catálogo único (aba `erros`, códigos ERR_001…) os erros encontrados em cada base — AMB, CFEM,
+Cadastro Mineiro, SIGMINE, RECMIN, IBGE, IMB, CCEE e o próprio pipeline —, com exemplo, número medido, impacto, regra adotada,
+checagem que detecta, aba onde aparece e status (tratado, sinalizado ou pendente). As outras abas são as análises que o sustentam:
+bário × nióbio, contido × quantidade no AMB, tonelagens repetidas e AMB × CFEM comparado com a alíquota legal da CFEM.
+Resumo para ler no GitHub: [`REPOSITORIO_ERROS.md`](REPOSITORIO_ERROS.md).
+
+Refazer (recalcula todos os números a partir de `Squad 1/Dados brutos` e da planilha consolidada mais recente):
+`python "Squad 1/Bases consolidadas/base_consolidada_work/scripts/gerar_repositorio_erros.py"`.
+

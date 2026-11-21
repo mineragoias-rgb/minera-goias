@@ -85,6 +85,12 @@ Três scripts resumem a planilha em documentos, sem digitar número (rode depois
 - `gerar_pacote_squad2.py` grava `documentacao/pacote_squad2/`: a aba 12 em CSV no formato dos exemplos do Squad 2, o dicionário dos
   campos com a correspondência para o contrato do motor, um LEIA-ME e o rascunho da mensagem pedindo a confirmação do formato.
 
+## Fora do pipeline
+
+- `gerar_repositorio_erros.py` (+ `repositorio_erros_analises.py`): repositório de erros das bases em
+  `Squad 1/Auditoria e qualidade/repositorio_erros.xlsx` e `REPOSITORIO_ERROS.md`. Só lê os brutos e a planilha; rodar depois do pipeline.
+- `regras_series.py`: regras de série decididas pelo grupo (v18: o nióbio beneficiado vale pelo contido em Nb2O5), usadas pela Base 1, pela 12 e pela governança.
+
 ## Cuidados ao mexer nos scripts
 
 - Os scripts executam trechos uns dos outros com `exec`: as Bases 2 e 3, a 06 e a governança usam as definições da
