@@ -63,8 +63,8 @@ const PRODUTOS=[
   {pt:'<b>Panorama:</b> gráficos e tabelas da arrecadação, território, produção, pesquisa, empresas, energia e barragens, com filtros de ano, mês, município, mineral, titular, fase, tipo de gasto e ramo da CCEE.',
    en:'<b>Overview:</b> charts and tables on royalties, territory, production, exploration, companies, energy and dams, filtered by year, month, municipality, mineral, holder, phase, spending type and CCEE activity.'}],
  fontes:[
-  {pt:'Base consolidada do Squad 1 (planilha v17 e GeoPackage): CFEM 2022 até o arquivo mais recente (2026 parcial), Anuário Mineral Brasileiro 2010–2025, SIGMINE, Cadastro Mineiro, malha municipal do IBGE, RECMIN do SGB.',
-   en:'Squad 1 consolidated base (workbook v17 and GeoPackage): CFEM from 2022 to the latest file (2026 partial), Brazilian Mineral Yearbook 2010–2025, SIGMINE, Mining Register, IBGE municipal grid, SGB RECMIN.'},
+  {pt:'Base consolidada do Squad 1 (planilha v18 e GeoPackage): CFEM 2022 até o arquivo mais recente (2026 parcial), Anuário Mineral Brasileiro 2010–2025, SIGMINE, Cadastro Mineiro, malha municipal do IBGE, RECMIN do SGB.',
+   en:'Squad 1 consolidated base (workbook v18 and GeoPackage): CFEM from 2022 to the latest file (2026 partial), Brazilian Mineral Yearbook 2010–2025, SIGMINE, Mining Register, IBGE municipal grid, SGB RECMIN.'},
   {pt:'Investimento em pesquisa mineral (ANM), rodadas de disponibilidade e parcelas de carga da CCEE (abril/2024 em diante; a CCEE não publica antes).',
    en:'Mineral exploration investment (ANM), availability rounds and CCEE load records (April 2024 onward; CCEE does not publish earlier).'},
   {pt:'Energia por município e barragens (SIGBM) ainda vêm do retrato anterior recebido pela equipe, com origem registrada em <code>meta.retained_from_artifact</code>.',
