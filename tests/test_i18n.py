@@ -110,6 +110,25 @@ class TranslationTests(unittest.TestCase):
         self.assertNotIn("'#visao'", code)
         self.assertNotIn("'#fontes'", code)
 
+    def test_the_first_view_waits_for_the_view_modules(self):
+        """painel.js is the first deferred script and the view modules are the last ones.
+
+        The boot awaits /auth/me; when that answer arrives before the others have executed,
+        view('atlas') runs with window.showAtlas and window.showPanorama still undefined. The
+        guards swallow the call and, because it is showPanorama's own finally that hides
+        #pn-loading, the section sits on "carregando" for good. Deferred scripts all run before
+        DOMContentLoaded, so the boot has to wait for it.
+        """
+        code = (PUBLIC / 'painel.js').read_text(encoding='utf-8')
+        # The listener is registered in the synchronous body, while the event is still pending:
+        # guarding on readyState==='loading' would never be true, since the spec sets
+        # 'interactive' before running the deferred scripts.
+        self.assertIn("addEventListener('DOMContentLoaded'", code)
+        self.assertLess(code.index('DOMContentLoaded'), code.index("api('/auth/me')"))
+        boot = code[code.index("api('/auth/me')"):]
+        self.assertIn('await scriptsProntos;', boot)
+        self.assertLess(boot.index('await scriptsProntos;'), boot.index("view('atlas')"))
+
 
 if __name__ == '__main__':
     unittest.main()
