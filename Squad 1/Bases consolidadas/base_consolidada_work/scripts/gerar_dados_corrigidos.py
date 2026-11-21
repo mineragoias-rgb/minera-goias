@@ -324,6 +324,27 @@ for r in f12:
     for chave in ("recolhimento atípico", "sem poligonal", "subitem de", "ROM sem abertura"):
         obs12[chave] += chave in o
 op12 = sum(1 for r in f12 if r[i12["nivel_agregacao"]] == "operacao")
+calib12 = Counter()  # (mineral, ano) -> linhas de operação calibradas pelo número publicado
+assoc12 = Counter()  # (mineral, ano) -> t do ROM que é minério de outro mineral (linhas de operação)
+contido12 = Counter()  # mineral -> anos com a série pelo contido (conteudo_mineral)
+for r in f12:
+    o = r[i12["observacao"]] or ""
+    if r[i12["nivel_agregacao"]] == "operacao":
+        if "fixada no número publicado" in o or o.startswith("parcela ajustada"):
+            calib12[(r[i12["mineral_name"]], r[i12["year"]])] += 1
+        if r[i12["status_validacao"]] == "rom_minerio_associado":
+            assoc12[(r[i12["mineral_name"]], r[i12["year"]])] += r[i12["production_t"]] or 0
+    elif r[i12["production_basis"]] == "conteudo_mineral":
+        contido12[r[i12["mineral_name"]]] += 1
+
+
+def mt(t):
+    return f"{t / 1e6:,.1f}".replace(",", "X").replace(".", ",").replace("X", ".") + " Mt"
+
+
+def anos(c, mineral):
+    a = sorted(int(ano) for (m, ano) in c if m == mineral)
+    return f"{a[0]}–{a[-1]}" if len(a) > 1 else (str(a[0]) if a else "—")
 cw = {n: len(_aba(n)[1]) for n in ("01b_crosswalk_pente_fino", "02b_crosswalk_empresas", "05b_crosswalk_municipios", "06b_crosswalk_recmin")}
 wb.close()
 with open(os.path.join(DOC, "pacote_squad2", "coprodutos_rateio_valor_2025.csv"), encoding="utf-8-sig") as f:
@@ -333,7 +354,7 @@ DESC = {"valido": "entra nas somas",
         "quantidade_excluida_da_soma_09b": "quantidade da CFEM corrompida ou implausível (R$ por unidade > 1.000x abaixo da mediana do mineral): fora da soma em t; o R$ fica (aba 09b)",
         "alerta_processo_09c": "processo com quantidade da CFEM implausível frente ao AMB: mantido e sinalizado (aba 09c)",
         "alerta_producao_repetida": "a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas",
-        "rom_minerio_associado": "ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação",
+        "rom_minerio_associado": "ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação (na aba 12, o mesmo status marca a parte do ROM de ouro que é o minério da Chapada)",
         "valor_nao_numerico": "valor não numérico na fonte"}
 p("## Tratamentos feitos nas bases (pipeline da base consolidada)")
 p()
@@ -379,6 +400,21 @@ p(f"| Mês de recolhimento atípico trocado pela mediana do processo (só no rat
 p(f"| CFEM declarada como subitem somada ao mineral do AMB (ex.: minério de cobre → cobre) | crosswalk da 01b | {fmtn(obs12['subitem de'])} linhas |")
 p(f"| Operação sem coordenadas (processo sem poligonal no SIGMINE de GO) | fica com o município da CFEM | {fmtn(obs12['sem poligonal'])} linhas |")
 p(f"| ROM de minério associado sem abertura por operação | status `rom_minerio_associado` | {fmtn(obs12['ROM sem abertura'])} linhas de estado |")
+_ouro = [(a, t) for (m, a), t in sorted(assoc12.items()) if m == "Ouro"]
+if _ouro:
+    p(f"| ROM de ouro sem o minério da Chapada (desde 21/11/2026) | o ROM de ouro do AMB inclui o minério de cobre-ouro da Chapada, já no ROM de cobre "
+      f"(a Maracá paga CFEM só como cobre, e o rateio dava esse minério à Serra Grande: 28,4 Mt em 2022, contra 1,2 Mt tratadas segundo a AngloGold). "
+      f"A parte igual ao ROM de cobre do ano fica nos processos da Maracá, com status `rom_minerio_associado`, fora das somas e da cobertura; "
+      f"só o restante é rateado pela CFEM de ouro. Total do estado inalterado | "
+      + "; ".join(f"{a}: {mt(t)}" for a, t in _ouro) + " |")
+for _m in sorted({m for m, _ in calib12}):
+    p(f"| {_m}: parcela da empresa fixada no número que ela publica (desde 20/11/2026) | Mosaic (concentrado de rocha fosfática de Catalão, 10-K): "
+      f"a CFEM dava −5% a +35% à Mosaic; a parcela dela fica no publicado e os outros processos dividem o restante pela CFEM; a ROM recebe os "
+      f"mesmos fatores; `participacao_cfem_brl` guarda a parcela pela CFEM | {fmtn(sum(n for (m, _), n in calib12.items() if m == _m))} linhas de "
+      f"operação ({anos(calib12, _m)}) |")
+for _m, _n in sorted(contido12.items()):
+    p(f"| {_m}: série beneficiada pelo contido (desde a v18) | a quantidade beneficiada do AMB muda de produto entre os anos; a aba 12 usa o contido "
+      f"(`production_basis` = `conteudo_mineral`) no lugar da beneficiada | {fmtn(_n)} linhas de estado |")
 p(f"| Coprodutos: energia da CCEE dividida por valor (ISO 14044) | carga dedicada fica com o produto; carga compartilhada por valor a preços de 2025; "
   f"coproduto abaixo de 5% fica no principal; energia conservada | {len(coprod)} linhas em `coprodutos_rateio_valor_2025.csv` |")
 p("| Prévia de 2026 pela CFEM | jan–jun 2026 ÷ jan–jun 2025 por empresa; em t só se o R$/t fica estável (±30%), senão em R$ | `estimativa_2026_pela_cfem.csv` |")
@@ -388,13 +424,20 @@ p()
 p("- Linhas repetidas da CFEM **não são removidas** (só com resposta da ANM).")
 p("- m3, m2 e litro da CFEM **não são convertidos** para t: falta a densidade; ficam fora da soma em t.")
 p("- Nenhum valor em R$ é alterado em nenhuma base.")
+p("- Nenhum número publicado por empresa substitui o total do estado do AMB: a calibração só redistribui o total entre as empresas.")
 p()
 p("## Registrado e não corrigido")
 p()
 p("| Caso | Por que não foi corrigido |")
 p("|---|---|")
 p("| Nióbio, Goiás, beneficiada 2024–2025 (3,3–3,6 Mt contra ~25 kt antes; fator ~10^2) | O fator não é de unidade: a CMOC parece ter passado a "
-  "declarar outro produto (minério tratado). Está entre as perguntas para a ANM em auditoria_unidades_anm.md |")
+  "declarar outro produto (minério tratado). Contornado desde a v18 com a série pelo contido; está entre as perguntas para a ANM em "
+  "auditoria_unidades_anm.md |")
+p("| Nióbio, Goiás, contido 2024–2025 (49,9 e 44,5 mil t de Nb2O5 contra 14–15 mil t em 2022–23; a CMOC publica ~10 mil t de nióbio por ano) | "
+  "Em conferência: falta saber se o salto é do AMB ou da série da v18 |")
+p("| Ouro, Goiás, beneficiada 2020–2023 (~1,2 t/ano em 2020–22 e ~0,6 t em 2023 além do que a Serra Grande publica, sem pagador de CFEM de ouro) | "
+  "Origem desconhecida (não é a Chapada, cujo ouro está no concentrado de cobre); o rateio pela CFEM leva tudo à Serra Grande (2022: +44% "
+  "contra o publicado). Pergunta para a ANM |")
 p("| Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade: "
   "na base, status rom_minerio_associado (fora das somas de ROM e da abertura por operação) |")
 p("| Ferro, Goiás, beneficiada 2024 (1,22 Mt por R$ 274 mil) | Fator não é potência de 10 |")

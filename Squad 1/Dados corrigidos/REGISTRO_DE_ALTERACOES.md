@@ -608,7 +608,7 @@ Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bas
 | AMB beneficiada | `alerta_producao_repetida` | 16 | a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas |
 | AMB bruta | `valido` | 46.217 | entra nas somas |
 | AMB bruta | `alerta_producao_repetida` | 131 | a mesma tonelagem aparece em outra linha da mesma UF e ano (coproduto, teor ou categoria): não somar entre essas linhas |
-| AMB bruta | `rom_minerio_associado` | 87 | ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação |
+| AMB bruta | `rom_minerio_associado` | 87 | ROM de subproduto (bário, cobalto, prata) que é a massa do minério de outro mineral, sem valor próprio: fora das somas de ROM entre minerais e da abertura por operação (na aba 12, o mesmo status marca a parte do ROM de ouro que é o minério da Chapada) |
 
 ### Identificação e padronização
 
@@ -631,6 +631,9 @@ Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bas
 | CFEM declarada como subitem somada ao mineral do AMB (ex.: minério de cobre → cobre) | crosswalk da 01b | 144 linhas |
 | Operação sem coordenadas (processo sem poligonal no SIGMINE de GO) | fica com o município da CFEM | 457 linhas |
 | ROM de minério associado sem abertura por operação | status `rom_minerio_associado` | 4 linhas de estado |
+| ROM de ouro sem o minério da Chapada (desde 21/11/2026) | o ROM de ouro do AMB inclui o minério de cobre-ouro da Chapada, já no ROM de cobre (a Maracá paga CFEM só como cobre, e o rateio dava esse minério à Serra Grande: 28,4 Mt em 2022, contra 1,2 Mt tratadas segundo a AngloGold). A parte igual ao ROM de cobre do ano fica nos processos da Maracá, com status `rom_minerio_associado`, fora das somas e da cobertura; só o restante é rateado pela CFEM de ouro. Total do estado inalterado | 2022: 26,3 Mt; 2023: 29,5 Mt; 2024: 21,9 Mt; 2025: 19,9 Mt |
+| Fosfato: parcela da empresa fixada no número que ela publica (desde 20/11/2026) | Mosaic (concentrado de rocha fosfática de Catalão, 10-K): a CFEM dava −5% a +35% à Mosaic; a parcela dela fica no publicado e os outros processos dividem o restante pela CFEM; a ROM recebe os mesmos fatores; `participacao_cfem_brl` guarda a parcela pela CFEM | 50 linhas de operação (2022–2025) |
+| Nióbio: série beneficiada pelo contido (desde a v18) | a quantidade beneficiada do AMB muda de produto entre os anos; a aba 12 usa o contido (`production_basis` = `conteudo_mineral`) no lugar da beneficiada | 16 linhas de estado |
 | Coprodutos: energia da CCEE dividida por valor (ISO 14044) | carga dedicada fica com o produto; carga compartilhada por valor a preços de 2025; coproduto abaixo de 5% fica no principal; energia conservada | 13 linhas em `coprodutos_rateio_valor_2025.csv` |
 | Prévia de 2026 pela CFEM | jan–jun 2026 ÷ jan–jun 2025 por empresa; em t só se o R$/t fica estável (±30%), senão em R$ | `estimativa_2026_pela_cfem.csv` |
 
@@ -639,12 +642,15 @@ Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bas
 - Linhas repetidas da CFEM **não são removidas** (só com resposta da ANM).
 - m3, m2 e litro da CFEM **não são convertidos** para t: falta a densidade; ficam fora da soma em t.
 - Nenhum valor em R$ é alterado em nenhuma base.
+- Nenhum número publicado por empresa substitui o total do estado do AMB: a calibração só redistribui o total entre as empresas.
 
 ## Registrado e não corrigido
 
 | Caso | Por que não foi corrigido |
 |---|---|
-| Nióbio, Goiás, beneficiada 2024–2025 (3,3–3,6 Mt contra ~25 kt antes; fator ~10^2) | O fator não é de unidade: a CMOC parece ter passado a declarar outro produto (minério tratado). Está entre as perguntas para a ANM em auditoria_unidades_anm.md |
+| Nióbio, Goiás, beneficiada 2024–2025 (3,3–3,6 Mt contra ~25 kt antes; fator ~10^2) | O fator não é de unidade: a CMOC parece ter passado a declarar outro produto (minério tratado). Contornado desde a v18 com a série pelo contido; está entre as perguntas para a ANM em auditoria_unidades_anm.md |
+| Nióbio, Goiás, contido 2024–2025 (49,9 e 44,5 mil t de Nb2O5 contra 14–15 mil t em 2022–23; a CMOC publica ~10 mil t de nióbio por ano) | Em conferência: falta saber se o salto é do AMB ou da série da v18 |
+| Ouro, Goiás, beneficiada 2020–2023 (~1,2 t/ano em 2020–22 e ~0,6 t em 2023 além do que a Serra Grande publica, sem pagador de CFEM de ouro) | Origem desconhecida (não é a Chapada, cujo ouro está no concentrado de cobre); o rateio pela CFEM leva tudo à Serra Grande (2022: +44% contra o publicado). Pergunta para a ANM |
 | Bário, Goiás, ROM (5,6 Mt/ano, valor zero; em 2023 igual ao ROM do nióbio) | É o mesmo minério de Catalão contado de novo, não unidade: na base, status rom_minerio_associado (fora das somas de ROM e da abertura por operação) |
 | Ferro, Goiás, beneficiada 2024 (1,22 Mt por R$ 274 mil) | Fator não é potência de 10 |
 | Titânio, Goiás, contido 2022 e ROM 2023 | Sem valor em R$ para confirmar o fator |
