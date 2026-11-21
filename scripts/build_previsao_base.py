@@ -247,7 +247,7 @@ def main():
             ("hipoteses", "Squad 2/modello_reale/parameters/scenarios.csv"),
             ("producao_historica", [
                 "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
-                "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx (aba 08_fato_producao_energia)",
+                "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx (aba 08_fato_producao_energia)",
             ]),
         ])),
         ("horizonte", OrderedDict([("inicio", int(projecao.year.min())), ("fim", int(projecao.year.max()))])),

@@ -63,8 +63,8 @@ const PRODUTOS=[
   {pt:'<b>Panorama:</b> gráficos e tabelas da arrecadação, território, produção, pesquisa, empresas, energia e barragens, com filtros de ano, mês, município, mineral, titular, fase, tipo de gasto e ramo da CCEE.',
    en:'<b>Overview:</b> charts and tables on royalties, territory, production, exploration, companies, energy and dams, filtered by year, month, municipality, mineral, holder, phase, spending type and CCEE activity.'}],
  fontes:[
-  {pt:'Base consolidada do Squad 1 (planilha v18 e GeoPackage): CFEM 2022 até o arquivo mais recente (2026 parcial), Anuário Mineral Brasileiro 2010–2025, SIGMINE, Cadastro Mineiro, malha municipal do IBGE, RECMIN do SGB.',
-   en:'Squad 1 consolidated base (workbook v18 and GeoPackage): CFEM from 2022 to the latest file (2026 partial), Brazilian Mineral Yearbook 2010–2025, SIGMINE, Mining Register, IBGE municipal grid, SGB RECMIN.'},
+  {pt:'Base consolidada do Squad 1 (planilha v19 e GeoPackage): CFEM 2022 até o arquivo mais recente (2026 parcial), Anuário Mineral Brasileiro 2010–2025, SIGMINE, Cadastro Mineiro, malha municipal do IBGE, RECMIN do SGB.',
+   en:'Squad 1 consolidated base (workbook v19 and GeoPackage): CFEM from 2022 to the latest file (2026 partial), Brazilian Mineral Yearbook 2010–2025, SIGMINE, Mining Register, IBGE municipal grid, SGB RECMIN.'},
   {pt:'Investimento em pesquisa mineral (ANM), rodadas de disponibilidade e parcelas de carga da CCEE (abril/2024 em diante; a CCEE não publica antes).',
    en:'Mineral exploration investment (ANM), availability rounds and CCEE load records (April 2024 onward; CCEE does not publish earlier).'},
   {pt:'Energia por município e barragens (SIGBM) ainda vêm do retrato anterior recebido pela equipe, com origem registrada em <code>meta.retained_from_artifact</code>.',
@@ -263,8 +263,8 @@ const PRODUTOS=[
  calculo:[
   {pt:'Nenhuma data é digitada; volume e período são contados abrindo o arquivo. Se uma base sumir, a linha some com ela.',
    en:'No date is typed; volume and period are counted by opening the file. If a base disappears, its row disappears with it.'},
-  {pt:'Base consolidada do Squad 1: pipeline <code>rodar_pipeline.py</code> com 18 etapas, cada valor rastreável até arquivo, linha e coluna de origem (aba 08) e validações automáticas na aba 14b.',
-   en:'Squad 1 consolidated base: <code>rodar_pipeline.py</code> pipeline with 18 steps, each value traceable to source file, row and column (tab 08) and automatic checks in tab 14b.'}],
+  {pt:'Base consolidada do Squad 1: pipeline <code>rodar_pipeline.py</code> com 19 etapas, cada valor rastreável até arquivo, linha e coluna de origem (aba 08) e validações automáticas na aba 14b.',
+   en:'Squad 1 consolidated base: <code>rodar_pipeline.py</code> pipeline with 19 steps, each value traceable to source file, row and column (tab 08) and automatic checks in tab 14b.'}],
  limites:[
   {pt:'Cada base declara o que não mede: a CCEE não mede consumo da mineração, a CFEM não mede produção, o Anuário não mede produção por empresa, a base de produção das empresas não é auditada.',
    en:'Each base states what it does not measure: CCEE does not measure mining consumption, CFEM does not measure production, the Yearbook does not measure production by company, the company production base is not audited.'}],

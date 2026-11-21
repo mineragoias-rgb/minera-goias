@@ -1,6 +1,6 @@
 # Pipeline da planilha consolidada — MINERA Goiás (Squad 1 / Estudante 1)
 
-Gera `documentacao/prototipo_bases_consolidadas_v18.xlsx` e as camadas de mapa em `outputs/mapas/` a partir dos arquivos
+Gera `documentacao/prototipo_bases_consolidadas_v19.xlsx` e as camadas de mapa em `outputs/mapas/` a partir dos arquivos
 em `dados/`. Nenhum número é digitado: tudo sai destes scripts.
 
 ## O que precisa existir
@@ -64,8 +64,9 @@ python "Squad 1/Bases consolidadas/base_consolidada_work/scripts/rodar_pipeline.
 | 7 | `build_projetos_04` | projetos: camada ANM do Radar de Projetos |
 | 8 | `build_ocorrencias_06` | ocorrências minerais do RECMIN |
 | 9 | `build_mapas_04_06` | camadas de mapa dos projetos (04) e das ocorrências (06), no GeoPackage e em GeoJSON |
-| 10–17 | `write_base1` … `write_fato_08` | montam a planilha aba por aba a partir do modelo v0, passando pelos arquivos intermediários `v1_base1`, `v3`, `v4`, `v5`, `v5a_ocorrencias`, `v5b_projetos`, `v5c_interface` e `v5d_fato` em `documentacao/` |
-| 18 | `write_governanca_into_workbook` | nomes do Contrato de Dados, catálogo de fontes (07), dicionário (14), validações (14b), 00_LEIA-ME e o arquivo final |
+| 10–17 | `write_base1` … `write_fato_08` | montam a planilha aba por aba a partir do modelo v0, passando pelos arquivos intermediários `v1_base1`, `v3`, `v4`, `v5`, `v5a_ocorrencias`, `v5b_projetos`, `v5c_interface`, `v5d_fato` e `v5e_erros` em `documentacao/` |
+| 18 | `write_repositorio_erros_into_workbook` | abas 15a–15f (repositório de erros: catálogo ERR_###, bário × nióbio, contido × bruto, tonelagens repetidas, AMB × CFEM) e as checagens dos erros para a 14b (`erros_conhecidos.json`); grava o intermediário `v5e_erros` |
+| 19 | `write_governanca_into_workbook` | nomes do Contrato de Dados, catálogo de fontes (07), dicionário (14), validações (14b), 00_LEIA-ME e o arquivo final |
 
 ## Conferir o resultado
 

@@ -62,7 +62,7 @@ Observações:
   **beneficiada** (ferroníquel), que é cerca de 4 vezes maior. Na base beneficiada, o coeficiente é 11,40. Com o valor atual, a
   energia do níquel sai cerca de 4 vezes maior.
 - **Cobre:** a produção declarada pela Lundin (43.974 t Cu) confere com a série da ANM que o modelo lê
-  (43.983,55 t em 2025, v18 aba 08): diferença de 0,02%.
+  (43.983,55 t em 2025, v19 aba 08): diferença de 0,02%.
 - **Bauxita:** nenhum dos 3 titulares de bauxita aparece na CCEE. Sem energia observada, fica o parâmetro atual do modelo,
   marcado como `benchmark_proxy`.
 - **Fosfato:** Mosaic (0,089) e Copebrás (0,169) somados. Como as duas cobrem 100% da produção estadual, a soma dos

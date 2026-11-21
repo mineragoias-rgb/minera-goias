@@ -30,8 +30,11 @@ from caminhos import BASE, arquivo
 from repositorio_erros_analises import (aba, amb_x_cfem, bario_niobio, load_amb, load_cfem, planilha, repetidas, teor_df)
 
 SAIDA = os.path.join(os.path.dirname(BASE), "Auditoria e qualidade")
-PLAN = planilha()
-VERSAO = re.search(r"_(v\d+)\.xlsx$", PLAN).group(1)
+# PLAN e MODO podem vir de quem executa este arquivo com runpy.run_path(..., init_globals=...): a etapa do pipeline
+# write_repositorio_erros_into_workbook.py passa a planilha intermediária e MODO="pipeline" (não grava os arquivos à parte).
+PLAN = globals().get("PLAN") or planilha()
+MODO = globals().get("MODO") or "arquivo"
+VERSAO = (re.search(r"_(v\d+)\.xlsx$", PLAN) or re.search(r"_(v\w+)\.xlsx$", PLAN)).group(1)
 HOJE = datetime.date.today().isoformat()
 
 
@@ -46,28 +49,22 @@ def pct(a, b, d=1):
 # =============================================================================================== dados
 a = load_amb()
 cf = load_cfem()
-d09, dmin = aba("09_cons_mineral_ano"), aba("01_dim_minerais")
-b14 = aba("14b_validacoes_governanca")
-b13 = aba("13b_auditoria_mapas")
-c9 = aba("09c_alertas_cfem_processo")
-n09b = len(aba("09b_auditoria_cfem_quantidade"))
-d11 = aba("11_cons_empresa_ano_mineral")
-d06 = aba("06_dim_ocorrencias_geologicas")
-f08 = aba("08_fato_producao_energia")
+d09, dmin = aba("09_cons_mineral_ano", PLAN), aba("01_dim_minerais", PLAN)
+b13 = aba("13b_auditoria_mapas", PLAN)
+c9 = aba("09c_alertas_cfem_processo", PLAN)
+n09b = len(aba("09b_auditoria_cfem_quantidade", PLAN))
+d11 = aba("11_cons_empresa_ano_mineral", PLAN)
+d06 = aba("06_dim_ocorrencias_geologicas", PLAN)
+d01c = aba("01c_rochas_por_tipo_de_uso", PLAN)
+d04b = aba("04b_eventos_anm_classificados", PLAN)
+d06b = aba("06b_crosswalk_recmin", PLAN)
+d02 = aba("02_dim_empresas", PLAN)
 
 go = a[a.uf == "GO"]
 teor = teor_df(go)
 rep = repetidas(a)
 axc = amb_x_cfem(a, d09, dmin)
 bn, bnproc = bario_niobio(a, cf)
-
-
-def v14(trecho):
-    """(n, resultado) da verificação da 14b cujo nome começa com o trecho."""
-    x = b14[b14.verificacao.str.startswith(trecho)]
-    if x.empty:
-        raise SystemExit(f"14b sem a verificação '{trecho}'")
-    return int(x.n.iloc[0]), str(x.resultado.iloc[0])
 
 
 def v13(trecho):
@@ -130,12 +127,11 @@ nb9 = c9n[(c9n.mineral_name == "Nióbio")].sort_values("razao", ascending=False)
 ti9 = c9n[(c9n.mineral_name == "Titânio")].sort_values("razao", ascending=False)
 p567 = c9n[c9n.processo_anm == "860567/2021"]
 p567_rpt = pd.to_numeric(p567.r_por_t, errors="coerce")
-_, rochas = v14("Rochas na CFEM")
-_, lgpd = v14("LGPD")
-_, imb = v14("IMB (Goiás em Dados)")
-_, v04 = v14("04: cada processo vivo")
-_, v06b = v14("06: substâncias → mineral_ids")
-n_terminais = re1(r"terminais ([\d,.]+)", v04, inteiro)
+_ro = d01c[d01c.fonte == "CFEM (GO)"].groupby("regra").valor_recolhido_brl.sum()
+rochas = "; ".join(f"{k}: {br(100 * v / _ro.sum(), 1)}%" for k, v in _ro.sort_values(ascending=False).items())
+n_lgpd = int(d02.razao_social.astype(str).str.contains(r"\*\*\*\d{6}\*\*").sum())
+n_terminais = int(pd.to_numeric(d04b[d04b.classe_evento == "encerramento"].processos).sum())
+sem_cat_06b = ", ".join(d06b[d06b.tipo_correspondencia == "sem_categoria_anm"].substancia_original)
 
 # --- Cadastro Mineiro (o arquivo do repositório é o recorte de Goiás: processos com município ou poligonal em GO)
 import csv
@@ -143,7 +139,7 @@ import glob
 import io
 import unicodedata
 
-nomes_go = {unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().upper() for n in aba("05_dim_municipios").municipality_name}
+nomes_go = {unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().upper() for n in aba("05_dim_municipios", PLAN).municipality_name}
 sit_tot = sit_sim = homon = linhas_ruins = 0
 homon_set = set()
 for f in sorted(glob.glob(arquivo("dados/ANM/cadastro_mineiro/*.csv"))):
@@ -192,7 +188,7 @@ def e(fonte, arq, tipo, descricao, exemplo, medido, conferido, impacto, regra, c
 
 
 BRUTO = f"bruto (recalculado em {HOJE})"
-PL = lambda abas: f"planilha {VERSAO} ({abas})"
+PL = lambda abas: (f"esta planilha ({abas})" if MODO == "pipeline" else f"planilha {VERSAO} ({abas})")
 AMBf = "ANM — AMB (Produção Bruta/Beneficiada)"
 ba23 = (f"GO {int(b23.ano.iloc[0])}, produção bruta: Nióbio e Bário com exatamente {br(b23.nb_rom_t.iloc[0], 2)} t "
         f"(linhas {b23.nb_rom_linha_csv.iloc[0]} e {b23.ba_rom_linha_csv.iloc[0]} do Producao_Bruta.csv)") if len(b23) else "—"
@@ -201,7 +197,8 @@ e(AMBf, "Producao_Bruta.csv / Producao_Beneficiada.csv — quantidade", "duplici
   ba23 + ". Fora de 2023 os números diferem, mas o ROM do bário (5–6 Mt/ano, com poucos milhares de t beneficiadas) é a rocha lavrada para nióbio e fosfato.",
   f"{rep.grupo.nunique()} grupos / {len(rep)} linhas no Brasil; {rep_go.grupo.nunique()} grupos em GO", BRUTO,
   "Somar ROM entre minerais conta o mesmo minério duas vezes; na intensidade energética, o denominador fica inflado.",
-  "Linha mantida; status alerta_producao_repetida na 08. O ROM de subproduto sem valor próprio (bário de Catalão, cobalto, prata) tem status rom_minerio_associado e não é aberto por operação. Não somar ROM entre minerais.",
+  "Linha mantida; status alerta_producao_repetida na 08. O ROM de subproduto sem valor próprio (bário de Catalão, cobalto, prata) tem status rom_minerio_associado e não é aberto por operação. Não somar ROM entre minerais. "
+  "Bário × Nióbio no ROM de 2023: o alerta fica, SEM correção por inferência (não se sabe qual dos dois números está certo; a decisão é do grupo).",
   "14b — 'mesma tonelagem de produção em linhas diferentes…' (ALERTA)", "08 (status_validacao), 12, 14b; aba tonelagens_repetidas", "sinalizado")
 x2 = rep_go[rep_go.tipo.str.startswith("entre") & rep_go.substancia.str.startswith("Rochas Ornamentais")]
 e(AMBf, "Producao_Beneficiada.csv — categoria", "duplicidade (mesma declaração em 2 categorias)", "A mesma declaração aparece em duas categorias do mesmo grupo.",
@@ -293,7 +290,7 @@ e(CF, "Linhas com mesmo (ano, mês, processo, substância, município, unidade, 
   "Linhas iguais no grão são recolhimentos distintos, não duplicatas.", "—", f"{br(int(cf.duplicated(k_grao, keep=False).sum()))} linhas", BRUTO,
   "Deduplicar apagaria arrecadação real.", "Manter o grão da linha.", "Soma 08 = bruto", "08", "tratado")
 e(CF, "Substância (rochas)", "conceito", "A CFEM não traz o uso; a categoria ANM de rocha depende do uso (brita × ornamental).",
-  "Granito para brita × granito para revestimento.", f"R$ de rochas por origem da categoria: {rochas}", PL("14b"),
+  "Granito para brita × granito para revestimento.", f"R$ de rochas por origem da categoria: {rochas}", PL("01c"),
   "Sem a regra, Rochas Ornamentais chegavam a 35–191× o AMB.", "Uso pelo número do processo (Cadastro → SIGMINE → outra rocha do processo).",
   "14b — 'Rochas na CFEM…'", "01c", "tratado (v7)")
 e(CF, "Último ano", "cobertura", "O último ano da CFEM é parcial.", f"Último mês: {cf_ult}; última DataCriacao: {cf_criacao}.", "—", BRUTO,
@@ -320,9 +317,8 @@ e(CM, "Arquivos CSV (aspas)", "formato",
   "registro do projeto (19/11/2026) e " + BRUTO, "Hoje sem impacto em GO; numa base nova pode perder processos goianos em silêncio.",
   "Nenhuma ainda. Proposta: contar as linhas descartadas e falhar se alguma citar '- GO' (no recorte do robô e no pipeline).", "nenhuma (proposta)", "—",
   "pendente — novo")
-_, lgpd_txt = v14("LGPD")
 e(CM, "Titular", "LGPD", "Titular pessoa física aparece com CPF no nome.", "—",
-  re1(r"(\d+)\s*;", lgpd_txt.split("(***456789**):")[-1]) + " titulares na 02" if "(***456789**):" in lgpd_txt else "—", PL("14b"),
+  f"{n_lgpd} titulares na 02 com CPF mascarado no nome", PL("02"),
   "Exposição de CPF no site.", "mascarar_cpf() na exibição; o company_id não muda.", "14b — 'LGPD…'", "02, 03, 04", "tratado (v12)")
 e(CM, "Municipio(s) em processo de divisa", "recorte territorial", "Processo que cruza a divisa às vezes só cita o município do outro estado.",
   "2 linhas da 04 mudavam no recorte só por município.", "2 linhas", "registro do projeto (v16)", "Recorte só por município perde processos com área em GO.",
@@ -340,7 +336,7 @@ e(SG, "Município", "cobertura", "SIGMINE não tem município; processos discord
   f"{n_disc} discordâncias; {br(v13('Processos sem município no Cadastro'))} sem município no Cadastro", PL("13b"),
   "Município textual pode ser o da época do registro.", "Junção espacial (maior área).", "13b", "03, 13b", "tratado")
 e(SG, "Último evento", "conceito", "SIGMINE mantém processos encerrados (indeferimento, caducidade, renúncia…).", "—",
-  f"{br(n_terminais)} processos do universo com evento terminal", PL("14b, 04b"), "Contar projeto morto como vivo.",
+  f"{br(n_terminais)} processos do universo com evento terminal", PL("04b"), "Contar projeto morto como vivo.",
   "Cada tipo de evento classificado na 04b.", "14b — '04: cada processo vivo…'", "04, 04b", "tratado")
 e(SG, "Geometria (web)", "formato", "Simplificar poligonais de título deforma polígonos pequenos.", "125 polígonos < 2 ha deformam > 10% (teste de 09/2026).", "—",
   PL("13b"), "Mapa com área legal errada.", "Sem simplificação; GeoJSON por grupo + PMTiles.", "13b", "13, 13b", "tratado")
@@ -354,7 +350,7 @@ e(RM, "localizacao_mina / situacao_garimpo / data_cadastro", "campo sem informa�
   "'Ativo' do RECMIN não significa ativo hoje.", "Campos fora da aba; cruzamento com a ANM informa o status atual.", "14b — '06: campos do RECMIN fora da aba…'",
   "06, 06b", "tratado")
 e(RM, "substancias", "conceito", "Substâncias em ordem alfabética, sem principal; algumas sem categoria ANM.",
-  re1(r"sem categoria ANM: ([^.]+)\.", v06b), re1(r"^(\d+ nomes)", v06b) + " na 06b", PL("14b, 06b"), "Não dá para escolher 'o' mineral do ponto.",
+  sem_cat_06b or "—", f"{len(d06b)} nomes na 06b", PL("06b"), "Não dá para escolher 'o' mineral do ponto.",
   "mineral_ids multivalorado; crosswalk 06b.", "14b — '06: substâncias → mineral_ids…'", "06, 06b", "tratado")
 
 IB = "IBGE — SIDRA e malha"
@@ -367,7 +363,7 @@ e(IB, "PIB municipal", "unidade", "PIB vem em mil reais.", f"Unidade no arquivo:
 e(IB, "Malha municipal", "geometria", "Centro da caixa envolvente cai fora do município.", "—", f"{v13('Ponto ')} de 246", PL("13b"),
   "Ponto do município no lugar errado.", "representative_point.", "13b", "05, 13b", "tratado")
 e("IMB — Goiás em Dados", "Produção mineral do estado", "conceito", "Produção do IMB parece contido para cobre, nióbio e níquel (sempre abaixo do AMB); só vai até 2016.",
-  "—", re1(r"^(\d+ minerais comparados em [\d–]+)", imb), PL("14b"), "Misturar IMB e AMB troca minério por metal.", "IMB só como validação cruzada.",
+  "—", "comparação mineral a mineral em 2010–2016 (o IMB não traz produção depois)", PL("14b, checagem 'IMB × AMB'"), "Misturar IMB e AMB troca minério por metal.", "IMB só como validação cruzada.",
   "14b — 'IMB × AMB'", "07, 14b", "tratado (v17)")
 e("CCEE — consumo de energia", "RAMO_ATIVIDADE", "conceito",
   "Cargas sem ramo são as distribuidoras (mercado cativo), não um setor; CONSUMO_CATIVO_PARC_LIVRE ≈ 0.", "Equatorial Goiás e CHESP, ≈ 1,1 TWh/mês.",
@@ -500,9 +496,10 @@ add("contido_vs_bruto", t, "Contido × quantidade no AMB — Goiás",
     f"lacuna {int((t.severidade == 'lacuna').sum())}, informativo {int((t.severidade == 'informativo').sum())}).")
 add("tonelagens_repetidas", r, "Mesma tonelagem em linhas diferentes (todas as UFs)", f"{r.grupo.nunique()} grupos, {len(r)} linhas.")
 add("amb_x_cfem", x, f"AMB × CFEM por mineral — Goiás {ANOS[0]}–{ANOS[-1]}", "Valores em R$ correntes. Classificação na 00_leia_me.")
-os.makedirs(SAIDA, exist_ok=True)
 XLSX = os.path.join(SAIDA, "repositorio_erros.xlsx")
-wb.save(XLSX)
+if MODO != "pipeline":
+    os.makedirs(SAIDA, exist_ok=True)
+    wb.save(XLSX)
 
 # =============================================================================================== REPOSITORIO_ERROS.md
 def tab_md(cab, linhas):
@@ -570,5 +567,58 @@ Por status: {', '.join(f'{k} {v}' for k, v in st.items())}. A coluna `onde_foi_c
 **Pendente:** ERR_024 — os CSV nacionais do Cadastro Mineiro têm aspas sem escape, e o leitor com `on_bad_lines="skip"` descarta essas linhas sem aviso
 (1.184 no download nacional de 09/2026, nenhuma de Goiás; {linhas_ruins} no recorte do repositório). Proposta: contar as descartadas e falhar se alguma citar "- GO".
 """
-open(os.path.join(SAIDA, "REPOSITORIO_ERROS.md"), "w", encoding="utf-8", newline="\n").write(md)
-print(f"SALVO: {XLSX} ({len(cat)} erros; status {dict(st)}) e REPOSITORIO_ERROS.md")
+if MODO != "pipeline":
+    open(os.path.join(SAIDA, "REPOSITORIO_ERROS.md"), "w", encoding="utf-8", newline="\n").write(md)
+    print(f"SALVO: {XLSX} ({len(cat)} erros; status {dict(st)}) e REPOSITORIO_ERROS.md")
+
+# =============================================================================================== checagens para a 14b
+# Cada erro com assinatura automática vira uma checagem: as ocorrências de hoje são comparadas com a lista conhecida (erros_conhecidos.json,
+# revisada à mão). Ocorrência nova = ALERTA, para uma base nova acusar o mesmo tipo de erro de novo; a que sumiu só é relatada.
+#   python gerar_repositorio_erros.py --atualizar-conhecidos   (grava a lista de hoje, depois de revisar as novas)
+CONHECIDOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "erros_conhecidos.json")
+
+
+def _chaves(codigos):
+    x = teor[teor.alertas.fillna("").str.contains("|".join(c + " " for c in codigos))]
+    return sorted({f"{s_}|{b_}|{int(y_)}|{c}" for s_, b_, y_, al_ in zip(x.substancia, x.base, x.ano, x.alertas)
+                   for c in codigos if c + " " in al_})
+
+
+linhas_go_descartadas = []
+for f in sorted(glob.glob(arquivo("dados/ANM/cadastro_mineiro/*.csv"))):
+    _l = open(f, encoding="cp1252", errors="replace").read().splitlines()
+    _cab = next(csv.reader([_l[0]]))
+    for i, l in enumerate(_l[1:], start=2):
+        try:
+            ok_ = len(next(csv.reader([l], strict=True))) == len(_cab)
+        except csv.Error:
+            ok_ = False
+        if not ok_ and re.search(r"- GO\b", l):
+            linhas_go_descartadas.append(f"{os.path.basename(f)}:{i}")
+OCORRENCIAS = {
+    "contido_incoerente": _chaves(["C1", "C2", "C4"]),
+    "quebra_de_serie": _chaves(["C6"]),
+    "lacuna_amb": _chaves(["C7", "C8"]),
+    "amb_x_cfem": sorted(f"{s_}|{int(y_)}|{c[:2]}" for s_, y_, c in zip(axc.substancia, axc.ano, axc.classificacao) if c[:2] in ("R1", "R2", "R4", "R5", "R6")),
+    "cfem_cnpj_notacao_cientifica": [f"{cpf_cient} linhas"] if cpf_cient else [],
+    "cadastro_go_descartado": linhas_go_descartadas,
+}
+CHECAGENS_DEF = [
+    ("contido_incoerente", "Repositório de erros (ERR_003/004): contido do AMB de GO incoerente com a quantidade (C1, C2, C4) — ocorrências fora da lista conhecida"),
+    ("quebra_de_serie", "Repositório de erros (ERR_005): quebra de série maior que 5× no AMB de GO (C6) — ocorrências fora da lista conhecida"),
+    ("lacuna_amb", "Repositório de erros (ERR_007): lacunas no AMB de GO, ano sem linha ou zero depois de ano produtivo (C7, C8) — fora da lista conhecida"),
+    ("amb_x_cfem", "Repositório de erros (ERR_043–045): AMB × CFEM sem par ou fora da alíquota legal (R1, R2, R4, R5, R6) — fora da lista conhecida"),
+    ("cfem_cnpj_notacao_cientifica", "Repositório de erros (ERR_013): CPF_CNPJ da CFEM em notação científica (CNPJ que não identifica a empresa)"),
+    ("cadastro_go_descartado", "Repositório de erros (ERR_024): linhas do Cadastro Mineiro com município de GO que o leitor descartaria (aspas sem escape)"),
+]
+if "--atualizar-conhecidos" in sys.argv:
+    json.dump(OCORRENCIAS, open(CONHECIDOS, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
+    print(f"SALVO: {CONHECIDOS} ({sum(map(len, OCORRENCIAS.values()))} ocorrências conhecidas)")
+_conh = json.load(open(CONHECIDOS, encoding="utf-8")) if os.path.exists(CONHECIDOS) else {}
+CHECAGENS = []
+for chave, nome in CHECAGENS_DEF:
+    hoje, antes = set(OCORRENCIAS[chave]), set(_conh.get(chave, []))
+    novas, sumiram = sorted(hoje - antes), sorted(antes - hoje)
+    res = (f"{len(hoje)} ocorrências hoje, {len(hoje & antes)} já conhecidas" + (f"; NOVAS ({len(novas)}): " + "; ".join(novas[:12]) if novas else "; nenhuma nova")
+           + (f"; deixaram de ocorrer ({len(sumiram)}): " + "; ".join(sumiram[:6]) if sumiram else ""))
+    CHECAGENS.append(dict(verificacao=nome, n=len(novas), resultado=res, ok=not novas))

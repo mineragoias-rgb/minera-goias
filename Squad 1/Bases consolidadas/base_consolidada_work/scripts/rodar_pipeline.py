@@ -26,7 +26,7 @@ ETAPAS = [
     "build_fato_08", "build_interface_12", "build_projetos_04", "build_ocorrencias_06", "build_mapas_04_06",
     "write_base1_into_workbook", "write_base2_into_workbook", "write_base3_into_workbook", "write_base4_into_workbook",
     "write_ocorrencias_06_into_workbook", "write_projetos_04_into_workbook", "write_interface_12_into_workbook",
-    "write_fato_08_into_workbook", "write_governanca_into_workbook",
+    "write_fato_08_into_workbook", "write_repositorio_erros_into_workbook", "write_governanca_into_workbook",
 ]
 PACOTES = ["pandas", "numpy", "openpyxl", "geopandas", "pyogrio", "shapely", "pyproj", "matplotlib"]
 V0 = "prototipo_bases_consolidadas_v0.xlsx"

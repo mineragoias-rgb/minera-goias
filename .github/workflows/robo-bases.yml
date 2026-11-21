@@ -4,7 +4,7 @@ name: Robô das bases (P3M, ANM, IBGE, SGB e MapBiomas)
 # (RECMIN) e a série de vegetação do MapBiomas (só os anos que mudaram no bucket), confere a forma, trata como o repositório
 # guarda e refaz o que vai ao site. Detalhes em robo/LEIA-ME.md.
 #   1. robo/robo_bases.py baixa e confere; grava só os dados brutos que mudaram e passaram na checagem de forma;
-#   2. se mudou uma base da planilha (ANM, IBGE ou SGB): o pipeline do Squad 1 refaz a planilha consolidada (v18), que não
+#   2. se mudou uma base da planilha (ANM, IBGE ou SGB): o pipeline do Squad 1 refaz a planilha consolidada (v19), que não
 #      pode ganhar ALERTA novo na aba 14b;
 #      depois o atlas, os documentos da base e o Radar de Projetos;
 #   3. scripts/atualizar_derivados.py refaz o resto (inventário do P3M, mapa, panorama, Squad 2, simulador…) e testa;
@@ -53,7 +53,7 @@ jobs:
       ESCOPO: ${{ inputs.escopo_p3m || 'mapa' }}
       PUBLICAR: ${{ github.event_name == 'schedule' || inputs.publicar }}
       ACEITAR: ${{ inputs.aceitar_queda || '' }}
-      PLANILHA: Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx
+      PLANILHA: Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx
     steps:
       - uses: actions/checkout@v5
         with:

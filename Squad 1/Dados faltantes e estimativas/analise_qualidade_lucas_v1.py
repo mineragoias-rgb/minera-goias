@@ -20,7 +20,7 @@ Requer: pandas, openpyxl.
 import openpyxl
 import pandas as pd
 
-XLSX_V17 = "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx"
+XLSX_V17 = "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx"
 LUCAS_BENEFICIADA = "Squad 1/dados/PRODUCAO CORRIGIDA LUCAS V1.xlsx"
 LUCAS_BRUTA = "Squad 1/dados/PRODUCAO BRUTA CORRIGIDA LUCAS V1.xlsx"
 LUCAS_CFEM = "Squad 1/dados/ARRECADAÇÃO CORRIGIDA LUCAS V1.xlsx"

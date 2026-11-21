@@ -31,3 +31,9 @@ Resumo para ler no GitHub: [`REPOSITORIO_ERROS.md`](REPOSITORIO_ERROS.md).
 Refazer (recalcula todos os números a partir de `Squad 1/Dados brutos` e da planilha consolidada mais recente):
 `python "Squad 1/Bases consolidadas/base_consolidada_work/scripts/gerar_repositorio_erros.py"`.
 
+Desde a v19 o mesmo catálogo e as mesmas análises estão dentro da planilha consolidada (abas `15a_repositorio_erros` a
+`15f_amb_x_cfem`), gerados pelo pipeline. Cada erro que dá para detectar sozinho virou uma checagem na aba 14b: as ocorrências do
+dia são comparadas com a lista conhecida (`base_consolidada_work/scripts/erros_conhecidos.json`) e uma ocorrência nova acusa
+ALERTA. Depois de revisar uma ocorrência nova, grave a lista de novo com
+`python "Squad 1/Bases consolidadas/base_consolidada_work/scripts/gerar_repositorio_erros.py" --atualizar-conhecidos`.
+

@@ -1,4 +1,4 @@
-"""Retrato do atlas gerado por scripts/build_atlas_base.py a partir da base consolidada do Squad 1 (v18)."""
+"""Retrato do atlas gerado por scripts/build_atlas_base.py a partir da base consolidada do Squad 1 (v19)."""
 import base64,importlib.util,json,struct,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -6,7 +6,7 @@ sys.path.insert(0,str(ROOT/'tests'));sys.path.insert(0,str(ROOT/'robo'))
 import anm_recorte  # noqa: E402
 from test_panorama import cfem_bruta  # noqa: E402
 SIGMINE=ROOT/'Squad 1/Dados brutos/ANM - SIGMINE/GO.zip'
-PLANILHA=ROOT/'Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx'
+PLANILHA=ROOT/'Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx'
 ANOS=[2022,2023,2024,2025,2026]
 def atlas():return json.loads((ROOT/'data/atlas/atlas.json').read_text(encoding='utf-8'))
 def projetos_aba04():

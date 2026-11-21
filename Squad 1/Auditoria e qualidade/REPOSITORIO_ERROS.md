@@ -1,7 +1,7 @@
 # Repositório de erros — bases do Squad 1
 
 Squad 1 / Estudante 1 (Frente 1). Gerado em 2026-11-21 por `Squad 1/Bases consolidadas/base_consolidada_work/scripts/gerar_repositorio_erros.py`,
-a partir de `Squad 1/Dados brutos/` e da planilha `prototipo_bases_consolidadas_v18.xlsx`. Planilha completa: [`repositorio_erros.xlsx`](repositorio_erros.xlsx).
+a partir de `Squad 1/Dados brutos/` e da planilha `prototipo_bases_consolidadas_v19.xlsx`. Planilha completa: [`repositorio_erros.xlsx`](repositorio_erros.xlsx).
 Todo número abaixo é recalculado a cada execução. **Regra do projeto:** divergência é registrada, não corrigida.
 
 | Aba | O que tem |

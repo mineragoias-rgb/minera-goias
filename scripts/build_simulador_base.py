@@ -318,7 +318,7 @@ def fontes(projecao, minerais, arquivo_intensidade):
             ("status_validacao", "validado_squad1"),
             ("responsavel_validacao", "Squad 1 — bases públicas e diagnóstico mineral"),
             ("notas", "Séries lidas pelo modelo do Squad 2 apenas nas linhas de nível estadual marcadas como "
-                      "observadas. O cobre vem da aba 08_fato_producao_energia da planilha consolidada v18, "
+                      "observadas. O cobre vem da aba 08_fato_producao_energia da planilha consolidada v19, "
                       "porque a métrica contido_beneficiada não está no arquivo de interface."),
         ]),
         OrderedDict([

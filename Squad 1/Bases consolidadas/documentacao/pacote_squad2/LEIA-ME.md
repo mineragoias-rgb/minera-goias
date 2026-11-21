@@ -1,6 +1,6 @@
-# Pacote da aba 12 para o Squad 2 — produção por mineral, ano e operação (v18)
+# Pacote da aba 12 para o Squad 2 — produção por mineral, ano e operação (v19)
 
-Squad 1 / Estudante 1 → Squad 2. Gerado por `gerar_pacote_squad2.py` a partir de `prototipo_bases_consolidadas_v18.xlsx`, aba
+Squad 1 / Estudante 1 → Squad 2. Gerado por `gerar_pacote_squad2.py` a partir de `prototipo_bases_consolidadas_v19.xlsx`, aba
 `12_interface_squad1_squad2`. Todos os números abaixo saem da planilha; rodar o script de novo depois de uma versão nova atualiza o pacote.
 
 ## Arquivos

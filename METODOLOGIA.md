@@ -34,7 +34,7 @@ No painel, a aba **Metodologia** (`public/metodologia.js`) resume este documento
 | Produção por empresa (`data/producao`) | Um número de produção publicado por uma fonte, para uma empresa, mineral, período e medida | 78 registros de 10 empresas | 2022–2027 (realizado, guidance, capacidade e meta) |
 | Empresas: produção × energia (`data/empresas`) | Uma empresa, um mineral e um ano, com produção anualizada, carga da CCEE anualizada e o coeficiente entre as duas | 38 linhas de 10 empresas | 2022–2026 |
 | Projetos minerais (`data/projetos`) | Um projeto nomeado, com empresa, mineral, município, fase, maturidade, capacidade, CAPEX, cronograma e evidência | 37 projetos · 57 evidências | Retrato da pesquisa de 2026-11-06 |
-| Atlas (base consolidada do Squad 1, v18) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
+| Atlas (base consolidada do Squad 1, v19) | Retrato gerado da planilha por `scripts/build_atlas_base.py`; energia e barragens seguem do artefato recebido | 246 municípios · 16.656 processos · 3.377 projetos · 1.796 ocorrências · 23 barragens | Ver §3.2 e `data/atlas/README.md` |
 
 O acervo importado hoje soma **189.785 linhas em 14 arquivos**, cada uma rastreável até arquivo, aba, linha de origem e commit.
 

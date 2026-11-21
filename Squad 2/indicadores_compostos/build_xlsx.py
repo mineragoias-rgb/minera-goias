@@ -14,7 +14,7 @@ cf=pd.DataFrame(P["cfem"]["rows"],columns=P["cfem"]["cols"])
 pr=pd.DataFrame(P["proc"]["rows"],columns=P["proc"]["cols"])
 rd=pd.DataFrame(P["rod"]["rows"],columns=P["rod"]["cols"]); rd=rd[rd.mun>=0]
 # área territorial (km²) da aba 10 do repositório
-wb=openpyxl.load_workbook(f"{REPO}/Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx",read_only=True,data_only=True)
+wb=openpyxl.load_workbook(f"{REPO}/Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx",read_only=True,data_only=True)
 it=wb["10_cons_municipio_ano"].iter_rows(min_row=4,values_only=True); cab=list(next(it)); ix={c:i for i,c in enumerate(cab)}
 ar={}
 for r in it:

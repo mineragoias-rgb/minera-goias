@@ -11,7 +11,7 @@ trabalho do Estudante 1. O trabalho dos Estudantes 2 e 3 foi avaliado pelo que e
 
 | Componente | Responsável | Produto esperado (guia) | Situação em 14/09 |
 |---|---|---|---|
-| S1-E1 — Bases públicas e diagnóstico mineral | Eliel Pelegrino | Base Mineral de Goiás — versão 1 | **Completa.** Planilha v18, dados brutos no GitHub, pipeline que gera a mesma planilha a partir do repositório, relatório de qualidade e atlas no site. Restam duas confirmações com o grupo (seção 3.1). |
+| S1-E1 — Bases públicas e diagnóstico mineral | Eliel Pelegrino | Base Mineral de Goiás — versão 1 | **Completa.** Planilha v19, dados brutos no GitHub, pipeline que gera a mesma planilha a partir do repositório, relatório de qualidade e atlas no site. Restam duas confirmações com o grupo (seção 3.1). |
 | S1-E2 — Projetos minerais e inteligência de mercado | Lucas Maia (a divisão do squad cita também Gabriel Gonçalves em "projetos já existentes") | Radar de Projetos Minerais de Goiás — versão 1 | **Parcial.** No GitHub há três planilhas "CORRIGIDA LUCAS V1" (AMB e CFEM); o radar estruturado com evidências ainda não está no repositório. A camada ANM do radar (aba 04 do E1) já existe. |
 | S1-E3 — Dados faltantes e estimativas | Não nomeado na seção do guia (a lista do squad inclui Gabriel Gonçalves e Giovana Dodero) | Método de Tratamento e Estimação de Dados Faltantes — versão 1 | **Não encontrado no GitHub.** Os insumos estão prontos: dicionário com % de vazio, flags de estimativa na aba 12 e arquivos da CCEE. |
 
@@ -35,7 +35,7 @@ como estimativa, com método, erro e status observado/estimado.
 
 ### 2.1 Estudante 1 — Base Mineral de Goiás (Eliel)
 
-**Produto:** `prototipo_bases_consolidadas_v18.xlsx`, com 25 abas, gerado por um pipeline de 18 etapas em Python.
+**Produto:** `prototipo_bases_consolidadas_v19.xlsx`, com 31 abas, gerado por um pipeline de 19 etapas em Python.
 - **No GitHub:** `Squad 1/Bases consolidadas/` (planilha, código e documentação) e `Squad 1/Dados brutos/` (arquivos das fontes).
 - **Localmente:** a pasta de trabalho, com todas as fontes catalogadas e as camadas de mapa.
 
@@ -47,7 +47,7 @@ como estimativa, com método, erro e status observado/estimado.
 | Principais operações e substâncias de Goiás identificadas | ✅ | 16.656 processos do SIGMINE, 807 operações ativas, 67 minerais, produção do AMB 2010–2025 e CFEM de jan/2022 a ago/2026 |
 | Campos mínimos: mineral, titular, operação/processo, município, produção, unidade, ano, coordenadas/geometria e fonte | ✅ | Abas 01–06, 08, 09 e 12; geometria no GeoPackage e no GeoJSON (aba 13) |
 | Dicionário de dados e relatório de qualidade | ✅ | Dicionário na aba 14 (439 campos). Relatório de qualidade em `Bases consolidadas/documentacao/relatorio_qualidade.md`: faltantes, duplicidades, divergências e unidades, gerado da planilha. |
-| Rotina reproduzível de tratamento | ✅ | `rodar_pipeline.py` (18 etapas, cerca de 13 min). Rodado a partir do layout do GitHub, gera as mesmas abas de dados que a cópia de trabalho (conferido célula a célula). |
+| Rotina reproduzível de tratamento | ✅ | `rodar_pipeline.py` (19 etapas, cerca de 13 min). Rodado a partir do layout do GitHub, gera as mesmas abas de dados que a cópia de trabalho (conferido célula a célula). |
 
 #### Fontes exigidas pelo guia
 
@@ -218,7 +218,7 @@ consulta da base pelo Squad 3 via banco e API.
 
 | O quê | Local |
 |---|---|
-| Planilha entregável | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx` (comece pela aba `00_LEIA-ME`) |
+| Planilha entregável | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx` (comece pela aba `00_LEIA-ME`) |
 | Dados brutos, por fonte | `Squad 1/Dados brutos/` (catálogo no `LEIA-ME.md` de lá) |
 | Código do pipeline | `Squad 1/Bases consolidadas/base_consolidada_work/scripts/` |
 | Relatório de qualidade | `Squad 1/Bases consolidadas/documentacao/relatorio_qualidade.md` |

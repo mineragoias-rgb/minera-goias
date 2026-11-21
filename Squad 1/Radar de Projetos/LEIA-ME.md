@@ -2,7 +2,7 @@
 
 Base consolidada dos projetos minerais de Goiás, da operação ao sinal inicial de investimento, para inteligência de mercado, análise de
 investimentos e acompanhamento do pipeline mineral do estado. Completa a camada ANM do Radar de Projetos que a base consolidada do Squad 1
-já traz na aba `04_dim_projetos` da v18, e substitui o levantamento inicial do aluno Lucas Maia
+já traz na aba `04_dim_projetos` da v19, e substitui o levantamento inicial do aluno Lucas Maia
 (`../Dados brutos/Aluno Lucas Maia/projetos_minerais_goias.xlsx`, 15 projetos, que continua publicado na aba Mercado do site).
 
 | Arquivo | O que é |
@@ -25,7 +25,7 @@ e 505 sinais (nenhum projeto de Goiás tinha, nas fontes, construção iniciada 
 |---|---:|---|
 | Pesquisa na web (`curadoria_web.json`) | 37 | Projetos com notícia, documento da empresa, de governo ou regulatório — 100 fontes. Únicos com capacidade, CAPEX e cronograma |
 | Operações com CFEM em 2025 (ANM) | 71 | Titular PJ que recolheu CFEM; agregados para construção só a partir de R$ 300 mil; água mineral fora |
-| Carteira ANM (aba 04 da v18) | 678 | Projetos que ainda não produzem, com a classificação do Squad 1 (teto PROVÁVEL); pessoa física agregada por mineral e município |
+| Carteira ANM (aba 04 da v19) | 678 | Projetos que ainda não produzem, com a classificação do Squad 1 (teto PROVÁVEL); pessoa física agregada por mineral e município |
 | Portfólios de pesquisa (Cadastro Mineiro) | 254 | Titular PJ com 5+ títulos de pesquisa de um mineral crítico ou estratégico (SINAL) |
 
 Registros da ANM do mesmo empreendimento de um projeto pesquisado (mesmo processo, ou mesmo titular, mineral e município) não viram linha

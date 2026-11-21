@@ -83,7 +83,7 @@ O modelo lê diretamente os outputs consolidados pela Squad 1; não cria cópias
 | Uso | Arquivo de origem |
 |---|---|
 | Bauxita, níquel, fosfato e amianto | `Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv` |
-| Cobre | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx`, aba `08_fato_producao_energia` |
+| Cobre | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx`, aba `08_fato_producao_energia` |
 
 O cobre é lido diretamente da planilha consolidada porque a medida compatível, `contido_beneficiada`, ainda não está no arquivo de interface utilizado para os outros quatro minerais.
 

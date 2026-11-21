@@ -1,6 +1,6 @@
 # Atlas — retrato da base consolidada do Squad 1 (13/09/2026)
 
-Os dados do atlas vêm da base consolidada do Squad 1 / Estudante 1 (v18), em `Squad 1/Bases consolidadas/`; os arquivos brutos que ela usa estão em `Squad 1/Dados brutos/`.
+Os dados do atlas vêm da base consolidada do Squad 1 / Estudante 1 (v19), em `Squad 1/Bases consolidadas/`; os arquivos brutos que ela usa estão em `Squad 1/Dados brutos/`.
 O SHA-256 da planilha está em `atlas.json` → `meta.sha256`; os do GeoPackage e do arquivo de investimento, em `meta.base`.
 Para gerar de novo, fora da VPS (precisa de geopandas, shapely ≥ 2.1 e openpyxl):
 

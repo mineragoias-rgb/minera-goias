@@ -24,9 +24,10 @@ warnings.filterwarnings("ignore")
 sys.stdout.reconfigure(encoding="utf-8")
 from caminhos import ARRANJO, BASE, TMP, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
 import qualidade_cfem
-SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx"  # v5 + 06/06b + 04/04b + 12 + 08 (write_ocorrencias_06 → write_projetos_04 → write_interface_12 → write_fato_08)
-OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v18.xlsx"
-VERSAO = "v18"
+SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v5e_erros.xlsx"  # v5 + 06/06b + 04/04b + 12 + 08 + 15a–15f (… → write_fato_08 → write_repositorio_erros)
+OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v19.xlsx"
+VERSAO = "v19"
+from repositorio_erros_dicionario import ABA_DESC as ABA_DESC_ERROS, CAMPOS as CAMPOS_ERROS  # v19: abas 15a–15f
 from regras_series import NOMES_SERIE_CONTIDO  # v18: série do beneficiado pelo contido (nióbio)
 NAVY, TEAL, LBLUE, WHITE, AMBER = "17365D", "1F6D7A", "DCE6F1", "FFFFFF", "C65911"
 HDR = 4
@@ -35,7 +36,7 @@ ABAS_REAIS = ["01_dim_minerais", "02_dim_empresas", "03_dim_operacoes", "04_dim_
               "09_cons_mineral_ano", "10_cons_municipio_ano", "11_cons_empresa_ano_mineral", "12_interface_squad1_squad2", "13_mapas_camadas"]
 ABAS_AUDITORIA = ["01b_crosswalk_pente_fino", "01c_rochas_por_tipo_de_uso", "02b_crosswalk_empresas", "04b_eventos_anm_classificados", "05b_crosswalk_municipios",
                   "06b_crosswalk_recmin",
-                  "09b_auditoria_cfem_quantidade", "09c_alertas_cfem_processo", "13b_auditoria_mapas"]
+                  "09b_auditoria_cfem_quantidade", "09c_alertas_cfem_processo", "13b_auditoria_mapas"] + list(ABA_DESC_ERROS)
 ABAS_MAQUETE = []  # desde a v11 todas as abas são reais
 
 # ---------------------------------------------------------------------------
@@ -1143,6 +1144,7 @@ D.update({
     "justificativa": ("Por que a substância foi ligada a esse mineral (ou ficou sem categoria).", "texto", "Pente fino da 06"),
 })
 
+DA.update({(_a, _c): _d for _a, _cs in CAMPOS_ERROS.items() for _c, _d in _cs.items()})  # v19: abas 15a–15f
 status_aba = {**{a: "real" for a in ABAS_REAIS + ["07_dim_fontes"]}, **{a: "auditoria" for a in ABAS_AUDITORIA},
               **{a: "maquete (ilustrativa v0)" for a in ABAS_MAQUETE}}
 ordem_abas = sorted(DADOS, key=lambda a: a)
@@ -1525,6 +1527,10 @@ V("08: mesma tonelagem de produção em linhas diferentes da mesma UF e ano no A
   f"(infla a linha BR da 09) e {_entre:,.0f} t entre minerais. Goiás: {_rep_go}. A fonte não tem linha 100% duplicada — as linhas diferem na substância, na categoria ou no contido/teor; "
   "divergência registrada, não corrigida (guia: 'divergências devem ser registradas, não corrigidas silenciosamente').", _n_rep == 0)
 
+# v19: checagens do repositório de erros (write_repositorio_erros_into_workbook.py) — ocorrência fora de erros_conhecidos.json = ALERTA
+for _c in json.load(open(f"{TMP}/_erros_checagens.json", encoding="utf-8")):
+    V(_c["verificacao"], _c["n"], _c["resultado"], _c["ok"])
+
 # --- aba 12 (interface Squad 1 → Squad 2): estado = 08, operações somam o estado, cobertura e governança por linha ---
 _I = DADOS["12_interface_squad1_squad2"][1]
 _est = [r for r in _I if r["nivel_agregacao"] == "estado"]
@@ -1882,7 +1888,7 @@ assert not _com_rotulo, f"título ainda com rótulo de versão: {_com_rotulo}"
 # v12 — 00_LEIA-ME reescrito. O topo ainda era o texto do protótipo v0 ("rascunho de formato", placeholders, IDs sequenciais
 # COM_###/OPE_#####). Agora descreve a planilha como ela é; as notas de cada versão ficam embaixo, como histórico, sem reescrita.
 # ---------------------------------------------------------------------------
-DATA_VERSAO = "2026-11-20"
+DATA_VERSAO = "2026-11-21"
 # Quando o robô de atualização (robo/robo_bases.py) refaz a planilha com arquivos novos da ANM, ele passa a data em
 # MINERA_DATA_DADOS: a estrutura continua a da versão atual, os dados são os baixados naquele dia.
 DATA_DADOS = os.environ.get("MINERA_DATA_DADOS")
@@ -1960,6 +1966,15 @@ HIST.append(("ATUALIZAÇÃO v18 — série do nióbio beneficiado pelo contido (
     "em t de Nb2O5 (estado e rateio por operação). A 08 não muda: guarda a quantidade e o contido da fonte. A regra fica em regras_series.py. "
     "Os outros valores das abas de dados são os mesmos da v17.")))
 
+HIST.append(("ATUALIZAÇÃO v19 — repositório de erros dentro da planilha (abas 15a–15f) e checagens na 14b", (
+    "O repositório de erros (etapas 1 e 2 do plano) entrou na planilha como abas geradas pelo pipeline, sem colagem à mão, por uma etapa nova "
+    "(write_repositorio_erros_into_workbook.py, antes da governança), que executa o mesmo gerador de Squad 1/Auditoria e qualidade/repositorio_erros.xlsx: "
+    "15a catálogo ERR_### (fonte, tipo, exemplo, número medido, impacto, regra adotada, checagem, aba e status), 15b e 15c bário × nióbio "
+    "(o ROM de 2023 com a mesma tonelagem fica como alerta, sem correção por inferência — decisão do grupo), 15d contido × quantidade no AMB, "
+    "15e tonelagens repetidas e 15f AMB × CFEM comparado com a alíquota legal. Cada erro com assinatura automática virou uma checagem na 14b: as "
+    "ocorrências de hoje são comparadas com a lista conhecida (erros_conhecidos.json) e uma ocorrência nova acusa ALERTA, para uma base nova repetir "
+    "o mesmo erro e ser pega. Os valores das abas de dados são os mesmos da v18.")))
+
 ABA_DESC = {
     "01_dim_minerais": "dimensão de minerais: as categorias oficiais da ANM mais subitens justificados na 01b",
     "01b_crosswalk_pente_fino": "auditoria: cada grafia de substância nas fontes → mineral_id",
@@ -1984,7 +1999,8 @@ ABA_DESC = {
     "13_mapas_camadas": "catálogo das camadas de mapa em outputs/mapas/ (GeoJSON, GeoPackage e PMTiles), inclusive projetos (04) e ocorrências (06)",
     "13b_auditoria_mapas": "auditoria das chaves espaciais: coordenadas, polígonos e junção com municípios",
     "14_dicionario_dados": "dicionário: cada campo de cada aba, com tipo, % vazio e exemplo calculados dos dados",
-    "14b_validacoes_governanca": "validações automáticas: nomes, IDs, integridade, conciliações e LGPD",
+    "14b_validacoes_governanca": "validações automáticas: nomes, IDs, integridade, conciliações, LGPD e as checagens do repositório de erros",
+    **ABA_DESC_ERROS,
 }
 _faltam = sorted(set(wb.sheetnames) - {"00_LEIA-ME"} - set(ABA_DESC))
 assert not _faltam, f"aba sem descrição no 00_LEIA-ME: {_faltam}"

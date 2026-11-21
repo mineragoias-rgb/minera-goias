@@ -326,7 +326,7 @@ def build():
             year=2025, periodo_referencia="2025",
             source_id="SRC_CCEE_PARCELA_CARGA; SRC_ANM_PROD_BENEF; SRC_ANM_CFEM",
             source_url="; ".join(SOURCES[s][0] for s in ("SRC_CCEE_PARCELA_CARGA", "SRC_ANM_PROD_BENEF", "SRC_ANM_CFEM")),
-            fonte_producao="Squad 1 — aba 12 (interface_squad1_squad2.csv, v18)", tipo_fonte="oficial", data_acesso=DATA_ACESSO,
+            fonte_producao="Squad 1 — aba 12 (interface_squad1_squad2.csv, v19)", tipo_fonte="oficial", data_acesso=DATA_ACESSO,
             metodo_estimacao=("energia 2025 da CCEE ÷ soma da produção " + ("beneficiada (contido em Nb2O5)" if basis == "conteudo_mineral" else "beneficiada")
                               + " 2025 que a aba 12 atribui ao titular "
                               "(rateio do total do AMB pela participação na CFEM em R$); o titular responde por "
@@ -405,7 +405,7 @@ def motor_rows(base):
 ESTADUAL = {
     "MIN_011": dict(nivel="operacao_empresa", basis="conteudo_mineral",
                     nota="só a Maracá produz cobre em Goiás; produção de Cu contido declarada pela Lundin (43.974 t) "
-                         "confere com a série da ANM que o modelo usa (43.983,55 t em 2025, v18 aba 08): diferença de 0,02%"),
+                         "confere com a série da ANM que o modelo usa (43.983,55 t em 2025, v19 aba 08): diferença de 0,02%"),
     "MIN_005": None,  # sem produtor de bauxita na CCEE: fica o parâmetro atual do modelo
     "MIN_022": dict(nivel="titular_mineral_ano", basis="beneficiada",
                     nota="o valor atual do modelo (45,55) é MWh por t de Ni contido; aplicado à produção beneficiada "

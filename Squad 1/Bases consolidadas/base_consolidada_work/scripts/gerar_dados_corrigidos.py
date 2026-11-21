@@ -287,12 +287,12 @@ for x in cfem:
     p(f"| {x['linha']} | {x['chave']} | {x['antes']} | {x['depois']} | {x['evidencia']} |")
 p()
 # ------------------------------------------------------------------------------------------------ tratamentos no pipeline
-# Tudo o que a base consolidada faz com os dados, além das cópias corrigidas acima: contado na planilha v18 e no pacote do
+# Tudo o que a base consolidada faz com os dados, além das cópias corrigidas acima: contado na planilha v19 e no pacote do
 # Squad 2 a cada execução, para o registro não ficar desatualizado. Nada disso altera os arquivos brutos.
 from collections import Counter
 import openpyxl
 DOC = os.path.join(SQ1, "Bases consolidadas", "documentacao")
-wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v18.xlsx"), read_only=True)
+wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v19.xlsx"), read_only=True)
 
 
 def _aba(nome):
@@ -338,7 +338,7 @@ DESC = {"valido": "entra nas somas",
 p("## Tratamentos feitos nas bases (pipeline da base consolidada)")
 p()
 p("Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/`, "
-  "planilha `prototipo_bases_consolidadas_v18.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: "
+  "planilha `prototipo_bases_consolidadas_v19.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: "
   "o valor original fica na aba 08 (`valor_original`, `unidade_original`) e o tratamento fica registrado na própria linha (`tratamento`, "
   "`status_validacao`, `notas`). As contagens abaixo são lidas da planilha e do pacote do Squad 2 a cada execução deste script.")
 p()

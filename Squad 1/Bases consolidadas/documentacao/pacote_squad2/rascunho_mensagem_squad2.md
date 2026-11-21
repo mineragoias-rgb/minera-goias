@@ -1,12 +1,12 @@
 # Rascunho — mensagem ao Squad 2 sobre a aba 12
 
-> Rascunho preparado para o Eliel (Squad 1 / Estudante 1) revisar e enviar. **Não foi enviado.** Os números saem da planilha v18.
+> Rascunho preparado para o Eliel (Squad 1 / Estudante 1) revisar e enviar. **Não foi enviado.** Os números saem da planilha v19.
 
 **Assunto:** Squad 1 → Squad 2: produção por mineral, ano e operação (aba 12) — confirmar o formato
 
 Oi, pessoal do Squad 2!
 
-A base do Squad 1 (v18) já tem a entrega para vocês: a aba `12_interface_squad1_squad2`. Para facilitar, deixamos um pacote em
+A base do Squad 1 (v19) já tem a entrega para vocês: a aba `12_interface_squad1_squad2`. Para facilitar, deixamos um pacote em
 `Squad 1/Bases consolidadas/documentacao/pacote_squad2/`, com a aba em CSV (no mesmo formato dos exemplos de `Squad 2/data/demo/`), o
 dicionário dos campos e a correspondência com o `production_history` do motor.
 

@@ -10,7 +10,7 @@ Junta quatro origens, nesta ordem de prioridade (a de cima absorve as de baixo q
    regulatório, cada um com as fontes que o sustentam. É a única origem que preenche capacidade, CAPEX e cronograma.
 2. **Operações com CFEM em 2025** (ANM): titular pessoa jurídica que recolheu CFEM em 2025. Agregados para construção civil só a partir
    de R$ 300 mil no ano; água mineral fica fora.
-3. **Carteira ANM** (aba `04_dim_projetos` da base consolidada v18 do Squad 1): projetos que ainda não produzem, com a classificação de
+3. **Carteira ANM** (aba `04_dim_projetos` da base consolidada v19 do Squad 1): projetos que ainda não produzem, com a classificação de
    maturidade do próprio Squad 1 (teto PROVÁVEL). Fora: pessoa física, agregados para construção civil e água mineral.
 4. **Portfólios de pesquisa** (Cadastro Mineiro): titular PJ com 5 ou mais títulos de pesquisa de um mesmo mineral crítico ou
    estratégico, classificado como SINAL.
@@ -35,7 +35,7 @@ PASTA = Path('Squad 1') / 'Radar de Projetos'
 CURADORIA = PASTA / 'curadoria_web.json'
 SAIDA = PASTA / 'projetos_minerais_goias.xlsx'
 BRUTOS = Path('Squad 1') / 'Dados brutos'
-BASE_V17 = Path('Squad 1') / 'Bases consolidadas' / 'documentacao' / 'prototipo_bases_consolidadas_v18.xlsx'
+BASE_V17 = Path('Squad 1') / 'Bases consolidadas' / 'documentacao' / 'prototipo_bases_consolidadas_v19.xlsx'
 ATLAS = Path('data') / 'atlas' / 'atlas.json'
 
 HIERARQUIA = ['OPERAÇÃO', 'EXPANSÃO', 'CONSTRUÇÃO', 'DEFINIDO', 'PROVÁVEL', 'POSSÍVEL', 'SINAL']
@@ -300,7 +300,7 @@ def carteira_aba04(ctx):
                      'evidencia': (f"{razao}: {rotulo} em {mun}, {str(x['estagio']).replace('_', ' ')} ({x['qtd_processos']} processo(s), "
                                    f"{fmt_mil(x['area_ha'] or 0)} ha), classificação {classe(x)}; último evento: {x['ultimo_evento']}."),
                      'relevancia': 'Média', 'link': URL_SIGMINE, 'acesso': ACESSO_ANM,
-                     'obs': f"Projeto {x['project_id']} da aba 04 da base consolidada v18. Data = último evento do processo-âncora."} for x in rs]
+                     'obs': f"Projeto {x['project_id']} da aba 04 da base consolidada v19. Data = último evento do processo-âncora."} for x in rs]
         if len(rs) > 5:
             # Grupo grande (garimpo, arranjo produtivo): uma evidência-resumo em vez de uma por projeto da ANM.
             por_classe = collections.Counter(classe(x) for x in rs)
@@ -310,7 +310,7 @@ def carteira_aba04(ctx):
                                        f"{len(procs)} processos, {fmt_mil(area)} ha; processos-âncora: "
                                        f"{', '.join(x['processo_ancora'] for x in rs[:25])}{' …' if len(rs) > 25 else ''}."),
                          'relevancia': 'Média', 'link': URL_SIGMINE, 'acesso': ACESSO_ANM,
-                         'obs': 'Resumo de vários projetos da aba 04 da base consolidada v18. Data = evento mais recente do grupo.'}]
+                         'obs': 'Resumo de vários projetos da aba 04 da base consolidada v19. Data = evento mais recente do grupo.'}]
         linhas.append({
             'origem': 'aba04', 'cnpj': cid[-8:] if cid.startswith('COM_CNPJ') else '', 'titular': razao, 'minerais': [mineral],
             'municipios': [mun], 'processos': procs,
@@ -324,7 +324,7 @@ def carteira_aba04(ctx):
             'evidencia': ((f"{n_tit} titula{'res individuais' if n_tit > 1 else 'r individual'}, " if chave == 'PF' else '') +
                           f"{len(procs)} processo{'s' if len(procs) != 1 else ''} da ANM ({fmt_mil(area)} ha); bloco mais avançado com processo-âncora "
                           f"{r['processo_ancora']} em {fase.lower()}: {r['criterio_classificacao']}."),
-            'fonte': 'ANM — SIGMINE e Cadastro Mineiro, pela base consolidada do Squad 1 (v18, aba 04_dim_projetos)', 'link': URL_SIGMINE,
+            'fonte': 'ANM — SIGMINE e Cadastro Mineiro, pela base consolidada do Squad 1 (v19, aba 04_dim_projetos)', 'link': URL_SIGMINE,
             'outras_evid': (f"Relatório final de pesquisa aprovado: {r['relatorio_final_aprovado']}; evento de licenciamento ambiental: "
                             f"{r['evento_licenciamento_ambiental']}" + (f"; operação adjacente: {adj}" if adj else '') + '.'),
             'links_add': f'{URL_CFEM}; https://dadosabertos.anm.gov.br/SCM/',
@@ -579,7 +579,7 @@ def metodologia(resumo):
     return [
         ('Objetivo', 'Base consolidada dos projetos minerais de Goiás — da operação ao sinal inicial de investimento — para inteligência de '
                      'mercado, análise de investimentos e acompanhamento do pipeline mineral do estado. É o Radar de Projetos do Squad 1, '
-                     'que completa a camada ANM da base consolidada (aba 04 da v18).'),
+                     'que completa a camada ANM da base consolidada (aba 04 da v19).'),
         ('Abrangência', 'Os 246 municípios de Goiás e todos os minerais com registro na ANM no estado, de grandes mineradoras a cooperativas, '
                         'juniors, empresas estrangeiras, subsidiárias e projetos de governo (SGB, INB). Projetos fora de Goiás ficam fora, '
                         'mesmo quando a empresa também atua no estado (ex.: Itafós Arraias, no Tocantins).'),
@@ -592,7 +592,7 @@ def metodologia(resumo):
                    'geral e regional (Jornal Opção, O Hoje, O Popular, Times Brasil/CNBC). Dados abertos da ANM: CFEM, Cadastro Mineiro, '
                    'SIGMINE.'),
         ('Origem das linhas', f"Quatro origens, nesta prioridade: (1) pesquisa na web — {r['pesquisados']} projetos com fontes; (2) operações "
-                              f"com CFEM em 2025 — {r['cfem']} titulares PJ; (3) carteira da ANM da aba 04 da base consolidada v18 — "
+                              f"com CFEM em 2025 — {r['cfem']} titulares PJ; (3) carteira da ANM da aba 04 da base consolidada v19 — "
                               f"{r['aba04']} projetos que ainda não produzem (os de pessoa física agregados por mineral e município); (4) portfólios de pesquisa em minerais críticos — "
                               f"{r['portfolios']} conjuntos de títulos. A origem aparece em 'Fonte principal' e nas observações."),
         ('Critérios de inclusão', 'Pesquisa na web: qualquer empreendimento em Goiás com ao menos uma evidência identificável (empresa, mineral, '

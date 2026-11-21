@@ -86,7 +86,7 @@ const DICT={pt:{
 'at.recordsHint':'{n} registros · clique em uma linha para localizar no mapa','at.noneInCut':'Nenhum registro no recorte.','at.locate':'Localizar {name}',
 'at.unitGold':'kg declarados','at.unitTons':'t comercializadas','at.from':'A partir de','at.noneZero':'Sem registro / zero','at.cfemPrefix':'CFEM · ',
 'at.allMunicipalities':' · 246 municípios','at.ref2025':'Referência 2025 · ',
-'at.csvSource':'Fonte','at.csvArtefact':'Base consolidada do projeto (v18)','at.csvLayer':'Camada','at.csvRef':'Referência','at.thPeriod':'Período',
+'at.csvSource':'Fonte','at.csvArtefact':'Base consolidada do projeto (v19)','at.csvLayer':'Camada','at.csvRef':'Referência','at.thPeriod':'Período',
 
 
 
@@ -948,7 +948,7 @@ const DICT={pt:{
 'at.recordsHint':'{n} records · click a row to locate it on the map','at.noneInCut':'No records in this selection.','at.locate':'Locate {name}',
 'at.unitGold':'kg declared','at.unitTons':'t sold','at.from':'From','at.noneZero':'No record / zero','at.cfemPrefix':'CFEM · ',
 'at.allMunicipalities':' · 246 municipalities','at.ref2025':'2025 reference · ',
-'at.csvSource':'Source','at.csvArtefact':'Project consolidated base (v18)','at.csvLayer':'Layer','at.csvRef':'Reference','at.thPeriod':'Period',
+'at.csvSource':'Source','at.csvArtefact':'Project consolidated base (v19)','at.csvLayer':'Layer','at.csvRef':'Reference','at.thPeriod':'Period',
 
 
 

@@ -21,11 +21,17 @@ def planilha():
     return max(vs)[1]
 
 
+# nomes de coluna antes da governança (planilha intermediária do pipeline) -> nomes da planilha final
+_RENOMEIA = {"ano": "year", "mineral_nome": "mineral_name", "mineral_nome_padronizado": "mineral_name", "municipio_nome": "municipality_name",
+             "producao_rom_t": "production_t_rom", "producao_beneficiada": "production_beneficiada", "unidade_beneficiada": "production_beneficiada_unit",
+             "verificação": "verificacao", "decisão": "decisao"}
+
+
 def aba(nome, caminho=None, linha_cabecalho=4):
     wb = openpyxl.load_workbook(caminho or planilha(), read_only=True)
     rows = list(wb[nome].iter_rows(min_row=linha_cabecalho, values_only=True))
     wb.close()
-    return pd.DataFrame(rows[1:], columns=rows[0]).dropna(how="all")
+    return pd.DataFrame(rows[1:], columns=[_RENOMEIA.get(c, c) for c in rows[0]]).dropna(how="all")
 
 
 def num(s):
@@ -209,9 +215,9 @@ def bario_niobio(a, cf):
                 r[f"{k}_{kb}_contido_t"] = x.contido.sum() if len(x) else np.nan
                 r[f"{k}_{kb}_linha_csv"] = ", ".join(map(str, x.linha_csv)) if len(x) else "sem linha"
         r["rom_identico"] = bool(r["ba_rom_t"] > 0 and r["ba_rom_t"] == r["nb_rom_t"])
-        r["ba_teor_rom_pct_BaSO4"] = r["ba_rom_contido_t"] / r["ba_rom_t"] * 100 if r["ba_rom_t"] else np.nan
-        r["nb_teor_rom_pct_Nb2O5"] = r["nb_rom_contido_t"] / r["nb_rom_t"] * 100 if r["nb_rom_t"] else np.nan
-        r["nb_serie_beneficiada_t_Nb2O5"] = r["nb_benef_contido_t"]  # decisão ERR_005 (v18): a série do nióbio beneficiado é o contido
+        r["ba_teor_rom_pct_baso4"] = r["ba_rom_contido_t"] / r["ba_rom_t"] * 100 if r["ba_rom_t"] else np.nan
+        r["nb_teor_rom_pct_nb2o5"] = r["nb_rom_contido_t"] / r["nb_rom_t"] * 100 if r["nb_rom_t"] else np.nan
+        r["nb_serie_beneficiada_t_nb2o5"] = r["nb_benef_contido_t"]  # decisão ERR_005 (v18): a série do nióbio beneficiado é o contido
         for sub, k in CFEM_BA_NB:
             x = cf[(cf["Substância"].str.strip() == sub) & (cf.ano == y)]
             r[k + "_brl"] = x.valor.sum() if y >= cf.ano.min() else np.nan
@@ -221,4 +227,5 @@ def bario_niobio(a, cf):
     proc = x.groupby(["Processo", "AnoDoProcesso", "Substância", "ano"]).agg(linhas=("valor", "size"), cfem_brl=("valor", "sum"),
                                                                            qtd_t=("qtd", "sum")).reset_index()
     proc["processo"] = proc.Processo + "/" + proc.AnoDoProcesso
-    return pd.DataFrame(rows), proc[["processo", "Substância", "ano", "linhas", "qtd_t", "cfem_brl"]].rename(columns={"Substância": "substancia_cfem"})
+    return pd.DataFrame(rows), proc[["processo", "Substância", "ano", "linhas", "qtd_t", "cfem_brl"]].rename(
+        columns={"Substância": "substancia_cfem", "processo": "processo_anm"})
