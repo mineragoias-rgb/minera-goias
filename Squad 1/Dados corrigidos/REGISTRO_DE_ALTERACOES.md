@@ -626,7 +626,7 @@ Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bas
 
 | Tratamento | Regra | Quantidade |
 |---|---|---:|
-| Total do estado (AMB) dividido por processo | parcela do processo na CFEM em R$ do mineral e ano; a CFEM em t fica só como sensibilidade (`production_t_rateio_por_t`); margem de ±10% medida contra as empresas | 4.819 linhas de operação |
+| Total do estado (AMB) dividido por processo | parcela do processo na CFEM em R$ do mineral e ano; a CFEM em t fica só como sensibilidade (`production_t_rateio_por_t`); margem de ±10% medida contra as empresas | 4.829 linhas de operação |
 | Mês de recolhimento atípico trocado pela mediana do processo (só no rateio) | R$ > 3x e t > 10x a mediana dos outros meses, com R$/t abaixo de metade do usual, em processos com 6 meses ou mais no ano | 17 linhas |
 | CFEM declarada como subitem somada ao mineral do AMB (ex.: minério de cobre → cobre) | crosswalk da 01b | 144 linhas |
 | Operação sem coordenadas (processo sem poligonal no SIGMINE de GO) | fica com o município da CFEM | 457 linhas |

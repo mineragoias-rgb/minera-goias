@@ -7,7 +7,7 @@ Squad 1 / Estudante 1 → Squad 2. Gerado por `gerar_pacote_squad2.py` a partir 
 
 | Arquivo | Conteúdo |
 |---|---|
-| `interface_squad1_squad2.csv` | a aba 12 inteira: 5.564 linhas, as 29 colunas da aba e `versao_base` |
+| `interface_squad1_squad2.csv` | a aba 12 inteira: 5.574 linhas, as 29 colunas da aba e `versao_base` |
 | `dicionario_interface_squad1_squad2.csv` | um campo por linha (descrição, unidade, fonte, % vazio, exemplo) e o campo correspondente no contrato do motor |
 | `rascunho_mensagem_squad2.md` | rascunho da mensagem pedindo a confirmação do formato — **não enviado** |
 
@@ -19,18 +19,18 @@ vazios ficam vazios (nada foi preenchido com zero).
 | `nivel_agregacao` | Linhas | Anos | `valor_observado_estimado` | O que é |
 |---|---:|---|---|---|
 | `estado` | 745 | 2010–2025 | observado: 745 | produção de Goiás no AMB por mineral, ano e base (ROM, beneficiada ou, no nióbio, conteudo_mineral), em t |
-| `operacao` | 4.819 | 2022–2025 | estimado: 4.819 | o total do estado rateado entre 931 processos pela participação de cada um na CFEM recolhida (R$) do mineral no ano |
+| `operacao` | 4.829 | 2022–2025 | estimado: 4.829 | o total do estado rateado entre 931 processos pela participação de cada um na CFEM recolhida (R$) do mineral no ano |
 
 - Em 150 das 181 combinações de mineral, ano e base de 2022–2025 com produção no estado, a soma das operações é igual ao total do estado (diferença até 0,1%); em 31 não há abertura por operação (4,2% da produção do estado nesses anos — Areias Industriais: 8; Feldspato, Leucita e Nefelina-Sienito: 7; Talco e outras Cargas Minerais: 6; Bário: 4; Diamante: 3; Monazita e Terras-Raras: 2; Fluorita e Criolita: 1; o motivo fica em `observacao` na linha do estado).
-- **Sem `operation_id`:** 457 linhas do nível operação (112 processos, 19,2% da
+- **Sem `operation_id`:** 457 linhas do nível operação (112 processos, 6,5% da
   produção estimada) são de processos que recolhem CFEM mas não têm poligonal no SIGMINE de Goiás. O `processo_anm` identifica essas
   linhas; a lista está em `../operacoes_sem_coordenadas.csv` e a explicação em `../nota_squad2_operacoes_sem_coordenadas.md`.
 - **Titular não identificado:** 30 linhas do nível operação têm `company_id = COM_NAO_IDENTIFICADO`
   (0,1% da produção estimada).
-- **Base de produção:** 2.863 linhas em `ROM` e 2.665 em `beneficiada`; 29 dos 33 minerais têm as duas bases no nível estado, e cada série deve usar uma só (só uma base: Caulim (ROM), Fluorita e Criolita (beneficiada), Quartzo (Cristal) e outros Piezelétricos (ROM) e Turfa (ROM)).
+- **Base de produção:** 2.873 linhas em `ROM` e 2.665 em `beneficiada`; 29 dos 33 minerais têm as duas bases no nível estado, e cada série deve usar uma só (só uma base: Caulim (ROM), Fluorita e Criolita (beneficiada), Quartzo (Cristal) e outros Piezelétricos (ROM) e Turfa (ROM)).
 - **Estimativa:** a ANM não publica produção por operação. As linhas de operação trazem `metodo_estimacao` e a faixa
   `erro_estimativa_intervalo` (rateio por R$ × rateio pela quantidade comercializada da CFEM, que também está em `production_t_rateio_por_t`).
-- **Status de validação:** `alerta_producao_repetida` (estado): 3; `rom_minerio_associado` (estado): 32; `valido` (estado): 710; `estimativa_com_alerta_09c` (operacao): 62; `estimativa_conferida_no_total` (operacao): 4.757.
+- **Status de validação:** `alerta_producao_repetida` (estado): 3; `rom_minerio_associado` (estado): 32; `valido` (estado): 710; `estimativa_com_alerta_09c` (operacao): 62; `estimativa_conferida_no_total` (operacao): 4.757; `rom_minerio_associado` (operacao): 10.
 - `project_id` fica vazio até o Radar de Projetos (Estudante 2). Consumo de energia não vem do Squad 1.
 
 ## Correspondência com o contrato do motor

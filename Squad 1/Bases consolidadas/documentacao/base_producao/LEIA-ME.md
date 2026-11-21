@@ -6,7 +6,7 @@ Gerada por `base_consolidada_work/scripts/gerar_base_producao.py` a partir da ab
 
 - **Total do estado:** Anuário Mineral Brasileiro (ANM), por mineral e ano, em ROM e beneficiada. É o controle: a soma das empresas fecha nele.
 - **Parcela de cada empresa (2022 em diante):** a parcela dos processos dela na CFEM paga em R$ naquele mineral e ano. A CFEM em t não é usada (unidades trocadas e quantidades implausíveis — ver `Squad 1/Dados corrigidos/REGISTRO_DE_ALTERACOES.md`). Meses de pagamento atípico entram pela mediana do processo. Margem de ±10%, medida contra o que as empresas publicam.
-- **Minério associado** (bário, cobalto, prata declarados com a massa do minério de outro mineral) não é dividido nem somado.
+- **Minério associado** (bário, cobalto, prata declarados com a massa do minério de outro mineral) não é dividido nem somado. No ouro, o ROM do AMB inclui o minério de cobre-ouro da Chapada, já no ROM de cobre: essa parte (igual ao ROM de cobre do ano) fica numa linha à parte da Maracá, marcada como minério de outro mineral, e só o restante é dividido pela CFEM de ouro (coluna `minerio_de_outro_mineral_t` no arquivo do estado).
 - **Pessoa física:** sem nome nem CPF.
 
 ## Arquivos
@@ -18,15 +18,15 @@ Gerada por `base_consolidada_work/scripts/gerar_base_producao.py` a partir da ab
 
 ## Cobertura (2022–2025, sem o minério associado)
 
-| Ano | Base | Total do estado | Dividido por empresa | Linhas de empresa |
+| Ano | Base | Total do estado (sem minério de outro mineral) | Dividido por empresa | Linhas de empresa |
 |---|---|---:|---:|---:|
-| 2022 | ROM | 116,0 Mt | 99,7% | 318 |
+| 2022 | ROM | 89,7 Mt | 99,6% | 318 |
 | 2022 | beneficiada | 28,0 Mt | 98,8% | 295 |
-| 2023 | ROM | 117,8 Mt | 99,6% | 333 |
+| 2023 | ROM | 88,3 Mt | 99,5% | 333 |
 | 2023 | beneficiada | 30,1 Mt | 99,9% | 320 |
-| 2024 | ROM | 107,6 Mt | 99,7% | 369 |
+| 2024 | ROM | 85,7 Mt | 99,7% | 369 |
 | 2024 | beneficiada | 30,8 Mt | 99,4% | 358 |
-| 2025 | ROM | 108,1 Mt | 99,0% | 351 |
+| 2025 | ROM | 88,1 Mt | 98,7% | 351 |
 | 2025 | beneficiada | 32,2 Mt | 99,9% | 338 |
 
 ## Divisão × número publicado (mesma medida)
