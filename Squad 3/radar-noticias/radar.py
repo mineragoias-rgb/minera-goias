@@ -344,8 +344,19 @@ def setorial(item, config):
     if noticia_da_anm(item['title'], item.get('link')):
         return True
     somente_titulo = {'title': titulo, 'summary': ''}
-    energeticas = set(config.get('substancias_energeticas') or ())
-    if any(c not in energeticas for c in commodities_of(somente_titulo, config)):
+    # Duas classes de substância etiquetam sem admitir. As energéticas, porque
+    # 'energia' e 'elétrica' são palavras do dia a dia. E as de 'substancias_nao_admitem',
+    # que existem para medir o cadastro de Goiás - areia é a 2ª substância em número de
+    # processos, calcário paga 7% da CFEM - mas cujos nomes também são palavras comuns.
+    # Etiquetando sem admitir, elas respondem "quantas matérias DE MINERAÇÃO citam
+    # areia", que é a pergunta que a aba de cruzamento faz, e o corpus não pode crescer:
+    # a matéria tem de entrar por outro motivo antes de receber a etiqueta. Medido no
+    # acervo: das matérias setoriais, as 4 de areia são extração e minerais de praia, as
+    # 67 de ferro são minério de ferro e as 10 de argila são terras raras em argila
+    # iônica - nenhum vôlei de praia, nenhum ferro de passar.
+    nao_admitem = (set(config.get('substancias_energeticas') or ())
+                   | set(config.get('substancias_nao_admitem') or ()))
+    if any(c not in nao_admitem for c in commodities_of(somente_titulo, config)):
         return True
     region = config.get('region') or {}
     termos = region.get('contexto_mineracao') or region.get('contexto') or []
@@ -650,19 +661,18 @@ def revisar(item, config):
 
     A correction to the lexicon used to reach only stories collected afterwards, which
     left the archive holding two different criteria at once. The archive keeps every
-    headline, so the marks can simply be recomputed from it on each export - and both
-    marks read the headline only, so nothing is lost by not having the summary here.
+    headline, so every mark is recomputed from it on each export - the substances
+    included, which used to be carried over from whatever the lexicon of the day had
+    written. Carrying them over was the very thing this function exists to prevent: a
+    substance added to the lexicon never reached a story already published, and a
+    headline tagged under an older rule kept that tag for good.
+
+    All three marks read the headline only, so nothing is lost by not having the
+    summary here. A tag that only the summary justified cannot be reproduced anyway -
+    the archive does not keep the summary - so it was neither auditable nor stable.
     """
-    ambiguas = set(config.get('commodities_ambiguas') or ())
-    substancias = list(item.get('substancias') or ())
-    if ambiguas and set(substancias) & ambiguas:
-        titulo = fold(item.get('title') or '')
-        region = config.get('region') or {}
-        mineracao = region.get('contexto_mineracao') or region.get('contexto') or ()
-        if (any(mentions(titulo, termo) for termo in config.get('commodities_excecoes') or ())
-                and not any(mentions(titulo, termo) for termo in mineracao)):
-            substancias = [nome for nome in substancias if nome not in ambiguas]
-    revisto = {**item, 'substancias': substancias}
+    titulo = titulo_limpo(item.get('title') or '', item.get('link') or '')
+    revisto = {**item, 'substancias': commodities_of({'title': titulo, 'summary': ''}, config)}
     # The Goias mark keeps reading the outlet's name on purpose: a mining story in
     # "Mais Goiás" or "Poder Goiás" is regional press about Goias. Measured: reading
     # the clean headline instead took the mark from four stories, and all four were
@@ -791,7 +801,8 @@ def export_archive(database, destination, recent=180, desde=None, config=None):
         substancias=dict(sorted(
             ((s, sum(1 for i in todas if s in (i.get('substancias') or [])))
              for s in {s for i in todas for s in (i.get('substancias') or [])}),
-            key=lambda par: -par[1])))
+            key=lambda par: -par[1])),
+        substancias_por_escopo=contagem_por_substancia(todas))
     # Desde quando a coleta é nossa. Tudo antes disso o radar recolheu de uma vez,
     # do que os buscadores ainda guardavam - não é série temporal de notícia, e a
     # página precisa dizer isso em vez de deixar o gráfico ser lido como tendência.
@@ -800,6 +811,39 @@ def export_archive(database, destination, recent=180, desde=None, config=None):
     pacote['janela'] = desde
     write_json(destino / 'latest.json', pacote)
     return pacote
+
+
+def contagem_por_substancia(itens):
+    """Quantas matérias cada substância tem, em cada recorte geográfico.
+
+    O cruzamento com a ANM precisa disto quebrado por escopo: o cadastro e a CFEM são
+    de Goiás, e comparar com a imprensa mundial trocaria o denominador. Medido no
+    acervo de 20/11/2026: no recorte mundial o cobre é 13% das matérias, no de Goiás é
+    1,7% - e a CFEM dele é 27%. O recorte errado apagaria o achado.
+
+    'unicas' conta manchetes distintas, não publicações: 14,7% do acervo é a mesma
+    manchete em mais de um veículo, e a sindicalização não é uniforme - ela infla
+    justamente as substâncias barulhentas, que são as que mais importam aqui.
+    """
+    recortes = (('goias', lambda i: i.get('regional')),
+                ('brasil', lambda i: i.get('brasil')),
+                ('tudo', lambda i: True))
+    saida = {}
+    for nome, dentro in recortes:
+        no_recorte = [i for i in itens if dentro(i)]
+        por_substancia = {}
+        for i in no_recorte:
+            manchete = fold(titulo_limpo(i.get('title') or '', i.get('link') or ''))
+            for s in i.get('substancias') or ():
+                alvo = por_substancia.setdefault(s, {'materias': 0, 'manchetes': set()})
+                alvo['materias'] += 1
+                alvo['manchetes'].add(manchete)
+        saida[nome] = {
+            'materias': len(no_recorte),
+            'com_substancia': sum(1 for i in no_recorte if i.get('substancias')),
+            'substancias': {s: {'materias': d['materias'], 'unicas': len(d['manchetes'])}
+                            for s, d in sorted(por_substancia.items(), key=lambda p: -p[1]['materias'])}}
+    return saida
 
 
 def offline_fetcher(directory):

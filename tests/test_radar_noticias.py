@@ -112,6 +112,128 @@ class BrasilTests(unittest.TestCase):
                                                  escopo='internacional'), CONFIG))
 
 
+class LexicoTests(unittest.TestCase):
+    """O léxico é editorial: cada decisão dele fica registrada aqui."""
+
+    def test_nenhum_termo_serve_a_duas_substancias(self):
+        de_quem = {}
+        for chave, termos in CONFIG['commodities'].items():
+            for termo in termos:
+                self.assertNotIn(termo, de_quem, f'{termo!r} em {chave} e {de_quem.get(termo)}')
+                de_quem[termo] = chave
+
+    def test_termo_minusculo_e_sem_borda_de_palavra_quebrada(self):
+        for chave, termos in CONFIG['commodities'].items():
+            for termo in termos:
+                self.assertEqual(termo, termo.lower(), chave)
+                self.assertEqual(termo, termo.strip(), chave)
+
+    def test_toda_substancia_que_nao_admite_existe_no_lexico(self):
+        for chave in CONFIG['substancias_nao_admitem']:
+            self.assertIn(chave, CONFIG['commodities'])
+        for chave in CONFIG['substancias_energeticas']:
+            self.assertIn(chave, CONFIG['commodities'])
+
+    def test_termos_deixados_de_fora_de_proposito(self):
+        # Cada um reprovou numa medição sobre o acervo, e o motivo está no _comment.
+        todos = {t for termos in CONFIG['commodities'].values() for t in termos}
+        for fora in ('grafite', 'aluminio', 'alumínio', 'cromo', 'prata', 'gema',
+                     'diamond', 'granito', 'quartzito', 'limestone', 'marmore', 'mármore'):
+            self.assertNotIn(fora, todos, fora)
+
+    def test_a_palavra_composta_sobreviveu_ao_estreitamento(self):
+        # Estreitar não pode ter custado o caso legítimo que o termo solto pegava.
+        for titulo, esperada in (("Namibia diamond mine revival draws $50M investment", 'diamante'),
+                                 ("Mineradora fecha acordo por extração ilegal de calcário em Goiás", 'calcario')):
+            self.assertIn(esperada, radar.commodities_of({'title': titulo, 'summary': ''}, CONFIG), titulo)
+
+    def test_e_derrubou_o_falso_positivo(self):
+        for titulo, fora in (("GMV Minerals Announces Assays from 2026 Diamond Drill Program", 'diamante'),
+                             ("BOA Resources maps two copper trends at Limestone Bore", 'calcario'),
+                             ("Donos de pedreiras veem a ANM negar lavra de granito", 'rochas_ornamentais')):
+            self.assertNotIn(fora, radar.commodities_of({'title': titulo, 'summary': ''}, CONFIG), titulo)
+
+
+class NaoAdmitemTests(unittest.TestCase):
+    """Substância que etiqueta sem admitir: o corpus não cresce quando o léxico cresce."""
+
+    def test_energetica_sozinha_nao_faz_a_materia_ser_do_setor(self):
+        # Regra que já existia, travada aqui porque agora ela é de uma classe maior.
+        self.assertFalse(radar.setorial(item('Tarifa de energia elétrica cai com as chuvas'), CONFIG))
+
+    def test_substancia_que_nao_admite_sozinha_fica_fora(self):
+        config = dict(CONFIG, substancias_nao_admitem=['areia'],
+                      commodities=dict(CONFIG['commodities'], areia=['areia', 'areias']))
+        self.assertFalse(radar.setorial(item('Vôlei de areia estreia com vitória em Goiás'), config))
+
+    def test_mas_etiqueta_quando_a_materia_entra_por_outro_motivo(self):
+        config = dict(CONFIG, substancias_nao_admitem=['areia'],
+                      commodities=dict(CONFIG['commodities'], areia=['areia', 'areias']))
+        titulo = 'ANM aprova a pesquisa de areia em 13 áreas do rio Paraná'
+        self.assertTrue(radar.setorial(item(titulo), config))
+        self.assertIn('areia', radar.commodities_of({'title': titulo, 'summary': ''}, config))
+
+    def test_substancia_inequivoca_do_lexico_atual_segue_admitindo(self):
+        self.assertTrue(radar.setorial(item('Mineradora amplia a produção de nióbio'), CONFIG))
+
+
+class ContagemPorEscopoTests(unittest.TestCase):
+    """O cruzamento compara a imprensa de Goiás com o cadastro de Goiás."""
+
+    def setUp(self):
+        self.itens = [
+            item('Lavra de nióbio avança em Catalão', regional=1, brasil=1, substancias=['niobio']),
+            item('Niobium output rises in Brazil', regional=0, brasil=1, substancias=['niobio']),
+            item('Copper price jumps in London', regional=0, brasil=0, substancias=['cobre']),
+            item('Mineração sem substância no título', regional=1, brasil=1, substancias=[]),
+        ]
+
+    def test_cada_recorte_conta_so_o_que_lhe_pertence(self):
+        c = radar.contagem_por_substancia(self.itens)
+        self.assertEqual(c['goias']['materias'], 2)
+        self.assertEqual(c['brasil']['materias'], 3)
+        self.assertEqual(c['tudo']['materias'], 4)
+        self.assertEqual(c['goias']['substancias']['niobio']['materias'], 1)
+        self.assertEqual(c['brasil']['substancias']['niobio']['materias'], 2)
+        self.assertNotIn('cobre', c['goias']['substancias'])
+
+    def test_materias_sem_substancia_entram_no_total_e_nao_na_quebra(self):
+        c = radar.contagem_por_substancia(self.itens)
+        self.assertEqual(c['goias']['com_substancia'], 1)
+        self.assertEqual(c['goias']['materias'], 2)
+
+    def test_manchete_repetida_conta_duas_publicacoes_e_uma_unica(self):
+        # No acervo real, ouro tem 168 matérias e 13 manchetes no recorte de Goiás:
+        # uma dúzia de fatos republicada treze vezes. Sem separar as duas contagens, a
+        # sindicalização passa por atenção.
+        repetida = 'Lavra de ouro é autorizada em Crixás'
+        itens = [item(repetida, link='https://a.example/1', substancias=['ouro'], regional=1),
+                 item(repetida, link='https://b.example/2', substancias=['ouro'], regional=1)]
+        c = radar.contagem_por_substancia(itens)['goias']['substancias']['ouro']
+        self.assertEqual((c['materias'], c['unicas']), (2, 1))
+
+
+class RevisaoTests(unittest.TestCase):
+    """A revisão reaplica o léxico de hoje ao acervo, e lê só a manchete."""
+
+    def test_substancia_do_lexico_alcanca_materia_ja_publicada(self):
+        # Sem isto, uma substância acrescentada ao léxico nunca chegava ao que já estava
+        # no acervo: a página leria "ninguém fala disso" quando a verdade é que a
+        # categoria é nova. Medido na correção: terras raras ganharam 61 matérias, dos
+        # termos (neodímio, disprósio, térbio, NdPr) acrescentados depois da coleta.
+        guardado = item('Mineradora amplia a lavra de níquel em Niquelândia', substancias=[])
+        self.assertEqual(radar.revisar(guardado, CONFIG)['substancias'], ['niquel'])
+
+    def test_tag_que_so_o_resumo_justificava_cai(self):
+        # O acervo não guarda o resumo, então uma tag vinda dele é irreproduzível.
+        guardado = item('Prefeituras pedem mais repasse da mineração', substancias=['ouro'])
+        self.assertEqual(radar.revisar(guardado, CONFIG)['substancias'], [])
+
+    def test_le_a_manchete_sem_o_nome_do_veiculo(self):
+        guardado = item('Prefeituras pedem mais repasse - Mineração Brasil', substancias=[])
+        self.assertEqual(radar.revisar(guardado, CONFIG)['substancias'], [])
+
+
 class AcervoTests(unittest.TestCase):
     """A limpeza vale para o que já está publicado, e a recoleta não apaga o histórico."""
 

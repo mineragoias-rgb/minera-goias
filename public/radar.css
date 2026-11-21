@@ -34,3 +34,14 @@
   .rd-item{grid-template-columns:1fr auto}
   .rd-explorer-head{flex-direction:column}
 }
+
+/* A aba ANM × Notícias desenha com as funções do Panorama, cujos efeitos de hover são
+   escopados a #pn-body. Replicados aqui em vez de alargar os seletores de panorama.css,
+   para que o raio da mudança fique dentro do Radar. */
+#rd-aba-cruzamento .pn-mark{transition:opacity .12s}
+#rd-aba-cruzamento rect.pn-mark[data-tip]:hover,#rd-aba-cruzamento .pn-row:hover .pn-mark{opacity:.72}
+#rd-aba-cruzamento .pn-row:hover>rect:first-child{fill:#f1f6f9}
+/* A tabela do cruzamento tem 9 colunas e cresce no "mostrar tudo"; o teto de 420px que
+   #radar-view impõe às tabelas prenderia o resto dentro de uma rolagem interna. */
+#rd-cx-tabela .table-wrap{max-height:none}
+#rd-cx-escopos{margin:0 0 18px}

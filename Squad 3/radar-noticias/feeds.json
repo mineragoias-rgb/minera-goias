@@ -775,6 +775,147 @@
       "natural gas",
       "lng",
       "gnl"
+    ],
+    "areia": [
+      "areia",
+      "areias",
+      "areia industrial",
+      "areia de fundicao",
+      "areia de fundição",
+      "sand",
+      "silica sand"
+    ],
+    "brita": [
+      "brita",
+      "britada",
+      "britadas",
+      "cascalho",
+      "pedreira",
+      "pedreiras",
+      "crushed stone",
+      "aggregates"
+    ],
+    "calcario": [
+      "calcario",
+      "calcário",
+      "calcario agricola",
+      "calcário agrícola",
+      "limestone mine",
+      "limestone quarry"
+    ],
+    "argila": [
+      "argila",
+      "argilas",
+      "caulim",
+      "clay",
+      "clays",
+      "kaolin"
+    ],
+    "agua_mineral": [
+      "agua mineral",
+      "água mineral",
+      "aguas minerais",
+      "águas minerais",
+      "mineral water"
+    ],
+    "rochas_ornamentais": [
+      "rocha ornamental",
+      "rochas ornamentais",
+      "pedra ornamental",
+      "pedras ornamentais",
+      "ornamental stone",
+      "ardosia",
+      "ardósia"
+    ],
+    "manganes": [
+      "manganes",
+      "manganês",
+      "manganese"
+    ],
+    "gemas": [
+      "gemas",
+      "esmeralda",
+      "esmeraldas",
+      "ametista",
+      "ametistas",
+      "agata",
+      "ágata",
+      "agatas",
+      "ágatas",
+      "pedra preciosa",
+      "pedras preciosas",
+      "gemstone",
+      "gemstones"
+    ],
+    "amianto": [
+      "amianto",
+      "asbesto",
+      "asbestos",
+      "crisotila",
+      "chrysotile"
+    ],
+    "dolomito_magnesita": [
+      "dolomito",
+      "dolomita",
+      "dolomite",
+      "magnesita",
+      "magnesite"
+    ],
+    "diamante": [
+      "diamante",
+      "diamantes",
+      "diamond mine",
+      "diamond mines",
+      "diamond mining",
+      "diamond project",
+      "garimpo de diamante",
+      "garimpo de diamantes"
+    ],
+    "titanio": [
+      "titanio",
+      "titânio",
+      "titanium",
+      "ilmenita",
+      "rutilo"
+    ],
+    "bauxita": [
+      "bauxita",
+      "bauxite"
+    ],
+    "estanho": [
+      "estanho",
+      "cassiterita",
+      "cassiterite"
+    ],
+    "vermiculita": [
+      "vermiculita",
+      "vermiculite",
+      "perlita",
+      "perlite"
+    ],
+    "ferro": [
+      "ferro",
+      "minerio de ferro",
+      "minério de ferro",
+      "iron ore",
+      "pelotas de minerio",
+      "pelotas de minério"
+    ],
+    "zinco": [
+      "zinco",
+      "zinc"
+    ],
+    "potassio": [
+      "potassio",
+      "potássio",
+      "potassa",
+      "potash",
+      "cloreto de potassio",
+      "cloreto de potássio"
+    ],
+    "grafita": [
+      "grafita",
+      "graphite"
     ]
   },
   "direction": {
@@ -916,5 +1057,28 @@
     "brazil potash",
     "belo sun"
   ],
-  "termos_brasil_comment": "Uma materia e do Brasil quando vem de fonte brasileira (escopo regional, nacional ou setorial), de uma busca estrangeira com foco 'brasil', ou quando o titulo de um veiculo estrangeiro cita um destes termos. E so com isso que a pagina abre no Brasil e deixa o internacional como opcao. 'vale' so e lido em titulo de veiculo estrangeiro, onde e a empresa e nao o verbo."
+  "termos_brasil_comment": "Uma materia e do Brasil quando vem de fonte brasileira (escopo regional, nacional ou setorial), de uma busca estrangeira com foco 'brasil', ou quando o titulo de um veiculo estrangeiro cita um destes termos. E so com isso que a pagina abre no Brasil e deixa o internacional como opcao. 'vale' so e lido em titulo de veiculo estrangeiro, onde e a empresa e nao o verbo.",
+  "substancias_nao_admitem": [
+    "agua_mineral",
+    "amianto",
+    "areia",
+    "argila",
+    "bauxita",
+    "brita",
+    "calcario",
+    "diamante",
+    "dolomito_magnesita",
+    "estanho",
+    "ferro",
+    "gemas",
+    "grafita",
+    "manganes",
+    "potassio",
+    "rochas_ornamentais",
+    "titanio",
+    "vermiculita",
+    "zinco"
+  ],
+  "substancias_nao_admitem_comment": "Substancias do bloco 'commodities' que etiquetam a materia mas NAO a admitem no corpus, como as energeticas acima. Existem para medir o cadastro de Goias, onde areia e a 2a substancia em numero de processos (3.333) e calcario paga 7% da CFEM, e nenhuma das duas era categoria aqui: sem elas o cruzamento com a ANM cobria 38% do cadastro, com elas cobre 97%. Nao admitem porque varios desses nomes sao palavras do dia a dia - areia de praia, ferro de passar, mascara de argila, bancada de granito, gema de ovo. Etiquetando sem admitir, a pergunta que elas respondem passa a ser 'quantas materias DE MINERACAO citam areia', que e a do cruzamento, e o corpus nao pode crescer: a materia tem de entrar por outro motivo antes de receber a etiqueta. Medido no acervo de 20/11/2026: das 5.679 materias setoriais, as 4 de areia sao extracao de areia e minerais de praia, as 67 de ferro sao minerio de ferro e as 10 de argila sao terras raras em argila ionica - zero falso positivo. Dentro de um corpus de mineracao a palavra ambigua deixa de ser ambigua, e e por isso que estas chaves nao precisaram de lista de excecoes propria. Fora de proposito, e por que: 'aluminio' (panela, lata, tarifa - 'bauxita' cobre o mineral), 'cromo' (zero processo e zero CFEM em Goias, e colide com o navegador), 'prata' (sobrenome e cidade), 'grafite' (em pt-BR e grafismo de rua; o mineral e 'grafita'), 'gema' no singular (gema de ovo), 'sal', 'turfa', 'saibro', 'gipsita' (negligenciaveis em Goias).",
+  "commodities_estreitadas_comment": "Tres termos sairam depois de medir o acervo de 20/11/2026, cada um por um falso positivo real: 'diamond' solto pegou 'Diamond Drill Program' (sondagem diamantada e tecnica, nao substancia) e 'a diamond in the rough' (expressao); 'granito' pegou rocha encaixante de alvo de terras raras e pedreira de brita em 3 de 3 casos, nenhum de lavra de rocha ornamental; 'limestone' pegou 'Limestone Bore', nome de lugar. O que sobrou exige a palavra composta ('diamond mine', 'rocha ornamental', 'limestone quarry') ou o termo portugues inequivoco."
 }
