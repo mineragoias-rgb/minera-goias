@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 329,
+ "materias": 330,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -5037,6 +5037,22 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Terras raras brasileiras estão no radar do Departamento de Defesa dos EUA - Agência Pública",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWXhsdXdjckpfbjg4YTBhX1dJNndlLU1qMjduRHNOZEFWeTc2VGR3enJRRWlkNUt6ZU1Jb2N0TVVVeUplMXBPUnRDNTYyUzdPUXV6cDF5Y2lkS0FMT2tvX05mUVhHWTJsemFLZ3RBUGx4S0hSek96N2hiTFV0YXhHX1FGV2UzUndrdFY5RGV2X08?oc=5",
+   "published_at": "2026-08-03T07:00:00+00:00",
+   "first_seen": "2026-11-21T11:52:59.196783+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · terras raras",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
