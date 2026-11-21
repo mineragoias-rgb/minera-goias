@@ -1,4 +1,4 @@
-# Nota ao Squad 2 — produção estimada sem coordenadas (aba 12, v18)
+# Nota ao Squad 2 — produção estimada sem coordenadas (aba 12, v19)
 
 Gerada por `gerar_nota_sem_coordenadas.py` a partir da planilha; a lista completa está em `operacoes_sem_coordenadas.csv`, na mesma pasta.
 

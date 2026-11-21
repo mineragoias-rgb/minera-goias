@@ -1,10 +1,10 @@
-# Relatório de qualidade — Base Mineral de Goiás (v18)
+# Relatório de qualidade — Base Mineral de Goiás (v19)
 
-Gerado por `gerar_relatorio_qualidade.py` a partir de `prototipo_bases_consolidadas_v18.xlsx`. Todos os números saem da planilha; o detalhe de cada item está na aba citada. Regra do projeto: **divergências são registradas, não corrigidas** — nada aqui foi apagado ou ajustado na fonte.
+Gerado por `gerar_relatorio_qualidade.py` a partir de `prototipo_bases_consolidadas_v19.xlsx`. Todos os números saem da planilha; o detalhe de cada item está na aba citada. Regra do projeto: **divergências são registradas, não corrigidas** — nada aqui foi apagado ou ajustado na fonte.
 
 ## 1. Resumo
 
-- **Validações automáticas (aba 14b):** 36 checagens — 32 OK e 4 ALERTA. Os alertas são de dado, sinalizados de propósito; a lista completa está na seção 7.
+- **Validações automáticas (aba 14b):** 42 checagens — 38 OK e 4 ALERTA. Os alertas são de dado, sinalizados de propósito; a lista completa está na seção 7.
 - **Fato longo (aba 08):** 158.265 linhas, uma por célula numérica da fonte; status: valido 157.344; alerta_processo_09c 598; alerta_producao_repetida 147; quantidade_excluida_da_soma_09b 89; rom_minerio_associado 87.
 - **Quantidades da CFEM fora da soma de toneladas (aba 09b):** 89 linhas (o R$ continua somado).
 - **Processos com quantidade implausível na CFEM (aba 09c):** 37 processo-anos, mantidos na soma e sinalizados.
@@ -76,7 +76,7 @@ Campos das abas de dados com metade ou mais das linhas vazias (aba 14, coluna `p
 | `11_cons_empresa_ano_mineral` | `year` | 79,4 | Ano da CFEM (contrato). Vazio = mineral citado nos títulos do titular, sem CFEM. |
 | `11_cons_empresa_ano_mineral` | `cfem_recolhido_brl` | 79,4 | CFEM do titular para o mineral no ano, ligada pela ponte do número do processo. A soma da coluna bate com o arquivo bruto (R$ 867.578.398,91). |
 | `12_interface_squad1_squad2` | `project_id` | 100 | Vazio: depende do Radar de Projetos (Squad 1 / Estudante 2). |
-| `12_interface_squad1_squad2` | `observacao` | 74,6 | Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado. |
+| `12_interface_squad1_squad2` | `observacao` | 73,8 | Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado. |
 
 Vazios esperados: `capacidade_t_ano`, `capex_brl` e `ano_previsto_entrada` da aba 04 dependem de evidência corporativa (Estudante 2); `metodo_estimacao` fica vazio nas linhas observadas; na aba 06, a maioria dos campos descritivos do RECMIN vem vazia da própria fonte.
 
@@ -180,7 +180,7 @@ Quantidades da CFEM excluídas da soma de toneladas (aba 09b): 89 linhas — qua
 
 | Status | Verificação | n | Resultado |
 |---|---|---:|---|
-| OK | Cabeçalhos renomeados para o padrão (contrato + unificação entre abas) | 33 | ano → year; arquivo_geojson (web) → arquivo; atribuído a → atribuido_a; camada_gpkg (QGIS) → camada_gpkg; cnpj_raiz (8 díg.) → cnpj_raiz; consumo_energia_mwh → energy_mwh; decisão → decisao; identificacao (como o ID foi atribuído) → identificacao_empresa; ide… |
+| OK | Cabeçalhos renomeados para o padrão (contrato + unificação entre abas) | 38 | ano → year; arquivo_geojson (web) → arquivo; atribuído a → atribuido_a; camada_gpkg (QGIS) → camada_gpkg; cnpj_raiz (8 díg.) → cnpj_raiz; consumo_energia_mwh → energy_mwh; decisão → decisao; identificacao (como o ID foi atribuído) → identificacao_empresa; ide… |
 | OK | Nomes de coluna fora do padrão snake_case ASCII (abas reais, auditorias e 07) | 0 | nenhum |
 | OK | Nomes de coluna duplicados dentro da mesma aba | 0 | nenhum |
 | OK | Campos do Contrato de Dados presentes com o nome fixado | 16 | company_id, energy_intensity_mwh_t, energy_mwh, latitude, longitude, mineral_id, mineral_name, municipality_id, municipality_name, operation_id, production_basis, production_t, project_id, source_id, source_ids, year |
@@ -205,6 +205,12 @@ Quantidades da CFEM excluídas da soma de toneladas (aba 09b): 89 linhas — qua
 | OK | 08: campos de governança por linha — source_url, data_acesso e tipo_fonte iguais à 07; não observado sem método; mesma célula da fonte em duas linhas | 0 | divergentes da 07: 0; não observado sem metodo_estimacao: 0; células repetidas: 0. valor_observado_estimado: {'observado': 158265}; status_validacao: {'valido': 157344, 'alerta_producao_repetida': 147, 'rom_minerio_associado': 87, 'alerta_processo_09c': 598, … |
 | OK | §3 da Entrega: fonte, source_url, data_acesso, periodo_referencia, tipo_fonte, valor_observado_estimado, metodo_estimacao, status_validacao e respons… | 0 | 01: ok; 02: ok; 03: ok; 04: ok; 05: ok; 06: ok; 08: ok; 09: ok; 10: ok; 11: ok; 12: ok; 13: ok |
 | ALERTA | 08: mesma tonelagem de produção em linhas diferentes da mesma UF e ano no AMB (co-produto, mineral separado por teor ou mesma declaração em duas cate… | 170 | 76 grupos, 170 linhas (com status alerta_producao_repetida: 147). Numa soma contam a mais 97,774 t dentro do mesmo mineral (infla a linha BR da 09) e 328,159,747 t entre minerais. Goiás: producao_rom 2023: 5526825,440000 t em Nióbio + Bário; producao_benefici… |
+| OK | Repositório de erros (ERR_003/004): contido do AMB de GO incoerente com a quantidade (C1, C2, C4) — ocorrências fora da lista conhecida | 0 | 42 ocorrências hoje, 42 já conhecidas; nenhuma nova |
+| OK | Repositório de erros (ERR_005): quebra de série maior que 5× no AMB de GO (C6) — ocorrências fora da lista conhecida | 0 | 80 ocorrências hoje, 80 já conhecidas; nenhuma nova |
+| OK | Repositório de erros (ERR_007): lacunas no AMB de GO, ano sem linha ou zero depois de ano produtivo (C7, C8) — fora da lista conhecida | 0 | 84 ocorrências hoje, 84 já conhecidas; nenhuma nova |
+| OK | Repositório de erros (ERR_043–045): AMB × CFEM sem par ou fora da alíquota legal (R1, R2, R4, R5, R6) — fora da lista conhecida | 0 | 50 ocorrências hoje, 50 já conhecidas; nenhuma nova |
+| OK | Repositório de erros (ERR_013): CPF_CNPJ da CFEM em notação científica (CNPJ que não identifica a empresa) | 0 | 0 ocorrências hoje, 0 já conhecidas; nenhuma nova |
+| OK | Repositório de erros (ERR_024): linhas do Cadastro Mineiro com município de GO que o leitor descartaria (aspas sem escape) | 0 | 0 ocorrências hoje, 0 já conhecidas; nenhuma nova |
 | OK | 12: nível estado = produção de GO na 08 (AMB); nível operação soma exatamente o total do estado (rateio conservativo) | 0 | estado: 745 linhas, 0 divergências com a 08; operação: 4,819 linhas em 150 totais rateados, 0 divergências de soma ou participação |
 | OK | 12: cobertura da abertura por operação (2022–2025) — produção do estado com CFEM para ratear; parte estimada com operation_id e com coordenadas | 4819 | 2022: 95.9% das t abertas; 2023: 96.1% das t abertas; 2024: 95.8% das t abertas; 2025: 95.4% das t abertas. Da produção estimada: 80.8% com operation_id, 80.8% com coordenadas; 931 processos. Sem abertura (sem CFEM do mineral no ano): Areias Industriais 2022;… |
 | OK | 12: governança por linha (Entrega Avaliativa §3) — estimado com método e intervalo, observado sem; fontes, URLs e datas iguais à 07 | 0 | nenhuma violação. valor_observado_estimado: {'observado': 745, 'estimado': 4819}; status_validacao: {'valido': 710, 'estimativa_conferida_no_total': 4757, 'estimativa_com_alerta_09c': 62, 'rom_minerio_associado': 32, 'alerta_producao_repetida': 3} |

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_on": "2026-11-20",
+  "built_on": "2026-11-21",
   "versao_base": "v1",
   "gerado_por": "scripts/build_catalogo_painel.py",
   "nota": "Última atualização de pacote gerado vem do built_on que o próprio pacote grava; a de arquivo bruto vem da data do último commit que o tocou. Volume e período são contados abrindo o arquivo, não digitados."
@@ -109,8 +109,8 @@
    "nome": "Atlas mineral de Goiás",
    "familia": "Pacote do painel",
    "natureza": "derivada",
-   "origem": "Base consolidada do Squad 1 (v18), gerada por scripts/build_atlas_base.py",
-   "atualizado_em": "2026-11-20",
+   "origem": "Base consolidada do Squad 1 (v19), gerada por scripts/build_atlas_base.py",
+   "atualizado_em": "2026-11-21",
    "periodo": "Ver README: cada camada tem período próprio",
    "volume": "246 municípios · 2.12 MB",
    "onde": "data/atlas/atlas.json e processes.json · API /api/atlas",
@@ -124,7 +124,7 @@
    "familia": "Pacote do painel",
    "natureza": "derivada",
    "origem": "Base consolidada do Squad 1 e brutos do repositório, por scripts/build_panorama_base.py",
-   "atualizado_em": "2026-11-20",
+   "atualizado_em": "2026-11-21",
    "periodo": "2003 a 2026, conforme a fonte",
    "volume": "2.79 MB",
    "onde": "data/panorama/panorama.json · API /api/panorama",
@@ -222,7 +222,7 @@
    "familia": "Monitoramento",
    "natureza": "coletada",
    "origem": "Coletor de notícias do repositório, lendo feeds de veículos do setor",
-   "atualizado_em": "2026-11-20",
+   "atualizado_em": "2026-11-21",
    "periodo": "Acervo por mês em public/data/noticias/meses/",
    "volume": "180 matérias na última coleta",
    "onde": "public/data/noticias/latest.json e meses/*.json",

@@ -28,4 +28,4 @@ source_url,,"URL de cada fonte, na mesma ordem de source_id (igual a url_recurso
 data_acesso,,"Data do arquivo local de cada fonte, na mesma ordem de source_id (igual a data_arquivo_local da 07).",AAAA-MM-DD,07_dim_fontes,texto,0,5,2026-10-24,,,
 fato_ids,,"Linhas da 08 somadas no total do AMB (no nível operação, o total que foi rateado).",FATO_###### separados por ';',08_fato_producao_energia,texto,0,745,FATO_000790,,,
 observacao,,"Nota da linha: por que não há abertura, subitens somados, processo sem poligonal ou titular não identificado.",texto livre,—,texto,73.8,41,antes de 2022 não há CFEM na base para abrir por operação,,,
-versao_base,,Versão da planilha de onde o CSV saiu (acrescentada ao exportar).,vNN,pacote_squad2,texto,0,1,v18,,,
+versao_base,,Versão da planilha de onde o CSV saiu (acrescentada ao exportar).,vNN,pacote_squad2,texto,0,1,v19,,,
