@@ -19,7 +19,7 @@ SQUAD1_WORKBOOK = (
     / "Squad 1"
     / "Bases consolidadas"
     / "documentacao"
-    / "prototipo_bases_consolidadas_v17.xlsx"
+    / "prototipo_bases_consolidadas_v18.xlsx"
 )
 
 MODEL_DIR = Path(__file__).resolve().parents[1]

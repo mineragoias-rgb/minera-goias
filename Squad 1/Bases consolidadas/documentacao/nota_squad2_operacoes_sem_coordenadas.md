@@ -1,4 +1,4 @@
-# Nota ao Squad 2 — produção estimada sem coordenadas (aba 12, v17)
+# Nota ao Squad 2 — produção estimada sem coordenadas (aba 12, v18)
 
 Gerada por `gerar_nota_sem_coordenadas.py` a partir da planilha; a lista completa está em `operacoes_sem_coordenadas.csv`, na mesma pasta.
 
@@ -15,7 +15,7 @@ Parcela da produção estimada por operação que fica sem coordenadas (soma ent
 | Base | 2022 | 2023 | 2024 | 2025 |
 |---|---:|---:|---:|---:|
 | ROM | 26,6% | 24,6% | 17,3% | 18,2% |
-| beneficiada | 10,2% | 8,4% | 6,8% | 9,9% |
+| beneficiada | 10,2% | 8,4% | 7,6% | 10,9% |
 
 Minerais mais afetados (produção bruta, ROM):
 

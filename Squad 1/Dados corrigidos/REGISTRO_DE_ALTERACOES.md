@@ -577,7 +577,7 @@ Todas as linhas:
 
 ## Tratamentos feitos nas bases (pipeline da base consolidada)
 
-Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/`, planilha `prototipo_bases_consolidadas_v17.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: o valor original fica na aba 08 (`valor_original`, `unidade_original`) e o tratamento fica registrado na própria linha (`tratamento`, `status_validacao`, `notas`). As contagens abaixo são lidas da planilha e do pacote do Squad 2 a cada execução deste script.
+Além das cópias corrigidas acima, o pipeline da base consolidada (`Squad 1/Bases consolidadas/base_consolidada_work/scripts/`, planilha `prototipo_bases_consolidadas_v18.xlsx`) trata os dados ao montar as abas. **Nenhum desses tratamentos altera os arquivos brutos**: o valor original fica na aba 08 (`valor_original`, `unidade_original`) e o tratamento fica registrado na própria linha (`tratamento`, `status_validacao`, `notas`). As contagens abaixo são lidas da planilha e do pacote do Squad 2 a cada execução deste script.
 
 ### Conversões de unidade (aba 08, coluna `tratamento`)
 

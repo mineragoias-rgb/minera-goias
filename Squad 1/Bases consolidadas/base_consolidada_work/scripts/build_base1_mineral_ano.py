@@ -533,6 +533,21 @@ for _, r in pf.iterrows():
     for uf in (r["UF"], "BR"):
         prod[uf][(k, ano)]["valor_venda_benef_brl"] += v
 
+# contido da produção beneficiada (v18) -- só unidades de massa, convertidas para t como na 08 (unidade '-' não é medida);
+# é a série a usar nos minerais de regras_series.SERIE_BENEF_POR_CONTIDO (nióbio: a quantidade mudou de conceito em 2024)
+_PARA_T_CONTIDO = {"t": 1.0, "kg": 1e-3, "g": 1e-6, "ct": 2e-7}  # o mesmo PARA_T da CFEM e da 08
+contido_ind = defaultdict(set)  # (uf, key, ano) -> indicações do contido
+for _, r in pf.iterrows():
+    k = key_of_anm(r["Substância Mineral"]); ano = int(r["Ano base"]); v = to_num(r["Quantidade Contido"])
+    un = str(r["Unidade de Medida - Contido"]).strip().lower()
+    if v is None or un not in _PARA_T_CONTIDO:
+        continue
+    ind = str(r.get("Indicação Contido", "")).strip()
+    for uf in (r["UF"], "BR"):
+        prod[uf][(k, ano)]["contido_benef_t"] += v * _PARA_T_CONTIDO[un]
+        if ind:
+            contido_ind[(uf, k, ano)].add(ind)
+
 # --- CFEM (GO apenas) ---
 cfem["_ano"] = pd.to_numeric(cfem["Ano"], errors="coerce")
 cfem_agg = defaultdict(lambda: defaultdict(float))  # cfem_agg[(key,ano)][campo]
@@ -757,6 +772,7 @@ print(f"\nAgregado: {len(prod['GO'])} combinações (mineral,ano) com produção
       f"{len(sig_processos)} minerais com processos no SIGMINE GO.")
 
 # --- montar as linhas finais da Base 1 ---
+from regras_series import SERIE_BENEF_POR_CONTIDO  # v18: série do beneficiado pelo contido (nióbio)
 all_years = sorted(set(int(y) for y in pb["Ano base"].unique()) | set(int(y) for y in pf["Ano base"].unique()))
 base1_rows = []
 for key, (nome, classe, grupo, agregada, status_previsto, obs) in MIN_DEF.items():
@@ -786,6 +802,10 @@ for key, (nome, classe, grupo, agregada, status_previsto, obs) in MIN_DEF.items(
                 uf=uf, mineral_id=key, mineral_nome=nome, classe_substancia=classe, mineral_grupo=grupo, ano=ano,
                 producao_rom_t=p.get("rom_t"), producao_beneficiada=p.get("beneficiada"),
                 unidade_beneficiada=p.get("beneficiada_unidade", ""), valor_venda_beneficiada_brl=p.get("valor_venda_benef_brl"),
+                contido_beneficiada_t=p.get("contido_benef_t"),
+                contido_indicacao="; ".join(sorted(contido_ind.get((uf, key, ano), ()))),
+                serie_beneficiada=(("contido" if key in SERIE_BENEF_POR_CONTIDO else "quantidade")
+                                   if (p.get("beneficiada") is not None or p.get("contido_benef_t") is not None) else ""),
                 cfem_qtd_comercializada_t=c.get("cfem_qtd_comercializada_t"),
                 cfem_qtd_outras_unidades=("; ".join(f"{u}: {q:.3f}" for u, q in sorted(cfem_outras[(key, ano)].items()))
                                           if (uf == "GO" and ano is not None and (key, ano) in cfem_outras) else ""),
@@ -805,7 +825,9 @@ for key, (nome, classe, grupo, agregada, status_previsto, obs) in MIN_DEF.items(
                     ("SRC_ANM_CFEM", bool(c) or (uf == "GO" and key in cfem_titulares)),
                     ("SRC_ANM_CADASTRO", uf == "GO" and key in cad_processos),
                     ("SRC_ANM_SIGMINE", uf == "GO" and key in sig_processos)] if usa),
-                observacao=obs,
+                observacao=(obs + (" Série do beneficiado = contido em " + SERIE_BENEF_POR_CONTIDO[key]["indicacao"] + " (contido_beneficiada_t): "
+                                   + SERIE_BENEF_POR_CONTIDO[key]["motivo"] + "; producao_beneficiada fica como registro."
+                                   if key in SERIE_BENEF_POR_CONTIDO and ano is not None else "")).strip(),
             ))
 
 print(f"\nBase 1 (mineral x ano, GO+BR): {len(base1_rows)} linhas geradas.")

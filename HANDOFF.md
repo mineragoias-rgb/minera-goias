@@ -70,7 +70,7 @@ Em 10/09/2026 foram integrados os commits `db532a0` e `48dabce` da equipe. O nov
 
 Integração de 10/09/2026: seção `Atlas mineral` em `public/atlas.js`, `atlas.css` e `painel.html`, com seis camadas, radar pesquisável, exportação CSV e séries históricas. Leaflet 1.9.4 local, renderização Canvas e criação de polígonos em lotes para não bloquear a interface. A landing mantém o layout e usa linguagem gerencial.
 
-Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitações em `data/atlas/README.md`. Desde 13/09/2026 o atlas é um retrato da base consolidada do Squad 1 (v17), gerado por `scripts/build_atlas_base.py` (municípios, CFEM, quantidade comercializada, séries, processos, projetos da aba 04, ocorrências do RECMIN da aba 06 e os gráficos de `charts`); energia e barragens seguem do retrato `eliel.html`. Novos retratos exigem executar o script, revisar o diff dos dados, rodar `tests/test_atlas.py` e enviar para main. Eles não são reconstruídos pelo importador MySQL. O protótipo Rodrigo forneceu referências de navegação/filtros, sem seus dados fictícios. Os dados do atlas têm origem e períodos explícitos e não são comparados automaticamente com o banco CCEE.
+Endpoints autenticados em `Squad 3/backend/atlas.py`; pacote de dados e limitações em `data/atlas/README.md`. Desde 13/09/2026 o atlas é um retrato da base consolidada do Squad 1 (v18), gerado por `scripts/build_atlas_base.py` (municípios, CFEM, quantidade comercializada, séries, processos, projetos da aba 04, ocorrências do RECMIN da aba 06 e os gráficos de `charts`); energia e barragens seguem do retrato `eliel.html`. Novos retratos exigem executar o script, revisar o diff dos dados, rodar `tests/test_atlas.py` e enviar para main. Eles não são reconstruídos pelo importador MySQL. O protótipo Rodrigo forneceu referências de navegação/filtros, sem seus dados fictícios. Os dados do atlas têm origem e períodos explícitos e não são comparados automaticamente com o banco CCEE.
 
 ## Panorama (aba do painel)
 
@@ -146,7 +146,7 @@ Para cada arquivo:
 
 Quando a ANM muda, o workflow também:
 
-- roda o pipeline do Squad 1, que refaz a v17 no lugar. A aba 14b não pode ganhar ALERTA novo; a exceção esperada no GitHub está
+- roda o pipeline do Squad 1, que refaz a v18 no lugar. A aba 14b não pode ganhar ALERTA novo; a exceção esperada no GitHub está
   em `robo/fontes.json`;
 - refaz o atlas e o Radar de Projetos;
 - roda `scripts/atualizar_derivados.py` e os testes, e publica na `main`.

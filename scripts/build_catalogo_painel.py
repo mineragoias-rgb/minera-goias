@@ -165,7 +165,7 @@ if atlas:
 # ---------------------------------------------------------------------------------------------------------- pacotes derivados
 if atlas:
     base(id="atlas", nome="Atlas mineral de Goiás", familia="Pacote do painel", natureza="derivada",
-         origem="Base consolidada do Squad 1 (v17), gerada por scripts/build_atlas_base.py",
+         origem="Base consolidada do Squad 1 (v18), gerada por scripts/build_atlas_base.py",
          atualizado_em=atlas.get("meta", {}).get("built_on") or commit_date("data/atlas/atlas.json"),
          periodo="Ver README: cada camada tem período próprio",
          volume=f"{conta(atlas.get('municipalities')) or 'NA'} municípios · {tamanho('data/atlas/atlas.json')} MB",

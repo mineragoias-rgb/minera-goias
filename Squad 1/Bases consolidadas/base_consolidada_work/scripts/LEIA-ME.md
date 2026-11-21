@@ -1,6 +1,6 @@
 # Pipeline da planilha consolidada — MINERA Goiás (Squad 1 / Estudante 1)
 
-Gera `documentacao/prototipo_bases_consolidadas_v17.xlsx` e as camadas de mapa em `outputs/mapas/` a partir dos arquivos
+Gera `documentacao/prototipo_bases_consolidadas_v18.xlsx` e as camadas de mapa em `outputs/mapas/` a partir dos arquivos
 em `dados/`. Nenhum número é digitado: tudo sai destes scripts.
 
 ## O que precisa existir

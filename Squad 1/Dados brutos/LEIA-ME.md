@@ -1,6 +1,6 @@
 # Dados brutos — Squad 1 / Estudante 1
 
-Arquivos originais usados para gerar a base consolidada do Squad 1 (pasta [`../Bases consolidadas/`](../Bases%20consolidadas/)), uma pasta por fonte, no formato em que a fonte publica. O catálogo completo de cada fonte — URL oficial, metadados, período, sha256 e as abas que usam cada uma — está na aba `07_dim_fontes` da planilha v17.
+Arquivos originais usados para gerar a base consolidada do Squad 1 (pasta [`../Bases consolidadas/`](../Bases%20consolidadas/)), uma pasta por fonte, no formato em que a fonte publica. O catálogo completo de cada fonte — URL oficial, metadados, período, sha256 e as abas que usam cada uma — está na aba `07_dim_fontes` da planilha v18.
 
 - **Nada foi corrigido aqui.** Tratamento, padronização e divergências ficam no pipeline e nas abas de auditoria da planilha. Cópias com correções de unidade (AMB e CFEM), sem tocar nos arquivos daqui, ficam em [`../Dados corrigidos/`](../Dados%20corrigidos/), com cada célula alterada registrada em `REGISTRO_DE_ALTERACOES.md`.
 - **Cadastro Mineiro recortado para Goiás.** Os 13 arquivos da ANM são nacionais (309.950 linhas, 71,6 MB). Aqui ficam só as linhas de Goiás (21.048 linhas, 4,9 MB): município de Goiás pela mesma regra que o pipeline usa, ou processo com poligonal em Goiás no SIGMINE (processos de divisa podem ter só município de outro estado no Cadastro); as linhas de cada arquivo continuam exatamente como a ANM publica. `Guia_de_Utilizacao_Autorizada.csv` não tem município e é recortado só pelo processo. A regra, o sha256 do arquivo nacional e as contagens estão em `ANM - Cadastro Mineiro/recorte_goias.json`. O pipeline rodado sobre o recorte gera a mesma planilha que o arquivo nacional.
@@ -173,7 +173,7 @@ Não alimentam as abas de dados da base consolidada; ficam só na cópia de trab
 
 ## Fontes de energia ainda não usadas pela base consolidada
 
-Coletadas pelo Eliel em 27/08/2026 na cópia de trabalho (`Squad 1/Dados/EPE/` e `Squad 1/Dados/energia/`) e nunca enviadas ao GitHub; entraram aqui em 08/10/2026, byte a byte. **Nenhum código do repositório as lê ainda** e elas não constam da aba `07_dim_fontes` da v17. São o lado da energia que o projeto vai precisar — demanda projetada (PDE), balanço por estado (BEN), geração (ANEEL) e rede (ONS) —, e o módulo de preços arquivado na tag `archive/claude-price-overview-20260914` listava PDE e ONS entre o que faltava coletar.
+Coletadas pelo Eliel em 27/08/2026 na cópia de trabalho (`Squad 1/Dados/EPE/` e `Squad 1/Dados/energia/`) e nunca enviadas ao GitHub; entraram aqui em 08/10/2026, byte a byte. **Nenhum código do repositório as lê ainda** e elas não constam da aba `07_dim_fontes` da v18. São o lado da energia que o projeto vai precisar — demanda projetada (PDE), balanço por estado (BEN), geração (ANEEL) e rede (ONS) —, e o módulo de preços arquivado na tag `archive/claude-price-overview-20260914` listava PDE e ONS entre o que faltava coletar.
 
 Ao contrário do Cadastro Mineiro, **não foram recortadas para Goiás**: os arquivos são pequenos e linhas e subestações de divisa ligam Goiás a outros estados. Filtrar por UF é tarefa de quem for usá-los. A data de cada arquivo é a da coleta (27/08/2026), salvo quando o próprio arquivo traz outra.
 

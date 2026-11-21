@@ -288,7 +288,7 @@ def build():
     anm_casos = [
         (1, "MIN_022", "42184226", ["ANGLO AMERICAN BARRO", "ANGLO AMERICAN (CODE"], "ferroníquel (produção beneficiada ANM)"),
         (2, "MIN_011", "86902053", ["MARACA MINERACAO", "MARACÁ MINERAÇÃO - A"], "concentrado de cobre (produção beneficiada ANM)"),
-        (3, "MIN_021", "26108898", ["CMOC BRASIL - NIOBIO", "CMOC NIOBIO - UC 218", "NIOBIO MINA CATALAO"], "nióbio beneficiado (ANM)"),
+        (3, "MIN_021", "26108898", ["CMOC BRASIL - NIOBIO", "CMOC NIOBIO - UC 218", "NIOBIO MINA CATALAO"], "nióbio beneficiado — contido em Nb2O5 (ANM)"),
         (3, "MIN_049", "26108898", ["COPEBRAS OUVIDOR"], "fosfato beneficiado (ANM) — Copebrás"),
         (4, "MIN_049", "33931486", ["MOSAIC FERTILIZANTES"], "fosfato beneficiado (ANM)"),
         (6, "MIN_023", "42799486", ["Hochschild Amarillo"], "ouro beneficiado (ANM)"),
@@ -298,7 +298,10 @@ def build():
     for pos, mineral_id, cnpj, siglas, produto in anm_casos:
         c, op = coef[pos], OPERACOES[pos]
         e = sum(cargas[s][0] for s in siglas)
-        prod, estado, alerta, alt, procs = producao_anm(rows, cnpj, mineral_id)
+        # Squad 1 v18: no nióbio a aba 12 traz o contido da beneficiada (t de Nb2O5, production_basis = conteudo_mineral) no lugar
+        # da massa beneficiada, que mudou de conceito em 2024 (massa processada, ~300× o Nb declarado pela empresa)
+        basis = "conteudo_mineral" if mineral_id == "MIN_021" else "beneficiada"
+        prod, estado, alerta, alt, procs = producao_anm(rows, cnpj, mineral_id, basis=basis)
         if prod <= 0:
             continue
         faixa = ""
@@ -314,7 +317,7 @@ def build():
             nivel="titular_mineral_ano", tecnologia=op["tecnologia"] if mineral_id == op["mineral_id"] else "nao_levantada_v1",
             rota_tecnologica=op["rota"] if mineral_id == op["mineral_id"] else "",
             tecnologia_status=op["tec_status"] if mineral_id == op["mineral_id"] else SEM_ROTA,
-            produto=produto, production_basis="beneficiada", producao_valor=prod, producao_unidade="t", production_t=prod,
+            produto=produto, production_basis=basis, producao_valor=prod, producao_unidade="t Nb2O5" if basis == "conteudo_mineral" else "t", production_t=prod,
             ano_producao=2025, energy_mwh=float(e), ano_energia=2025, cargas_ccee="; ".join(siglas),
             energy_intensity_mwh_t=e / prod,
             intensidade_valor=(e / (prod * 1000)) if ouro else e / prod, intensidade_unidade="MWh/kg" if ouro else "MWh/t",
@@ -323,8 +326,9 @@ def build():
             year=2025, periodo_referencia="2025",
             source_id="SRC_CCEE_PARCELA_CARGA; SRC_ANM_PROD_BENEF; SRC_ANM_CFEM",
             source_url="; ".join(SOURCES[s][0] for s in ("SRC_CCEE_PARCELA_CARGA", "SRC_ANM_PROD_BENEF", "SRC_ANM_CFEM")),
-            fonte_producao="Squad 1 — aba 12 (interface_squad1_squad2.csv, v17)", tipo_fonte="oficial", data_acesso=DATA_ACESSO,
-            metodo_estimacao=("energia 2025 da CCEE ÷ soma da produção beneficiada 2025 que a aba 12 atribui ao titular "
+            fonte_producao="Squad 1 — aba 12 (interface_squad1_squad2.csv, v18)", tipo_fonte="oficial", data_acesso=DATA_ACESSO,
+            metodo_estimacao=("energia 2025 da CCEE ÷ soma da produção " + ("beneficiada (contido em Nb2O5)" if basis == "conteudo_mineral" else "beneficiada")
+                              + " 2025 que a aba 12 atribui ao titular "
                               "(rateio do total do AMB pela participação na CFEM em R$); o titular responde por "
                               f"{prod / estado:.1%} da produção beneficiada do mineral em Goiás"),
             erro_estimativa_intervalo=faixa, checagem_ccee_bruta=checagem(cnpj, siglas, e),
@@ -332,8 +336,9 @@ def build():
             responsavel_validacao=RESPONSAVEL,
             observacao=("a produção da ANM é de produto beneficiado (concentrado, liga), não de metal contido; "
                         "base compatível com a série production_t usada pelo motor"
-                        + ("; no nióbio a massa beneficiada da ANM (%.0f t) é da ordem de 300× as %.0f t de Nb declaradas pela "
-                           "empresa: é massa processada, não Nb contido" % (prod, coef[3]["qtd"]) if mineral_id == "MIN_021" else "")),
+                        + ("; no nióbio, desde a v18 do Squad 1, a produção é o contido da beneficiada em t de Nb2O5 (%.0f t), porque a massa "
+                           "beneficiada da ANM passou a ser massa processada em 2024 (~300× o Nb declarado pela empresa, %.0f t)" % (prod, coef[3]["qtd"])
+                           if mineral_id == "MIN_021" else "")),
             versao_base=VERSAO,
         ))
 
@@ -400,7 +405,7 @@ def motor_rows(base):
 ESTADUAL = {
     "MIN_011": dict(nivel="operacao_empresa", basis="conteudo_mineral",
                     nota="só a Maracá produz cobre em Goiás; produção de Cu contido declarada pela Lundin (43.974 t) "
-                         "confere com a série da ANM que o modelo usa (43.983,55 t em 2025, v17 aba 08): diferença de 0,02%"),
+                         "confere com a série da ANM que o modelo usa (43.983,55 t em 2025, v18 aba 08): diferença de 0,02%"),
     "MIN_005": None,  # sem produtor de bauxita na CCEE: fica o parâmetro atual do modelo
     "MIN_022": dict(nivel="titular_mineral_ano", basis="beneficiada",
                     nota="o valor atual do modelo (45,55) é MWh por t de Ni contido; aplicado à produção beneficiada "

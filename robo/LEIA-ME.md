@@ -109,7 +109,7 @@ recortados do P3M, e os campos que o mapa lê. O
 
 ```
 robo_bases.py ──► dados brutos (P3M, ANM) ──────────────────────────────── commit 1
-   └ ANM mudou ──► pipeline do Squad 1 (rodar_pipeline.py, ~15 min) ─► planilha v17 refeita
+   └ ANM mudou ──► pipeline do Squad 1 (rodar_pipeline.py, ~15 min) ─► planilha v18 refeita
                    ├ trava: nenhum ALERTA novo na aba 14b
                    ├ relatório de qualidade e nota do Squad 2
                    ├ atlas (scripts/build_atlas_base.py)
@@ -118,7 +118,7 @@ scripts/atualizar_derivados.py ──► inventário do P3M, mapa, panorama, Squ
 testes do site e do robô ──► push para a main ──► VPS
 ```
 
-Rodar o pipeline em cima dos dados do repositório, sem nada novo, reproduz **todas as abas de dados da v17 célula por célula**.
+Rodar o pipeline em cima dos dados do repositório, sem nada novo, reproduz **todas as abas de dados da v18 célula por célula**.
 Também reproduz `data/atlas` (o `processes.json` byte a byte; no `atlas.json`, só a data e o sha256 da planilha mudam). Mudam
 só as abas de catálogo e governança (07, 14 e 14b), porque o GitHub guarda o recorte de Goiás do Cadastro Mineiro e não guarda
 algumas fontes do catálogo. A primeira vez que o robô refizer a planilha, essas abas passam a descrever o arranjo do GitHub, e o
@@ -171,7 +171,7 @@ Saída do robô:
   às do repositório. A conferência da chave de cada camada do mapa existe por causa disso.
 - **Nome de arquivo que muda.** A CFEM traz a faixa de anos no nome (`2022_2026`). Quando a ANM publicar `2022_2027`, a URL
   antiga falha e alguém precisa trocar a URL e o nome do arquivo, no robô e no pipeline.
-- **Uma planilha só.** O robô refaz a v17 no lugar e não cria v18: a estrutura é a mesma e os dados são os do dia.
+- **Uma planilha só.** O robô refaz a planilha da versão atual (hoje a v18) no lugar e não cria versão nova: a estrutura é a mesma e os dados são os do dia.
 - **Catálogo do P3M.** Só é baixado de novo, com a data de atualização de cada camada no SGB, quando alguma camada mudou.
 - **CFEM em formato novo (23/10/2026).** A ANM passou a publicar a CFEM separada por vírgula e com aspas, e a data em
   outra escrita. O robô converte o arquivo para o formato antigo (ver "CFEM no formato antigo" acima). No teste sem publicar:

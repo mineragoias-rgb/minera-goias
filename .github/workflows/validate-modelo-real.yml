@@ -6,7 +6,7 @@ on:
       - "Squad 2/modello_reale/**"
       - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
-      - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
+      - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx"
       - "Squad 1/Radar de Projetos/curadoria_web.json"
       - ".github/workflows/validate-modelo-real.yml"
   pull_request:
@@ -14,7 +14,7 @@ on:
       - "Squad 2/modello_reale/**"
       - "Squad 2/intensidade_energetica/**"
       - "Squad 1/Bases consolidadas/documentacao/pacote_squad2/**"
-      - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx"
+      - "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx"
       - "Squad 1/Radar de Projetos/curadoria_web.json"
       - ".github/workflows/validate-modelo-real.yml"
   workflow_dispatch:

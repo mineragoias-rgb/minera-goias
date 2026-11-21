@@ -16,6 +16,9 @@ Pente fino que definiu a regra (diagnóstico de 12/09/2026):
   - a CFEM dos subitens de Calcário (calcítico, dolomítico, industrial) não tem produção própria no AMB:
     entra em Calcário (R$ 4-4,1 mi/ano); nenhuma CFEM por processo é zero ou negativa;
   - 10,2% do R$ vem de processos sem poligonal no SIGMINE (fora da 03): entram sem operation_id e coordenadas.
+v18 (decisão de 19/11/2026, ERR_005): nos minerais de regras_series.SERIE_BENEF_POR_CONTIDO (o nióbio) a quantidade beneficiada do
+AMB mudou de conceito em 2024; a linha 'beneficiada' é trocada pelo contido da beneficiada (production_basis = conteudo_mineral, t de Nb2O5),
+no estado e no rateio. A 08 continua com as duas medidas.
 O guia (Squad 2) proíbe intensidade operação-específica com numerador e denominador incompatíveis: a linha
 estimada avisa que não é produção observada da operação.
 """
@@ -29,6 +32,7 @@ import pandas as pd
 
 sys.stdout.reconfigure(encoding="utf-8")
 from caminhos import BASE, TMP, arquivo, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
+from regras_series import SERIE_BENEF_POR_CONTIDO
 
 FONTES = {  # url_recurso e arquivos iguais aos da 07 (a governança confere linha a linha)
     "SRC_ANM_PROD_BRUTA": ("https://dadosabertos.anm.gov.br/AMB/Producao_Bruta.csv", ["dados/ANM/producao_amb_ral/Producao_Bruta.csv"]),
@@ -53,7 +57,8 @@ COLS = ["mineral_id", "mineral_name", "company_id", "operation_id", "project_id"
         "erro_estimativa_intervalo", "participacao_cfem_brl", "cfem_brl_operacao", "cfem_brl_mineral_ano", "production_t_rateio_por_t",
         "status_validacao", "responsavel_validacao", "periodo_referencia", "tipo_fonte", "source_url", "data_acesso", "fato_ids", "observacao"]
 IX = {c: i for i, c in enumerate(COLS)}
-BASE_DE = {"producao_rom": ("ROM", "SRC_ANM_PROD_BRUTA"), "producao_beneficiada": ("beneficiada", "SRC_ANM_PROD_BENEF")}
+BASE_DE = {"producao_rom": ("ROM", "SRC_ANM_PROD_BRUTA"), "producao_beneficiada": ("beneficiada", "SRC_ANM_PROD_BENEF"),
+           "contido_beneficiada": ("conteudo_mineral", "SRC_ANM_PROD_BENEF")}  # contido só para os minerais de SERIE_CONTIDO
 
 
 def br(x, casas=0):
@@ -68,6 +73,7 @@ md = json.load(open(f"{TMP}/_min_def.json", encoding="utf-8"))
 _ordem = sorted(md.items(), key=lambda kv: (kv[1][1], kv[1][0]))
 KEY2ID = {k: f"MIN_{i + 1:03d}" for i, (k, _) in enumerate(_ordem)}
 NOME = {KEY2ID[k]: v[0] for k, v in md.items()}
+SERIE_CONTIDO = {KEY2ID[k]: v for k, v in SERIE_BENEF_POR_CONTIDO.items()}  # mineral_id -> regra (v18)
 PAI = {KEY2ID[k]: KEY2ID[v[2]] for k, v in md.items() if v[2]}  # subitem -> categoria do AMB (só a família Calcário hoje)
 fato = json.load(open(f"{TMP}/_fato_08.json", encoding="utf-8"))
 C = {c: i for i, c in enumerate(fato["colunas"])}
@@ -89,6 +95,11 @@ for r in fato["linhas"]:
     met, vt = r[C["metrica"]], r[C["valor_tratado"]]
     if met in BASE_DE:
         if vt is None:
+            continue
+        # v18: no nióbio a beneficiada vira o contido (t de Nb2O5); nos demais, o contido não entra na 12
+        if (met == "contido_beneficiada") != (r[C["mineral_id"]] in SERIE_CONTIDO and met != "producao_rom"):
+            continue
+        if met == "contido_beneficiada" and r[C["unidade_padrao"]] != "t":
             continue
         k = (r[C["mineral_id"]], r[C["year"]], BASE_DE[met][0])
         tot[k] += vt
@@ -197,6 +208,8 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     elif P > 0:
         obs.append("sem CFEM do mineral no ano em Goiás: produção sem abertura por operação")
         sem_abertura.append(f"{NOME[mid]} {ano} ({base})")
+    if base == "conteudo_mineral":
+        obs.append(f"contido da produção beneficiada em t de {SERIE_CONTIDO[mid]['indicacao']} no lugar da quantidade beneficiada: {SERIE_CONTIDO[mid]['motivo']}")
     obs += sorted(flags[k])
     if 2022 <= ano <= 2025 and k not in associado:  # minério associado não é produção a cobrir: já está no ROM do hospedeiro
         cob[ano][1] += P

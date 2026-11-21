@@ -25,8 +25,9 @@ sys.stdout.reconfigure(encoding="utf-8")
 from caminhos import ARRANJO, BASE, TMP, arquivo, arquivos_brutos, data_acesso  # caminhos relativos ao projeto — ver caminhos.py
 import qualidade_cfem
 SRC = f"{BASE}/documentacao/prototipo_bases_consolidadas_v5d_fato.xlsx"  # v5 + 06/06b + 04/04b + 12 + 08 (write_ocorrencias_06 → write_projetos_04 → write_interface_12 → write_fato_08)
-OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v17.xlsx"
-VERSAO = "v17"
+OUT = f"{BASE}/documentacao/prototipo_bases_consolidadas_v18.xlsx"
+VERSAO = "v18"
+from regras_series import NOMES_SERIE_CONTIDO  # v18: série do beneficiado pelo contido (nióbio)
 NAVY, TEAL, LBLUE, WHITE, AMBER = "17365D", "1F6D7A", "DCE6F1", "FFFFFF", "C65911"
 HDR = 4
 
@@ -836,6 +837,11 @@ D = {  # campo -> (descrição, unidade/domínio, fonte ou derivação)
     "production_beneficiada": ("Produção beneficiada, na unidade de production_beneficiada_unit. Só equivale a production_t (basis = beneficiada) quando a unidade é t; não somar entre minerais.", "ver production_beneficiada_unit", "ANM AMB — produção beneficiada"),
     "production_beneficiada_unit": ("Unidade da produção beneficiada.", "", "ANM AMB — produção beneficiada"),
     "valor_venda_beneficiada_brl": ("Valor de venda da produção beneficiada.", "R$ nominais", "ANM AMB — produção beneficiada"),
+    "contido_beneficiada_t": ("Conteúdo mineral (contido) da produção beneficiada, em t, na indicação de contido_indicacao (ex.: Nb2O5, P2O5, Au). Só unidades de massa da fonte "
+                              "(t, kg, g, quilate) convertidas para t; contido com unidade '-' fica fora. É a série a usar quando serie_beneficiada = contido.", "t (de contido)", "ANM AMB — produção beneficiada"),
+    "contido_indicacao": ("Em que o contido está expresso, como na fonte (Indicação Contido do AMB: Nb2O5, P2O5, Au…). Vazio = a fonte não informa.", "", "ANM AMB — produção beneficiada"),
+    "serie_beneficiada": ("Qual medida da produção beneficiada usar como série: 'quantidade' (production_beneficiada) ou 'contido' (contido_beneficiada_t). 'contido' para os minerais "
+                          "em que a quantidade mudou de conceito — hoje só o nióbio, desde 2024 (decisão de 19/11/2026, ERR_005 do repositório de erros). Vazio = sem produção beneficiada.", "", "regra do projeto (regras_series.py)"),
     "cfem_qtd_comercializada_t": ("Quantidade comercializada declarada na CFEM, só unidades de massa convertidas para t (kg, g, quilate), sem as linhas corrompidas ou implausíveis (ver 09b). NÃO é produção. "
                                   "NÃO USAR COMO PROXY DE PRODUÇÃO sem validação mineral a mineral: a CFEM não informa a base (minério bruto, concentrado ou metal), que varia entre substâncias "
                                   "e declarantes, e dezenas de mineral-anos ficam fora da faixa de 0,05–2× da produção do AMB (lista e causas conhecidas na 14b).", "t", "ANM CFEM (QuantidadeComercializada, UnidadeDeMedida)"),
@@ -933,7 +939,8 @@ DA = {  # (aba, campo) -> descrição específica da aba
     ("12_interface_squad1_squad2", "municipality_id"): "Nível operação: município principal do polígono (03); sem poligonal, o município com mais CFEM do processo no ano. Vazio no nível estado.",
     ("12_interface_squad1_squad2", "year"): "Ano (contrato): produção do AMB 2010–2025; abertura por operação só em 2022–2025 (anos com CFEM na base).",
     ("12_interface_squad1_squad2", "production_t"): "Produção em t (contrato): OBSERVADA no nível estado (AMB, massa convertida para t) e ESTIMADA no nível operação (rateio pela CFEM).",
-    ("12_interface_squad1_squad2", "production_basis"): "ROM (produção bruta) ou beneficiada — a mesma base do total rateado. O conteúdo mineral (contido) fica na 08, porque depende da indicação (Au, Nb2O5…).",
+    ("12_interface_squad1_squad2", "production_basis"): "ROM (produção bruta), beneficiada ou conteudo_mineral — a mesma base do total rateado. conteudo_mineral (t de contido) só no lugar da beneficiada dos "
+     "minerais cuja quantidade beneficiada mudou de conceito (hoje o nióbio, em t de Nb2O5; regras_series.py, ERR_005); nos outros, o contido fica só na 08 e na 09.",
     ("12_interface_squad1_squad2", "latitude"): "Latitude do representative_point do polígono do processo (03). Vazia no nível estado e em processos sem poligonal no SIGMINE.",
     ("12_interface_squad1_squad2", "longitude"): "Longitude do representative_point do polígono do processo (03). Vazia no nível estado e em processos sem poligonal no SIGMINE.",
     ("12_interface_squad1_squad2", "source_id"): "Fontes de todos os valores da linha, separadas por ';' (a estimativa combina AMB, CFEM, Cadastro Mineiro, SIGMINE e malha do IBGE).",
@@ -1413,7 +1420,8 @@ V("08: cada célula numérica das fontes (AMB bruta, AMB beneficiada, CFEM) vira
 
 # (b) conciliação: 09, 10 e 11 são somas de valor_tratado da 08
 _M09 = {"producao_rom": "production_t_rom", "producao_beneficiada": "production_beneficiada_t", "valor_venda_beneficiada": "valor_venda_beneficiada_brl",
-        "cfem_recolhido": "cfem_recolhido_brl", "quantidade_comercializada_cfem": "cfem_qtd_comercializada_t"}
+        "cfem_recolhido": "cfem_recolhido_brl", "quantidade_comercializada_cfem": "cfem_qtd_comercializada_t",
+        "contido_beneficiada": "contido_beneficiada_t"}  # v18
 _i09, _i10, _i11 = defaultdict(float), defaultdict(float), defaultdict(float)
 for r in _F:
     vt, m = r["valor_tratado"], r["metrica"]
@@ -1426,7 +1434,7 @@ for r in _F:
         if r["mineral_id"] not in (None, ""):
             _i11[(r["company_id"], r["mineral_id"], ano)] += vt
     campo = _M09.get(m)
-    if not campo or r["mineral_id"] in (None, "") or (campo == "cfem_qtd_comercializada_t" and r["unidade_padrao"] != "t"):
+    if not campo or r["mineral_id"] in (None, "") or (campo in ("cfem_qtd_comercializada_t", "contido_beneficiada_t") and r["unidade_padrao"] != "t"):
         continue
     # a 09 só tem GO e BR (= soma de todas as UFs); as outras UFs ficam na 08 sem linha própria na 09
     for uf in ({r["uf"]} if r["source_id"] == "SRC_ANM_CFEM" else {r["uf"], "BR"}) & {"GO", "BR"}:
@@ -1454,7 +1462,7 @@ def _campos09(r):
     pb = r.get("production_beneficiada")
     return {"production_t_rom": r.get("production_t_rom"), "production_beneficiada_t": (pb * fb) if (pb is not None and fb) else pb,
             "valor_venda_beneficiada_brl": r.get("valor_venda_beneficiada_brl"), "cfem_recolhido_brl": r.get("cfem_recolhido_brl"),
-            "cfem_qtd_comercializada_t": r.get("cfem_qtd_comercializada_t")}
+            "cfem_qtd_comercializada_t": r.get("cfem_qtd_comercializada_t"), "contido_beneficiada_t": r.get("contido_beneficiada_t")}
 
 
 _d09, _n09 = _confere(_i09, DADOS["09_cons_mineral_ano"][1], lambda r: (r["uf"], r["mineral_id"], int(r["year"])), _campos09)
@@ -1522,9 +1530,16 @@ _I = DADOS["12_interface_squad1_squad2"][1]
 _est = [r for r in _I if r["nivel_agregacao"] == "estado"]
 _ops12 = [r for r in _I if r["nivel_agregacao"] == "operacao"]
 _p08 = defaultdict(float)
-for r in _F:
-    if r["uf"] == "GO" and r["metrica"] in ("producao_rom", "producao_beneficiada") and r["valor_tratado"] is not None:
-        _p08[(r["mineral_id"], int(r["year"]), "ROM" if r["metrica"] == "producao_rom" else "beneficiada")] += r["valor_tratado"]
+for r in _F:  # v18: nos minerais de regras_series, a beneficiada da 12 é o contido (production_basis = conteudo_mineral)
+    if r["uf"] != "GO" or r["valor_tratado"] is None:
+        continue
+    _contido = r["mineral_name"] in NOMES_SERIE_CONTIDO
+    if r["metrica"] == "producao_rom":
+        _p08[(r["mineral_id"], int(r["year"]), "ROM")] += r["valor_tratado"]
+    elif r["metrica"] == "producao_beneficiada" and not _contido:
+        _p08[(r["mineral_id"], int(r["year"]), "beneficiada")] += r["valor_tratado"]
+    elif r["metrica"] == "contido_beneficiada" and _contido and r["unidade_padrao"] == "t":
+        _p08[(r["mineral_id"], int(r["year"]), "conteudo_mineral")] += r["valor_tratado"]
 _e12 = {(r["mineral_id"], int(r["year"]), r["production_basis"]): (r["production_t"] or 0.0) for r in _est}
 _d12a = [(k, _e12.get(k), v) for k, v in _p08.items() if k not in _e12 or abs(_e12[k] - v) > 1e-6 * max(1.0, abs(v))]
 _d12a += [(k, v, None) for k, v in _e12.items() if k not in _p08]
@@ -1810,7 +1825,7 @@ for col in (1, 2):
 leia.cell(row=r9, column=2, value="ATUALIZAÇÃO v9 — 12_interface_squad1_squad2 real (entrega Squad 1 → Squad 2)").font = Font(bold=True, size=12, color=WHITE)
 c9 = leia.cell(row=r9 + 1, column=2, value=(
     f"Campos do Contrato de Dados + production_basis + governança, em dois níveis que NÃO se somam: {len(_est)} linhas de nível estado (produção OBSERVADA de Goiás "
-    f"no AMB, 2010–2025, ROM e beneficiada, igual à 08) e {len(_ops12)} linhas de nível operação (abertura ESTIMADA em 2022–2025, rateada pela participação de cada "
+    f"no AMB, 2010–2025, ROM e beneficiada — no nióbio a beneficiada é o contido em Nb2O5 (conteudo_mineral) —, igual à 08) e {len(_ops12)} linhas de nível operação (abertura ESTIMADA em 2022–2025, rateada pela participação de cada "
     "processo na CFEM em R$ do mineral no ano; soma igual ao total do estado). A ANM não publica produção por operação: o rateio supõe a mesma relação R$/t entre as "
     "operações do mesmo mineral, traz a faixa contra o rateio pela quantidade em t da CFEM e não deve ser usado como produção observada nem como denominador observado "
     "de intensidade operação-específica. Sem abertura: minerais sem CFEM no ano (ex.: areias industriais, feldspato, talco). A 08 ganhou processo_anm, que "
@@ -1867,9 +1882,9 @@ assert not _com_rotulo, f"título ainda com rótulo de versão: {_com_rotulo}"
 # v12 — 00_LEIA-ME reescrito. O topo ainda era o texto do protótipo v0 ("rascunho de formato", placeholders, IDs sequenciais
 # COM_###/OPE_#####). Agora descreve a planilha como ela é; as notas de cada versão ficam embaixo, como histórico, sem reescrita.
 # ---------------------------------------------------------------------------
-DATA_VERSAO = "2026-09-13"
+DATA_VERSAO = "2026-11-20"
 # Quando o robô de atualização (robo/robo_bases.py) refaz a planilha com arquivos novos da ANM, ele passa a data em
-# MINERA_DATA_DADOS: a estrutura continua a da v17, os dados são os baixados naquele dia.
+# MINERA_DATA_DADOS: a estrutura continua a da versão atual, os dados são os baixados naquele dia.
 DATA_DADOS = os.environ.get("MINERA_DATA_DADOS")
 _lin = list(wb["00_LEIA-ME"].iter_rows(max_col=2, values_only=True))
 HIST = [(b, _lin[i + 1][1] if i + 1 < len(_lin) else "") for i, (_, b) in enumerate(_lin) if isinstance(b, str) and b.startswith("ATUALIZAÇÃO")]
@@ -1936,6 +1951,14 @@ HIST.append(("ATUALIZAÇÃO v17 — IMB (Goiás em Dados) como checagem cruzada 
     "que as duas fontes têm valor. O IMB só traz produção mineral até 2016; em parte dos minerais repete o AMB e, em outros, informa outra base. "
     "A divergência fica registrada e a base continua usando o AMB. Na 07, a fonte passa a constar como usada só em validação cruzada, e as quatro "
     "consultas foram publicadas em Squad 1/Dados brutos/IMB - Goiás em Dados/. Os valores das abas de dados são os mesmos da v16.")))
+
+HIST.append(("ATUALIZAÇÃO v18 — série do nióbio beneficiado pelo contido (Nb2O5)", (
+    "O AMB mudou o conceito da produção beneficiada do nióbio em 2024: de cerca de 31 mil t de concentrado (≈ 50% Nb2O5) em 2023 para 3,56 Mt em 2024 "
+    "e 3,28 Mt em 2025 (≈ 1,4% Nb2O5). Decisão do grupo (19/11/2026, ERR_005 do repositório de erros): a série comparável do nióbio beneficiado é o "
+    "contido em Nb2O5. A 09 ganhou contido_beneficiada_t, contido_indicacao e serie_beneficiada ('contido' no nióbio, 'quantidade' nos demais), "
+    "conciliados com a 08 como as outras somas. Na 12, as linhas de nióbio beneficiado passam a ter production_basis = conteudo_mineral e production_t "
+    "em t de Nb2O5 (estado e rateio por operação). A 08 não muda: guarda a quantidade e o contido da fonte. A regra fica em regras_series.py. "
+    "Os outros valores das abas de dados são os mesmos da v17.")))
 
 ABA_DESC = {
     "01_dim_minerais": "dimensão de minerais: as categorias oficiais da ANM mais subitens justificados na 01b",

@@ -11,7 +11,7 @@ trabalho do Estudante 1. O trabalho dos Estudantes 2 e 3 foi avaliado pelo que e
 
 | Componente | Responsável | Produto esperado (guia) | Situação em 14/09 |
 |---|---|---|---|
-| S1-E1 — Bases públicas e diagnóstico mineral | Eliel Pelegrino | Base Mineral de Goiás — versão 1 | **Completa.** Planilha v17, dados brutos no GitHub, pipeline que gera a mesma planilha a partir do repositório, relatório de qualidade e atlas no site. Restam duas confirmações com o grupo (seção 3.1). |
+| S1-E1 — Bases públicas e diagnóstico mineral | Eliel Pelegrino | Base Mineral de Goiás — versão 1 | **Completa.** Planilha v18, dados brutos no GitHub, pipeline que gera a mesma planilha a partir do repositório, relatório de qualidade e atlas no site. Restam duas confirmações com o grupo (seção 3.1). |
 | S1-E2 — Projetos minerais e inteligência de mercado | Lucas Maia (a divisão do squad cita também Gabriel Gonçalves em "projetos já existentes") | Radar de Projetos Minerais de Goiás — versão 1 | **Parcial.** No GitHub há três planilhas "CORRIGIDA LUCAS V1" (AMB e CFEM); o radar estruturado com evidências ainda não está no repositório. A camada ANM do radar (aba 04 do E1) já existe. |
 | S1-E3 — Dados faltantes e estimativas | Não nomeado na seção do guia (a lista do squad inclui Gabriel Gonçalves e Giovana Dodero) | Método de Tratamento e Estimação de Dados Faltantes — versão 1 | **Não encontrado no GitHub.** Os insumos estão prontos: dicionário com % de vazio, flags de estimativa na aba 12 e arquivos da CCEE. |
 
@@ -35,7 +35,7 @@ como estimativa, com método, erro e status observado/estimado.
 
 ### 2.1 Estudante 1 — Base Mineral de Goiás (Eliel)
 
-**Produto:** `prototipo_bases_consolidadas_v17.xlsx`, com 25 abas, gerado por um pipeline de 18 etapas em Python.
+**Produto:** `prototipo_bases_consolidadas_v18.xlsx`, com 25 abas, gerado por um pipeline de 18 etapas em Python.
 - **No GitHub:** `Squad 1/Bases consolidadas/` (planilha, código e documentação) e `Squad 1/Dados brutos/` (arquivos das fontes).
 - **Localmente:** a pasta de trabalho, com todas as fontes catalogadas e as camadas de mapa.
 
@@ -218,7 +218,7 @@ consulta da base pelo Squad 3 via banco e API.
 
 | O quê | Local |
 |---|---|
-| Planilha entregável | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx` (comece pela aba `00_LEIA-ME`) |
+| Planilha entregável | `Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx` (comece pela aba `00_LEIA-ME`) |
 | Dados brutos, por fonte | `Squad 1/Dados brutos/` (catálogo no `LEIA-ME.md` de lá) |
 | Código do pipeline | `Squad 1/Bases consolidadas/base_consolidada_work/scripts/` |
 | Relatório de qualidade | `Squad 1/Bases consolidadas/documentacao/relatorio_qualidade.md` |

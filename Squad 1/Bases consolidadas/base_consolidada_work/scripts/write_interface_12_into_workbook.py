@@ -48,7 +48,7 @@ ws.merge_cells(f"A2:{last}2")
 cob = "; ".join(f"{a}: {br(p, 1)}%" for a, p in sorted(res["cobertura_por_ano"].items()))
 ws["A2"] = (
     f"{br(res['linhas'])} linhas com os campos do Contrato de Dados (fluxo Squad 1 → Squad 2) + production_basis + campos de governança. "
-    f"NÍVEL ESTADO ({br(res['estado'])} linhas): produção OBSERVADA de Goiás no AMB por mineral, ano (2010–2025) e base (ROM ou beneficiada), em t — igual à 08. "
+    f"NÍVEL ESTADO ({br(res['estado'])} linhas): produção OBSERVADA de Goiás no AMB por mineral, ano (2010–2025) e base (ROM ou beneficiada; no nióbio, conteudo_mineral = contido da beneficiada em t de Nb2O5), em t — igual à 08. "
     f"NÍVEL OPERAÇÃO ({br(res['operacao'])} linhas, {br(res['processos'])} processos): abertura ESTIMADA desse total em 2022–2025, rateada pela participação de cada "
     "processo na CFEM recolhida (R$) do mineral no ano; a soma das operações é igual ao total do estado — não somar os dois níveis. "
     f"Produção aberta por operação: {cob}. Da produção estimada, {br(res['pct_prod_com_operation_id'], 1)}% tem operation_id e {br(res['pct_prod_com_coordenadas'], 1)}% "

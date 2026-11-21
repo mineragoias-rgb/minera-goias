@@ -9,7 +9,7 @@ Entradas (todas no repositório):
                                                                          classificação do site P3M, órgão e resumo
   data/atlas/atlas.json e processes.json               municípios, CFEM, projetos (aba 04), ocorrências e processos já publicados
   Squad 1/Radar de Projetos/ e Squad 1/Dados brutos/   Radar de Projetos e titulares PJ (scripts/build_projetos_minerais_goias.py)
-  Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v17.xlsx   crosswalk de substâncias (aba 01b)
+  Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v18.xlsx   crosswalk de substâncias (aba 01b)
 
 Saídas (data/mapa/):
   catalogo.json      grupos, camadas e tabelas: origem, campos com rótulo/tipo/unidade, datas, legenda, carga, tamanho e contagens
@@ -49,7 +49,7 @@ CATALOGO = RAIZ / 'scripts' / 'mapa_camadas.json'
 SAIDA = RAIZ / 'data' / 'mapa'
 ATLAS = RAIZ / 'data' / 'atlas' / 'atlas.json'
 PROCESSOS_ATLAS = RAIZ / 'data' / 'atlas' / 'processes.json'
-PLANILHA = RAIZ / 'Squad 1' / 'Bases consolidadas' / 'documentacao' / 'prototipo_bases_consolidadas_v17.xlsx'
+PLANILHA = RAIZ / 'Squad 1' / 'Bases consolidadas' / 'documentacao' / 'prototipo_bases_consolidadas_v18.xlsx'
 GRUPOS_ATLAS = ['Lavra / extração autorizada', 'Pesquisa autorizada', 'Requerimento em análise', 'Disponibilidade', 'Outros']
 
 # Caixa de Goiás com folga: o que cair fora dela indica CRS errado ou latitude e longitude trocadas.

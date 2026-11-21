@@ -3,7 +3,7 @@
 Levantamento de 23/10/2026: todas as bases que o site usa, de onde vêm, como se baixam e o que falta para um robô atualizá-las.
 A tabela completa, uma linha por fonte, está em [`fontes_de_dados.csv`](fontes_de_dados.csv) (`;`, UTF-8), pensada para o robô ler.
 
-Os links vêm do que o repositório já registra (aba `07_dim_fontes` da base consolidada v17, `Squad 1/Dados brutos/LEIA-ME.md`,
+Os links vêm do que o repositório já registra (aba `07_dim_fontes` da base consolidada v18, `Squad 1/Dados brutos/LEIA-ME.md`,
 `Squad 1/P3M/inventario_p3m.csv`, `Squad 1/dados/CCEE/Read.me` e os geradores em `scripts/`). **Não foram testados hoje**: a rede do
 ambiente onde o levantamento foi feito não alcança os portais do governo. Antes de automatizar, cada URL precisa de um teste. A ANM
 anunciou em 05/02/2026 que trocou os links dos seus dados abertos, então as URLs de `dadosabertos.anm.gov.br` merecem atenção especial.
@@ -13,7 +13,7 @@ anunciou em 05/02/2026 que trocou os links dos seus dados abertos, então as URL
 ```
 fontes externas ──► Squad 1/Dados brutos, Squad 1/dados, Squad 1/P3M      (cópia do arquivo baixado, sem correção)
                        │
-                       ├─► base consolidada v17 (Squad 1/Bases consolidadas, rodar_pipeline.py) ─► Atlas, Panorama, Mapa, Radar, Simulador
+                       ├─► base consolidada v18 (Squad 1/Bases consolidadas, rodar_pipeline.py) ─► Atlas, Panorama, Mapa, Radar, Simulador
                        ├─► inventário do P3M ─► Mapa mineral
                        └─► CCEE, rodadas, investimento ─► Panorama, Empresas, Squad 2
 curadoria da equipe ──► Radar de Projetos, Mercado, Empresas (produção), parâmetros do Squad 2
@@ -23,7 +23,7 @@ robôs que já existem ──► notícias (todo dia) e agente de produção (to
 Depois que um arquivo bruto muda na `main`, o workflow `atualizar-derivados.yml` já refaz e publica sozinho tudo o que sai dele:
 inventário do P3M, Mapa, pacote do Squad 2, Panorama, Produção, Empresas, intensidade energética, carteira do Mercado e Simulador.
 **O que falta automatizar é o primeiro passo** (baixar da fonte) e duas etapas que ainda rodam fora da cadeia: a base consolidada
-(`rodar_pipeline.py`, que gera a v17) e o Atlas (`build_atlas_base.py`, que precisa do GeoPackage gerado pelo pipeline).
+(`rodar_pipeline.py`, que gera a v18) e o Atlas (`build_atlas_base.py`, que precisa do GeoPackage gerado pelo pipeline).
 
 ## Por aba do site
 

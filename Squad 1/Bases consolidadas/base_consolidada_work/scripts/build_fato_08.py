@@ -339,7 +339,8 @@ for i, row in enumerate(linhas, start=1):
 # ---------------------------------------------------------------------------
 ID2KEY = {v: k for k, v in KEY2ID.items()}
 M09 = {"producao_rom": "producao_rom_t", "producao_beneficiada": "producao_beneficiada_t", "valor_venda_beneficiada": "valor_venda_beneficiada_brl",
-       "cfem_recolhido": "cfem_recolhido_brl", "quantidade_comercializada_cfem": "cfem_qtd_comercializada_t"}
+       "cfem_recolhido": "cfem_recolhido_brl", "quantidade_comercializada_cfem": "cfem_qtd_comercializada_t",
+       "contido_beneficiada": "contido_beneficiada_t"}  # v18: contido da beneficiada (série do nióbio)
 i09, i10, i11 = defaultdict(float), defaultdict(float), defaultdict(float)
 for row in linhas:
     vt, met, ano = row[IX["valor_tratado"]], row[IX["metrica"]], row[IX["year"]]
@@ -352,7 +353,7 @@ for row in linhas:
         if k:
             i11[(row[IX["company_id"]], k, ano)] += vt
     campo = M09.get(met)
-    if not campo or not k or (campo == "cfem_qtd_comercializada_t" and row[IX["unidade_padrao"]] != "t"):
+    if not campo or not k or (campo in ("cfem_qtd_comercializada_t", "contido_beneficiada_t") and row[IX["unidade_padrao"]] != "t"):
         continue
     # a 09 só tem GO e BR (= soma de todas as UFs); as outras UFs ficam na 08 sem linha própria na 09
     for uf in ({row[IX["uf"]]} if row[IX["source_id"]] == "SRC_ANM_CFEM" else {row[IX["uf"]], "BR"}) & {"GO", "BR"}:
@@ -378,7 +379,8 @@ b3 = json.load(open(f"{TMP}/_base3_rows.json", encoding="utf-8"))
 d09 = confere(i09, b1, lambda r: (r["uf"], r["mineral_id"], r["ano"]), lambda r: {
     "producao_rom_t": r["producao_rom_t"], "valor_venda_beneficiada_brl": r["valor_venda_beneficiada_brl"],
     "producao_beneficiada_t": (r["producao_beneficiada"] * PARA_T[r["unidade_beneficiada"].lower()]) if r["producao_beneficiada"] is not None else None,
-    "cfem_recolhido_brl": r["cfem_recolhido_brl"], "cfem_qtd_comercializada_t": r["cfem_qtd_comercializada_t"]})
+    "cfem_recolhido_brl": r["cfem_recolhido_brl"], "cfem_qtd_comercializada_t": r["cfem_qtd_comercializada_t"],
+    "contido_beneficiada_t": r["contido_beneficiada_t"]})
 d10 = confere(i10, b2, lambda r: (str(r["municipality_id"]), r["ano"]), lambda r: {None: r["cfem_recolhido_brl"]})
 d11 = confere(i11, b3, lambda r: (r["company_id"], r["mineral_id"], r["ano"]), lambda r: {None: r["cfem_recolhido_brl"]})
 print(f"Conciliação 08 -> 09: {len(d09)} divergências; -> 10: {len(d10)}; -> 11: {len(d11)}")

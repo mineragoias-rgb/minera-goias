@@ -235,7 +235,7 @@ As outras 105 ficaram de fora:
    - O que sobra sem código está em `validacao.json` (`municipio_sem_codigo`): Unaí, Buritis, Ponte Branca, "Distrito Federal" e
      "Brasília" (2 recursos minerais do SIG), todos fora de Goiás. No SIAGAS, 6 poços têm a coordenada no recorte de Goiás e o
      município de outro estado (4 São Desidério, 1 Jaborandi, 1 Goianésia do Pará): ficam sem código, como vieram.
-6. **Mineral.** As substâncias passam pela aba `01b_crosswalk_pente_fino` da base consolidada v17: grafia da ANM → categoria da ANM.
+6. **Mineral.** As substâncias passam pela aba `01b_crosswalk_pente_fino` da base consolidada v18: grafia da ANM → categoria da ANM.
    - Grafia com mais de uma categoria fica sem mineral.
    - Um campo pode ter `apelidos` no catálogo, lidos antes do crosswalk. Nos recursos minerais do SIG estadual, a substância vem como
      símbolo químico (Au, Mn, Sn…) ou com grafia própria (Brita, Água Termal): com os apelidos, 1.625 dos 1.673 registros ganham categoria.
@@ -278,7 +278,7 @@ As outras 105 ficaram de fora:
     arquivo do SIGMINE de 10/09/2026.
 - **`processos_complemento`.** Na mesma ordem de `/api/atlas/processes`.
   - Titular: só pessoa jurídica, como antes.
-  - Municípios e mineral vêm da aba `03_dim_operacoes` da base consolidada v17 (`municipios_intersectados` e `mineral_ids`). É a junção
+  - Municípios e mineral vêm da aba `03_dim_operacoes` da base consolidada v18 (`municipios_intersectados` e `mineral_ids`). É a junção
     espacial do polígono com a malha do IBGE 2025 em resolução total, a mesma base das contagens do Atlas.
     - Por isso o filtro por município, o perfil do município e a aba Atlas contam os mesmos processos, como confere um teste.
     - Todos os 16.656 processos têm município. O processo que cruza a divisa leva só os municípios de Goiás que toca.

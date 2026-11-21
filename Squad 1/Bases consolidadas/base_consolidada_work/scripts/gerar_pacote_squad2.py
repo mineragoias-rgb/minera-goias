@@ -61,7 +61,7 @@ MAPA = {
     "project_id": ("projects.project_id", "vazio até o Radar de Projetos (Estudante 2)"),
     "year": ("production_history.year", ""),
     "production_t": ("production_history.production_t", ""),
-    "production_basis": ("production_history.production_basis", "ROM e beneficiada; o motor escreve rom, beneficiada, conteudo_mineral"),
+    "production_basis": ("production_history.production_basis", "ROM e beneficiada (no nióbio, conteudo_mineral = contido em Nb2O5, desde a v18); o motor escreve rom, beneficiada, conteudo_mineral"),
     "valor_observado_estimado": ("production_history.data_nature", "observado no nível estado; estimado no nível operação"),
     "source_id": ("production_history.source_id", "uma fonte no nível estado; várias, separadas por ';', no nível operação"),
     "source_url": ("sources.source_url", "catálogo completo na aba 07"),
@@ -181,7 +181,7 @@ vazios ficam vazios (nada foi preenchido com zero).
 
 | `nivel_agregacao` | Linhas | Anos | `valor_observado_estimado` | O que é |
 |---|---:|---|---|---|
-| `estado` | {inteiro(len(est))} | {anos(est)} | {nat(est)} | produção de Goiás no AMB por mineral, ano e base (ROM ou beneficiada), em t |
+| `estado` | {inteiro(len(est))} | {anos(est)} | {nat(est)} | produção de Goiás no AMB por mineral, ano e base (ROM, beneficiada ou, no nióbio, conteudo_mineral), em t |
 | `operacao` | {inteiro(len(ope))} | {anos(ope)} | {nat(ope)} | o total do estado rateado entre {inteiro(len(proc_ope))} processos pela participação de cada um na CFEM recolhida (R$) do mineral no ano |
 
 - {fechamento}

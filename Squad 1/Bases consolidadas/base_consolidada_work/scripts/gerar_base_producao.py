@@ -9,7 +9,7 @@ que a própria empresa publica (relatórios, RIs, 10-K, HKEX), quando existe, co
 
 Entradas (nada é recalculado aqui):
   - documentacao/pacote_squad2/interface_squad1_squad2.csv — aba 12: total do estado (AMB) e divisão por processo (CFEM em R$);
-  - documentacao/prototipo_bases_consolidadas_v17.xlsx — nomes das empresas (aba 02) e dos municípios (aba 05);
+  - documentacao/prototipo_bases_consolidadas_v18.xlsx — nomes das empresas (aba 02) e dos municípios (aba 05);
   - Squad 1/Auditoria e qualidade/producao_empresas_ri_2025_2026.csv — produção publicada pelas empresas.
 
 Saídas (documentacao/base_producao/):
@@ -58,7 +58,7 @@ def ler_aba(wb, nome):
     return [dict(zip(cab, r)) for r in it if r and r[0] is not None]
 
 
-wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v17.xlsx"), read_only=True)
+wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v18.xlsx"), read_only=True)
 EMP = {}
 for r in ler_aba(wb, "02_dim_empresas"):
     pf = str(r.get("tipo_pessoa") or "").upper() == "PF"
