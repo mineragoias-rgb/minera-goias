@@ -561,8 +561,8 @@ estado;MIN_020;Monazita e Terras-Raras;;beneficiada;325.77;R$: 100% da produçã
 empresa;MIN_020;Monazita e Terras-Raras;COM_CNPJ_08842895;beneficiada;325.77;R$ recolhidos (inclui variação de preço);jan–jun;1178783.62;407724.21;-65.4;112.679;
 estado;MIN_021;Nióbio;;ROM;8986468.87;t: 100% da produção;jan–jun;;;-4.6;8572399.902;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_021;Nióbio;COM_CNPJ_26108898;ROM;8986468.87;t comercializadas (R$/t estável);jan–jun;1683749.04;1606167.04;-4.6;8572399.902;
-estado;MIN_021;Nióbio;;beneficiada;3280804.6;t: 100% da produção;jan–jun;;;-4.6;3129635.17;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_021;Nióbio;COM_CNPJ_26108898;beneficiada;3280804.6;t comercializadas (R$/t estável);jan–jun;1683749.04;1606167.04;-4.6;3129635.17;
+estado;MIN_021;Nióbio;;conteudo_mineral;44523.013;t: 100% da produção;jan–jun;;;-4.6;42471.529;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_021;Nióbio;COM_CNPJ_26108898;conteudo_mineral;44523.013;t comercializadas (R$/t estável);jan–jun;1683749.04;1606167.04;-4.6;42471.529;
 estado;MIN_022;Níquel;;ROM;2693905.97;R$: 100% da produção;jan–jun;;;10.1;2965092.832;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_022;Níquel;COM_CNPJ_42184226;ROM;2693905.97;R$ recolhidos (inclui variação de preço);jan–jun;10461289.15;11514393.53;10.1;2965092.832;
 estado;MIN_022;Níquel;;beneficiada;156885.63;R$: 100% da produção;jan–jun;;;10.1;172678.802;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"

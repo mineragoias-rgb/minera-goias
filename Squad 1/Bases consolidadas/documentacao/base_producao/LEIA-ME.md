@@ -21,13 +21,13 @@ Gerada por `base_consolidada_work/scripts/gerar_base_producao.py` a partir da ab
 | Ano | Base | Total do estado | Dividido por empresa | Linhas de empresa |
 |---|---|---:|---:|---:|
 | 2022 | ROM | 116,0 Mt | 99,7% | 318 |
-| 2022 | beneficiada | 28,1 Mt | 98,8% | 296 |
+| 2022 | beneficiada | 28,0 Mt | 98,8% | 295 |
 | 2023 | ROM | 117,8 Mt | 99,6% | 333 |
-| 2023 | beneficiada | 30,1 Mt | 99,9% | 321 |
+| 2023 | beneficiada | 30,1 Mt | 99,9% | 320 |
 | 2024 | ROM | 107,6 Mt | 99,7% | 369 |
-| 2024 | beneficiada | 34,4 Mt | 99,4% | 359 |
+| 2024 | beneficiada | 30,8 Mt | 99,4% | 358 |
 | 2025 | ROM | 108,1 Mt | 99,0% | 351 |
-| 2025 | beneficiada | 35,5 Mt | 99,9% | 339 |
+| 2025 | beneficiada | 32,2 Mt | 99,9% | 338 |
 
 ## Divisão × número publicado (mesma medida)
 
