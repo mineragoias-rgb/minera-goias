@@ -281,11 +281,70 @@ function estExportar(linhas){
  const url=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));
  const a=document.createElement('a');a.href=url;a.download='minera-goias-producao-por-empresa.csv';a.click();URL.revokeObjectURL(url);}
 
+/* Energia: uma por empresa, mineral e ano (a mesma nas linhas de ROM e de beneficiada). O coeficiente é lido na base em que a energia
+   foi dividida — beneficiada, contido (nióbio) ou ROM, nessa ordem —, salvo quando o filtro de base escolhe outra. */
+const ORDEM_BASE=['beneficiada','conteudo_mineral','ROM'];
+function baseDaEnergia(linhas){const m=new Map();
+ linhas.filter(l=>l.energia_mwh!=null&&!l.minerio_de_outro_mineral).forEach(l=>{const k=l.ano+'|'+l.mineral,b=m.get(k);
+  if(!b||ORDEM_BASE.indexOf(l.base)<ORDEM_BASE.indexOf(b))m.set(k,l.base)});return m}
+const observada=l=>String(l.energia_origem).startsWith('observada');
+const foraDaMedia=l=>/fora da média/.test(l.energia_nota||'');
+// A média do mineral usa só a carga que é inteira do mineral (empresa de um mineral só) ou separada pelo Squad 2 — como no pipeline.
+const deReferencia=l=>(l.energia_origem==='observada_ccee'||l.energia_origem==='observada_ccee_separada')&&!foraDaMedia(l);
+function linhasDeEnergia(linhas){const base=el('es-base').value,bm=baseDaEnergia(est.linhas);
+ return linhas.filter(l=>l.energia_mwh!=null&&!l.minerio_de_outro_mineral&&l.base===(base||bm.get(l.ano+'|'+l.mineral)))}
+
+function estEnergia(linhas){
+ const g=new Map();
+ linhasDeEnergia(linhas).forEach(l=>{const a=g.get(l.empresa)||{obs:0,est:0};a[observada(l)?'obs':'est']+=l.energia_mwh;g.set(l.empresa,a)});
+ const itens=[...g.entries()].map(([e,a])=>[e,a,a.obs+a.est]).filter(x=>x[2]>0).sort((a,b)=>b[2]-a[2]).slice(0,15);
+ if(!itens.length)return `<p class="mk-note">${escape(t('es.semEnergia'))}</p>`;
+ const max=itens[0][2];
+ return itens.map(([e,a,tot])=>`<div class="bar-row"><span class="bar-label" title="${escape(e)}">${escape(e)}</span>`
+  +`<div class="bar-track"><div class="bar-fill parcial" style="width:${tot/max*100}%;position:relative">`
+  +`<div class="bar-fill completo" style="width:${tot?a.obs/tot*100:0}%;position:absolute;left:0;top:0;height:100%"></div></div></div>`
+  +`<span class="bar-value">${escape(num(tot))} MWh</span></div>`).join('');}
+
+function estCoef(linhas){
+ const min=el('es-min').value;
+ el('es-coefT').textContent=min?t('es.coefT',{mineral:min}):t('es.coefTodosT');
+ el('es-coefS').textContent=min?t('es.coefS'):t('es.coefTodosS');
+ if(!min)return `<p class="mk-note">${escape(t('es.coefEscolha'))}</p>`;
+ const xs=linhasDeEnergia(linhas).filter(l=>l.coeficiente_mwh_t!=null&&l.coeficiente_mwh_t!=='').sort((a,b)=>b.coeficiente_mwh_t-a.coeficiente_mwh_t);
+ if(!xs.length)return `<p class="mk-note">${escape(t('es.semEnergia'))}</p>`;
+ const ref=xs.filter(deReferencia),media=ref.length?ref.reduce((s,l)=>s+l.coeficiente_mwh_t,0)/ref.length:null;
+ const max=xs[0].coeficiente_mwh_t;
+ return (media!=null?`<p class="mk-note">${escape(t('es.coefMedia',{v:coef(media),n:String(ref.length)}))}</p>`:'')
+  +xs.slice(0,20).map(l=>`<div class="bar-row"><span class="bar-label" title="${escape(l.empresa+' · '+(l.energia_nota||''))}">${escape(l.empresa)}${l.ano?' · '+l.ano:''}</span>`
+  +`<div class="bar-track"><div class="bar-fill ${observada(l)?'completo':'parcial'}" style="width:${l.coeficiente_mwh_t/max*100}%"></div></div>`
+  +`<span class="bar-value">${escape(coef(l.coeficiente_mwh_t))}${foraDaMedia(l)?' *':''}</span></div>`).join('')
+  +(xs.some(foraDaMedia)?`<p class="mk-note">${escape(t('es.coefFora'))}</p>`:'');}
+
+function estReferencias(){
+ const ano=el('es-ano').value,base=el('es-base').value,bm=baseDaEnergia(est.linhas);
+ const xs=est.linhas.filter(l=>l.energia_mwh!=null&&!l.minerio_de_outro_mineral&&(!ano||String(l.ano)===ano)
+  &&l.base===(base||bm.get(l.ano+'|'+l.mineral)));
+ const g=new Map();
+ xs.forEach(l=>{const k=l.ano+'|'+l.mineral+'|'+l.base;const a=g.get(k)||{ano:l.ano,mineral:l.mineral,base:l.base,obs:[],nEst:0,energia:0,prod:0};
+  if(deReferencia(l))a.obs.push(l.coeficiente_mwh_t);if(!observada(l))a.nEst++;a.energia+=l.energia_mwh;a.prod+=l.producao_t;g.set(k,a)});
+ const rows=[...g.values()].sort((a,b)=>b.ano-a.ano||b.energia-a.energia);
+ if(!rows.length)return `<p class="mk-note">${escape(t('es.semEnergia'))}</p>`;
+ return `<table><thead><tr>${[t('es.h.ano'),t('es.h.mineral'),t('es.h.base'),t('es.h.media'),t('es.h.faixa'),t('es.h.nObs'),t('es.h.nEst'),t('es.h.energiaTot'),t('es.h.coefSetor')]
+  .map(c=>`<th>${escape(c)}</th>`).join('')}</tr></thead><tbody>`
+  +rows.map(r=>{const m=r.obs.length?r.obs.reduce((s,v)=>s+v,0)/r.obs.length:null;
+   return `<tr><td>${r.ano}</td><td>${escape(r.mineral)}</td><td>${escape(r.base)}</td><td class="num">${m==null?'—':escape(coef(m))}</td>`
+    +`<td class="num">${r.obs.length?escape(coef(Math.min(...r.obs))+' – '+coef(Math.max(...r.obs))):'—'}</td><td class="num">${r.obs.length}</td><td class="num">${r.nEst}</td>`
+    +`<td class="num">${escape(num(r.energia/1000,1))} GWh</td><td class="num">${r.prod?escape(coef(r.energia/r.prod)):'—'}</td></tr>`}).join('')
+  +'</tbody></table>';}
+
 function estDesenhar(){
  const linhas=estFiltradas(),estado=estEstado();
  el('es-metrics').innerHTML=estMetricas(linhas,estado);
  el('es-barras').innerHTML=estBarras(linhas);
  el('es-cobertura').innerHTML=estCobertura(estado);
+ el('es-energia').innerHTML=estEnergia(linhas);
+ el('es-coef').innerHTML=estCoef(linhas);
+ el('es-ref').innerHTML=estReferencias();
  el('es-tabela').innerHTML=estTabela(linhas);
  el('es-publicado').innerHTML=estPublicado(linhas);
  const partes=[el('es-ano').value,el('es-base').value,el('es-min').value,el('es-busca').value.trim()].filter(Boolean);
