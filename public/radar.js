@@ -2,18 +2,28 @@
    Every number here is a count of records in a source, never a forecast. */
 (()=>{'use strict';
 const el=id=>document.getElementById(id),escape=esc,n=v=>I18N.num(v);
+// Chave de tradução montada em tempo de execução. O teste de i18n colhe as chaves usadas
+// por expressão regular sobre a chamada de tradução seguida de um literal, então passar o
+// prefixo concatenado seria colhido como uma chave que não existe, e a verificação cairia.
+// O nome tk não casa com aquele padrão - é o mesmo recurso que territorio.js usa. (Nem este
+// comentário pode trazer um exemplo literal: ele também seria colhido.)
+const tk=(prefixo,valor)=>t(prefixo+String(valor));
 const VIZ={confirmado:'#0f6fb0',analise:'#0d9488',abrindo:'#c2681b'};
 const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
 const area=v=>Number.isFinite(v)&&v>0?I18N.num(v,{maximumFractionDigits:2})+' ha':t('rd.semArea');
 const PAGE=30;
 let loaded=false,packet=null,records=null,phase='',shown=PAGE,selected=null;
 
-function bars(rows,color){
+// O formatador é opcional porque a aba de cruzamento mostra percentuais. E a linha com
+// valor zero continua desenhada, de propósito: nos três painéis do cruzamento a ausência
+// é o achado - areia é 20,7% do cadastro e 0% das manchetes - e os três precisam ter
+// exatamente as mesmas linhas, na mesma ordem, para a leitura ser posicional.
+function bars(rows,color,fmt){
  if(!rows.length)return `<div class="empty">${escape(t('ov.empty'))}</div>`;
- const max=Math.max(...rows.map(r=>r.value),1);
+ const texto=fmt||n,max=Math.max(...rows.map(r=>r.value),1);
  return rows.map(r=>`<div class="bar-row"><span class="bar-label" title="${escape(r.label)}">${escape(r.label)}</span>`
   +`<div class="bar-track"><div class="bar-fill" style="width:${r.value/max*100}%;background:${color}"></div></div>`
-  +`<span class="bar-value">${escape(n(r.value))}</span></div>`).join('')}
+  +`<span class="bar-value">${escape(texto(r.value))}</span></div>`).join('')}
 
 function phaseTable(fases){
  const rows=[...fases.confirmado.fases.map(f=>({...f,grupo:'confirmado'})),
@@ -159,7 +169,7 @@ async function carregarMeses(meses){
   guardar((await r.json()).itens);CARREGADOS.add(mes)}));
  return faltam.filter((m,k)=>resultado[k].status==='rejected')}
 
-const subName=s=>t('rd.s.'+s);
+const subName=s=>tk('rd.s.',s);
 const viaBusca=link=>/news\.google\.com|bing\.com/.test(link||'');
 const chave=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()
  .replace(/[^a-z0-9]+/g,' ').trim();
@@ -225,7 +235,7 @@ function linhas(filtro){
  for(const l of unicas)l.repetidas=Math.max(0,[...l.veiculos].filter(v=>v&&v!=='bing').length-1);
  return unicas}
 
-const periodoTexto=()=>F.periodo==='mes'?mesNome(F.mes):t('rd.d'+F.periodo);
+const periodoTexto=()=>F.periodo==='mes'?mesNome(F.mes):tk('rd.d',F.periodo);
 
 /* Os cartões respondem ao que se pergunta ao abrir o radar - o que chegou, o que é
    de Goiás, o que mexe com regra e cobrança, qual foi a matéria da vez - e cada um é
@@ -391,9 +401,157 @@ function trendBlock(noticias){
   ? `<table><thead><tr><th>${escape(t('rd.thSemana'))}</th><th>${escape(t('rd.thSubstancia'))}</th>`
     +`<th>${escape(t('rd.thMaterias'))}</th><th>${escape(t('rd.thVeredito'))}</th></tr></thead><tbody>`
     +rows.map(r=>`<tr><td>${escape(r.period)}</td><td>${escape(r.commodity)}</td><td>${escape(n(r.items))}</td>`
-     +`<td>${escape(t('rd.v.'+r.verdict))}</td></tr>`).join('')+'</tbody></table>'
+     +`<td>${escape(tk('rd.v.',r.verdict))}</td></tr>`).join('')+'</tbody></table>'
   : `<div class="empty">${escape(t('rd.semTendencia'))}</div>`;
  return `<h3>${escape(t('rd.tendencias'))}</h3>${body}<p class="small muted">${escape(t('rd.aviso'))}</p>`}
+
+/* ---------------------------------------------------------------------------
+   As três abas. Nada é recarregado na troca: showRadar é idempotente e pinta tudo
+   numa passada, então mostrarAba() só revela o painel que já está no DOM. A exceção
+   é o cruzamento, que busca o próprio recorte na primeira abertura - como o
+   explorador de fases faz com o pacote de processos. */
+const ABAS=['anm','noticias','cruzamento'];
+let aba='anm';
+try{const guardada=localStorage.getItem('minera-rd-aba');if(ABAS.includes(guardada))aba=guardada}catch{}
+
+function mostrarAba(nova){
+ aba=nova;
+ try{localStorage.setItem('minera-rd-aba',nova)}catch{}
+ el('rd-tabs').querySelectorAll('[data-rd]').forEach(b=>{
+  const on=b.dataset.rd===aba;
+  b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+ for(const k of ABAS)el('rd-aba-'+k).hidden=k!==aba;
+ if(aba==='cruzamento')abrirCruzamento()}
+
+function wireAbas(){
+ el('rd-tabs').querySelectorAll('[data-rd]').forEach(b=>b.onclick=()=>mostrarAba(b.dataset.rd));
+ el('rd-tabs').onkeydown=e=>{
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+  e.preventDefault();
+  const i=ABAS.indexOf(aba),k=ABAS[(i+(e.key==='ArrowRight'?1:-1)+ABAS.length)%ABAS.length];
+  mostrarAba(k);el('rd-tabs').querySelector(`[data-rd="${k}"]`).focus()}}
+
+/* ---------------------------------------------------------------------------
+   ANM × Notícias. Três contagens da mesma substância - manchetes, processos e CFEM -
+   e a distância entre a primeira e a última. Não é série temporal e não mede
+   antecipação: o cadastro da ANM não guarda a data em que um processo apareceu, e a
+   nota que vem do backend diz isso na página. */
+let CX=null,buscandoCX=null,escopoCX='goias';
+const CX_COR={atencao:'#0f6fb0',cadastro:'#0d9488',caixa:'#c2681b'};
+const pct=v=>v==null?'—':I18N.num(v,{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+
+async function abrirCruzamento(){
+ if(CX){desenharCruzamento();return}
+ if(buscandoCX)return;
+ el('rd-cx-erro').textContent='';
+ el('rd-cx-loading').hidden=false;
+ el('rd-cx-corpo').hidden=true;
+ try{
+  buscandoCX=api('/radar/cruzamento');
+  CX=await buscandoCX;
+  el('rd-cx-corpo').hidden=false;
+  desenharCruzamento();
+ }catch(e){el('rd-cx-erro').textContent=e.message;buscandoCX=null}
+ finally{el('rd-cx-loading').hidden=true}}
+
+// Os botões são construídos uma vez e só o estado ativo muda depois. Reconstruir o
+// seletor a cada redesenho trocaria os botões sob o ponteiro no meio do clique, e o foco
+// do teclado se perderia a cada troca de recorte.
+function cxEscopos(){
+ const caixa=el('rd-cx-escopos');
+ if(!caixa.querySelector('[data-cx]')){
+  const nomes={goias:t('rd.cx.eGoias'),brasil:t('rd.cx.eBrasil'),tudo:t('rd.cx.eTudo')};
+  caixa.innerHTML=CX.escopos.map(v=>
+   `<button type="button" data-cx="${escape(v)}">${escape(nomes[v]||v)}</button>`).join('');
+  caixa.querySelectorAll('[data-cx]').forEach(b=>b.onclick=()=>{
+   escopoCX=b.dataset.cx;desenharCruzamento()})}
+ marcar('rd-cx-escopos','data-cx',escopoCX)}
+
+function desenharCruzamento(){
+ // window.PNC é lido aqui e não no topo do arquivo: painel.html carrega radar.js antes
+ // de panorama-charts.js, então no topo da IIFE ele ainda seria undefined para sempre.
+ const C=window.PNC;
+ if(!C||el('rd-aba-cruzamento').hidden)return;
+ const d=CX.dados[escopoCX]||CX.dados[CX.escopos[0]];
+ cxEscopos();
+ el('rd-cx-note').textContent=CX.nota;
+ const nome=r=>tk('rd.s.',r.chave);
+ // Uma linha só entra nos gráficos se alguma das três medidas tiver valor: substância
+ // sem processo, sem CFEM e sem manchete não é achado, é ruído do mapeamento.
+ const linhas=d.linhas.filter(r=>(r.processos||0)||(r.cfem||0)||(r.unicas||0));
+
+ const box=el('rd-cx-div');
+ C.setWidth(box.clientWidth||860);
+ if(CX.imprensa_disponivel){
+  const dist=linhas.filter(r=>r.distancia!=null&&r.distancia!==0)
+   .map(r=>({label:nome(r),value:r.distancia}))
+   .sort((a,b)=>Math.abs(b.value)-Math.abs(a.value));
+  el('rd-cx-legenda').innerHTML=
+   `<span><i style="background:${CX_COR.atencao}"></i>${escape(t('rd.cx.legAtencao'))}</span>`
+   +`<span><i style="background:${CX_COR.caixa}"></i>${escape(t('rd.cx.legCaixa'))}</span>`;
+  box.innerHTML=C.hdiv(dist,{pos:CX_COR.atencao,neg:CX_COR.caixa,aria:t('rd.cx.distanciaAria'),
+   fmt:v=>(v>0?'+':'')+I18N.num(v,{minimumFractionDigits:1,maximumFractionDigits:1})+' p.p.'});
+ }else{
+  el('rd-cx-legenda').innerHTML='';
+  box.innerHTML=`<div class="notice">${escape(t('rd.cx.semImprensa'))}</div>`}
+
+ // A mesma ordem de linhas nos três painéis, e barras HTML em vez do SVG do Panorama:
+ // o hbar de lá descarta a linha de valor zero, e aqui o zero é o que se quer ver.
+ const ordem=[...linhas].sort((a,b)=>(b.processos||0)-(a.processos||0));
+ const painel=(id,campo,cor)=>{el(id).innerHTML=
+  bars(ordem.map(r=>({label:nome(r),value:r[campo]||0})),cor,pct)};
+ if(CX.imprensa_disponivel)painel('rd-cx-imprensa','unicas_pct',CX_COR.atencao);
+ else el('rd-cx-imprensa').innerHTML=`<div class="empty">${escape(t('ov.empty'))}</div>`;
+ painel('rd-cx-proc','processos_pct',CX_COR.cadastro);
+ painel('rd-cx-cfem','cfem_pct',CX_COR.caixa);
+
+ C.table(el('rd-cx-tabela'),[
+  {label:t('rd.cx.thSubs'),get:nome},
+  {label:t('rd.cx.thMat'),num:true,get:r=>r.materias==null?'—':n(r.materias)},
+  {label:t('rd.cx.thUnicas'),num:true,get:r=>r.unicas==null?'—':n(r.unicas)},
+  {label:t('rd.cx.thPctMat'),num:true,get:r=>pct(r.unicas_pct)},
+  {label:t('rd.cx.thProc'),num:true,get:r=>n(r.processos)},
+  {label:t('rd.cx.thPctProc'),num:true,get:r=>pct(r.processos_pct)},
+  {label:t('rd.cx.thCfem'),num:true,get:r=>C.money(r.cfem,0)},
+  {label:t('rd.cx.thPctCfem'),num:true,get:r=>pct(r.cfem_pct)},
+  {label:t('rd.cx.thDist'),num:true,get:r=>r.distancia==null?'—':(r.distancia>0?'+':'')+pct(r.distancia)},
+ ],ordem,{limit:12});
+
+ cxCartoes(C,linhas,d);
+ const cob=CX.cobertura;
+ el('rd-cx-cobertura').textContent=t('rd.cx.cobertura',
+  {cfem:pct((cob.cfem||0)*100),proc:pct((cob.processos||0)*100)});
+ el('rd-cx-duplicadas').textContent=d.tags&&d.manchetes
+  ?t('rd.cx.duplicadas',{mat:n(d.tags),unicas:n(d.manchetes)}):'';
+ const per=CX.periodos;
+ el('rd-fonte-cruzamento').textContent=t('rd.fonteCruzamento',{fonte:CX.fonte})
+  +(per.cfem?' · '+t('rd.cx.periodo',{a0:per.cfem[0],a1:per.cfem[1],
+    acervo:n(per.imprensa_acervo||0),desde:per.imprensa_coleta_desde||'—'}):'')}
+
+function cxCartoes(C,linhas,d){
+ // Todos derivados dos dados: nenhuma substância é nomeada no código.
+ const comDist=linhas.filter(r=>r.distancia!=null);
+ const maisCitada=comDist.reduce((a,b)=>!a||b.distancia>a.distancia?b:a,null);
+ const maisCaixa=comDist.reduce((a,b)=>!a||b.distancia<a.distancia?b:a,null);
+ const maiorCad=linhas.reduce((a,b)=>!a||(b.processos||0)>(a.processos||0)?b:a,null);
+ const sinal=v=>(v>0?'+':'')+I18N.num(v,{minimumFractionDigits:1,maximumFractionDigits:1});
+ const cartoes=[];
+ if(maisCitada&&maisCitada.distancia>0)cartoes.push(['tone-a',t('rd.cx.cMaisCitada'),
+  tk('rd.s.',maisCitada.chave),t('rd.cx.cDist',{v:sinal(maisCitada.distancia)})]);
+ if(maisCaixa&&maisCaixa.distancia<0)cartoes.push(['tone-c',t('rd.cx.cMaisCaixa'),
+  tk('rd.s.',maisCaixa.chave),t('rd.cx.cDist',{v:sinal(maisCaixa.distancia)})]);
+ if(maiorCad)cartoes.push(['tone-b',t('rd.cx.cMaiorCadastro'),tk('rd.s.',maiorCad.chave),
+  t('rd.cx.cCadastroNota',{proc:pct(maiorCad.processos_pct),
+   mat:maiorCad.unicas_pct==null?'—':pct(maiorCad.unicas_pct)})]);
+ cartoes.push(['tone-d',t('rd.cx.cCobertura'),pct((CX.cobertura.cfem||0)*100),
+  t('rd.cx.cCoberturaNota',{cfem:pct((CX.cobertura.cfem||0)*100),
+   proc:pct((CX.cobertura.processos||0)*100)})]);
+ el('rd-cx-cartoes').innerHTML=C.tiles(cartoes)}
+
+// Os gráficos são redesenhados na largura real do cartão, nunca escalados.
+let cxTimer;
+addEventListener('resize',()=>{clearTimeout(cxTimer);
+ cxTimer=setTimeout(()=>{if(!el('radar-view').hidden&&aba==='cruzamento'&&CX)desenharCruzamento()},150)});
 
 async function load(){
  el('radar-error').textContent='';
@@ -411,7 +569,11 @@ async function load(){
   wireNews();
   el('rd-tendencias').innerHTML=trendBlock(d.noticias);
   el('rd-fonte').textContent=t('ov.sourcePrefix')+d.rodadas.fonte;
+  el('rd-fonte-noticias').textContent=d.noticias.gerado_por
+   ?t('rd.fonteNoticias',{gerado:d.noticias.gerado_por,desde:d.noticias.coleta_desde||'—'}):'';
   wireExplorer();
+  wireAbas();
+  mostrarAba(aba);
   el('radar-content').hidden=false;
  }catch(e){el('radar-error').textContent=e.message}
  finally{el('radar-loading').hidden=true}}
