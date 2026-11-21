@@ -176,6 +176,39 @@ if negativos:
     raise SystemExit(f"CFEM por processo zero ou negativa ({len(negativos)}): a participação no rateio deixaria de ser uma fração -- revisar a regra")
 ANO_CFEM_INI = min(a for _, a in tot_rs)
 
+# Calibração pelo número publicado (20/11/2026): onde a empresa publica a mesma medida que a beneficiada do AMB e a CFEM se
+# mostrou fora da margem, a parcela dela no mineral e ano é fixada no publicado e o restante do estado é repartido entre os
+# outros processos pela CFEM em R$, como antes. O total do estado não muda. A parcela da empresa na ROM recebe o mesmo
+# fator da beneficiada (a empresa não publica a ROM). Caso em uso: Mosaic, concentrado de rocha de Catalão (10-K, Item 2):
+# 2024-25 a CFEM dava +31% a +35% à Mosaic, que saía da CMOC.
+RI_CSV = os.path.join(BASE, "..", "Auditoria e qualidade", "producao_empresas_ri_2025_2026.csv")
+CALIBRA = [dict(mineral="Fosfato", company_id="COM_CNPJ_33931486", empresa="Mosaic Fertilizantes",
+                medida="concentrado de rocha fosfática (~34,7% P2O5)")]
+ID_DE = {v: k for k, v in NOME.items()}
+fator_proc, calib_nota = {}, {}
+if os.path.exists(RI_CSV):
+    ri = pd.read_csv(RI_CSV, sep=";", dtype=str, encoding="utf-8-sig").fillna("")
+    for c in CALIBRA:
+        mid = ID_DE.get(c["mineral"])
+        sel = ri[ri.empresa.str.startswith(c["empresa"]) & (ri.medida == c["medida"]) & ri.periodo.str.fullmatch(r"\d{4}")
+                 & ri.tipo_valor.str.startswith("realizado")]
+        for _, r in sel.iterrows():
+            ano, pub = int(r.periodo), float(r.valor)
+            P_b = tot.get((mid, ano, "beneficiada"), 0.0)
+            procs = procs_de.get((mid, ano), [])
+            R = tot_rs.get((mid, ano), 0.0)
+            dela = [p for p, v in procs if cf_emp[(mid, ano, p)] and cf_emp[(mid, ano, p)].most_common(1)[0][0] == c["company_id"]]
+            s_c = sum(v for p, v in procs if p in dela) / R if R else 0.0
+            if not (P_b > 0 and dela and 0 < s_c < 1):
+                continue
+            S_c = min(pub / P_b, 0.999)
+            for p, _ in procs:
+                fator_proc[(mid, ano, p)] = S_c / s_c if p in dela else (1 - S_c) / (1 - s_c)
+            calib_nota[(mid, ano)] = (dela, f"parcela de {c['empresa']} fixada no número publicado ({br(pub, 0)} t de {c['medida']}, {r.fonte}): "
+                                            f"{S_c:.1%} da beneficiada do estado, contra {s_c:.1%} pela CFEM; os outros processos dividem o restante pela CFEM "
+                                            f"e a ROM recebe os mesmos fatores")
+print(f"calibração pelo publicado: {sorted((NOME[m], a) for m, a in calib_nota)}")
+
 # ---------------------------------------------------------------------------
 # 2) linhas: estado (observado) e, logo abaixo, a abertura por operação (estimada)
 # ---------------------------------------------------------------------------
@@ -226,7 +259,8 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     soma = 0.0
     for proc, v in sorted(procs_de[(mid, ano)], key=lambda x: -x[1]):
         kp = (mid, ano, proc)
-        s = v / R
+        s_cfem = v / R
+        s = s_cfem * fator_proc.get(kp, 1.0)  # 1,0 fora dos casos calibrados pelo número publicado
         est = P * s
         alt = (P * cf_t.get(kp, 0.0) / T) if T > 0 else None
         o = OPS.get(proc)
@@ -236,10 +270,17 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
             + (["SRC_ANM_SIGMINE", "SRC_IBGE_MALHA_2025"] if o else [])
         faixa = (f"entre {br(min(est, alt), 3)} e {br(max(est, alt), 3)} t (rateio por R$ × rateio pela quantidade em t da CFEM)" if alt is not None
                  else "sem alternativa: a CFEM do mineral no ano não tem quantidade em t")
-        if n_procs > 1:  # com uma operação só, a abertura é o próprio total do estado
+        calib = calib_nota.get((mid, ano))
+        if calib and proc in calib[0]:
+            faixa = (f"fixada no número publicado pela empresa (arredondado a 0,1 Mt na fonte, ±5%); rateio só pela CFEM daria {br(P * s_cfem, 3)} t"
+                     + (f"; alternativa pela quantidade em t da CFEM: {br(alt, 3)} t" if alt is not None else ""))
+        elif n_procs > 1:  # com uma operação só, a abertura é o próprio total do estado
             faixa += (f"; erro observado contra a produção publicada pelas empresas: {VALIDACAO} — use ±{ERRO_TIPICO_PCT}% "
                       f"(entre {br(est * (1 - ERRO_TIPICO_PCT / 100), 3)} e {br(est * (1 + ERRO_TIPICO_PCT / 100), 3)} t)")
         obs = []
+        if calib:
+            obs.append(calib[1] if proc in calib[0] else "parcela ajustada: o restante do estado depois da parcela fixada no número publicado ("
+                       + calib[1].split(" fixada")[0].replace("parcela de ", "") + "), repartido pela CFEM")
         if cf_sub[kp]:
             obs.append("CFEM declarada como " + ", ".join(sorted(cf_sub[kp])) + f" (subitem de {NOME[mid]})")
         if not o:
@@ -257,8 +298,8 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
             obs.append("o total do estado tem produção repetida entre linhas do AMB (ver linha de nível estado)")
         nova(mineral_id=mid, mineral_name=NOME[mid], company_id=comp, operation_id=o["operation_id"] if o else None, municipality_id=mun, year=ano,
              production_t=est, production_basis=base, latitude=o["latitude"] if o else None, longitude=o["longitude"] if o else None,
-             nivel_agregacao="operacao", processo_anm=proc, valor_observado_estimado="estimado", metodo_estimacao=METODO, erro_estimativa_intervalo=faixa,
-             participacao_cfem_brl=s, cfem_brl_operacao=cf_rs_obs[kp], cfem_brl_mineral_ano=R, production_t_rateio_por_t=alt,
+             nivel_agregacao="operacao", processo_anm=proc, valor_observado_estimado="estimado", metodo_estimacao=METODO + (" Mineral e ano calibrados: a parcela da empresa que publica a mesma medida fica no número publicado e o restante segue a CFEM." if calib else ""), erro_estimativa_intervalo=faixa,
+             participacao_cfem_brl=s_cfem, cfem_brl_operacao=cf_rs_obs[kp], cfem_brl_mineral_ano=R, production_t_rateio_por_t=alt,
              status_validacao="estimativa_com_alerta_09c" if kp in cf_alerta else "estimativa_conferida_no_total", responsavel_validacao=RESPONSAVEL,
              periodo_referencia=str(ano), tipo_fonte="oficial", fato_ids="; ".join(fids[k]), observacao="; ".join(obs) or None, **fontes(ids))
         soma += est
