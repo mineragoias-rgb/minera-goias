@@ -53,9 +53,6 @@ ETAPAS = [
      ["data/mapa"], ["inventario_p3m"], ["tests/test_mapa.py"]),
     ("pacote_squad2", [PY, "base_consolidada_work/scripts/gerar_pacote_squad2.py"], S1,
      [f"{S1}/documentacao/pacote_squad2"], [], []),
-    # base de produção por empresa (aba 12 legível, com a produção publicada pelas empresas ao lado)
-    ("base_producao", [PY, "base_consolidada_work/scripts/gerar_base_producao.py"], S1,
-     [f"{S1}/documentacao/base_producao"], ["pacote_squad2"], ["tests/test_base_producao.py"]),
     # cópias corrigidas dos brutos da ANM (unidade fora de escala), com o registro de cada célula alterada e dos tratamentos
     # do pipeline (lê a planilha e a tabela de coprodutos do pacote); o bruto não muda
     ("dados_corrigidos", [PY, "base_consolidada_work/scripts/gerar_dados_corrigidos.py"], S1,
@@ -64,11 +61,15 @@ ETAPAS = [
      ["data/panorama/panorama.json"], [], ["tests/test_panorama.py"]),
     ("producao", [PY, "scripts/build_producao_base.py"], ".",
      ["data/producao/producao.json", "data/producao/producao.csv"], [], ["tests/test_producao.py"]),
-    ("empresas", [PY, "scripts/build_empresas_base.py"], ".",
-     ["data/empresas/empresas.json"], ["panorama", "producao", "base_producao"], ["tests/test_empresas.py"]),
     ("intensidade_squad2", [PY, f"{INT}/build_intensidade.py"], ".",
      [f"{INT}/base_intensidade_energetica_v1.csv", f"{INT}/energy_intensity_para_motor_v1.csv",
       f"{INT}/coeficiente_estadual_para_modelo_v1.csv"], ["pacote_squad2"], [f"{INT}/test_intensidade.py"]),
+    # base de produção por empresa (aba 12 legível, com a produção publicada pelas empresas ao lado, a carga da CCEE e o coeficiente);
+    # lê a separação da carga por mineral do Squad 2, por isso vem depois da intensidade
+    ("base_producao", [PY, "base_consolidada_work/scripts/gerar_base_producao.py"], S1,
+     [f"{S1}/documentacao/base_producao"], ["pacote_squad2", "intensidade_squad2"], ["tests/test_base_producao.py"]),
+    ("empresas", [PY, "scripts/build_empresas_base.py"], ".",
+     ["data/empresas/empresas.json"], ["panorama", "producao", "base_producao"], ["tests/test_empresas.py"]),
     ("projetos_mercado", [PY, "scripts/build_projetos_go.py"], ".",
      ["public/data/mercado/projetos_go_v1.json"], [], ["tests/test_mercado.py"]),
     ("simulador", [PY, "scripts/build_simulador_base.py"], ".",

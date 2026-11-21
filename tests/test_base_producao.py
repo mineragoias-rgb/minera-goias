@@ -48,6 +48,33 @@ class BaseProducaoTests(unittest.TestCase):
             if r['company_id'].startswith('COM_NOME_') or r['empresa'].startswith('pessoa física'):
                 self.assertEqual(r['cnpj_raiz'], '', r['company_id'])
 
+    def test_energia_estimada_usa_a_media_do_mineral(self):
+        # Sem carga na CCEE, a energia é produção × média dos coeficientes do mineral: o coeficiente é o mesmo em todas essas linhas.
+        coef = defaultdict(set)
+        for r in self.emp:
+            if r['energia_origem'] == 'estimada_media_mineral':
+                self.assertIn(r['ano'], ('2024', '2025'), r)
+                coef[(r['ano'], r['mineral'], r['base'])].add(round(float(r['coeficiente_mwh_t']), 9))
+        self.assertTrue(coef)
+        # a energia sai da base de referência do mineral (beneficiada quando existe): nela o coeficiente é um só; na outra base varia
+        for ano, mineral in {k[:2] for k in coef}:
+            self.assertTrue(any(len(v) == 1 for k, v in coef.items() if k[:2] == (ano, mineral)), (ano, mineral))
+
+    def test_energia_observada_fecha_com_a_carga_da_empresa(self):
+        # A carga observada da empresa, repartida entre os minerais, soma a carga inteira (uma base por mineral; o coproduto publicado,
+        # como o ouro da Chapada, fica com a diferença).
+        por_emp, carga, coprod = defaultdict(dict), {}, defaultdict(float)
+        for r in self.emp:
+            if r['energia_origem'].startswith('observada'):
+                por_emp[(r['ano'], r['company_id'])][r['mineral']] = float(r['energia_mwh'])
+                carga[(r['ano'], r['company_id'])] = float(r['energia_ccee_empresa_mwh'])
+                m = re.search(r'no concentrado \([^)]*\): ([\d.]+) MWh', r['energia_nota'])
+                if m:
+                    coprod[(r['ano'], r['company_id'])] = float(m.group(1).replace('.', ''))
+        self.assertTrue(carga)
+        for k, ms in por_emp.items():
+            self.assertAlmostEqual(sum(ms.values()) + coprod[k], carga[k], delta=max(1.0, 1e-3 * carga[k]), msg=k)
+
     def test_publicado_comparavel_tem_diferenca(self):
         comparaveis = [r for r in self.emp if r['publicado_comparavel'] == 'sim']
         self.assertTrue(comparaveis)

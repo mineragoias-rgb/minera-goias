@@ -101,7 +101,8 @@ with open(RI, encoding="utf-8-sig") as f:
 os.makedirs(SAIDA, exist_ok=True)
 CAMPOS = ["ano", "mineral", "base", "empresa", "cnpj_raiz", "company_id", "producao_t", "parcela_do_estado", "producao_estado_t", "processos",
           "municipios", "parcela_com_coordenadas", "cfem_brl", "metodo", "publicado_valor", "publicado_unidade", "publicado_medida",
-          "publicado_em_t", "diferenca_base_vs_publicado", "publicado_comparavel", "publicado_fonte", "publicado_url", "publicado_conferido_no_original"]
+          "publicado_em_t", "diferenca_base_vs_publicado", "publicado_comparavel", "publicado_fonte", "publicado_url", "publicado_conferido_no_original",
+          "energia_ccee_empresa_mwh", "energia_mwh", "coeficiente_mwh_t", "energia_origem", "energia_nota"]
 saida, conf = [], defaultdict(float)
 for (ano, mineral, base, cid, assoc), e in sorted(emp.items(), key=lambda kv: (kv[0][0], kv[0][1], kv[0][2], kv[0][4], -kv[1]["t"])):
     tot = estado.get((ano, mineral, base), 0.0)
@@ -121,6 +122,186 @@ for (ano, mineral, base, cid, assoc), e in sorted(emp.items(), key=lambda kv: (k
                      publicado_fonte=p["fonte"], publicado_url=p["url"], publicado_conferido_no_original=p["conferido"])
         conf[(ano, mineral, base)] += e["t"]
     saida.append(linha)
+# ---------------------------------------------------------------------------------------------- energia (CCEE) e coeficiente
+# 21/11/2026. Para 2024 e 2025 (anos com CCEE e AMB), cada empresa recebe a energia que puxou da CCEE em Goiás e o coeficiente
+# energia ÷ produção estimada acima. Regras, na ordem:
+#  1. Energia observada: soma da carga (CONSUMO_TOTAL) das parcelas da CCEE com o CNPJ raiz da empresa, todos os ramos, no ano; 2024
+#     começa em abril na CCEE e é anualizado pelos meses do arquivo (× 12 ÷ meses).
+#  2. Uma base por mineral para dividir a energia: beneficiada (contido no nióbio) quando existe, senão o ROM. A mesma energia vai às
+#     linhas das duas bases do mineral, cada uma com o seu coeficiente (MWh por t daquela base).
+#  3. Empresa com mais de um mineral: mineral com menos de 5% da CFEM da empresa no ano fica com o principal (mesma regra dos
+#     coprodutos, ISO 14044). Se o Squad 2 já separou a carga por ramo e município (intensidade_energetica, nível titular_mineral_ano),
+#     vale a separação dele. Senão, cada mineral com coeficiente de referência recebe produção × referência, e o que sobra da carga vai
+#     aos minerais sem referência (pela CFEM); sem sobra a dividir, a carga é repartida na proporção de produção × referência.
+#  4. Coproduto que o AMB conta dentro de outro mineral e a empresa publica (o ouro no concentrado de cobre da Chapada) entra no passo
+#     3 com a quantidade publicada: tira do cobre a energia estimada para o ouro.
+#  5. Coeficiente de referência de um mineral = média dos coeficientes observados das empresas que têm carga só daquele mineral (ou
+#     separada pelo Squad 2), sem os valores fora de escala (mais de 10× acima ou abaixo da mediana, com 3 empresas ou mais — ex.: carga
+#     que inclui a fábrica de cimento).
+#  6. Empresa sem carga na CCEE (compra no mercado cativo, não aparece como consumidora): energia estimada = produção × média dos
+#     coeficientes das outras empresas do mesmo mineral, quando há pelo menos uma.
+import glob
+import re as _re
+from statistics import mean, median
+
+
+def _br(x, casas=0):
+    return f"{x:,.{casas}f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+ANOS_ENERGIA = ("2024", "2025")
+CCEE_DIR = os.path.join(BASE, "..", "dados", "CCEE")
+INTENSIDADE = os.path.join(BASE, "..", "..", "Squad 2", "intensidade_energetica", "base_intensidade_energetica_v1.csv")
+MIN_PARCELA_CFEM = 0.05
+FORA_DE_ESCALA = 10.0
+COPRODUTO_PUBLICADO = {  # (company_id, mineral do coproduto): (prefixo da empresa e medida na tabela de RIs, fator para t)
+    ("COM_CNPJ_86902053", "Ouro"): ("Lundin Mining", "ouro no concentrado de cobre", OZ_T),
+}
+COPRODUTO_ALT = {("COM_CNPJ_86902053", "Ouro"): "metal no concentrado"}  # 2025 vem com outra medida na tabela
+
+carga, meses = defaultdict(float), defaultdict(set)  # (cnpj raiz, ano) -> MWh; ano -> meses no arquivo
+for arq in sorted(glob.glob(os.path.join(CCEE_DIR, "parcela_carga_consumo_*_GO.csv"))):
+    with open(arq, encoding="utf-8-sig", newline="") as f:
+        for r in csv.DictReader(f, delimiter=";"):
+            mes = r["MES_REFERENCIA"].strip()
+            if mes[:4] not in ANOS_ENERGIA or not r["RAMO_ATIVIDADE"].strip():
+                continue  # parcela sem ramo é distribuidora (mercado cativo), não consumidor
+            raiz = _re.sub(r"\D", "", r["CNPJ_CARGA"]).zfill(14)[:8]
+            carga[(raiz, mes[:4])] += float(r["CONSUMO_TOTAL"].replace(",", ".") or 0)
+            meses[mes[:4]].add(mes)
+anual = {k: v * 12 / len(meses[k[1]]) for k, v in carga.items()}
+
+# separação do Squad 2 (nível titular_mineral_ano): parcela de cada mineral na carga da empresa
+sep_sq2 = defaultdict(dict)
+if os.path.exists(INTENSIDADE):
+    with open(INTENSIDADE, encoding="utf-8-sig", newline="") as f:
+        for r in csv.DictReader(f):
+            if r["nivel"] == "titular_mineral_ano" and r["energy_mwh"]:
+                sep_sq2[r["company_id"]][r["mineral_name"]] = float(r["energy_mwh"])
+sep_sq2 = {c: {m: v / sum(d.values()) for m, v in d.items()} for c, d in sep_sq2.items() if len(d) > 1}
+
+# coprodutos publicados (t por ano)
+copub = {}
+with open(RI, encoding="utf-8-sig") as f:
+    for r in csv.DictReader(f, delimiter=";"):
+        for (cid, mineral), (pref, medida, fator) in COPRODUTO_PUBLICADO.items():
+            if (r["empresa"].startswith(pref) and r["mineral"] == mineral and r["periodo"] in ANOS_ENERGIA and r["tipo_valor"].startswith("realizado")
+                    and r["medida"] in (medida, COPRODUTO_ALT.get((cid, mineral)))):
+                copub[(cid, mineral, r["periodo"])] = float(r["valor"]) * fator
+
+ORDEM_BASE = ("beneficiada", "conteudo_mineral", "ROM")
+for ano in ANOS_ENERGIA:
+    linhas_ano = [l for l in saida if l["ano"] == ano and not l["metodo"].startswith("minério de outro mineral")]
+    # produção de referência por empresa e mineral (uma base) e CFEM
+    por_emp = defaultdict(dict)  # company_id -> mineral -> {"base", "t", "cfem"}
+    bases_min = defaultdict(set)
+    for l in linhas_ano:
+        bases_min[l["mineral"]].add(l["base"])
+    base_de = {m: next(b for b in ORDEM_BASE if b in bs) for m, bs in bases_min.items()}
+    for l in linhas_ano:
+        if l["base"] == base_de[l["mineral"]] and l["producao_t"] > 0:
+            por_emp[l["company_id"]][l["mineral"]] = dict(base=l["base"], t=l["producao_t"], cfem=l["cfem_brl"] or 0.0)
+    for (cid, mineral, a), t in copub.items():
+        if a == ano and cid in por_emp and mineral not in por_emp[cid]:
+            por_emp[cid][mineral] = dict(base="beneficiada", t=t, cfem=0.0, coproduto=True)
+    raiz_de = {l["company_id"]: l["cnpj_raiz"] for l in linhas_ano}
+
+    # passo 3 (parte 1): minerais pequenos ficam com o principal
+    junto = {}  # (cid, mineral pequeno) -> mineral principal
+    for cid, ms in por_emp.items():
+        tot = sum(v["cfem"] for v in ms.values())
+        if len(ms) > 1 and tot > 0:
+            princ = max(ms, key=lambda m: ms[m]["cfem"])
+            for m, v in list(ms.items()):
+                if m != princ and not v.get("coproduto") and v["cfem"] / tot < MIN_PARCELA_CFEM:
+                    junto[(cid, m)] = princ
+                    del ms[m]
+
+    # passo 5: referência pelas empresas de um mineral só (ou separadas pelo Squad 2)
+    obs = defaultdict(list)  # mineral -> [(cid, coef)]
+    for cid, ms in por_emp.items():
+        e = anual.get((raiz_de.get(cid, ""), ano))
+        if not e or not raiz_de.get(cid):
+            continue
+        if len(ms) == 1:
+            (m, v), = ms.items()
+            obs[m].append((cid, e / v["t"]))
+        elif cid in sep_sq2 and set(ms) <= set(sep_sq2[cid]):
+            for m, v in ms.items():
+                obs[m].append((cid, e * sep_sq2[cid][m] / v["t"]))
+    fora = set()
+    ref = {}
+    for m, xs in obs.items():
+        if len(xs) >= 3:
+            med = median(c for _, c in xs)
+            fora |= {(cid, m) for cid, c in xs if c > FORA_DE_ESCALA * med or c < med / FORA_DE_ESCALA}
+        boas = [(cid, c) for cid, c in xs if (cid, m) not in fora]
+        if boas:
+            ref[m] = (mean(c for _, c in boas), [cid for cid, _ in boas])
+
+    # passos 3 e 6: energia de cada empresa e mineral
+    energia = {}  # (cid, mineral) -> (MWh, origem, nota)
+    for cid, ms in por_emp.items():
+        e = anual.get((raiz_de.get(cid, ""), ano)) if raiz_de.get(cid) else None
+        if e:
+            if len(ms) == 1:
+                (m, _), = ms.items()
+                energia[(cid, m)] = (e, "observada_ccee", "carga inteira da empresa na CCEE")
+                continue
+            if cid in sep_sq2 and set(ms) <= set(sep_sq2[cid]):
+                for m in ms:
+                    energia[(cid, m)] = (e * sep_sq2[cid][m], "observada_ccee_separada",
+                                         "carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)")
+                continue
+            com = {m: v["t"] * ref[m][0] for m, v in ms.items() if m in ref and cid not in ref[m][1]}
+            sem = [m for m in ms if m not in com]
+            soma = sum(com.values())
+            if sem and soma < e:
+                cf = sum(ms[m]["cfem"] for m in sem)
+                for m in com:
+                    energia[(cid, m)] = (com[m], "observada_ccee_rateada", f"parte da carga da empresa estimada pela produção × coeficiente médio de "
+                                                                          f"{len(ref[m][1])} empresa(s) do mineral")
+                for m in sem:
+                    parte = (e - soma) * (ms[m]["cfem"] / cf if cf else 1 / len(sem))
+                    energia[(cid, m)] = (parte, "observada_ccee_rateada", "o que sobra da carga da empresa depois de " + ", ".join(
+                        f"{x.lower()} ({_br(com[x])} MWh)" for x in com))
+            else:
+                base_r = com if (com and not sem) else {m: ms[m]["cfem"] for m in ms}
+                tot = sum(base_r.values()) or 1.0
+                regra = "produção × coeficiente médio de cada mineral" if (com and not sem) else "CFEM de cada mineral"
+                for m in ms:
+                    energia[(cid, m)] = (e * base_r.get(m, 0) / tot, "observada_ccee_rateada", f"carga da empresa repartida na proporção de {regra}")
+        else:
+            for m, v in ms.items():
+                if m in ref:
+                    energia[(cid, m)] = (v["t"] * ref[m][0], "estimada_media_mineral",
+                                         f"sem carga própria na CCEE: produção × média dos coeficientes de {len(ref[m][1])} empresa(s) do mineral")
+    # grava nas linhas (as duas bases do mineral recebem a mesma energia)
+    for l in saida:
+        if l["ano"] != ano or l["metodo"].startswith("minério de outro mineral"):
+            continue
+        cid, m = l["company_id"], l["mineral"]
+        chave = (cid, junto.get((cid, m), m))
+        if (cid, m) in junto:
+            l["energia_nota"] = f"mineral com menos de 5% da CFEM da empresa: a energia fica com {junto[(cid, m)].lower()}"
+            continue
+        if chave not in energia:
+            continue
+        mwh, origem, nota = energia[chave]
+        cop = [(x, energia[(cid, x)][0]) for x, v in por_emp.get(cid, {}).items() if v.get("coproduto") and (cid, x) in energia]
+        if cop:
+            nota += "; " + "; ".join(f"{x.lower()} no concentrado ({_br(por_emp[cid][x]['t'], 2)} t publicadas): {_br(e2)} MWh estimados pelo "
+                                     f"coeficiente médio do {x.lower()}" for x, e2 in cop)
+        if (cid, m) in fora:
+            nota += "; fora da média do mineral (mais de 10× a mediana das outras empresas)"
+        l.update(energia_mwh=round(mwh, 1), coeficiente_mwh_t=round(mwh / l["producao_t"], 6) if l["producao_t"] else "",
+                 energia_origem=origem, energia_nota=nota,
+                 energia_ccee_empresa_mwh=round(anual.get((l["cnpj_raiz"], ano), 0.0), 1) if l["cnpj_raiz"] and anual.get((l["cnpj_raiz"], ano)) else "")
+    n_obs = sum(1 for k in energia.values() if k[1].startswith("observada"))
+    print(f"energia {ano}: {len(meses[ano])} meses de CCEE; {n_obs} empresa-mineral com carga observada, "
+          f"{len(energia) - n_obs} estimadas pela média; referências: "
+          + ", ".join(f"{m} {ref[m][0]:.4g} MWh/t ({len(ref[m][1])})" for m in sorted(ref)))
+
 with open(os.path.join(SAIDA, "base_producao_empresa_ano.csv"), "w", encoding="utf-8-sig", newline="") as f:
     w = csv.DictWriter(f, fieldnames=CAMPOS, delimiter=";", lineterminator="\r\n")
     w.writeheader()
@@ -179,6 +360,13 @@ with open(os.path.join(SAIDA, "LEIA-ME.md"), "w", encoding="utf-8", newline="\n"
             "No ouro, o ROM do AMB inclui o minério de cobre-ouro da Chapada, já no ROM de cobre: essa parte (igual ao ROM de cobre do ano) fica numa "
             "linha à parte da Maracá, marcada como minério de outro mineral, e só o restante é dividido pela CFEM de ouro "
             "(coluna `minerio_de_outro_mineral_t` no arquivo do estado).\n"
+            "- **Energia e coeficiente (2024 e 2025):** carga da empresa na CCEE em Goiás pelo CNPJ raiz (2024 anualizado: a CCEE começa em abril), "
+            "dividida pela produção estimada (`coeficiente_mwh_t`, MWh por t da base da linha). Empresa com mais de um mineral: a separação por ramo e "
+            "município do Squad 2, quando existe; senão, produção × coeficiente médio de cada mineral, e a sobra vai ao mineral sem referência (ex.: "
+            "Chapada — o ouro do concentrado, pela quantidade publicada pela Lundin, recebe o coeficiente médio do ouro, e o cobre fica com o resto). "
+            "Mineral com menos de 5% da CFEM da empresa fica com o principal. Empresa sem carga na CCEE: produção × média dos coeficientes das outras "
+            "empresas do mesmo mineral (`energia_origem` = `estimada_media_mineral`). A média deixa de fora coeficientes mais de 10× acima ou abaixo da "
+            "mediana (ex.: carga que inclui fábrica de cimento). A regra de cada linha está em `energia_nota`.\n"
             "- **Pessoa física:** sem nome nem CPF.\n\n"
             "## Arquivos\n\n"
             "| Arquivo | Uma linha por | Colunas principais |\n|---|---|---|\n"

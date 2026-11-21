@@ -302,7 +302,8 @@ def _n(v):
 
 
 EST_COLS = ["ano", "mineral", "base", "empresa", "cnpj_raiz", "producao_t", "parcela_do_estado", "processos", "municipios", "cfem_brl",
-            "minerio_de_outro_mineral", "publicado_t", "diferenca_vs_publicado", "publicado_fonte", "publicado_url"]
+            "minerio_de_outro_mineral", "publicado_t", "diferenca_vs_publicado", "publicado_fonte", "publicado_url",
+            "energia_mwh", "coeficiente_mwh_t", "energia_origem", "energia_nota"]
 estimada_linhas = []
 for r in _ler_csv("base_producao_empresa_ano.csv"):
     assoc = r["metodo"].startswith("minério de outro mineral")
@@ -310,7 +311,8 @@ for r in _ler_csv("base_producao_empresa_ano.csv"):
     estimada_linhas.append([int(r["ano"]), r["mineral"], r["base"], r["empresa"], r["cnpj_raiz"], round(float(r["producao_t"]), 3),
                             _n(r["parcela_do_estado"]), int(r["processos"]), r["municipios"], _n(r["cfem_brl"]), assoc,
                             _n(r["publicado_em_t"]) if comparavel else None, _n(r["diferenca_base_vs_publicado"]) if comparavel else None,
-                            r["publicado_fonte"] if comparavel else "", r["publicado_url"] if comparavel else ""])
+                            r["publicado_fonte"] if comparavel else "", r["publicado_url"] if comparavel else "",
+                            _n(r.get("energia_mwh")), _n(r.get("coeficiente_mwh_t")), r.get("energia_origem", ""), r.get("energia_nota", "")])
 EST_ESTADO_COLS = ["ano", "mineral", "base", "producao_estado_t", "minerio_de_outro_mineral_t", "dividida_por_empresa_t", "parcela_dividida",
                    "empresas", "situacao"]
 estimada_estado = [[int(r["ano"]), r["mineral"], r["base"], float(r["producao_estado_t"]), float(r["minerio_de_outro_mineral_t"] or 0),
@@ -350,7 +352,10 @@ pacote = {
         "metodo": ("Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM "
                    "paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida "
                    "contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do "
-                   "ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma."),
+                   "ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma. Energia (2024–2025): "
+                   "carga da empresa na CCEE pelo CNPJ raiz; empresa com mais de um mineral tem a carga separada pelo Squad 2 ou pela produção × "
+                   "coeficiente médio de cada mineral; empresa sem carga na CCEE tem a energia estimada pela média dos coeficientes das outras "
+                   "empresas do mesmo mineral."),
         "colunas": EST_COLS,
         "linhas": estimada_linhas,
         "estado_colunas": EST_ESTADO_COLS,

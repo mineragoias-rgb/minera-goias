@@ -193,6 +193,11 @@ const linhaObj=(cols,r)=>Object.fromEntries(cols.map((c,i)=>[c,r[i]]));
 const toneladas=v=>v==null?'—':num(v,Math.abs(v)<10?3:Math.abs(v)<1000?1:0)+' t';
 const dinheiro=v=>v==null?'—':'R$ '+num(v,0);
 const pct=v=>v==null?'—':num(v*100,1)+' %';
+// Coeficiente em MWh por tonelada; abaixo de 1, em kWh/t, para não virar uma fila de zeros.
+const coef=v=>v>=1?num(v,v>=100?0:2)+' MWh/t':num(v*1000,v*1000>=10?1:2)+' kWh/t';
+// Chaves por extenso: o teste de tradução procura cada uma.
+const rotuloEnergia=o=>({observada_ccee:t('es.en.observada_ccee'),observada_ccee_separada:t('es.en.observada_ccee_separada'),
+ observada_ccee_rateada:t('es.en.observada_ccee_rateada'),estimada_media_mineral:t('es.en.estimada_media_mineral')}[o]||o);
 const estFiltradas=()=>{
  const ano=el('es-ano').value,base=el('es-base').value,min=el('es-min').value,busca=el('es-busca').value.trim().toUpperCase();
  return est.linhas.filter(l=>(!ano||String(l.ano)===ano)&&(!base||l.base===base)&&(!min||l.mineral===min)
@@ -201,6 +206,12 @@ const estEstado=()=>{
  const ano=el('es-ano').value,base=el('es-base').value,min=el('es-min').value;
  return est.estado.filter(e=>(!ano||String(e.ano)===ano)&&(!base||e.base===base)&&(!min||e.mineral===min));};
 
+// A energia é da empresa no mineral, a mesma nas linhas de ROM e de beneficiada: soma uma vez por empresa, mineral e ano.
+function energiaRecorte(linhas){const vistos=new Map();
+ linhas.filter(l=>l.energia_mwh!=null).forEach(l=>vistos.set(l.ano+'|'+l.mineral+'|'+l.empresa+'|'+l.cnpj_raiz,l));
+ const xs=[...vistos.values()];if(!xs.length)return '—';
+ const obs=xs.filter(l=>String(l.energia_origem).startsWith('observada')).reduce((s,l)=>s+l.energia_mwh,0),tot=xs.reduce((s,l)=>s+l.energia_mwh,0);
+ return num(tot/1000,0)+' GWh'+(tot?' · '+num(obs/tot*100,0)+' % CCEE':'')}
 function estMetricas(linhas,estado){
  const proprias=linhas.filter(l=>!l.minerio_de_outro_mineral),empresas=new Set(proprias.map(l=>l.cnpj_raiz||l.empresa));
  const tot=estado.reduce((s,e)=>s+e.producao_estado_t-e.minerio_de_outro_mineral_t,0),div=estado.reduce((s,e)=>s+e.dividida_por_empresa_t,0);
@@ -210,6 +221,7 @@ function estMetricas(linhas,estado){
   ['b',t('es.m.cobertura'),tot?pct(div/tot):'—',t('es.m.coberturaSub')],
   ['c',t('es.m.cfem'),dinheiro(proprias.reduce((s,l)=>s+(l.cfem_brl||0),0)),t('es.m.cfemSub')],
   ['d',t('es.m.publicado'),num(comPub.length),t('es.m.publicadoSub')],
+  ['a',t('es.m.energia'),energiaRecorte(proprias),t('es.m.energiaSub')],
  ].map(([tom,rotulo,valor,detalhe])=>`<div class="metric tone-${tom}"><span>${escape(rotulo)}</span>`
    +`<strong>${escape(valor)}</strong><small>${escape(detalhe)}</small></div>`).join('');}
 
@@ -243,11 +255,13 @@ const LIMITE=200;
 function estTabela(linhas){
  const ordem=[...linhas].sort((a,b)=>b.ano-a.ano||a.mineral.localeCompare(b.mineral)||a.base.localeCompare(b.base)||b.producao_t-a.producao_t);
  const cab=[t('es.h.ano'),t('es.h.mineral'),t('es.h.base'),t('es.h.empresa'),t('es.h.cnpj'),t('es.h.producao'),t('es.h.parcela'),
-  t('es.h.processos'),t('es.h.municipios'),t('es.h.cfem')];
+  t('es.h.processos'),t('es.h.municipios'),t('es.h.cfem'),t('es.h.energia'),t('es.h.coef')];
  const corpo=ordem.slice(0,LIMITE).map(l=>`<tr><td>${l.ano}</td><td>${escape(l.mineral)}</td><td>${escape(l.base)}</td>`
   +`<td>${escape(l.empresa)}${l.minerio_de_outro_mineral?` <span class="pill" title="${escape(t('es.outroMineralTip'))}">${escape(t('es.outroMineralPill'))}</span>`:''}</td>`
   +`<td>${escape(l.cnpj_raiz||'—')}</td><td class="num">${escape(toneladas(l.producao_t))}</td><td class="num">${escape(pct(l.parcela_do_estado))}</td>`
-  +`<td class="num">${num(l.processos)}</td><td>${escape(l.municipios||'—')}</td><td class="num">${escape(dinheiro(l.cfem_brl))}</td></tr>`).join('');
+  +`<td class="num">${num(l.processos)}</td><td>${escape(l.municipios||'—')}</td><td class="num">${escape(dinheiro(l.cfem_brl))}</td>`
+  +`<td class="num">${l.energia_mwh==null?'—':escape(num(l.energia_mwh))+' MWh'}${l.energia_origem?` <span class="pill" title="${escape(l.energia_nota||'')}">${escape(rotuloEnergia(l.energia_origem))}</span>`:''}</td>`
+  +`<td class="num">${l.coeficiente_mwh_t==null||l.coeficiente_mwh_t===''?'—':escape(coef(l.coeficiente_mwh_t))}</td></tr>`).join('');
  el('es-count').textContent=t('es.contagem',{mostradas:num(Math.min(LIMITE,ordem.length)),linhas:num(ordem.length)});
  return `<table><thead><tr>${cab.map(c=>`<th>${escape(c)}</th>`).join('')}</tr></thead><tbody>${corpo}</tbody></table>`;}
 
