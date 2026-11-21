@@ -277,5 +277,43 @@ class AbaTests(unittest.TestCase):
         self.assertIn("join(';')", codigo)
 
 
+class MapaEmpresasTests(unittest.TestCase):
+    """Mapa das empresas (data/empresas/mapa_empresas.json, scripts/build_mapa_empresas.py)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.d = json.loads((ROOT / 'data' / 'empresas' / 'mapa_empresas.json').read_text(encoding='utf-8'))
+        cls.p = json.loads((ROOT / 'data' / 'panorama' / 'panorama.json').read_text(encoding='utf-8'))
+
+    def test_so_pessoa_juridica_com_nome(self):
+        cpf = re.compile(r'\d{3}\.?\d{3}\.?\d{3}-\d{2}')
+        for x in self.d['empresas']:
+            self.assertTrue(x['id'].startswith('COM_CNPJ_'), x['id'])
+            self.assertNotIn('***', x['nome'])
+            self.assertIsNone(cpf.search(x['nome']), x['nome'])
+
+    def test_processos_dentro_de_goias(self):
+        b = (-19.6, -12.3, -53.3, -45.8)
+        for r in self.d['processos']['rows']:
+            self.assertTrue(b[0] < r[1] < b[1] and b[2] < r[2] < b[3], r)
+        for x in self.d['empresas']:
+            if x['lat'] is not None:
+                self.assertTrue(b[0] < x['lat'] < b[1] and b[2] < x['lon'] < b[3], x['nome'])
+
+    def test_cfem_das_empresas_bate_com_o_panorama(self):
+        emp, cols = self.p['dims']['emp'], self.p['cfem']['cols']
+        i_e, i_v = cols.index('emp'), cols.index('valor')
+        total = sum(r[i_v] for r in self.p['cfem']['rows'] if r[i_e] >= 0 and emp[r[i_e]][3] == 'pj' and emp[r[i_e]][1])
+        self.assertAlmostEqual(sum(x['cfem_total'] for x in self.d['empresas']), total, delta=1.0)
+
+    def test_pagina_monta_a_sub_aba(self):
+        markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
+        self.assertIn('data-ep="mapa"', markup)
+        self.assertIn('id="emp-map"', markup)
+        self.assertLess(markup.index('/empresas.js?v='), markup.index('/empresas-mapa.js?v='))
+        self.assertIn("api('/empresas/mapa')", (ROOT / 'public' / 'empresas-mapa.js').read_text(encoding='utf-8'))
+        self.assertIn("@router.get('/mapa')", (ROOT / 'Squad 3' / 'backend' / 'empresas.py').read_text(encoding='utf-8'))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -70,6 +70,9 @@ ETAPAS = [
      [f"{S1}/documentacao/base_producao"], ["pacote_squad2", "intensidade_squad2"], ["tests/test_base_producao.py"]),
     ("empresas", [PY, "scripts/build_empresas_base.py"], ".",
      ["data/empresas/empresas.json"], ["panorama", "producao", "base_producao"], ["tests/test_empresas.py"]),
+    # mapa das empresas: centro dos processos (polígonos do atlas), CFEM, CCEE e notícias por empresa
+    ("mapa_empresas", [PY, "scripts/build_mapa_empresas.py"], ".",
+     ["data/empresas/mapa_empresas.json"], ["panorama"], ["tests/test_empresas.py"]),
     ("projetos_mercado", [PY, "scripts/build_projetos_go.py"], ".",
      ["public/data/mercado/projetos_go_v1.json"], [], ["tests/test_mercado.py"]),
     ("simulador", [PY, "scripts/build_simulador_base.py"], ".",

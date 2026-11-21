@@ -12,3 +12,9 @@ DATA=Path(__file__).resolve().parents[2]/'data'/'empresas'
 @router.get('')
 def empresas(user=Depends(reader)):
     return FileResponse(DATA/'empresas.json',media_type='application/json')
+
+
+@router.get('/mapa')
+def mapa_empresas(user=Depends(reader)):
+    """Onde cada empresa minera e o perfil dela (CFEM, CCEE, títulos, notícias): scripts/build_mapa_empresas.py."""
+    return FileResponse(DATA/'mapa_empresas.json',media_type='application/json')

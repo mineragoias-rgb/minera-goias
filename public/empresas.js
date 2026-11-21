@@ -367,16 +367,20 @@ function estMontar(){
  el('es-nota').textContent=t('es.nota');
  el('es-fontes').textContent=t('es.fontes',{fonte:bloco.fonte});
  estDesenhar();
- el('es-content').hidden=false;}
+ el('es-content').hidden=false;
+ // o mapa das empresas lê a produção e a energia daqui
+ window.EMPRESAS_ESTIMADA=est;document.dispatchEvent(new Event('empresas-estimada'));}
 
 function mostrarAba(aba){
  document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>{const on=b.dataset.ep===aba;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
- ['estimada','declarada','direitos'].forEach(k=>{el('ep-aba-'+k).hidden=k!==aba});
+ ['mapa','estimada','declarada','direitos'].forEach(k=>{el('ep-aba-'+k).hidden=k!==aba});
+ if(aba==='mapa'&&window.showEmpresasMapa)window.showEmpresasMapa();
  if(aba==='direitos'&&window.showEmpresasPanorama)window.showEmpresasPanorama();}
 
 async function load(){
  el('empresas-error').textContent='';
  document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>b.onclick=()=>mostrarAba(b.dataset.ep));
+ mostrarAba('mapa');
  try{
   dados=await api('/empresas');
   try{estMontar()}catch(e){el('es-error').textContent=e.message;console.error(e)}

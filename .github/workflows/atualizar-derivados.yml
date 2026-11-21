@@ -33,6 +33,7 @@ on:
       - 'scripts/build_panorama_base.py'
       - 'scripts/build_producao_base.py'
       - 'scripts/build_empresas_base.py'
+      - 'scripts/build_mapa_empresas.py'
       - 'scripts/build_projetos_go.py'
       - 'scripts/build_simulador_base.py'
       - 'scripts/build_previsao_base.py'
