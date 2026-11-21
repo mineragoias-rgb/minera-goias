@@ -82,7 +82,7 @@ shape.on('click',()=>detail(name,record.detail));rows.push(record)});
 el('atlas-context').textContent=(projects?t('at.projectsContext',{n:fmt(rows.length)}):t('at.occurrencesContext',{n:fmt(rows.length)}))+(minSel?' · '+minSel:'')+(selectedCode?' · '+(munName.get(selectedCode)||selectedCode):'');el('atlas-table-title').textContent=projects?t('at.projectsTitle'):t('at.occurrencesTitle');
 el('atlas-table-head').innerHTML=projects?`<tr><th>${escape(t('at.project'))}</th><th>${escape(t('at.thMun'))}</th><th>${escape(t('at.maturity'))}</th><th>${escape(t('at.stage'))}</th></tr>`:`<tr><th>${escape(t('at.occurrence'))}</th><th>${escape(t('at.substances'))}</th><th>${escape(t('at.thMun'))}</th><th>${escape(t('at.importance'))}</th></tr>`;
 }else if(layer==='dams'){legend([[t('at.riskHigh'),'#b03a55'],[t('at.riskMed'),'#c2681b'],[t('at.riskLow'),'#0f6fb0']]);el('atlas-scale-note').textContent=t('at.damNote');packet.dams.forEach(d=>{const risk=d['Categoria de Risco - CRI'],color=/alta/i.test(risk)?'#b03a55':/média/i.test(risk)?'#c2681b':'#0f6fb0';const shape=L.circleMarker([d.lat,d.lon],{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(layers);shape.bindTooltip(escape(d.Nome));const record={name:d.Nome,cells:[d.Nome,d['Município'],risk,d['Dano Potencial Associado - DPA']],shape,detail:[[t('at.thMun'),d['Município']],[t('at.thRisk'),risk],[t('at.thDamage'),d['Dano Potencial Associado - DPA']],[t('at.emergency'),d['Nível de Emergência']],[t('at.operation'),d['Situação Operacional']],[t('at.refDate'),t('at.notInArtefact')]]};shape.on('click',()=>detail(d.Nome,record.detail));rows.push(record)});el('atlas-context').textContent=t('at.damsContext');el('atlas-table-title').textContent=t('at.damsTitle');el('atlas-table-head').innerHTML=`<tr><th>${escape(t('at.thDam'))}</th><th>${escape(t('at.thMun'))}</th><th>${escape(t('at.thRisk'))}</th><th>${escape(t('at.thDamage'))}</th></tr>`;
-}else{const years=rangeYears(),whole=years.length===YEARS.length,sub=el('atlas-mineral').value,gold=['OURO','MINÉRIO DE OURO'].includes(sub),unit=layer==='cfem'?'R$':layer==='production'?(gold?t('at.unitGold'):t('at.unitTons')):layer==='energy'?'GWh':'kWh/t';const cfem=new Map(packet.cfem.linhas.map(x=>[normalize(x['Município']),x])),energy=new Map(packet.energy.map(x=>[x.cod,x]));
+}else{const years=rangeYears(),whole=years.length===YEARS.length,sub=el('atlas-mineral').value,gold=sub==='Ouro',unit=layer==='cfem'?'R$':layer==='production'?(gold?t('at.unitGold'):t('at.unitTons')):layer==='energy'?'GWh':'kWh/t';const cfem=new Map(packet.cfem.linhas.map(x=>[normalize(x['Município']),x])),energy=new Map(packet.energy.map(x=>[x.cod,x]));
 rows=packet.municipalities.filter(m=>minSel===''||energy.get(m.code)?.sub===minSel).map(m=>{const e=energy.get(m.code),p=packet.production.dados[sub]?.[m.code];let value=null,note='',details=[];
 if(layer==='cfem'){const source=cfem.get(normalize(m.name));
   if(whole)value=m.cfem_total;
@@ -90,7 +90,7 @@ if(layer==='cfem'){const source=cfem.get(normalize(m.name));
    value=present.length?present.reduce((sum,y)=>sum+source[y],0):null}
   else value=null;
   note=rangeLabel()+(years.includes('2026')?' · '+t('at.partial2026'):'');details=[[t('at.cfemCollected'),value==null?t('at.noRecord'):money(value)],[t('at.periodField'),note]]}
-if(layer==='production'){value=p?p[0]*(gold?1000:1):null;note=sub;details=[[t('at.substance'),sub],[t('at.qtySold'),withUnit(value,unit)],[t('at.cfem'),p?money(p[1]):t('at.noRecord')],[t('at.companies'),p?fmt(p[2]):t('at.noRecord')],[t('at.periodField'),'2025']]}
+if(layer==='production'){value=p?p[0]*(gold?1000:1):null;note=sub;details=[[t('at.substance'),sub],[t('at.qtySold'),withUnit(value,unit)],[t('es.h.base'),baseLabel(sub)],[t('at.cfem'),p?money(p[1]):t('at.noRecord')],[t('at.companies'),p?fmt(p[2]):t('at.noRecord')],[t('at.periodField'),'2025']]}
 if(layer==='energy'){value=e&&e.mwh>0?e.mwh/1000:null;note=e?.classe||t('at.noRecord');details=[[t('at.energyChain'),value==null?t('at.noRecord'):fmt(value,2)+' GWh'],[t('at.artefactClass'),note],[t('mun.mainSub'),e?.sub||t('at.noRecord')],[t('at.periodField'),'2025']]}
 if(layer==='coefficient'){value=e?.classe==='comparavel'&&e.kwh_t>0?e.kwh_t:null;note=e?.classe||t('at.noRecord');details=[[t('at.artefactClass'),note],[t('mun.mainSub'),e?.sub||t('at.noRecord')],[t('at.coefficient'),e?.classe==='ouro'&&e.mwh_kg!=null?fmt(e.mwh_kg,2)+' MWh/'+t('at.unitGold'):value!=null?fmt(value,2)+' kWh/t':t('at.notComparable')],[t('at.periodField'),'2025'],[t('at.limitLabel'),t('at.limitNote')]]}
 return {name:m.name,cells:[m.name,withUnit(value,unit),note],value,detail:details,municipality:m}});
@@ -144,6 +144,8 @@ function yearLabel(){
   button.setAttribute('aria-pressed',String(inside));
   // Clicking a year narrows the span to that single year.
   button.onclick=()=>{el('atlas-year-from').value=i;el('atlas-year-to').value=i;yearLabel();render()}})}
+function baseLabel(sub){const b=(packet.production.subs.find(s=>s.sub===sub)||{}).base;
+ return b==='beneficiada'?t('es.base.beneficiada'):b==='ROM'?t('es.base.rom'):b==='conteudo_mineral'?t('es.base.contido'):'—'}
 function municipalitySubstances(code){
  const out=[];
  for(const sub of Object.keys(packet.production.dados)){const row=packet.production.dados[sub]?.[code];if(row)out.push({sub,ton:row[0],cfem:row[1],firms:row[2]})}
@@ -159,7 +161,6 @@ function profile(m){
  const energy=packet.energy.find(e=>e.cod===m.code),subs=municipalitySubstances(m.code),dams=municipalityDams(m.name);
  const stateTotal=packet.municipalities.reduce((sum,x)=>sum+(x.cfem_total||0),0);
  const share=stateTotal>0?m.cfem_total/stateTotal*100:0;
- const tons=subs.reduce((sum,x)=>sum+x.ton,0);
  el('mun-metrics').innerHTML=
   tile('tone-a',t('mun.processes'),fmt(m.processes),t('mun.processesSub'))+
   tile('tone-b',t('mun.cfemTotal'),money(m.cfem_total),t('mun.cfemTotalSub'))+
@@ -170,8 +171,8 @@ function profile(m){
   tile('tone-c',t('mun.occurrences'),fmt(countBy('occurrences',m.code)),t('mun.occurrencesSub'));
  el('mun-subs').innerHTML=subs.length
   ?`<table><thead><tr><th>${escape(t('mun.thSub'))}</th><th>${escape(t('mun.thQty'))}</th><th>${escape(t('mun.thCfem'))}</th><th>${escape(t('mun.thCompanies'))}</th></tr></thead><tbody>`
-   +subs.map(x=>`<tr><td>${escape(x.sub)}</td><td>${escape(fmt(x.ton,2))}</td><td>${escape(money(x.cfem))}</td><td>${escape(fmt(x.firms))}</td></tr>`).join('')
-   +`</tbody><tfoot><tr><td>${escape(t('mun.production'))}</td><td>${escape(fmt(tons,2))}</td><td></td><td></td></tr></tfoot></table>`
+   +subs.map(x=>`<tr><td>${escape(x.sub)} <span class="muted">· ${escape(baseLabel(x.sub))}</span></td><td>${escape(fmt(x.ton,x.ton<10?3:0))}</td><td>${escape(money(x.cfem))}</td><td>${escape(fmt(x.firms))}</td></tr>`).join('')
+   +'</tbody></table>'
   :`<p class="empty">${escape(t('mun.noSubs'))}</p>`;
  el('mun-dams').innerHTML=dams.length
   ?dams.map(d=>{const risk=d['Categoria de Risco - CRI'],color=/alta/i.test(risk)?'#b03a55':/média/i.test(risk)?'#c2681b':'#0f6fb0';

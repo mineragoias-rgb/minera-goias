@@ -135,6 +135,7 @@ class Contexto:
         atlas = json.loads((raiz / ATLAS).read_text(encoding='utf-8'))
         self.mun_por_codigo = {m['code']: m['name'] for m in atlas['municipalities']}
         self.mun_por_chave = {sem_acento(n): n for n in self.mun_por_codigo.values()}
+        self.producao = producao_por_cnpj(raiz)
 
     def municipio(self, texto):
         """Nome oficial do IBGE para um município de Goiás; None se for de outra UF ou desconhecido."""
@@ -178,9 +179,38 @@ def mineral_cfem(sub):
 
 
 # ---------------------------------------------------------------- origem 2: operações com CFEM
+# Produção por empresa (21/11/2026): a base de produção do Squad 1 (total do AMB dividido pela CFEM em R$), não a quantidade declarada
+# na CFEM, que troca unidade e base entre declarações. Por CNPJ raiz e mineral, no ano da CFEM; a parte que é minério de outro mineral
+# (Chapada no ROM de ouro) fica fora. Uma base por mineral: beneficiada (contido no nióbio) quando existe, senão o ROM.
+BASE_PRODUCAO = Path('Squad 1') / 'Bases consolidadas' / 'documentacao' / 'base_producao' / 'base_producao_empresa_ano.csv'
+ROTULO_BASE = {'beneficiada': 'beneficiada', 'conteudo_mineral': 'contido', 'ROM': 'ROM'}
+
+
+def producao_por_cnpj(raiz):
+    caminho = raiz / BASE_PRODUCAO
+    if not caminho.exists():
+        return {}
+    with open(caminho, encoding='utf-8-sig', newline='') as f:
+        linhas = [r for r in csv.DictReader(f, delimiter=';') if r['ano'] == ANO_CFEM and r['cnpj_raiz']
+                  and not r['metodo'].startswith('minério de outro mineral')]
+    bases = collections.defaultdict(set)
+    for r in linhas:
+        bases[r['mineral']].add(r['base'])
+    usar = {m: next(b for b in ('beneficiada', 'conteudo_mineral', 'ROM') if b in bs) for m, bs in bases.items()}
+    out = collections.defaultdict(dict)
+    for r in linhas:
+        if r['base'] == usar[r['mineral']]:
+            out[r['cnpj_raiz']][r['mineral']] = (float(r['producao_t']), ROTULO_BASE[r['base']])
+    return out
+
+
+def t_curto(v):
+    return (f'{v:,.3f}' if v < 10 else f'{v:,.0f}').replace(',', 'X').replace('.', ',').replace('X', '.')
+
+
 def operacoes_cfem(ctx, proc_titular):
     agg = collections.defaultdict(lambda: {'v': 0.0, 'v_agreg': 0.0, 'subs': collections.Counter(), 'mun': collections.Counter(),
-                                           'proc': set(), 'qtd': collections.Counter(), 'ultima': '',
+                                           'proc': set(), 'ultima': '',
                                            'nomes': collections.Counter(), 'cnpj': ''})
     sem_titular = collections.Counter()
     for r in ler_csv(ctx.raiz / BRUTOS / 'ANM - CFEM' / 'CFEM_Arrecadacao_2022_2026_GO.csv'):
@@ -204,11 +234,6 @@ def operacoes_cfem(ctx, proc_titular):
         a['subs'][sub] += v
         a['mun'][ctx.mun_por_codigo.get(r['CodigoMunicipio'].strip(), r['Município'].title())] += v
         a['proc'].add(proc)
-        unidade = r['UnidadeDeMedida'].strip()
-        try:
-            a['qtd'][(mineral_cfem(sub), unidade)] += float(r['QuantidadeComercializada'].replace('.', '').replace(',', '.'))
-        except ValueError:
-            pass
         d = r['DataCriacao'].strip()[:10]
         if re.fullmatch(r'\d{2}/\d{2}/\d{4}', d):
             iso = f'{d[6:]}-{d[3:5]}-{d[:2]}'
@@ -225,7 +250,8 @@ def operacoes_cfem(ctx, proc_titular):
             if m not in minerais:
                 minerais.append(m)
         muns = [m for m, _ in a['mun'].most_common()]
-        qtd = '; '.join(f"{m}: {fmt_mil(q)} {u}" for (m, u), q in sorted(a['qtd'].items(), key=lambda x: -x[1]) if q > 0 and m in minerais)
+        prod = ctx.producao.get(a['cnpj'] or '', {})
+        qtd = '; '.join(f"{m}: {t_curto(t)} t ({b})" for m, (t, b) in sorted(prod.items(), key=lambda x: -x[1][0]) if t > 0)
         nome = titular_publico(titular.replace(' [SIGMINE]', ''))
         procs = sorted(a['proc'])
         linhas.append({
@@ -241,7 +267,7 @@ def operacoes_cfem(ctx, proc_titular):
             'fonte': 'ANM — CFEM (arrecadação 2022–2026, recorte Goiás)', 'link': URL_CFEM,
             'outras_evid': 'ANM — Cadastro Mineiro e SIGMINE: titular e situação dos processos.', 'links_add': URL_SIGMINE,
             'obs': (f"Linha derivada da ANM. Processos: {', '.join(procs[:12])}{' …' if len(procs) > 12 else ''}. "
-                    + (f"Quantidade comercializada declarada na CFEM {ANO_CFEM} (não é produção): {qtd}. " if qtd else '')
+                    + (f"Produção estimada em {ANO_CFEM} pela base de produção do Squad 1 (total do Anuário Mineral dividido pela CFEM em R$; margem ±10%): {qtd}. " if qtd else '')
                     + (f"Municípios: {', '.join(muns)}. " if len(muns) > 1 else '')
                     + 'Capacidade, produção, CAPEX e cronograma não divulgados nas fontes oficiais usadas (NA).').strip(),
             'noticia': {'data': a['ultima'] or 'NA', 'titulo': f'CFEM {ANO_CFEM} — {nome}', 'veiculo': 'Agência Nacional de Mineração',
@@ -637,7 +663,8 @@ def metodologia(resumo):
         ('Regras de capacidade', 'Só capacidade explicitamente anunciada, na unidade original (t/ano de minério, t/ano de TREO, Mt/ano de '
                                  'cimento). Meta de estabilização, produção estimada em estudo e potencial geológico não são capacidade e ficam '
                                  'nas observações. Produção anual: o último ano fechado publicado pela empresa, com a unidade e o ano. A '
-                                 'quantidade comercializada da CFEM não é produção e aparece só nas observações.'),
+                                 'quantidade comercializada da CFEM não é produção e não é usada; nas operações com CFEM, as observações trazem a produção estimada '
+                                 'pela base de produção do Squad 1 (total do Anuário Mineral dividido pela CFEM em R$).'),
         ('Regras para previsão de entrada', 'A previsão mais recente encontrada, com a precisão da fonte (ano, semestre, trimestre ou mês); '
                                             'Ano previsto é o ano dessa previsão. Mudanças de previsão ficam nas observações. NA quando não '
                                             'há cronograma.'),

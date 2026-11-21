@@ -70,13 +70,11 @@ def ler_planilha(caminho):
     ix = {c: i for i, c in enumerate(next(linhas))}
     cfem_mun_ano, cfem_ano, jan_jul, cfem_sub_ano = defaultdict(int), defaultdict(int), defaultdict(int), defaultdict(int)  # centavos: somas exatas
     registros, muns_ano, titulares_ano = Counter(), defaultdict(set), defaultdict(set)
-    producao = defaultdict(lambda: [0.0, 0, set()])  # (SUBSTÂNCIA, município) em 2025 -> [t, centavos, titulares]
     venda, subs_venda, periodos = defaultdict(float), defaultdict(set), set()
     for r in linhas:
         fonte, metrica = r[ix["source_id"]], r[ix["metrica"]]
         if fonte == "SRC_ANM_CFEM":
             ano, mun, periodo = int(r[ix["year"]]), str(r[ix["municipality_id"]]), str(r[ix["periodo_referencia"]])
-            substancia = str(r[ix["mineral_name"]] or "NÃO CLASSIFICADO").upper()
             nome_mineral = r[ix["mineral_name"]] or "Não classificado"
             if metrica == "cfem_recolhido":
                 c = round(float(r[ix["valor_tratado"]] or 0) * 100)
@@ -89,12 +87,6 @@ def ler_planilha(caminho):
                 titulares_ano[ano].add(r[ix["company_id"]])
                 if int(periodo[5:7]) <= 7:
                     jan_jul[ano] += c
-                if ano == 2025:
-                    producao[(substancia, mun)][1] += c
-                    producao[(substancia, mun)][2].add(r[ix["company_id"]])
-            elif (metrica == "quantidade_comercializada_cfem" and ano == 2025 and r[ix["unidade_padrao"]] == "t"
-                  and r[ix["status_validacao"]] != "quantidade_excluida_da_soma_09b"):  # a mesma exclusão da aba 09b
-                producao[(substancia, mun)][0] += float(r[ix["valor_tratado"]] or 0)
         elif fonte == "SRC_ANM_PROD_BENEF" and metrica == "valor_venda_beneficiada" and r[ix["uf"]] == "GO":
             v, ano = float(r[ix["valor_tratado"]] or 0), int(r[ix["year"]])
             venda[ano] += v
@@ -117,7 +109,7 @@ def ler_planilha(caminho):
                                 "12_interface_squad1_squad2", "13_mapas_camadas")}
     wb.close()
     return dict(cfem_mun_ano=cfem_mun_ano, cfem_ano=cfem_ano, jan_jul=jan_jul, cfem_sub_ano=cfem_sub_ano, registros=registros,
-                muns_ano=muns_ano, titulares_ano=titulares_ano, producao=producao, venda=venda, subs_venda=subs_venda,
+                muns_ano=muns_ano, titulares_ano=titulares_ano, venda=venda, subs_venda=subs_venda,
                 periodos=sorted(periodos), data_sigmine=sigmine["data_arquivo_local"],
                 data_recmin=fontes07.get("SRC_SGB_RECMIN", {}).get("data_arquivo_local"), total10=total10, abas=abas)
 
@@ -399,16 +391,36 @@ def main():
                 assert -19.51 < lat < -12.38 and -53.26 < lon < -45.89, (m["code"], lat, lon)
     por_nome = {m["code"]: m["name"] for m in mun}
 
-    prod, agregado = defaultdict(dict), defaultdict(lambda: [0.0, 0, set()])
-    for (sub, code), (t, c, titulares) in dados["producao"].items():
-        if c <= 0 and t <= 0:
+    # Produção por município (21/11/2026): a base de produção do Squad 1 — o total do estado do AMB dividido por operação pela CFEM em R$
+    # (aba 12, nível operação) —, e não a quantidade declarada na CFEM, que troca unidade e base entre declarações. Ano: o último do AMB.
+    # Por mineral, uma base só: beneficiada (ou o contido, no nióbio) quando existe; senão o ROM. A parte do ROM que é minério de outro
+    # mineral já contado (rom_minerio_associado: Chapada no ROM de ouro) fica fora. CFEM e empresas são as das operações somadas.
+    ops = [r for r in dados["abas"]["12_interface_squad1_squad2"] if r["nivel_agregacao"] == "operacao"
+           and r["status_validacao"] != "rom_minerio_associado" and r["municipality_id"] not in (None, "")]
+    ano_prod = max(int(r["year"]) for r in ops if int(r["year"]) <= 2025)
+    ops = [r for r in ops if int(r["year"]) == ano_prod]
+    bases_de = defaultdict(set)
+    for r in ops:
+        bases_de[r["mineral_name"]].add(r["production_basis"])
+    base_de = {m: next(b for b in ("beneficiada", "conteudo_mineral", "ROM") if b in bs) for m, bs in bases_de.items()}
+    acum = defaultdict(lambda: [0.0, 0.0, set()])
+    for r in ops:
+        if r["production_basis"] != base_de[r["mineral_name"]]:
             continue
-        prod[sub][code] = [round(t, 2), round(c / 100, 2), len(titulares)]
+        a = acum[(r["mineral_name"], str(int(float(r["municipality_id"]))))]
+        a[0] += float(r["production_t"] or 0)
+        a[1] += float(r["cfem_brl_operacao"] or 0)
+        a[2].add(r["company_id"])
+    prod, agregado = defaultdict(dict), defaultdict(lambda: [0.0, 0.0, set()])
+    for (sub, code), (t, c, empresas) in acum.items():
+        if t <= 0:
+            continue
+        prod[sub][code] = [round(t, 3), round(c, 2), len(empresas)]
         agregado[sub][0] += t
         agregado[sub][1] += c
         agregado[sub][2].add(code)
-    subs = sorted(({"sub": s, "ton": round(v[0], 2), "cfem": round(v[1] / 100, 2), "municipios": len(v[2])} for s, v in agregado.items()),
-                  key=lambda x: (-x["municipios"], -x["cfem"]))
+    subs = sorted(({"sub": s, "base": base_de[s], "ton": round(v[0], 3), "cfem": round(v[1], 2), "municipios": len(v[2])}
+                   for s, v in agregado.items()), key=lambda x: (-x["municipios"], -x["cfem"]))
     data_sigmine = "/".join(reversed(str(dados["data_sigmine"]).split("-")))
     ultimo = dados["periodos"][-1]
     packet = {
@@ -422,7 +434,7 @@ def main():
                      "o mapa: não usar como limite cadastral."),
             "sources": ["ANM / CFEM", "Anuário Mineral Brasileiro", "Cadastro Mineiro", "SIGMINE", "SGB — RECMIN", "IBGE — malha municipal 2025",
                         "SIGBM (retrato anterior)", "CCEE (retrato anterior)"],
-            "periods": {"cfem": f"{dados['periodos'][0]} a {ultimo}", "production": "2025 — quantidade comercializada declarada na CFEM",
+            "periods": {"cfem": f"{dados['periodos'][0]} a {ultimo}", "production": f"{ano_prod} — produção estimada por operação (AMB × CFEM, aba 12)",
                         "energy": retido["periods"]["energy"], "dams": retido["periods"]["dams"],
                         "processes": f"arquivo do SIGMINE de {data_sigmine}",
                         "projects": f"situação dos processos no arquivo do SIGMINE de {data_sigmine} (aba 04)",
