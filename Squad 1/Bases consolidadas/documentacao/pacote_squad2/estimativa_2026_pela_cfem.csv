@@ -539,12 +539,12 @@ estado;MIN_016;Ferro;;ROM;6020.0;t: 100% da produção;jan–jun;;;-47.3;3173.84
 empresa;MIN_016;Ferro;COM_CNPJ_33931486;ROM;6020.0;t comercializadas (R$/t estável);jan–jun;172030.57;90697.44;-47.3;3173.846;
 estado;MIN_016;Ferro;;beneficiada;16045.5;t: 100% da produção;jan–jun;;;-47.3;8459.46;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_016;Ferro;COM_CNPJ_33931486;beneficiada;16045.5;t comercializadas (R$/t estável);jan–jun;172030.57;90697.44;-47.3;8459.46;
-estado;MIN_049;Fosfato;;ROM;11097426.26;t: 100% da produção;jan–jun;;;-2.5;10823998.891;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_049;Fosfato;COM_CNPJ_26108898;ROM;5886465.075;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;5199255.204;
-empresa;MIN_049;Fosfato;COM_CNPJ_33931486;ROM;5210961.185;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;5624743.687;
-estado;MIN_049;Fosfato;;beneficiada;2511254.38;t: 100% da produção;jan–jun;;;-2.5;2449380.062;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
-empresa;MIN_049;Fosfato;COM_CNPJ_26108898;beneficiada;1332057.619;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;1176547.796;
-empresa;MIN_049;Fosfato;COM_CNPJ_33931486;beneficiada;1179196.761;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;1272832.267;
+estado;MIN_049;Fosfato;;ROM;11097426.26;t: 100% da produção;jan–jun;;;-4.6;10581990.298;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_049;Fosfato;COM_CNPJ_26108898;ROM;7120257.036;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;6289009.274;
+empresa;MIN_049;Fosfato;COM_CNPJ_33931486;ROM;3977169.224;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;4292981.024;
+estado;MIN_049;Fosfato;;beneficiada;2511254.38;t: 100% da produção;jan–jun;;;-4.6;2394615.55;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
+empresa;MIN_049;Fosfato;COM_CNPJ_26108898;beneficiada;1611254.38;t comercializadas (R$/t estável);jan–jun;797639.68;704519.98;-11.7;1423149.991;
+empresa;MIN_049;Fosfato;COM_CNPJ_33931486;beneficiada;900000.0;t comercializadas (R$/t estável);jan–jun;216406.97;233591.02;7.9;971465.559;
 estado;MIN_003;Gemas;;ROM;346.05;mantida: 100% da produção;jan–jun;;;0.0;346.05;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"
 empresa;MIN_003;Gemas;COM_NOME_01B00FBC;ROM;346.05;;jan–jun;0.0;0.0;;346.05;empresa sem CFEM no período de 2025: mantida a produção de 2025
 estado;MIN_018;Manganês;;ROM;28980.0;R$: 100% da produção;jan–jun;;;-100.0;0.0;"soma das estimativas por empresa; onde a medida é R$, a variação inclui preço"

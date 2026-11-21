@@ -34,16 +34,16 @@ Gerada por `base_consolidada_work/scripts/gerar_base_producao.py` a partir da ab
 | Ano | Mineral | Empresa | Base de produção | Publicado | Diferença |
 |---|---|---|---:|---:|---:|
 | 2022 | Amianto | SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL | 182.965 t | 182.965 t | +0% |
-| 2022 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.042.963 t | 1.100.000 t | -5% |
+| 2022 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.100.000 t | 1.100.000 t | -0% |
 | 2022 | Ouro | MINERACAO SERRA GRANDE S A | 3,93 t | 2,74 t | +44% |
 | 2023 | Amianto | SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL | 189.340 t | 188.813 t | +0% |
-| 2023 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.125.072 t | 1.000.000 t | +13% |
+| 2023 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.000.000 t | 1.000.000 t | -0% |
 | 2023 | Ouro | MINERACAO SERRA GRANDE S A | 3,24 t | 2,67 t | +21% |
-| 2024 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.218.202 t | 900.000 t | +35% |
+| 2024 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 900.000 t | 900.000 t | +0% |
 | 2024 | Ouro | MINERACAO SERRA GRANDE S A | 2,78 t | 2,49 t | +12% |
 | 2024 | Ouro | AMARILLO MINERACAO DO BRASIL LTDA | 1,80 t | 1,98 t | -9% |
 | 2025 | Amianto | SAMA S.A. - MINERACOES ASSOCIADAS EM RECUPERACAO JUDICIAL | 179.184 t | 169.000 t | +6% |
-| 2025 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 1.179.197 t | 900.000 t | +31% |
+| 2025 | Fosfato | MOSAIC FERTILIZANTES P&K LTDA. | 900.000 t | 900.000 t | +0% |
 | 2025 | Ouro | AMARILLO MINERACAO DO BRASIL LTDA | 1,34 t | 1,24 t | +8% |
 
 Diferenças acima de ±10% indicam onde a CFEM não representa bem a produção (ex.: Mosaic 2024–25 no fosfato; Serra Grande 2022 no ouro, em que o AMB tem ouro de outra origem). Nenhum número publicado substitui a divisão: ficam lado a lado.

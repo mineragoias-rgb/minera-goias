@@ -535,7 +535,7 @@
 2022;Ferro;ROM;71964.15;71964.15;1.0;2;0.0;0.0;dividida pela CFEM
 2022;Ferro;beneficiada;71964.15;71964.15;1.0;2;0.0;0.0;dividida pela CFEM
 2022;Fosfato;ROM;10458684.52;10458684.52;1.0;2;0.0;0.0;dividida pela CFEM
-2022;Fosfato;beneficiada;2432016.31;2432016.31;1.0;2;1042963.105;0.428847;dividida pela CFEM
+2022;Fosfato;beneficiada;2432016.31;2432016.31;1.0;2;1100000.0;0.4523;dividida pela CFEM
 2022;Gemas;ROM;614.26;614.26;1.0;1;0.0;0.0;dividida pela CFEM
 2022;Manganês;ROM;18889.91;18889.91;1.0;2;0.0;0.0;dividida pela CFEM
 2022;Manganês;beneficiada;18889.91;18889.91;1.0;2;0.0;0.0;dividida pela CFEM
@@ -579,7 +579,7 @@
 2023;Ferro;ROM;34000.0;34000.0;1.0;2;0.0;0.0;dividida pela CFEM
 2023;Ferro;beneficiada;67563.77;67563.77;1.0;2;0.0;0.0;dividida pela CFEM
 2023;Fosfato;ROM;10618455.91;10618455.91;1.0;2;0.0;0.0;dividida pela CFEM
-2023;Fosfato;beneficiada;2442308.4;2442308.4;1.0;2;1125071.657;0.460659;dividida pela CFEM
+2023;Fosfato;beneficiada;2442308.4;2442308.4;1.0;2;1000000.0;0.409449;dividida pela CFEM
 2023;Gemas;ROM;392.17;392.17;1.0;1;0.0;0.0;dividida pela CFEM
 2023;Manganês;ROM;502.66;502.66;1.0;4;0.0;0.0;dividida pela CFEM
 2023;Manganês;beneficiada;502.66;502.66;1.0;4;0.0;0.0;dividida pela CFEM
@@ -626,7 +626,7 @@
 2024;Ferro;beneficiada;1221764.33;1221764.33;1.0;2;0.0;0.0;dividida pela CFEM
 2024;Fluorita e Criolita;beneficiada;169124.01;0;0.0;0;0.0;0.0;sem CFEM do mineral no ano: sem divisão
 2024;Fosfato;ROM;10231606.13;10231606.13;1.0;3;0.0;0.0;dividida pela CFEM
-2024;Fosfato;beneficiada;2444758.93;2444758.93;1.0;3;1218202.43;0.498291;dividida pela CFEM
+2024;Fosfato;beneficiada;2444758.93;2444758.93;1.0;3;900000.0;0.368134;dividida pela CFEM
 2024;Gemas;ROM;4086.46;4086.46;1.0;1;0.0;0.0;dividida pela CFEM
 2024;Manganês;ROM;34510.0;34510.0;1.0;5;0.0;0.0;dividida pela CFEM
 2024;Manganês;beneficiada;34510.0;34510.0;1.0;5;0.0;0.0;dividida pela CFEM
@@ -673,7 +673,7 @@
 2025;Ferro;ROM;6020.0;6020.0;1.0;1;0.0;0.0;dividida pela CFEM
 2025;Ferro;beneficiada;16045.5;16045.5;1.0;1;0.0;0.0;dividida pela CFEM
 2025;Fosfato;ROM;11097426.26;11097426.26;1.0;2;0.0;0.0;dividida pela CFEM
-2025;Fosfato;beneficiada;2511254.38;2511254.38;1.0;2;1179196.761;0.469565;dividida pela CFEM
+2025;Fosfato;beneficiada;2511254.38;2511254.38;1.0;2;900000.0;0.358387;dividida pela CFEM
 2025;Gemas;ROM;346.05;346.05;1.0;1;0.0;0.0;dividida pela CFEM
 2025;Manganês;ROM;28980.0;28980.0;1.0;3;0.0;0.0;dividida pela CFEM
 2025;Manganês;beneficiada;28500.0;28500.0;1.0;3;0.0;0.0;dividida pela CFEM
