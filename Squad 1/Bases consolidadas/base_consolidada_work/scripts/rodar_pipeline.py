@@ -5,13 +5,21 @@
     python base_consolidada_work/scripts/rodar_pipeline.py --de build_fato_08  # retoma a partir de uma etapa
     python base_consolidada_work/scripts/rodar_pipeline.py --lista             # só lista as etapas
 
+Travas da atualização (ATUALIZACAO.md, na pasta do projeto): antes da 1ª etapa, o manifesto dos brutos (manifesto_brutos.py) trava
+se um arquivo mudou de bytes sem nova data de acesso; no fim, gera documentacao/relatorio_diferencas.md (planilha anterior × nova)
+e aplica travas.py à aba 14b: verificação de nível "bloqueia" com ALERTA termina com código 3 e a planilha não deve ser publicada.
+Sem trava, grava o manifesto dos brutos que geraram a planilha.
+
 Funciona a partir de qualquer pasta. Cada etapa roda num processo Python separado, como se o script fosse chamado à mão,
 com PYTHONUTF8=1 (vários arquivos são lidos sem declarar encoding). O log completo de cada etapa fica em <TMP>/logs/.
 Instruções: LEIA-ME.md nesta pasta.
 """
 import argparse
+import glob
 import importlib.util
 import os
+import re
+import shutil
 import subprocess
 import sys
 import time
@@ -63,6 +71,21 @@ def main():
     print(f"projeto: {BASE}")
     print(f"dados brutos: {BRUTOS if ARRANJO == 'github' else os.path.join(BASE, 'dados')} (arranjo: {ARRANJO})")
     print(f"intermediários e logs: {TMP}")
+
+    # trava 1: brutos que mudaram de bytes sem nova data de acesso (ERR_040)
+    import manifesto_brutos
+    travas_brutos, ln = manifesto_brutos.conferir()
+    print(ln[0])
+    if travas_brutos:
+        print("\n".join(f"TRAVA: {t}" for t in travas_brutos))
+        print("ATUALIZAÇÃO TRAVADA antes de rodar: corrija os brutos acima (passo a passo em ATUALIZACAO.md).")
+        return 3
+    # a planilha publicada, para o relatório de diferenças (ao retomar com --de, vale a cópia da execução que começou do zero)
+    anterior = os.path.join(TMP, "planilha_anterior.xlsx")
+    vs = [(int(m.group(1)), p) for p in glob.glob(os.path.join(BASE, "documentacao", "prototipo_bases_consolidadas_v*.xlsx"))
+          if (m := re.search(r"_v(\d+)\.xlsx$", p))]
+    if vs and (not args.de or not os.path.exists(anterior)):
+        shutil.copyfile(max(vs)[1], anterior)
     t0 = time.time()
     for i in range(inicio, len(ETAPAS)):
         etapa, t = ETAPAS[i], time.time()
@@ -80,6 +103,28 @@ def main():
     with open(os.path.join(logs, ETAPAS[-1] + ".log"), encoding="utf-8", errors="replace") as f:
         salvo = [linha.strip() for linha in f if linha.startswith("SALVO:")]
     print(f"concluído em {time.time() - t0:.0f} s" + (f" — {salvo[-1]}" if salvo else ""))
+    return travar(salvo[-1][len("SALVO:"):].strip() if salvo else None, anterior if os.path.exists(anterior) else None)
+
+
+def travar(nova, anterior):
+    """Relatório de diferenças e trava 2 (aba 14b, travas.py). 0 = pode publicar; 3 = travou."""
+    import manifesto_brutos
+    import travas
+    if not nova or not os.path.exists(nova):
+        print("TRAVA: a planilha final não foi encontrada no log da governança")
+        return 3
+    if anterior:
+        import relatorio_diferencas
+        md, _ = relatorio_diferencas.relatorio(anterior, nova)
+        saida = os.path.join(BASE, "documentacao", "relatorio_diferencas.md")
+        with open(saida, "w", encoding="utf-8", newline="\n") as f:
+            f.write(md)
+        print(f"relatório de diferenças (planilha anterior × nova): {saida}")
+    bloqueios, avisos, linhas = travas.conferir(nova, anterior)
+    print(travas.texto(bloqueios, avisos, linhas))
+    if bloqueios:
+        return 3
+    print(f"manifesto dos brutos: {manifesto_brutos.gravar()}")
     return 0
 
 

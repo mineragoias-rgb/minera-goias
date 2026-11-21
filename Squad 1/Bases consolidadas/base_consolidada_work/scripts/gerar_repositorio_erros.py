@@ -612,7 +612,10 @@ CHECAGENS_DEF = [
     ("cadastro_go_descartado", "Repositório de erros (ERR_024): linhas do Cadastro Mineiro com município de GO que o leitor descartaria (aspas sem escape)"),
 ]
 if "--atualizar-conhecidos" in sys.argv:
-    json.dump(OCORRENCIAS, open(CONHECIDOS, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
+    # alertas_aceitos (lidos por travas.py) são revisados à mão: ficam como estão
+    _aceitos = json.load(open(CONHECIDOS, encoding="utf-8")).get("alertas_aceitos") if os.path.exists(CONHECIDOS) else None
+    json.dump({**OCORRENCIAS, **({"alertas_aceitos": _aceitos} if _aceitos else {})},
+              open(CONHECIDOS, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
     print(f"SALVO: {CONHECIDOS} ({sum(map(len, OCORRENCIAS.values()))} ocorrências conhecidas)")
 _conh = json.load(open(CONHECIDOS, encoding="utf-8")) if os.path.exists(CONHECIDOS) else {}
 CHECAGENS = []

@@ -92,6 +92,18 @@ Três scripts resumem a planilha em documentos, sem digitar número (rode depois
   `Squad 1/Auditoria e qualidade/repositorio_erros.xlsx` e `REPOSITORIO_ERROS.md`. Só lê os brutos e a planilha; rodar depois do pipeline.
 - `regras_series.py`: regras de série decididas pelo grupo (v18: o nióbio beneficiado vale pelo contido em Nb2O5), usadas pela Base 1, pela 12 e pela governança.
 
+## Travas da atualização (rodam junto com o `rodar_pipeline.py`)
+
+Passo a passo para atualizar com dados novos: [`../../ATUALIZACAO.md`](../../ATUALIZACAO.md).
+
+- `manifesto_brutos.py`: manifesto dos brutos (fonte, arquivo, data de acesso, tamanho, sha256) em `documentacao/manifesto_brutos.json`.
+  O pipeline confere antes da 1ª etapa (trava se um arquivo mudou de bytes sem nova data de acesso, ERR_040) e grava no fim, se nada travou.
+- `travas.py`: nível de cada verificação da 14b (`bloqueia` ou `avisa`) e de cada erro do repositório; os alertas aceitos ficam em
+  `erros_conhecidos.json` → `alertas_aceitos`. No fim do pipeline, ALERTA de nível `bloqueia` acima do aceito → código de saída 3.
+  O robô (`robo_bases.py --conferir-planilha`) usa a mesma regra. `python travas.py --tabela` imprime o nível de cada ERR_###.
+- `relatorio_diferencas.py`: planilha anterior × nova (brutos que mudaram, linhas por aba, IDs que entraram e saíram, totais das abas 09
+  e 12 acima de um limiar, 14b). O pipeline grava `documentacao/relatorio_diferencas.md` no fim.
+
 ## Cuidados ao mexer nos scripts
 
 - Os scripts executam trechos uns dos outros com `exec`: as Bases 2 e 3, a 06 e a governança usam as definições da

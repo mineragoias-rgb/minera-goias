@@ -1,0 +1,355 @@
+{
+ "arranjo": "github",
+ "arquivos": {
+  "dados/ANEEL - SIGA/aneel_siga_empreendimentos_geracao.csv": {
+   "fonte": "ANEEL - SIGA",
+   "arquivo": "ANEEL - SIGA/aneel_siga_empreendimentos_geracao.csv",
+   "data_acesso": "",
+   "bytes": 8448855,
+   "sha256": "fd5e0bb41d6017f5a2b9c0014486aef304ed911bb63e59c652a85c125ed642fe"
+  },
+  "dados/ANM/cadastro_mineiro/Alvara_de_Pesquisa.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Alvara_de_Pesquisa.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 1903252,
+   "sha256": "c4360a30ce9bb1ee3933914a733153e025bffd6ec68f1ef0dfde416728b90423"
+  },
+  "dados/ANM/cadastro_mineiro/Cessoes_de_Direitos.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Cessoes_de_Direitos.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 1009000,
+   "sha256": "96d9f32118d907161b2e0c54a77e8208b035312d3cf4de1c49dc8323c36f87ad"
+  },
+  "dados/ANM/cadastro_mineiro/Guia_de_Utilizacao_Autorizada.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Guia_de_Utilizacao_Autorizada.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 95423,
+   "sha256": "2c9c70670fb383540d37e3e5670bb3d374da2b448585749da32606abdad74048"
+  },
+  "dados/ANM/cadastro_mineiro/Licenciamento.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Licenciamento.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 345911,
+   "sha256": "bf8e1fa960daf7d0aed1212f958df53bf353ec345f78a0568c6cbfe20e5509e4"
+  },
+  "dados/ANM/cadastro_mineiro/PLG.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/PLG.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 20536,
+   "sha256": "974ed37f22170937e60e477f7485d3cfa7f7e48007710091d42c4ac3c9ed46db"
+  },
+  "dados/ANM/cadastro_mineiro/Portaria_de_Lavra.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Portaria_de_Lavra.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 262159,
+   "sha256": "f5805f5addd0e77f560a8f1943387169e9d1014f066dbb74509e9643a491f1be"
+  },
+  "dados/ANM/cadastro_mineiro/Registro_de_Extracao_Publicado.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Registro_de_Extracao_Publicado.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 9004,
+   "sha256": "a44cf6559887b35db73a09b639d9d85c85392821cf9c75610ed8801dd22eb8b9"
+  },
+  "dados/ANM/cadastro_mineiro/Relatorio_de_Pesquisa_Aprovado.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Relatorio_de_Pesquisa_Aprovado.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 276672,
+   "sha256": "fbfaec42ef30e61885cf4a14cc1365beff2cd68ae9aaec07e673b0cb799fbc1f"
+  },
+  "dados/ANM/cadastro_mineiro/Requerimento_de_Lavra.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Requerimento_de_Lavra.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 292853,
+   "sha256": "c1add5e59592c033a4792dca47861d51bb295c870ef43329c2f956804f1d08a5"
+  },
+  "dados/ANM/cadastro_mineiro/Requerimento_de_Licenciamento.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Requerimento_de_Licenciamento.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 209394,
+   "sha256": "31f866e88538522224457944a3eb65ae043cd41ec9501b250d5797685d884f63"
+  },
+  "dados/ANM/cadastro_mineiro/Requerimento_de_PLG.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Requerimento_de_PLG.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 242362,
+   "sha256": "d919b272dbc023d28e7b7378ce0ab501a66a36d99a3413a41855b48d917a8c72"
+  },
+  "dados/ANM/cadastro_mineiro/Requerimento_de_Pesquisa.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Requerimento_de_Pesquisa.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 245502,
+   "sha256": "81d89da74ce4fe17a5cb5296ef5650d61b1e7daadb9d2e489b5c7fa35a02d204"
+  },
+  "dados/ANM/cadastro_mineiro/Requerimento_de_Registro_de_Extracao_Protocolizado.csv": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/Requerimento_de_Registro_de_Extracao_Protocolizado.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 6183,
+   "sha256": "c2bc8fa61dd2828074f05fd16ed540d3c03e0fa689ed40dc537cee1593d63887"
+  },
+  "dados/ANM/cadastro_mineiro/mer-microdados-scm.pdf": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/mer-microdados-scm.pdf",
+   "data_acesso": "2026-09-10",
+   "bytes": 230856,
+   "sha256": "25c441c6eaefcc232448ef18d05f863dc91b31a4d22f17a10e944378fdd7927b"
+  },
+  "dados/ANM/cadastro_mineiro/metadados-microdados-scm.ods": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/metadados-microdados-scm.ods",
+   "data_acesso": "2026-09-10",
+   "bytes": 13101,
+   "sha256": "e0d80cf6e750061d508991ebdc4454b5c5bcb363af6da71db15f7f8253b5e06e"
+  },
+  "dados/ANM/cadastro_mineiro/metadados-scm.ods": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/metadados-scm.ods",
+   "data_acesso": "2026-09-10",
+   "bytes": 10810,
+   "sha256": "6dc51381dd00a7ea36e3da329a3bac5438e45f5ad795908d85b4aee89ea50abb"
+  },
+  "dados/ANM/cadastro_mineiro/recorte_goias.json": {
+   "fonte": "ANM - Cadastro Mineiro",
+   "arquivo": "ANM - Cadastro Mineiro/recorte_goias.json",
+   "data_acesso": "",
+   "bytes": 6290,
+   "sha256": "1a3121a33c4c3bbc51f7a83542c600f304e0cd9d603241a156af492879028425"
+  },
+  "dados/ANM/cfem/CFEM_Arrecadacao_2022_2026_GO.csv": {
+   "fonte": "ANM - CFEM",
+   "arquivo": "ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 4195039,
+   "sha256": "0326af4439e4700cb018c5ef9599e389853fe793dc55663735e768ad82e89434"
+  },
+  "dados/ANM/cfem/metadados-cfem.ods": {
+   "fonte": "ANM - CFEM",
+   "arquivo": "ANM - CFEM/metadados-cfem.ods",
+   "data_acesso": "2026-08-27",
+   "bytes": 9970,
+   "sha256": "87cbdbbbc852c9cf83ef0bbe3114e85c259a0e9808b106c191611b7b9bfd7902"
+  },
+  "dados/ANM/investimento_pesquisa/InvestimentoPesquisaMineralUf.csv": {
+   "fonte": "ANM - Investimento em pesquisa mineral",
+   "arquivo": "ANM - Investimento em pesquisa mineral/InvestimentoPesquisaMineralUf.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 1283142,
+   "sha256": "01e1af8f769c6f7f6698de9db41826a9019c6619f26914f593cb65f487da9486"
+  },
+  "dados/ANM/producao_amb_ral/Producao_Beneficiada.csv": {
+   "fonte": "ANM - Anuário Mineral Brasileiro (AMB)",
+   "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Beneficiada.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 678854,
+   "sha256": "1fd7068bbd84a58e28f06fa1088c53de4bbbb0a89803ca71c2ee2b64ea00f77a"
+  },
+  "dados/ANM/producao_amb_ral/Producao_Bruta.csv": {
+   "fonte": "ANM - Anuário Mineral Brasileiro (AMB)",
+   "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv",
+   "data_acesso": "2026-10-24",
+   "bytes": 991748,
+   "sha256": "e68e1ba1f2a87ce3e4ec8083df3bdabc8e5ce567633cdf7621e47f9900acf7b5"
+  },
+  "dados/ANM/producao_amb_ral/metadados-amb.ods": {
+   "fonte": "ANM - Anuário Mineral Brasileiro (AMB)",
+   "arquivo": "ANM - Anuário Mineral Brasileiro (AMB)/metadados-amb.ods",
+   "data_acesso": "2026-08-27",
+   "bytes": 7707,
+   "sha256": "4028572f4f5d345912e7143e126ecb12adfa249fe33ae6f614b8553ed215926c"
+  },
+  "dados/ANM/sigmine/GO.zip": {
+   "fonte": "ANM - SIGMINE",
+   "arquivo": "ANM - SIGMINE/GO.zip",
+   "data_acesso": "2026-10-24",
+   "bytes": 10530956,
+   "sha256": "1030ec1d2d9d51ffe0922a03954a5e4b3a6c8713bbb05686caa05febacd6ace0"
+  },
+  "dados/ANM_derivados_analises/Mineradoras_Goias_operacao_e_potencial.xlsx": {
+   "fonte": "ANM - Planilhas derivadas",
+   "arquivo": "ANM - Planilhas derivadas/Mineradoras_Goias_operacao_e_potencial.xlsx",
+   "data_acesso": "2026-08-27",
+   "bytes": 4801465,
+   "sha256": "6298f68de1a362ad60c80e7e8c545dcd59aeaa0ac740cc9c09998a632216a10a"
+  },
+  "dados/ANM_derivados_analises/Panorama_Mineracao_Goias_ANM.xlsx": {
+   "fonte": "ANM - Planilhas derivadas",
+   "arquivo": "ANM - Planilhas derivadas/Panorama_Mineracao_Goias_ANM.xlsx",
+   "data_acesso": "2026-08-27",
+   "bytes": 436475,
+   "sha256": "74cb13306d38f2c8baa6bf8c5b4dbbf4b3a5d3c83d2ce632577935f29516c694"
+  },
+  "dados/Aluno Lucas Maia/projetos_minerais_goias.xlsx": {
+   "fonte": "Aluno Lucas Maia",
+   "arquivo": "Aluno Lucas Maia/projetos_minerais_goias.xlsx",
+   "data_acesso": "",
+   "bytes": 15486,
+   "sha256": "c09ae32fd4fbd3bda64101b85945792cc0eb33e82a39b9644a2a21ed4da6bfe8"
+  },
+  "dados/EPE - Balanço Energético Nacional (BEN)/Capítulo 2 (Oferta e Demanda de Energia por Fonte) - 1970 a 2025.xlsx": {
+   "fonte": "EPE - Balanço Energético Nacional (BEN)",
+   "arquivo": "EPE - Balanço Energético Nacional (BEN)/Capítulo 2 (Oferta e Demanda de Energia por Fonte) - 1970 a 2025.xlsx",
+   "data_acesso": "",
+   "bytes": 363443,
+   "sha256": "7e03c244604e8ec8a63f0df2cdb7466ca89d33a0807cca11e0c61160dd51fdf3"
+  },
+  "dados/EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx": {
+   "fonte": "EPE - Balanço Energético Nacional (BEN)",
+   "arquivo": "EPE - Balanço Energético Nacional (BEN)/Capítulo 8 (Dados Estaduais) - 2000 a 2025.xlsx",
+   "data_acesso": "",
+   "bytes": 1319193,
+   "sha256": "9d33d2a572e76672eb707d5798d09b34eeb85cc4392970eb88628e3d2f1dce7d"
+  },
+  "dados/EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx": {
+   "fonte": "EPE - Balanço Energético Nacional (BEN)",
+   "arquivo": "EPE - Balanço Energético Nacional (BEN)/Matriz 2026 - ano-base 2025.xlsx",
+   "data_acesso": "",
+   "bytes": 229548,
+   "sha256": "575d3739438bc109116b274c5e8c434c0c1e33a89f935caed2d6635f4f040e9b"
+  },
+  "dados/EPE - Balanço Energético Nacional (BEN)/matriz_autoproducao_eletrecidade_setor_fonte.xlsx": {
+   "fonte": "EPE - Balanço Energético Nacional (BEN)",
+   "arquivo": "EPE - Balanço Energético Nacional (BEN)/matriz_autoproducao_eletrecidade_setor_fonte.xlsx",
+   "data_acesso": "",
+   "bytes": 7687,
+   "sha256": "aea097904560f06b0cfb0ccd9e06620e3745bfe5b1e391e556f21f6b572a8441"
+  },
+  "dados/EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx": {
+   "fonte": "EPE - Plano Decenal de Energia (PDE 2035)",
+   "arquivo": "EPE - Plano Decenal de Energia (PDE 2035)/PDE 2035_Painel de Resultados_Dados Abertos.xlsx",
+   "data_acesso": "",
+   "bytes": 252822,
+   "sha256": "7bcea0b7131cf311ba773ab5e79cad8231fcb1baf49c9d5db8077a3262028a20"
+  },
+  "dados/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_caderno_demanda_energia_eficiencia.pdf": {
+   "fonte": "EPE - Plano Decenal de Energia (PDE 2035)",
+   "arquivo": "EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_caderno_demanda_energia_eficiencia.pdf",
+   "data_acesso": "",
+   "bytes": 3138315,
+   "sha256": "d544c1aa36629404f6ef0932925330c14cf5b090f246c052671802b77acdabda"
+  },
+  "dados/EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip": {
+   "fonte": "EPE - Plano Decenal de Energia (PDE 2035)",
+   "arquivo": "EPE - Plano Decenal de Energia (PDE 2035)/epe_pde2035_dados_relatorio_final.zip",
+   "data_acesso": "",
+   "bytes": 7964621,
+   "sha256": "aac18732cc527fda40b6082593b53705eb596f7e443dd2a7aae81da5075c6f6f"
+  },
+  "dados/IBGE/GO_Municipios_2025.zip": {
+   "fonte": "IBGE - Malha municipal 2025",
+   "arquivo": "IBGE - Malha municipal 2025/GO_Municipios_2025.zip",
+   "data_acesso": "2026-09-10",
+   "bytes": 17436035,
+   "sha256": "56c41ceb00692f0bb2171ed688289c58c076621983eeaa8981071a79f64de86a"
+  },
+  "dados/IBGE/pib_municipal_goias_ultimo_ano.json": {
+   "fonte": "IBGE - População e PIB (SIDRA)",
+   "arquivo": "IBGE - População e PIB (SIDRA)/pib_municipal_goias_ultimo_ano.json",
+   "data_acesso": "2026-08-27",
+   "bytes": 1578185,
+   "sha256": "4033d9c02d3bb49e5f8bb6128feaa6e40ee2e1f556a1d7251133ee332106237c"
+  },
+  "dados/IBGE/populacao_goias_ultimo_ano.json": {
+   "fonte": "IBGE - População e PIB (SIDRA)",
+   "arquivo": "IBGE - População e PIB (SIDRA)/populacao_goias_ultimo_ano.json",
+   "data_acesso": "2026-10-24",
+   "bytes": 645,
+   "sha256": "5bf3f5cd244e4413aa1cbd0ef3160c21d196956432c4f8eec062fa2c35d02fcb"
+  },
+  "dados/IBGE/populacao_municipal_goias_ultimo_ano.json": {
+   "fonte": "IBGE - População e PIB (SIDRA)",
+   "arquivo": "IBGE - População e PIB (SIDRA)/populacao_municipal_goias_ultimo_ano.json",
+   "data_acesso": "2026-10-24",
+   "bytes": 1508975,
+   "sha256": "bf6160161f2cbcf2080d73f3da4961e8e1986848856e39501f3e9cc4876790da"
+  },
+  "dados/IMB/consulta (1).csv": {
+   "fonte": "IMB - Goiás em Dados",
+   "arquivo": "IMB - Goiás em Dados/consulta (1).csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 288090,
+   "sha256": "34d29a7c9e131136081913ce9af395e400a6a3d1cedf72582afbff034cc43963"
+  },
+  "dados/IMB/consulta (2).csv": {
+   "fonte": "IMB - Goiás em Dados",
+   "arquivo": "IMB - Goiás em Dados/consulta (2).csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 249387,
+   "sha256": "22d65b3e0c9b66ad84ffc986098343fabd01bf5bb854e11d60a6f267c761e10a"
+  },
+  "dados/IMB/consulta (3).csv": {
+   "fonte": "IMB - Goiás em Dados",
+   "arquivo": "IMB - Goiás em Dados/consulta (3).csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 376926,
+   "sha256": "39e69b432f429cc624d8bf30e64556fb7654adb40873438fdf1915a3c848ae82"
+  },
+  "dados/IMB/consulta.csv": {
+   "fonte": "IMB - Goiás em Dados",
+   "arquivo": "IMB - Goiás em Dados/consulta.csv",
+   "data_acesso": "2026-09-10",
+   "bytes": 592054,
+   "sha256": "af6261768442d2a8b53b52b481d3f0cec1a1e931a87fef60c0edf7fdcdfeaac8"
+  },
+  "dados/ONS - Dados abertos/ons_linhas_transmissao.csv": {
+   "fonte": "ONS - Dados abertos",
+   "arquivo": "ONS - Dados abertos/ons_linhas_transmissao.csv",
+   "data_acesso": "",
+   "bytes": 761746,
+   "sha256": "cc27f9e38d59e7f0b3f70db50c7e227911180adc02822241e9f82c3228a25a03"
+  },
+  "dados/ONS - Dados abertos/ons_subestacoes.csv": {
+   "fonte": "ONS - Dados abertos",
+   "arquivo": "ONS - Dados abertos/ons_subestacoes.csv",
+   "data_acesso": "",
+   "bytes": 161161,
+   "sha256": "e2846a3446ba016e61182bf014f170811313653045d88d306c2f4050d097f6bc"
+  },
+  "dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.geojson": {
+   "fonte": "SGB - RECMIN",
+   "arquivo": "SGB - RECMIN/ocorrencias_recursos_minerais_GO.geojson",
+   "data_acesso": "2026-09-12",
+   "bytes": 2934157,
+   "sha256": "9449760936e4ed8477840da7fe8036a41d932e7eae4ae9d876057997e868bc35"
+  },
+  "dados/SGB_GeoSGB/recmin/ocorrencias_recursos_minerais_GO.metadados.json": {
+   "fonte": "SGB - RECMIN",
+   "arquivo": "SGB - RECMIN/ocorrencias_recursos_minerais_GO.metadados.json",
+   "data_acesso": "2026-09-12",
+   "bytes": 806,
+   "sha256": "31c932292405a5663399413c453a9e5b758256068839bee73ee3b265c9569bfb"
+  },
+  "dados/SGB_GeoSGB/sig_vetorial/geoquimica_Fl_goias_PLGB_1999_vr1.zip": {
+   "fonte": "SGB - GeoSGB geoquímica",
+   "arquivo": "SGB - GeoSGB geoquímica/geoquimica_Fl_goias_PLGB_1999_vr1.zip",
+   "data_acesso": "2026-09-10",
+   "bytes": 500963,
+   "sha256": "0ab0fc15ff9accf8d711a6e6895fd610fa2a8da4ee0390c1a95e25a214e852cc"
+  },
+  "dados/SGB_GeoSGB/sig_vetorial/geoquimica_metalogenia_oeste_de_goias_2017.zip": {
+   "fonte": "SGB - GeoSGB geoquímica",
+   "arquivo": "SGB - GeoSGB geoquímica/geoquimica_metalogenia_oeste_de_goias_2017.zip",
+   "data_acesso": "2026-09-10",
+   "bytes": 574612,
+   "sha256": "168375816b50a22e74706db0884f2296461bc77961ce3c65ee276ed8b0be3300"
+  },
+  "dados/SGB_GeoSGB/sig_vetorial/geoquimica_noroeste_de_goias.zip": {
+   "fonte": "SGB - GeoSGB geoquímica",
+   "arquivo": "SGB - GeoSGB geoquímica/geoquimica_noroeste_de_goias.zip",
+   "data_acesso": "2026-09-10",
+   "bytes": 201542,
+   "sha256": "4115a6833e468e3f5d14ab090986ee497a0d9b07192ce617561fb7a3c0a46ce0"
+  }
+ }
+}

@@ -9,6 +9,7 @@ produção mineral e CFEM de Goiás, com ID estável, fonte e unidade em cada n�
 | Dados brutos usados, uma pasta por fonte | [`../Dados brutos/`](../Dados%20brutos/) — catálogo em `Dados brutos/LEIA-ME.md` e na aba `07_dim_fontes` |
 | Entrega ao Squad 2 | aba `12_interface_squad1_squad2` |
 | Dicionário de dados e validações automáticas | abas `14_dicionario_dados` e `14b_validacoes_governanca` |
+| **Atualizar com dados novos sem repetir os erros** (passo a passo, travas e relatório de diferenças) | [`ATUALIZACAO.md`](ATUALIZACAO.md) |
 | Repositório de erros das fontes e análises (bário × nióbio, contido × bruto, tonelagens repetidas, AMB × CFEM) | abas `15a_repositorio_erros` a `15f_amb_x_cfem`; as checagens de cada erro estão na 14b |
 | Relatório de qualidade (faltantes, duplicidades, divergências e unidades) | `documentacao/relatorio_qualidade.md` |
 | Nota ao Squad 2 sobre a produção estimada sem coordenadas | `documentacao/nota_squad2_operacoes_sem_coordenadas.md` e `operacoes_sem_coordenadas.csv` |

@@ -264,5 +264,27 @@
   "Água Mineral|2025|R2"
  ],
  "cfem_cnpj_notacao_cientifica": [],
- "cadastro_go_descartado": []
+ "cadastro_go_descartado": [],
+ "alertas_aceitos": {
+  "Arquivos de dados/ sem source_id": {
+   "n_aceito": 12,
+   "erro": "",
+   "motivo": "No GitHub, Squad 1/Dados brutos guarda também as fontes de energia (ANEEL, EPE, ONS), a planilha do Lucas Maia e o .gitattributes, que ainda não entraram no catálogo 07 (na cópia de trabalho do Eliel dá OK). Era o alertas_esperados de robo/fontes.json."
+  },
+  "Plausibilidade: CFEM": {
+   "n_aceito": 30,
+   "erro": "ERR_015",
+   "motivo": "Pares mineral-ano da v18/v19 com CFEM comercializada fora de 0,05–2× o AMB: declaração do contribuinte, sinalizada, não corrigida."
+  },
+  "Processos com quantidade na CFEM implausível": {
+   "n_aceito": 37,
+   "erro": "ERR_015, ERR_016",
+   "motivo": "37 processos da 09c na v18/v19, mantidos na soma e sinalizados (critério na própria aba)."
+  },
+  "08: mesma tonelagem de produção": {
+   "n_aceito": 170,
+   "erro": "ERR_001, ERR_002",
+   "motivo": "170 linhas do AMB com a mesma tonelagem na mesma UF e ano (co-produto, mineral separado por teor ou mesma declaração em duas categorias). Inclui bário × nióbio no ROM de 2023 (5.526.825,44 t nos dois): alerta mantido SEM correção por inferência — decisão do grupo."
+  }
+ }
 }

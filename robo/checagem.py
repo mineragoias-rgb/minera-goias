@@ -245,27 +245,33 @@ def alertas_14b(caminho):
     import openpyxl
     wb = openpyxl.load_workbook(caminho, read_only=True, data_only=True)
     linhas = list(wb["14b_validacoes_governanca"].iter_rows(values_only=True))
+    wb.close()  # no Windows, o arquivo aberto impede apagar a pasta temporária
     cab = next(i for i, ln in enumerate(linhas) if ln and ln[0] == "verificacao")
     return {str(ln[0]): (str(ln[3]), str(ln[2])) for ln in linhas[cab + 1:] if ln and ln[0]}
 
 
-def conferir_planilha(antes, depois):
-    """Bloqueia quando a planilha refeita tem ALERTA numa verificação que não tinha (ou numa verificação nova).
+TRAVAS = Path(__file__).resolve().parents[1] / "Squad 1" / "Bases consolidadas" / "base_consolidada_work" / "scripts"
 
-    `planilha.alertas_esperados` em robo/fontes.json lista os que valem no arranjo do GitHub, com o motivo."""
-    esperados = json.loads(CONFIG.read_text(encoding="utf-8")).get("planilha", {}).get("alertas_esperados", {})
+
+def conferir_planilha(antes, depois):
+    """Bloqueia pela mesma regra do pipeline (travas.py, ao lado do pipeline do Squad 1): ALERTA numa verificação de nível
+    "bloqueia" acima do aceito em erros_conhecidos.json → alertas_aceitos, ou verificação que sumiu da 14b. As de nível "avisa"
+    aparecem no relatório sem bloquear. (Antes de 21/11/2026 o robô bloqueava qualquer ALERTA novo, salvo os de
+    `planilha.alertas_esperados` em fontes.json; esse caso agora é um alerta aceito.)"""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("travas", TRAVAS / "travas.py")
+    travas = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(travas)
     a, d = alertas_14b(antes), alertas_14b(depois)
-    problemas, linhas = [], ["| Verificação | Antes | Depois |", "|---|---|---|"]
-    for nome, (status, resultado) in d.items():
+    linhas = ["| Verificação | Antes | Depois |", "|---|---|---|"]
+    for nome, (status, _) in d.items():
         anterior = a.get(nome, ("(nova)", ""))[0]
         if status != "OK" or anterior != "OK":
             linhas.append(f"| {nome[:90]} | {anterior} | {status} |")
-        if status != "OK" and anterior != status and not any(nome.startswith(e) for e in esperados):
-            problemas.append(f"{nome}: {anterior} → {status} ({resultado[:200]})")
-    for nome in a:
-        if nome not in d:
-            problemas.append(f"verificação sumiu da aba 14b: {nome}")
-    texto = "\n".join(linhas) + "\n\n" + ("\n".join("BLOQUEIO: " + p for p in problemas) or "nenhum alerta novo na aba 14b")
+    problemas, avisos, decisao = travas.conferir(depois, antes)
+    texto = ("\n".join(linhas) + "\n\n" + "\n".join(decisao) + "\n\n"
+             + "\n".join(["BLOQUEIO: " + p for p in problemas] + ["aviso: " + x for x in avisos])
+             + ("" if problemas else ("\n" if avisos else "") + "nenhum alerta que trave na aba 14b"))
     return problemas, texto
 
 

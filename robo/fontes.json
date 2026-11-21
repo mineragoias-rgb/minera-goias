@@ -9,10 +9,7 @@
   "fiapo_km2": 10
  },
  "planilha": {
-  "comentario": "Trava da base consolidada refeita pelo pipeline (robo_bases.py --conferir-planilha): um ALERTA novo na aba 14b bloqueia a publicação, salvo os listados aqui, que são próprios do arranjo do GitHub.",
-  "alertas_esperados": {
-   "Arquivos de dados/ sem source_id no catálogo 07": "No GitHub, Squad 1/Dados brutos guarda também as fontes de energia (ANEEL, EPE, ONS), a planilha do Lucas Maia e o .gitattributes, que ainda não entraram no catálogo 07 da planilha. Na cópia de trabalho do Eliel esses arquivos não ficam em dados/, por isso lá a verificação dá OK."
-  }
+  "comentario": "Trava da base consolidada refeita pelo pipeline (robo_bases.py --conferir-planilha): vale a mesma regra do pipeline, em Squad 1/Bases consolidadas/base_consolidada_work/scripts/travas.py — ALERTA numa verificação de nível 'bloqueia' trava; os alertas aceitos (com o n aceito e o motivo) ficam em erros_conhecidos.json → alertas_aceitos, ao lado. O antigo alertas_esperados ('Arquivos de dados/ sem source_id', próprio do arranjo do GitHub) virou um alerta aceito lá."
  },
  "anm": {
   "fracao_minima": 0.9,
