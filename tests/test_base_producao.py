@@ -47,6 +47,10 @@ class BaseProducaoTests(unittest.TestCase):
             self.assertNotRegex(';'.join(r.values()), cpf)
             if r['company_id'].startswith('COM_NOME_') or r['empresa'].startswith('pessoa física'):
                 self.assertEqual(r['cnpj_raiz'], '', r['company_id'])
+            # só CNPJ tem nome: titular sem CNPJ (COM_NOME_) e razão social com CPF mascarado (MEI) aparecem sem nome
+            self.assertNotIn('*', r['empresa'], r['company_id'])
+            if not r['company_id'].startswith('COM_CNPJ_') and r['company_id'] != 'COM_NAO_IDENTIFICADO':
+                self.assertEqual(r['empresa'], 'pessoa física (nome não publicado)', r['company_id'])
 
     def test_energia_estimada_usa_a_media_do_mineral(self):
         # Sem carga na CCEE, a energia é produção × média dos coeficientes do mineral: o coeficiente é o mesmo em todas essas linhas.

@@ -19,6 +19,7 @@ Saídas (documentacao/base_producao/):
 Pessoa física não tem nome nem CPF publicados: aparece como "pessoa física (nome não publicado)".
 """
 import csv
+import re
 import os
 import sys
 from collections import defaultdict
@@ -61,8 +62,12 @@ def ler_aba(wb, nome):
 wb = openpyxl.load_workbook(os.path.join(DOC, "prototipo_bases_consolidadas_v19.xlsx"), read_only=True)
 EMP = {}
 for r in ler_aba(wb, "02_dim_empresas"):
-    pf = str(r.get("tipo_pessoa") or "").upper() == "PF"
-    EMP[r["company_id"]] = ("pessoa física (nome não publicado)" if pf else (r.get("razao_social") or ""), "" if pf else str(r.get("cnpj_raiz") or ""))
+    # Nome só para CNPJ sem CPF no nome — a mesma regra do panorama (build_panorama_base.empresa). "tipo_pessoa" não basta: titular
+    # "indeterminado" sem CNPJ é pessoa física, e o MEI tem CNPJ com o nome e o CPF do dono na razão social.
+    nome = str(r.get("razao_social") or "")
+    publico = str(r["company_id"]).startswith("COM_CNPJ_") and nome and "*" not in nome and not re.search(r"\d{3}\.?\d{3}\.?\d{3}-?\d{2}", nome) \
+        and str(r.get("tipo_pessoa") or "").upper() != "PF"
+    EMP[r["company_id"]] = (nome, str(r.get("cnpj_raiz") or "")) if publico else ("pessoa física (nome não publicado)", "")
 MUN = {str(r["municipality_id"]): r.get("municipality_name") or r.get("nome_municipio") or "" for r in ler_aba(wb, "05_dim_municipios")}
 wb.close()
 
