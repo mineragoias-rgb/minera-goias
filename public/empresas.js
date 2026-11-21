@@ -1,4 +1,4 @@
-/* Empresas tab: what each company declared producing, how much CCEE load it pulled in Goiás and the coefficient between the two.
+/* Empresas tab, in three parts: production by company (the state total of the yearbook split by CFEM), what each company declared producing, how much CCEE load it pulled in Goiás and the coefficient between the two, and — from the panorama engine (panorama.js) — CFEM, titles and CCEE load by holder.
    Data comes from /api/empresas (authenticated), rebuilt by scripts/build_empresas_base.py. Nothing is recomputed here beyond
    filtering and totals: annualisation, the coefficient and its quality are decided in the generator, where they are auditable. */
 (()=>{'use strict';
@@ -184,10 +184,129 @@ function desenhar(){
    inicio:mesAno(dados.meta.periodo_ccee[0]),fim:mesAno(dados.meta.periodo_ccee[1])});
  el('ep-export').onclick=()=>exportar(linhas);}
 
+
+/* Produção por empresa (AMB × CFEM): o bloco "estimada" do mesmo pacote. O total do estado do Anuário Mineral dividido pela parcela
+   de cada empresa na CFEM em R$ — divisão feita e auditada no pipeline do Squad 1 (gerar_base_producao.py); aqui só se filtra e soma. */
+let est=null;
+const linhaObj=(cols,r)=>Object.fromEntries(cols.map((c,i)=>[c,r[i]]));
+// Toneladas com casas que dependem do tamanho: ouro sai em poucas toneladas, areia em milhões.
+const toneladas=v=>v==null?'—':num(v,Math.abs(v)<10?3:Math.abs(v)<1000?1:0)+' t';
+const dinheiro=v=>v==null?'—':'R$ '+num(v,0);
+const pct=v=>v==null?'—':num(v*100,1)+' %';
+const estFiltradas=()=>{
+ const ano=el('es-ano').value,base=el('es-base').value,min=el('es-min').value,busca=el('es-busca').value.trim().toUpperCase();
+ return est.linhas.filter(l=>(!ano||String(l.ano)===ano)&&(!base||l.base===base)&&(!min||l.mineral===min)
+  &&(!busca||l.empresa.toUpperCase().includes(busca)||String(l.cnpj_raiz).includes(busca.replace(/\D/g,'')||'#')));};
+const estEstado=()=>{
+ const ano=el('es-ano').value,base=el('es-base').value,min=el('es-min').value;
+ return est.estado.filter(e=>(!ano||String(e.ano)===ano)&&(!base||e.base===base)&&(!min||e.mineral===min));};
+
+function estMetricas(linhas,estado){
+ const proprias=linhas.filter(l=>!l.minerio_de_outro_mineral),empresas=new Set(proprias.map(l=>l.cnpj_raiz||l.empresa));
+ const tot=estado.reduce((s,e)=>s+e.producao_estado_t-e.minerio_de_outro_mineral_t,0),div=estado.reduce((s,e)=>s+e.dividida_por_empresa_t,0);
+ const comPub=proprias.filter(l=>l.diferenca_vs_publicado!=null);
+ return [
+  ['a',t('es.m.empresas'),num(empresas.size),t('es.m.empresasSub')],
+  ['b',t('es.m.cobertura'),tot?pct(div/tot):'—',t('es.m.coberturaSub')],
+  ['c',t('es.m.cfem'),dinheiro(proprias.reduce((s,l)=>s+(l.cfem_brl||0),0)),t('es.m.cfemSub')],
+  ['d',t('es.m.publicado'),num(comPub.length),t('es.m.publicadoSub')],
+ ].map(([tom,rotulo,valor,detalhe])=>`<div class="metric tone-${tom}"><span>${escape(rotulo)}</span>`
+   +`<strong>${escape(valor)}</strong><small>${escape(detalhe)}</small></div>`).join('');}
+
+// Com um mineral escolhido, a barra é a produção (t) — comparável dentro do mineral. Sem mineral, toneladas de areia e de ouro não se
+// comparam: a barra vira a CFEM paga, que está em R$ para todos.
+function estBarras(linhas){
+ const min=el('es-min').value,proprias=linhas.filter(l=>!l.minerio_de_outro_mineral);
+ el('es-barrasT').textContent=min?t('es.barrasT',{mineral:min}):t('es.barrasCfemT');
+ el('es-barrasS').textContent=min?t('es.barrasS'):t('es.barrasCfemS');
+ const g=new Map();
+ proprias.forEach(l=>{const k=l.empresa;g.set(k,(g.get(k)||0)+(min?l.producao_t:(l.cfem_brl||0)))});
+ const itens=[...g.entries()].filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,15);
+ if(!itens.length)return `<p class="mk-note">${escape(t('ep.vazio'))}</p>`;
+ const max=itens[0][1];
+ return itens.map(([e,v])=>`<div class="bar-row"><span class="bar-label" title="${escape(e)}">${escape(e)}</span>`
+  +`<div class="bar-track"><div class="bar-fill completo" style="width:${v/max*100}%"></div></div>`
+  +`<span class="bar-value">${escape(min?toneladas(v):dinheiro(v))}</span></div>`).join('');}
+
+function estCobertura(estado){
+ const itens=estado.filter(e=>e.producao_estado_t>0).sort((a,b)=>b.producao_estado_t-a.producao_estado_t).slice(0,20);
+ if(!itens.length)return `<p class="mk-note">${escape(t('ep.vazio'))}</p>`;
+ const ano=el('es-ano').value;
+ return itens.map(e=>{const parte=e.producao_estado_t-e.minerio_de_outro_mineral_t,p=parte?e.dividida_por_empresa_t/parte:0;
+  return `<div class="bar-row"><span class="bar-label">${escape(e.mineral)} · ${escape(e.base)}${ano?'':' · '+e.ano}</span>`
+   +`<div class="bar-track"><div class="bar-fill ${p>=0.99?'completo':'parcial'}" style="width:${p*100}%"></div></div>`
+   +`<span class="bar-value">${escape(pct(p))} · ${escape(toneladas(e.producao_estado_t))}</span></div>`
+   +(e.minerio_de_outro_mineral_t?`<p class="mk-note">${escape(t('es.outroMineral',{t:toneladas(e.minerio_de_outro_mineral_t)}))}</p>`:'')
+   +(e.empresas===0?`<p class="mk-note">${escape(e.situacao)}</p>`:'')}).join('');}
+
+const LIMITE=200;
+function estTabela(linhas){
+ const ordem=[...linhas].sort((a,b)=>b.ano-a.ano||a.mineral.localeCompare(b.mineral)||a.base.localeCompare(b.base)||b.producao_t-a.producao_t);
+ const cab=[t('es.h.ano'),t('es.h.mineral'),t('es.h.base'),t('es.h.empresa'),t('es.h.cnpj'),t('es.h.producao'),t('es.h.parcela'),
+  t('es.h.processos'),t('es.h.municipios'),t('es.h.cfem')];
+ const corpo=ordem.slice(0,LIMITE).map(l=>`<tr><td>${l.ano}</td><td>${escape(l.mineral)}</td><td>${escape(l.base)}</td>`
+  +`<td>${escape(l.empresa)}${l.minerio_de_outro_mineral?` <span class="pill" title="${escape(t('es.outroMineralTip'))}">${escape(t('es.outroMineralPill'))}</span>`:''}</td>`
+  +`<td>${escape(l.cnpj_raiz||'—')}</td><td class="num">${escape(toneladas(l.producao_t))}</td><td class="num">${escape(pct(l.parcela_do_estado))}</td>`
+  +`<td class="num">${num(l.processos)}</td><td>${escape(l.municipios||'—')}</td><td class="num">${escape(dinheiro(l.cfem_brl))}</td></tr>`).join('');
+ el('es-count').textContent=t('es.contagem',{mostradas:num(Math.min(LIMITE,ordem.length)),linhas:num(ordem.length)});
+ return `<table><thead><tr>${cab.map(c=>`<th>${escape(c)}</th>`).join('')}</tr></thead><tbody>${corpo}</tbody></table>`;}
+
+function estPublicado(linhas){
+ const com=linhas.filter(l=>l.publicado_t!=null).sort((a,b)=>b.ano-a.ano||a.mineral.localeCompare(b.mineral));
+ if(!com.length)return `<p class="mk-note">${escape(t('es.pubVazio'))}</p>`;
+ return `<table><thead><tr>${[t('es.h.ano'),t('es.h.mineral'),t('es.h.empresa'),t('es.h.producao'),t('es.h.publicado'),t('es.h.diferenca'),t('es.h.fonte')]
+   .map(c=>`<th>${escape(c)}</th>`).join('')}</tr></thead><tbody>`
+  +com.map(l=>{const d=l.diferenca_vs_publicado,fora=Math.abs(d)>0.1;
+   return `<tr><td>${l.ano}</td><td>${escape(l.mineral)}</td><td>${escape(l.empresa)}</td><td class="num">${escape(toneladas(l.producao_t))}</td>`
+    +`<td class="num">${escape(toneladas(l.publicado_t))}</td><td class="num"${fora?' style="font-weight:700"':''}>${d>0?'+':''}${escape(num(d*100,0))} %</td>`
+    +`<td>${l.publicado_url?`<a href="${escape(l.publicado_url)}" target="_blank" rel="noopener noreferrer">${escape(l.publicado_fonte)}</a>`:escape(l.publicado_fonte)}</td></tr>`}).join('')
+  +'</tbody></table>';}
+
+function estExportar(linhas){
+ const cols=est.colunas,csv=[cols.join(';'),...linhas.map(l=>cols.map(c=>`"${String(l[c]??'').replace(/"/g,'""')}"`).join(';'))].join('\r\n');
+ const url=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='minera-goias-producao-por-empresa.csv';a.click();URL.revokeObjectURL(url);}
+
+function estDesenhar(){
+ const linhas=estFiltradas(),estado=estEstado();
+ el('es-metrics').innerHTML=estMetricas(linhas,estado);
+ el('es-barras').innerHTML=estBarras(linhas);
+ el('es-cobertura').innerHTML=estCobertura(estado);
+ el('es-tabela').innerHTML=estTabela(linhas);
+ el('es-publicado').innerHTML=estPublicado(linhas);
+ const partes=[el('es-ano').value,el('es-base').value,el('es-min').value,el('es-busca').value.trim()].filter(Boolean);
+ el('es-context').textContent=partes.length?t('pn.cut')+' '+partes.join(' · '):'';
+ el('es-export').onclick=()=>estExportar(linhas);}
+
+function estMontar(){
+ const bloco=dados.estimada;
+ if(!bloco){el('es-error').textContent=t('es.semDados');return}
+ est={colunas:bloco.colunas,linhas:bloco.linhas.map(r=>linhaObj(bloco.colunas,r)),estado:bloco.estado.map(r=>linhaObj(bloco.estado_colunas,r))};
+ const anos=[...new Set(est.linhas.map(l=>l.ano))].sort((a,b)=>b-a),minerais=[...new Set(est.linhas.map(l=>l.mineral))].sort((a,b)=>a.localeCompare(b,'pt'));
+ preencher(el('es-ano'),anos.map(a=>[String(a),String(a)]),t('es.todosAnos'));
+ preencher(el('es-base'),[['beneficiada',t('es.base.beneficiada')],['ROM',t('es.base.rom')],['conteudo_mineral',t('es.base.contido')]],t('es.todasBases'));
+ preencher(el('es-min'),minerais.map(m=>[m,m]),t('es.todosMinerais'));
+ // Começa no ano mais recente e na produção beneficiada: é o recorte que se lê sem somar coisas diferentes.
+ el('es-ano').value=String(anos[0]);el('es-base').value='beneficiada';
+ ['es-ano','es-base','es-min'].forEach(id=>el(id).onchange=estDesenhar);
+ let timer;el('es-busca').oninput=()=>{clearTimeout(timer);timer=setTimeout(estDesenhar,300)};
+ el('es-reset').onclick=()=>{el('es-ano').value=String(anos[0]);el('es-base').value='beneficiada';el('es-min').value='';el('es-busca').value='';estDesenhar()};
+ el('es-nota').textContent=t('es.nota');
+ el('es-fontes').textContent=t('es.fontes',{fonte:bloco.fonte});
+ estDesenhar();
+ el('es-content').hidden=false;}
+
+function mostrarAba(aba){
+ document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>{const on=b.dataset.ep===aba;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+ ['estimada','declarada','direitos'].forEach(k=>{el('ep-aba-'+k).hidden=k!==aba});
+ if(aba==='direitos'&&window.showEmpresasPanorama)window.showEmpresasPanorama();}
+
 async function load(){
  el('empresas-error').textContent='';
+ document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>b.onclick=()=>mostrarAba(b.dataset.ep));
  try{
   dados=await api('/empresas');
+  try{estMontar()}catch(e){el('es-error').textContent=e.message;console.error(e)}
   const anos=[...new Set(dados.linhas.map(l=>l.ano))].sort();
   const empresas=[...new Map(dados.linhas.map(l=>[l.empresa,nomeCurto(l)])).entries()]
     .sort((a,b)=>a[1].localeCompare(b[1]));
@@ -202,8 +321,8 @@ async function load(){
   el('ep-fontes').textContent=t('ep.fontes',{periodo:dados.meta.periodo_ccee.map(mesAno).join('–'),base:dados.meta.versao_base});
   desenhar();
   el('empresas-content').hidden=false;
- }catch(e){el('empresas-error').textContent=e.message}
- finally{el('empresas-loading').hidden=true}}
+ }catch(e){el('empresas-error').textContent=e.message;el('es-error').textContent=e.message}
+ finally{el('empresas-loading').hidden=true;el('es-loading').hidden=true}}
 
 window.showEmpresas=()=>{if(loaded)return;loaded=true;load()};
 })();

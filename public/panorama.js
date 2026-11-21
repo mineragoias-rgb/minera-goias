@@ -1,19 +1,25 @@
-/* Panorama tab: the charts and tables of the "Panorama da Mineração de Goiás", rebuilt from the Squad 1 base and filtered in the browser. */
+/* Panorama: the charts and tables of the "Panorama da Mineração de Goiás", rebuilt from the Squad 1 base and filtered in the browser.
+   The same engine runs twice: the Panorama under the atlas (every theme but companies) and, in the Empresas tab, the cards about
+   holders and companies (CFEM by holder, mining and research titles, CCEE load by consumer), with the holder filter that only they read. */
 (()=>{'use strict';
-const el=id=>document.getElementById(id),C=window.PNC,E=C.E;
-const SECTIONS=['cfem','geo','subs','prod','usos','terr','pesq','proj','rod','emp','energia','intens','barr','nr'];
+const C=window.PNC,E=C.E;
 const FILTERS=['ano','mes','mun','min','emp','fase','rub','ramo'];
-// [id, seções do Panorama, camadas do mapa]. The tab bar is the whole page's navigation, so a theme
-// picks at once what the atlas map draws and which panels appear below it; [] means the theme has no map.
-const TABS=[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences']],
- ['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
- ['empresas',['emp'],[]],['energia',['energia','intens'],['energy','coefficient']],
- ['barragens',['barr'],['dams']],['notas',['nr'],[]]];
+const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
+// One panorama packet for both instances.
+let carga=null;
+const carregar=()=>carga||(carga=Promise.all([api('/panorama'),(window.loadAtlas?window.loadAtlas():api('/atlas')).catch(()=>null)]).catch(e=>{carga=null;throw e}));
+// Cards about companies outside the 'emp' section: the CCEE load and R$/MWh by consumer.
+const EMP_ENERGIA=['ee_emp','ee_rs_mwh'];
+function engine(cfg){
+const el=id=>document.getElementById(id.startsWith('pn-')?cfg.pfx+id.slice(3):id);
+const SECTIONS=cfg.sections,TABS=cfg.tabs,secOf=cfg.secOf;
+// Only the filters this instance offers: a card's chip for another filter would promise a cut that is not there.
+const fl=d=>d.filters.filter(k=>cfg.filters.includes(k));
 const FILTER_IDS={ano:['pn-y0','pn-y1'],mes:['pn-mes'],mun:['pn-mun'],min:['pn-min'],emp:['pn-emp'],fase:['pn-fase'],rub:['pn-rub'],ramo:['pn-ramo']};
-let tab='arrecadacao';try{const saved=localStorage.getItem('minera-pn-tab');if(TABS.some(([id])=>id===saved))tab=saved}catch{}
+const val=(id,d)=>{const x=el(id);return x?x.value:d};
+let tab=TABS[0][0];if(cfg.main)try{const saved=localStorage.getItem('minera-pn-tab');if(TABS.some(([id])=>id===saved))tab=saved}catch{}
 const F={y0:2010,y1:2026,mes:0,mun:-1,min:-1,emp:'',fase:-1,rub:-1,ramo:-1};
 let P=null,loading=null,cards=[];
-const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
 const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
  get P(){return P},A:null,
  LAVRA:['CONCESSÃO DE LAVRA','LICENCIAMENTO','LAVRA GARIMPEIRA','REGISTRO DE EXTRAÇÃO'],PESQUISA:'AUTORIZAÇÃO DE PESQUISA',
@@ -52,69 +58,72 @@ const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
 function draw(d){const box=el('pn-c-'+d.id).querySelector('.pn-out');C.setWidth(box.clientWidth);
  try{const out=d.render(X,box);if(typeof out==='string')box.innerHTML=out}
  catch(e){box.innerHTML=`<p class="error">${E(e.message)}</p>`;console.error(e)}}
-function readFilters(){let a=+el('pn-y0').value,b=+el('pn-y1').value;if(a>b)[a,b]=[b,a];
- Object.assign(F,{y0:a,y1:b,mes:+el('pn-mes').value,mun:+el('pn-mun').value,min:+el('pn-min').value,emp:norm(el('pn-emp').value.trim()),
-  fase:+el('pn-fase').value,rub:+el('pn-rub').value,ramo:+el('pn-ramo').value})}
+function readFilters(){let a=+val('pn-y0',2010),b=+val('pn-y1',2026);if(a>b)[a,b]=[b,a];
+ Object.assign(F,{y0:a,y1:b,mes:+val('pn-mes',0),mun:+val('pn-mun',-1),min:+val('pn-min',-1),emp:norm(val('pn-emp','').trim()),
+  fase:+val('pn-fase',-1),rub:+val('pn-rub',-1),ramo:+val('pn-ramo',-1)})}
 // The cut line only names the filters shown in the active tab.
 function describe(){const u=X.used||new Set(FILTERS),parts=[];if(u.has('ano'))parts.push(X.period(1900,2100));
  if(u.has('mes')&&F.mes)parts.push(new Date(2020,F.mes-1,1).toLocaleString(I18N.locale(),{month:'long'}));
  if(u.has('mun')&&F.mun>=0)parts.push(X.mun(F.mun));if(u.has('min')&&F.min>=0)parts.push(X.min(F.min));if(u.has('emp')&&F.emp)parts.push('“'+el('pn-emp').value.trim()+'”');
  if(u.has('fase')&&F.fase>=0)parts.push(P.dims.fase[F.fase]);if(u.has('rub')&&F.rub>=0)parts.push(t(`pn.rub.${P.dims.rubrica[F.rub]}`));if(u.has('ramo')&&F.ramo>=0)parts.push(P.dims.ramo[F.ramo]);
  return parts.length?t('pn.cut')+' '+parts.join(' · '):''}
-const visible=()=>{const secs=TABS.find(([id])=>id===tab)[1];return cards.filter(d=>secs.includes(d.sec))};
-function scopeTitle(){const i=+el('pn-mun').value;
- el('pn-title').textContent=i>=0?t('pn.titleMun',{mun:X.mun(i)}):t('pn.title')}
+const visible=()=>{const secs=TABS.find(([id])=>id===tab)[1];return cards.filter(d=>secs.includes(secOf(d)))};
+function scopeTitle(){const i=+val('pn-mun',-1),h=el('pn-title');if(!h)return;
+ h.textContent=i>=0?t('pn.titleMun',{mun:X.mun(i)}):t('pn.title')}
 // A card that cannot read the municipality filter keeps showing the state: say so on the card
 // itself, otherwise a municipal cut and a state number sit side by side looking alike.
-function markScope(){const on=+el('pn-mun').value>=0;
+function markScope(){const on=+val('pn-mun',-1)>=0;
  el('pn-body').querySelectorAll('.pn-chips').forEach(box=>{const seal=box.querySelector('.pill.scope');
   if(seal)seal.hidden=!on;
   box.hidden=!box.querySelector('span:not([hidden])')})}
 function render(){X.cache={};readFilters();visible().forEach(draw);markScope();const cut=describe();el('pn-context').textContent=cut;el('pn-context').hidden=!cut}
-function showTab(id){tab=id;try{localStorage.setItem('minera-pn-tab',id)}catch{}
+function showTab(id){tab=id;if(cfg.main)try{localStorage.setItem('minera-pn-tab',id)}catch{}
  const secs=TABS.find(([k])=>k===id)[1];
- el('pn-tabs').querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+ if(el('pn-tabs'))el('pn-tabs').querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
  SECTIONS.forEach(s=>{el('pn-s-'+s).hidden=!secs.includes(s)});
  // Only the filters read by some card of this tab are shown; the others keep their value for the tabs that use them.
- const used=X.used=new Set(visible().flatMap(d=>d.filters));
- for(const [k,ids] of Object.entries(FILTER_IDS))ids.forEach(i=>{el(i).closest('div').hidden=!used.has(k)});
- document.querySelector('#panorama-view .pn-filters').hidden=!used.size;el('pn-context').hidden=!used.size;
- if(window.atlasSetLayer)window.atlasSetLayer(TABS.find(([k])=>k===id)[2]);
+ const used=X.used=new Set(visible().flatMap(fl));
+ for(const [k,ids] of Object.entries(FILTER_IDS))ids.forEach(i=>{if(el(i))el(i).closest('div').hidden=!used.has(k)});
+ document.querySelector('#'+cfg.view+' .pn-filters').hidden=!used.size;el('pn-context').hidden=!used.size;
+ if(cfg.main&&window.atlasSetLayer)window.atlasSetLayer(TABS.find(([k])=>k===id)[2]);
  render()}
-function options(select,items,all){select.innerHTML=(all?`<option value="-1">${E(all)}</option>`:'')+items.map(([v,l])=>`<option value="${E(v)}">${E(l)}</option>`).join('')}
+function options(select,items,all){if(!select)return;select.innerHTML=(all?`<option value="-1">${E(all)}</option>`:'')+items.map(([v,l])=>`<option value="${E(v)}">${E(l)}</option>`).join('')}
 function fillFilters(){const years=[];for(let y=2001;y<=2026;y++)years.push([y,y]);
- options(el('pn-y0'),years);options(el('pn-y1'),years);el('pn-y0').value=F.y0;el('pn-y1').value=F.y1;
+ options(el('pn-y0'),years);options(el('pn-y1'),years);if(el('pn-y0')){el('pn-y0').value=F.y0;el('pn-y1').value=F.y1}
  const months=[[0,t('pn.allMonths')]];for(let m=1;m<=12;m++)months.push([m,new Date(2020,m-1,1).toLocaleString(I18N.locale(),{month:'long'})]);options(el('pn-mes'),months);
  const byName=(list,label)=>list.map((x,i)=>[i,label(x)]).sort((a,b)=>String(a[1]).localeCompare(String(b[1]),'pt'));
  options(el('pn-mun'),byName(P.dims.mun,m=>m[1]),t('pn.allMun'));options(el('pn-min'),byName(P.dims.min,m=>m[1]),t('pn.allMin'));
  options(el('pn-fase'),byName(P.dims.fase,f=>f),t('pn.allFase'));options(el('pn-rub'),byName(P.dims.rubrica,r=>t(`pn.rub.${r}`)),t('pn.allRub'));
  options(el('pn-ramo'),byName(P.dims.ramo,r=>r),t('pn.allRamo'))}
-function build(){cards=window.PN_CARDS||[];
- el('pn-tabs').innerHTML=TABS.map(([id])=>`<button type="button" role="tab" class="pn-tab" data-tab="${id}" aria-controls="pn-body">${E(t(`pn.tab.${id}`))}</button>`).join('');
- el('pn-body').innerHTML=SECTIONS.map(s=>`<section class="pn-section" id="pn-s-${s}"><div class="pn-section-head"><h2>${E(t(`pn.s.${s}`))}</h2><p class="subtitle">${E(t(`pn.s.${s}.lead`))}</p></div><div class="pn-grid">`
-  +cards.filter(d=>d.sec===s).map(d=>`<article class="panel pn-card${d.wide?' wide':''}" id="pn-c-${d.id}"><h3>${E(t(`pn.c.${d.id}`))}</h3><p class="subtitle">${E(t(`pn.c.${d.id}.n`))}</p>`
-   +`<div class="pn-chips">${d.filters.length?`<span>${E(t('pn.appliedFilters'))}</span>`+d.filters.map(k=>`<span class="pill">${E(t(`pn.f.${k}`))}</span>`).join(''):''}`
-   +(d.filters.includes('mun')?'':`<span class="pill scope" hidden>${E(t('pn.scopeState'))}</span>`)+'</div>'
+function build(){cards=(window.PN_CARDS||[]).filter(d=>SECTIONS.includes(secOf(d)));const bar=el('pn-tabs');
+ if(bar)bar.innerHTML=TABS.map(([id])=>`<button type="button" role="tab" class="pn-tab" data-tab="${id}" aria-controls="pn-body">${E(t(`pn.tab.${id}`))}</button>`).join('');
+ el('pn-body').innerHTML=SECTIONS.map(s=>`<section class="pn-section" id="${cfg.pfx}s-${s}"><div class="pn-section-head"><h2>${E(t(`pn.s.${s}`))}</h2><p class="subtitle">${E(t(`pn.s.${s}.lead`))}</p></div><div class="pn-grid">`
+  +cards.filter(d=>secOf(d)===s).map(d=>`<article class="panel pn-card${d.wide?' wide':''}" id="${cfg.pfx}c-${d.id}"><h3>${E(t(`pn.c.${d.id}`))}</h3><p class="subtitle">${E(t(`pn.c.${d.id}.n`))}</p>`
+   +`<div class="pn-chips">${fl(d).length?`<span>${E(t('pn.appliedFilters'))}</span>`+fl(d).map(k=>`<span class="pill">${E(t(`pn.f.${k}`))}</span>`).join(''):''}`
+   +(fl(d).includes('mun')?'':`<span class="pill scope" hidden>${E(t('pn.scopeState'))}</span>`)+'</div>'
    +'<div class="pn-out"></div></article>').join('')+'</div></section>').join('');
- el('pn-tabs').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
- el('pn-tabs').onkeydown=e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const i=TABS.findIndex(([id])=>id===tab),
+ if(!bar)return;
+ bar.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+ bar.onkeydown=e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const i=TABS.findIndex(([id])=>id===tab),
   n=TABS[(i+(e.key==='ArrowRight'?1:-1)+TABS.length)%TABS.length][0];showTab(n);el('pn-tabs').querySelector(`[data-tab="${n}"]`).focus()}}
-function bind(){for(const id of ['pn-y0','pn-y1','pn-mes','pn-min','pn-fase','pn-rub','pn-ramo'])el(id).onchange=render;
+function bind(){for(const id of ['pn-y0','pn-y1','pn-mes','pn-min','pn-fase','pn-rub','pn-ramo'])if(el(id))el(id).onchange=render;
  el('pn-mun').onchange=()=>{const i=+el('pn-mun').value;scopeTitle();
-  if(window.atlasSelectMun)window.atlasSelectMun(i>=0?X.munCode(i):'');
+  if(cfg.main&&window.atlasSelectMun)window.atlasSelectMun(i>=0?X.munCode(i):'');
   render()};
- let timer;el('pn-emp').oninput=()=>{clearTimeout(timer);timer=setTimeout(render,350)};
+ let timer;if(el('pn-emp'))el('pn-emp').oninput=()=>{clearTimeout(timer);timer=setTimeout(render,350)};
  // Charts follow the card width at a fixed font size, so they are redrawn when the window changes size.
  let resize,lastWidth=innerWidth;addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>{
   // Panorama sits inside the atlas page, so visibility is decided by its ancestors too.
-  if(innerWidth===lastWidth||el('panorama-view').offsetParent===null)return;lastWidth=innerWidth;visible().forEach(draw)},250)});
- el('pn-reset').onclick=()=>{el('pn-y0').value=2010;el('pn-y1').value=2026;for(const id of ['pn-mes'])el(id).value=0;
-  for(const id of ['pn-mun','pn-min','pn-fase','pn-rub','pn-ramo'])el(id).value=-1;el('pn-emp').value='';render()}}
-async function init(){const [p,a]=await Promise.all([api('/panorama'),(window.loadAtlas?window.loadAtlas():api('/atlas')).catch(()=>null)]);P=p;X.A=a;X.distRamo=P.dims.ramo.indexOf(P.meta.ccee_distribuidora);
+  if(innerWidth===lastWidth||document.getElementById(cfg.view).offsetParent===null)return;lastWidth=innerWidth;visible().forEach(draw)},250)});
+ el('pn-reset').onclick=()=>{el('pn-y0').value=2010;el('pn-y1').value=2026;for(const id of ['pn-mes'])if(el(id))el(id).value=0;
+  for(const id of ['pn-mun','pn-min','pn-fase','pn-rub','pn-ramo'])if(el(id))el(id).value=-1;if(el('pn-emp'))el('pn-emp').value='';render()}}
+async function init(){const [p,a]=await carregar();P=p;X.A=a;X.distRamo=P.dims.ramo.indexOf(P.meta.ccee_distribuidora);
  fillFilters();build();bind();el('pn-content').hidden=false;showTab(tab);
  el('pn-source').textContent=t('pn.source',{v:P.meta.versao_base,d:P.meta.built_on})}
-window.showPanorama=async()=>{el('pn-error').textContent='';try{if(!loading)loading=init().catch(e=>{loading=null;throw e});await loading}
+const show=async()=>{el('pn-error').textContent='';try{if(!loading)loading=init().catch(e=>{loading=null;throw e});await loading}
  catch(e){el('pn-error').textContent=e.message}finally{el('pn-loading').hidden=true}};
+if(!cfg.main){window[cfg.show]=show;return}
+window.showPanorama=show;
 window.panoramaPickMun=code=>{
  if(!P)return;
  const wanted=String(code??'');
@@ -128,5 +137,18 @@ window.panoramaPickMun=code=>{
  render()};
 // The radar opens a claim on the map, which means switching the page to the theme that owns it.
 window.showPanoramaTab=async id=>{await window.showPanorama();if(P)showTab(id)};
+}
+// [id, seções do Panorama, camadas do mapa]. The tab bar is the whole page's navigation, so a theme
+// picks at once what the atlas map draws and which panels appear below it; [] means the theme has no map.
+// Companies left the Panorama for the Empresas tab (21/11/2026): the holder filter and the company cards live there now.
+engine({main:true,pfx:'pn-',view:'panorama-view',filters:FILTERS.filter(k=>k!=='emp'),
+ sections:['cfem','geo','subs','prod','usos','terr','pesq','proj','rod','energia','intens','barr','nr'],
+ secOf:d=>d.sec==='emp'||EMP_ENERGIA.includes(d.id)?null:d.sec,
+ tabs:[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences']],
+  ['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
+  ['energia',['energia','intens'],['energy','coefficient']],['barragens',['barr'],['dams']],['notas',['nr'],[]]]});
+engine({main:false,pfx:'epn-',view:'empresas-view',show:'showEmpresasPanorama',filters:FILTERS,
+ sections:['emp','emp_energia'],secOf:d=>d.sec==='emp'?'emp':EMP_ENERGIA.includes(d.id)?'emp_energia':null,
+ tabs:[['empresas',['emp','emp_energia'],[]]]});
 window.PN_FILTER_KEYS=FILTERS;
 })();

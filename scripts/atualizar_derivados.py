@@ -65,7 +65,7 @@ ETAPAS = [
     ("producao", [PY, "scripts/build_producao_base.py"], ".",
      ["data/producao/producao.json", "data/producao/producao.csv"], [], ["tests/test_producao.py"]),
     ("empresas", [PY, "scripts/build_empresas_base.py"], ".",
-     ["data/empresas/empresas.json"], ["panorama", "producao"], ["tests/test_empresas.py"]),
+     ["data/empresas/empresas.json"], ["panorama", "producao", "base_producao"], ["tests/test_empresas.py"]),
     ("intensidade_squad2", [PY, f"{INT}/build_intensidade.py"], ".",
      [f"{INT}/base_intensidade_energetica_v1.csv", f"{INT}/energy_intensity_para_motor_v1.csv",
       f"{INT}/coeficiente_estadual_para_modelo_v1.csv"], ["pacote_squad2"], [f"{INT}/test_intensidade.py"]),

@@ -285,6 +285,38 @@ for empresa, ano in sorted(chaves):
             linha["sem_coeficiente"] = "a empresa tem produção declarada, mas nenhuma carga própria identificada na base CCEE de Goiás"
         linhas.append(linha)
 
+# --------------------------------------------------------------------------------- produção estimada por empresa (AMB × CFEM)
+# A base de produção do Squad 1 (gerar_base_producao.py) divide o total do estado do AMB entre as empresas pela parcela delas na CFEM
+# em R$. Vai junto, como bloco à parte: é estimativa sobre estatística de agência, e não se mistura com o que a empresa declarou (linhas).
+BASE_PRODUCAO = REPO / "Squad 1" / "Bases consolidadas" / "documentacao" / "base_producao"
+
+
+def _ler_csv(nome):
+    import csv
+    with open(BASE_PRODUCAO / nome, encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f, delimiter=";"))
+
+
+def _n(v):
+    return float(v) if v not in (None, "") else None
+
+
+EST_COLS = ["ano", "mineral", "base", "empresa", "cnpj_raiz", "producao_t", "parcela_do_estado", "processos", "municipios", "cfem_brl",
+            "minerio_de_outro_mineral", "publicado_t", "diferenca_vs_publicado", "publicado_fonte", "publicado_url"]
+estimada_linhas = []
+for r in _ler_csv("base_producao_empresa_ano.csv"):
+    assoc = r["metodo"].startswith("minério de outro mineral")
+    comparavel = r["publicado_comparavel"] == "sim"
+    estimada_linhas.append([int(r["ano"]), r["mineral"], r["base"], r["empresa"], r["cnpj_raiz"], round(float(r["producao_t"]), 3),
+                            _n(r["parcela_do_estado"]), int(r["processos"]), r["municipios"], _n(r["cfem_brl"]), assoc,
+                            _n(r["publicado_em_t"]) if comparavel else None, _n(r["diferenca_base_vs_publicado"]) if comparavel else None,
+                            r["publicado_fonte"] if comparavel else "", r["publicado_url"] if comparavel else ""])
+EST_ESTADO_COLS = ["ano", "mineral", "base", "producao_estado_t", "minerio_de_outro_mineral_t", "dividida_por_empresa_t", "parcela_dividida",
+                   "empresas", "situacao"]
+estimada_estado = [[int(r["ano"]), r["mineral"], r["base"], float(r["producao_estado_t"]), float(r["minerio_de_outro_mineral_t"] or 0),
+                    float(r["dividida_por_empresa_t"]), _n(r["parcela_dividida"]), int(r["empresas"]), r["situacao"]]
+                   for r in _ler_csv("base_producao_estado_ano.csv") if int(r["ano"]) >= 2022]
+
 pacote = {
     "meta": {
         "built_on": date.today().isoformat(),
@@ -313,11 +345,32 @@ pacote = {
         ],
     },
     "linhas": linhas,
+    "estimada": {
+        "fonte": "Squad 1/Bases consolidadas/documentacao/base_producao (gerar_base_producao.py)",
+        "metodo": ("Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM "
+                   "paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida "
+                   "contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do "
+                   "ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma."),
+        "colunas": EST_COLS,
+        "linhas": estimada_linhas,
+        "estado_colunas": EST_ESTADO_COLS,
+        "estado": estimada_estado,
+    },
 }
 SAIDA.parent.mkdir(parents=True, exist_ok=True)
 with open(SAIDA, "w", encoding="utf-8", newline="\n") as arquivo:
-    json.dump(pacote, arquivo, ensure_ascii=False, indent=1)
-    arquivo.write("\n")
+    # o bloco da produção estimada tem milhares de linhas curtas: uma por linha do arquivo, sem quebrar cada campo
+    estimada = pacote.pop("estimada")
+    texto = json.dumps(pacote, ensure_ascii=False, indent=1)
+    partes = []
+    for chave, valor in estimada.items():
+        if isinstance(valor, list):
+            itens = ",\n".join("   " + json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in valor)
+            partes.append(f'  "{chave}": [\n{itens}\n  ]')
+        else:
+            partes.append(f'  "{chave}": ' + json.dumps(valor, ensure_ascii=False))
+    arquivo.write(texto[:-2] + ',\n "estimada": {\n' + ",\n".join(partes) + "\n }\n}\n")
+    pacote["estimada"] = estimada
 
 # ----------------------------------------------------------------------------------------------------------------- conferências
 com_energia = [l for l in linhas if l["energia"]]
@@ -334,4 +387,5 @@ for linha in sorted(com_coef, key=lambda l: (l["empresa"], l["ano"], l["mineral"
           f"{prod['valor']:>12,.0f} {prod['unidade']:<3} ({prod['origem'][:9]}) · "
           f"{ener['mwh_anualizado']:>11,.0f} MWh/ano ({ener['meses_observados']}m) · "
           f"{coef['valor']:>11,.1f} {coef['unidade']}{marca}")
+print(f"produção estimada (AMB × CFEM): {len(estimada_linhas)} linhas de empresa, {len(estimada_estado)} de estado")
 print(f"SALVO: {SAIDA} ({SAIDA.stat().st_size / 1e3:.1f} kB)")
