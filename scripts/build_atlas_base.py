@@ -233,9 +233,13 @@ def graficos(dados, projects, occurrences):
     # 5) produção bruta do AMB aberta por operação (aba 12): com coordenadas, sem poligonal e sem CFEM para ratear
     cob = defaultdict(lambda: [0.0, 0.0, 0.0])
     for r in abas["12_interface_squad1_squad2"]:
-        if r["production_basis"] != "ROM" or r["status_validacao"] == "rom_minerio_associado":
+        if r["production_basis"] != "ROM":
             continue
         e, t = cob[r["year"]], float(r["production_t"] or 0)
+        if r["status_validacao"] == "rom_minerio_associado":
+            if r["nivel_agregacao"] == "operacao":  # parte do ROM (minério da Chapada no ouro) que já está no ROM de outro mineral
+                e[2] -= t
+            continue
         if r["nivel_agregacao"] == "estado":
             e[2] += t
         elif not _vazio(r["latitude"]):

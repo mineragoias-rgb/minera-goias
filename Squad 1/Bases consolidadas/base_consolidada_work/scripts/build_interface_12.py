@@ -209,6 +209,22 @@ if os.path.exists(RI_CSV):
                                             f"e a ROM recebe os mesmos fatores")
 print(f"calibração pelo publicado: {sorted((NOME[m], a) for m, a in calib_nota)}")
 
+# Minério associado parcial (21/11/2026): o ROM de ouro do AMB de GO inclui o minério de cobre-ouro da Chapada (Maracá), que já
+# está no ROM de cobre — 2022: 28,8 Mt de ouro × 26,3 Mt de cobre; a Serra Grande tratou 1,2 Mt (AngloGold, Operational Profile
+# 2022). A Maracá paga CFEM só como cobre, então o rateio pela CFEM de ouro entregava o minério da Chapada à Serra Grande (28 Mt).
+# Diferente do bário (build_fato_08.py), o ROM do ouro também tem minério próprio, então só a parte igual ao ROM do hospedeiro sai:
+# ela fica nos processos do hospedeiro (pela CFEM dele), em linhas de operação com status rom_minerio_associado, fora das somas
+# entre minerais e da cobertura; o restante é repartido pela CFEM de ouro. O total do estado não muda.
+HOSPEDEIRO_PARCIAL = {"Ouro": "Cobre"}
+parcial = {}  # (mineral, ano, "ROM") -> (id do hospedeiro, t do ROM do hospedeiro)
+for sub, hosp in HOSPEDEIRO_PARCIAL.items():
+    ms, mh = ID_DE.get(sub), ID_DE.get(hosp)
+    for (m, ano, base), P in tot.items():
+        P_h = tot.get((mh, ano, "ROM"), 0.0)
+        if m == ms and base == "ROM" and 0 < P_h < P and procs_de.get((mh, ano)):
+            parcial[(m, ano, base)] = (mh, P_h)
+print(f"minério associado parcial: {sorted((NOME[m], a, round(t)) for (m, a, _), (_, t) in parcial.items())}")
+
 # ---------------------------------------------------------------------------
 # 2) linhas: estado (observado) e, logo abaixo, a abertura por operação (estimada)
 # ---------------------------------------------------------------------------
@@ -244,9 +260,13 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     if base == "conteudo_mineral":
         obs.append(f"contido da produção beneficiada em t de {SERIE_CONTIDO[mid]['indicacao']} no lugar da quantidade beneficiada: {SERIE_CONTIDO[mid]['motivo']}")
     obs += sorted(flags[k])
+    mh, P_h = parcial.get(k, (None, 0.0)) if abre else (None, 0.0)
+    if mh:
+        obs.append(f"{br(P_h)} t deste ROM são o minério de {NOME[mh]} já declarado no ROM de {NOME[mh]} (mesmo ano): ficam nos processos de "
+                   f"{NOME[mh]} com status rom_minerio_associado, fora das somas entre minerais; só {br(P - P_h)} t são repartidas pela CFEM de {NOME[mid]}")
     if 2022 <= ano <= 2025 and k not in associado:  # minério associado não é produção a cobrir: já está no ROM do hospedeiro
-        cob[ano][1] += P
-        cob[ano][0] += P if abre else 0.0
+        cob[ano][1] += P - P_h
+        cob[ano][0] += P - P_h if abre else 0.0
     nova(mineral_id=mid, mineral_name=NOME[mid], year=ano, production_t=P, production_basis=base, nivel_agregacao="estado",
          valor_observado_estimado="observado",
          status_validacao="rom_minerio_associado" if k in associado else "alerta_producao_repetida" if flags[k] else "valido",
@@ -257,6 +277,28 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
     R, T = tot_rs[(mid, ano)], tot_t.get((mid, ano), 0.0)
     n_procs = len(procs_de[(mid, ano)])
     soma = 0.0
+    if mh:  # parte que é o minério do hospedeiro: nos processos dele, pela CFEM em R$ dele
+        R_h = tot_rs[(mh, ano)]
+        for proc, v in sorted(procs_de[(mh, ano)], key=lambda x: -x[1]):
+            kh = (mh, ano, proc)
+            est = P_h * v / R_h
+            o = OPS.get(proc)
+            comp = cf_emp[kh].most_common(1)[0][0] if cf_emp[kh] else None
+            mun = o["municipality_id"] if (o and o["municipality_id"]) else (cf_mun[kh].most_common(1)[0][0] if cf_mun[kh] else None)
+            nova(mineral_id=mid, mineral_name=NOME[mid], company_id=comp, operation_id=o["operation_id"] if o else None, municipality_id=mun, year=ano,
+                 production_t=est, production_basis=base, latitude=o["latitude"] if o else None, longitude=o["longitude"] if o else None,
+                 nivel_agregacao="operacao", processo_anm=proc, valor_observado_estimado="estimado",
+                 metodo_estimacao=(f"Parte do ROM de {NOME[mid]} do AMB igual ao ROM de {NOME[mh]} do mesmo ano, rateada pela participação do processo "
+                                   f"na CFEM de {NOME[mh]} em R$."),
+                 erro_estimativa_intervalo="a parte associada é o ROM de cobre inteiro: se o ROM de ouro do AMB não tiver todo o minério da Chapada, "
+                                           "o minério próprio de ouro fica subestimado nessa diferença",
+                 participacao_cfem_brl=v / R_h, cfem_brl_operacao=0.0, cfem_brl_mineral_ano=R_h, status_validacao="rom_minerio_associado",
+                 responsavel_validacao=RESPONSAVEL, periodo_referencia=str(ano), tipo_fonte="oficial", fato_ids="; ".join(fids[k]),
+                 observacao=(f"minério de {NOME[mh]} com {NOME[mid].lower()} (já no ROM de {NOME[mh]}: {br(P_h)} t), declarado de novo no ROM de "
+                             f"{NOME[mid]}; não somar com o ROM de {NOME[mh]} nem entre minerais; o processo paga CFEM como {NOME[mh]}"),
+                 **fontes([src_amb, "SRC_ANM_CFEM"]))
+            soma += est
+        P = P - P_h
     for proc, v in sorted(procs_de[(mid, ano)], key=lambda x: -x[1]):
         kp = (mid, ano, proc)
         s_cfem = v / R
@@ -305,8 +347,8 @@ for k in sorted(tot, key=lambda kk: (NOME[kk[0]], kk[1], kk[2])):
         soma += est
         t_est += est
         t_ope += est if o else 0.0
-    if abs(soma - P) > 1e-6 * max(1.0, P):
-        raise SystemExit(f"{NOME[mid]} {ano} {base}: operações somam {soma} e o estado tem {P}")
+    if abs(soma - tot[k]) > 1e-6 * max(1.0, tot[k]):
+        raise SystemExit(f"{NOME[mid]} {ano} {base}: operações somam {soma} e o estado tem {tot[k]}")
 
 # ---------------------------------------------------------------------------
 # 3) saída

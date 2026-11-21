@@ -46,6 +46,7 @@ def proc_canon(p, a):
 prod = defaultdict(float)            # (mineral_id, company_id, base) -> t em 2025
 nome_min, nome_emp = {}, {}
 minerais_do_proc = defaultdict(set)
+assoc_procs = defaultdict(set)       # (mineral_id, company_id, base) -> processos cujo ROM é minério de outro mineral
 estado = {}                          # (mineral_id, base) -> t do estado em 2025
 with open(INTERFACE, encoding="utf-8-sig") as f:
     for r in csv.DictReader(f):
@@ -54,6 +55,11 @@ with open(INTERFACE, encoding="utf-8-sig") as f:
         nome_min[r["mineral_id"]] = r["mineral_name"]
         if r["nivel_agregacao"] == "estado":
             estado[(r["mineral_id"], r["production_basis"])] = float(r["production_t"] or 0)
+            continue
+        if r["status_validacao"] == "rom_minerio_associado":
+            # minério de outro mineral (ex.: Chapada no ROM de ouro, já no ROM de cobre): segue a CFEM do mineral que o processo paga
+            assoc_procs[(r["mineral_id"], r["company_id"], r["production_basis"])].add(r["processo_anm"])
+            prod[(r["mineral_id"], r["company_id"], r["production_basis"])] += float(r["production_t"] or 0)
             continue
         prod[(r["mineral_id"], r["company_id"], r["production_basis"])] += float(r["production_t"] or 0)
         minerais_do_proc[r["processo_anm"]].add(r["mineral_id"])
@@ -122,8 +128,11 @@ for (mid, base), p in sorted(estado.items(), key=lambda kv: nome_min[kv[0][0]]):
     for (m2, cid, b2), pe in sorted(prod.items(), key=lambda kv: -kv[1]):
         if m2 != mid or b2 != base or pe <= 0:
             continue
-        k2, med2, a2, bb2 = razao(mid, cid)
-        if k2 is None:
+        hosp = sorted({h for pr in assoc_procs.get((m2, cid, b2), ()) for h in minerais_do_proc.get(pr, ()) if h != mid})
+        k2, med2, a2, bb2 = razao(hosp[0] if hosp else mid, cid)
+        if hosp and k2 is not None:
+            obs, est = f"minério de {nome_min.get(hosp[0], hosp[0])} já no ROM dele: segue a CFEM desse mineral", pe * k2
+        elif k2 is None:
             obs, est = "empresa sem CFEM no período de 2025: mantida a produção de 2025", pe
         elif k2 == 0:
             obs, est = "sem CFEM no período de 2026: parou de vender ou deixou de recolher", 0.0
