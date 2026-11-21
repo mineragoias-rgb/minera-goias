@@ -1553,7 +1553,8 @@ _s12, _sh12 = defaultdict(float), defaultdict(float)
 for r in _ops12:
     k = (r["mineral_id"], int(r["year"]), r["production_basis"])
     _s12[k] += r["production_t"] or 0.0
-    _sh12[k] += r["participacao_cfem_brl"] or 0.0
+    # a parte de minério associado (ROM de ouro que é o minério da Chapada) é rateada pela CFEM do hospedeiro: soma 1 à parte
+    _sh12[k + (r["status_validacao"] == "rom_minerio_associado",)] += r["participacao_cfem_brl"] or 0.0
 _d12b = [(k, v, _e12.get(k)) for k, v in _s12.items() if k not in _e12 or abs(v - _e12[k]) > 1e-6 * max(1.0, abs(_e12[k]))]
 _d12b += [(k, "soma das participações", round(v, 9)) for k, v in _sh12.items() if abs(v - 1) > 1e-9]
 V("12: nível estado = produção de GO na 08 (AMB); nível operação soma exatamente o total do estado (rateio conservativo)", len(_d12a) + len(_d12b),
