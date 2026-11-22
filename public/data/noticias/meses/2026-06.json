@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 81,
+ "materias": 82,
  "itens": [
   {
    "title": "Atlas Lithium vai ampliar produção de lítio em Minas Gerais | Café com ESG, 30/06 - XP Investimentos",
@@ -961,6 +961,22 @@
    "brasil": 1
   },
   {
+   "title": "LÍTIO | PLS inaugura planta de processamento intermediário na Austrália - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTW9YMlE4NXVWeXp3TGVtaU0xdFQ2Q0xEbGNVcVZlemo0eHpPVFRNU0xyaUctZmhtOXdJbkVOZjBnaC0xOU1CQzBtRElUak5IUGo1TzRKemM0QV9fRENJLTZ0dXVaZ2tGZTMtMHl4MklCaHhmRkpXY2RobFRHNjJmUV85RGZyaFVaWmVwaFFzZE1ra2pZb0pIUEc2bmg0YVlhYW5Z?oc=5",
+   "published_at": "2026-06-09T07:00:00+00:00",
+   "first_seen": "2026-11-22T12:05:32.312509+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "LUNDIN MINING | Caminhão 100% elétrico opera em Alto Horizonte desde maio - brasilmineral.com.br",
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOd1FjNHV3LUxfU1FVcDdkbHQ0YlFDVGFyZ1lkc3JCOVdpN2FkbmoyN3lBUzZLWHpnSm1qaVlRMXNQa3hka2dGR0k4R0otVGdHczJzNURDck05RkQtaDdLOVFfYmV1MmNCaXJWMmRhNUVBeWtwZ1JmZUxRYnlNb09STzIxRng5U0owUXhCVF9lRF9Rb2R5WXFYV2Vn?oc=5",
    "published_at": "2026-06-08T07:00:00+00:00",
@@ -1013,7 +1029,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

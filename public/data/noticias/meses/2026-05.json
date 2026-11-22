@@ -1,6 +1,6 @@
 {
  "mes": "2026-05",
- "materias": 210,
+ "materias": 214,
  "itens": [
   {
    "title": "Brazil is set to cut into China's rare earths dominance - DW.com",
@@ -13,7 +13,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -117,7 +119,9 @@
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "calcario"
+   ],
    "brasil": 1
   },
   {
@@ -175,7 +179,9 @@
    "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -205,7 +211,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1181,6 +1189,20 @@
    "brasil": 1
   },
   {
+   "title": "BNDES vai investir R$ 50 bilhões em projetos de minerais críticos | Radioagência Nacional - Agência Brasil",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPcWg0dlpTelpHMTE2TEZENFhjREt2a0lzZmhZbVBRb1VJc19zQUU3TFEzdV91M0NLa2NlelhTbjhIeXVhc0kyYl9md0doeGtHZFlSWUtrY0VRZ3RGQlg0YW9fb1NqUXpKMTVXNldNc2tnUVF6eTFhWE9STXNZVlNpLWxsTVA0WFJWUHNLc2NzV2ZUeW1odmZXVk8wVkg5V3hPZmp4S3R4RlB4NVdNVjVKRFJ3aFJ3MkliTzR5S3RRaUNQSEVJR1RkWldjNnJ4U2RUb3lqWVZhSHFVZw?oc=5",
+   "published_at": "2026-05-12T07:00:00+00:00",
+   "first_seen": "2026-11-22T12:05:32.309037+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Governo de Goiás tenta liberar mineração na Chapada dos Veadeiros - infomoney.com.br",
    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPOVNEZFhva1hKc08xVk03YVQzTWtBczk5QnJWUnIxRlkxR3FyTnNjUlhjMWtEYlE4UEpRbFE1RWJ4MEhyNUt4WmFKRnpWSXNzRERxTXh5WEdZV3ZYSl8xMFcyWmQ2UmNyM0VZMGZvbUw3Y3VIM1hfWjlYSW1lMTFWakZHajl0eTZiQUt6bEMzR0d6a1RGMzRja2dwX3A0TVRId2JmT2Zrb9IBrAFBVV95cUxPMFltalJhOFJnZ1RidzdVR0plblM4eDVpcDZLRjRQR2NMNGM2Q19mRWlFN3FwY3dpR2k3SGFOek9FNTB6SjR2YnNsNlBtQXpYRWMxSzJabWlaTWdRSXZPRjM3UFg1UE12YUZUR3ZuMmtHekJVSlgwZ2t3dnhlbk03UmNOaXlfMExBaWotNDU2RGc4cWNoU3Q0dGN6ZDZGYzAxZ19LNTZGME1lZ25Q?oc=5",
    "published_at": "2026-05-11T07:00:00+00:00",
@@ -2024,6 +2046,20 @@
   },
   {
    "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b02da8b3e9a48dc9fa5d603391a6f8c&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
+   "published_at": "2026-05-10T18:38:00+00:00",
+   "first_seen": "2026-11-22T12:05:31.476296+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Governo de Goiás debate mineração na Chapada dos Veadeiros, mas decisão ainda não foi tomada",
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aaee72e402a4acfa6f97ce0d1b37450&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fgoverno-de-goi%25C3%25A1s-debate-minera%25C3%25A7%25C3%25A3o-na-chapada-dos-veadeiros-mas-decis%25C3%25A3o-ainda-n%25C3%25A3o-foi-tomada%2far-AA22RZ6u&c=8649397461123352240&mkt=en-us",
    "published_at": "2026-05-10T11:25:00+00:00",
    "first_seen": "2026-09-19T19:49:02.787499+00:00",
@@ -2272,6 +2308,24 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Como não repetir o ciclo do minério de ferro com terras raras, lítio e grafite - - ComCiência",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZVk1RmpwUlpGdlZuOWs5VEMwRHpfdUVZQ2NvQk1jOEU2NzhGRFB4dzBWdnluUVNmSXBscF9QOXlQZWNNMGdzMWRCYWZhbV9MRUhIYTJBUVdYOHdISTdmeGp6ZmI0MWpFdEV3b1ItM2phLWpMenRITDlydnhYWUZCQWNnM01ZQmJITEgxcnhFUF8yZkJKQUxPeEwxVnI0eVpTMm5IWXhyTQ?oc=5",
+   "published_at": "2026-05-10T07:00:00+00:00",
+   "first_seen": "2026-11-22T12:05:32.310997+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "ferro",
+    "litio",
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2753,6 +2807,22 @@
    "brasil": 1
   },
   {
+   "title": "Ação judicial em Goiás quer barrar venda da Serra Verde à USA Rare Earth",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b02da8b3e9a48dc9fa5d603391a6f8c&url=https%3a%2f%2fnoticias.r7.com%2feconomia%2facao-judicial-em-goias-quer-barrar-venda-da-serra-verde-a-usa-rare-earth-08052026%2f&c=5663708956694819986&mkt=en-us",
+   "published_at": "2026-05-08T08:17:00+00:00",
+   "first_seen": "2026-11-22T12:05:31.482148+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
    "title": "Terras raras colocam Goiás no centro da disputa global por minerais estratégicos - badiinho.com.br",
    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02eW9FMnRCVGdrTkpaUmJBdXo5R19hT1hKeW9GMjRYR25nRTRpTUVielRMQkhoVU10UW9oOUwtN01mQUJwT2w5V3lHVmMtbHZDTFRfY1duMWE1RmF5TlMxMXpONGN2eG5VdnBsNkRKa2wwVmJGMnlQMdIBfkFVX3lxTE9SaWVCSTM3bloyenFuZ0tmOUc3Q2ppOXNjc2Ita2ZvOGJqbmU3SjJWSFMwMmtJQ1RSZmEtYUh3dFBNV19XbVFxZnd3SkNjZTVqa1pCS2NpX3lhV2JsSlE2X1lQNHlCa005Z1pyaW5obDN1SnJoQWxMWGV1aDBKdw?oc=5",
    "published_at": "2026-05-08T07:00:00+00:00",
@@ -2860,6 +2930,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "grafita",
     "litio",
     "niquel",
     "terras_raras"

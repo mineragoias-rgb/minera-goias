@@ -71,7 +71,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -99,7 +101,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -243,7 +247,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -305,7 +311,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -395,7 +403,9 @@
    "fonte": "Mining.com · urânio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -651,7 +661,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1524,7 +1536,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "terras_raras"
+    "terras_raras",
+    "titanio"
    ],
    "brasil": 1
   },
@@ -1540,7 +1553,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "terras_raras"
+    "terras_raras",
+    "titanio"
    ],
    "brasil": 1
   },

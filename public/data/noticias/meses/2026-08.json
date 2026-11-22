@@ -1,6 +1,6 @@
 {
  "mes": "2026-08",
- "materias": 330,
+ "materias": 331,
  "itens": [
   {
    "title": "Lithium miners post big profits as battery storage demand surges",
@@ -61,7 +61,9 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -625,7 +627,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -878,7 +882,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "ouro"
+    "ouro",
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -951,7 +956,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -982,7 +989,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "ouro"
+    "ouro",
+    "terras_raras"
    ],
    "brasil": 1
   },
@@ -997,10 +1005,7 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "terras_raras"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -1107,6 +1112,7 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
+    "amianto",
     "terras_raras"
    ],
    "brasil": 1
@@ -1423,7 +1429,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1483,7 +1491,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1705,6 +1715,7 @@
    "escopo": "regional",
    "tema": "mineracao",
    "substancias": [
+    "amianto",
     "terras_raras"
    ],
    "brasil": 1
@@ -2516,7 +2527,10 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "amianto",
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2752,7 +2766,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2808,7 +2824,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2882,7 +2900,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3084,7 +3104,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3098,7 +3120,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3112,7 +3136,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3126,7 +3152,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3520,7 +3548,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3534,7 +3564,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3639,6 +3671,22 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "LÍTIO | Sigma Lithium diminui dívida líquida e avança no TAC - Brasil Mineral",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVlpsdFQxQWJKX09nYmg5d1RkaEZub0ZqUnFCQUY2U2JJdTRLU0lWSDhqLTBld1FuT2ZmTmtKTWtoX3VOUUwzblRCZkFfdXdsek14c2VmQkprZXZEM00xWGd4VHVnbERsOFR0TXVUYXNzMndwdzkxblJyaXozWGpxMmJFbVpVT1ROdjVXUnZxT2VGM1Fs?oc=5",
+   "published_at": "2026-08-14T07:00:00+00:00",
+   "first_seen": "2026-11-22T12:05:32.307293+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · lítio no Brasil",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [
+    "litio"
+   ],
    "brasil": 1
   },
   {
@@ -3864,7 +3912,9 @@
    "fonte": "MiningWatch Canada",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "diamante"
+   ],
    "brasil": 0
   },
   {
@@ -4084,7 +4134,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -4344,7 +4396,9 @@
    "fonte": "Busca · CFEM",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 1
   },
   {
@@ -5036,7 +5090,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {

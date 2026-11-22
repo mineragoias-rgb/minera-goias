@@ -77,7 +77,9 @@
    "fonte": "Busca · terras raras",
    "escopo": "nacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -91,7 +93,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -167,9 +171,7 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "litio"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -305,9 +307,7 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -860,9 +860,7 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "energia_eletrica"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -890,9 +888,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -1184,7 +1180,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1212,7 +1210,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -1259,6 +1259,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 0
@@ -1336,9 +1337,7 @@
    "fonte": "Mining.com · ouro",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -1352,9 +1351,7 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "energia_eletrica"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -2102,7 +2099,9 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 0
   },
   {
@@ -2227,7 +2226,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre"
+    "cobre",
+    "terras_raras"
    ],
    "brasil": 0
   },
@@ -2273,6 +2273,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -2331,6 +2332,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -2408,7 +2410,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2530,7 +2534,10 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro",
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -2560,7 +2567,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -2897,6 +2906,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -3017,7 +3027,9 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "zinco"
+   ],
    "brasil": 0
   },
   {
@@ -3515,7 +3527,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -3779,7 +3793,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -4154,7 +4170,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -4649,9 +4667,7 @@
    "fonte": "Revista Mineração",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -4935,7 +4951,9 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -5987,7 +6005,9 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -6217,9 +6237,7 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -6266,7 +6284,6 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre",
     "ouro"
    ],
    "brasil": 0
@@ -7125,10 +7142,7 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -7611,6 +7625,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -7659,8 +7674,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre",
-    "energia_eletrica"
+    "cobre"
    ],
    "brasil": 0
   },
@@ -7739,6 +7753,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -7827,8 +7842,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre",
-    "ouro"
+    "cobre"
    ],
    "brasil": 0
   },
@@ -8099,6 +8113,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -8179,6 +8194,7 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -8427,7 +8443,9 @@
    "fonte": "Canadian Mining Journal",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 1
   },
   {
@@ -8457,7 +8475,9 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 1
   },
   {
@@ -8549,7 +8569,9 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 1
   },
   {
@@ -8998,8 +9020,7 @@
    "tema": "mineracao",
    "substancias": [
     "cobre",
-    "litio",
-    "ouro"
+    "litio"
    ],
    "brasil": 0
   },
@@ -9043,6 +9064,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 0
@@ -9092,6 +9114,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "terras_raras"
    ],
    "brasil": 1
@@ -9203,7 +9226,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -9266,7 +9291,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -9418,9 +9445,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -9434,9 +9459,7 @@
    "fonte": "The Northern Miner",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -9499,7 +9522,6 @@
    "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [
-    "litio",
     "terras_raras"
    ],
    "brasil": 1
@@ -9775,10 +9797,7 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "litio"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -10199,9 +10218,7 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -10229,9 +10246,7 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -10429,7 +10444,9 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -10556,7 +10573,9 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -10634,7 +10653,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -10866,7 +10887,9 @@
    "fonte": "Investing.com · commodities",
    "escopo": "internacional",
    "tema": "geral",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -10880,10 +10903,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "litio"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -11335,7 +11355,9 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -11381,7 +11403,9 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 0
   },
   {
@@ -11952,6 +11976,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "ferro",
     "niobio"
    ],
    "brasil": 0
@@ -11981,7 +12006,9 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 0
   },
   {
@@ -12433,7 +12460,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre"
+    "ferro"
    ],
    "brasil": 0
   },
@@ -12713,10 +12740,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre",
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -12885,8 +12909,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre",
-    "ouro"
+    "ferro"
    ],
    "brasil": 0
   },
@@ -13074,9 +13097,7 @@
    "fonte": "Mining Technology",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -13178,7 +13199,9 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "ferro"
+   ],
    "brasil": 0
   },
   {
@@ -13360,9 +13383,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -13406,9 +13427,7 @@
    "fonte": "Brasil Mineral",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -13714,9 +13733,7 @@
    "fonte": "G1 Economia",
    "escopo": "nacional",
    "tema": "geral",
-   "substancias": [
-    "terras_raras"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -13778,9 +13795,7 @@
    "fonte": "Stockhead",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -13840,7 +13855,9 @@
    "fonte": "International Mining",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "zinco"
+   ],
    "brasil": 0
   },
   {
@@ -14202,9 +14219,7 @@
    "fonte": "Mining.com",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -14294,7 +14309,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -14444,10 +14461,7 @@
    "fonte": "Mining.com · ouro",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "litio",
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -14535,9 +14549,7 @@
    "fonte": "Minera Brasil",
    "escopo": "setorial",
    "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -14567,7 +14579,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -14845,7 +14859,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15013,7 +15029,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15255,7 +15273,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15315,7 +15335,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15345,7 +15367,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15359,7 +15383,10 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras",
+    "titanio"
+   ],
    "brasil": 1
   },
   {
@@ -15656,7 +15683,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15686,9 +15715,7 @@
    "fonte": "Mining.com · ouro",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -15730,10 +15757,7 @@
    "fonte": "Mining.com · níquel",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "litio",
-    "niquel"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -15761,9 +15785,7 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "terras_raras"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -15810,8 +15832,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "cobre",
-    "energia_eletrica"
+    "cobre"
    ],
    "brasil": 0
   },
@@ -15890,7 +15911,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -15994,9 +16017,7 @@
    "fonte": "Mining.com · lítio",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "cobre"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -16295,6 +16316,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "argila",
     "terras_raras"
    ],
    "brasil": 1
@@ -16324,7 +16346,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -16451,6 +16475,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
+    "argila",
     "terras_raras"
    ],
    "brasil": 1
@@ -17208,9 +17233,7 @@
    "fonte": "Mining.com · níquel",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -17224,9 +17247,7 @@
    "fonte": "Mining.com · níquel",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [
-    "ouro"
-   ],
+   "substancias": [],
    "brasil": 0
   },
   {
@@ -17633,6 +17654,7 @@
    "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [
+    "areia",
     "ouro",
     "terras_raras"
    ],
@@ -17729,7 +17751,9 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -18419,7 +18443,9 @@
    "fonte": "Mining.com · terras raras",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 0
   },
   {
@@ -18450,8 +18476,7 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "litio",
-    "ouro"
+    "litio"
    ],
    "brasil": 0
   },
@@ -18674,7 +18699,9 @@
    "fonte": "Busca · rare earth Brazil",
    "escopo": "internacional",
    "tema": "mineracao",
-   "substancias": [],
+   "substancias": [
+    "terras_raras"
+   ],
    "brasil": 1
   },
   {
@@ -18735,7 +18762,8 @@
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [
-    "niobio"
+    "niobio",
+    "terras_raras"
    ],
    "brasil": 1
   },
