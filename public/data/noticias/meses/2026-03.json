@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 58,
+ "materias": 59,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -447,6 +447,20 @@
    "regiao_termo": null,
    "setorial": 1,
    "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "US in talks with Brazil on critical minerals, US diplomat says at signing of Goias state deal - Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPaU1JOGRHWEpjcDJfV0FXaXoweHVwTGZnYmJVWk55clBsNlZkVEpDNmxrSkM4aHdFMkxIcFhmR085c2R1LXNxX0lXSklmblZEN2sySjVWcU9pdU13bEg3Uk8wV3VXMHpCaWFGcTBVVWU4QmFBMmZybldOdVNZYjBHQkd5cm9wVUdOTEFCNWtlTloyelJ5X0NiZHpjdG9xenM0N0g3ekVXSmdKeXQyNXpjX05DLW8?oc=5",
+   "published_at": "2026-03-18T07:00:00+00:00",
+   "first_seen": "2026-11-23T13:47:34.675513+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · Brazil mining (Reuters)",
    "escopo": "internacional",
    "tema": "mineracao",
    "substancias": [],
