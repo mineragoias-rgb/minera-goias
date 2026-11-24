@@ -38,21 +38,20 @@ jobs:
         run: |
           python "Squad 2/modello_reale/src/build_production_benchmark.py"
 
-      - name: Publish benchmark data for the site
+      - name: Publish forecast and benchmark data for the site
         run: |
-          git restore public/data/previsao/previsao_v1.json
-
+          git add public/data/previsao/previsao_v1.json
           git add public/data/previsao/production_benchmark_v1.json
 
           if git diff --cached --quiet; then
-            echo "Benchmark data unchanged."
+            echo "Site data unchanged."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "chore(squad2): update production benchmark data"
+          git commit -m "chore(squad2): update forecast and benchmark data"
           git pull --rebase origin main
           git push origin HEAD:main
 
@@ -63,5 +62,6 @@ jobs:
           path: |
             Squad 2/modello_reale/outputs/energy_comparison/
             Squad 2/modello_reale/outputs/production_benchmark/
+            public/data/previsao/previsao_v1.json
             public/data/previsao/production_benchmark_v1.json
           if-no-files-found: error
