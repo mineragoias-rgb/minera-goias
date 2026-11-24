@@ -248,6 +248,27 @@ Na curadoria atual, 13 projetos são dos cinco minerais do modelo: 8 em operaç�
 
 Em `future_projection_by_mineral.csv`, `projected_production_t` = `trend_production_t` + `project_production_t`.
 
+### Auditoria antes de ampliar a carteira
+
+Antes de criar ou editar uma linha em `parameters/project_pipeline.csv`, execute:
+
+```bash
+cd "Squad 2/modello_reale"
+python src/audit_project_readiness.py
+```
+
+O script lê todos os projetos da curadoria atual, inclusive minerais ainda fora do total elétrico, e os classifica sem inferir números ausentes.
+
+Na base v19, a expansão da Serra Verde é o único candidato que já traz quantidade e data, mas ainda não pode entrar no total em TWh porque terras raras não têm coeficiente energético compatível. A expansão de Chapada continua sendo a única linha pronta para o pipeline atual.
+
+Para incluir um candidato no futuro, a mudança deve ocorrer nesta ordem:
+
+1. Documentar e validar o coeficiente MWh/t do mineral.
+2. Confirmar que a quantidade é incremento líquido anual e usa a mesma base produtiva do modelo.
+3. Registrar início e fim.
+4. Adicionar a linha ao `project_pipeline.csv`.
+5. Rodar todos os scripts de geração e a validação web.
+
 ## Backtest histórico
 
 O backtest avalia a projeção de **produção**, não a intensidade energética.
