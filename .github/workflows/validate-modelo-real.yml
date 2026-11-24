@@ -41,10 +41,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r "Squad 2/modello_reale/requirements.txt"
 
-      - name: Read and validate Squad 1 data
+            - name: Read and validate Squad 1 data
         run: |
           python "Squad 2/modello_reale/src/common.py"
 
+      - name: Audit project readiness
+        run: |
+          python "Squad 2/modello_reale/src/audit_project_readiness.py"
+          
       - name: Run historical backtest
         run: |
           python "Squad 2/modello_reale/src/run_backtest.py"
@@ -82,6 +86,14 @@ jobs:
         with:
           name: real-model-future-scenarios
           path: Squad 2/modello_reale/outputs/future/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish project readiness audit
+        uses: actions/upload-artifact@v6
+        with:
+          name: real-model-project-audit
+          path: Squad 2/modello_reale/outputs/project_audit/
           if-no-files-found: error
           retention-days: 30
 
