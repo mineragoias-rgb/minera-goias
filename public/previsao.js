@@ -185,6 +185,47 @@ function tabelaHistorico(){
  const linhasT=todos.map(a=>[E(ano(a)),...d.minerais.map(m=>{const p=m.historico.serie.find(x=>x.ano===a);return p?fmt(p.producao_t,0):'—'})]);
  el('pv-hist').innerHTML=tabela([t('pv.t.ano'),...d.minerais.map(m=>nomeMin(m)+' (t)')],linhasT,d.minerais.map((_,i)=>i+1))}
 
+function tabelaAuditoriaProjetos(){
+ const a=d.auditoria_projetos;
+ if(!a)return;
+
+ const s=a.resumo;
+
+ const m=(rot,val,det)=>`<div class="metric"><span>${E(rot)}</span><strong>${E(val)}</strong><small>${E(det)}</small></div>`;
+
+ el('pv-audit-metrics').innerHTML=
+  m('Projetos na curadoria',a.total,'Carteira completa do Squad 1')
+  +m('Já incluídos',s.incluidos,'Têm incremento, período e base compatível')
+  +m('Operações históricas',s.operacoes_historicas,'Não são somadas novamente')
+  +m('Candidatos sem coeficiente',s.candidatos_sem_coeficiente,'Quantidade e data, mas ainda sem MWh/t');
+
+ const status={
+  included:'Incluído no modelo',
+  historical_operation:'Operação já histórica',
+  early_signal:'Sinal inicial',
+  outside_energy_scope:'Fora do escopo energético',
+  candidate_needs_energy_coefficient:'Falta coeficiente MWh/t',
+  missing_quantity_and_start:'Faltam quantidade e início',
+  missing_quantity:'Falta quantidade',
+  missing_start:'Falta ano de início',
+  needs_unit_and_increment_check:'Validar unidade e incremento'
+ };
+
+ const linhasT=a.projetos.map(p=>[
+  `<b>${E(p.projeto)}</b>`,
+  E(p.mineral||'—'),
+  `<span class="pill">${E(p.maturidade||'—')}</span>`,
+  `<span class="mk-note">${E(status[p.situacao]||p.situacao||'—')}</span>`,
+  `<span class="mk-note">${E(p.motivo||'—')}</span>`
+ ]);
+
+ el('pv-auditoria').innerHTML=tabela(
+  ['Projeto','Mineral','Maturidade','Situação','Leitura'],
+  linhasT,
+  []
+ );
+}
+
 function fontes(){
  const link=u=>!u?'':/^https?:/.test(u)?`<a href="${E(u)}" target="_blank" rel="noopener noreferrer">${E(u)}</a>`:`<code>${E(u)}</code>`;
  el('pv-fontes').innerHTML=d.fontes.map(f=>`<li><div><b>${E(f.source_name)}</b> <span class="pill">${E(tk('pv.nat.',f.valor_observado_estimado))}</span></div>`
@@ -236,7 +277,7 @@ function mostrarAba(nova){aba=nova;
 
 function desenhar(){if(!d)return;
  if(aba==='previsao')desenharPrevisao();
- if(aba==='dados'){graficoProducao();tabelaCoeficientes();tabelaCarteira();tabelaHistorico();fontes()}
+ if(aba==='dados'){graficoProducao();tabelaCoeficientes();tabelaCarteira();tabelaHistorico();tabelaAuditoriaProjetos();fontes()}
  if(aba==='metodo')metodologia()}
 
 async function load(){
