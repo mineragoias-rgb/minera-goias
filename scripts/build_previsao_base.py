@@ -28,18 +28,35 @@ import pandas as pd
 RAIZ = Path(__file__).resolve().parents[1]
 MODELO = RAIZ / "Squad 2" / "modello_reale"
 SAIDA = RAIZ / "public" / "data" / "previsao" / "previsao_v1.json"
-SCRIPTS = ("run_backtest.py", "run_future_scenarios.py", "run_intensity_sensitivity.py", "run_uncertainty_bands.py")
+
+SCRIPTS = (
+    "audit_project_readiness.py",
+    "run_backtest.py",
+    "run_future_scenarios.py",
+    "run_intensity_sensitivity.py",
+    "run_uncertainty_bands.py",
+)
+
 CENARIOS = ("conservador", "referencia", "expansao")
 TOLERANCIA_MWH = 1e-3
 
 
 def executar_modelo(src):
     for script in SCRIPTS:
-        subprocess.run([sys.executable, script], cwd=src, check=True, stdout=subprocess.DEVNULL, stderr=None)
+        subprocess.run(
+            [sys.executable, script],
+            cwd=src,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=None,
+        )
 
 
 def ler(*partes):
-    return pd.read_csv(MODELO.joinpath("outputs", *partes), encoding="utf-8-sig")
+    return pd.read_csv(
+        MODELO.joinpath("outputs", *partes),
+        encoding="utf-8-sig",
+    )
 
 
 def num(v, casas=6):
@@ -55,21 +72,47 @@ def texto(v):
 def historico_por_mineral(common):
     historia = common.load_historical_production()
     saida = {}
+
     for mineral_id, linhas in historia.groupby("mineral_id"):
         linhas = linhas.sort_values("year")
+
         saida[mineral_id] = OrderedDict([
-            ("fonte", ";".join(sorted(linhas["source_id"].astype(str).unique()))),
-            ("status_validacao", ";".join(sorted(linhas["status_validacao"].astype(str).unique()))),
-            ("serie", [OrderedDict([("ano", int(l.year)), ("producao_t", num(l.production_t, 2))])
-                       for l in linhas.itertuples()]),
+            (
+                "fonte",
+                ";".join(
+                    sorted(linhas["source_id"].astype(str).unique())
+                ),
+            ),
+            (
+                "status_validacao",
+                ";".join(
+                    sorted(linhas["status_validacao"].astype(str).unique())
+                ),
+            ),
+            (
+                "serie",
+                [
+                    OrderedDict([
+                        ("ano", int(l.year)),
+                        ("producao_t", num(l.production_t, 2)),
+                    ])
+                    for l in linhas.itertuples()
+                ],
+            ),
         ])
+
     return saida
 
 
 def coeficientes(common):
-    """A tabela que o modelo carrega, com as colunas de rastreabilidade que ele descarta no cálculo."""
-    tabela = pd.read_csv(common.FINAL_ENERGY_PARAMETERS, encoding="utf-8-sig")
+    """A tabela que o modelo carrega, com as colunas de rastreabilidade."""
+    tabela = pd.read_csv(
+        common.FINAL_ENERGY_PARAMETERS,
+        encoding="utf-8-sig",
+    )
+
     saida = {}
+
     for l in tabela.itertuples():
         saida[l.mineral_id] = OrderedDict([
             ("mwh_t", num(l.energy_intensity_mwh_t)),
@@ -81,146 +124,499 @@ def coeficientes(common):
             ("producao_coberta_t", num(l.production_t, 2)),
             ("cobertura", num(l.coverage_share, 4)),
             ("confianca", texto(l.confianca)),
-            ("valor_anterior_mwh_t", num(l.valor_modelo_atual_mwh_t)),
-            ("variacao_vs_anterior_pct", num(l.variacao_vs_modelo_pct, 1)),
+            (
+                "valor_anterior_mwh_t",
+                num(l.valor_modelo_atual_mwh_t),
+            ),
+            (
+                "variacao_vs_anterior_pct",
+                num(l.variacao_vs_modelo_pct, 1),
+            ),
             ("observacao", texto(l.observacao)),
         ])
-    return saida, Path(common.FINAL_ENERGY_PARAMETERS).resolve().relative_to(RAIZ).as_posix()
+
+    return (
+        saida,
+        Path(common.FINAL_ENERGY_PARAMETERS)
+        .resolve()
+        .relative_to(RAIZ)
+        .as_posix(),
+    )
 
 
-def montar(projecao, faixas_min, faixas_tot, backtest_res, backtest_det, hipoteses, historico, coefs):
+def montar(
+    projecao,
+    faixas_min,
+    faixas_tot,
+    backtest_res,
+    backtest_det,
+    hipoteses,
+    historico,
+    coefs,
+):
     projecao = projecao.merge(
-        faixas_min[["mineral_id", "year", "scenario", "lower_energy_demand_mwh", "upper_energy_demand_mwh"]],
-        on=["mineral_id", "year", "scenario"], how="left", validate="one_to_one")
+        faixas_min[
+            [
+                "mineral_id",
+                "year",
+                "scenario",
+                "lower_energy_demand_mwh",
+                "upper_energy_demand_mwh",
+            ]
+        ],
+        on=["mineral_id", "year", "scenario"],
+        how="left",
+        validate="one_to_one",
+    )
+
     if projecao["lower_energy_demand_mwh"].isna().any():
-        raise SystemExit("Faltam faixas de incerteza para alguma linha da projeção.")
+        raise SystemExit(
+            "Faltam faixas de incerteza para alguma linha da projeção."
+        )
 
     minerais = []
-    for mineral_id, linhas in projecao.groupby("mineral_id", sort=False):
+
+    for mineral_id, linhas in projecao.groupby(
+        "mineral_id",
+        sort=False,
+    ):
         primeira = linhas.iloc[0]
-        res = backtest_res[backtest_res["mineral_id"] == mineral_id]
-        det = backtest_det[backtest_det["mineral_id"] == mineral_id].sort_values("test_year")
+
+        res = backtest_res[
+            backtest_res["mineral_id"] == mineral_id
+        ]
+
+        det = (
+            backtest_det[
+                backtest_det["mineral_id"] == mineral_id
+            ]
+            .sort_values("test_year")
+        )
+
         por_cenario = OrderedDict()
+
         for cenario in CENARIOS:
-            g = linhas[linhas["scenario"] == cenario].sort_values("year")
+            g = (
+                linhas[linhas["scenario"] == cenario]
+                .sort_values("year")
+            )
+
             por_cenario[cenario] = OrderedDict([
                 ("metodo", str(g.iloc[0]["projection_method"])),
-                ("crescimento_aplicado", num(g.iloc[0]["applied_production_growth_rate"])),
-                ("serie", [OrderedDict([
-                    ("ano", int(l.year)),
-                    ("producao_t", num(l.projected_production_t, 2)),
-                    ("producao_tendencia_t", num(l.trend_production_t, 2)),
-                    ("producao_projetos_t", num(l.project_production_t, 2)),
-                    ("intensidade_mwh_t", num(l.energy_intensity_mwh_t, 10)),
-                    ("energia_mwh", num(l.energy_demand_mwh, 3)),
-                    ("baixa_mwh", num(l.lower_energy_demand_mwh, 3)),
-                    ("alta_mwh", num(l.upper_energy_demand_mwh, 3)),
-                ]) for l in g.itertuples()]),
+                (
+                    "crescimento_aplicado",
+                    num(g.iloc[0]["applied_production_growth_rate"]),
+                ),
+                (
+                    "serie",
+                    [
+                        OrderedDict([
+                            ("ano", int(l.year)),
+                            (
+                                "producao_t",
+                                num(l.projected_production_t, 2),
+                            ),
+                            (
+                                "producao_tendencia_t",
+                                num(l.trend_production_t, 2),
+                            ),
+                            (
+                                "producao_projetos_t",
+                                num(l.project_production_t, 2),
+                            ),
+                            (
+                                "intensidade_mwh_t",
+                                num(l.energy_intensity_mwh_t, 10),
+                            ),
+                            (
+                                "energia_mwh",
+                                num(l.energy_demand_mwh, 3),
+                            ),
+                            (
+                                "baixa_mwh",
+                                num(l.lower_energy_demand_mwh, 3),
+                            ),
+                            (
+                                "alta_mwh",
+                                num(l.upper_energy_demand_mwh, 3),
+                            ),
+                        ])
+                        for l in g.itertuples()
+                    ],
+                ),
             ])
-        minerais.append(OrderedDict([
-            ("mineral_id", mineral_id),
-            ("nome", str(primeira["mineral_name"])),
-            ("base_producao", str(primeira["production_basis"])),
-            ("ano_base", int(primeira["base_year"])),
-            ("crescimento_historico", num(primeira["historical_growth_rate"])),
-            ("janela_tendencia", [int(primeira["trend_start_year"]), int(primeira["trend_end_year"])]),
-            ("metodo_tendencia", str(primeira["trend_method"])),
-            ("historico", historico[mineral_id]),
-            ("coeficiente", coefs[mineral_id]),
-            ("backtest", OrderedDict([
-                ("regra_selecionada", str(res.iloc[0]["method"])),
-                ("anos_testados", int(res.iloc[0]["tested_years"])),
-                ("mape_selecionada", num(res.iloc[0]["mean_absolute_percentage_error"])),
-                ("mape_tendencia", num(res.iloc[0]["trend_mean_absolute_percentage_error"])),
-                ("mape_persistencia", num(res.iloc[0]["naive_mean_absolute_percentage_error"])),
-                ("treino_ate", int(det.iloc[0]["train_through_year"])),
-                ("detalhe", [OrderedDict([
-                    ("ano", int(l.test_year)),
-                    ("observado_t", num(l.actual_production_t, 2)),
-                    ("tendencia_t", num(l.trend_forecast_production_t, 2)),
-                    ("persistencia_t", num(l.naive_forecast_production_t, 2)),
-                ]) for l in det.itertuples()]),
-            ])),
-            ("cenarios", por_cenario),
-        ]))
+
+        minerais.append(
+            OrderedDict([
+                ("mineral_id", mineral_id),
+                ("nome", str(primeira["mineral_name"])),
+                (
+                    "base_producao",
+                    str(primeira["production_basis"]),
+                ),
+                ("ano_base", int(primeira["base_year"])),
+                (
+                    "crescimento_historico",
+                    num(primeira["historical_growth_rate"]),
+                ),
+                (
+                    "janela_tendencia",
+                    [
+                        int(primeira["trend_start_year"]),
+                        int(primeira["trend_end_year"]),
+                    ],
+                ),
+                ("metodo_tendencia", str(primeira["trend_method"])),
+                ("historico", historico[mineral_id]),
+                ("coeficiente", coefs[mineral_id]),
+                (
+                    "backtest",
+                    OrderedDict([
+                        (
+                            "regra_selecionada",
+                            str(res.iloc[0]["method"]),
+                        ),
+                        (
+                            "anos_testados",
+                            int(res.iloc[0]["tested_years"]),
+                        ),
+                        (
+                            "mape_selecionada",
+                            num(
+                                res.iloc[0][
+                                    "mean_absolute_percentage_error"
+                                ]
+                            ),
+                        ),
+                        (
+                            "mape_tendencia",
+                            num(
+                                res.iloc[0][
+                                    "trend_mean_absolute_percentage_error"
+                                ]
+                            ),
+                        ),
+                        (
+                            "mape_persistencia",
+                            num(
+                                res.iloc[0][
+                                    "naive_mean_absolute_percentage_error"
+                                ]
+                            ),
+                        ),
+                        (
+                            "treino_ate",
+                            int(det.iloc[0]["train_through_year"]),
+                        ),
+                        (
+                            "detalhe",
+                            [
+                                OrderedDict([
+                                    ("ano", int(l.test_year)),
+                                    (
+                                        "observado_t",
+                                        num(l.actual_production_t, 2),
+                                    ),
+                                    (
+                                        "tendencia_t",
+                                        num(
+                                            l.trend_forecast_production_t,
+                                            2,
+                                        ),
+                                    ),
+                                    (
+                                        "persistencia_t",
+                                        num(
+                                            l.naive_forecast_production_t,
+                                            2,
+                                        ),
+                                    ),
+                                ])
+                                for l in det.itertuples()
+                            ],
+                        ),
+                    ]),
+                ),
+                ("cenarios", por_cenario),
+            ])
+        )
+
     minerais.sort(key=lambda m: m["mineral_id"])
 
     total = []
-    for l in faixas_tot.sort_values(["scenario", "year"]).itertuples():
-        soma = projecao[(projecao.year == l.year) & (projecao.scenario == l.scenario)]["energy_demand_mwh"].sum()
-        if abs(soma - l.base_energy_demand_mwh) > TOLERANCIA_MWH:
-            raise SystemExit(f"Soma por mineral diverge do total do modelo em {l.year}/{l.scenario}.")
-        total.append(OrderedDict([
-            ("ano", int(l.year)), ("cenario", l.scenario),
-            ("energia_mwh", num(l.base_energy_demand_mwh, 3)),
-            ("baixa_mwh", num(l.lower_energy_demand_mwh, 3)),
-            ("alta_mwh", num(l.upper_energy_demand_mwh, 3)),
-        ]))
 
-    cenarios = [OrderedDict([
-        ("cenario", l.scenario),
-        ("ajuste_crescimento", num(l.growth_adjustment)),
-        ("ganho_eficiencia_anual", num(l.annual_efficiency_improvement)),
-        ("natureza", str(l.data_nature)),
-        ("fonte", str(l.source_id)),
-    ]) for l in hipoteses.itertuples()]
+    for l in faixas_tot.sort_values(
+        ["scenario", "year"]
+    ).itertuples():
+        soma = projecao[
+            (projecao.year == l.year)
+            & (projecao.scenario == l.scenario)
+        ]["energy_demand_mwh"].sum()
+
+        if abs(soma - l.base_energy_demand_mwh) > TOLERANCIA_MWH:
+            raise SystemExit(
+                f"Soma por mineral diverge do total do modelo em "
+                f"{l.year}/{l.scenario}."
+            )
+
+        total.append(
+            OrderedDict([
+                ("ano", int(l.year)),
+                ("cenario", l.scenario),
+                ("energia_mwh", num(l.base_energy_demand_mwh, 3)),
+                ("baixa_mwh", num(l.lower_energy_demand_mwh, 3)),
+                ("alta_mwh", num(l.upper_energy_demand_mwh, 3)),
+            ])
+        )
+
+    cenarios = [
+        OrderedDict([
+            ("cenario", l.scenario),
+            ("ajuste_crescimento", num(l.growth_adjustment)),
+            (
+                "ganho_eficiencia_anual",
+                num(l.annual_efficiency_improvement),
+            ),
+            ("natureza", str(l.data_nature)),
+            ("fonte", str(l.source_id)),
+        ])
+        for l in hipoteses.itertuples()
+    ]
+
     cenarios.sort(key=lambda c: CENARIOS.index(c["cenario"]))
+
     return minerais, total, cenarios
 
 
 def carteira():
-    """Projetos da curadoria do Squad 1 nos minerais do modelo, com o motivo de entrar ou não e a energia ponderada."""
+    """Projetos da curadoria nos cinco minerais do modelo."""
     inventario = ler("future", "project_inventory.csv")
     detalhe = ler("future", "project_layer_detail.csv")
-    pesos = pd.read_csv(MODELO / "parameters" / "project_maturity_weights.csv")
+    pesos = pd.read_csv(
+        MODELO / "parameters" / "project_maturity_weights.csv"
+    )
+
     projetos = []
+
     for l in inventario.itertuples():
         d = detalhe[detalhe["project_key"] == l.project_key]
         energia = OrderedDict()
+
         for cenario in CENARIOS:
-            g = d[(d["scenario"] == cenario) & (d["weighted_production_t"] > 0)].sort_values("year")
-            energia[cenario] = [OrderedDict([("ano", int(r.year)), ("producao_t", num(r.weighted_production_t, 2)),
-                                             ("energia_mwh", num(r.weighted_energy_demand_mwh, 3))])
-                                for r in g.itertuples()]
-        projetos.append(OrderedDict([
-            ("chave", l.project_key), ("projeto", texto(l.project_name)), ("empresa", texto(l.company)),
-            ("municipio", texto(l.municipality)), ("mineral_id", l.mineral_id), ("maturidade", l.maturidade),
-            ("status", texto(l.status)), ("confianca", texto(l.confianca)), ("no_modelo", bool(l.in_model)),
-            ("motivo", texto(l.reason)), ("fonte", texto(l.source)), ("link", texto(l.link)),
-            ("incremento_t_ano", num(l.incremental_production_t_per_year, 2)),
-            ("inicio", None if pd.isna(l.start_year) else int(l.start_year)),
-            ("fim", None if pd.isna(l.end_year) else int(l.end_year)),
-            ("natureza_quantidade", texto(l.quantity_nature)), ("nota_quantidade", texto(l.source_note)),
-            ("pesos", OrderedDict((c, num(getattr(l, f"weight_{c}"), 3)) for c in CENARIOS)),
-            ("energia_ponderada", energia),
-        ]))
-    ordem = ["EXPANSÃO", "CONSTRUÇÃO", "DEFINIDO", "PROVÁVEL", "POSSÍVEL", "SINAL", "OPERAÇÃO"]
-    projetos.sort(key=lambda p: (not p["no_modelo"], ordem.index(p["maturidade"]), p["mineral_id"], p["projeto"]))
+            g = (
+                d[
+                    (d["scenario"] == cenario)
+                    & (d["weighted_production_t"] > 0)
+                ]
+                .sort_values("year")
+            )
+
+            energia[cenario] = [
+                OrderedDict([
+                    ("ano", int(r.year)),
+                    (
+                        "producao_t",
+                        num(r.weighted_production_t, 2),
+                    ),
+                    (
+                        "energia_mwh",
+                        num(r.weighted_energy_demand_mwh, 3),
+                    ),
+                ])
+                for r in g.itertuples()
+            ]
+
+        projetos.append(
+            OrderedDict([
+                ("chave", l.project_key),
+                ("projeto", texto(l.project_name)),
+                ("empresa", texto(l.company)),
+                ("municipio", texto(l.municipality)),
+                ("mineral_id", l.mineral_id),
+                ("maturidade", l.maturidade),
+                ("status", texto(l.status)),
+                ("confianca", texto(l.confianca)),
+                ("no_modelo", bool(l.in_model)),
+                ("motivo", texto(l.reason)),
+                ("fonte", texto(l.source)),
+                ("link", texto(l.link)),
+                (
+                    "incremento_t_ano",
+                    num(l.incremental_production_t_per_year, 2),
+                ),
+                (
+                    "inicio",
+                    None if pd.isna(l.start_year) else int(l.start_year),
+                ),
+                (
+                    "fim",
+                    None if pd.isna(l.end_year) else int(l.end_year),
+                ),
+                ("natureza_quantidade", texto(l.quantity_nature)),
+                ("nota_quantidade", texto(l.source_note)),
+                (
+                    "pesos",
+                    OrderedDict(
+                        (
+                            c,
+                            num(getattr(l, f"weight_{c}"), 3),
+                        )
+                        for c in CENARIOS
+                    ),
+                ),
+                ("energia_ponderada", energia),
+            ])
+        )
+
+    ordem = [
+        "EXPANSÃO",
+        "CONSTRUÇÃO",
+        "DEFINIDO",
+        "PROVÁVEL",
+        "POSSÍVEL",
+        "SINAL",
+        "OPERAÇÃO",
+    ]
+
+    projetos.sort(
+        key=lambda p: (
+            not p["no_modelo"],
+            ordem.index(p["maturidade"]),
+            p["mineral_id"],
+            p["projeto"],
+        )
+    )
+
     return OrderedDict([
-        ("curadoria", "Squad 1/Radar de Projetos/curadoria_web.json"),
-        ("pipeline", "Squad 2/modello_reale/parameters/project_pipeline.csv"),
-        ("pesos_arquivo", "Squad 2/modello_reale/parameters/project_maturity_weights.csv"),
-        ("pesos", [OrderedDict([("maturidade", r.maturidade), *[(c, num(getattr(r, c), 3)) for c in CENARIOS]])
-                   for r in pesos.itertuples()]),
+        (
+            "curadoria",
+            "Squad 1/Radar de Projetos/curadoria_web.json",
+        ),
+        (
+            "pipeline",
+            "Squad 2/modello_reale/parameters/project_pipeline.csv",
+        ),
+        (
+            "pesos_arquivo",
+            "Squad 2/modello_reale/parameters/project_maturity_weights.csv",
+        ),
+        (
+            "pesos",
+            [
+                OrderedDict([
+                    ("maturidade", r.maturidade),
+                    *[
+                        (c, num(getattr(r, c), 3))
+                        for c in CENARIOS
+                    ],
+                ])
+                for r in pesos.itertuples()
+            ],
+        ),
         ("projetos", projetos),
+    ])
+
+
+def auditoria_projetos():
+    """Resumo da auditoria de toda a curadoria, para o painel web."""
+    audit = ler("project_audit", "project_readiness.csv")
+
+    ordem = [
+        "included",
+        "candidate_needs_energy_coefficient",
+        "missing_quantity_and_start",
+        "missing_quantity",
+        "missing_start",
+        "outside_energy_scope",
+        "early_signal",
+        "historical_operation",
+        "needs_unit_and_increment_check",
+    ]
+
+    audit["_ordem"] = audit["readiness"].map(
+        {status: index for index, status in enumerate(ordem)}
+    ).fillna(len(ordem))
+
+    audit = audit.sort_values(
+        ["_ordem", "mineral_curadoria", "project_name"]
+    )
+
+    contagens = audit["readiness"].value_counts().to_dict()
+
+    return OrderedDict([
+        (
+            "arquivo",
+            "Squad 2/modello_reale/outputs/project_audit/project_readiness.csv",
+        ),
+        ("total", int(len(audit))),
+        (
+            "resumo",
+            OrderedDict([
+                ("incluidos", int(contagens.get("included", 0))),
+                (
+                    "operacoes_historicas",
+                    int(contagens.get("historical_operation", 0)),
+                ),
+                ("sinais_iniciais", int(contagens.get("early_signal", 0))),
+                (
+                    "candidatos_sem_coeficiente",
+                    int(
+                        contagens.get(
+                            "candidate_needs_energy_coefficient",
+                            0,
+                        )
+                    ),
+                ),
+            ]),
+        ),
+        (
+            "projetos",
+            [
+                OrderedDict([
+                    ("chave", texto(row.project_key)),
+                    ("projeto", texto(row.project_name)),
+                    ("mineral", texto(row.mineral_curadoria)),
+                    ("maturidade", texto(row.maturity)),
+                    ("situacao", texto(row.readiness)),
+                    ("motivo", texto(row.reason)),
+                    (
+                        "no_modelo_energetico",
+                        bool(row.in_energy_model),
+                    ),
+                    ("tem_quantidade", bool(row.has_quantity)),
+                    ("tem_ano_inicio", bool(row.has_start_year)),
+                ])
+                for row in audit.itertuples()
+            ],
+        ),
     ])
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pular-execucao", action="store_true",
-                        help="reaproveita os outputs já presentes em vez de rodar o modelo")
+
+    parser.add_argument(
+        "--pular-execucao",
+        action="store_true",
+        help=(
+            "reaproveita os outputs já presentes em vez de rodar o modelo"
+        ),
+    )
+
     args = parser.parse_args()
+
     if not args.pular_execucao:
         executar_modelo(MODELO / "src")
 
     sys.path.insert(0, str(MODELO / "src"))
     sys.path.insert(0, str(RAIZ / "scripts"))
-    import common  # noqa: E402 — carregadores do modelo do Squad 2
-    from build_simulador_base import fontes  # noqa: E402 — mesmo catálogo de fontes do simulador
+
+    import common  # noqa: E402
+    from build_simulador_base import fontes  # noqa: E402
 
     projecao = ler("future", "future_projection_by_mineral.csv")
     coefs, arquivo_coef = coeficientes(common)
+
     minerais, total, cenarios = montar(
         projecao,
         ler("uncertainty", "uncertainty_by_mineral.csv"),
@@ -231,43 +627,84 @@ def main():
         historico_por_mineral(common),
         coefs,
     )
-    # fontes() recebe o source_id de cada mineral, que pode juntar várias fontes com ";".
-    catalogo = fontes(projecao, [{"source_id": m["coeficiente"]["fontes"], "mineral_name": m["nome"]}
-                                          for m in minerais], arquivo_coef)
+
+    catalogo = fontes(
+        projecao,
+        [
+            {
+                "source_id": m["coeficiente"]["fontes"],
+                "mineral_name": m["nome"],
+            }
+            for m in minerais
+        ],
+        arquivo_coef,
+    )
 
     doc = OrderedDict([
         ("versao", "1.0.0"),
         ("data_versao", date.today().isoformat()),
         ("gerado_por", "scripts/build_previsao_base.py"),
-        ("modelo", OrderedDict([
-            ("squad", "Squad 2"),
-            ("diretorio", "Squad 2/modello_reale"),
-            ("scripts", [f"Squad 2/modello_reale/src/{s}" for s in SCRIPTS]),
-            ("coeficientes", arquivo_coef),
-            ("hipoteses", "Squad 2/modello_reale/parameters/scenarios.csv"),
-            ("producao_historica", [
-                "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
-                "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx (aba 08_fato_producao_energia)",
+        (
+            "modelo",
+            OrderedDict([
+                ("squad", "Squad 2"),
+                ("diretorio", "Squad 2/modello_reale"),
+                (
+                    "scripts",
+                    [
+                        f"Squad 2/modello_reale/src/{s}"
+                        for s in SCRIPTS
+                    ],
+                ),
+                ("coeficientes", arquivo_coef),
+                (
+                    "hipoteses",
+                    "Squad 2/modello_reale/parameters/scenarios.csv",
+                ),
+                (
+                    "producao_historica",
+                    [
+                        "Squad 1/Bases consolidadas/documentacao/pacote_squad2/interface_squad1_squad2.csv",
+                        "Squad 1/Bases consolidadas/documentacao/prototipo_bases_consolidadas_v19.xlsx (aba 08_fato_producao_energia)",
+                    ],
+                ),
             ]),
-        ])),
-        ("horizonte", OrderedDict([("inicio", int(projecao.year.min())), ("fim", int(projecao.year.max()))])),
+        ),
+        (
+            "horizonte",
+            OrderedDict([
+                ("inicio", int(projecao.year.min())),
+                ("fim", int(projecao.year.max())),
+            ]),
+        ),
         ("ano_base", int(projecao.base_year.max())),
         ("faixa_intensidade_pct", 10),
         ("cenarios", cenarios),
         ("carteira", carteira()),
+        ("auditoria_projetos", auditoria_projetos()),
         ("total", total),
         ("minerais", minerais),
         ("fontes", catalogo),
     ])
+
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
+
     with SAIDA.open("w", encoding="utf-8") as fh:
         json.dump(doc, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
 
     ref = {(t["ano"], t["cenario"]): t for t in total}
-    print(f"{SAIDA.relative_to(RAIZ)} — {len(minerais)} minerais, {len(total)} linhas de total")
-    print(f"referência: {ref[(2027, 'referencia')]['energia_mwh'] / 1e6:.3f} TWh em 2027 → "
-          f"{ref[(2040, 'referencia')]['energia_mwh'] / 1e6:.3f} TWh em 2040")
+
+    print(
+        f"{SAIDA.relative_to(RAIZ)} — {len(minerais)} minerais, "
+        f"{len(total)} linhas de total"
+    )
+
+    print(
+        f"referência: "
+        f"{ref[(2027, 'referencia')]['energia_mwh'] / 1e6:.3f} TWh em 2027 → "
+        f"{ref[(2040, 'referencia')]['energia_mwh'] / 1e6:.3f} TWh em 2040"
+    )
 
 
 if __name__ == "__main__":
