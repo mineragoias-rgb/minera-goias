@@ -1,6 +1,6 @@
 {
  "mes": "2026-06",
- "materias": 82,
+ "materias": 84,
  "itens": [
   {
    "title": "Atlas Lithium vai ampliar produção de lítio em Minas Gerais | Café com ESG, 30/06 - XP Investimentos",
@@ -446,6 +446,20 @@
    "substancias": [
     "litio"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Propostas legislativas para majorar a carga fiscal da mineração (ICMS e CFEM) - Demarest",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMnYzTDc1QWtXMEk1dDJDaXdWdVQyQ09uMHc1RnhtYV9qVVFBeDdIVUpGNmM0blp3Z005NWRIcHlRejdCUG5nelFRU3B0NTl4T0M5dVJleXZwY19pb2lqbmhlV1EyVWFXTTBHelBlbzBlNmhTdEsxSVZWbVhCVlRHQWsxYk9qUWxqNkhEVjZkSkRsQ3JwQ3NWV3ZDNncyMTZiV25lRA?oc=5",
+   "published_at": "2026-06-19T16:44:26+00:00",
+   "first_seen": "2026-11-24T14:22:46.720137+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
@@ -1076,6 +1090,20 @@
    "setorial": 1,
    "fonte": "Busca · Mara Rosa e Serra Verde",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Contingenciamento compromete fiscalização, investimentos e capacidade operacional da mineração brasileira - www.gov.br",
+   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOdWtOWTVVbEhMM3hXREIyb1RCbXh0aXh0T3AtTV8wSjEwZG83SGxrQ3d0Y0hiOGtObndyWFZEelJQRzFUcmFrZUlIc2JuMlJ3Rlh1Q1VHcGtnVUNJcWhmVklObUQ5dVZsVnhzMGR1Y0NVYXQtcFY2Z1l3YU5rcXdXNGNpWHlEQ2stUTYzMnQwX3J6RkJQTzFmSWFDeVhNQThwOWRISDdKb0Y2b0NTVkJuRVJrS0J5dTdNNldTR2NnTVE2WVh5c3AxUldCMm1MeEN1LUJrejVaM3Fsemt5U3hYZFoyMDJPQQ?oc=5",
+   "published_at": "2026-06-04T07:00:00+00:00",
+   "first_seen": "2026-11-24T14:22:46.711707+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · CFEM",
+   "escopo": "nacional",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
