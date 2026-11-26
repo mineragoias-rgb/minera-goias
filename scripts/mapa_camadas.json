@@ -81,7 +81,7 @@
         "formato": "municipios-atlas"
       },
       "fonte": {
-        "nome": "IBGE — malha municipal 2025, pela base consolidada do Squad 1 (v17)",
+        "nome": "IBGE — malha municipal 2025, pela base consolidada do projeto (v17)",
         "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/UFs/GO/GO_Municipios_2025.zip"
       },
       "data_retrato": "2026-09-10",
@@ -483,7 +483,7 @@
         "formato": "colunas-lat-lon"
       },
       "fonte": {
-        "nome": "Base consolidada do Squad 1 (v17), aba 04_dim_projetos — classificação do Radar de Projetos"
+        "nome": "Base consolidada do projeto (v17), aba 04_dim_projetos — classificação do Radar de Projetos"
       },
       "data_retrato": "2026-10-24",
       "periodo_referencia": "situação dos processos no arquivo do SIGMINE de 24/10/2026 (aba 04)",

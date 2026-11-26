@@ -194,7 +194,7 @@ function tabelaAuditoriaProjetos(){
  const m=(rot,val,det)=>`<div class="metric"><span>${E(rot)}</span><strong>${E(val)}</strong><small>${E(det)}</small></div>`;
 
  el('pv-audit-metrics').innerHTML=
-  m('Projetos na curadoria',a.total,'Carteira completa do Squad 1')
+  m('Projetos na curadoria',a.total,'Carteira completa da curadoria')
   +m('Já incluídos',s.incluidos,'Têm incremento, período e base compatível')
   +m('Operações históricas',s.operacoes_historicas,'Não são somadas novamente')
   +m('Candidatos sem coeficiente',s.candidatos_sem_coeficiente,'Quantidade e data, mas ainda sem MWh/t');

@@ -160,8 +160,8 @@
       };
     });
     $('ajuda-sens').innerHTML = 'Testa quanto o resultado depende dos coeficientes de intensidade, que são a maior '
-      + 'incerteza desta versão. Faixa de ' + faixa.minimo + '% a +' + faixa.maximo + '%, definida pelo contrato de '
-      + 'sensibilidade do Squad 2. Não altera a produção projetada.';
+      + 'incerteza desta versão. Faixa de ' + faixa.minimo + '% a +' + faixa.maximo + '%, definida na análise de '
+      + 'sensibilidade do modelo. Não altera a produção projetada.';
   }
 
   function desenhar() {
@@ -281,15 +281,15 @@
       + p.versao + ', de ' + data(p.data_versao) + '.';
     $('modal-corpo').innerHTML =
       '<h3>Como o resultado é calculado</h3>'
-      + '<p>Os números vêm do modelo econômico-energético do ' + esc(origem.squad) + ', em <b>'
-      + esc(origem.diretorio) + '</b>. A produção de cada mineral parte do último ano observado pelo Squad 1 e '
+      + '<p>Os números vêm do modelo econômico-energético do projeto. A produção de cada mineral parte do último '
+      + 'ano observado na ANM e '
       + 'cresce pelo próprio crescimento histórico, ajustado pelo cenário. A intensidade cai conforme a hipótese '
       + 'de eficiência e pode ser ajustada por mineral no controle de sensibilidade.</p>'
       + '<p>Produção: <b>' + esc(p.equacoes.producao) + '</b><br>'
       + 'Intensidade: <b>' + esc(p.equacoes.intensidade) + '</b><br>'
       + 'Energia: <b>' + esc(p.equacoes.energia) + '</b></p>'
-      + '<p>O pacote de parâmetros é gerado por <b>' + esc(origem.gerado_por) + '</b>, que executa o modelo do '
-      + 'Squad 2 e confere que esta tela devolve os mesmos números. A maior diferença encontrada foi de '
+      + '<p>O pacote de parâmetros é gerado a partir do modelo, e a geração confere que esta tela devolve '
+      + 'os mesmos números. A maior diferença encontrada foi de '
       + esc(conf.maior_diferenca_mwh) + ' MWh, em todos os minerais, anos e cenários.</p>'
 
       + '<h3>Cobertura</h3>'
@@ -300,7 +300,7 @@
       + '<div class="tabela-wrap">' + blocoParametros() + '</div>'
 
       + '<h3>Parâmetros por mineral</h3>'
-      + '<p>O erro do backtest é o erro percentual absoluto médio do modelo do Squad 2 ao projetar os dois '
+      + '<p>O erro do backtest é o erro percentual absoluto médio do modelo ao projetar os dois '
       + 'últimos anos conhecidos usando apenas os anteriores. A bauxita tem erro alto porque a produção caiu '
       + 'em 2024 depois de anos de crescimento: é o limite de uma projeção de tendência, que não antecipa '
       + 'interrupções operacionais nem decisões de mercado.</p>'
@@ -334,8 +334,8 @@
 
     $('version-tag').textContent = 'parâmetros v' + parametros.versao + ' · ' + data(parametros.data_versao);
     $('aviso-ilustrativo').innerHTML = '<b>Cenário condicional, não previsão.</b> ' + esc(parametros.aviso);
-    $('nota-cobertura').innerHTML = 'Projeção do modelo do <b>' + esc(parametros.origem_modelo.squad)
-      + '</b> sobre a produção histórica consolidada pelo Squad 1. ' + esc(parametros.cobertura.nota);
+    $('nota-cobertura').innerHTML = 'Projeção do modelo econômico-energético do projeto sobre a produção '
+      + 'histórica consolidada a partir da ANM. ' + esc(parametros.cobertura.nota);
     $('linha-fonte').textContent = 'Fontes: ' + parametros.fontes.map(function (f) { return f.source_name; }).join(' · ')
       + '. Parâmetros v' + parametros.versao + ', de ' + data(parametros.data_versao)
       + ', gerados por ' + parametros.origem_modelo.gerado_por + '.';

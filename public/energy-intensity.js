@@ -353,7 +353,7 @@
       </div>
 
       <p class="ei-source">
-        Fonte: base de intensidade energética da Squad 2, CCEE 2025 e
+        Fonte: base de intensidade energética do projeto, CCEE 2025 e
         produção física das operações cobertas. O simulador permite testar
         variações desses coeficientes sem alterar a produção projetada.
       </p>

@@ -15,7 +15,7 @@
  "criticidade": {
   "classificacao_federal": "NA",
   "por_que_na": "O texto oficial da lista federal (Resolução SGM/MME nº 2, de 18/06/2021, e a Política Nacional de Minerais Críticos e Estratégicos) não pôde ser lido do ambiente em que esta base foi montada: o DOU e o Planalto recusam cliente automatizado. A base não atribui a nenhum mineral uma classificação legal que não leu.",
-  "recorte_do_projeto": "O recorte crítico desta base é o do próprio projeto: o mineral entra como crítico quando o marco estadual de minerais críticos, como a aba Mercado o registra (public/data/mercado/mercado_v1.json), nomeia uma operação ou um alvo daquele mineral em Goiás. O gerador confere esse vínculo mineral a mineral e recusa a base se o termo sumir do arquivo do Mercado.",
+  "recorte_do_projeto": "O recorte crítico desta base é o do próprio projeto: o mineral entra como crítico quando o marco estadual de minerais críticos, como a aba Mercado o registra, nomeia uma operação ou um alvo daquele mineral em Goiás. O gerador confere esse vínculo mineral a mineral e recusa a base se o termo sumir do arquivo do Mercado.",
   "classes": {
    "marco_estadual": "Nomeado no marco estadual de minerais críticos (aba Mercado).",
    "produzido_em_goias": "Goiás produz e exporta, mas o projeto não o registra no recorte crítico.",

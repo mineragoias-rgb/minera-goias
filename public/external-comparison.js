@@ -275,7 +275,7 @@
       <div class="ec-legend">
         <span>
           <i class="ec-line" style="background:#0f6fb0"></i>
-          Modelo Squad 2 · Goiás · cinco minerais · eletricidade
+          Modelo do projeto · Goiás · cinco minerais · eletricidade
         </span>
         <span>
           <i class="ec-line" style="background:#c2681b"></i>
@@ -339,7 +339,7 @@
 
       <div class="ec-metrics">
         <div class="ec-metric">
-          <span>Squad 2 · cenário referência</span>
+          <span>Modelo · cenário referência</span>
           <strong>${percentage(modelCagr)}</strong>
           <small>
             Crescimento médio anual da eletricidade dos cinco minerais
@@ -370,7 +370,7 @@
 
       <div class="ec-note">
         <strong>Comparação de trajetória, não de nível:</strong>
-        o modelo Squad 2 mede somente eletricidade de cinco minerais
+        o modelo do projeto mede somente eletricidade de cinco minerais
         em Goiás. O PDE 2035 da EPE mede energia final de todo o setor
         nacional de mineração e pelotização, incluindo outras fontes
         energéticas e minerais. Por isso ambos são normalizados em
@@ -382,7 +382,7 @@
           <thead>
             <tr>
               <th>Ano</th>
-              <th class="num">Squad 2 · índice</th>
+              <th class="num">Modelo · índice</th>
               <th class="num">EPE · índice</th>
             </tr>
           </thead>
