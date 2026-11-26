@@ -63,6 +63,25 @@ class WebTests(unittest.TestCase):
         self.assertEqual(self.client.patch('/api/admin/users/1',headers=headers,json={'active':False}).status_code,400)
         self.assertEqual(self.client.patch('/api/admin/users/2',headers=headers,json={'active':False}).status_code,200)
         self.assertEqual(self.client.post('/api/auth/login',json={'username':'reader','password':'long-test-password'}).status_code,401)
+    def test_delete_account(self):
+        headers=self.login('admin')
+        self.assertEqual(self.client.delete('/api/admin/users/2').status_code,403)  # sem o token CSRF
+        self.assertEqual(self.client.delete('/api/admin/users/1',headers=headers).status_code,400)  # a própria conta
+        self.assertEqual(self.client.delete('/api/admin/users/2',headers=headers).status_code,200)
+        self.assertEqual(self.client.delete('/api/admin/users/2',headers=headers).status_code,404)
+        self.assertNotIn('reader',[row['username'] for row in self.client.get('/api/admin/users').json()])
+        self.assertEqual(self.client.post('/api/auth/login',json={'username':'reader','password':'long-test-password'}).status_code,401)
+        self.login('initial')
+        self.assertEqual(self.client.delete('/api/admin/users/1',headers={'X-CSRF-Token':'x'}).status_code,403)
+    def test_deleted_account_loses_its_session(self):
+        self.login('reader')
+        sessao=self.client.cookies.get(auth.COOKIE)
+        self.client.cookies.clear()
+        headers=self.login('admin')
+        self.assertEqual(self.client.delete('/api/admin/users/2',headers=headers).status_code,200)
+        self.client.cookies.clear()
+        self.client.cookies.set(auth.COOKIE,sessao)
+        self.assertEqual(self.client.get('/api/auth/me').status_code,401)
     def test_login_rate_limit(self):
         for _ in range(10):
             self.assertEqual(self.client.post('/api/auth/login',json={'username':'missing','password':'incorrect'}).status_code,401)

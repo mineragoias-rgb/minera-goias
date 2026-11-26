@@ -166,3 +166,15 @@ def set_active(user_id: int,data: UserState,u=Depends(admin)):
             raise HTTPException(404,'Usuário não encontrado.')
         conn.execute('DELETE FROM sessions WHERE user_id=?',(user_id,))
     return {'ok':True}
+
+@router.delete('/admin/users/{user_id}')
+def delete_user(user_id: int,u=Depends(admin)):
+    """Apaga a conta de vez, com as sessões dela. Só administrador, e nunca a própria conta."""
+    if user_id == u['id']:
+        raise HTTPException(400,'Você não pode excluir a própria conta.')
+    with database() as conn:
+        conn.execute('DELETE FROM sessions WHERE user_id=?',(user_id,))
+        result=conn.execute('DELETE FROM users WHERE id=?',(user_id,))
+        if not result.rowcount:
+            raise HTTPException(404,'Usuário não encontrado.')
+    return {'ok':True}
