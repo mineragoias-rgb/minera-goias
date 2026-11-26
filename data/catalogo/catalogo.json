@@ -22,12 +22,12 @@
    "doc": "`panorama.json` alimenta a aba **Panorama** do painel (`public/panorama*.js`), servida autenticada por `Squad 3/backend/panorama.py`. Refaz os\ngráficos e tabelas do *Panorama da Mineração de Goiás* com as bases do projeto que estão neste repositório, e deixa o navegador filtrar por ano,\nmês, município, mineral, titular, fase do processo, tipo de gasto em pesquisa e ramo da CCEE.\n\n## De onde vem cada tabela\n\n| Chave | Fonte no repositório | Grão |\n|---|---|---|\n| `cfem` | aba 08 da planilha consolidada (`cfem_recolhido`) | ano × mês × município × mineral × titular |\n| `amb_go`, `amb_br`, `amb_uf` | aba 08 (Anuário Mineral Brasileiro, todas as UFs) | ano × mineral (Goiás e Brasil) e ano × UF |\n| `proc` | aba 03 (SIGMINE Goiás com titular, CFEM e status) | processo |\n| `inv_go`, `inv_br` | `Squad 1/Dados brutos/ANM - Investimento em pesquisa mineral/` | ano × substância × tipo de gasto (Goiás) e ano × gasto (Brasil) |\n| `rod` | `Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv` | área ofertada em Goiás |\n| `ccee` | `Squad 1/dados/CCEE/parcela_carga_consumo_*_GO.csv` | mês × município × ramo × raiz do CNPJ |\n| `dims.mun` | aba 10 da planilha (população e PIB municipal) | município: código, nome, população (2025) e PIB (2023, em R$) |\n\nA energia e a intensidade por município e as barragens vêm do atlas (`data/atlas/atlas.json`), que a aba também carrega.\n\n## Limitações\n\n- Pessoa física não aparece com nome: titular só é nomeado quando o `company_id` é `COM_CNPJ_` e o nome não traz CPF mascarado; arrematante de\n  rodada só quando o documento é CNPJ.\n- A base CCEE são as parcelas de carga de abril de 2024 a julho de 2026 (não há dado publicado antes de abril/2024 — o conjunto\n  `PARCELA_CARGA_CONSUMO` do portal de dados abertos da CCEE foi criado em 29/05/2024). As cargas sem ramo de atividade são das distribuidoras\n  Equatorial Goiás e CHESP: ficam no ramo `DISTRIBUIDORA (MERCADO CATIVO)` e representam o mercado cativo; as demais cargas são o mercado livre. A ligação carga → titular é pela raiz do CNPJ.\n- Somar a produção bruta de minerais diferentes conta duas vezes os co-produtos do mesmo minério.\n- Não foram refeitos, por falta de fonte nas bases do repositório: CFEM nacional e ranking das UFs, repasse da CFEM, água mineral, TAH, planos de\n  pesquisa (RePEM), processos inativos e coeficientes por operação tirados de relatórios das empresas (lista em `meta.not_reproduced`).",
    "download": {
     "arquivos": [
+     "Squad 1/dados/CCEE/Read.me",
      "Squad 1/dados/CCEE/parcela_carga_consumo_2024_GO.csv",
      "Squad 1/dados/CCEE/parcela_carga_consumo_2025_GO.csv",
-     "Squad 1/dados/CCEE/parcela_carga_consumo_2026_GO.csv",
-     "Squad 1/dados/CCEE/Read.me"
+     "Squad 1/dados/CCEE/parcela_carga_consumo_2026_GO.csv"
     ],
-    "tamanho_mb": 5.8,
+    "tamanho_mb": 5.7,
     "formatos": [
      "csv"
     ]
@@ -76,9 +76,9 @@
    "doc": "`panorama.json` alimenta a aba **Panorama** do painel (`public/panorama*.js`), servida autenticada por `Squad 3/backend/panorama.py`. Refaz os\ngráficos e tabelas do *Panorama da Mineração de Goiás* com as bases do projeto que estão neste repositório, e deixa o navegador filtrar por ano,\nmês, município, mineral, titular, fase do processo, tipo de gasto em pesquisa e ramo da CCEE.\n\n## De onde vem cada tabela\n\n| Chave | Fonte no repositório | Grão |\n|---|---|---|\n| `cfem` | aba 08 da planilha consolidada (`cfem_recolhido`) | ano × mês × município × mineral × titular |\n| `amb_go`, `amb_br`, `amb_uf` | aba 08 (Anuário Mineral Brasileiro, todas as UFs) | ano × mineral (Goiás e Brasil) e ano × UF |\n| `proc` | aba 03 (SIGMINE Goiás com titular, CFEM e status) | processo |\n| `inv_go`, `inv_br` | `Squad 1/Dados brutos/ANM - Investimento em pesquisa mineral/` | ano × substância × tipo de gasto (Goiás) e ano × gasto (Brasil) |\n| `rod` | `Squad 1/dados/ResultadoRodadaDisponibilidade (1).csv` | área ofertada em Goiás |\n| `ccee` | `Squad 1/dados/CCEE/parcela_carga_consumo_*_GO.csv` | mês × município × ramo × raiz do CNPJ |\n| `dims.mun` | aba 10 da planilha (população e PIB municipal) | município: código, nome, população (2025) e PIB (2023, em R$) |\n\nA energia e a intensidade por município e as barragens vêm do atlas (`data/atlas/atlas.json`), que a aba também carrega.\n\n## Limitações\n\n- Pessoa física não aparece com nome: titular só é nomeado quando o `company_id` é `COM_CNPJ_` e o nome não traz CPF mascarado; arrematante de\n  rodada só quando o documento é CNPJ.\n- A base CCEE são as parcelas de carga de abril de 2024 a julho de 2026 (não há dado publicado antes de abril/2024 — o conjunto\n  `PARCELA_CARGA_CONSUMO` do portal de dados abertos da CCEE foi criado em 29/05/2024). As cargas sem ramo de atividade são das distribuidoras\n  Equatorial Goiás e CHESP: ficam no ramo `DISTRIBUIDORA (MERCADO CATIVO)` e representam o mercado cativo; as demais cargas são o mercado livre. A ligação carga → titular é pela raiz do CNPJ.\n- Somar a produção bruta de minerais diferentes conta duas vezes os co-produtos do mesmo minério.\n- Não foram refeitos, por falta de fonte nas bases do repositório: CFEM nacional e ranking das UFs, repasse da CFEM, água mineral, TAH, planos de\n  pesquisa (RePEM), processos inativos e coeficientes por operação tirados de relatórios das empresas (lista em `meta.not_reproduced`).",
    "download": {
     "arquivos": [
-     "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/metadados-amb.ods",
      "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Beneficiada.csv",
-     "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv"
+     "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/Producao_Bruta.csv",
+     "Squad 1/Dados brutos/ANM - Anuário Mineral Brasileiro (AMB)/metadados-amb.ods"
     ],
     "tamanho_mb": 1.7,
     "formatos": [
@@ -357,7 +357,7 @@
      "data/comex/comex.csv",
      "data/comex/comex.json"
     ],
-    "tamanho_mb": 0.4,
+    "tamanho_mb": 0.3,
     "formatos": [
      "csv",
      "json"
@@ -419,7 +419,7 @@
      "public/data/noticias/meses/2026-11.json",
      "public/data/noticias/meses/anteriores.json"
     ],
-    "tamanho_mb": 4.3,
+    "tamanho_mb": 4.2,
     "formatos": [
      "json"
     ]
@@ -495,7 +495,7 @@
    "familia": "Produção e energia",
    "natureza": "derivada",
    "origem": "SIGMINE, CFEM e Cadastro Mineiro (ANM), carga da CCEE e radar de notícias",
-   "atualizado_em": "2026-11-24",
+   "atualizado_em": "2026-11-26",
    "volume": "2261 empresas · 2 processos",
    "onde": "data/empresas/mapa_empresas.json · API /api/empresas/mapa",
    "mede": "Ponto da empresa: o processo dela que mais recolheu CFEM em 2022–2026 (sem CFEM, o maior título de lavra; senão, o maior processo).",
