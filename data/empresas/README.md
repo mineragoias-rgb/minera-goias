@@ -150,3 +150,24 @@ O topo da aba `Empresas` é o **Atlas Empresarial**, servido em `/api/empresas/a
 - O pacote **não** entra em `scripts/atualizar_derivados.py`: depois de refazer o panorama, a produção ou o acervo de notícias, rode o gerador à mão.
 - A ligação de notícias é por nome: pode omitir matérias que citam a empresa por outro nome, e a ausência de notícia não é ausência de fato.
 - Vínculos de projeto com confiança `media` e todos os números de produção seguem pendentes de conferência humana na origem.
+
+## Mapa das empresas (`mapa_empresas.json`)
+
+A sub-aba **Mapa das empresas** da aba `Empresas` mostra, para cada empresa (pessoa jurídica) com processo minerário em Goiás ou CFEM
+recolhida, onde ela minera e o que recolheu. O pacote é servido em `/api/empresas/mapa`, atrás da sessão, e sai de
+`python scripts/build_mapa_empresas.py`. Pessoa física não entra, porque não tem nome publicado.
+
+| Bloco | Conteúdo | De onde vem |
+|---|---|---|
+| `empresas` | Uma linha por empresa (2.261): nome, CNPJ raiz, ponto no mapa, CFEM total, por ano, por mineral e por município, carga na CCEE por ano, títulos por fase, área de lavra e de pesquisa, e notícias | SIGMINE (`data/atlas/processes.json`); CFEM, Cadastro Mineiro e CCEE (`data/panorama/panorama.json`); radar de notícias (`public/data/noticias/meses`) |
+| `processos` | Um processo por linha (11.144): empresa, centro do processo, fase, grupo, mineral, município, área, número do processo e CFEM de 2022 a 2026 | os mesmos |
+| `dims` | Os vocabulários das colunas: 16 fases, 4 grupos, 67 minerais e 246 municípios | os mesmos |
+
+### Regras
+
+- **Onde fica a empresa no mapa:** no processo dela que mais recolheu CFEM em 2022–2026; sem CFEM, no maior título de lavra; senão, no
+  maior processo.
+- **Centro do processo:** a média dos vértices do polígono do SIGMINE.
+- **Energia:** a carga da CCEE do CNPJ raiz em Goiás, por ano, sem anualizar (em 2024 e 2026 os meses são incompletos).
+- **Notícias:** matérias do radar cujo título cita a empresa por um nome conhecido ou pela razão social inteira.
+- **Produção e coeficiente energético** não estão neste pacote: vêm do bloco "estimada" de `empresas.json`, que a página já carrega.
