@@ -373,14 +373,16 @@ function estMontar(){
 
 function mostrarAba(aba){
  document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>{const on=b.dataset.ep===aba;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
- ['mapa','estimada','declarada','direitos'].forEach(k=>{el('ep-aba-'+k).hidden=k!==aba});
+ ['atlas','mapa','estimada','declarada','direitos'].forEach(k=>{el('ep-aba-'+k).hidden=k!==aba});
+ // o mapa do Atlas foi medido com a sub-aba escondida (0×0): ao voltar, o Leaflet precisa do tamanho novo
+ if(aba==='atlas'&&window.EmpresasAtlas&&window.EmpresasAtlas.mapa())setTimeout(()=>window.EmpresasAtlas.mapa().invalidateSize(),0);
  if(aba==='mapa'&&window.showEmpresasMapa)window.showEmpresasMapa();
  if(aba==='direitos'&&window.showEmpresasPanorama)window.showEmpresasPanorama();}
 
 async function load(){
  el('empresas-error').textContent='';
  document.querySelectorAll('#ep-tabs [data-ep]').forEach(b=>b.onclick=()=>mostrarAba(b.dataset.ep));
- mostrarAba('mapa');
+ mostrarAba('atlas');
  try{
   dados=await api('/empresas');
   try{estMontar()}catch(e){el('es-error').textContent=e.message;console.error(e)}
@@ -402,4 +404,11 @@ async function load(){
  finally{el('empresas-loading').hidden=true;el('es-loading').hidden=true}}
 
 window.showEmpresas=()=>{if(loaded)return;loaded=true;load()};
+window.empresasAba=mostrarAba;
+// O Atlas empresarial, primeira sub-aba, sincroniza este painel com a empresa escolhida no mapa ou na busca (pelo CNPJ raiz, nunca pelo nome).
+// Empresa fora da base de produção limpa o filtro: o painel volta a mostrar todas, e a ficha do atlas diz que a produção não está disponível.
+window.empresasSelecionar=cnpj=>{
+ if(!dados)return false;
+ const l=cnpj?dados.linhas.find(x=>x.cnpj_raiz===cnpj):null;
+ el('ep-emp').value=l?l.empresa:'';desenhar();return !!l;};
 })();

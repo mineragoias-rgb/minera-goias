@@ -106,3 +106,47 @@ Ordens de grandeza que o cruzamento produziu, e que servem de conferência de sa
   coeficiente, de propósito.
 - **Quatro empresas têm energia e nenhum coeficiente** — Mosaic, Serra Verde, Brasil Minérios e, em alguns anos, outras — porque não há produção
   publicada no recorte de Goiás para o ano. É onde a base de produção precisa crescer, e o painel mostra isso em vez de esconder.
+
+## Atlas Empresarial (`atlas_empresas.json`)
+
+O topo da aba `Empresas` é o **Atlas Empresarial**, servido em `/api/empresas/atlas` (atrás da sessão, como o resto da aba). O pacote sai de
+`python scripts/build_atlas_empresas.py` e é conferido por `tests/test_atlas_empresas.py`. A curadoria manual fica em `curadoria_atlas.json`.
+
+| Bloco | Conteúdo | De onde vem |
+|---|---|---|
+| `empresas` | Uma linha por **CNPJ raiz de titular PJ** com processo, CFEM ou carga CCEE em Goiás (2.261) | `data/panorama/panorama.json` (`dims.emp`) |
+| `processos` | Os 16.875 processos do SIGMINE: fase, situação, mineral, uso, municípios IBGE intersectados, área, CFEM 2022–26, centroide e marca "Minas ativas (SGB)" | panorama `proc`, `data/mapa/tabelas/processos_complemento.json`, `data/atlas/processes.json`, `data/mapa/camadas/minas_ativas.json` |
+| `cfem` | CFEM por titular, ano, município e mineral | panorama `cfem` |
+| `cfem_processo_ano` | CFEM por processo e ano (só PJ) | `Squad 1/Dados corrigidos/ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv` |
+| `detalhes` | As 10 empresas da base de produção: grupo, operações, registros de produção, RI, rateio e notas de energia | `data/producao/producao.json`, `data/empresas/empresas.json` |
+| `projetos` | Base de projetos, carteira do Mercado e Radar de Projetos, com o método do vínculo | `data/projetos`, `public/data/mercado`, `data/mapa/tabelas/radar_projetos.json` |
+| `noticias` | Matérias do acervo do coletor ligadas a uma empresa, com alias, método, confiança e tipo | `public/data/noticias/meses/*.json` |
+| `criticos` | Minerais estratégicos (federal) e críticos (Goiás), separados, com norma e link | `curadoria_atlas.json` |
+
+### Regras
+
+- **Identidade = CNPJ raiz.** Nome não é chave. Pessoa física não é nomeada (4.817 processos entram só na contagem), como no Mapa mineral.
+- **Fase em grupo jurídico**, pelo mesmo critério do Radar (`Squad 3/backend/radar_api.py`): lavra autorizada (concessão de lavra, lavra
+  garimpeira, licenciamento, registro de extração) — que **autoriza, não comprova operação** —, requerimento de lavra, pesquisa e disponibilidade.
+- **"O que já explora"** só com evidência: produção declarada pela empresa (realizada, medida como produção, no recorte de Goiás) e processos com
+  título de lavra e CFEM recolhida em 2024–2026 (situação do Panorama). Embarque e venda **não** são produção; capacidade, meta e guidance não são realizado.
+- **Ponto no mapa = centroide do polígono do processo**, calculado da mesma geometria que `/api/atlas/processes` serve: indica o direito,
+  não a mina. Nas 10 empresas enriquecidas, o município da operação declarada aparece como referência **aproximada**. Não há coordenada de
+  mina ou planta documentada nas fontes, e nenhuma é desenhada.
+- **Projetos**: o Radar se liga pelos processos ANM que o projeto cita (só o titular desses processos); a base de projetos e o Mercado, pela
+  lista revisada `projetos_cnpj` (confiança `alta` = mesma razão social; `media` = subsidiária brasileira compatível, revisão humana pendente).
+  Projeto sem correspondência fica sem vínculo (21).
+- **Notícias**: alias revisado, palavra inteira, sem acento, ignorando o nome do veículo no fim do título. Nome de **grupo** exige contexto de Goiás
+  no título; título de outra UF/país sem Goiás é descartado; entidade que opera em várias UFs (Mosaic, CBA, Nexa, Votorantim) também exige contexto;
+  ex-funcionários e "próximo da mina" viram **menção indireta**. Exemplos de descarte vão no próprio pacote.
+- **Top N e puxadores** são calculados no navegador sobre o recorte: métrica (CFEM, nº de processos, área, carga CCEE), período e universo
+  aparecem na tela e na exportação. **Puxadores** = menor grupo de empresas que soma 80% da CFEM do recorte no período.
+- **Minerais estratégicos/críticos**: lista federal da Resolução MME/CTAPME nº 2/2021 (a Lei nº 15.506/2026 não traz lista própria) e rol da
+  Lei estadual nº 23.597/2025, art. 3º. As duas não se fundem. Incisos VII e VIII da lei estadual (remineralizadores e agrominerais) são
+  definidos pelo uso declarado na ANM.
+
+### Limites
+
+- O pacote **não** entra em `scripts/atualizar_derivados.py`: depois de refazer o panorama, a produção ou o acervo de notícias, rode o gerador à mão.
+- A ligação de notícias é por nome: pode omitir matérias que citam a empresa por outro nome, e a ausência de notícia não é ausência de fato.
+- Vínculos de projeto com confiança `media` e todos os números de produção seguem pendentes de conferência humana na origem.

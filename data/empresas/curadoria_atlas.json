@@ -1,0 +1,751 @@
+{
+  "versao": "v1",
+  "atualizado_em": "2026-11-18",
+  "nota": "Curadoria manual do Atlas Empresarial. Tudo aqui é regra auditável: vínculo de projeto e de notícia a uma empresa só existe por chave (processo ANM, CNPJ raiz) ou por esta lista revisada. Nome parecido não é vínculo. Lida por scripts/build_atlas_empresas.py.",
+  "projetos_cnpj": {
+    "_nota": "Empresa citada nos levantamentos de projetos (data/projetos/projetos.json e public/data/mercado/projetos_go_v1.json) → CNPJ raiz do titular ANM. 'alta' = mesma razão social da base de produção ou do Cadastro Mineiro; 'media' = razão social compatível com a subsidiária brasileira, sem documento que a amarre ao projeto (revisão humana pendente). Empresas sem correspondência ficam sem vínculo, de propósito.",
+    "Mineração Maracá Indústria e Comércio S.A.": {
+      "cnpj_raiz": "86902053",
+      "confianca": "alta"
+    },
+    "CMOC Brasil Mineração, Indústria e Participações Ltda.": {
+      "cnpj_raiz": "26108898",
+      "confianca": "alta"
+    },
+    "Anglo American Níquel Brasil Ltda.": {
+      "cnpj_raiz": "42184226",
+      "confianca": "alta"
+    },
+    "SAMA S.A. Minerações Associadas": {
+      "cnpj_raiz": "15104599",
+      "confianca": "alta"
+    },
+    "Mosaic Fertilizantes P&K Ltda.": {
+      "cnpj_raiz": "33931486",
+      "confianca": "alta"
+    },
+    "Amarillo Mineração do Brasil Ltda.": {
+      "cnpj_raiz": "42799486",
+      "confianca": "alta"
+    },
+    "Mineração Serra Grande S.A.": {
+      "cnpj_raiz": "42445403",
+      "confianca": "alta"
+    },
+    "Serra Verde Pesquisa e Mineração Ltda.": {
+      "cnpj_raiz": "08842895",
+      "confianca": "alta"
+    },
+    "Companhia Brasileira de Alumínio": {
+      "cnpj_raiz": "61409892",
+      "confianca": "alta"
+    },
+    "Brasil Minérios S.A.": {
+      "cnpj_raiz": "02683365",
+      "confianca": "alta"
+    },
+    "Votorantim Cimentos S.A.": {
+      "cnpj_raiz": "01637895",
+      "confianca": "alta"
+    },
+    "Pilar Gold Inc.": {
+      "cnpj_raiz": "21823063",
+      "confianca": "media",
+      "motivo": "PGDM = Pilar de Goiás Desenvolvimento Mineral Ltda., titular ANM em Pilar de Goiás; a controladora canadense não é titular."
+    },
+    "Aclara Resources Brasil": {
+      "cnpj_raiz": "48057659",
+      "confianca": "media",
+      "motivo": "Titular ANM: Aclara Resources Mineração Ltda."
+    },
+    "Ultra Rare Earth Inc. (operadora)": {
+      "cnpj_raiz": "42019578",
+      "confianca": "media",
+      "motivo": "Titular ANM: Ultra Brasil Rare Earths Mineração Ltda."
+    },
+    "Lundin Mining": {
+      "cnpj_raiz": "86902053",
+      "confianca": "alta",
+      "motivo": "Chapada é operada pela Mineração Maracá, subsidiária da Lundin."
+    },
+    "Aura Minerals": {
+      "cnpj_raiz": "42445403",
+      "confianca": "alta",
+      "motivo": "Mineração Serra Grande, controlada pela Aura desde 12/2025."
+    },
+    "Hochschild Mining": {
+      "cnpj_raiz": "42799486",
+      "confianca": "alta",
+      "motivo": "Mara Rosa é operada pela Amarillo Mineração do Brasil."
+    },
+    "Serra Verde": {
+      "cnpj_raiz": "08842895",
+      "confianca": "alta"
+    },
+    "Anglo American": {
+      "cnpj_raiz": "42184226",
+      "confianca": "alta"
+    },
+    "CMOC": {
+      "cnpj_raiz": "26108898",
+      "confianca": "alta"
+    },
+    "Mosaic": {
+      "cnpj_raiz": "33931486",
+      "confianca": "alta"
+    },
+    "Aclara Resources": {
+      "cnpj_raiz": "48057659",
+      "confianca": "media",
+      "motivo": "Titular ANM: Aclara Resources Mineração Ltda."
+    }
+  },
+  "noticias": {
+    "_nota": "Casamento no título, por palavra inteira, sem acento e sem caixa. 'entidade' = nome próprio da operação em Goiás; 'grupo' = controladora ou marca com operações em outros lugares, que só vale com termo de contexto de Goiás no título. 'outra_uf' derruba a notícia quando o título fala de outra UF/país sem citar Goiás. 'indireta' marca menções que não são evento da empresa (ex-funcionários, 'próximo da mina de…'). Cada vínculo sai com o alias, o método e a confiança. 'Lundin' sozinho não é alias (casaria 'Lundin Gold', outra empresa); 'USAR' não é alias (casaria o verbo 'usar'). 'multi_uf' = a própria entidade opera em outras UFs (ex.: Mosaic Fertilizantes em MG e GO): até o nome da entidade exige contexto de Goiás. O casamento ignora o nome do veículo no fim do título (ex.: '- Zap Catalão'). 'Brasil' não é contexto para grupos com outras operações no país (CMOC comprou ativos de ouro da Equinox fora de Goiás; a Hochschild tem projeto no Tocantins).",
+    "contexto_go_geral": [
+      "goias",
+      "goiás",
+      "goiano",
+      "goiana",
+      "(go)",
+      "- go",
+      "em go"
+    ],
+    "padroes_indiretos": [
+      "ex-gerente",
+      "ex-gerentes",
+      "ex-funcionario",
+      "ex-funcionarios",
+      "ex-executivo",
+      "ex-executivos",
+      "ex-diretor",
+      "ex-diretores",
+      "former employee",
+      "former manager",
+      "former executive",
+      "proximo de mina",
+      "proximo da mina",
+      "near serra verde",
+      "perto da mina"
+    ],
+    "empresas": {
+      "86902053": {
+        "entidade": [
+          "Mineração Maracá",
+          "Mineracao Maraca",
+          "Maracá"
+        ],
+        "grupo": [
+          "Lundin Mining"
+        ],
+        "contexto": [
+          "Chapada",
+          "Alto Horizonte",
+          "Saúva",
+          "Sauva",
+          "Brasil",
+          "Brazil"
+        ],
+        "outra_uf": [
+          "Candelaria",
+          "Chile",
+          "Josemaria",
+          "Argentina",
+          "Eagle",
+          "Michigan",
+          "Neves-Corvo",
+          "Zinkgruvan"
+        ]
+      },
+      "26108898": {
+        "entidade": [
+          "CMOC Brasil",
+          "Copebras",
+          "Niobras"
+        ],
+        "grupo": [
+          "CMOC"
+        ],
+        "contexto": [
+          "Catalão",
+          "Catalao",
+          "Ouvidor",
+          "nióbio",
+          "niobio",
+          "niobium",
+          "fosfato",
+          "phosphate"
+        ],
+        "outra_uf": [
+          "Congo",
+          "RDC",
+          "DRC",
+          "Kisanfu",
+          "Tenke",
+          "China",
+          "Austrália",
+          "Australia",
+          "Equinox",
+          "Aurizona",
+          "Bahia",
+          "Maranhão",
+          "Maranhao"
+        ]
+      },
+      "42184226": {
+        "entidade": [
+          "Anglo American Níquel",
+          "Anglo American Niquel",
+          "Codemin"
+        ],
+        "grupo": [
+          "Anglo American"
+        ],
+        "contexto": [
+          "Barro Alto",
+          "Niquelândia",
+          "Niquelandia",
+          "níquel",
+          "niquel",
+          "nickel",
+          "ferroníquel",
+          "ferronickel",
+          "MMG"
+        ],
+        "outra_uf": [
+          "Minas-Rio",
+          "Conceição do Mato Dentro",
+          "Kumba",
+          "Quellaveco",
+          "Los Bronces",
+          "De Beers"
+        ]
+      },
+      "15104599": {
+        "entidade": [
+          "SAMA Minerações",
+          "Mina de Cana Brava",
+          "Cana Brava"
+        ],
+        "grupo": [
+          "Eternit"
+        ],
+        "contexto": [
+          "Minaçu",
+          "Minacu",
+          "amianto",
+          "crisotila",
+          "asbestos",
+          "chrysotile"
+        ],
+        "outra_uf": []
+      },
+      "33931486": {
+        "entidade": [
+          "Mosaic Fertilizantes"
+        ],
+        "grupo": [
+          "Mosaic"
+        ],
+        "contexto": [
+          "Catalão",
+          "Catalao"
+        ],
+        "outra_uf": [
+          "Araxá",
+          "Araxa",
+          "Tapira",
+          "Patrocínio",
+          "Patrocinio",
+          "Uberaba",
+          "Cajati",
+          "MG",
+          "Minas Gerais",
+          "Saskatchewan",
+          "Florida",
+          "Canadá",
+          "Canada",
+          "Rainbow",
+          "CODEMIG"
+        ],
+        "multi_uf": true
+      },
+      "42799486": {
+        "entidade": [
+          "Amarillo Mineração",
+          "Amarillo Mineracao",
+          "Amarillo Gold"
+        ],
+        "grupo": [
+          "Hochschild"
+        ],
+        "contexto": [
+          "Mara Rosa",
+          "Posse"
+        ],
+        "outra_uf": [
+          "Peru",
+          "Argentina",
+          "Inmaculada",
+          "San Jose",
+          "Monte do Carmo",
+          "Tocantins"
+        ]
+      },
+      "42445403": {
+        "entidade": [
+          "Mineração Serra Grande",
+          "Mineracao Serra Grande",
+          "Serra Grande"
+        ],
+        "grupo": [
+          "Aura Minerals",
+          "AngloGold Ashanti",
+          "AngloGold"
+        ],
+        "contexto": [
+          "Crixás",
+          "Crixas",
+          "MSG"
+        ],
+        "outra_uf": []
+      },
+      "08842895": {
+        "entidade": [
+          "Serra Verde"
+        ],
+        "grupo": [
+          "USA Rare Earth"
+        ],
+        "contexto": [
+          "Minaçu",
+          "Minacu",
+          "Pela Ema",
+          "terras raras",
+          "terras-raras",
+          "rare earth",
+          "rare earths",
+          "rare-earth",
+          "Serra Verde"
+        ],
+        "outra_uf": [],
+        "exige_contexto_entidade": [
+          "terras raras",
+          "terras-raras",
+          "rare earth",
+          "rare earths",
+          "rare-earth",
+          "Minaçu",
+          "Minacu",
+          "mineradora",
+          "mining",
+          "miner",
+          "USA Rare Earth",
+          "USAR",
+          "Goiás",
+          "Goias",
+          "Pela Ema",
+          "venda",
+          "compra",
+          "minerais criticos",
+          "critical minerals",
+          "mineradora",
+          "acionistas",
+          "Cade",
+          "ANM",
+          "exportacao",
+          "exporta",
+          "embarque",
+          "embarques",
+          "shipments",
+          "produção",
+          "producao"
+        ]
+      },
+      "61409892": {
+        "entidade": [
+          "Companhia Brasileira de Alumínio",
+          "Companhia Brasileira de Aluminio"
+        ],
+        "grupo": [
+          "CBA"
+        ],
+        "contexto": [
+          "Barro Alto",
+          "bauxita",
+          "bauxite"
+        ],
+        "outra_uf": [
+          "Alumínio (SP)",
+          "Miraí",
+          "Mirai",
+          "Itamarati de Minas",
+          "MG",
+          "SP"
+        ],
+        "multi_uf": true
+      },
+      "02683365": {
+        "entidade": [
+          "Brasil Minérios",
+          "Brasil Minerios"
+        ],
+        "grupo": [],
+        "contexto": [],
+        "outra_uf": []
+      },
+      "01637895": {
+        "entidade": [],
+        "grupo": [
+          "Votorantim Cimentos"
+        ],
+        "contexto": [
+          "Edealina",
+          "Boa Vista"
+        ],
+        "outra_uf": [],
+        "multi_uf": true
+      },
+      "21823063": {
+        "entidade": [
+          "Pilar Gold",
+          "PGDM"
+        ],
+        "grupo": [],
+        "contexto": [],
+        "outra_uf": []
+      },
+      "48057659": {
+        "entidade": [],
+        "grupo": [
+          "Aclara"
+        ],
+        "contexto": [
+          "Carina",
+          "Nova Roma"
+        ],
+        "outra_uf": [
+          "Penco",
+          "Chile"
+        ]
+      },
+      "42019578": {
+        "entidade": [],
+        "grupo": [
+          "Appia",
+          "Ultra Rare Earth"
+        ],
+        "contexto": [
+          "PCH",
+          "Iporá",
+          "Ipora"
+        ],
+        "outra_uf": [
+          "Saskatchewan",
+          "Elliot Lake",
+          "Canada"
+        ]
+      },
+      "42416651": {
+        "entidade": [],
+        "grupo": [
+          "Nexa"
+        ],
+        "contexto": [],
+        "outra_uf": [
+          "Peru",
+          "Cerro Lindo",
+          "Vazante",
+          "Juiz de Fora",
+          "Três Marias",
+          "Aripuanã",
+          "Mato Grosso"
+        ],
+        "multi_uf": true
+      }
+    }
+  },
+  "criticos": {
+    "_nota": "Classificações jurídicas mantidas separadas: a federal (minerais ESTRATÉGICOS, Política Pró-Minerais Estratégicos) e a estadual de Goiás (minerais CRÍTICOS). Nenhuma é fundida à outra. O vínculo com a categoria mineral da ANM usada no painel (dims.min do panorama) foi feito à mão e está aqui; itens sem categoria correspondente ficam sem vínculo e o painel diz isso.",
+    "federal": {
+      "nome": "Minerais estratégicos — lista federal",
+      "norma": "Resolução nº 2, de 18 de junho de 2021 (MME/SGM — CTAPME), Anexo; Decreto nº 10.657/2021",
+      "jurisdicao": "União (Política Pró-Minerais Estratégicos)",
+      "link": "https://anmlegis.datalegis.net/action/TematicaAction.php?acao=abrirVinculos&cotematica=24066262&cod_modulo=405&cod_menu=11113",
+      "consultado_em": "2026-11-18",
+      "situacao": "Segundo o FAQ da ANM, é a lista federal em vigor; o Brasil não tem lista de minerais 'críticos'. A Lei nº 15.506, de 16/09/2026 (Política Nacional de Minerais Críticos e Estratégicos), não traz lista própria: ela será definida pelo conselho criado pela lei. Até lá, o painel usa a Resolução nº 2/2021.",
+      "fontes_situacao": [
+        "https://www.gov.br/anm/pt-br/assuntos/economia-mineral/minerais-criticos-e-estrategicos/faq-minerais-criticos-e-estrategicos.pdf",
+        "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/l15506.htm"
+      ],
+      "categorias": [
+        {
+          "id": "F1",
+          "nome": "Dependência de importação em alto percentual",
+          "itens": [
+            [
+              "Enxofre",
+              [
+                "Enxofre"
+              ]
+            ],
+            [
+              "Minério de Fosfato",
+              [
+                "Fosfato"
+              ]
+            ],
+            [
+              "Minério de Potássio",
+              [
+                "Potássio"
+              ]
+            ],
+            [
+              "Minério de Molibdênio",
+              [
+                "Molibdênio"
+              ]
+            ]
+          ]
+        },
+        {
+          "id": "F2",
+          "nome": "Aplicação em produtos e processos de alta tecnologia",
+          "itens": [
+            [
+              "Minério de Cobalto",
+              [
+                "Cobalto"
+              ]
+            ],
+            [
+              "Minério de Cobre",
+              [
+                "Cobre"
+              ]
+            ],
+            [
+              "Minério de Estanho",
+              [
+                "Estanho"
+              ]
+            ],
+            [
+              "Minério de Grafita",
+              [
+                "Grafita"
+              ]
+            ],
+            [
+              "Minérios do grupo da Platina",
+              [
+                "Platina (Grupo da)"
+              ]
+            ],
+            [
+              "Minério de Lítio",
+              [
+                "Lítio"
+              ]
+            ],
+            [
+              "Minério de Nióbio",
+              [
+                "Nióbio",
+                "Columbita-Tantalita"
+              ]
+            ],
+            [
+              "Minério de Níquel",
+              [
+                "Níquel"
+              ]
+            ],
+            [
+              "Minério de Silício",
+              []
+            ],
+            [
+              "Minério de Tálio",
+              []
+            ],
+            [
+              "Minério de Tântalo",
+              [
+                "Tântalo",
+                "Columbita-Tantalita"
+              ]
+            ],
+            [
+              "Minério de Terras Raras",
+              [
+                "Monazita e Terras-Raras"
+              ]
+            ],
+            [
+              "Minério de Titânio",
+              [
+                "Titânio"
+              ]
+            ],
+            [
+              "Minério de Tungstênio",
+              [
+                "Tungstênio"
+              ]
+            ],
+            [
+              "Minério de Urânio",
+              [
+                "Urânio e outros Radioativos"
+              ]
+            ],
+            [
+              "Minério de Vanádio",
+              [
+                "Vanádio"
+              ]
+            ]
+          ]
+        },
+        {
+          "id": "F3",
+          "nome": "Vantagem comparativa e superávit da balança comercial",
+          "itens": [
+            [
+              "Minério de Alumínio",
+              [
+                "Alumínio (Bauxita)"
+              ]
+            ],
+            [
+              "Minério de Cobre",
+              [
+                "Cobre"
+              ]
+            ],
+            [
+              "Minério de Ferro",
+              [
+                "Ferro"
+              ]
+            ],
+            [
+              "Minério de Grafita",
+              [
+                "Grafita"
+              ]
+            ],
+            [
+              "Minério de Ouro",
+              [
+                "Ouro"
+              ]
+            ],
+            [
+              "Minério de Manganês",
+              [
+                "Manganês"
+              ]
+            ],
+            [
+              "Minério de Nióbio",
+              [
+                "Nióbio",
+                "Columbita-Tantalita"
+              ]
+            ],
+            [
+              "Minério de Urânio",
+              [
+                "Urânio e outros Radioativos"
+              ]
+            ]
+          ]
+        }
+      ],
+      "ressalvas": [
+        "'Minério de Silício' não tem categoria própria na base ANM do painel (quartzo industrial não foi equiparado).",
+        "'Minério de Tálio': a transcrição consultada traz o nome com caractere corrompido; sem categoria correspondente na base.",
+        "Columbita-tantalita é minério de nióbio e de tântalo e entra nos dois itens."
+      ]
+    },
+    "estadual": {
+      "nome": "Minerais críticos — Goiás",
+      "norma": "Lei estadual nº 23.597, de 27 de agosto de 2025, art. 3º (regulamentada pelo Decreto nº 10.921/2026)",
+      "jurisdicao": "Estado de Goiás (AMIC/GO)",
+      "link": "https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/111177/pdf",
+      "consultado_em": "2026-11-18",
+      "situacao": "Rol exemplificativo ('sem se limitar a eles'); o inciso IX permite à AMIC/GO acrescentar outros por resolução.",
+      "categorias": [
+        {
+          "id": "E1",
+          "nome": "Art. 3º, I a VI — substâncias nomeadas",
+          "itens": [
+            [
+              "I – terras raras e seus elementos constituintes",
+              [
+                "Monazita e Terras-Raras"
+              ]
+            ],
+            [
+              "II – nióbio",
+              [
+                "Nióbio",
+                "Columbita-Tantalita"
+              ]
+            ],
+            [
+              "III – níquel",
+              [
+                "Níquel"
+              ]
+            ],
+            [
+              "IV – cobre",
+              [
+                "Cobre"
+              ]
+            ],
+            [
+              "V – titânio",
+              [
+                "Titânio"
+              ]
+            ],
+            [
+              "VI – fosfato",
+              [
+                "Fosfato"
+              ]
+            ]
+          ]
+        },
+        {
+          "id": "E2",
+          "nome": "Art. 3º, VII e VIII — remineralizadores e agrominerais (definidos pelo uso)",
+          "itens": [
+            [
+              "VII – remineralizadores de solo (Lei federal nº 12.890/2013)",
+              []
+            ],
+            [
+              "VIII – agrominerais (correção de acidez, reposição de nutrientes, condicionamento do solo)",
+              []
+            ]
+          ],
+          "por_uso_anm": [
+            "Corretivo de solo",
+            "Fertilizantes",
+            "Insumo agrícola"
+          ]
+        }
+      ],
+      "ressalvas": [
+        "Incisos VII e VIII são definidos pelo uso, não pela substância: o painel marca o processo cujo uso declarado na ANM é 'Corretivo de solo', 'Fertilizantes' ou 'Insumo agrícola'.",
+        "Inciso IX (outros recursos por resolução da AMIC/GO): nenhuma resolução foi incorporada."
+      ]
+    }
+  }
+}

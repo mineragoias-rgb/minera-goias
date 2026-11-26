@@ -380,3 +380,33 @@ python3 comex/coleta.py && python3 scripts/build_comex_base.py && python3 script
 python3 -m unittest tests.test_comex -v
 node --check public/comex.js
 ```
+
+## Atlas Empresarial na aba Empresas
+
+Desenvolvido sobre `e31939f` e integrado em 26/11/2026, sobre a main de então (`bb87b53`), a partir do pacote `MINERA_GOIAS_ATLAS_INTEGRACAO`
+(manifesto, instruções e relatório de testes no pacote). O pacote de dados foi gerado de novo sobre a main.
+
+- **Aba Empresas**: o Atlas Empresarial é a primeira sub-aba, aberta por padrão (`#ep-aba-atlas`; `public/empresas-atlas.js`,
+  `public/empresas-atlas.css`, todo seletor sob `#empresas-view`). As sub-abas que já existiam continuam (Mapa das empresas, Produção por
+  empresa, Produção declarada e energia, Arrecadação, títulos e consumo); a de produção declarada acompanha a empresa escolhida no Atlas
+  (`window.empresasSelecionar`, por CNPJ raiz). `window.empresasAba` (em `empresas.js`) troca de sub-aba; o Atlas a usa ao voltar pelo navegador.
+- **Dados**: `data/empresas/atlas_empresas.json`, de `python scripts/build_atlas_empresas.py` (determinístico; `--verificar` compara os hashes
+  das entradas), com a curadoria `data/empresas/curadoria_atlas.json`. Regras e limites em `data/empresas/README.md` (seção Atlas Empresarial).
+- **API**: `GET /api/empresas/atlas` em `Squad 3/backend/empresas.py`, com `Depends(reader)` e gzip (`compressed.json_file`, que guarda o
+  arquivo em memória: reiniciar a API depois de regenerar o pacote).
+- **Traduções**: chaves `ea.*` em PT e EN, num bloco marcado de `public/i18n.js` gerado por `scripts/i18n_atlas_empresas.py` (idempotente);
+  `tests/test_i18n.py` verifica `empresas-atlas.js`.
+- **Mapa**: pontos, polígonos ANM e contornos de município numa camada Canvas única (`pintarMapa`), com hierarquia de fase (`estiloFase`) e
+  legenda que liga/desliga fases só no mapa (`S.off`); 1 nível de zoom por dente da roda; desmarcar por segundo clique, clique no vazio, Esc
+  ou etiqueta. Usa detalhes internos do Leaflet 1.9.4 (`L.Canvas` `_draw`/`_redraw`/`_ctx`/`_bounds`, `map._popup`): rever ao atualizar o Leaflet.
+- **Testes**: `tests/test_atlas_empresas.py` (pacote, vínculos, API, interface) e `tests/e2e_atlas_empresas.py` (navegador, contra um servidor
+  no ar; contas em `ATLAS_E2E_USUARIO`/`ATLAS_E2E_SENHA` e `ATLAS_E2E_USUARIO2`/`ATLAS_E2E_SENHA2`).
+- **Pendente**: o gerador ainda não está em `scripts/atualizar_derivados.py`; depois de refazer panorama, produção, projetos ou o acervo de
+  notícias, rodar o gerador à mão.
+
+```sh
+python scripts/build_atlas_empresas.py
+python scripts/build_atlas_empresas.py --verificar
+python -m unittest discover -s tests -p test_atlas_empresas.py -v
+node --check public/empresas-atlas.js
+```
