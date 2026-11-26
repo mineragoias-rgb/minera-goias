@@ -141,12 +141,13 @@ window.showPanoramaTab=async id=>{await window.showPanorama();if(P)showTab(id)};
 // [id, seções do Panorama, camadas do mapa]. The tab bar is the whole page's navigation, so a theme
 // picks at once what the atlas map draws and which panels appear below it; [] means the theme has no map.
 // Companies left the Panorama for the Empresas tab (21/11/2026): the holder filter and the company cards live there now.
+// The Notas tab (what the original Panorama had and was not rebuilt) left on 26/11/2026: it was a note for the team.
 engine({main:true,pfx:'pn-',view:'panorama-view',filters:FILTERS.filter(k=>k!=='emp'),
- sections:['cfem','geo','subs','prod','usos','terr','pesq','proj','rod','energia','intens','barr','nr'],
+ sections:['cfem','geo','subs','prod','usos','terr','pesq','proj','rod','energia','intens','barr'],
  secOf:d=>d.sec==='emp'||EMP_ENERGIA.includes(d.id)?null:d.sec,
  tabs:[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences']],
   ['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
-  ['energia',['energia','intens'],['energy','coefficient']],['barragens',['barr'],['dams']],['notas',['nr'],[]]]});
+  ['energia',['energia','intens'],['energy','coefficient']],['barragens',['barr'],['dams']]]});
 engine({main:false,pfx:'epn-',view:'empresas-view',show:'showEmpresasPanorama',filters:FILTERS,
  sections:['emp','emp_energia'],secOf:d=>d.sec==='emp'?'emp':EMP_ENERGIA.includes(d.id)?'emp_energia':null,
  tabs:[['empresas',['emp','emp_energia'],[]]]});

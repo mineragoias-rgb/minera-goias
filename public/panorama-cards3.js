@@ -88,8 +88,6 @@ cards.push(
 {id:'barr_matriz',sec:'barr',filters:['mun'],render(X,box){const C=X.C;if(!X.A)return `<p class="empty">${X.E(X.t('pn.noAtlas'))}</p>`;const name=X.F.mun>=0?X.norm(X.mun(X.F.mun)):'',lv=['ALTA','MEDIA','BAIXA'];
  const dams=X.A.dams.filter(d=>!name||X.norm(d['Município'])===name),n=(r,d)=>dams.filter(x=>X.norm(x['Categoria de Risco - CRI'])===r&&(d==null||X.norm(x['Dano Potencial Associado - DPA'])===d)).length;
  C.table(box,[{label:X.t('pn.h.riskDamage'),key:'r'},...lv.map((d,i)=>({label:X.t(`pn.lv.${i}`),get:x=>x.c[i],num:1})),{label:X.t('pn.h.total'),key:'tot',num:1}],
-  lv.map((r,i)=>({r:X.t(`pn.lv.${i}`),c:lv.map(d=>n(r,d)),tot:n(r)})))}},
-
-{id:'nr',sec:'nr',wide:true,filters:[],render(X){return '<ul class="pn-nr">'+X.P.meta.not_reproduced.map(k=>`<li><b>${X.E(X.t(`pn.nr.${k}`))}</b> ${X.E(X.t(`pn.nr.${k}.why`))}</li>`).join('')+'</ul>'}}
+  lv.map((r,i)=>({r:X.t(`pn.lv.${i}`),c:lv.map(d=>n(r,d)),tot:n(r)})))}}
 );
 })();
