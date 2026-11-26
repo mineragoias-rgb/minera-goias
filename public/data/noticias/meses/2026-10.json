@@ -1,6 +1,6 @@
 {
  "mes": "2026-10",
- "materias": 1829,
+ "materias": 1830,
  "itens": [
   {
    "title": "Moradores de Caetité, na Bahia, veem a mina de ferro da Bamin, a ferrovia Fiol e o Porto Sul a caminho da portuguesa Mota-Engil, mas a troca depende de o TCU aceitar mudar o contrato e de R$ 7 bilhões da Vale",
@@ -2088,6 +2088,22 @@
    "tema": "mineracao",
    "substancias": [
     "argila",
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Analysis-Soy, rare earths and fuels: how Brazil vote impacts the global flow of resources - Euronext Markets: Real-time Stock Market Data | live",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQ2Zva2poeTY1WEVZWXdNNnh1V2JZdERVVjQ1WVdBUUdyVENMc0RCWkFfRUF0T1hMb182TTBXZWQ3NWZJbmtUTVFFNnk5dGlucGNvb1c4R3l4ZXgyVVc3cjZCMzd3SnR3a3BNVlNtXzJsekVsaFRSOEYwZVE3LTA2cDZreUdKTG1uckt1anZRN1l3SzBuNlVtSllfZVBTellzdjNHVEZvZWp2aTdWdGFoZUI2bjBTYnJqM28wRGxKSlVSQQ?oc=5",
+   "published_at": "2026-10-29T07:00:00+00:00",
+   "first_seen": "2026-11-26T13:19:23.794519+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · rare earth Brazil",
+   "escopo": "internacional",
+   "tema": "mineracao",
+   "substancias": [
     "terras_raras"
    ],
    "brasil": 1

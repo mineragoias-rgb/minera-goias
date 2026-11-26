@@ -1,6 +1,6 @@
 {
  "mes": "2026-03",
- "materias": 59,
+ "materias": 60,
  "itens": [
   {
    "title": "Nova guia da CFEM entra em fase de testes com participação do setor mineral — Agência Nacional de Mineração - www.gov.br",
@@ -592,6 +592,20 @@
    "setorial": 1,
    "fonte": "Busca · mineração em Goiás",
    "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
+   "title": "Região Norte recebe gestores nas unidades do Amapá e Pará — Agência Nacional de Mineração - GOV.BR",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPQWsxY2UzaFhMZTBkRkhTRmRZOXZ2U3I0MW1FN0NlQlBUeGtlaUNnRTgzbmR5Z1Vsd2tkaUJIeTgybmFWSDlJeXIzUTNTR2VrOEhzLUFEVVdzVFk3ZzBDNjEwSDZjNElDenlaZEptRXVhVGctNWpoQTQ1NFF1UklZMHRWczJVa1VfanI5Ymt1RE5QbTNDZHYxeHluWGg3ZVlGdFI1Yk5Pcw?oc=5",
+   "published_at": "2026-03-13T07:00:00+00:00",
+   "first_seen": "2026-11-26T13:19:23.269147+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · ANM (site oficial)",
+   "escopo": "setorial",
    "tema": "mineracao",
    "substancias": [],
    "brasil": 1
