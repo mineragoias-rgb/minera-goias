@@ -29,7 +29,7 @@ As avaliações foram feitas em 19/11/2026 (1ª rodada) e 25/11/2026 (2ª rodada
 
 ## Visão geral
 
-São 57 pendências: 40 abertas e 17 resolvidas (duas delas por decisão de não fazer: p38 e p56). Das abertas, 4 têm urgência alta, 20 média e 16 baixa, e 9 já estão resolvidas em parte (p10, p14, p23, p24, p30, p34, p46, p53 e p57). Por tipo: 27 problemas, 3 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
+São 57 pendências: 39 abertas e 18 resolvidas (duas delas por decisão de não fazer: p38 e p56). Das abertas, 4 têm urgência alta, 20 média e 15 baixa, e 8 já estão resolvidas em parte (p10, p14, p23, p24, p30, p34, p53 e p57). Por tipo: 27 problemas, 3 a desenvolver e 9 decisões do grupo. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
 
 | Nº | Pendência | Área | Tipo | Urgência | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ São 57 pendências: 40 abertas e 17 resolvidas (duas delas por decisão de não
 | p55 | Metodologia repetida em três lugares | Ranking por Indicador, Radar, Território e Metodologia | Decisão do grupo | Baixa | Aberta |
 | p44 | Não há como recuperar senha esquecida | Gerenciar acessos | A desenvolver | Média | Aberta |
 | p45 | Conta genérica num sistema de 'contas individuais' | Gerenciar acessos | Decisão do grupo | Média | Aberta |
-| p46 | Desativar sem confirmação e sem como excluir conta | Gerenciar acessos | Sugestão | Baixa | Resolvida em parte em 26/11/2026 |
+| ~~p46~~ | ~~Desativar sem confirmação e sem como excluir conta~~ | Gerenciar acessos | Sugestão | Baixa | Resolvida em 26/11/2026 |
 | p41 | Rotas do banco devolvem lista vazia (a "API que não foi criada") | Servidor, API e robôs | Decisão do grupo | Alta | Aberta |
 | p40 | Cabeçalhos de segurança ausentes e página 404 inexistente | Servidor, API e robôs | Problema | Média | Aberta |
 | p42 | Robô mensal das bases falhou em 01/11 | Servidor, API e robôs | Problema | Média | Aberta |
@@ -361,7 +361,7 @@ A sub-aba Empresas saiu do Panorama em 21/11 (foi para a aba Empresas), então a
 
 **O que foi feito**
 
-26/11/2026, commit 84fdd26: a sub-aba Notas saiu do Atlas e panorama. Ela só listava o que o Panorama original tinha e não foi refeito, uma anotação da equipe; sem ela, não sobra sub-aba com o mapa sumindo e o topo vazio.
+26/11/2026, commit 84fdd26: a sub-aba Notas saiu do Atlas e panorama. Ela só listava o que o "Panorama original" tinha e não foi refeito. Esse Panorama original é um arquivo interno da equipe (o HTML `Squad 1/dados/Panorama Mineracao Goias.html`, registrado no catálogo antigo como retrato anterior da equipe), que nenhum usuário do site viu; e a mesma lista continua nas Limitações do README do Panorama, que aparece no quadro de documentação da Base de dados. Sem a sub-aba, não sobra sub-aba com o mapa sumindo e o topo vazio.
 
 ### p03 · Alcance dos filtros não é visível
 
@@ -1280,10 +1280,10 @@ Decisão ainda não tomada em 25/11/2026.
 - Uma conta por pessoa.
 - Assumir que existe uma conta de consulta compartilhada e ajustar o texto da tela.
 
-### p46 · Desativar sem confirmação e sem como excluir conta
+### ~~p46 · Desativar sem confirmação e sem como excluir conta~~
 
 **Onde:** Painel › Gerenciar acessos › botão "Desativar"  
-**Tipo:** Sugestão · **Urgência:** Baixa · **Status:** Resolvida em parte em 26/11/2026 (commit 84fdd26) · **Responsável:** a definir
+**Tipo:** Sugestão · **Urgência:** Baixa · **Status:** Resolvida em 26/11/2026 (commits 84fdd26 e 8e2f8d0) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -1306,9 +1306,7 @@ Continua: painel.js desativa a conta sem pedir confirmação.
 
 26/11/2026, commit 84fdd26: desativar uma conta agora pede confirmação, com o nome da pessoa. Reativar continua direto. Testado na cópia local: cancelar não desativa, confirmar desativa.
 
-**O que ainda falta**
-
-- Não há como excluir uma conta pela tela.
+26/11/2026, commit 8e2f8d0: cada conta ganhou o botão Excluir, que pede confirmação ("A conta é apagada de vez e não dá para desfazer") e apaga a conta e as sessões dela pela rota `DELETE /api/admin/users/<id>`. Só administrador pode excluir, nunca a própria conta, e a rota exige o token de segurança da sessão. Arquivos: `Squad 3/backend/auth.py`, `public/painel.js`, `public/i18n.js`, `public/style.css`; testes novos em `tests/test_web.py` (excluir funciona, a pessoa não entra mais e perde a sessão; a própria conta, sem token ou por usuário comum, é recusado).
 
 ## Servidor, API e robôs (5)
 
