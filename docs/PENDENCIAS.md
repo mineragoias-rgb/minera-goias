@@ -29,7 +29,7 @@ As avaliações foram feitas em 19/11/2026 (1ª rodada) e 25/11/2026 (2ª rodada
 
 ## Visão geral
 
-São 57 pendências: 48 abertas e 9 resolvidas. Das abertas, 4 têm urgência alta, 27 média e 17 baixa, e 4 já estão resolvidas em parte (p10, p24, p30 e p57). Por tipo: 34 problemas, 4 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
+São 57 pendências: 43 abertas e 14 resolvidas. Das abertas, 4 têm urgência alta, 22 média e 17 baixa, e 8 já estão resolvidas em parte (p10, p14, p23, p24, p30, p34, p53 e p57). Por tipo: 30 problemas, 3 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
 
 | Nº | Pendência | Área | Tipo | Urgência | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -47,16 +47,16 @@ São 57 pendências: 48 abertas e 9 resolvidas. Das abertas, 4 têm urgência al
 | p04 | Sem hierarquia clara entre as seções | Atlas e panorama | Problema | Média | Aberta |
 | ~~p02~~ | ~~Sub-aba Notas é recado interno da equipe~~ | Atlas e panorama | Problema | Baixa | Resolvida em 26/11/2026 |
 | p13 | Energia e barragens sem data na tela (Atlas e Mapa mineral) | Atlas e panorama | Problema | Baixa | Aberta |
-| p17 | Fontes das 47 camadas do Mapa mineral fora da Base de dados | Mapa mineral | Problema | Média | Aberta |
+| ~~p17~~ | ~~Fontes das 47 camadas do Mapa mineral fora da Base de dados~~ | Mapa mineral | Problema | Média | Resolvida em 26/11/2026 |
 | p20 | Mapa mineral repete camadas do Atlas, com outro retrato do SIGMINE | Mapa mineral | Decisão do grupo | Média | Aberta |
-| p08 | Documentação das bases fica no GitHub | Base de dados | Problema | Média | Aberta |
-| p09 | Sem botão de download das bases | Base de dados | A desenvolver | Média | Aberta |
-| p14 | IBGE não aparece na Base de dados; barragens sem fonte | Base de dados | Problema | Média | Aberta |
-| p34 | Cartões das bases não dizem onde a base é usada nem como é atualizada | Base de dados | A desenvolver | Média | Aberta |
-| p36 | Pasta do servidor exposta na Base de dados | Base de dados | Problema | Média | Aberta |
+| ~~p08~~ | ~~Documentação das bases fica no GitHub~~ | Base de dados | Problema | Média | Resolvida em 26/11/2026 |
+| ~~p09~~ | ~~Sem botão de download das bases~~ | Base de dados | A desenvolver | Média | Resolvida em 26/11/2026 |
+| p14 | IBGE não aparece na Base de dados; barragens sem fonte | Base de dados | Problema | Média | Resolvida em parte em 26/11/2026 |
+| p34 | Cartões das bases não dizem onde a base é usada nem como é atualizada | Base de dados | A desenvolver | Média | Resolvida em parte em 26/11/2026 |
+| ~~p36~~ | ~~Pasta do servidor exposta na Base de dados~~ | Base de dados | Problema | Média | Resolvida em 26/11/2026 |
 | p35 | Base de dados em português na versão em inglês | Base de dados | Problema | Baixa | Aberta |
 | p21 | Dados e páginas abertos sem login | Previsão de demanda e Simulador | Problema | Média | Aberta |
-| p23 | Insumos da Previsão fora da Base de dados | Previsão de demanda e Simulador | Problema | Média | Aberta |
+| p23 | Insumos da Previsão fora da Base de dados | Previsão de demanda e Simulador | Problema | Média | Resolvida em parte em 26/11/2026 |
 | p39 | Simulador fora do padrão do site e sem inglês | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p49 | Simulador mostra outro número ao trocar de cenário | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p57 | Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos | Previsão de demanda e Simulador | Problema | Média | Resolvida em parte em 26/11/2026 |
@@ -68,8 +68,8 @@ São 57 pendências: 48 abertas e 9 resolvidas. Das abertas, 4 têm urgência al
 | ~~p29~~ | ~~Nomes de alunos e caminhos internos na tela do Mercado~~ | Mercado, Empresas e Comércio exterior | Problema | Baixa | Resolvida em 26/11/2026 |
 | p52 | Empresas com valores em português na versão em inglês | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
 | p51 | Comércio exterior com texto em português na versão em inglês | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
-| p53 | Ranking por Indicador sem fonte, sem data e fora da Base de dados | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Aberta |
-| p37 | Bases do Território fora da Base de dados | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Aberta |
+| p53 | Ranking por Indicador sem fonte, sem data e fora da Base de dados | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Resolvida em parte em 26/11/2026 |
+| ~~p37~~ | ~~Bases do Território fora da Base de dados~~ | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Resolvida em 26/11/2026 |
 | p50 | Metodologia com links para o GitHub e informação interna | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Aberta |
 | p54 | Indicadores por município em dois lugares | Ranking por Indicador, Radar, Território e Metodologia | Decisão do grupo | Baixa | Aberta |
 | p31 | Rodadas e fases do Radar sem data do retrato | Ranking por Indicador, Radar, Território e Metodologia | Problema | Baixa | Aberta |
@@ -178,7 +178,7 @@ Continua, e se espalhou para as abas novas ou refeitas (lista acima). Atlas e Ma
 - **Previsão › Dados utilizados:** as fontes e notas que vêm do arquivo de dados (gerado por scripts/build_previsao_base.py), como "Squad 2 — base de intensidade energética v1", "É a tabela que o modelo do Squad 2 carrega" e caminhos como "Squad 2/intensidade_energetica/…" e "Squad 1/dados/CCEE".
 - **Previsão › Metodologia:** a lista de arquivos de "Arquivos e reprodução" (ver p24).
 - **Simulador › Fontes e premissas:** as fontes e notas que vêm de public/data/simulador/parametros_v1.json (gerado por scripts/build_simulador_base.py), como "Squad 2 — hipóteses de cenário do modelo real", "Squad 1 — bases públicas e diagnóstico mineral" e caminhos de pasta.
-- **Base de dados:** o campo "Onde vive" de todos os cartões mostra pastas e arquivos internos (ex.: "Squad 1/Dados brutos/ANM - CFEM", "data/atlas/atlas.json"), e o campo "Origem" cita "base consolidada do Squad 1" e scripts (ex.: "scripts/build_atlas_base.py"). Vem de data/catalogo/catalogo.json, gerado por scripts/build_catalogo_painel.py (ver também p36).
+- ~~**Base de dados:** campo "Onde vive" e "Origem" com pastas, squad e scripts.~~ Resolvido em 26/11/2026 (commit 7a1c51f): "Onde vive" saiu do cartão, a origem não cita mais squad, pasta nem script, e a documentação do site vem sem anotação interna.
 - **Empresas › Atlas empresarial** (sub-aba nova, commit fc8c2ad de 26/11): as fontes citam "base consolidada do Squad 1" (textos ea.fontePerfil e ea.fonteTerritorio do public/i18n.js, em PT e EN). Visto no dicionário, não conferido na tela.
 - **Metodologia:** ver p50.
 
@@ -231,7 +231,7 @@ Continua na página inicial (2 links). O do Mapa mineral foi tirado em 19/11. Su
 
 **O que ainda falta**
 
-- Os links da aba Metodologia (ver p50) e os "Abrir a documentação da base ↗" da Base de dados (ver p08).
+- Os links da aba Metodologia (ver p50). Os "Abrir a documentação da base ↗" da Base de dados saíram em 26/11/2026 (commit 7a1c51f, ver p08).
 
 ## Página inicial (3)
 
@@ -453,10 +453,10 @@ Continua: energia e barragens como "retrato recebido anteriormente", sem data.
 
 ## Mapa mineral (2)
 
-### p17 · Fontes das 47 camadas do Mapa mineral fora da Base de dados
+### ~~p17 · Fontes das 47 camadas do Mapa mineral fora da Base de dados~~
 
 **Onde:** Painel › Base de dados (catálogo) e Mapa mineral  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -474,6 +474,12 @@ Continua: as fontes das camadas do Mapa mineral não estão no catálogo.
 
 - Levar as fontes para a Base de dados aproveitando o catálogo do próprio mapa (data/mapa/catalogo.json), que já tem fonte, data e arquivo de cada camada.
 - Ou um cartão "Camadas do Mapa mineral" que agrupe todas.
+
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+Entrou o cartão "Camadas do Mapa mineral" (47 camadas em 8 grupos), com a documentação do Mapa, que lista as camadas e as fontes (SGB/P3M, MapBiomas, IBGE, INCRA, MMA, ANM, EPE), e o download do pacote.
 
 ### p20 · Mapa mineral repete camadas do Atlas, com outro retrato do SIGMINE
 
@@ -500,10 +506,10 @@ Decisão ainda não tomada em 25/11/2026.
 
 ## Base de dados (6)
 
-### p08 · Documentação das bases fica no GitHub
+### ~~p08 · Documentação das bases fica no GitHub~~
 
 **Onde:** Painel › Base de dados › link "Abrir a documentação da base" de cada cartão  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -522,10 +528,16 @@ Continua: 16 das 17 bases têm "Abrir a documentação da base ↗" para o GitHu
 - Mostrar a documentação no próprio site (por exemplo, ao abrir o cartão), conferida com os arquivos reais.
 - Resumir no cartão o essencial e tirar o link.
 
-### p09 · Sem botão de download das bases
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+A documentação de cada base abre no próprio site, no quadro de detalhes; a aba não tem mais nenhum link para o GitHub.
+
+### ~~p09 · Sem botão de download das bases~~
 
 **Onde:** Painel › Base de dados  
-**Tipo:** A desenvolver · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** A desenvolver · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -545,10 +557,16 @@ Continua sem botão de download.
 - Começar pelas bases mais usadas.
 - Combinar com a regra de acesso aos arquivos (p21).
 
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+Botão Baixar em 24 das 25 bases: um arquivo vai como está, vários vão num .zip. Só com login (sem sessão, a rota devolve 401). A única sem download é o agente semanal de produção, cujos dados ficam só no banco do servidor.
+
 ### p14 · IBGE não aparece na Base de dados; barragens sem fonte
 
 **Onde:** Painel › Base de dados (catálogo)  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -567,10 +585,21 @@ Continua: o catálogo não cita IBGE nem SIGBM.
 - Incluir no catálogo as bases do IBGE usadas (malha, população e PIB).
 - Um cartão para o SIGBM, com data.
 
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+O IBGE aparece na origem dos Indicadores municipais e na documentação do Mapa mineral; a documentação do Atlas cita o SIGBM como fonte das barragens.
+
+**O que ainda falta**
+
+- O IBGE e o SIGBM não têm cartão próprio.
+- A data das barragens continua sem aparecer (ver p13).
+
 ### p34 · Cartões das bases não dizem onde a base é usada nem como é atualizada
 
 **Onde:** Painel › Base de dados › cartões das bases  
-**Tipo:** A desenvolver · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** A desenvolver · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -590,10 +619,22 @@ Continua, e vale também para as duas bases novas do Comércio exterior.
 - Um campo "Como é atualizada" (robô, script ou envio manual, e a frequência).
 - Preencher "O que não mede" nos três cartões vazios.
 
-### p36 · Pasta do servidor exposta na Base de dados
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+O campo "Onde vive", que mostrava o caminho do arquivo, saiu do cartão.
+
+Decisão do Kayo em 26/11: "onde a base é usada" não será mostrado, porque o risco de informação errada é alto.
+
+**O que ainda falta**
+
+- Dizer em cada cartão como a base é atualizada (robô, script ou manual) e com que frequência.
+
+### ~~p36 · Pasta do servidor exposta na Base de dados~~
 
 **Onde:** Painel › Base de dados › cartão "Agente semanal de produção"  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -611,6 +652,12 @@ Continua: o cartão do agente de produção ainda mostra "/var/lib/minera-goias-
 
 - Trocar por "banco no servidor do projeto", ou tirar.
 - Deixar o caminho no manual técnico.
+
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+O campo "Onde vive" saiu do cartão; a pasta do servidor não aparece mais na tela.
 
 ### p35 · Base de dados em português na versão em inglês
 
@@ -678,7 +725,7 @@ A página `/painel.html` abre, mas os dados das abas que vêm do servidor pedem 
 ### p23 · Insumos da Previsão fora da Base de dados
 
 **Onde:** Painel › Base de dados (catálogo) e Previsão de demanda  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -696,6 +743,16 @@ Continua: os insumos da Previsão não estão no catálogo.
 
 - Incluir no catálogo as 10 fontes que a aba Previsão já lista.
 - Ou um cartão "Insumos da Previsão" que agrupe todas.
+
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+Entraram os cartões "Previsão de demanda de energia da mineração" (com a documentação do modelo e o download da previsão, do benchmark e dos parâmetros do Simulador) e "Intensidade energética do setor mineral".
+
+**O que ainda falta**
+
+- A curadoria do Radar de Projetos e o benchmark da apresentação FGV Energia-EPGE não têm cartão próprio.
 
 ### p39 · Simulador fora do padrão do site e sem inglês
 
@@ -977,7 +1034,7 @@ Encontrada na 2ª rodada (25/11/2026).
 ### p53 · Ranking por Indicador sem fonte, sem data e fora da Base de dados
 
 **Onde:** Painel › Ranking por Indicador  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -996,10 +1053,20 @@ Encontrada na 2ª rodada (25/11/2026).
 - Uma linha de fonte e data na aba (CFEM e processos da ANM; PIB e população do IBGE).
 - Cartões no catálogo da Base de dados para esses dados.
 
-### p37 · Bases do Território fora da Base de dados
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+Os indicadores municipais entraram na Base de dados, com documentação nova (data/indicadores/README.md) e download.
+
+**O que ainda falta**
+
+- A aba Ranking por Indicador continua sem linha de fonte e sem data de atualização.
+
+### ~~p37 · Bases do Território fora da Base de dados~~
 
 **Onde:** Painel › Base de dados (catálogo) e Território e emissões  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 7a1c51f) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -1017,6 +1084,12 @@ Continua: as bases do Território não estão no catálogo.
 
 - Cartões no catálogo para o relatório e a camada de risco, o MapBiomas e o SEEG.
 - Escrever na aba de quando é o material.
+
+**O que foi feito**
+
+26/11/2026, commit 7a1c51f: a aba Base de dados foi refeita. Cartões curtos, um quadro de detalhes com a documentação de cada base (tirada do README dela, sem anotação interna) e o botão Baixar, só para quem está logado. O catálogo passou de 17 para 25 bases.
+
+Entrou o cartão "Mineração e Cerrado em Goiás" (família Território e emissões), com a documentação do material e o download do relatório e da camada de risco.
 
 ### p50 · Metodologia com links para o GitHub e informação interna
 
