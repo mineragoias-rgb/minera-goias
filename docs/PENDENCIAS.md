@@ -29,20 +29,20 @@ As avaliações foram feitas em 19/11/2026 (1ª rodada) e 25/11/2026 (2ª rodada
 
 ## Visão geral
 
-São 57 pendências: 43 abertas e 14 resolvidas. Das abertas, 4 têm urgência alta, 22 média e 17 baixa, e 8 já estão resolvidas em parte (p10, p14, p23, p24, p30, p34, p53 e p57). Por tipo: 30 problemas, 3 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
+São 57 pendências: 40 abertas e 17 resolvidas (duas delas por decisão de não fazer: p38 e p56). Das abertas, 4 têm urgência alta, 20 média e 16 baixa, e 9 já estão resolvidas em parte (p10, p14, p23, p24, p30, p34, p46, p53 e p57). Por tipo: 27 problemas, 3 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
 
 | Nº | Pendência | Área | Tipo | Urgência | Status |
 | --- | --- | --- | --- | --- | --- |
 | p11 | Definir quem é o cliente e como vai usar a plataforma | Site como um todo | Decisão do grupo | Alta | Aberta |
 | p25 | Cinco listas de 'projetos' diferentes no site | Site como um todo | Decisão do grupo | Alta | Aberta |
 | p30 | Informação interna da equipe espalhada pelas abas | Site como um todo | Problema | Média | Resolvida em parte em 26/11/2026 |
-| p38 | Nenhum link abre uma aba específica do painel | Site como um todo | Problema | Média | Aberta |
+| ~~p38~~ | ~~Nenhum link abre uma aba específica do painel~~ | Site como um todo | Problema | Média | Resolvida em 26/11/2026 (decidido não fazer) |
 | p10 | Links do site para o GitHub | Site como um todo | Problema | Baixa | Resolvida em parte em 26/11/2026 |
 | ~~p06~~ | ~~Página inicial não diz o que a plataforma faz~~ | Página inicial | Problema | Média | Resolvida em 26/11/2026 |
 | p05 | Contadores de dados não informam nada | Página inicial | Problema | Baixa | Aberta |
 | p07 | Juntar página inicial e login | Página inicial | Decisão do grupo | Baixa | Aberta |
 | p12 | Área das rodadas de disponibilidade 100 vezes maior | Atlas e panorama | Problema | Alta | Aberta |
-| p01 | Nas sub-abas Empresas e Notas o mapa some e o topo fica em branco | Atlas e panorama | Problema | Média | Aberta |
+| ~~p01~~ | ~~Nas sub-abas Empresas e Notas o mapa some e o topo fica em branco~~ | Atlas e panorama | Problema | Média | Resolvida em 26/11/2026 |
 | p03 | Alcance dos filtros não é visível | Atlas e panorama | Problema | Média | Aberta |
 | p04 | Sem hierarquia clara entre as seções | Atlas e panorama | Problema | Média | Aberta |
 | ~~p02~~ | ~~Sub-aba Notas é recado interno da equipe~~ | Atlas e panorama | Problema | Baixa | Resolvida em 26/11/2026 |
@@ -74,11 +74,11 @@ São 57 pendências: 43 abertas e 14 resolvidas. Das abertas, 4 têm urgência a
 | p54 | Indicadores por município em dois lugares | Ranking por Indicador, Radar, Território e Metodologia | Decisão do grupo | Baixa | Aberta |
 | p31 | Rodadas e fases do Radar sem data do retrato | Ranking por Indicador, Radar, Território e Metodologia | Problema | Baixa | Aberta |
 | p32 | Radar repete fases e rodadas do Panorama | Ranking por Indicador, Radar, Território e Metodologia | Decisão do grupo | Baixa | Aberta |
-| p56 | Radar com textos explicativos em português na versão em inglês | Ranking por Indicador, Radar, Território e Metodologia | Problema | Baixa | Aberta |
+| ~~p56~~ | ~~Radar com textos explicativos em português na versão em inglês~~ | Ranking por Indicador, Radar, Território e Metodologia | Problema | Baixa | Resolvida em 26/11/2026 (decidido não fazer) |
 | p55 | Metodologia repetida em três lugares | Ranking por Indicador, Radar, Território e Metodologia | Decisão do grupo | Baixa | Aberta |
 | p44 | Não há como recuperar senha esquecida | Gerenciar acessos | A desenvolver | Média | Aberta |
 | p45 | Conta genérica num sistema de 'contas individuais' | Gerenciar acessos | Decisão do grupo | Média | Aberta |
-| p46 | Desativar sem confirmação e sem como excluir conta | Gerenciar acessos | Sugestão | Baixa | Aberta |
+| p46 | Desativar sem confirmação e sem como excluir conta | Gerenciar acessos | Sugestão | Baixa | Resolvida em parte em 26/11/2026 |
 | p41 | Rotas do banco devolvem lista vazia (a "API que não foi criada") | Servidor, API e robôs | Decisão do grupo | Alta | Aberta |
 | p40 | Cabeçalhos de segurança ausentes e página 404 inexistente | Servidor, API e robôs | Problema | Média | Aberta |
 | p42 | Robô mensal das bases falhou em 01/11 | Servidor, API e robôs | Problema | Média | Aberta |
@@ -182,10 +182,10 @@ Continua, e se espalhou para as abas novas ou refeitas (lista acima). Atlas e Ma
 - **Empresas › Atlas empresarial** (sub-aba nova, commit fc8c2ad de 26/11): as fontes citam "base consolidada do Squad 1" (textos ea.fontePerfil e ea.fonteTerritorio do public/i18n.js, em PT e EN). Visto no dicionário, não conferido na tela.
 - **Metodologia:** ver p50.
 
-### p38 · Nenhum link abre uma aba específica do painel
+### ~~p38 · Nenhum link abre uma aba específica do painel~~
 
 **Onde:** Endereços do painel (ex.: /painel.html#fontes) e links da página inicial  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (decidido não fazer) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -202,6 +202,10 @@ Continua: painel.js não lê o que vem depois do # no endereço; /painel.html#fo
 **Possibilidades de melhora** (ideias para discutir, não decisões)
 
 - Fazer o painel abrir a aba indicada no endereço (#bases, #previsao…), para os links levarem direto ao lugar certo.
+
+**Decisão**
+
+26/11/2026: decidido não fazer. O Kayo avaliou que abrir uma aba específica por link é desnecessário agora.
 
 ### p10 · Links do site para o GitHub
 
@@ -332,10 +336,10 @@ Conferido em 25/11: continua (Arrematada 99.716.726 ha; certo 997.167 ha). scrip
 - Dividir AreaPoligonal por 100 no gerador do Panorama (scripts/build_panorama_base.py, perto da linha 248) e gerar o pacote de novo.
 - Depois, conferir os totais com o SIGMINE (2.864.988 ha nas 3.632 áreas).
 
-### p01 · Nas sub-abas Empresas e Notas o mapa some e o topo fica em branco
+### ~~p01 · Nas sub-abas Empresas e Notas o mapa some e o topo fica em branco~~
 
 **Onde:** Painel › Atlas e panorama › sub-aba Notas  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit 84fdd26) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -354,6 +358,10 @@ A sub-aba Empresas saiu do Panorama em 21/11 (foi para a aba Empresas), então a
 - Manter o mapa visível em todas as sub-abas.
 - Ao abrir Notas, levar a tela direto ao conteúdo, mais abaixo.
 - Se Notas sair da tela (ver p02), o problema acaba junto.
+
+**O que foi feito**
+
+26/11/2026, commit 84fdd26: a sub-aba Notas saiu do Atlas e panorama. Ela só listava o que o Panorama original tinha e não foi refeito, uma anotação da equipe; sem ela, não sobra sub-aba com o mapa sumindo e o topo vazio.
 
 ### p03 · Alcance dos filtros não é visível
 
@@ -1178,10 +1186,10 @@ Decisão ainda não tomada em 25/11/2026.
 - Deixar fases e rodadas num só lugar e pôr um link no outro.
 - Manter nos dois, com papéis diferentes e explicados (Radar para acompanhar mudanças, Panorama para o retrato do momento).
 
-### p56 · Radar com textos explicativos em português na versão em inglês
+### ~~p56 · Radar com textos explicativos em português na versão em inglês~~
 
 **Onde:** Painel › Radar (versão em inglês)  
-**Tipo:** Problema · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Baixa · **Status:** Resolvida em 26/11/2026 (decidido não fazer) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -1199,6 +1207,10 @@ Encontrada na 2ª rodada (25/11/2026).
 
 - Levar esses dois textos para o dicionário de tradução.
 - Ou fazer a API do Radar devolver os textos nos dois idiomas.
+
+**Decisão**
+
+26/11/2026: decidido não fazer. O Kayo decidiu deixar esses dois textos do Radar em português na versão em inglês.
 
 ### p55 · Metodologia repetida em três lugares
 
@@ -1271,7 +1283,7 @@ Decisão ainda não tomada em 25/11/2026.
 ### p46 · Desativar sem confirmação e sem como excluir conta
 
 **Onde:** Painel › Gerenciar acessos › botão "Desativar"  
-**Tipo:** Sugestão · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Sugestão · **Urgência:** Baixa · **Status:** Resolvida em parte em 26/11/2026 (commit 84fdd26) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -1289,6 +1301,14 @@ Continua: painel.js desativa a conta sem pedir confirmação.
 
 - Pedir confirmação antes de desativar.
 - Se o grupo quiser, permitir excluir contas de teste.
+
+**O que foi feito**
+
+26/11/2026, commit 84fdd26: desativar uma conta agora pede confirmação, com o nome da pessoa. Reativar continua direto. Testado na cópia local: cancelar não desativa, confirmar desativa.
+
+**O que ainda falta**
+
+- Não há como excluir uma conta pela tela.
 
 ## Servidor, API e robôs (5)
 
