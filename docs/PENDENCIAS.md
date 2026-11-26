@@ -16,13 +16,20 @@ Cada pendência tem uma ficha com:
 - **Situação em 25/11/2026:** o que se viu na 2ª rodada de avaliação.
 - **Possibilidades de melhora:** ideias para começar a conversa. Não são decisões: o grupo pode escolher outra saída.
 
-**Ao resolver uma pendência:** mude o Status na ficha e na visão geral para "Resolvida em dd/mm/aaaa", anote o commit e escreva em "O que foi feito" o que mudou e em quais arquivos. Se a correção não resolver tudo, diga o que ficou faltando.
+**Status:** toda pendência tem um Status, na ficha e na tabela da visão geral. Use sempre um destes:
+
+- **Aberta:** ninguém está mexendo ainda.
+- **Em andamento (nome):** alguém pegou e está trabalhando nela.
+- **Resolvida em parte em dd/mm/aaaa:** parte foi corrigida; a ficha diz o que ainda falta.
+- **Resolvida em dd/mm/aaaa:** está corrigida e conferida no site.
+
+**Ao resolver uma pendência:** não mude nada de lugar. Risque o número e o título na tabela da visão geral e o título da ficha (no GitHub, o texto entre ~~ e ~~ aparece riscado), mude o Status nos dois lugares, anote o commit e acrescente na ficha "O que foi feito": o que mudou e em quais arquivos.
 
 As avaliações foram feitas em 19/11/2026 (1ª rodada) e 25/11/2026 (2ª rodada), no site labfgv.com.br e numa cópia local com o código do commit 2906ce9.
 
 ## Visão geral
 
-São 56 pendências: 50 abertas e 6 resolvidas. Das abertas, 4 têm urgência alta, 27 média e 19 baixa. Por tipo: 36 problemas, 4 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
+São 57 pendências: 51 abertas e 6 resolvidas. Das abertas, 4 têm urgência alta, 28 média e 19 baixa. Por tipo: 37 problemas, 4 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
 
 | Nº | Pendência | Área | Tipo | Urgência | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -52,6 +59,7 @@ São 56 pendências: 50 abertas e 6 resolvidas. Das abertas, 4 têm urgência al
 | p23 | Insumos da Previsão fora da Base de dados | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p39 | Simulador fora do padrão do site e sem inglês | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p49 | Simulador mostra outro número ao trocar de cenário | Previsão de demanda e Simulador | Problema | Média | Aberta |
+| p57 | Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p22 | Notas em português na versão em inglês da Previsão | Previsão de demanda e Simulador | Problema | Baixa | Aberta |
 | p24 | Instruções internas na Metodologia da Previsão | Previsão de demanda e Simulador | Problema | Baixa | Aberta |
 | p26 | Indicador '609 mil ha sob requerimento' não confere e não tem fonte | Mercado, Empresas e Comércio exterior | Problema | Média | Aberta |
@@ -76,12 +84,12 @@ São 56 pendências: 50 abertas e 6 resolvidas. Das abertas, 4 têm urgência al
 | p42 | Robô mensal das bases falhou em 01/11 | Servidor, API e robôs | Problema | Média | Aberta |
 | p47 | Nenhum robô avisa quando falha | Servidor, API e robôs | A desenvolver | Média | Aberta |
 | p48 | Teste de troca de versão do site é fraco | Servidor, API e robôs | Problema | Média | Aberta |
-| p15 | Aba sem descrição geral | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
-| p16 | Informação interna da equipe aparece na tela | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
-| p18 | Mapa mineral sem descrição da aba | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
-| p19 | Link para o GitHub e arquivo interno citado no Mapa mineral | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
-| p33 | Data do SIGMINE errada na Base de dados | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
-| p43 | Biblioteca com falhas conhecidas nos robôs | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
+| ~~p15~~ | ~~Aba sem descrição geral~~ | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
+| ~~p16~~ | ~~Informação interna da equipe aparece na tela~~ | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
+| ~~p18~~ | ~~Mapa mineral sem descrição da aba~~ | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
+| ~~p19~~ | ~~Link para o GitHub e arquivo interno citado no Mapa mineral~~ | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
+| ~~p33~~ | ~~Data do SIGMINE errada na Base de dados~~ | Resolvidas | Problema | Média | Resolvida em 19/11/2026 |
+| ~~p43~~ | ~~Biblioteca com falhas conhecidas nos robôs~~ | Resolvidas | Problema | Baixa | Resolvida em 19/11/2026 |
 
 ## Site como um todo (5)
 
@@ -587,7 +595,7 @@ Conferido em 25/11: os 17 cartões continuam em português na versão em inglês
 - Ter o conteúdo do catálogo nos dois idiomas.
 - Traduzir ao menos os campos que se repetem (família, origem).
 
-## Previsão de demanda e Simulador (6)
+## Previsão de demanda e Simulador (7)
 
 ### p21 · Dados da previsão abertos sem login
 
@@ -677,6 +685,34 @@ Conferido no site real em 25/11: trocar de cenário mantém g = 0,9% até clicar
 
 - Ao escolher um cenário, carregar a eficiência padrão dele.
 - Ou avisar na tela que a eficiência do cenário anterior foi mantida.
+
+### p57 · Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos
+
+**Onde:** Painel › Previsão de demanda › Dados utilizados › tabela "Carteira ampliada: prontidão para o modelo energético"  
+**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+
+**O que acontece**
+
+Desde 24/11, a sub-aba Dados utilizados da Previsão tem a tabela "Carteira ampliada: prontidão para o modelo energético", com 37 projetos. Ela tem três problemas:
+
+- **Informação interna na tela:** "Todos os projetos da curadoria do Squad 1", "Carteira completa do Squad 1" e, na coluna Leitura, "pipeline energético".
+- **Sem inglês:** na versão em inglês o painel ao lado vira "Sources", mas o título e a explicação da tabela ficam em português. Os nomes dos indicadores e das colunas estão escritos em português direto no código (previsao.js), sem passar pelo dicionário de tradução.
+- **Mais uma lista de projetos (ver p25):** a tabela vem de Squad 1/Radar de Projetos/curadoria_web.json (37 projetos). A base "Projetos minerais de Goiás" do catálogo também tem 37 projetos, mas vem de outro arquivo (projetos/base_curada.json, gerado em 10/11), e nenhum projeto tem o nome escrito igual nas duas (ex.: "Chapada" no catálogo e "Expansão de Chapada — moinho de bolas e depósito Saúva" na tabela). Na mesma aba, a carteira do modelo continua com 13 projetos.
+
+**Como foi conferido**
+
+Site real, Previsão de demanda > Dados utilizados, conta de administrador, em português e em inglês (25/11); public/painel.html e public/previsao.js (commits d9ea4fc e de29c45, 24/11); campo auditoria_projetos de public/data/previsao/previsao_v1.json.
+
+**Situação em 25/11/2026**
+
+Encontrada na 2ª rodada (25/11/2026).
+
+**Possibilidades de melhora** (ideias para discutir, não decisões)
+
+- Trocar as menções ao Squad 1 e ao pipeline por uma descrição do que a lista é, deixando a origem do arquivo para a documentação.
+- Passar os textos da tabela pelo dicionário de tradução, como o resto da Previsão.
+- Tratar junto com a p25: ver se essa lista e a do catálogo são a mesma; se forem, usar um arquivo só; se não, dar a cada uma um nome que mostre a diferença.
+- Pôr a curadoria na Base de dados, junto com os outros insumos da Previsão (p23).
 
 ### p22 · Notas em português na versão em inglês da Previsão
 
@@ -1218,7 +1254,7 @@ Continua: deploy/deploy.sh ainda testa só /api/projetos, /api/projecoes e /api/
 
 Ficam aqui para registro. Todas foram conferidas de novo em 25/11/2026 e continuam resolvidas.
 
-### p15 · Aba sem descrição geral
+### ~~p15 · Aba sem descrição geral~~
 
 **Onde:** Painel › Atlas e panorama  
 **Status:** Resolvida em 19/11/2026 · **Commit:** da344e1 · conferida de novo em 25/11/2026
@@ -1231,7 +1267,7 @@ Não há um texto curto dizendo o que a aba Atlas e panorama traz e como usar. O
 
 Novo texto de topo da aba (at.lead, PT e EN): o que o mapa mostra, o perfil do município ao clicar, o Panorama por tema, as sub-abas e os filtros. O Panorama ganhou etiqueta "Mineração em números" e um texto que diz o que cada quadro traz. Arquivos: public/i18n.js e public/painel.html. Testes: test_i18n, test_atlas, test_panorama (19 ok) e test_web (8 ok). Conferido no servidor em 19/11.
 
-### p16 · Informação interna da equipe aparece na tela
+### ~~p16 · Informação interna da equipe aparece na tela~~
 
 **Onde:** Painel › Atlas e panorama  
 **Status:** Resolvida em 19/11/2026 · **Commit:** da344e1 · conferida de novo em 25/11/2026
@@ -1244,7 +1280,7 @@ A tela mostra nome de script ('Pacote gerado ... por scripts/build_panorama_base
 
 A tela da aba deixou de citar "Squad 1", "Estudante 3", "no GitHub", "dados brutos do repositório" e scripts/build_panorama_base.py; as fontes passam a dizer "base consolidada do projeto" e citam só ANM, CCEE e IBGE (public/i18n.js e public/painel.html, PT e EN). Sobra: duas notas da sub-aba Notas ("Squad 1/Dados brutos" e "cópia de trabalho"), que são parte da p02, ainda em decisão. Conferido no servidor em 19/11.
 
-### p18 · Mapa mineral sem descrição da aba
+### ~~p18 · Mapa mineral sem descrição da aba~~
 
 **Onde:** Painel › Mapa mineral  
 **Status:** Resolvida em 19/11/2026 · **Commit:** 0d471ac · conferida de novo em 25/11/2026
@@ -1257,7 +1293,7 @@ O topo mostra só a etiqueta e o título 'Mapa Mineral de Goiás'. Falta um text
 
 Novo texto de topo do Mapa mineral (mp.lead, PT e EN) abaixo do título: o que o mapa reúne (camadas por tema) e como usar (ligar camadas, camada em análise, tabela e indicadores com os filtros, exportação). Arquivos: public/painel.html, public/i18n.js e public/mapa.css. Testes: test_i18n, test_mapa, test_web (41 ok); mapa aberto numa cópia local com os dados reais em PT e EN. Conferido no servidor em 19/11: painel.html e i18n.js novos no ar.
 
-### p19 · Link para o GitHub e arquivo interno citado no Mapa mineral
+### ~~p19 · Link para o GitHub e arquivo interno citado no Mapa mineral~~
 
 **Onde:** Painel › Mapa mineral  
 **Status:** Resolvida em 19/11/2026 · **Commit:** 0d471ac · conferida de novo em 25/11/2026
@@ -1270,7 +1306,7 @@ A linha de fontes tem o link 'Inventário das camadas do P3M (CSV no GitHub)', q
 
 public/mapa.js: sem os links do inventário do P3M, do pacote e da série no GitHub (linha de fontes, fichas, CSV e LEIA-ME exportados), sem 'Pasta do Squad 1' e sem caminho de arquivo do repositório; 'Pacote de dados' no lugar de 'Pacote do Squad 1'. Fonte das barragens sem '(eliel.html)' em scripts/mapa_camadas.json e data/mapa/catalogo.json (mesmo texto nos dois, sem regerar). O inventário não virou tabela no site: só a nota '{n} camadas no inventário do P3M; {m} usadas no mapa'. Sobra: a fonte da camada Municípios ainda cita 'base consolidada do Squad 1 (v17)'. Conferido no servidor em 19/11: mapa.js novo no ar, sem nenhum link para o GitHub.
 
-### p33 · Data do SIGMINE errada na Base de dados
+### ~~p33 · Data do SIGMINE errada na Base de dados~~
 
 **Onde:** Painel › Base de dados e Mapa mineral  
 **Status:** Resolvida em 19/11/2026 · **Commit:** 199f895 · conferida de novo em 25/11/2026
@@ -1283,7 +1319,7 @@ O cartão do SIGMINE diz 'Extração de 10/09/2026', mas o robô baixou o arquiv
 
 A data do retrato do SIGMINE passou de 10/09/2026 para 24/10/2026 no gerador do catálogo (scripts/build_catalogo_painel.py), no Mapa mineral (scripts/build_mapa_base.py e scripts/mapa_camadas.json: camadas Processos e Projetos da aba 04 e medidas por município), e o README do Atlas passou a dizer 16.875 processos. Pacotes regerados (data/catalogo e data/mapa). Testes: test_mapa e test_projetos (55 ok), mapa-dados e mapa-shp (573 + 88 ok), Validar plataforma web ok. Conferido no ar em 19/11: /api/catalogo diz 'Extração de 24/10/2026' e '16875 processos'; /api/mapa/catalogo diz 24/10/2026 nas duas camadas e nas medidas. Ficou de fora: os números do data/mapa/README.md calculados sobre o retrato antigo.
 
-### p43 · Biblioteca com falhas conhecidas nos robôs
+### ~~p43 · Biblioteca com falhas conhecidas nos robôs~~
 
 **Onde:** Dependências dos robôs (requirements.txt)  
 **Status:** Resolvida em 19/11/2026 (não procedia: nada precisou ser alterado) · conferida de novo em 25/11/2026
