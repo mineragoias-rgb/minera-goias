@@ -55,7 +55,7 @@ São 57 pendências: 48 abertas e 9 resolvidas. Das abertas, 4 têm urgência al
 | p34 | Cartões das bases não dizem onde a base é usada nem como é atualizada | Base de dados | A desenvolver | Média | Aberta |
 | p36 | Pasta do servidor exposta na Base de dados | Base de dados | Problema | Média | Aberta |
 | p35 | Base de dados em português na versão em inglês | Base de dados | Problema | Baixa | Aberta |
-| p21 | Dados da previsão abertos sem login | Previsão de demanda e Simulador | Problema | Média | Aberta |
+| p21 | Dados e páginas abertos sem login | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p23 | Insumos da Previsão fora da Base de dados | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p39 | Simulador fora do padrão do site e sem inglês | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p49 | Simulador mostra outro número ao trocar de cenário | Previsão de demanda e Simulador | Problema | Média | Aberta |
@@ -636,9 +636,9 @@ Conferido em 25/11: os 17 cartões continuam em português na versão em inglês
 
 ## Previsão de demanda e Simulador (7)
 
-### p21 · Dados da previsão abertos sem login
+### p21 · Dados e páginas abertos sem login
 
-**Onde:** Arquivos da Previsão e do Simulador na pasta pública do site  
+**Onde:** Pasta pública do site (`public/data/`) e página do Simulador  
 **Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
 
 **O que acontece**
@@ -653,10 +653,27 @@ curl sem login em /data/previsao/previsao_v1.json e /data/simulador/parametros_v
 
 Conferido em 25/11: /data/previsao/previsao_v1.json e /data/simulador/parametros_v1.json continuam abrindo sem login (200).
 
+**Ampliada em 26/11/2026**
+
+Regra definida pelo Kayo: **só a página inicial e a tela de login ficam abertas; todo o resto pede login.** Fechar o GitHub não resolve
+isto: os arquivos de `public/` são servidos pelo próprio site, não pelo GitHub.
+
+Conferido sem login no site real em 26/11 (todos responderam 200):
+
+- `/data/previsao/previsao_v1.json` e `/data/previsao/production_benchmark_v1.json` (Previsão);
+- `/data/simulador/parametros_v1.json` (Simulador);
+- `/data/mercado/mercado_v1.json`, `/data/mercado/projetos_go_v1.json` e, a partir do commit 7c7c57f, `/data/mercado/README.md` (Mercado);
+- `/data/noticias/latest.json` e `/data/noticias/meses/*.json` (notícias do Radar);
+- a página `/simulador.html` inteira.
+
+A página `/painel.html` abre, mas os dados das abas que vêm do servidor pedem login (ex.: `/api/atlas` e `/api/mapa/catalogo` devolvem 401).
+
 **Possibilidades de melhora** (ideias para discutir, não decisões)
 
-- Se a previsão puder ser pública, só registrar essa decisão.
-- Se não puder, entregar os arquivos por uma rota com login, como já é feito no Território (/api/territorio), e tirá-los da pasta pública.
+- Entregar esses arquivos por rotas com login, como já é feito no Território (/api/territorio), tirá-los da pasta pública e ajustar as
+  telas que os leem (Mercado, Previsão, Simulador e Radar).
+- Pôr a página do Simulador atrás do login.
+- Fazer junto com a reforma da aba Base de dados, em que o download também vai pedir login.
 
 ### p23 · Insumos da Previsão fora da Base de dados
 
