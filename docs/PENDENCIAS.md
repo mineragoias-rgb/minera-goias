@@ -1,6 +1,6 @@
 # Lista de pendências do MINERA Goiás
 
-Frente 10 · Validação geral e implantação · atualizada em 25/11/2026
+Frente 10 · Validação geral e implantação · atualizada em 26/11/2026
 
 ## Como usar esta lista
 
@@ -29,23 +29,23 @@ As avaliações foram feitas em 19/11/2026 (1ª rodada) e 25/11/2026 (2ª rodada
 
 ## Visão geral
 
-São 57 pendências: 51 abertas e 6 resolvidas. Das abertas, 4 têm urgência alta, 28 média e 19 baixa. Por tipo: 37 problemas, 4 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
+São 57 pendências: 48 abertas e 9 resolvidas. Das abertas, 4 têm urgência alta, 27 média e 17 baixa, e 4 já estão resolvidas em parte (p10, p24, p30 e p57). Por tipo: 34 problemas, 4 a desenvolver, 9 decisões do grupo e 1 sugestão. Só uma bloqueia a entrega: a p12, área das rodadas 100 vezes maior, porque mostra um número errado na tela. A p40 só se resolve no servidor, que a equipe não acessa: depende do professor.
 
 | Nº | Pendência | Área | Tipo | Urgência | Status |
 | --- | --- | --- | --- | --- | --- |
 | p11 | Definir quem é o cliente e como vai usar a plataforma | Site como um todo | Decisão do grupo | Alta | Aberta |
 | p25 | Cinco listas de 'projetos' diferentes no site | Site como um todo | Decisão do grupo | Alta | Aberta |
-| p30 | Informação interna da equipe espalhada pelas abas | Site como um todo | Problema | Média | Aberta |
+| p30 | Informação interna da equipe espalhada pelas abas | Site como um todo | Problema | Média | Resolvida em parte em 26/11/2026 |
 | p38 | Nenhum link abre uma aba específica do painel | Site como um todo | Problema | Média | Aberta |
-| p10 | Links do site para o GitHub | Site como um todo | Problema | Baixa | Aberta |
-| p06 | Página inicial não diz o que a plataforma faz | Página inicial | Problema | Média | Aberta |
+| p10 | Links do site para o GitHub | Site como um todo | Problema | Baixa | Resolvida em parte em 26/11/2026 |
+| ~~p06~~ | ~~Página inicial não diz o que a plataforma faz~~ | Página inicial | Problema | Média | Resolvida em 26/11/2026 |
 | p05 | Contadores de dados não informam nada | Página inicial | Problema | Baixa | Aberta |
 | p07 | Juntar página inicial e login | Página inicial | Decisão do grupo | Baixa | Aberta |
 | p12 | Área das rodadas de disponibilidade 100 vezes maior | Atlas e panorama | Problema | Alta | Aberta |
 | p01 | Nas sub-abas Empresas e Notas o mapa some e o topo fica em branco | Atlas e panorama | Problema | Média | Aberta |
 | p03 | Alcance dos filtros não é visível | Atlas e panorama | Problema | Média | Aberta |
 | p04 | Sem hierarquia clara entre as seções | Atlas e panorama | Problema | Média | Aberta |
-| p02 | Sub-aba Notas é recado interno da equipe | Atlas e panorama | Problema | Baixa | Aberta |
+| ~~p02~~ | ~~Sub-aba Notas é recado interno da equipe~~ | Atlas e panorama | Problema | Baixa | Resolvida em 26/11/2026 |
 | p13 | Energia e barragens sem data na tela (Atlas e Mapa mineral) | Atlas e panorama | Problema | Baixa | Aberta |
 | p17 | Fontes das 47 camadas do Mapa mineral fora da Base de dados | Mapa mineral | Problema | Média | Aberta |
 | p20 | Mapa mineral repete camadas do Atlas, com outro retrato do SIGMINE | Mapa mineral | Decisão do grupo | Média | Aberta |
@@ -59,13 +59,13 @@ São 57 pendências: 51 abertas e 6 resolvidas. Das abertas, 4 têm urgência al
 | p23 | Insumos da Previsão fora da Base de dados | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p39 | Simulador fora do padrão do site e sem inglês | Previsão de demanda e Simulador | Problema | Média | Aberta |
 | p49 | Simulador mostra outro número ao trocar de cenário | Previsão de demanda e Simulador | Problema | Média | Aberta |
-| p57 | Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos | Previsão de demanda e Simulador | Problema | Média | Aberta |
+| p57 | Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos | Previsão de demanda e Simulador | Problema | Média | Resolvida em parte em 26/11/2026 |
 | p22 | Notas em português na versão em inglês da Previsão | Previsão de demanda e Simulador | Problema | Baixa | Aberta |
-| p24 | Instruções internas na Metodologia da Previsão | Previsão de demanda e Simulador | Problema | Baixa | Aberta |
+| p24 | Instruções internas na Metodologia da Previsão | Previsão de demanda e Simulador | Problema | Baixa | Resolvida em parte em 26/11/2026 |
 | p26 | Indicador '609 mil ha sob requerimento' não confere e não tem fonte | Mercado, Empresas e Comércio exterior | Problema | Média | Aberta |
 | p27 | Operações sem data e sem fonte; notícia antiga em 'doze meses' | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
 | p28 | Carteira de projetos do Mercado em português na versão em inglês | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
-| p29 | Nomes de alunos e caminhos internos na tela do Mercado | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
+| ~~p29~~ | ~~Nomes de alunos e caminhos internos na tela do Mercado~~ | Mercado, Empresas e Comércio exterior | Problema | Baixa | Resolvida em 26/11/2026 |
 | p52 | Empresas com valores em português na versão em inglês | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
 | p51 | Comércio exterior com texto em português na versão em inglês | Mercado, Empresas e Comércio exterior | Problema | Baixa | Aberta |
 | p53 | Ranking por Indicador sem fonte, sem data e fora da Base de dados | Ranking por Indicador, Radar, Território e Metodologia | Problema | Média | Aberta |
@@ -141,7 +141,7 @@ Decisão ainda não tomada em 25/11/2026.
 ### p30 · Informação interna da equipe espalhada pelas abas
 
 **Onde:** Várias abas do painel  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -160,6 +160,27 @@ Continua, e se espalhou para as abas novas ou refeitas (lista acima). Atlas e Ma
 - Combinar uma regra para o site todo: citar só a fonte pública e a data (ex.: "ANM — SIGMINE, 24/10/2026").
 - Levar autoria, pastas e scripts para o manual técnico e o documento do trabalho.
 - Corrigir aba por aba, junto com as pendências específicas (p29, p50).
+
+**O que foi feito**
+
+26/11/2026, commit b54b079, só texto, em PT e EN. Vários destes lugares não estavam listados nesta ficha: foram achados numa varredura da tela em 25/11.
+- **Previsão:** etiqueta do topo sem "Squad 2"; "Observado (ANM)"; "Carteira de projetos" sem "(Squad 1)"; textos de método e de pesos sem "Squad 1"; gráfico de comparação com a EPE com "Modelo do projeto" e "Modelo · índice"; fonte do gráfico de intensidade como "base de intensidade energética do projeto".
+- **Território:** etiqueta do topo sem "Squad 2"; "Próximos passos" sem "do Squad 2"; "Ligar à Previsão de demanda"; fonte "Radar de Projetos MINERA Goiás" sem "(Squad 1)".
+- **Empresas:** fontes sem "pipeline do Squad 1 (…)", "data/producao" e "data/panorama"; "a base da CCEE usada" no lugar de "a CCEE do repositório".
+- **Comércio exterior:** sem o caminho "public/data/mercado/mercado_v1.json" (em comex/base_curada.json e data/comex/comex.json).
+- **Mapa mineral:** "base consolidada do projeto (v17)" na fonte da camada Municípios (em scripts/mapa_camadas.json e data/mapa/catalogo.json).
+- **Base de dados:** a frase do fim da aba não cita mais o script que gera o catálogo.
+- **Página inicial:** o texto do diagrama sem "Squad 1".
+- **Simulador:** o texto de método sem "Squad 1" e "Squad 2", sem a pasta do modelo e sem o nome do script.
+
+**O que ainda falta**
+
+- **Previsão › Dados utilizados:** as fontes e notas que vêm do arquivo de dados (gerado por scripts/build_previsao_base.py), como "Squad 2 — base de intensidade energética v1", "É a tabela que o modelo do Squad 2 carrega" e caminhos como "Squad 2/intensidade_energetica/…" e "Squad 1/dados/CCEE".
+- **Previsão › Metodologia:** a lista de arquivos de "Arquivos e reprodução" (ver p24).
+- **Simulador › Fontes e premissas:** as fontes e notas que vêm de public/data/simulador/parametros_v1.json (gerado por scripts/build_simulador_base.py), como "Squad 2 — hipóteses de cenário do modelo real", "Squad 1 — bases públicas e diagnóstico mineral" e caminhos de pasta.
+- **Base de dados:** o campo "Onde vive" de todos os cartões mostra pastas e arquivos internos (ex.: "Squad 1/Dados brutos/ANM - CFEM", "data/atlas/atlas.json"), e o campo "Origem" cita "base consolidada do Squad 1" e scripts (ex.: "scripts/build_atlas_base.py"). Vem de data/catalogo/catalogo.json, gerado por scripts/build_catalogo_painel.py (ver também p36).
+- **Empresas › Atlas empresarial** (sub-aba nova, commit fc8c2ad de 26/11): as fontes citam "base consolidada do Squad 1" (textos ea.fontePerfil e ea.fonteTerritorio do public/i18n.js, em PT e EN). Visto no dicionário, não conferido na tela.
+- **Metodologia:** ver p50.
 
 ### p38 · Nenhum link abre uma aba específica do painel
 
@@ -185,7 +206,7 @@ Continua: painel.js não lê o que vem depois do # no endereço; /painel.html#fo
 ### p10 · Links do site para o GitHub
 
 **Onde:** Página inicial e aba Metodologia  
-**Tipo:** Problema · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Baixa · **Status:** Resolvida em parte em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -204,12 +225,20 @@ Continua na página inicial (2 links). O do Mapa mineral foi tirado em 19/11. Su
 - Tirar os links.
 - Quando o conteúdo do GitHub for útil ao usuário, trazê-lo para o site.
 
+**O que foi feito**
+
+26/11/2026, commit b54b079: saíram os dois links da página inicial (inventário do P3M e "Repositório do projeto"), em public/index.html.
+
+**O que ainda falta**
+
+- Os links da aba Metodologia (ver p50) e os "Abrir a documentação da base ↗" da Base de dados (ver p08).
+
 ## Página inicial (3)
 
-### p06 · Página inicial não diz o que a plataforma faz
+### ~~p06 · Página inicial não diz o que a plataforma faz~~
 
 **Onde:** Página inicial › texto de apresentação  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -227,6 +256,12 @@ Conferido no site real: o texto continua "para uso da equipe do projeto".
 
 - Um parágrafo curto dizendo o que dá para fazer no site (mapa, previsão de demanda, mercado, radar…) e para quem ele é.
 - Fica mais fácil depois de definir o cliente (p11).
+
+**O que foi feito**
+
+26/11/2026, commit b54b079: o texto de abertura agora diz o que a plataforma reúne (mapas, indicadores, previsão de demanda de energia, mercado de minerais críticos, empresas, comércio exterior e radar de projetos, com a fonte de cada número), e o bloco de acesso deixou de dizer "para a equipe do projeto". Em PT e EN, em public/i18n.js e public/index.html.
+
+Quando o cliente for definido (p11), vale rever o texto.
 
 ### p05 · Contadores de dados não informam nada
 
@@ -366,10 +401,10 @@ Continua: duas páginas (Atlas e Panorama) com dois títulos principais na mesma
 - Separar em duas abas.
 - Pôr a barra de sub-abas acima das duas partes, para ficar claro que vale para ambas.
 
-### p02 · Sub-aba Notas é recado interno da equipe
+### ~~p02 · Sub-aba Notas é recado interno da equipe~~
 
 **Onde:** Painel › Atlas e panorama › sub-aba Notas  
-**Tipo:** Problema · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Baixa · **Status:** Resolvida em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -388,6 +423,10 @@ Continua igual: a sub-aba Notas ainda é recado interno ("Para refazê-los, a fo
 - Trocar por uma nota curta para o usuário, do tipo "algumas análises do Panorama original ainda não foram refeitas".
 - Levar a lista completa para o manual técnico ou para o GitHub.
 - Tirar a sub-aba.
+
+**O que foi feito**
+
+26/11/2026, commit b54b079: a sub-aba Notas continua listando os quadros do Panorama original que não foram refeitos e o motivo de cada um, mas sem recado interno: saíram "Squad 1/Dados brutos" e "cópia de trabalho", e "bases do repositório" virou "bases do projeto". Em PT e EN, em public/i18n.js.
 
 ### p13 · Energia e barragens sem data na tela (Atlas e Mapa mineral)
 
@@ -689,7 +728,7 @@ Conferido no site real em 25/11: trocar de cenário mantém g = 0,9% até clicar
 ### p57 · Tabela 'Carteira ampliada' da Previsão com informação interna, sem inglês e com outra lista de projetos
 
 **Onde:** Painel › Previsão de demanda › Dados utilizados › tabela "Carteira ampliada: prontidão para o modelo energético"  
-**Tipo:** Problema · **Urgência:** Média · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Média · **Status:** Resolvida em parte em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -713,6 +752,16 @@ Encontrada na 2ª rodada (25/11/2026).
 - Passar os textos da tabela pelo dicionário de tradução, como o resto da Previsão.
 - Tratar junto com a p25: ver se essa lista e a do catálogo são a mesma; se forem, usar um arquivo só; se não, dar a cada uma um nome que mostre a diferença.
 - Pôr a curadoria na Base de dados, junto com os outros insumos da Previsão (p23).
+
+**O que foi feito**
+
+26/11/2026, commit b54b079: a explicação e o indicador da tabela deixaram de citar o Squad 1 ("Todos os projetos da curadoria do Radar de Projetos", "Carteira completa da curadoria"), em public/painel.html e public/previsao.js.
+
+**O que ainda falta**
+
+- A coluna Leitura ainda diz "pipeline energético" (vem do arquivo de dados gerado por scripts/build_previsao_base.py).
+- A tabela continua sem inglês.
+- Continua a dúvida sobre a lista de projetos, junto com a p25.
 
 ### p22 · Notas em português na versão em inglês da Previsão
 
@@ -739,7 +788,7 @@ Conferido em 25/11 (Previsão em inglês, Data used): as notas continuam em port
 ### p24 · Instruções internas na Metodologia da Previsão
 
 **Onde:** Painel › Previsão de demanda › Metodologia › "Arquivos e reprodução"  
-**Tipo:** Problema · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Baixa · **Status:** Resolvida em parte em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -757,6 +806,14 @@ Continua: "Para atualizar, rode python scripts/build_previsao_base.py".
 
 - Tirar da tela a seção "Arquivos e reprodução" e levá-la ao manual técnico.
 - Deixar na tela só o método e as fontes.
+
+**O que foi feito**
+
+26/11/2026, commit b54b079: saiu "Para atualizar, rode python scripts/build_previsao_base.py". O texto agora diz que a aba lê um único arquivo, gerado a partir do modelo de demanda, e que os arquivos usados estão listados abaixo. Em PT e EN, em public/i18n.js e public/painel.html.
+
+**O que ainda falta**
+
+- A lista de arquivos e scripts continua na seção "Arquivos e reprodução" (ex.: "Squad 2/modello_reale/src/run_backtest.py"). Ficou porque é informação de método; falta decidir se fica na tela ou vai para o manual técnico.
 
 ## Mercado, Empresas e Comércio exterior (6)
 
@@ -827,10 +884,10 @@ Conferido em 25/11 em inglês: a carteira continua em português.
 - Ter os campos da carteira nos dois idiomas no pacote de dados.
 - Avisar, na versão em inglês, que o conteúdo da carteira está só em português.
 
-### p29 · Nomes de alunos e caminhos internos na tela do Mercado
+### ~~p29 · Nomes de alunos e caminhos internos na tela do Mercado~~
 
 **Onde:** Painel › Mercado › rodapé e fonte da carteira  
-**Tipo:** Problema · **Urgência:** Baixa · **Status:** Aberta · **Responsável:** a definir
+**Tipo:** Problema · **Urgência:** Baixa · **Status:** Resolvida em 26/11/2026 (commit b54b079) · **Responsável:** a definir
 
 **O que acontece**
 
@@ -848,6 +905,12 @@ Conferido em 25/11: continuam "aluno Lucas Maia", "Estudante 3 (Gabriel Gonçalv
 
 - Creditar "Equipe MINERA Goiás" e deixar a autoria no documento do trabalho.
 - Tirar caminho de arquivo e nome de script (ver p30).
+
+**O que foi feito**
+
+26/11/2026, commit b54b079: as linhas de fonte do Mercado deixaram de mostrar nome de aluno, pasta e script. Agora dizem "Fonte: levantamento do projeto em fontes públicas, consultado até 04/10/2026" (carteira de projetos) e "Levantamento do projeto com dados públicos consultados até 2026-09-17. Não é recomendação de investimento." A nota do Mercado também deixou de citar o Squad 1. Em public/i18n.js (PT e EN) e public/data/mercado/mercado_v1.json.
+
+Os nomes continuam no campo "autoria" dos arquivos de dados, mas não aparecem mais na tela.
 
 ### p52 · Empresas com valores em português na versão em inglês
 
