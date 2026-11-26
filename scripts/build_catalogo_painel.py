@@ -167,6 +167,9 @@ def para_o_site(texto):
     return "\n\n".join(saida).strip() or None
 
 
+# A CFEM vai bruta e corrigida porque o site usa as duas: a bruta pela planilha consolidada (Atlas, Panorama), a corrigida
+# no Atlas empresarial. O AMB corrigido não é lido por nenhuma tela, então só o bruto. Arquivo que nenhuma tela usa
+# (parametros_v0 do Simulador, validacao.json do Mapa) fica fora.
 # O que cada base oferece para baixar (aba Base de dados, rota /api/catalogo/baixar/<id>, só com login). Pasta entra com os
 # arquivos de dados que tem dentro; código, README e teste ficam de fora. A rota só entrega o que está nesta lista.
 FORA_DO_DOWNLOAD = {".py", ".md", ".pyc", ".sh", ".ipynb"}
@@ -211,7 +214,7 @@ if panorama:
          mede="Uma parcela de carga de um agente, em um mês, município e ramo de atividade, em MWh.",
          nao_mede="Consumo da mineração: a base mistura 16 ramos de atividade e o recorte mineral confiável exige critério revisado.",
          readme="data/panorama/README.md")
-    base(id="cfem", baixar=['Squad 1/Dados brutos/ANM - CFEM'], nome="CFEM — arrecadação por processo e substância", familia="Mineração", natureza="bruta",
+    base(id="cfem", baixar=['Squad 1/Dados brutos/ANM - CFEM', 'Squad 1/Dados corrigidos/ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv'], nome="CFEM — arrecadação por processo e substância", familia="Mineração", natureza="bruta",
          origem="Agência Nacional de Mineração (ANM), via base consolidada do projeto",
          atualizado_em=commit_date("Squad 1/Dados brutos/ANM - CFEM"),
          periodo=f"{p['cfem'][0]} a {p['cfem'][1]}", volume=f"{len(panorama['cfem']['rows'])} linhas agregadas",
@@ -403,7 +406,7 @@ if mapa_emp:
 
 mapa_cat = carrega("data/mapa/catalogo.json")
 if mapa_cat:
-    base(id="mapa_camadas", baixar=['data/mapa'], nome="Camadas do Mapa mineral", familia="Pacote do painel", natureza="derivada",
+    base(id="mapa_camadas", baixar=['data/mapa/catalogo.json', 'data/mapa/camadas', 'data/mapa/tabelas'], nome="Camadas do Mapa mineral", familia="Pacote do painel", natureza="derivada",
          origem="Camadas do P3M (SGB), MapBiomas Coleção 11 e camadas do Atlas, recortadas para Goiás",
          atualizado_em=commit_date("data/mapa"),
          periodo="Cada camada tem data própria (ver documentação)",
@@ -426,7 +429,7 @@ if indicadores:
 
 previsao = carrega("public/data/previsao/previsao_v1.json")
 if previsao:
-    base(id="previsao", baixar=['public/data/previsao', 'public/data/simulador'], nome="Previsão de demanda de energia da mineração", familia="Produção e energia", natureza="derivada",
+    base(id="previsao", baixar=['public/data/previsao', 'public/data/simulador/parametros_v1.json'], nome="Previsão de demanda de energia da mineração", familia="Produção e energia", natureza="derivada",
          origem="Modelo econômico-energético do projeto, sobre a produção da ANM e a carga da CCEE",
          atualizado_em=previsao["data_versao"],
          periodo=f"Base {previsao['ano_base']}, projeção {previsao['horizonte']['inicio']} a {previsao['horizonte']['fim']}",
