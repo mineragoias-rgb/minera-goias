@@ -1,11 +1,10 @@
 {
  "meta": {
-  "built_on": "2026-11-21",
+  "built_on": "2026-11-27",
   "versao_base": "v1",
-  "gerado_por": "scripts/build_empresas_base.py",
   "fontes": {
-   "producao": "data/producao/producao.json — o que cada empresa declarou, com fonte e medida",
-   "energia": "data/panorama/panorama.json, tabela ccee — parcelas de carga da CCEE em Goiás"
+   "producao": "Produção declarada pelas próprias empresas (relatórios, resultados trimestrais e comunicados), com fonte, medida e período",
+   "energia": "CCEE: parcelas de carga dos agentes em Goiás, por CNPJ raiz, ramo de atividade e município"
   },
   "chave_de_ligacao": "CNPJ raiz do agente da CCEE contra o CNPJ raiz do titular da base de produção. Nome não é chave.",
   "rateio": "Quando a empresa move mais de um mineral, a curadoria declara como separar a carga: por ramo de atividade, por município, pelos dois, ou 'nao_separavel' quando a fonte não permite separar. O rateio usa a declaração da própria CCEE.",
@@ -21,7 +20,7 @@
    "Com mais de um mineral atrás da mesma carga, a separação usa o que a CCEE já declara — ramo de atividade e município —, nunca uma proporção arbitrada. Quando nem ramo nem município separam (co-produtos da mesma usina), nada é rateado: o coeficiente sai com energia_exclusiva=false e é a energia inteira da operação por unidade daquele mineral.",
    "As notas de energia trazem o que a empresa publica sobre o próprio consumo, e o campo 'efeito' diz se aquilo faz a carga da CCEE subestimar ou superestimar o consumo real — autogeração, por exemplo, não passa pela CCEE.",
    "A carga da CCEE é do agente, não da planta: pode incluir uso administrativo e não inclui autoprodução nem geração própria.",
-   "Nenhum número de produção foi conferido no documento de origem (ver data/producao/README.md): a linha herda essa limitação."
+   "Nenhum número de produção foi conferido no documento de origem: a linha herda essa limitação."
   ]
  },
  "linhas": [
@@ -2520,8 +2519,8 @@
   }
  ],
  "estimada": {
-  "fonte": "Squad 1/Bases consolidadas/documentacao/base_producao (gerar_base_producao.py)",
-  "metodo": "Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma. Energia (2024–2025): carga da empresa na CCEE pelo CNPJ raiz; empresa com mais de um mineral tem a carga separada pelo Squad 2 ou pela produção × coeficiente médio de cada mineral; empresa sem carga na CCEE tem a energia estimada pela média dos coeficientes das outras empresas do mesmo mineral.",
+  "fonte": "Anuário Mineral Brasileiro (ANM) e CFEM (ANM); divisão por empresa feita pelo Minera Goiás",
+  "metodo": "Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma. Energia (2024–2025): carga da empresa na CCEE pelo CNPJ raiz; empresa com mais de um mineral tem a carga separada por ramo e município da CCEE ou pela produção × coeficiente médio de cada mineral; empresa sem carga na CCEE tem a energia estimada pela média dos coeficientes das outras empresas do mesmo mineral.",
   "colunas": [
    "ano",
    "mineral",
@@ -4342,10 +4341,10 @@
    [2024,"Ferro","ROM","MOSAIC FERTILIZANTES P&K LTDA.","33931486",1392.77,0.053775,2,"Catalão; Ouvidor",5281.87,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com fosfato"],
    [2024,"Ferro","beneficiada","MINERADORA COLINAS DO SUL LTDA","46007840",1156064.057,0.946225,1,"Colinas do Sul",92939.95,false,null,null,"","",null,null,"",""],
    [2024,"Ferro","beneficiada","MOSAIC FERTILIZANTES P&K LTDA.","33931486",65700.273,0.053775,2,"Catalão; Ouvidor",5281.87,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com fosfato"],
-   [2024,"Fosfato","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",6463183.67,0.631688,4,"Catalão; Ouvidor",11021064.61,false,null,null,"","",188587.8,0.029179,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2024,"Fosfato","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",6463183.67,0.631688,4,"Catalão; Ouvidor",11021064.61,false,null,null,"","",188587.8,0.029179,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2024,"Fosfato","ROM","MOSAIC FERTILIZANTES P&K LTDA.","33931486",3766606.762,0.368134,2,"Catalão; Ouvidor",10949075.25,false,null,null,"","",127342.8,0.033808,"observada_ccee","carga inteira da empresa na CCEE"],
    [2024,"Fosfato","ROM","BRITACAL IND E COM DE BRITA E CALCARIO BRASILIA LTDA","26970103",1815.698,0.000177,1,"Cabeceiras",3096.14,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com calcário"],
-   [2024,"Fosfato","beneficiada","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",1544325.084,0.631688,4,"Catalão; Ouvidor",11021064.61,false,null,null,"","",188587.8,0.122117,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2024,"Fosfato","beneficiada","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",1544325.084,0.631688,4,"Catalão; Ouvidor",11021064.61,false,null,null,"","",188587.8,0.122117,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2024,"Fosfato","beneficiada","MOSAIC FERTILIZANTES P&K LTDA.","33931486",900000.0,0.368134,2,"Catalão; Ouvidor",10949075.25,false,900000.0,0.0,"Mosaic - Form 10-K 2025, Item 2 (tabela de rocha fosfática por mina)","https://s1.q4cdn.com/823038994/files/doc_downloads/2026/04/MOS-2025-12-31-10K-Updated.pdf",127342.8,0.141492,"observada_ccee","carga inteira da empresa na CCEE"],
    [2024,"Fosfato","beneficiada","BRITACAL IND E COM DE BRITA E CALCARIO BRASILIA LTDA","26970103",433.846,0.000177,1,"Cabeceiras",3096.14,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com calcário"],
    [2024,"Gemas","ROM","pessoa física (nome não publicado)","",4086.46,1.0,1,"Campos Verdes",5185.25,false,null,null,"","",null,null,"",""],
@@ -4361,8 +4360,8 @@
    [2024,"Manganês","beneficiada","FORT MINERACAO LTDA","37792194",1560.418,0.045216,1,"São João d'Aliança",10945.56,false,null,null,"","",null,null,"",""],
    [2024,"Monazita e Terras-Raras","ROM","SERRA VERDE PESQUISA E MINERACAO LTDA","08842895",593670.35,1.0,1,"Minaçu",2929098.51,false,null,null,"","",9582.0,0.01614,"observada_ccee","carga inteira da empresa na CCEE"],
    [2024,"Monazita e Terras-Raras","beneficiada","SERRA VERDE PESQUISA E MINERACAO LTDA","08842895",612.54,1.0,1,"Minaçu",2929098.51,false,null,null,"","",9582.0,15.64314,"observada_ccee","carga inteira da empresa na CCEE"],
-   [2024,"Nióbio","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",9249167.9,1.0,5,"Catalão; Ouvidor",20626338.52,false,null,null,"","",119397.8,0.012909,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
-   [2024,"Nióbio","conteudo_mineral","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",49889.624,1.0,5,"Catalão; Ouvidor",20626338.52,false,null,null,"","",119397.8,2.393239,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2024,"Nióbio","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",9249167.9,1.0,5,"Catalão; Ouvidor",20626338.52,false,null,null,"","",119397.8,0.012909,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
+   [2024,"Nióbio","conteudo_mineral","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",49889.624,1.0,5,"Catalão; Ouvidor",20626338.52,false,null,null,"","",119397.8,2.393239,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2024,"Níquel","ROM","ANGLO AMERICAN NIQUEL BRASIL LTDA","42184226",3016055.21,1.0,2,"Barro Alto; Niquelândia",20724051.67,false,null,null,"","",1574223.7,0.521948,"observada_ccee","carga inteira da empresa na CCEE"],
    [2024,"Níquel","beneficiada","ANGLO AMERICAN NIQUEL BRASIL LTDA","42184226",156221.04,1.0,2,"Barro Alto; Niquelândia",20724051.67,false,null,null,"","",1574223.7,10.076899,"observada_ccee","carga inteira da empresa na CCEE"],
    [2024,"Ouro","ROM","MINERACAO SERRA GRANDE S A","42445403",2457752.614,0.094406,3,"Crixás",16183763.46,false,null,null,"","",121688.3,0.049512,"observada_ccee","carga inteira da empresa na CCEE"],
@@ -5067,9 +5066,9 @@
    [2025,"Dolomito e Magnesita","beneficiada","CALCARIO NORTECAL LTDA","51065794",4129.476,0.006228,1,"Niquelândia",41726.88,false,null,null,"","",170.5,0.041291,"estimada_media_mineral","sem carga própria na CCEE: produção × média dos coeficientes de 3 empresa(s) do mineral"],
    [2025,"Ferro","ROM","MOSAIC FERTILIZANTES P&K LTDA.","33931486",6020.0,1.0,2,"Catalão; Ouvidor",8195.67,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com fosfato"],
    [2025,"Ferro","beneficiada","MOSAIC FERTILIZANTES P&K LTDA.","33931486",16045.5,1.0,2,"Catalão; Ouvidor",8195.67,false,null,null,"","",null,null,"","mineral com menos de 5% da CFEM da empresa: a energia fica com fosfato"],
-   [2025,"Fosfato","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",7120257.036,0.641613,4,"Catalão; Ouvidor",11589378.07,false,null,null,"","",179421.8,0.025199,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2025,"Fosfato","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",7120257.036,0.641613,4,"Catalão; Ouvidor",11589378.07,false,null,null,"","",179421.8,0.025199,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2025,"Fosfato","ROM","MOSAIC FERTILIZANTES P&K LTDA.","33931486",3977169.224,0.358387,2,"Catalão; Ouvidor",17170833.43,false,null,null,"","",133484.8,0.033563,"observada_ccee","carga inteira da empresa na CCEE"],
-   [2025,"Fosfato","beneficiada","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",1611254.38,0.641613,4,"Catalão; Ouvidor",11589378.07,false,null,null,"","",179421.8,0.111355,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2025,"Fosfato","beneficiada","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",1611254.38,0.641613,4,"Catalão; Ouvidor",11589378.07,false,null,null,"","",179421.8,0.111355,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2025,"Fosfato","beneficiada","MOSAIC FERTILIZANTES P&K LTDA.","33931486",900000.0,0.358387,2,"Catalão; Ouvidor",17170833.43,false,900000.0,0.0,"Mosaic - Form 10-K 2025, Item 2 (tabela de rocha fosfática por mina)","https://s1.q4cdn.com/823038994/files/doc_downloads/2026/04/MOS-2025-12-31-10K-Updated.pdf",133484.8,0.148316,"observada_ccee","carga inteira da empresa na CCEE"],
    [2025,"Gemas","ROM","pessoa física (nome não publicado)","",346.05,1.0,1,"Campos Verdes",11288.0,false,null,null,"","",null,null,"",""],
    [2025,"Manganês","ROM","(nome não informado no CFEM — CNPJ raiz 02626794)","02626794",14906.636,0.514377,1,"Cavalcante",66848.19,false,null,null,"","",null,null,"",""],
@@ -5080,8 +5079,8 @@
    [2025,"Manganês","beneficiada","(nome não informado no CFEM — CNPJ raiz 01495175)","01495175",418.804,0.014695,1,"São João d'Aliança",1909.74,false,null,null,"","",null,null,"",""],
    [2025,"Monazita e Terras-Raras","ROM","SERRA VERDE PESQUISA E MINERACAO LTDA","08842895",76631.68,1.0,2,"Minaçu",1894331.14,false,null,null,"","",6818.5,0.088978,"observada_ccee","carga inteira da empresa na CCEE"],
    [2025,"Monazita e Terras-Raras","beneficiada","SERRA VERDE PESQUISA E MINERACAO LTDA","08842895",325.77,1.0,2,"Minaçu",1894331.14,false,null,null,"","",6818.5,20.930459,"observada_ccee","carga inteira da empresa na CCEE"],
-   [2025,"Nióbio","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",8986468.87,1.0,5,"Catalão; Ouvidor",21756310.75,false,null,null,"","",113594.6,0.012641,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
-   [2025,"Nióbio","conteudo_mineral","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",44523.013,1.0,5,"Catalão; Ouvidor",21756310.75,false,null,null,"","",113594.6,2.551369,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (Squad 2, intensidade energética)"],
+   [2025,"Nióbio","ROM","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",8986468.87,1.0,5,"Catalão; Ouvidor",21756310.75,false,null,null,"","",113594.6,0.012641,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
+   [2025,"Nióbio","conteudo_mineral","CMOC BRASIL MINERACAO, INDUSTRIA E PARTICIPACOES LTDA.","26108898",44523.013,1.0,5,"Catalão; Ouvidor",21756310.75,false,null,null,"","",113594.6,2.551369,"observada_ccee_separada","carga da empresa separada por ramo e município da CCEE (intensidade energética)"],
    [2025,"Níquel","ROM","ANGLO AMERICAN NIQUEL BRASIL LTDA","42184226",2693905.97,1.0,3,"Barro Alto; Niquelândia",22092895.24,false,null,null,"","",1788502.6,0.663907,"observada_ccee","carga inteira da empresa na CCEE"],
    [2025,"Níquel","beneficiada","ANGLO AMERICAN NIQUEL BRASIL LTDA","42184226",156885.63,1.0,3,"Barro Alto; Niquelândia",22092895.24,false,null,null,"","",1788502.6,11.400041,"observada_ccee","carga inteira da empresa na CCEE"],
    [2025,"Ouro","ROM","MINERACAO SERRA GRANDE S A","42445403",1622571.559,0.071607,1,"Crixás",18663484.47,false,null,null,"","",114442.0,0.070531,"observada_ccee","carga inteira da empresa na CCEE"],

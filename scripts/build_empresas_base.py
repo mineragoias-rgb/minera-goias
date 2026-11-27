@@ -45,6 +45,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 ap = argparse.ArgumentParser(description="Gera data/empresas/empresas.json cruzando produção declarada e carga CCEE.")
 ap.add_argument("--repo", default=str(Path(__file__).resolve().parents[1]), help="raiz do clone (padrão: a deste script)")
 ap.add_argument("--saida", help="padrão: <repo>/data/empresas/empresas.json")
+ap.add_argument("--so-textos", action="store_true",
+                help="reaplica só os textos públicos (fontes, avisos, método, notas de energia) ao pacote existente, sem reler as entradas")
 args = ap.parse_args()
 REPO = Path(args.repo)
 SAIDA = Path(args.saida) if args.saida else REPO / "data" / "empresas" / "empresas.json"
@@ -58,6 +60,84 @@ MESES_DO_PERIODO = {
     "Q1": frozenset((1, 2, 3)), "Q2": frozenset((4, 5, 6)),
     "Q3": frozenset((7, 8, 9)), "Q4": frozenset((10, 11, 12)),
 }
+
+
+# ------------------------------------------------------------------------------------------- textos públicos (a aba os mostra)
+# Fontes institucionais, método e avisos, sem nome de equipe, caminho de arquivo nem nome de script: o pacote é lido por consultores.
+# O rastreamento técnico (que arquivo e que script) fica neste cabeçalho e na documentação interna.
+FONTES_PUBLICAS = {
+    "producao": "Produção declarada pelas próprias empresas (relatórios, resultados trimestrais e comunicados), com fonte, medida e período",
+    "energia": "CCEE: parcelas de carga dos agentes em Goiás, por CNPJ raiz, ramo de atividade e município",
+}
+AVISOS = [
+    "Energia e produção vêm de fontes diferentes, com cobertura diferente, e por isso a linha declara os meses observados de cada lado.",
+    "Anualização é pro rata: soma observada ÷ meses observados × 12. É estimativa, não medição, e a qualidade da linha diz o quanto.",
+    "Semestre e trimestre que se sobrepõem nunca somam; linha de planta isolada não entra no total da empresa.",
+    "O coeficiente sai na unidade em que a empresa publica (kWh/t, kWh/oz). Nada é convertido entre unidades.",
+    "Com mais de um mineral atrás da mesma carga, a separação usa o que a CCEE já declara — ramo de atividade e município —, nunca uma "
+    "proporção arbitrada. Quando nem ramo nem município separam (co-produtos da mesma usina), nada é rateado: o coeficiente sai com "
+    "energia_exclusiva=false e é a energia inteira da operação por unidade daquele mineral.",
+    "As notas de energia trazem o que a empresa publica sobre o próprio consumo, e o campo 'efeito' diz se aquilo faz a carga da CCEE "
+    "subestimar ou superestimar o consumo real — autogeração, por exemplo, não passa pela CCEE.",
+    "A carga da CCEE é do agente, não da planta: pode incluir uso administrativo e não inclui autoprodução nem geração própria.",
+    "Nenhum número de produção foi conferido no documento de origem: a linha herda essa limitação.",
+]
+ESTIMADA_FONTE = "Anuário Mineral Brasileiro (ANM) e CFEM (ANM); divisão por empresa feita pelo Minera Goiás"
+ESTIMADA_METODO = (
+    "Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM "
+    "paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida "
+    "contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do "
+    "ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma. Energia (2024–2025): "
+    "carga da empresa na CCEE pelo CNPJ raiz; empresa com mais de um mineral tem a carga separada por ramo e município da CCEE ou pela "
+    "produção × coeficiente médio de cada mineral; empresa sem carga na CCEE tem a energia estimada pela média dos coeficientes das outras "
+    "empresas do mesmo mineral.")
+
+
+def nota_publica(texto):
+    """Nota de energia da base de produção sem o nome da equipe interna que fez a separação ('(Squad 2, intensidade energética)' →
+    '(intensidade energética)'). O conteúdo da nota não muda."""
+    import re
+    texto = re.sub(r"\bSquad\s*\d+\s*,\s*", "", texto or "")
+    return re.sub(r"\s*\(\s*Squad\s*\d+\s*\)", "", texto).strip()
+
+
+def publicar(pacote):
+    """Aplica os textos públicos ao pacote (na geração completa e no --so-textos)."""
+    meta = pacote["meta"]
+    meta.pop("gerado_por", None)
+    meta["fontes"] = dict(FONTES_PUBLICAS)
+    meta["avisos"] = list(AVISOS)
+    est = pacote.get("estimada")
+    if est:
+        est["fonte"], est["metodo"] = ESTIMADA_FONTE, ESTIMADA_METODO
+        i = est["colunas"].index("energia_nota")
+        for linha in est["linhas"]:
+            linha[i] = nota_publica(linha[i])
+    return pacote
+
+
+def gravar(pacote):
+    """Uma linha do arquivo por linha da produção estimada (milhares de linhas curtas), o resto indentado."""
+    SAIDA.parent.mkdir(parents=True, exist_ok=True)
+    estimada = pacote["estimada"]
+    corpo = {k: v for k, v in pacote.items() if k != "estimada"}
+    texto = json.dumps(corpo, ensure_ascii=False, indent=1)
+    partes = []
+    for chave, valor in estimada.items():
+        if isinstance(valor, list):
+            itens = ",\n".join("   " + json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in valor)
+            partes.append(f'  "{chave}": [\n{itens}\n  ]')
+        else:
+            partes.append(f'  "{chave}": ' + json.dumps(valor, ensure_ascii=False))
+    with open(SAIDA, "w", encoding="utf-8", newline="\n") as arquivo:
+        arquivo.write(texto[:-2] + ',\n "estimada": {\n' + ",\n".join(partes) + "\n }\n}\n")
+
+
+if args.so_textos:
+    pacote = publicar(json.loads(SAIDA.read_text(encoding="utf-8")))
+    gravar(pacote)
+    print(f"textos públicos reaplicados: {SAIDA}")
+    sys.exit(0)
 
 
 def sufixo(registro):
@@ -319,63 +399,28 @@ estimada_estado = [[int(r["ano"]), r["mineral"], r["base"], float(r["producao_es
                     float(r["dividida_por_empresa_t"]), _n(r["parcela_dividida"]), int(r["empresas"]), r["situacao"]]
                    for r in _ler_csv("base_producao_estado_ano.csv") if int(r["ano"]) >= 2022]
 
-pacote = {
+pacote = publicar({
     "meta": {
         "built_on": date.today().isoformat(),
         "versao_base": VERSAO,
-        "gerado_por": "scripts/build_empresas_base.py",
-        "fontes": {
-            "producao": "data/producao/producao.json — o que cada empresa declarou, com fonte e medida",
-            "energia": "data/panorama/panorama.json, tabela ccee — parcelas de carga da CCEE em Goiás",
-        },
+        "fontes": dict(FONTES_PUBLICAS),
         "chave_de_ligacao": "CNPJ raiz do agente da CCEE contra o CNPJ raiz do titular da base de produção. Nome não é chave.",
         "rateio": ("Quando a empresa move mais de um mineral, a curadoria declara como separar a carga: por ramo de atividade, por município, "
                    "pelos dois, ou 'nao_separavel' quando a fonte não permite separar. O rateio usa a declaração da própria CCEE."),
         "periodo_ccee": panorama["meta"]["periods"]["ccee"],
-        "avisos": [
-            "Energia e produção vêm de fontes diferentes, com cobertura diferente, e por isso a linha declara os meses observados de cada lado.",
-            "Anualização é pro rata: soma observada ÷ meses observados × 12. É estimativa, não medição, e a qualidade da linha diz o quanto.",
-            "Semestre e trimestre que se sobrepõem nunca somam; linha de planta isolada não entra no total da empresa.",
-            "O coeficiente sai na unidade em que a empresa publica (kWh/t, kWh/oz). Nada é convertido entre unidades.",
-            "Com mais de um mineral atrás da mesma carga, a separação usa o que a CCEE já declara — ramo de atividade e município —, nunca uma "
-            "proporção arbitrada. Quando nem ramo nem município separam (co-produtos da mesma usina), nada é rateado: o coeficiente sai com "
-            "energia_exclusiva=false e é a energia inteira da operação por unidade daquele mineral.",
-            "As notas de energia trazem o que a empresa publica sobre o próprio consumo, e o campo 'efeito' diz se aquilo faz a carga da CCEE "
-            "subestimar ou superestimar o consumo real — autogeração, por exemplo, não passa pela CCEE.",
-            "A carga da CCEE é do agente, não da planta: pode incluir uso administrativo e não inclui autoprodução nem geração própria.",
-            "Nenhum número de produção foi conferido no documento de origem (ver data/producao/README.md): a linha herda essa limitação.",
-        ],
+        "avisos": list(AVISOS),
     },
     "linhas": linhas,
     "estimada": {
-        "fonte": "Squad 1/Bases consolidadas/documentacao/base_producao (gerar_base_producao.py)",
-        "metodo": ("Total do estado do Anuário Mineral Brasileiro (ANM) dividido entre as empresas pela parcela dos processos delas na CFEM "
-                   "paga em R$ no mineral e ano (2022 em diante); meses de pagamento atípico pela mediana do processo; margem de ±10% medida "
-                   "contra o que as empresas publicam. Fosfato: a Mosaic fica no número do 10-K e o resto segue a CFEM. No ouro, a parte do "
-                   "ROM que é o minério da Chapada (já no ROM de cobre) fica numa linha à parte da Maracá e não se soma. Energia (2024–2025): "
-                   "carga da empresa na CCEE pelo CNPJ raiz; empresa com mais de um mineral tem a carga separada pelo Squad 2 ou pela produção × "
-                   "coeficiente médio de cada mineral; empresa sem carga na CCEE tem a energia estimada pela média dos coeficientes das outras "
-                   "empresas do mesmo mineral."),
+        "fonte": ESTIMADA_FONTE,
+        "metodo": ESTIMADA_METODO,
         "colunas": EST_COLS,
         "linhas": estimada_linhas,
         "estado_colunas": EST_ESTADO_COLS,
         "estado": estimada_estado,
     },
-}
-SAIDA.parent.mkdir(parents=True, exist_ok=True)
-with open(SAIDA, "w", encoding="utf-8", newline="\n") as arquivo:
-    # o bloco da produção estimada tem milhares de linhas curtas: uma por linha do arquivo, sem quebrar cada campo
-    estimada = pacote.pop("estimada")
-    texto = json.dumps(pacote, ensure_ascii=False, indent=1)
-    partes = []
-    for chave, valor in estimada.items():
-        if isinstance(valor, list):
-            itens = ",\n".join("   " + json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in valor)
-            partes.append(f'  "{chave}": [\n{itens}\n  ]')
-        else:
-            partes.append(f'  "{chave}": ' + json.dumps(valor, ensure_ascii=False))
-    arquivo.write(texto[:-2] + ',\n "estimada": {\n' + ",\n".join(partes) + "\n }\n}\n")
-    pacote["estimada"] = estimada
+})
+gravar(pacote)
 
 # ----------------------------------------------------------------------------------------------------------------- conferências
 com_energia = [l for l in linhas if l["energia"]]

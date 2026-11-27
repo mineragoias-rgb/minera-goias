@@ -20,6 +20,12 @@ Nada aqui é medição nova: o gerador só junta, por CHAVE, bases que o reposit
 - Notícias: acervo do coletor (public/data/noticias/meses), casado por alias revisado na curadoria, com contexto de Goiás exigido
   para nomes de grupo e exclusão explícita de outras UFs e de menções indiretas. Cada vínculo diz o alias, o método e a confiança.
 - Minerais estratégicos (federal) e críticos (Goiás) vêm da curadoria, separados, com norma e link.
+
+Dois arquivos de saída (ajustes finais, 26/11/2026):
+- atlas_empresas.json: o pacote que a aba recebe. Só textos públicos — fontes institucionais (ANM, CCEE, SGB, IBGE, empresas, veículos),
+  método e cobertura —, sem nome de equipe, caminho de arquivo nem nome de script;
+- atlas_empresas_proveniencia.json (mesma pasta, NÃO servido pela API): o rastreamento técnico de reprodutibilidade — que script gerou o
+  pacote e o SHA-256 de cada entrada. O --verificar confere os dois.
 """
 import argparse
 import base64
@@ -42,6 +48,8 @@ parser.add_argument('--verificar', action='store_true')
 args = parser.parse_args()
 REPO = Path(args.repo)
 SAIDA = Path(args.saida) if args.saida else REPO / 'data' / 'empresas' / 'atlas_empresas.json'
+# rastreamento técnico (script, entradas, hashes): ao lado do pacote, fora do que a API serve
+PROVENIENCIA = SAIDA.with_name(SAIDA.stem + '_proveniencia.json')
 
 ENTRADAS = {
     'panorama': 'data/panorama/panorama.json',
@@ -311,6 +319,24 @@ def noticias(cur):
 
 
 # ---------------------------------------------------------------- projetos
+# Fonte pública de um link: só o que o próprio endereço documenta. Os arquivos de dados abertos da ANM ganham o nome do conjunto; os demais,
+# o domínio do site. O tipo do registro (Radar, Carteira, Levantamento) vai em 'fonte'; quem publicou, em 'fonte_nome'.
+DADOS_ABERTOS_ANM = (('dadosabertos.anm.gov.br/sigmine', 'ANM · SIGMINE (dados abertos)'),
+                     ('dadosabertos.anm.gov.br/scm', 'ANM · Cadastro Mineiro (dados abertos)'),
+                     ('dadosabertos.anm.gov.br/cfem', 'ANM · CFEM (dados abertos)'))
+
+
+def fonte_do_link(url):
+    if not url:
+        return None
+    u = url.lower()
+    for trecho, nome in DADOS_ABERTOS_ANM:
+        if trecho in u:
+            return nome
+    host = re.sub(r'^https?://', '', u).split('/', 1)[0]
+    return 'ANM' if host.endswith('anm.gov.br') else re.sub(r'^www\.', '', host) or None
+
+
 def projetos(cur, proc_por_id):
     mapa = {k: v for k, v in cur['projetos_cnpj'].items() if not k.startswith('_')}
     out = []
@@ -344,7 +370,9 @@ def projetos(cur, proc_por_id):
                     'capex': (p.get('capex') or {}).get('valor') if isinstance(p.get('capex'), dict) else p.get('capex'),
                     'moeda': (p.get('capex') or {}).get('moeda') if isinstance(p.get('capex'), dict) else None,
                     'ano_capex': (p.get('capex') or {}).get('ano') if isinstance(p.get('capex'), dict) else None,
-                    'confianca_fonte': p.get('confianca'), 'link': None, 'fonte_nome': 'Mercado · carteira de projetos (Squad 1)', 'data': p.get('data_informacao'),
+                    # a carteira de Mercado documenta a fonte de cada projeto (tipo de documento e link): vai como está
+                    'confianca_fonte': p.get('confianca'), 'link': na(p.get('link')), 'fonte_nome': na(p.get('fonte')) or fonte_do_link(p.get('link')),
+                    'data': p.get('data_informacao'),
                     'evidencias': [{'d': n['data'], 't': n['titulo'], 'v': n['veiculo'], 'u': n.get('link'), 'tipo': n.get('tipo_fonte')}
                                    for n in mg['noticias'] if n['projeto_id'] == p['id']]})
     rp = ler(ENTRADAS['radar_projetos'])
@@ -357,9 +385,29 @@ def projetos(cur, proc_por_id):
                     'mineral': p.get('mineral'), 'mun': p.get('municipio'), 'maturidade': p.get('maturidade'), 'fase': p.get('fase'),
                     'status': p.get('status'), 'capacidade': p.get('capacidade'), 'cap_unidade': p.get('unidade_capacidade'),
                     'capex': p.get('capex'), 'moeda': p.get('moeda_capex'), 'ano_capex': p.get('ano_capex'),
-                    'confianca_fonte': p.get('confianca'), 'link': p.get('link'), 'fonte_nome': 'Radar de Projetos (Squad 1)',
+                    'confianca_fonte': p.get('confianca'), 'link': p.get('link'), 'fonte_nome': fonte_do_link(p.get('link')),
                     'data': p.get('data_informacao'), 'evidencias': []})
     return out
+
+
+def localizar_projetos(projs, procs):
+    """Grava em cada projeto onde ele pode ser desenhado, só com a precisão que a fonte sustenta: 'p' = processos ANM citados
+    (índices das linhas de processos com centroide, maior área primeiro); 'm' = municípios informados (índices de dims.mun); sem nada, None."""
+    idx = {p['p']: k for k, p in enumerate(procs)}
+    mun_nome = {sem_acento(m[1]): i for i, m in enumerate(MUN)}
+    for pr in projs:
+        ks = [idx[x] for x in (pr.get('processos') or []) if x in idx and procs[idx[x]]['la'] is not None]
+        ks = sorted(set(ks), key=lambda k: (-(procs[k]['a'] or 0), k))
+        if ks:
+            pr['loc'] = {'t': 'p', 'k': ks}
+            continue
+        ms = []
+        for parte in re.split(r'\s*(?:[,/;]|\be\b)\s*', pr.get('mun') or ''):
+            i = mun_nome.get(sem_acento(parte.strip()))
+            if i is not None and i not in ms:
+                ms.append(i)
+        pr['loc'] = {'t': 'm', 'm': ms} if ms else None
+    return projs
 
 
 # ---------------------------------------------------------------- minerais estratégicos e críticos
@@ -458,6 +506,16 @@ def montar():
         if p['metodo'] == 'curadoria_cnpj' and p.get('empresa_txt'):
             for e in p['e']:
                 aliases[e].add(p['empresa_txt'])
+    # Ponto da empresa no modo Empresas do mapa: o processo dela que mais recolheu CFEM em 2022–2026; sem CFEM, o maior título de lavra;
+    # senão, o maior processo (mesma regra de scripts/build_mapa_empresas.py). É o centroide de um direito minerário, não a mina.
+    ponto = {}
+    for k, p in enumerate(procs):
+        if p['e'] < 0 or p['la'] is None:
+            continue
+        chave = (p['c'] or 0, grupo_da_fase(FASE[p['f']]) == 'lavra_autorizada', round(p['a'] or 0, 1))
+        if p['e'] not in ponto or chave > ponto[p['e']][0]:
+            ponto[p['e']] = (chave, k)
+    local_proj = localizar_projetos(projs, procs)
     empresas = []
     for i in ids:
         e = EMP[i]
@@ -476,18 +534,23 @@ def montar():
             'enr': 1 if x else 0, 'grupo': x['grupo'] if x else None,
             'alias': sorted(a for a in aliases.get(i, ()) if sem_acento(a) != sem_acento(e[1])),
             'np': proj_por_emp.get(i, 0), 'nn': news_por_emp.get(i, 0),
+            'pt': ponto[i][1] if i in ponto else -1,
         })
     detalhes = {str(CNPJ_EMP[c]): v for c, v in enr.items() if c in CNPJ_EMP}
 
     pf = sum(1 for p in procs if p['e'] == -2)
     sem = sum(1 for p in procs if p['e'] == -1)
     cfem_total_pj = sum(v for *_, v in cfem_rows)
-    meta = {
-        'built_on': date.today().isoformat(),
-        'versao': 'v1',
+    # rastreamento técnico: vai para PROVENIENCIA (não para o pacote que a aba recebe)
+    proveniencia = {
         'gerado_por': 'scripts/build_atlas_empresas.py',
         'entradas': {k: {'arquivo': v, 'sha256': sha(v)} for k, v in ENTRADAS.items()},
-        'cfem_csv': {'arquivo': CFEM_CSV, 'sha256': sha(CFEM_CSV), **(cfem_proc_meta or {})} if cfem_proc is not None else None,
+        'cfem_csv': {'arquivo': CFEM_CSV, 'sha256': sha(CFEM_CSV)} if cfem_proc is not None else None,
+    }
+    meta = {
+        'built_on': date.today().isoformat(),
+        'versao': 'v2',
+        'cfem_por_processo': cfem_proc_meta if cfem_proc is not None else None,
         'periodo_cfem': [2022, 2026], 'meses_cfem_2026': meses_2026,
         'periodo_ccee': PN['meta']['periods']['ccee'],
         'cobertura': {
@@ -498,28 +561,32 @@ def montar():
             'empresas_enriquecidas': len(detalhes), 'cfem_pj_2022_2026': r2(cfem_total_pj),
             'projetos_vinculados': sum(1 for p in projs if p['e']), 'projetos_sem_vinculo': sum(1 for p in projs if not p['e']),
             'noticias': news_meta,
+            'empresas_com_ponto': sum(1 for e in empresas if e['pt'] >= 0),
+            'projetos_localizacao': dict(Counter((p.get('loc') or {}).get('t', 'sem') for p in projs)),
         },
         'regras': {
             'identidade': 'Uma empresa = um CNPJ raiz de titular PJ. Nome não é chave. Pessoa física não é nomeada (só contada).',
             'fase': 'Grupo jurídico da fase ANM pelo critério do Radar: lavra autorizada (concessão de lavra, lavra garimpeira, licenciamento, registro de extração) — autoriza lavra, não comprova operação; requerimento de lavra; pesquisa; disponibilidade.',
-            'situacao': 'A situação do processo é a do Panorama (base consolidada do Squad 1): "Operação ativa" = título de lavra + CFEM recolhida em 2024–2026. É evidência de comercialização declarada à ANM, não medição de produção.',
+            'situacao': 'A situação do processo é a do Panorama do Minera Goiás (Cadastro Mineiro e CFEM da ANM): "Operação ativa" = título de lavra + CFEM recolhida em 2024–2026. É evidência de comercialização declarada à ANM, não medição de produção.',
             'centroide': 'Ponto = centroide geométrico do polígono do processo (SIGMINE). Indica onde está o direito minerário, não onde está a mina, a planta ou a cava.',
-            'municipio': 'Municípios IBGE intersectados pelo polígono do processo (aba 03 da base consolidada).',
+            'municipio': 'Municípios IBGE intersectados pelo polígono do processo (polígono do SIGMINE cruzado com a malha municipal do IBGE).',
             'cfem': 'CFEM recolhida (R$ correntes) por titular CNPJ raiz, ano, município e mineral (ANM). 2026 é parcial.',
-            'ccee': 'Carga CCEE do agente por CNPJ raiz e ano. Anualizado = observado ÷ meses × 12, com a qualidade de data/empresas/README.md.',
+            'ccee': 'Carga CCEE do agente por CNPJ raiz e ano. Anualizado = observado ÷ meses × 12; a qualidade (observado completo, estimado alto, médio ou baixo) depende dos meses observados.',
             'top_n': 'Top N ordena as empresas do recorte pela métrica escolhida, no período escolhido; o universo é o conjunto de empresas que passa pelos filtros.',
             'puxadores': 'Puxadores do mercado = o menor grupo de empresas que, somado, responde por 80% da CFEM recolhida no recorte e no período (curva de Pareto).',
-            'noticias': 'Notícia ligada por alias revisado (curadoria_atlas.json). Nome de grupo exige contexto de Goiás no título; título que fala de outra UF/país sem citar Goiás é descartado; menção indireta (ex-funcionários, "próximo da mina") é marcada como tal.',
-            'projetos': 'Radar de Projetos: vínculo pelos processos ANM citados no projeto. Levantamentos de projetos e Mercado: vínculo pela lista revisada empresa→CNPJ raiz.',
+            'noticias': 'Notícia ligada por nome revisado pela curadoria do Minera Goiás. Nome de grupo exige contexto de Goiás no título; título que fala de outra UF/país sem citar Goiás é descartado; menção indireta (ex-funcionários, "próximo da mina") é marcada como tal.',
+            'projetos': 'Radar de Projetos: vínculo pelos processos ANM citados no projeto. Levantamento de projetos e Carteira de projetos: vínculo pela lista revisada empresa→CNPJ raiz. A fonte de cada projeto é a que o registro documenta (dados abertos da ANM, documento da empresa ou site), e o link abre esse endereço.',
+            'ponto_empresa': 'Modo Empresas do mapa: um ponto por empresa, no centroide do processo dela que mais recolheu CFEM em 2022–2026 (sem CFEM, o maior título de lavra; senão, o maior processo). É um direito minerário de referência, não a sede nem a mina.',
+            'local_projeto': 'Modo Projetos do mapa: projeto com processo ANM citado fica no centroide do maior desses processos (indicativo); sem processo, na referência do município informado (aproximada); sem município reconhecido, só na lista. Nenhuma fonte traz coordenada documentada de mina ou planta.',
         },
         'avisos': [
             'Título minerário não é mina ativa: concessão de lavra autoriza, não comprova operação.',
             'Ponto no mapa é o centroide do direito minerário ou a referência do município, nunca a localização exata de uma mina.',
-            'Produção declarada (10 empresas) não foi conferida no documento de origem (data/producao/README.md).',
+            'Produção declarada (10 empresas) não foi conferida no documento de origem.',
             'Notícias vêm de busca automática; o vínculo é por alias e pode ter omissões.',
         ],
     }
-    return {
+    return proveniencia, {
         'meta': meta,
         'dims': {
             'mun': [[m[0], m[1]] for m in MUN],
@@ -548,14 +615,18 @@ def serializar(pacote):
 
 
 if __name__ == '__main__':
-    pacote = montar()
+    proveniencia, pacote = montar()
     novo = serializar(pacote)
+    prov = json.dumps(proveniencia, ensure_ascii=False, indent=1) + '\n'
     if args.verificar:
         atual = SAIDA.read_text(encoding='utf-8') if SAIDA.exists() else ''
+        prov_atual = PROVENIENCIA.read_text(encoding='utf-8') if PROVENIENCIA.exists() else ''
         sem_data = lambda s: re.sub(r'"built_on":"[0-9-]+"', '', s)
-        print('atualizado' if sem_data(atual) == sem_data(novo) else 'DESATUALIZADO')
-        sys.exit(0 if sem_data(atual) == sem_data(novo) else 1)
+        ok = sem_data(atual) == sem_data(novo) and prov_atual == prov
+        print('atualizado' if ok else 'DESATUALIZADO')
+        sys.exit(0 if ok else 1)
     SAIDA.write_text(novo, encoding='utf-8')
+    PROVENIENCIA.write_text(prov, encoding='utf-8', newline='\n')
     c = pacote['meta']['cobertura']
     nome = SAIDA.relative_to(REPO) if SAIDA.is_relative_to(REPO) else SAIDA
     print(f"{nome}: {len(novo)/1e6:.2f} MB · {c['empresas_indice']} empresas · {c['processos']} processos · "

@@ -381,32 +381,113 @@ python3 -m unittest tests.test_comex -v
 node --check public/comex.js
 ```
 
-## Atlas Empresarial na aba Empresas
+## Aba Empresas consolidada (Explorar · Dossiê · Análises · Comparar)
 
-Desenvolvido sobre `e31939f` e integrado em 26/11/2026, sobre a main de então (`bb87b53`), a partir do pacote `MINERA_GOIAS_ATLAS_INTEGRACAO`
-(manifesto, instruções e relatório de testes no pacote). O pacote de dados foi gerado de novo sobre a main.
+Consolidação de 26/11/2026: a aba anterior (`bb87b53`: mapa das empresas, produção por empresa AMB × CFEM, produção declarada e energia,
+arrecadação/títulos/consumo) e o Atlas Empresarial viraram uma experiência só, com **uma seleção de empresa para a aba inteira** (CNPJ raiz).
 
-- **Aba Empresas**: o Atlas Empresarial é a primeira sub-aba, aberta por padrão (`#ep-aba-atlas`; `public/empresas-atlas.js`,
-  `public/empresas-atlas.css`, todo seletor sob `#empresas-view`). As sub-abas que já existiam continuam (Mapa das empresas, Produção por
-  empresa, Produção declarada e energia, Arrecadação, títulos e consumo); a de produção declarada acompanha a empresa escolhida no Atlas
-  (`window.empresasSelecionar`, por CNPJ raiz). `window.empresasAba` (em `empresas.js`) troca de sub-aba; o Atlas a usa ao voltar pelo navegador.
-- **Dados**: `data/empresas/atlas_empresas.json`, de `python scripts/build_atlas_empresas.py` (determinístico; `--verificar` compara os hashes
-  das entradas), com a curadoria `data/empresas/curadoria_atlas.json`. Regras e limites em `data/empresas/README.md` (seção Atlas Empresarial).
-- **API**: `GET /api/empresas/atlas` em `Squad 3/backend/empresas.py`, com `Depends(reader)` e gzip (`compressed.json_file`, que guarda o
-  arquivo em memória: reiniciar a API depois de regenerar o pacote).
-- **Traduções**: chaves `ea.*` em PT e EN, num bloco marcado de `public/i18n.js` gerado por `scripts/i18n_atlas_empresas.py` (idempotente);
-  `tests/test_i18n.py` verifica `empresas-atlas.js`.
-- **Mapa**: pontos, polígonos ANM e contornos de município numa camada Canvas única (`pintarMapa`), com hierarquia de fase (`estiloFase`) e
-  legenda que liga/desliga fases só no mapa (`S.off`); 1 nível de zoom por dente da roda; desmarcar por segundo clique, clique no vazio, Esc
-  ou etiqueta. Usa detalhes internos do Leaflet 1.9.4 (`L.Canvas` `_draw`/`_redraw`/`_ctx`/`_bounds`, `map._popup`): rever ao atualizar o Leaflet.
-- **Testes**: `tests/test_atlas_empresas.py` (pacote, vínculos, API, interface) e `tests/e2e_atlas_empresas.py` (navegador, contra um servidor
-  no ar; contas em `ATLAS_E2E_USUARIO`/`ATLAS_E2E_SENHA` e `ATLAS_E2E_USUARIO2`/`ATLAS_E2E_SENHA2`).
-- **Pendente**: o gerador ainda não está em `scripts/atualizar_derivados.py`; depois de refazer panorama, produção, projetos ou o acervo de
-  notícias, rodar o gerador à mão.
+- **Explorar** (`public/empresas-atlas.js`): lista lateral (busca de empresa, CNPJ, município, mineral ou processo; filtros recolhidos com
+  etiquetas removíveis; lista do recorte inteiro em lotes de 50, ordenada por CFEM, relevância, processos, área, carga CCEE ou nome) ao lado
+  de **um mapa em três modos** numa camada Canvas única (`pintarMapa` → `pintarEmpresas` / `pintarProcessos` /
+  `pintarProjetos`): Empresas (ponto por empresa no processo de referência `empresas[].pt`, tamanho pela métrica, cor pela fase mais avançada),
+  Processos (pontos finos, polígonos ANM ao aproximar) e Projetos (centroide do processo citado ou referência do município; sem localização,
+  só na lista). Nenhum símbolo é posição exata de mina.
+- **Dossiê**: perfil, território e processos, economia e energia (resumo executivo com estimada e declarada lado a lado, sem somar),
+  projetos, notícias, histórico; "Aprofundar" leva à análise com a empresa no escopo.
+- **Análises** (`public/empresas.js` → `window.EmpresasAnalises`; `public/panorama.js`, instância `epn-`): produção estimada (bloco
+  `estimada` de `data/empresas/empresas.json`), produção declarada e energia (`linhas`), arrecadação/títulos/consumo (Panorama, filtro exato
+  por CNPJ raiz). Escopo "empresa selecionada" × "todas as empresas"; empresa sem dado → "Dados não disponíveis para esta empresa", nunca o
+  agregado no lugar (`tests/js/analises_escopo.js`).
+- **Comparar**: até três empresas (a quarta não entra nem tira ninguém: aviso com "Abrir Comparar"), da empresa inteira, por grupos
+  (identificação, território, CFEM, carga CCEE, estimada, declarada, coeficiente, projetos). Produção declarada só na mesma chave
+  (`EmpresasExportar.gruposDeclarada`: período, mineral, produto, medida, unidade, escopo, tipo de valor e nível), só realizada em Goiás e
+  anual; o resto (guidance, capacidade, meta, embarque, venda, consolidado, trimestre) fica num quadro "fora da tabela" com o motivo. O maior
+  da linha só se destaca entre valores comparáveis (um registro por empresa; na CCEE, os mesmos meses). Grupos longos mostram "N de X" com
+  "Mostrar todas".
+- **Interface (refinamento de UX de 26/11/2026)**: a aba segue a composição do mapa de `bb87b53` — lista à esquerda (~27%), mapa à direita,
+  tudo na primeira dobra em 1440 × 900. Faixa de quatro números numa linha; modos e "Camadas" sobre o mapa (alto, à esquerda), legenda compacta
+  e recolhível (baixo, à esquerda; "Símbolos e como ler" guarda o resto), zoom e enquadramentos no canto inferior direito; **cartão da seleção**
+  (alto, à direita) com onde atua, minerais, CFEM, processos, dados disponíveis e "Abrir o dossiê". Ranking completo e **Pareto 80%** abrem
+  sob demanda abaixo do mapa (`ranking()`). Dossiê com cabeçalho de relatório (identificação, municípios, minerais, processos por fase,
+  quatro números com período, situação dos dados). Análises estimada e declarada em **três níveis**: síntese (frase + faixa + ressalva),
+  exploração (filtros e gráficos) e detalhamento em abas (tabela, cobertura, publicado, coeficientes, método e fontes). Abaixo de 1000 px a
+  lista vira gaveta (`gaveta()`), a busca sobe para o alto da aba (`posicionarBusca()`) e o cartão fica na base do mapa. Nada de `<header>`
+  dentro da aba: o painel tem estilo global para esse elemento.
+- **Exportações** (auditoria final de 26/11/2026; `public/empresas-exportar.js`, sem DOM, carregado antes de `empresas-atlas.js`): Excel
+  (.xlsx feito sem biblioteca: números como número, CNPJ e textos como texto, nunca fórmula; abas de dados, "Colunas" e "Metadados"), CSV para
+  o Excel brasileiro (BOM, `;`, decimal `,`, cabeçalho na 1ª linha, texto que começa por `= + - @` com apóstrofo) e JSON. Recorte do Explorar:
+  contagens `_no_recorte` seguem os filtros e `_empresa_total` são da empresa inteira; cada linha leva período, filtros e data do pacote;
+  CCEE de quem não é agente sai vazia. Comparação: formato longo com todos os registros (`na_tabela`, motivo, escopo, tipo de valor, meses,
+  fonte). Dossiê também em Excel (uma aba por assunto). No pandas: `read_csv(f, sep=';', decimal=',', dtype={'cnpj_raiz': str})`.
+- **Análises → dossiê (ajustes finais de 26/11/2026)**: o nome de uma empresa nas tabelas e barras das análises (estimada, declarada) e no
+  quadro de titulares do Panorama da aba abre o dossiê dela num clique (`abrirDaAnalise`). Só com CNPJ raiz de 8 dígitos presente no índice
+  (`EmpresasAnalises.definirLigacao`); pessoa física, linhas do estado e eixos (ano, mineral, base) ficam texto, e barras são agrupadas
+  pela chave (CNPJ), nunca pelo nome. A análise não muda: escopo, filtros, página e rolagem ficam no `history.state` da entrada da
+  análise; Voltar (ou o atalho "Voltar à análise", só no dossiê aberto assim) a devolve igual. Uma entrada nova no histórico por clique.
+- **Linguagem pública**: nada de nome de equipe, caminho, script ou pipeline em texto, título, link ou exportação. O rastreamento técnico
+  do Atlas fica em `data/empresas/atlas_empresas_proveniencia.json` (não servido); `build_empresas_base.py` tem os textos públicos em
+  constantes e `--so-textos` para reaplicá-los sem as entradas do Squad 1. Projetos: `fonte` = tipo do registro (Radar, Carteira,
+  Levantamento), `fonte_nome` = quem publicou (o que o registro documenta), e o link diz o destino (`destinoLink`).
+- **Cartografia (26/11/2026)**: empresa × direito ANM × município × operação.
+  - Só a camada do modo responde ao clique (`acertar` filtra por `TIPO_DO_MODO`): o realce dos processos da empresa no modo Empresas e o
+    quadrado da operação declarada são desenho, sem alvo.
+  - Um cartão só (`resumoSel` → `cartaoEmpresa` / `cartaoProcesso` / `cartaoMunicipio`), pelo foco (`focoAtual`). Empresa (CNPJ raiz),
+    processo (`S.destaque`, número ANM) e município (filtro `ea-mun`, código IBGE) são estados separados: o município é recorte, os outros
+    disputam só o foco.
+  - Processo exato (`selecionarProcesso`); sobrepostos numa lista inteira com filtro (`popupLista`); "Ver processo no dossiê"
+    (`abrirProcessoNoDossie`) abre o Território na página do processo, e "Voltar ao mapa" devolve processo, modo e enquadramento
+    (guardados no `history.state`).
+  - Município pelo código IBGE (`selecionarMunicipio`), pela ferramenta em Camadas, pela busca e pelo dossiê. Ao selecionar: contorno
+    destacado em `pintarMapa` (par-ímpar: multipartes e enclaves), etiqueta "Catalão · GO ×" (`etiquetaMunicipio`) e recorte pelo vínculo
+    processo–município (`procsFiltrados`), nunca pelo centroide. O município não entra no histórico (é filtro).
+  - Prévia do município no dossiê (`htmlPrevia`): SVG com o contorno e só os processos da empresa vinculados ao município; ponto só com o
+    centroide dentro; cache por empresa × município; 650 ms de mouse parado ou foco do teclado; o toque navega direto.
+- **Auditoria crítica (27/11/2026)**: o que cada número e cada município significa.
+  - Municípios pela origem do vínculo (`munsPorOrigem`): operação documentada (`detalhes[].municipios_operacao`), direitos vigentes,
+    só disponibilidade e só CFEM. Nunca um rótulo só. Cabeçalho, Perfil, Território, prévia, cartões, comparação e exportações usam a mesma
+    divisão.
+  - `rotuloStatus` apresenta a situação do Panorama; "Operação ativa" vira "Lavra com CFEM recente · indício de atividade, não
+    confirmação". O pacote de dados não muda.
+  - Clique direto no município (`alvoMunicipio` ligado por padrão; Camadas só suspende). No recorte municipal, `pontosDasEmpresas` põe o
+    ponto de cada empresa num direito dela com o centroide dentro do município; quem não tem fica sem ponto, com "sem ponto aqui" na lista.
+  - `desenharSelecao` enquadra pelo município. "Ver atuação em todo o estado" (`S.verEstadual`) é pedido explícito.
+  - Polígonos pela caixa (`caixasPoligonos`); `totaisMunicipio` separa a CFEM do recorte da do município.
+  - Território com filtro (`procsTerritorio`, refaz só a tabela) e municípios clicáveis com a mesma prévia do cabeçalho e do Perfil
+    (integração de 27/11/2026: sem a classe `ea-sem-previa`; a tabela refeita ou rolada fecha a prévia aberta).
+  - Município no endereço: `#empresas/explorar[/cnpj]/mun/<IBGE>`; trocar o município substitui a entrada atual do histórico.
+- **Histórico**: a URL é o estado (`#empresas[/área][/cnpj]`; no Explorar com seleção, `#empresas/explorar/<cnpj>`; o link curto
+  `#empresas/<cnpj>` abre o dossiê). Cada área é uma entrada; Voltar/Avançar leem a URL (`aplicarHash`), inclusive na entrada inicial sem
+  `history.state`.
+- **Dados**: `python scripts/build_empresas_base.py` (precisa de `Squad 1/Bases consolidadas/documentacao/base_producao`) e depois
+  `python scripts/build_atlas_empresas.py` (lê `empresas.json`). `--verificar` confere os hashes das entradas. Regras em `data/empresas/README.md`.
+- **Correção**: a CFEM da produção estimada com "Todas as bases" saía em dobro (ROM e beneficiada repetem a CFEM); agora uma vez por
+  empresa, mineral e ano. Barras de produção não somam toneladas de bases diferentes.
+- **Legado**: `public/empresas-mapa.js` e `.css` saíram da página (removidos). `data/empresas/mapa_empresas.json`,
+  `scripts/build_mapa_empresas.py` e `/api/empresas/mapa` continuam, sem uso pela aba: a aba Base de dados documenta e oferece o
+  pacote para download, e a cadeia de derivados o refaz. Retirá-los é decisão da equipe, junto com essas duas.
+- **Testes**: `tests/test_atlas_empresas.py` (inclui `ConsolidacaoTests`, `RefinamentoUxTests`, `ExportacaoTests`, `AuditoriaConsultoriaTests`, `AjustesFinaisTests`, `CartografiaTests` e `AuditoriaCriticaTests`, esta contra o oráculo das fontes `tests/oraculo_empresas.py`;
+  `tests/js/exportacao.js` grava CSV/XLSX com casos difíceis para o Python ler; `tests/js/analises_ligacao.js` confere os atalhos; `tests/js/cartografia.js` roda a URL da ANM e o ponto no contorno sobre os dados reais), `tests/test_empresas.py`, `tests/test_i18n.py` e o roteiro de
+  navegador `tests/e2e_atlas_empresas.py` (contra um servidor no ar; contas em `ATLAS_E2E_USUARIO`/`ATLAS_E2E_SENHA`; a seção 19 lê os
+  arquivos baixados; a 20, a navegação análise → dossiê → análise e a varredura de linguagem em PT e EN) `tests/e2e_cartografia_empresas.py` (os 17 testes de aceitação da cartografia) `tests/e2e_auditoria_critica_empresas.py` (significado contra as fontes) e `tests/e2e_previas_municipais_empresas.py` (prévias municipais
+  no cabeçalho, no Perfil e na tabela do Território, com Maracá, CMOC e Nexa; mesa, teclado, toque e EN).
+- **Atualização do `atlas_empresas.json` (rotina controlada, manual)**. O gerador não está na cadeia automática
+  (`scripts/atualizar_derivados.py`) nem na coleta diária de notícias (`coletar-noticias.yml`): as duas são compartilhadas com
+  outras abas, e uma etapa nova nelas é decisão da equipe. Entradas: Panorama, `processos_complemento.json`, `data/atlas/processes.json`,
+  minas ativas, `empresas.json`, `producao.json`, projetos (três bases), curadoria, CFEM do Squad 1 e o acervo de notícias
+  (`public/data/noticias/meses/`). Por isso o pacote fica desatualizado a cada `chore(noticias)` diário e a cada `chore(derivados)`.
+  - Conferir: `python scripts/build_atlas_empresas.py --verificar` imprime `atualizado` (código 0) ou `DESATUALIZADO` (código 1),
+    comparando o SHA-256 de cada entrada; `test_atlas_empresas.MetaTests.test_o_gerador_e_idempotente` falha enquanto estiver desatualizado.
+  - Refazer (depois de cada `chore(derivados)` e pelo menos uma vez por semana, por causa das notícias): `git pull`;
+    `python scripts/build_atlas_empresas.py`; `python -m unittest discover -s tests -p "test_*empresas*.py"`; commit só de
+    `data/empresas/atlas_empresas.json` e `atlas_empresas_proveniencia.json`; push. O deploy cria a versão nova e reinicia a API
+    (o JSON fica em memória); localmente, reinicie à mão.
 
 ```sh
-python scripts/build_atlas_empresas.py
 python scripts/build_atlas_empresas.py --verificar
-python -m unittest discover -s tests -p test_atlas_empresas.py -v
-node --check public/empresas-atlas.js
+python -m unittest discover -s tests -p "test_*empresas*.py" -v
+python -m unittest discover -s tests -p test_i18n.py -v
+node --check public/empresas-atlas.js && node --check public/empresas.js && node --check public/empresas-exportar.js && node --check public/panorama.js
+node tests/js/analises_escopo.js > /dev/null
+node tests/js/cartografia.js > /dev/null
+node tests/js/municipios_origem.js > /dev/null
 ```

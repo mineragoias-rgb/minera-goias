@@ -211,6 +211,10 @@ class PacoteTests(unittest.TestCase):
         for termo in ('Anualização', 'ramo de atividade', 'nada é rateado', 'convertido', 'autoprodução'):
             self.assertIn(termo, avisos)
 
+    # A produção estimada (bloco "estimada") lê a base de produção do Squad 1 (Squad 1/Bases consolidadas/documentacao/base_producao);
+    # numa cópia sem essa pasta o gerador não roda, e o teste diz por quê em vez de falhar por um arquivo ausente.
+    @unittest.skipUnless((ROOT / 'Squad 1' / 'Bases consolidadas' / 'documentacao' / 'base_producao').is_dir(),
+                         'sem a base de produção do Squad 1 nesta cópia')
     def test_o_gerador_e_reprodutivel(self):
         with tempfile.TemporaryDirectory() as tmp:
             saida = Path(tmp) / 'empresas.json'
@@ -261,9 +265,13 @@ class AbaTests(unittest.TestCase):
                            'p.periodos', 'c.unidade', 'c.minerais_na_carga', 'e.municipios_ccee', 'nomeCurto(')
         cruas = []
         for trecho in re.findall(r'\$\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}', codigo):
-            if any(campo in trecho for campo in campos_de_texto) and 'escape(' not in trecho:
+            # nomeEmp(rotulo, cnpj) escapa o rótulo dentro dele (atalho para o dossiê): conferido logo abaixo
+            if any(campo in trecho for campo in campos_de_texto) and 'escape(' not in trecho and not trecho.startswith('nomeEmp('):
                 cruas.append(trecho.strip())
         self.assertEqual(cruas, [], f'texto de dado interpolado sem escape: {cruas}')
+        definicao = codigo[codigo.index('const nomeEmp='):codigo.index('// Rótulo de cada grupo de barra')]
+        self.assertIn('${escape(rotulo)}</button>', definicao)
+        self.assertIn(':escape(rotulo);', definicao)
 
     def test_a_aba_mostra_a_base_do_rateio_e_as_notas_da_empresa(self):
         codigo = (PUBLIC / 'empresas.js').read_text(encoding='utf-8')
@@ -272,9 +280,12 @@ class AbaTests(unittest.TestCase):
 
     def test_o_csv_exportado_cita_todo_campo(self):
         # Nome de empresa tem vírgula e ponto e vírgula; sem aspas, a planilha desloca as colunas.
+        # As exportações das análises usam o exportador tipado da aba (public/empresas-exportar.js), que põe todo texto entre aspas.
         codigo = (PUBLIC / 'empresas.js').read_text(encoding='utf-8')
-        self.assertIn('replace(/"/g,\'""\')', codigo)
-        self.assertIn("join(';')", codigo)
+        self.assertIn('window.EmpresasExportar.csv(tabela)', codigo)
+        exportador = (PUBLIC / 'empresas-exportar.js').read_text(encoding='utf-8')
+        self.assertIn('return \'"\'+s.replace(/"/g,\'""\')+\'"\';', exportador)
+        self.assertIn("join(';')", exportador)
 
 
 class MapaEmpresasTests(unittest.TestCase):
@@ -306,12 +317,13 @@ class MapaEmpresasTests(unittest.TestCase):
         total = sum(r[i_v] for r in self.p['cfem']['rows'] if r[i_e] >= 0 and emp[r[i_e]][3] == 'pj' and emp[r[i_e]][1])
         self.assertAlmostEqual(sum(x['cfem_total'] for x in self.d['empresas']), total, delta=1.0)
 
-    def test_pagina_monta_a_sub_aba(self):
+    def test_o_mapa_de_empresas_vive_no_mapa_unico_da_aba(self):
+        # Consolidação (26/11/2026): o ponto por empresa virou o modo Empresas do mapa único (empresas-atlas.js), calculado do pacote do
+        # Atlas pela mesma regra deste gerador. Este pacote continua gerado e servido em /api/empresas/mapa (legado), mas a aba não o carrega.
         markup = (ROOT / 'public' / 'painel.html').read_text(encoding='utf-8')
-        self.assertIn('data-ep="mapa"', markup)
-        self.assertIn('id="emp-map"', markup)
-        self.assertLess(markup.index('/empresas.js?v='), markup.index('/empresas-mapa.js?v='))
-        self.assertIn("api('/empresas/mapa')", (ROOT / 'public' / 'empresas-mapa.js').read_text(encoding='utf-8'))
+        self.assertNotIn('empresas-mapa.js', markup)
+        self.assertIn('data-modo="empresas"', markup)
+        self.assertIn('id="ea-map"', markup)
         self.assertIn("@router.get('/mapa')", (ROOT / 'Squad 3' / 'backend' / 'empresas.py').read_text(encoding='utf-8'))
 
 

@@ -18,7 +18,8 @@ const fl=d=>d.filters.filter(k=>cfg.filters.includes(k));
 const FILTER_IDS={ano:['pn-y0','pn-y1'],mes:['pn-mes'],mun:['pn-mun'],min:['pn-min'],emp:['pn-emp'],fase:['pn-fase'],rub:['pn-rub'],ramo:['pn-ramo']};
 const val=(id,d)=>{const x=el(id);return x?x.value:d};
 let tab=TABS[0][0];if(cfg.main)try{const saved=localStorage.getItem('minera-pn-tab');if(TABS.some(([id])=>id===saved))tab=saved}catch{}
-const F={y0:2010,y1:2026,mes:0,mun:-1,min:-1,emp:'',fase:-1,rub:-1,ramo:-1};
+// raiz: empresa escolhida na aba Empresas, pelo CNPJ raiz exato (nome não é chave); só a instância da aba Empresas a preenche.
+const F={y0:2010,y1:2026,mes:0,mun:-1,min:-1,emp:'',raiz:'',raizNome:'',fase:-1,rub:-1,ramo:-1};
 let P=null,loading=null,cards=[];
 const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
  get P(){return P},A:null,
@@ -27,7 +28,7 @@ const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
  mun:i=>i>=0?P.dims.mun[i][1]:t('pn.notInformed'),munCode:i=>i>=0?P.dims.mun[i][0]:'',
  min:i=>i>=0?P.dims.min[i][1]:t('pn.noMineral'),
  emp:i=>{const e=P.dims.emp[i];return !e?t('pn.notInformed'):e[1]||(e[3]==='ni'?t('pn.empNi'):t('pn.empHidden'))},
- empOk:i=>F.emp===''||(i>=0&&!!P.dims.emp[i][1]&&norm(P.dims.emp[i][1]).includes(F.emp)),
+ empOk:i=>F.raiz?(i>=0&&P.dims.emp[i][2]===F.raiz&&!!P.dims.emp[i][1]):F.emp===''||(i>=0&&!!P.dims.emp[i][1]&&norm(P.dims.emp[i][1]).includes(F.emp)),
  years:(a,b)=>{const out=[];for(let y=Math.max(a,F.y0);y<=Math.min(b,F.y1);y++)out.push(y);return out},
  period:(a,b)=>{const y=X.years(a,b);return y.length?(y[0]===y[y.length-1]?String(y[0]):y[0]+'–'+y[y.length-1]):'—'},
  memo(key,fn){return key in X.cache?X.cache[key]:(X.cache[key]=fn())},
@@ -52,9 +53,23 @@ const X={F,C,E,t:(k,v)=>t(k,v),norm,cache:{},mapMetric:'cfem',
  rod(skip=[]){return X.memo('rod'+skip,()=>P.rod.rows.filter(r=>(skip.includes('mun')||F.mun<0||r[4]===F.mun)&&(F.min<0||r[9]===F.min)))},
  ceName:i=>P.dims.ce[i][1],distRamo:-1,isDist:i=>i===X.distRamo,
  ccee(skip=[]){return X.memo('ccee'+skip,()=>P.ccee.rows.filter(r=>{const y=Math.floor(r[0]/100);return y>=F.y0&&y<=F.y1&&(skip.includes('mes')||!F.mes||r[0]%100===F.mes)
-  &&(skip.includes('mun')||F.mun<0||r[1]===F.mun)&&(skip.includes('ramo')||F.ramo<0||r[2]===F.ramo)&&(F.emp===''||norm(P.dims.ce[r[3]][1]).includes(F.emp))}))},
+  &&(skip.includes('mun')||F.mun<0||r[1]===F.mun)&&(skip.includes('ramo')||F.ramo<0||r[2]===F.ramo)
+  // carga do agente CCEE com o mesmo CNPJ raiz: é a carga do agente, não o consumo medido de uma mina
+  &&(F.raiz?P.dims.ce[r[3]][0]===F.raiz:F.emp===''||norm(P.dims.ce[r[3]][1]).includes(F.emp))}))},
  renderCard(id){const d=cards.find(c=>c.id===id);if(d)draw(d)}
 };
+// Aba Empresas: num quadro com as colunas do titular e do CNPJ raiz, o nome do titular cujo CNPJ está no índice da aba vira o atalho para o
+// dossiê dele (o clique é tratado em empresas-atlas.js). Sem CNPJ (pessoa física) ou fora do índice, fica texto. Nunca casa por nome.
+if(cfg.titulares){
+ const ligar=(box,cols)=>{const ie=cols.findIndex(c=>c.key==='emp'),ic=cols.findIndex(c=>c.key==='cnpj'),A=window.EmpresasAtlas;
+  if(ie<0||ic<0||!A||!A.temEmpresa)return;
+  box.querySelectorAll('tbody tr').forEach(tr=>{const td=tr.children;if(!td[ie]||!td[ic])return;const c=td[ic].textContent.replace(/\D/g,'');
+   if(c.length!==8||!A.temEmpresa(c))return;const nome=td[ie].textContent;
+   td[ie].innerHTML=`<button type="button" class="ea-emp-link" data-emp-cnpj="${c}" title="${E(t('ea.abrirDossieDe',{nome}))}">${E(nome)}</button>`})};
+ X.C=Object.assign(Object.create(C),{table(box,cols,rows,o){C.table(box,cols,rows,o);box._titulares=cols;ligar(box,cols);
+  // "Mostrar todos" redesenha a tabela dentro do mesmo quadro: liga de novo
+  if(!box.dataset.titulares){box.dataset.titulares='1';box.addEventListener('click',ev=>{if(ev.target.closest('.pn-more'))ligar(box,box._titulares)})}}});
+}
 function draw(d){const box=el('pn-c-'+d.id).querySelector('.pn-out');C.setWidth(box.clientWidth);
  try{const out=d.render(X,box);if(typeof out==='string')box.innerHTML=out}
  catch(e){box.innerHTML=`<p class="error">${E(e.message)}</p>`;console.error(e)}}
@@ -64,7 +79,7 @@ function readFilters(){let a=+val('pn-y0',2010),b=+val('pn-y1',2026);if(a>b)[a,b
 // The cut line only names the filters shown in the active tab.
 function describe(){const u=X.used||new Set(FILTERS),parts=[];if(u.has('ano'))parts.push(X.period(1900,2100));
  if(u.has('mes')&&F.mes)parts.push(new Date(2020,F.mes-1,1).toLocaleString(I18N.locale(),{month:'long'}));
- if(u.has('mun')&&F.mun>=0)parts.push(X.mun(F.mun));if(u.has('min')&&F.min>=0)parts.push(X.min(F.min));if(u.has('emp')&&F.emp)parts.push('“'+el('pn-emp').value.trim()+'”');
+ if(u.has('mun')&&F.mun>=0)parts.push(X.mun(F.mun));if(u.has('min')&&F.min>=0)parts.push(X.min(F.min));if(u.has('emp')&&F.raiz)parts.push(F.raizNome);else if(u.has('emp')&&F.emp)parts.push('“'+el('pn-emp').value.trim()+'”');
  if(u.has('fase')&&F.fase>=0)parts.push(P.dims.fase[F.fase]);if(u.has('rub')&&F.rub>=0)parts.push(t(`pn.rub.${P.dims.rubrica[F.rub]}`));if(u.has('ramo')&&F.ramo>=0)parts.push(P.dims.ramo[F.ramo]);
  return parts.length?t('pn.cut')+' '+parts.join(' · '):''}
 const visible=()=>{const secs=TABS.find(([id])=>id===tab)[1];return cards.filter(d=>secs.includes(secOf(d)))};
@@ -72,9 +87,10 @@ function scopeTitle(){const i=+val('pn-mun',-1),h=el('pn-title');if(!h)return;
  h.textContent=i>=0?t('pn.titleMun',{mun:X.mun(i)}):t('pn.title')}
 // A card that cannot read the municipality filter keeps showing the state: say so on the card
 // itself, otherwise a municipal cut and a state number sit side by side looking alike.
-function markScope(){const on=+val('pn-mun',-1)>=0;
- el('pn-body').querySelectorAll('.pn-chips').forEach(box=>{const seal=box.querySelector('.pill.scope');
-  if(seal)seal.hidden=!on;
+// A card that does not read the company filter keeps showing every company: with a company chosen, it says so too.
+function markScope(){const on=+val('pn-mun',-1)>=0,empOn=!!(F.raiz||F.emp);
+ el('pn-body').querySelectorAll('.pn-chips').forEach(box=>{const seal=box.querySelector('.pill.scope'),sealEmp=box.querySelector('.pill.scope-emp');
+  if(seal)seal.hidden=!on;if(sealEmp)sealEmp.hidden=!empOn;
   box.hidden=!box.querySelector('span:not([hidden])')})}
 function render(){X.cache={};readFilters();visible().forEach(draw);markScope();const cut=describe();el('pn-context').textContent=cut;el('pn-context').hidden=!cut}
 function showTab(id){tab=id;if(cfg.main)try{localStorage.setItem('minera-pn-tab',id)}catch{}
@@ -83,8 +99,9 @@ function showTab(id){tab=id;if(cfg.main)try{localStorage.setItem('minera-pn-tab'
  SECTIONS.forEach(s=>{el('pn-s-'+s).hidden=!secs.includes(s)});
  // Only the filters read by some card of this tab are shown; the others keep their value for the tabs that use them.
  const used=X.used=new Set(visible().flatMap(fl));
- for(const [k,ids] of Object.entries(FILTER_IDS))ids.forEach(i=>{if(el(i))el(i).closest('div').hidden=!used.has(k)});
- document.querySelector('#'+cfg.view+' .pn-filters').hidden=!used.size;el('pn-context').hidden=!used.size;
+ for(const [k,ids] of Object.entries(FILTER_IDS))ids.forEach(i=>{if(el(i))el(i).closest('div').hidden=!used.has(k)||(k==='emp'&&!!F.raiz)});
+ // the filter bar of THIS instance (the Empresas tab has other filter bars before it)
+ const bar=el('pn-reset')?el('pn-reset').closest('.pn-filters'):document.querySelector('#'+cfg.view+' .pn-filters');if(bar)bar.hidden=!used.size;el('pn-context').hidden=!used.size;
  if(cfg.main&&window.atlasSetLayer)window.atlasSetLayer(TABS.find(([k])=>k===id)[2]);
  render()}
 function options(select,items,all){if(!select)return;select.innerHTML=(all?`<option value="-1">${E(all)}</option>`:'')+items.map(([v,l])=>`<option value="${E(v)}">${E(l)}</option>`).join('')}
@@ -100,7 +117,8 @@ function build(){cards=(window.PN_CARDS||[]).filter(d=>SECTIONS.includes(secOf(d
  el('pn-body').innerHTML=SECTIONS.map(s=>`<section class="pn-section" id="${cfg.pfx}s-${s}"><div class="pn-section-head"><h2>${E(t(`pn.s.${s}`))}</h2><p class="subtitle">${E(t(`pn.s.${s}.lead`))}</p></div><div class="pn-grid">`
   +cards.filter(d=>secOf(d)===s).map(d=>`<article class="panel pn-card${d.wide?' wide':''}" id="${cfg.pfx}c-${d.id}"><h3>${E(t(`pn.c.${d.id}`))}</h3><p class="subtitle">${E(t(`pn.c.${d.id}.n`))}</p>`
    +`<div class="pn-chips">${fl(d).length?`<span>${E(t('pn.appliedFilters'))}</span>`+fl(d).map(k=>`<span class="pill">${E(t(`pn.f.${k}`))}</span>`).join(''):''}`
-   +(fl(d).includes('mun')?'':`<span class="pill scope" hidden>${E(t('pn.scopeState'))}</span>`)+'</div>'
+   +(fl(d).includes('mun')?'':`<span class="pill scope" hidden>${E(t('pn.scopeState'))}</span>`)
+   +(cfg.filters.includes('emp')&&!fl(d).includes('emp')?`<span class="pill scope-emp" hidden>${E(t('ea.pn.todasEmpresas'))}</span>`:'')+'</div>'
    +'<div class="pn-out"></div></article>').join('')+'</div></section>').join('');
  if(!bar)return;
  bar.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
@@ -122,7 +140,11 @@ async function init(){const [p,a]=await carregar();P=p;X.A=a;X.distRamo=P.dims.r
  el('pn-source').textContent=t('pn.source',{v:P.meta.versao_base,d:P.meta.built_on})}
 const show=async()=>{el('pn-error').textContent='';try{if(!loading)loading=init().catch(e=>{loading=null;throw e});await loading}
  catch(e){el('pn-error').textContent=e.message}finally{el('pn-loading').hidden=true}};
-if(!cfg.main){window[cfg.show]=show;return}
+if(!cfg.main){window[cfg.show]=show;
+ // Aba Empresas: a empresa escolhida (CNPJ raiz) recorta os cartões que leem o filtro de empresa; null volta a todas as empresas.
+ if(cfg.escopo)window[cfg.escopo]=(raiz,nome)=>{F.raiz=raiz||'';F.raizNome=raiz?nome||raiz:'';
+  if(P&&el('pn-tabs'))showTab(tab)};
+ return}
 window.showPanorama=show;
 window.panoramaPickMun=code=>{
  if(!P)return;
@@ -148,8 +170,12 @@ engine({main:true,pfx:'pn-',view:'panorama-view',filters:FILTERS.filter(k=>k!=='
  tabs:[['arrecadacao',['cfem','subs'],['cfem']],['territorio',['geo','usos','terr'],['cfem','occurrences']],
   ['producao',['prod'],['production']],['pesquisa',['pesq','proj','rod'],['projects','processes']],
   ['energia',['energia','intens'],['energy','coefficient']],['barragens',['barr'],['dams']]]});
-engine({main:false,pfx:'epn-',view:'empresas-view',show:'showEmpresasPanorama',filters:FILTERS,
- sections:['emp','emp_energia'],secOf:d=>d.sec==='emp'?'emp':EMP_ENERGIA.includes(d.id)?'emp_energia':null,
- tabs:[['empresas',['emp','emp_energia'],[]]]});
+// Aba Empresas · Análises · "Arrecadação, títulos e consumo": os cartões de titulares e, do restante do Panorama, os que leem o filtro
+// de empresa e servem à investigação de uma empresa (série mensal da CFEM, CFEM por mineral e por município, títulos por fase, carga CCEE).
+const EMP_ARREC=['emp_tiles','emp_cfem','emp_pareto','emp_lider','cfem_mes','cfem_min_ano','mun_cfem'],EMP_TITULOS=['fases'],EMP_CONSUMO=['ee_tiles','ee_mes'];
+engine({main:false,pfx:'epn-',view:'empresas-view',show:'showEmpresasPanorama',escopo:'empresasPanoramaEscopo',filters:FILTERS,titulares:true,
+ sections:['emp_arrec','emp','emp_energia'],
+ secOf:d=>EMP_ARREC.includes(d.id)?'emp_arrec':d.sec==='emp'||EMP_TITULOS.includes(d.id)?'emp':EMP_ENERGIA.includes(d.id)||EMP_CONSUMO.includes(d.id)?'emp_energia':null,
+ tabs:[['emp_arrec',['emp_arrec'],[]],['emp_titulos',['emp'],[]],['emp_consumo',['emp_energia'],[]]]});
 window.PN_FILTER_KEYS=FILTERS;
 })();

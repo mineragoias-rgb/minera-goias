@@ -1,0 +1,49 @@
+{
+ "gerado_por": "scripts/build_atlas_empresas.py",
+ "entradas": {
+  "panorama": {
+   "arquivo": "data/panorama/panorama.json",
+   "sha256": "920e1fe14c1aa66d"
+  },
+  "complemento": {
+   "arquivo": "data/mapa/tabelas/processos_complemento.json",
+   "sha256": "363347e5a4f1b0d8"
+  },
+  "geometria": {
+   "arquivo": "data/atlas/processes.json",
+   "sha256": "919eba329efe4a26"
+  },
+  "minas_sgb": {
+   "arquivo": "data/mapa/camadas/minas_ativas.json",
+   "sha256": "a3698e488ec64659"
+  },
+  "empresas": {
+   "arquivo": "data/empresas/empresas.json",
+   "sha256": "25355f5985d8151f"
+  },
+  "producao": {
+   "arquivo": "data/producao/producao.json",
+   "sha256": "bdce5fc3cf5c20a2"
+  },
+  "projetos": {
+   "arquivo": "data/projetos/projetos.json",
+   "sha256": "0e516a09b3256846"
+  },
+  "radar_projetos": {
+   "arquivo": "data/mapa/tabelas/radar_projetos.json",
+   "sha256": "3240e6c2a3cf7224"
+  },
+  "mercado_projetos": {
+   "arquivo": "public/data/mercado/projetos_go_v1.json",
+   "sha256": "c4fd040fa8a79a20"
+  },
+  "curadoria": {
+   "arquivo": "data/empresas/curadoria_atlas.json",
+   "sha256": "797ddb661d00a6a6"
+  }
+ },
+ "cfem_csv": {
+  "arquivo": "Squad 1/Dados corrigidos/ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv",
+  "sha256": "31388f5672a9ce42"
+ }
+}

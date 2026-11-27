@@ -109,17 +109,17 @@ Ordens de grandeza que o cruzamento produziu, e que servem de conferência de sa
 
 ## Atlas Empresarial (`atlas_empresas.json`)
 
-O topo da aba `Empresas` é o **Atlas Empresarial**, servido em `/api/empresas/atlas` (atrás da sessão, como o resto da aba). O pacote sai de
+O pacote do **Atlas Empresarial** alimenta as áreas Explorar, Dossiê e Comparar da aba `Empresas` (ver a seção seguinte), servido em `/api/empresas/atlas` (atrás da sessão, como o resto da aba). O pacote sai de
 `python scripts/build_atlas_empresas.py` e é conferido por `tests/test_atlas_empresas.py`. A curadoria manual fica em `curadoria_atlas.json`.
 
 | Bloco | Conteúdo | De onde vem |
 |---|---|---|
-| `empresas` | Uma linha por **CNPJ raiz de titular PJ** com processo, CFEM ou carga CCEE em Goiás (2.261) | `data/panorama/panorama.json` (`dims.emp`) |
+| `empresas` | Uma linha por **CNPJ raiz de titular PJ** com processo, CFEM ou carga CCEE em Goiás (2.261), com o processo de referência do ponto no mapa (`pt`) | `data/panorama/panorama.json` (`dims.emp`) |
 | `processos` | Os 16.875 processos do SIGMINE: fase, situação, mineral, uso, municípios IBGE intersectados, área, CFEM 2022–26, centroide e marca "Minas ativas (SGB)" | panorama `proc`, `data/mapa/tabelas/processos_complemento.json`, `data/atlas/processes.json`, `data/mapa/camadas/minas_ativas.json` |
 | `cfem` | CFEM por titular, ano, município e mineral | panorama `cfem` |
 | `cfem_processo_ano` | CFEM por processo e ano (só PJ) | `Squad 1/Dados corrigidos/ANM - CFEM/CFEM_Arrecadacao_2022_2026_GO.csv` |
 | `detalhes` | As 10 empresas da base de produção: grupo, operações, registros de produção, RI, rateio e notas de energia | `data/producao/producao.json`, `data/empresas/empresas.json` |
-| `projetos` | Base de projetos, carteira do Mercado e Radar de Projetos, com o método do vínculo | `data/projetos`, `public/data/mercado`, `data/mapa/tabelas/radar_projetos.json` |
+| `projetos` | Base de projetos, carteira do Mercado e Radar de Projetos, com o método do vínculo e a localização que a fonte sustenta (`loc`) | `data/projetos`, `public/data/mercado`, `data/mapa/tabelas/radar_projetos.json` |
 | `noticias` | Matérias do acervo do coletor ligadas a uma empresa, com alias, método, confiança e tipo | `public/data/noticias/meses/*.json` |
 | `criticos` | Minerais estratégicos (federal) e críticos (Goiás), separados, com norma e link | `curadoria_atlas.json` |
 
@@ -151,10 +151,68 @@ O topo da aba `Empresas` é o **Atlas Empresarial**, servido em `/api/empresas/a
 - A ligação de notícias é por nome: pode omitir matérias que citam a empresa por outro nome, e a ausência de notícia não é ausência de fato.
 - Vínculos de projeto com confiança `media` e todos os números de produção seguem pendentes de conferência humana na origem.
 
+## Atlas Empresarial: aba Empresas consolidada (26/11/2026)
+
+A aba `Empresas` reúne a versão anterior (commit `bb87b53`: mapa de empresas, produção por empresa, produção declarada e energia,
+arrecadação/títulos/consumo) e o Atlas Empresarial numa experiência só, em quatro áreas com **uma seleção de empresa para a aba inteira**:
+
+| Área | O que faz | Fonte |
+|---|---|---|
+| Explorar empresas | Mapa único em três modos (Empresas, Processos, Projetos), busca, filtros, indicadores, Top N, puxadores | `atlas_empresas.json` |
+| Dossiê empresarial | Perfil, território e processos, economia e energia (resumo executivo), projetos, notícias, histórico | `atlas_empresas.json` + `empresas.json` |
+| Análises | Produção estimada (AMB × CFEM), produção declarada e energia, arrecadação/títulos/consumo — cada uma com escopo "empresa selecionada" ou "todas as empresas" | `empresas.json` (`estimada`, `linhas`) e `data/panorama/panorama.json` |
+| Comparar empresas | Até três empresas, por grupos de indicador e em unidades separadas | as mesmas |
+
+- **Uma fonte por número.** O dossiê e a comparação leem as mesmas linhas das análises (`EmpresasAnalises.estimadaDe/declaradaDe`);
+  o resumo do dossiê não repete gráficos nem tabelas da análise — oferece "Aprofundar".
+- **Empresa sem dado numa análise** mostra "Dados não disponíveis para esta empresa", o porquê e o que a base tem dela (CFEM, títulos,
+  carga do agente CCEE). O painel nunca volta silenciosamente para o agregado de todas as empresas (defeito da integração anterior, em que a
+  sincronização por nome limpava o filtro). Ver `tests/js/analises_escopo.js`.
+- **Arrecadação, títulos e consumo** é a instância do motor do Panorama na aba (`panorama.js`, prefixo `epn-`), agora em três sub-abas e com
+  filtro exato pelo **CNPJ raiz** da empresa selecionada (titular em `dims.emp`, agente CCEE em `dims.ce`). Quadros que não leem o filtro de
+  empresa (líder por mineral, curva de concentração) dizem "Todas as empresas".
+- `mapa_empresas.json` e `scripts/build_mapa_empresas.py` continuam gerados e servidos em `/api/empresas/mapa` (legado), mas a aba não os
+  carrega: o modo Empresas do mapa usa o ponto calculado em `atlas_empresas.json` pela mesma regra (2.249 de 2.250 empresas no mesmo processo
+  de referência; a diferença é um par de títulos com o mesmo centroide antigo).
+
+### Mapa: o que cada símbolo representa
+
+| Modo | Símbolo | Posição | Precisão |
+|---|---|---|---|
+| Empresas | círculo, tamanho pela métrica, cor pela fase mais avançada | centroide do processo da empresa que mais recolheu CFEM 2022–2026 (sem CFEM, maior título de lavra; senão, maior processo) — `empresas[].pt` | indicativa: um direito minerário de referência, não a sede nem a mina |
+| Processos | ponto fino por título; polígono ANM a partir do zoom 11,5 | centroide do polígono SIGMINE | indicativa |
+| Projetos | losango cheio | centroide do maior processo ANM citado pelo projeto — `projetos[].loc = {t:'p', k:[...]}` | indicativa |
+| Projetos | losango vazado | referência do município informado — `projetos[].loc = {t:'m', m:[...]}` | aproximada |
+| Projetos | — | sem processo nem município de Goiás reconhecido: só na lista (`loc = null`) | sem localização inventada |
+| (todos) | quadrado vazado | município da operação declarada (10 empresas) | aproximada |
+
+Nenhuma fonte do projeto traz coordenada documentada de mina ou planta; nenhum símbolo é apresentado como tal. A camada "Minas ativas"
+do SGB marca processos (polígonos), não pontos de mina.
+
+## Produção estimada por empresa (AMB × CFEM, bloco `estimada` de `empresas.json`)
+
+Gerado por `scripts/build_empresas_base.py` a partir de `Squad 1/Bases consolidadas/documentacao/base_producao/` (`gerar_base_producao.py`
+do Squad 1): o total do estado do **Anuário Mineral Brasileiro** (ANM) por mineral, ano (2022 em diante) e base (ROM, beneficiada, conteúdo
+mineral) é dividido entre as empresas pela parcela dos processos delas na **CFEM paga em R$** no mineral e ano. É **estimativa**, nunca
+produção observada; onde a empresa publica a mesma medida, os dois números ficam lado a lado (`publicado_t`, `diferenca_vs_publicado`).
+Energia (2024–2025): carga do agente na CCEE pelo CNPJ raiz, separada entre minerais pelo Squad 2 ou pela produção × coeficiente médio;
+sem carga na CCEE, estimada pela média dos coeficientes do mineral.
+
+- **Não somar o que não se soma:** toneladas de minerais diferentes, bases diferentes (ROM × beneficiada × contido) e anos diferentes ficam
+  em linhas separadas. Sem mineral escolhido, as barras usam a CFEM (R$), que é comparável entre minerais.
+- **Correção (26/11/2026):** a linha de ROM e a de beneficiada de uma empresa repetem a mesma CFEM. Com "Todas as bases", a versão anterior
+  somava as duas e a CFEM do recorte saía em dobro (R$ 1,45 bi em vez de R$ 0,73 bi em 2022–2025); as barras de produção com "Todas as
+  bases" somavam toneladas de ROM e de beneficiada. Agora cada empresa, mineral e ano entra uma vez, na base preferida (beneficiada → contido
+  → ROM). Os dados do pacote não mudaram.
+- Pessoa física aparece como "pessoa física (nome não publicado)", sem CPF, como no resto da plataforma.
+- Numa cópia sem `Squad 1/.../base_producao` o gerador não roda; `tests/test_empresas.py` pula o teste de reprodutibilidade dizendo por quê.
+
 ## Mapa das empresas (`mapa_empresas.json`)
 
-A sub-aba **Mapa das empresas** da aba `Empresas` mostra, para cada empresa (pessoa jurídica) com processo minerário em Goiás ou CFEM
-recolhida, onde ela minera e o que recolheu. O pacote é servido em `/api/empresas/mapa`, atrás da sessão, e sai de
+Este pacote descreve, para cada empresa (pessoa jurídica) com processo minerário em Goiás ou CFEM recolhida, onde ela minera e o
+que recolheu. Até 27/11/2026 alimentava a sub-aba **Mapa das empresas**; desde a aba Empresas consolidada, o ponto por empresa é o
+modo Empresas do mapa único (calculado do `atlas_empresas.json` pela mesma regra), e a página não carrega mais este pacote.
+Ele continua gerado, versionado e disponível para download. O pacote é servido em `/api/empresas/mapa`, atrás da sessão, e sai de
 `python scripts/build_mapa_empresas.py`. Pessoa física não entra, porque não tem nome publicado.
 
 | Bloco | Conteúdo | De onde vem |
