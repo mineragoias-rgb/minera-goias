@@ -1,6 +1,6 @@
 {
  "mes": "2026-09",
- "materias": 1215,
+ "materias": 1217,
  "itens": [
   {
    "title": "Copper system larger than previously thought a welcome surprise for AZ9",
@@ -7864,6 +7864,20 @@
    "brasil": 0
   },
   {
+   "title": "Estudo mostra impacto da mineração para os municípios - O Popular",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQNGdLUW9QdUZzNEt5dElDb1Y4QWpsdWxkcXh4VzJGdGVWUnlvOE1DVlZfakt1OW95dkF2VURyVG9RMUdLbzhPbEwxa1VFeUJqcFFJUmhRQkNCcEQtUWE0VW9zLU5ydU16SXVEZHBLamFBRXpPaFZ1WkJEY0gyaUE2dVc2Y3JrZ0NIX1psNDl6aEhtSm04S0h4MElBUFc?oc=5",
+   "published_at": "2026-09-23T01:57:36+00:00",
+   "first_seen": "2026-11-27T13:16:27.289774+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
+   "brasil": 1
+  },
+  {
    "title": "Adavale Resources lifts gold inventory at Parkes",
    "link": "https://www.australianmining.com.au/adavale-resources-lifts-gold-inventory-at-parkes/",
    "published_at": "2026-09-23T01:44:08+00:00",
@@ -14628,6 +14642,20 @@
    "substancias": [
     "ouro"
    ],
+   "brasil": 1
+  },
+  {
+   "title": "Goiás e Mato Grosso criam políticas para mineração em meio ao avanço da lei de minerais críticos - broadcast.com.br",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaHZfajFSMm01SWdzZzdtWllTdjBQUW85SFNHOFo1c29XV2d3Z3V1ZmlWMVBYcmNDdzhqdW5aQnBBTkpFdDB1bWJTRkpDQXNKbnFQRWVlVWNsbmRiaGxaRmltMFpERVZhSzJiTWVNSndDMVg2aHpQR1JpLWdXZkM0d1gzVHIwU3BEelFmYzY4c2dHeVhLaGJta3FQYm1yaDlEUzByTGlQWFlGdUdiTjJjbGxhSXpxdVg1M1F6MHlDdTc1S25PcHVDSVplLXJIb0V5SjdmM0hwdS0?oc=5",
+   "published_at": "2026-09-15T07:00:00+00:00",
+   "first_seen": "2026-11-27T13:16:27.291529+00:00",
+   "regional": 1,
+   "regiao_termo": "goias",
+   "setorial": 1,
+   "fonte": "Busca · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [],
    "brasil": 1
   },
   {
