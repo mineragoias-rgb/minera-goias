@@ -1,6 +1,6 @@
 {
  "mes": "2026-04",
- "materias": 172,
+ "materias": 173,
  "itens": [
   {
    "title": "ANM nega recurso de Abdalla; direito minerário fica com LHG, dos irmãos Batista - Agência iNFRA",
@@ -1102,6 +1102,22 @@
    "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b0982ada3f84777b374bb15f60e4321&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
    "published_at": "2026-04-24T12:57:00+00:00",
    "first_seen": "2026-11-27T13:16:29.878021+00:00",
+   "regional": 0,
+   "regiao_termo": null,
+   "setorial": 1,
+   "fonte": "Busca · Bing · mineração em Goiás",
+   "escopo": "regional",
+   "tema": "mineracao",
+   "substancias": [
+    "terras_raras"
+   ],
+   "brasil": 1
+  },
+  {
+   "title": "Serra Verde: entenda tudo sobre a venda da mineradora brasileira de terras raras para os EUA",
+   "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b0ac9c367ec4238b1410ec7d28eca96&url=https%3a%2f%2fwww.msn.com%2fpt-br%2fnoticias%2fbrasil%2fserra-verde-entenda-tudo-sobre-a-venda-da-mineradora-brasileira-de-terras-raras-para-os-eua%2far-AA21F62j&c=8930522291100895173&mkt=en-us",
+   "published_at": "2026-04-24T12:57:00+00:00",
+   "first_seen": "2026-11-28T12:32:03.546384+00:00",
    "regional": 0,
    "regiao_termo": null,
    "setorial": 1,
